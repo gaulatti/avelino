@@ -7,6 +7,7 @@ Window {
     BleeckerButton {
         objectName: "fixtureButton"
         anchors.centerIn: parent
+        anchors.alignWhenCentered: false
         text: "Publish"
         variant: captureVariant
         size: captureSize

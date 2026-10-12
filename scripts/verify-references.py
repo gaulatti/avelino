@@ -48,6 +48,18 @@ def main():
                 assert asset["license"] and (ROOT / asset["license"]).is_file(), asset["path"]
         assert len([asset for asset in assets["assets"] if asset["path"].endswith(".ttf")]) == 18
         print("assets: all 18 licensed static font faces and brand inputs verified against the desktop artifact")
+    capture_directory = ROOT / "reference/captures/desktop/buttons"
+    if capture_directory.exists():
+        captures = json.loads((capture_directory / "captures.json").read_text())
+        assert captures["reference"] == manifest["references"]["desktop"]["revision"]
+        expected = {case["path"] for case in captures["captures"]}
+        assert len(expected) == len(captures["captures"]) == 112
+        assert {path.name for path in capture_directory.glob("*.png")} == expected
+        for case in captures["captures"]:
+            assert hashlib.sha256((capture_directory / case["path"]).read_bytes()).hexdigest() == case["sha256"], case["path"]
+            assert case["source"] == captures["reference"] and case["dpr"] == 2
+            assert case["resolvedFont"]["postScriptName"] == "EncodeSans-Md", case["path"]
+        print("captures: 112 immutable source button images verified; Linux comparison acceptance remains separate")
 
 
 if __name__ == "__main__":

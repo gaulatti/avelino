@@ -55,3 +55,7 @@ records the Core Text face, size, and weight trait rather than assuming the face
 from a token name. Linux records its rendered label font and layout metrics too.
 Capture-tool changes produce new candidates; previous images remain available for
 source and visual review and are never overwritten as accepted expectations.
+
+The initial 112 source images are now preserved with hashes in
+`reference/captures/desktop/buttons/`. Verification detects missing, extra, or
+changed PNGs. This establishes reproducible source imagery, not Linux acceptance.

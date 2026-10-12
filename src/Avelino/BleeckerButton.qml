@@ -30,7 +30,7 @@ FocusScope {
         }
     }
     readonly property color strokeColor: variant === "primary" ? p.primary : variant === "secondary" ? p.border : variant === "outline" ? BleeckerTheme.alpha(p.sea, 0.5) : variant === "destructive" ? p.destructive : "transparent"
-    implicitWidth: Math.ceil(contentItem.implicitWidth + leftPadding + rightPadding)
+    implicitWidth: contentItem.implicitWidth + leftPadding + rightPadding
     implicitHeight: Math.max(contentItem.implicitHeight, variant === "link" ? 0 : minimumHeight)
     readonly property real leftPadding: size === "xs" ? 10 : size === "sm" ? 14 : size === "lg" ? 24 : 18
     readonly property real rightPadding: leftPadding
