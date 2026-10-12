@@ -13,4 +13,7 @@ sw_vers > artifacts/reference/os.txt
 xcodebuild -version > artifacts/reference/xcode.txt
 xcrun swift --version > artifacts/reference/compiler.txt 2>&1
 xcrun --sdk macosx --show-sdk-version > artifacts/reference/sdk.txt
+git rev-parse HEAD > artifacts/reference/capture-tool-revision.txt
+shasum -a 256 reference/capture/Package.swift reference/capture/Sources/AvelinoReferenceCapture/main.swift > artifacts/reference/capture-tool-checksums.txt
 swift run --package-path reference/capture AvelinoReferenceCapture "$PWD/artifacts/reference"
+cp reference/capture/Package.resolved artifacts/reference/capture-Package.resolved

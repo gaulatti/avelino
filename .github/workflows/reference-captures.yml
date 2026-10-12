@@ -1,5 +1,9 @@
 name: Reference captures
-on: [push, pull_request]
+on:
+  push:
+    paths: ['reference/capture/**', 'reference/sources/**', 'reference/source-manifest.json', 'scripts/capture-reference.sh', '.github/workflows/reference-captures.yml']
+  pull_request:
+    paths: ['reference/capture/**', 'reference/sources/**', 'reference/source-manifest.json', 'scripts/capture-reference.sh', '.github/workflows/reference-captures.yml']
 permissions:
   contents: read
 jobs:

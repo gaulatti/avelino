@@ -4,6 +4,8 @@ find_package(Avelino 0.1 REQUIRED)
 find_package(Qt6 6.8.3 EXACT REQUIRED COMPONENTS Test)
 qt_standard_project_setup(REQUIRES 6.8)
 qt_add_executable(InstalledConsumer main.cpp)
-qt_add_qml_module(InstalledConsumer URI InstalledConsumer VERSION 0.1 QML_FILES Main.qml)
+qt_add_qml_module(InstalledConsumer URI InstalledConsumer VERSION 0.1
+    OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/qml/InstalledConsumer
+    QML_FILES Main.qml)
 target_link_libraries(InstalledConsumer PRIVATE Avelino::Avelino Qt6::Quick Qt6::Test)
 target_compile_definitions(InstalledConsumer PRIVATE AVELINO_INSTALLED_IMPORT_PATH="${Avelino_QML_IMPORT_PATH}")

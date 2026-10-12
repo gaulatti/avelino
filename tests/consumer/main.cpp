@@ -22,6 +22,10 @@ int main(int argc, char **argv) {
         button->setProperty("enabled", false);
         QTest::mouseClick(window, Qt::LeftButton, Qt::NoModifier, button->mapToScene(QPointF(10,10)).toPoint());
         if (window->property("invocations").toInt() != 1) { app.exit(5); return; }
+        button->setProperty("enabled", true);
+        button->setProperty("loading", true);
+        QTest::mouseClick(window, Qt::LeftButton, Qt::NoModifier, button->mapToScene(QPointF(10,10)).toPoint());
+        if (window->property("invocations").toInt() != 1) { app.exit(10); return; }
         field->forceActiveFocus();
         QTest::keyClick(window, Qt::Key_A);
         QTest::keyClick(window, Qt::Key_B);

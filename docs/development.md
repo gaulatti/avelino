@@ -14,7 +14,9 @@ The check compiles the module and catalog, exercises Qt Quick pointer/keyboard
 and editing tests, installs a package into a clean temporary prefix, builds and
 runs a separately copied consumer, and saves light/dark PNGs with capture metadata.
 The consumer verifies actions, disabled state, text selection/replacement, and
-bundled font registration. It currently has no accepted overlay implementation.
+bundled font registration. Loading suppression must hold even when a consumer
+explicitly sets `enabled: true`; an internal native Button template enforces it.
+It currently has no accepted overlay implementation.
 
 These are implementation checks. The first Qt button, spinner, and text-field
 presentations are **verification-pending**: the SwiftUI comparisons, shadow and

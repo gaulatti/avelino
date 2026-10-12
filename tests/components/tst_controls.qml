@@ -24,12 +24,15 @@ TestCase {
         compare(clicks.count, 1)
     }
     function test_loading_suppresses_actions() {
-        // Restore the declaration's loading binding after previous tests override it.
-        button.enabled = Qt.binding(function() { return !button.loading })
+        // Explicit consumer enabled binding must never bypass loading suppression.
+        button.enabled = true
         button.loading = true
         mouseClick(button)
         compare(clicks.count, 0)
-        verify(!button.enabled)
+        verify(!button.effectiveEnabled)
+        button.forceActiveFocus()
+        keyClick(Qt.Key_Space)
+        compare(clicks.count, 0)
     }
     function test_actual_edit_selection_and_replacement() {
         mouseClick(field)
