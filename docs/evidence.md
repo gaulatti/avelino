@@ -90,3 +90,16 @@ channel error 168. These are dirty-tree development measurements, awaiting clean
 CI reproduction and a checksummed checkpoint. All 112 strict comparisons still
 fail. Expected captures, fonts, and zero-pixel tolerance remain unchanged; no
 visual, accessibility, overlay, desktop, or TV acceptance is implied.
+
+The clean `efb2a90` CI run reproduces the local metrics on x86_64 and ARM64.
+Both build/runtime/package jobs pass, and both strict image comparisons fail.
+All 112 candidate PNGs match across architectures. The checksummed
+`evidence/checkpoints/efb2a90/` preserves the complete candidate matrix and metadata,
+both comparison reports, the compiler/dependency/source environment, per-case
+changes from `75cb37a`, and all eight x86_64 whole-output/window capture pairs
+with their capture-tool and compositor records. These files remain available
+independently of CI artifact retention. The reference verifier checks complete
+candidate coverage and painted coordinates as well as hashes. Replay the strict
+comparison against this candidate directory with an output under `artifacts/`;
+exit status 1 is the preserved failed result.
+[Clean CI](https://github.com/gaulatti/avelino/actions/runs/38273039988)

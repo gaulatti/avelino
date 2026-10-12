@@ -2,7 +2,9 @@
 """Verify immutable reference artifacts in separate clean extraction directories."""
 import hashlib
 import json
+import math
 from pathlib import Path
+import struct
 import tarfile
 import tempfile
 from reference_sources import resolve_reference
@@ -85,6 +87,20 @@ def main():
                         assert hashlib.sha256((checkpoint_path.parent / case['fixture']).read_bytes()).hexdigest() == case['candidateSHA256']
                 reports.append({case['fixture']: case['candidateSHA256'] for case in report['results']})
             assert checkpoint['candidatePixelsIdenticalAcrossArchitectures'] == (reports[0] == reports[1])
+            if checkpoint.get('completeCandidateMatrixPreserved'):
+                for name in source_cases:
+                    candidate = checkpoint_path.parent / name
+                    metadata = json.loads((checkpoint_path.parent / (name + '.json')).read_text())
+                    assert candidate.is_file() and name in checkpoint['files'] and name + '.json' in checkpoint['files']
+                    assert metadata['fixture'] == 'button' and metadata['qt'] == '6.8.3'
+                    assert metadata['width'] == 240 and metadata['height'] == 96 and metadata['dpr'] == 2
+                    assert metadata['textScale'] == 1 and metadata['graphicsApi'] == 1
+                    assert metadata['labelFontFamily'] == 'Encode Sans' and metadata['labelFontStyle'] == 'Medium'
+                    assert struct.unpack('>II', candidate.read_bytes()[16:24]) == (480, 192)
+                    for key in ['surfaceX', 'surfaceY', 'labelX', 'labelSceneBaseline']:
+                        physical = metadata[key] * metadata['dpr']
+                        assert math.isfinite(physical) and abs(physical - round(physical)) <= 0.00001, (name, key)
+                    assert metadata['labelLocalY'] == (metadata['contentHeight'] - metadata['labelHeight']) / 2
             change_path = checkpoint_path.parent / 'geometry-change.json'
             if change_path.exists():
                 change = json.loads(change_path.read_text())
