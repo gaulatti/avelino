@@ -15,12 +15,23 @@ jobs:
         with:
           node-version: '24.14.0'
       - run: node scripts/generate-tokens.mjs --check
-      - run: docker build -t avelino-toolchain:qt6.8.3 -f tools/Dockerfile .
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: tools/Dockerfile
+          tags: avelino-toolchain:qt6.8.3
+          load: true
+          cache-from: type=gha,scope=toolchain-${{ matrix.runner }}
+          cache-to: type=gha,mode=max,scope=toolchain-${{ matrix.runner }}
       - run: docker run --rm -v "$PWD:/work" avelino-toolchain:qt6.8.3 bash scripts/check-linux.sh
+      - name: Consumer with source and build trees absent
+        run: docker run --rm -v "$PWD/artifacts/package:/package" -w /package avelino-toolchain:qt6.8.3 bash check-installed.sh
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: linux-evidence-${{ matrix.runner }}
           path: |
             artifacts/linux
+            artifacts/package/install
             build/linux/Testing/Temporary/LastTest.log

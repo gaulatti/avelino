@@ -8,8 +8,10 @@ Desktop has no media-decoder dependency.
 
 The independent consumer is copied outside the repository and built against a
 temporary installation. Its public import comes from the installed package;
-it does not use a source QML directory or build-tree module import. Runtime checks
-must additionally hide build/source trees to prove there is no accidental lookup.
+it does not use a source QML directory or build-tree module import. CI then builds
+and runs it again in a fresh container whose only mount contains the installed
+package and the independent consumer fixture. The original product source and
+build trees are absent. This also checks relocating the CMake/QML package prefix.
 Open overlays and internal controls will be required as those APIs are implemented.
 
 No package release or complete mirror acceptance is claimed by these checkpoints.
