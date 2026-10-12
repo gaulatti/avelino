@@ -2501,30 +2501,6 @@
         ]
       },
       {
-        "name": "State",
-        "kind": "enum",
-        "visual": false,
-        "signature": "public enum State: String, CaseIterable, Hashable, Sendable {",
-        "source": {
-          "path": "Sources/Sabella/TelevisionPlaybackActivity.swift",
-          "line": 5
-        },
-        "sha256": "ce3e6502ba8731f6333d230147d328818b78618aeca918f0eaa597df38b60a8f",
-        "publicMembers": [],
-        "bindings": [],
-        "compositionSlots": [],
-        "contractTypes": [],
-        "enumCases": [
-          "starting",
-          "buffering",
-          "playing",
-          "paused",
-          "failed",
-          "stopped"
-        ],
-        "stateInputs": []
-      },
-      {
         "name": "BleeckerSpacing",
         "kind": "enum",
         "visual": false,
@@ -4261,6 +4237,23 @@
         "stateInputs": []
       },
       {
+        "name": "PlayerView",
+        "kind": "class",
+        "visual": true,
+        "signature": "public final class PlayerView: UIView {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionBroadcast.swift",
+          "line": 20
+        },
+        "sha256": "e2fb0201b0a06b4c3599de06d5e34c252bd5912b3c5afa37d66cd65c86ef7a7e",
+        "publicMembers": [],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
         "name": "SabellaTVSinglePlayback",
         "kind": "struct",
         "visual": true,
@@ -4473,6 +4466,23 @@
           "public func updateUIView(_ view: MarqueeView, context: Context) ",
           "public static func dismantleUIView(_ view: MarqueeView, coordinator: ()) "
         ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "MarqueeView",
+        "kind": "class",
+        "visual": true,
+        "signature": "public final class MarqueeView: UIView {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionBroadcast.swift",
+          "line": 1288
+        },
+        "sha256": "6532a7d8974193fed3aa0f18a0d15d7189bc77a19f62f014ad68c579c5e5c883",
+        "publicMembers": [],
         "bindings": [],
         "compositionSlots": [],
         "contractTypes": [],
@@ -4974,9 +4984,42 @@
         "contractTypes": [],
         "enumCases": [],
         "stateInputs": []
+      },
+      {
+        "name": "State",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum State: String, CaseIterable, Hashable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionPlaybackActivity.swift",
+          "line": 5
+        },
+        "sha256": "ce3e6502ba8731f6333d230147d328818b78618aeca918f0eaa597df38b60a8f",
+        "publicMembers": [],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [
+          "starting",
+          "buffering",
+          "playing",
+          "paused",
+          "failed",
+          "stopped"
+        ],
+        "stateInputs": []
       }
     ],
-    "modifiers": [],
+    "modifiers": [
+      {
+        "name": "View.sabellaTVPanel",
+        "signature": "func sabellaTVPanel(radius: CGFloat = 30) -> some View",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 547
+        }
+      }
+    ],
     "symbolInputs": [
       {
         "input": "systemImage",
@@ -5704,6 +5747,8 @@
       }
     ],
     "unregisteredVisualAPIs": [
+      "MarqueeView",
+      "PlayerView",
       "SabellaTVPanelModifier"
     ],
     "caseDiscovery": "pending: extracted API inputs require explicit fixture matrices; counts do not establish coverage"

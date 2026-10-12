@@ -36,6 +36,18 @@ def main():
     token = manifest["references"]["bleecker"]
     assert hashlib.sha256((ROOT / token["artifact"]).read_bytes()).hexdigest() == token["sha256"]
     print("bleecker: canonical token source verified")
+    asset_manifest = ROOT / "assets/provenance.json"
+    if asset_manifest.exists():
+        assets = json.loads(asset_manifest.read_text())
+        assert not assets["appleSystemFontsRedistributed"] and not assets["systemSymbolsRedistributed"]
+        source_files = {f["path"]: f for f in manifest["references"]["desktop"]["files"]}
+        for asset in assets["assets"]:
+            assert hashlib.sha256((ROOT / asset["path"]).read_bytes()).hexdigest() == asset["sha256"], asset["path"]
+            assert source_files[asset["referencePath"]]["sha256"] == asset["sha256"], asset["path"]
+            if asset["path"].endswith(".ttf"):
+                assert asset["license"] and (ROOT / asset["license"]).is_file(), asset["path"]
+        assert len([asset for asset in assets["assets"] if asset["path"].endswith(".ttf")]) == 18
+        print("assets: all 18 licensed static font faces and brand inputs verified against the desktop artifact")
 
 
 if __name__ == "__main__":

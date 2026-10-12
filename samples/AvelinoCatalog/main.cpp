@@ -15,12 +15,12 @@ int main(int argc, char *argv[]) {
     QGuiApplication app(argc, argv);
     QCommandLineParser parser;
     parser.addHelpOption();
-    parser.addOptions({{{"capture"}, "Save the displayed fixture to PNG and exit", "path"},
-                       {{"dark"}, "Use dark reference appearance"},
-                       {{"fixture"}, "Render a deterministic fixture (button)", "name"},
-                       {{"variant"}, "Button variant", "name", "primary"},
-                       {{"size"}, "Button size", "name", "md"},
-                       {{"disabled"}, "Disable the fixture control"}});
+    parser.addOptions({QCommandLineOption("capture", "Save the displayed fixture to PNG and exit", "path"),
+                       QCommandLineOption("dark", "Use dark reference appearance"),
+                       QCommandLineOption("fixture", "Render a deterministic fixture (button)", "name"),
+                       QCommandLineOption("variant", "Button variant", "name", "primary"),
+                       QCommandLineOption("size", "Button size", "name", "md"),
+                       QCommandLineOption("disabled", "Disable the fixture control")});
     parser.process(app);
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("captureDark", parser.isSet("dark"));

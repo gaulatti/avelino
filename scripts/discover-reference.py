@@ -8,8 +8,8 @@ import re
 import tarfile
 
 ROOT = Path(__file__).resolve().parents[1]
-VISUAL_PROTOCOLS = {"View", "ViewModifier", "ButtonStyle", "ToggleStyle", "UIViewRepresentable"}
-TYPE = re.compile(r"\bpublic\s+(struct|enum|class|protocol)\s+(\w+)([^\n{]*)\{")
+VISUAL_PROTOCOLS = {"View", "ViewModifier", "ButtonStyle", "ToggleStyle", "UIViewRepresentable", "UIView"}
+TYPE = re.compile(r"\bpublic\s+(?:final\s+|indirect\s+)?(struct|enum|class|protocol)\s+(\w+)([^\n{]*)\{")
 EXTENSION = re.compile(r"\bpublic\s+extension\s+(\w+)[^{]*\{")
 
 
@@ -57,7 +57,7 @@ def discover(kind, record):
             end = closing_brace(text, match.end() - 1)
             body = text[match.start():end + 1]
             name, signature = match[2], match[3]
-            television = name.startswith("SabellaTV")
+            television = "/Television" in path
             if (kind == "television") != television:
                 continue
             inherited = signature.rsplit(":", 1)[-1]
@@ -72,11 +72,11 @@ def discover(kind, record):
                 "contractTypes": sorted(set(re.findall(r"\bBleecker\w+(?:Variant|Size|Type|Orientation)\b", body))),
                 "enumCases": re.findall(r"\bcase\s+([^\n}]+)", body) if match[1] == "enum" else [],
                 "stateInputs": re.findall(r"@(?:State|FocusState|Environment)[^\n]*", body)})
-        if kind == "desktop":
+        if (kind == "television") == ("/Television" in path):
             for match in EXTENSION.finditer(text):
                 end = closing_brace(text, match.end() - 1)
                 body = text[match.end():end]
-                for function in re.finditer(r"\bfunc\s+(bleecker\w+)[^{]*", body):
+                for function in re.finditer(r"\bfunc\s+((?:bleecker|sabellaTV)\w+)[^{]*", body):
                     modifiers.append({"name": f"{match[1]}.{function[1]}",
                         "signature": function[0].strip(),
                         "source": location(text, match.end() + function.start(), path)})

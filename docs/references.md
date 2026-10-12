@@ -43,3 +43,8 @@ Outputs are **candidates**, not accepted expectations. The ImageRenderer path
 does not establish pressed/focus/loading, menus, overlays, separate native windows,
 or actual display-session behavior. Linux generates the corresponding case matrix.
 Review comparisons and metadata before establishing immutable expected captures.
+
+Discovery includes nested public native view adapters and `sabellaTVPanel`, in
+addition to the registered components. These record Sabella's platform integration
+for comparison; they do not mandate UIKit-shaped APIs in Avelino. Asset verification
+also checks every bundled font and brand file against the preserved source bytes.
