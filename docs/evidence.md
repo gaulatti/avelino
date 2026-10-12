@@ -58,3 +58,16 @@ error fell from 17,682,799 to 16,488,999, while changed-pixel counts improved in
 changed from 936 to 1,001 differing pixels. This mixed result is diagnostic evidence,
 not visual acceptance. A native text-rendering/no-hinting probe changed zero pixels
 in eight light/dark primary cases, so those experimental settings were removed.
+
+The clean `75cb37a` CI checkpoint reproduces these metrics on x86_64 and ARM64.
+`evidence/checkpoints/75cb37a/` preserves both strict reports, the medium primary
+candidate and metadata, source/compiler environment, and per-case change metrics
+with checksums. It also retains all eight x86_64 session metadata records and two
+representative whole-output/window capture pairs; the linked runtime artifact
+contains the remaining captures. All 112 candidate images match across architectures. Both
+build/runtime/package jobs pass; both visual comparison jobs fail. The package
+regeneration check seeds obsolete consumer/install files and proves their removal.
+The eight installed-session configurations confirm software Shape rendering and
+RHI curve rendering at the expected logical radius; full desktop, accessibility,
+overlay, and television acceptance remain pending.
+[Checkpoint CI](https://github.com/gaulatti/avelino/actions/runs/38263908908)

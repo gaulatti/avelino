@@ -85,6 +85,43 @@ def main():
                         assert hashlib.sha256((checkpoint_path.parent / case['fixture']).read_bytes()).hexdigest() == case['candidateSHA256']
                 reports.append({case['fixture']: case['candidateSHA256'] for case in report['results']})
             assert checkpoint['candidatePixelsIdenticalAcrossArchitectures'] == (reports[0] == reports[1])
+            change_path = checkpoint_path.parent / 'geometry-change.json'
+            if change_path.exists():
+                change = json.loads(change_path.read_text())
+                previous = json.loads((checkpoint_path.parent.parent / change['beforeCheckpoint'] / 'button-comparison-x64.json').read_text())
+                old_cases = {case['fixture']: case for case in previous['results']}
+                new_report = json.loads((checkpoint_path.parent / 'button-comparison-x64.json').read_text())
+                new_cases = {case['fixture']: case for case in new_report['results']}
+                assert len(change['cases']) == len(new_cases) and {case['fixture'] for case in change['cases']} == set(new_cases)
+                counts = {'improved': 0, 'unchanged': 0, 'worse': 0}
+                for case in change['cases']:
+                    old, new = old_cases[case['fixture']], new_cases[case['fixture']]
+                    assert case['beforeSHA256'] == old['candidateSHA256'] and case['afterSHA256'] == new['candidateSHA256']
+                    assert case['beforeChangedPixels'] == old['changedPixels'] and case['afterChangedPixels'] == new['changedPixels']
+                    direction = 'improved' if new['changedPixels'] < old['changedPixels'] else 'worse' if new['changedPixels'] > old['changedPixels'] else 'unchanged'
+                    counts[direction] += 1
+                assert change['changedPixelCounts'] == counts
+                for key in ['beforeRGBAbsoluteError', 'afterRGBAbsoluteError']:
+                    assert change[key] == sum(case[key] for case in change['cases'])
+            if checkpoint.get('sessionEvidence'):
+                for protocol in ['xcb', 'wayland']:
+                    for backend in ['software', 'opengl']:
+                        for configuration in ['standard', 'scaled']:
+                            name = f'{protocol}-{backend}-{configuration}'
+                            session = json.loads((checkpoint_path.parent / f'{name}.json').read_text())
+                            assert session['platform'] == protocol
+                            assert session['graphicsApi'] == (1 if backend == 'software' else 3)
+                            assert session['buttonSurfaceRendererType'] == (3 if backend == 'software' else 4)
+                            assert session['buttonSurfaceRadius'] == 7 and session['buttonSurfaceOuterPath']
+                            assert session['dpr'] == (1 if configuration == 'standard' else 2)
+                            assert session['textScale'] == (1 if configuration == 'standard' else 1.5)
+                            assert session['appearance'] == ('light' if configuration == 'standard' else 'dark')
+                            assert not session['physicalDisplay'] and not session['hardwareAcceleration']
+                            assert session['inputMethod'].startswith('QTest synthetic')
+                            for suffix, key in [('.png', 'windowCaptureSha256'), ('-session.png', 'sessionCaptureSha256')]:
+                                image = checkpoint_path.parent / (name + suffix)
+                                if image.exists():
+                                    assert hashlib.sha256(image.read_bytes()).hexdigest() == session[key], image
             print(f"checkpoint: checksummed candidate evidence verified ({checkpoint['sourceRevision']}); visual acceptance is {checkpoint['acceptance']}")
 
 
