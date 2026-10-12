@@ -101,9 +101,9 @@ class ComparisonBoundaryTests(unittest.TestCase):
         self.assertIn('geometry', self.check('failed')['error'])
 
     def test_proposed_fixture_parameters_must_match(self):
-        self.fixture.update(api='BleeckerSwitchStyle', flag=True, value=5, text='Label')
+        self.fixture.update(api='BleeckerSwitchStyle', flag=True, value=5, text='Label', expectedEmpty=False)
         (self.reference / 'captures.json').write_text(json.dumps({'captures': [self.fixture]}))
-        for key, value in [('api', 'BleeckerButton'), ('flag', False), ('value', 0), ('text', 'Wrong')]:
+        for key, value in [('api', 'BleeckerButton'), ('flag', False), ('value', 0), ('text', 'Wrong'), ('expectedEmpty', True)]:
             with self.subTest(key=key):
                 self.metadata = dict(self.fixture, **{key: value})
                 self.write_metadata()

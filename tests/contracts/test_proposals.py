@@ -75,3 +75,39 @@ class ProposalIntegrity(unittest.TestCase):
         path.write_text(json.dumps(proposal))
         with self.assertRaisesRegex(AssertionError, "Missing discovered contract combinations"):
             verifier.verify(self.directory)
+
+    def test_empty_grid_cannot_be_reclassified_as_a_nonempty_fixture(self):
+        self.temp.cleanup()
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.directory = Path(self.temp.name) / "proposal"
+        shutil.copytree(ROOT / "evidence/reference-proposals/composition-20261012-v1", self.directory)
+        path = self.directory / "captures.json"
+        manifest = json.loads(path.read_text())
+        case = next(c for c in manifest["captures"] if c.get("expectedEmpty"))
+        case["componentSize"]["height"] = 20
+        path.write_text(json.dumps(manifest))
+        proposal_path = self.directory / "proposal.json"
+        proposal = json.loads(proposal_path.read_text())
+        proposal["files"]["captures.json"] = hashlib.sha256(path.read_bytes()).hexdigest()
+        proposal_path.write_text(json.dumps(proposal))
+        with self.assertRaisesRegex(AssertionError, "Invalid empty fixture geometry"):
+            verifier.verify(self.directory)
+
+    def test_composition_scope_cannot_drop_an_api(self):
+        self.temp.cleanup()
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.directory = Path(self.temp.name) / "proposal"
+        shutil.copytree(ROOT / "evidence/reference-proposals/composition-20261012-v1", self.directory)
+        path = self.directory / "captures.json"
+        manifest = json.loads(path.read_text())
+        manifest["captures"] = [c for c in manifest["captures"] if c["api"] != "BleeckerFeedItem"]
+        path.write_text(json.dumps(manifest))
+        proposal_path = self.directory / "proposal.json"
+        proposal = json.loads(proposal_path.read_text())
+        proposal["captures"] = len(manifest["captures"])
+        proposal["files"]["captures.json"] = hashlib.sha256(path.read_bytes()).hexdigest()
+        proposal_path.write_text(json.dumps(proposal))
+        with self.assertRaisesRegex(AssertionError, "Missing composition API"):
+            verifier.verify(self.directory)

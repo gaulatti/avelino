@@ -89,14 +89,37 @@ def inspect_payload(name, data, depth=0, budget=None):
 
 
 def check_index(root=ROOT):
-    paths = subprocess.check_output(["git", "ls-files", "-z"], cwd=root).decode().split("\0")
+    entries = subprocess.check_output(["git", "ls-files", "--stage", "-z"], cwd=root).split(b"\0")
     errors = []
-    for name in filter(None, paths):
-        data = subprocess.check_output(["git", "show", f":{name}"], cwd=root)
-        try:
-            errors.extend(inspect_payload(name, data))
-        except (OSError, EOFError, ValueError, tarfile.TarError, zipfile.BadZipFile, RuntimeError) as error:
-            errors.append(f"{name}: cannot inspect archive ({type(error).__name__})")
+    with subprocess.Popen(["git", "cat-file", "--batch"], cwd=root,
+                          stdin=subprocess.PIPE, stdout=subprocess.PIPE) as reader:
+        for entry in filter(None, entries):
+            metadata, path = entry.split(b"\t", 1)
+            mode, object_id, stage = metadata.split()
+            name = path.decode()
+            if stage != b"0":
+                errors.append(f"{name}: unmerged index entry cannot establish Linux-only contents")
+                continue
+            # Request object IDs rather than filenames: embedded newlines never
+            # become commands in the batch protocol. Read the staged bytes only.
+            reader.stdin.write(object_id + b"\n"); reader.stdin.flush()
+            header = reader.stdout.readline().split()
+            if len(header) != 3 or header[0] != object_id:
+                raise RuntimeError(f"{name}: cannot read staged object")
+            size = int(header[2])
+            data = reader.stdout.read(size)
+            if len(data) != size or reader.stdout.read(1) != b"\n":
+                raise RuntimeError(f"{name}: incomplete staged object")
+            if header[1] != b"blob":
+                errors.append(f"{name}: non-blob index entry cannot establish Linux-only contents")
+                continue
+            try:
+                errors.extend(inspect_payload(name, data))
+            except (OSError, EOFError, ValueError, tarfile.TarError, zipfile.BadZipFile, RuntimeError) as error:
+                errors.append(f"{name}: cannot inspect archive ({type(error).__name__})")
+        reader.stdin.close()
+        if reader.wait() != 0:
+            raise RuntimeError("Git failed while reading the staged objects")
     return errors
 
 

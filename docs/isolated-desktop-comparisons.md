@@ -4,9 +4,11 @@ Status: diagnostic comparisons against **proposed** reference images. No source
 baseline, expected image, visual tolerance or exception approval changes here.
 Desktop and television acceptance remain independent and pending.
 
-The isolated matrix currently covers 25 of the 32 started desktop APIs. The seven
-[composition candidates](composition.md) have catalog and runtime fixtures;
-their native reference definitions and comparisons remain pending.
+The isolated matrices cover all 32 started desktop APIs: the original 25-API
+matrix and the new [composition proposal](../evidence/reference-proposals/composition-20261012-v1/proposal.json).
+The latter adds 256 cases, including an unchanged button anchor. Its
+[first strict comparison](../evidence/development/composition-native-before/candidate.json)
+has 184 geometry and 60 exact matches; complete component acceptance remains pending.
 
 `AvelinoCatalog --fixture reference-case` consumes the neutral case definitions in
 [the desktop proposal](../evidence/reference-proposals/desktop-20261012/fixtures.json).

@@ -33,7 +33,10 @@ Window {
                 "BleeckerStatusBadge": status, "BleeckerNotificationBadge": notification,
                 "Text.bleeckerEyebrow": eyebrow, "BleeckerAvatar": avatar,
                 "BleeckerDataList": dataList, "BleeckerTimelineItem": timeline,
-                "View.bleeckerSurface": surface
+                "View.bleeckerSurface": surface,
+                "BleeckerSectionHeader": sectionHeader, "BleeckerDashboardSection": dashboardSection,
+                "BleeckerDashboardGrid": dashboardGrid, "BleeckerAppShell": appShell,
+                "BleeckerFooter": footer, "BleeckerFeedItem": feed, "BleeckerProgressStack": progressStack
             }
             if (!components[definition.api]) throw new Error("Unimplemented reference API: " + definition.api)
             return components[definition.api]
@@ -41,6 +44,68 @@ Window {
         onLoaded: item.objectName = "referenceCaseComponent"
     }
     Component { id: button; BleeckerButton { text: "Publish" } }
+    Component { id: sectionAction; Rectangle { width: 80; height: 24; color: BleeckerTheme.palette.live } }
+    Component {
+        id: sectionHeader
+        BleeckerSectionHeader {
+            title: definition.text; width: definition.value
+            subtitle: definition.variant === "empty" ? "" : "Ready for review"
+            hasSubtitle: definition.variant !== "omitted"; actions: sectionAction
+        }
+    }
+    Component {
+        id: dashboardSection
+        BleeckerDashboardSection {
+            title: definition.text; width: definition.value
+            subtitle: definition.variant === "empty" ? "" : "Ready for review"
+            hasSubtitle: definition.variant !== "omitted"; actions: sectionAction
+            Rectangle { width: 180; height: 40; color: BleeckerTheme.palette.sea }
+        }
+    }
+    Component {
+        id: dashboardGrid
+        BleeckerDashboardGrid {
+            width: definition.value; minimumColumnWidth: definition.size === "sm" ? 200 : 260
+            tiles: definition.variant === "empty" ? [] : [{id:1,height:30,color:BleeckerTheme.palette.sea},{id:2,height:50,color:BleeckerTheme.palette.desert},{id:3,height:40,color:BleeckerTheme.palette.live}]
+            tile: Rectangle { implicitHeight: tileData.height; color: tileData.color }
+        }
+    }
+    Component {
+        id: appShell
+        BleeckerAppShell {
+            width: 700; height: 300; sidebarWidth: definition.value
+            sidebar: Rectangle { implicitHeight: 80; color: BleeckerTheme.palette.sea }
+            header: Rectangle { implicitHeight: definition.flag ? 90 : 30; color: BleeckerTheme.palette.desert }
+            content: Rectangle { color: BleeckerTheme.palette.live }
+        }
+    }
+    Component {
+        id: footer
+        BleeckerFooter {
+            width: 300
+            Loader {
+                anchors.horizontalCenter: parent.horizontalCenter
+                sourceComponent: definition.variant === "block" ? footerBlock : footerText
+            }
+        }
+    }
+    Component { id: footerBlock; Rectangle { width: 180; height: 40; color: BleeckerTheme.palette.sea } }
+    Component { id: footerText; T.Label { text: definition.text; color: palette.windowText } }
+    Component {
+        id: feed
+        BleeckerFeedItem {
+            width: definition.value; author: definition.text; timestamp: "12 Oct"
+            Rectangle { width: 180; height: 40; color: BleeckerTheme.palette.sea }
+        }
+    }
+    Component {
+        id: progressStack
+        BleeckerProgressStack {
+            width: 240; height: definition.value
+            segments: [{id:"a",value:definition.variant === "negative" ? -1 : definition.variant === "overflow" ? 0.7 : definition.variant === "zero" ? 0 : 0.25,color:BleeckerTheme.palette.sea},
+                {id:"b",value:definition.variant === "overflow" ? 0.7 : 0.25,color:BleeckerTheme.palette.live}]
+        }
+    }
     Component { id: spinner; BleeckerLoadingSpinner { size: definition.size } }
     Component {
         id: textField

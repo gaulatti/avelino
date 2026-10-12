@@ -1,8 +1,8 @@
 # Desktop composition candidates
 
 Seven additional APIs have Linux candidates. They remain verification-pending:
-native fixtures, visual comparisons, complete behavior cases and accessibility
-acceptance have not been established. These add implementation coverage, not
+complete visual and behavior cases and accessibility acceptance have not been
+established. These add implementation coverage, not
 accepted mirror completion.
 
 The [checksummed development evidence](../evidence/development/composition/candidate.json)
@@ -11,6 +11,30 @@ window/full-output pairs. Desktop coverage is 32 of 80 APIs started (40%), with
 zero accepted components. The previous 25-API diagnostic comparison remains at
 514 geometry matches and 40 exact matches of 724 cases. Its fresh raw comparison
 outputs are local; the previous complete comparison artifacts remain committed.
+
+The [composition source proposal](../evidence/reference-proposals/composition-20261012-v1/proposal.json)
+adds 256 native captures covering 32 definitions: the seven APIs below and an
+unchanged button anchor, each in both appearances, text scales and DPRs.
+The [first strict comparison](../evidence/development/composition-native-before/candidate.json)
+records 184 geometry matches and 60 exact matches. Every component remains pending.
+The grid's empty definition has a measured zero-height component inside a nonempty
+capture frame; the verifier permits this specific case without permitting missing
+components or other blank captures.
+
+The checksummed external native-tool artifact was extracted into a separate clean
+directory. Helper recompilation and replay reproduced all 256 PNGs and the capture
+manifest byte for byte. It links preserved owned Sabella object/module inputs from
+the prior verified pinned-source build; this is not a new full source compilation.
+Apple source and capture tooling remain outside Avelino. These images are proposed;
+the existing expected baseline has not changed.
+
+Measured open differences include intrinsic feed-content centering, progress-stack
+capsule extent, wrapped-title line spacing and present-empty subtitle/footer line
+heights. The current progress renderer clips at the allocated control width;
+the source capsule instead follows the sum of segment widths and gaps and can
+paint beyond that allocation. The source's present-empty 12-point secondary line
+occupies 14 logical units. These are implementation corrections, with no approved
+exceptions or tolerance changes.
 
 The runtime harness was enlarged after the verified build to fit the complete
 1680 × 1120 scaled composition client. Original build input hashes are retained;

@@ -17,6 +17,8 @@ CONTRACT_AXES = {
     "BleeckerStatusBadge": {"variant": "BleeckerStatusBadgeVariant"},
     "BleeckerToggleStyle": {"variant": "BleeckerToggleVariant"},
 }
+COMPOSITION_APIS = {"BleeckerButton", "BleeckerSectionHeader", "BleeckerDashboardSection",
+    "BleeckerDashboardGrid", "BleeckerAppShell", "BleeckerFooter", "BleeckerFeedItem", "BleeckerProgressStack"}
 
 
 def verify(directory):
@@ -39,6 +41,10 @@ def verify(directory):
     assert len(definitions) == len(fixtures) == proposal["fixtureDefinitions"]
     captures = manifest["captures"]
     assert len(captures) == proposal["captures"] and not manifest["unrenderedCases"]
+    scoped = proposal.get("scope")
+    if scoped:
+        assert scoped == "desktop-composition" and manifest.get("scope") == scoped
+        assert {case["api"] for case in captures} == COMPOSITION_APIS, "Missing composition API"
     keys = set()
     for case in captures:
         assert case["source"] == reference["revision"]
@@ -53,6 +59,11 @@ def verify(directory):
         assert data[:8] == b"\x89PNG\r\n\x1a\n" and data[12:16] == b"IHDR"
         assert struct.unpack(">II", data[16:24]) == (case["width"] * case["dpr"], case["height"] * case["dpr"])
         assert hashlib.sha256(data).hexdigest() == case["sha256"]
+        if case.get("expectedEmpty", False):
+            assert scoped == "desktop-composition" and case["api"] == "BleeckerDashboardGrid" and case["variant"] == "empty", "Invalid empty fixture"
+            assert case["componentSize"]["width"] > 0 and case["componentSize"]["height"] == 0, "Invalid empty fixture geometry"
+        else:
+            assert case["componentSize"]["width"] > 0 and case["componentSize"]["height"] > 0
     for fixture in definitions:
         rows = [c for c in captures if c["fixture"] == fixture]
         assert {(c["appearance"], c["textScale"]) for c in rows} == set(itertools.product(["light", "dark"], [1, 1.5]))
@@ -61,6 +72,7 @@ def verify(directory):
     discovery = json.loads((ROOT / "reference/api-discovery.json").read_text())["desktop"]
     declarations = {d["name"]: d for d in discovery["declarations"]}
     for api, axes in CONTRACT_AXES.items():
+        if scoped and api not in COMPOSITION_APIS: continue
         values = []
         for contract in axes.values():
             names = [name.strip().strip("`") for row in declarations[contract]["enumCases"] for name in row.split(",")]

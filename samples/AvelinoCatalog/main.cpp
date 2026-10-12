@@ -87,7 +87,11 @@ int main(int argc, char *argv[]) {
             const auto window = qobject_cast<QQuickWindow *>(engine.rootObjects().value(0));
             if (!window) { app.exit(2); return; }
             const auto component = isolated ? findVisual(window->contentItem(), "referenceCaseComponent") : nullptr;
-            if (isolated && (!component || component->width() <= 0 || component->height() <= 0)) { app.exit(6); return; }
+            const bool expectedEmpty = definition.value("expectedEmpty").toBool();
+            if (isolated && (!component || component->width() <= 0 || component->height() < 0
+                || (component->height() == 0 && !expectedEmpty)
+                || (expectedEmpty && (definition.value("api").toString() != "BleeckerDashboardGrid"
+                    || definition.value("variant").toString() != "empty" || component->height() != 0)))) { app.exit(6); return; }
             if (!window->grabWindow().save(path)) { app.exit(2); return; }
             QJsonObject meta{{"qt", qVersion()}, {"os", QSysInfo::prettyProductName()},
                 {"compiler", QString::fromUtf8(__VERSION__)}, {"environmentRecord", "environment.json"},

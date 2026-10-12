@@ -54,6 +54,20 @@ class LinuxBoundaryTests(unittest.TestCase):
             archive.addfile(member, io.BytesIO(b"fixture"))
         self.assertTrue(boundary.inspect_payload("reference.tar.gz", output.getvalue()))
 
+    def test_index_batch_reads_newline_names_and_repeated_empty_blobs(self):
+        with tempfile.TemporaryDirectory() as clean:
+            root = Path(clean)
+            subprocess.run(["git", "init", "-q", root], check=True)
+            for name in ["first.txt", "second.txt", "line\nbreak.txt"]:
+                (root / name).write_bytes(b"")
+            subprocess.run(["git", "add", "."], cwd=root, check=True)
+            self.assertEqual(boundary.check_index(root), [])
+            name = "archive\nwith-newline.bin"
+            (root / name).write_bytes(zip_bytes("Sources/Main.swift", b"fixture"))
+            subprocess.run(["git", "add", name], cwd=root, check=True)
+            (root / name).write_bytes(b"clean working-tree replacement")
+            self.assertTrue(boundary.check_index(root))
+
     def test_nested_and_single_file_compression_are_inspected(self):
         nested = zip_bytes("inner.bin", zip_bytes("Main.swift", b"fixture"))
         self.assertTrue(boundary.inspect_payload("outer.bin", nested))
