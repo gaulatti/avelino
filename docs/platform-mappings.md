@@ -5,7 +5,7 @@
 | Shared tokens and neutral contracts | Pinned Bleecker source; controlled Linux representation | Implementation pending |
 | SwiftUI visual presentation | Compare pinned rendered fixtures; implement in Qt templates | Verification pending |
 | Encode Sans / Libre Franklin | Licensed static assets from exact Sabella references | Files and licenses verified; component typography acceptance pending |
-| System monospace | Resolve actual face per reference fixture; no Apple font redistribution | Unresolved; no substitution approved |
+| System monospace | Source-expression probes resolve `.AppleSystemUIFontMonospaced` faces; no Apple font redistribution | Actual affected components, Linux candidate assets and comparisons pending; no substitution approved |
 | SF Symbols / platform assets | Inventory literal/dynamic inputs; distributable original/equivalent assets with provenance | Unresolved; no substitution approved |
 | Menus, tooltips, file/date dialogs | Avelino owns presentation, Qt supplies semantic mechanisms | Adapter fixtures and open-window comparisons pending |
 | Charts | Controlled renderer for the five reference chart families | Renderer/license decision pending |
@@ -17,3 +17,24 @@ fixture, reference image, candidate image, geometry/behavior impact, provenance,
 and reason. Approval must name that difference; implementation authors cannot
 self-approve. Platform API differences are documented independently of appearance
 or behavior exceptions.
+
+Two specific font exceptions are proposed in the inventory, with approval and
+implementation/comparison work still pending:
+
+- `FONT-MONO-001`: use licensed IBM Plex Mono for source system-monospace usages,
+  retaining each requested logical size and weight. This includes the desktop
+  `bleeckerFont` modifier when its requested family is `mono`; television faces
+  are outside the scope of these probes. The native face resolution is
+  recorded in [the supplemental proposal](reference-proposal-20261012.md); Linux
+  assets, licensing/provenance and geometry/weight/alignment comparisons must be
+  prepared before an approval request. No broader raster tolerance is proposed.
+- `FONT-TOGGLE-001`: use bundled Encode Sans Regular at 13 logical pixels for the
+  toggle's unconfigured inherited-label case, where the native probe resolves
+  `.SFNS-Regular` at 13 pt. Preserve padding 12 and minimum height 34. Current
+  Avelino's 14 px default is unfinished work, not an accepted adaptation. The
+  configured 14 pt Encode Sans case is separate and needs no system-font exception.
+  Linux captures and exact geometry/weight/alignment differences remain to be
+  prepared before review.
+
+Neither proposal is approved or applied to an accepted fixture. Affected entries
+remain pending while work continues on components using distributable source assets.

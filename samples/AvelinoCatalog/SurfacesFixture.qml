@@ -3,7 +3,7 @@ import Avelino
 
 Window {
     readonly property real fixtureTextScale: BleeckerTheme.textScale
-    width: 760; height: 620; visible: true
+    width: 760; height: 720; visible: true
     title: "Avelino — cards and badges"
     color: BleeckerTheme.palette.background
     Component.onCompleted: {
@@ -58,6 +58,10 @@ Window {
             width: 220; height: 90; paddingSize: "none"; variant: "transparent"
             Rectangle { anchors.fill: parent; color: BleeckerTheme.palette.sea }
             BleeckerEyebrow { x: 16; y: 16; text: "Clipped content"; color: "white" }
+        }
+        BleeckerCard {
+            width: 220; height: 60; paddingSize: "sm"; variant: "outlined"
+            BleeckerEyebrow { text: "Outlined — no shadow" }
         }
     }
 }

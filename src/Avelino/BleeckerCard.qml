@@ -16,7 +16,7 @@ Item {
     }
     readonly property color fillColor: {
         switch (variant) {
-        case "surface": case "elevated": return BleeckerTheme.palette.card
+        case "surface": case "outlined": case "elevated": return BleeckerTheme.palette.card
         case "subtle": return BleeckerTheme.alpha(BleeckerTheme.palette.lightSand,0.5)
         case "transparent": return "transparent"
         default: throw new Error("Unknown Bleecker card variant: " + variant)

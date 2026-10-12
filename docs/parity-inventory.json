@@ -1,7 +1,56 @@
 {
   "schemaVersion": 1,
   "exceptions": {
-    "proposed": [],
+    "proposed": [
+      {
+        "id": "FONT-MONO-001",
+        "status": "proposed",
+        "approved": false,
+        "reference": "evidence/reference-proposals/desktop-20261012/monospace-resolution.json",
+        "sourceFaces": ".AppleSystemUIFontMonospaced-Regular/Medium/Semibold/Bold",
+        "linuxCandidate": "IBM Plex Mono at the same requested logical size and weight",
+        "affectedEntries": [
+          "BleeckerKbd",
+          "BleeckerOTPInput",
+          "BleeckerStepper",
+          "Text.bleeckerPill",
+          "View.bleeckerFont"
+        ],
+        "evidence": [
+          "evidence/reference-proposals/desktop-20261012/monospace-resolution.json",
+          "docs/platform-mappings.md"
+        ],
+        "pending": [
+          "Actual affected component/glyph-fallback resolution",
+          "Licensed Linux assets and provenance",
+          "Linux captures and geometry/weight/alignment comparison",
+          "Explicit user approval"
+        ],
+        "toleranceChange": null,
+        "scope": "Desktop system-monospace usages, including View.bleeckerFont only when its family is mono; television is not covered by these probes."
+      },
+      {
+        "id": "FONT-TOGGLE-001",
+        "status": "proposed",
+        "approved": false,
+        "reference": "evidence/reference-proposals/desktop-20261012/toggle-inherited-false-light-text1.0-offscreen-dpr2.0.png",
+        "sourceFace": ".SFNS-Regular at 13 pt",
+        "linuxCandidate": "Bundled Encode Sans Regular at 13 logical pixels for the unconfigured inherited-label case",
+        "affectedEntries": [
+          "BleeckerToggleStyle"
+        ],
+        "evidence": [
+          "evidence/reference-proposals/desktop-20261012/captures.json",
+          "docs/platform-mappings.md"
+        ],
+        "pending": [
+          "Linux candidate implementation/captures",
+          "Geometry/weight/alignment comparison",
+          "Explicit user approval"
+        ],
+        "toleranceChange": null
+      }
+    ],
     "approved": []
   },
   "desktop": {
@@ -488,7 +537,34 @@
             ],
             "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           }
-        }
+        },
+        "referenceCandidates": [
+          "evidence/reference-proposals/desktop-20261012/attention-0-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/attention-0-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/attention-0-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/attention-0-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/attention-0-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/attention-0-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/attention-0-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/attention-0-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/attention-5-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/attention-5-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/attention-5-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/attention-5-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/attention-5-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/attention-5-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/attention-5-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/attention-5-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/attention-10-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/attention-10-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/attention-10-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/attention-10-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/attention-10-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/attention-10-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/attention-10-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/attention-10-dark-text1.5-offscreen-dpr2.0.png"
+        ],
+        "referenceCandidateStatus": "proposed; baseline approval pending"
       },
       {
         "id": "BleeckerAvatar",
@@ -795,7 +871,66 @@
             ],
             "notes": "Candidate checks do not close parity; native images, typography/assets, accessibility and complete behavior cases remain pending."
           }
-        }
+        },
+        "referenceCandidates": [
+          "evidence/reference-proposals/desktop-20261012/avatar-xs-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-xs-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-xs-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-xs-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-xs-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-xs-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-xs-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-xs-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-sm-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-sm-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-sm-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-sm-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-sm-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-sm-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-sm-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-sm-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-md-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-md-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-md-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-md-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-md-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-md-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-md-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-md-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-lg-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-lg-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-lg-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-lg-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-lg-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-lg-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-lg-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-lg-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-xl-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-xl-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-xl-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-xl-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-xl-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-xl-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-xl-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-xl-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-image-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-image-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-image-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-image-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-image-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-image-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-image-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-image-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-emoji-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-emoji-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-emoji-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-emoji-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-emoji-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-emoji-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-emoji-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/avatar-emoji-dark-text1.5-offscreen-dpr2.0.png"
+        ],
+        "referenceCandidateStatus": "proposed; baseline approval pending"
       },
       {
         "id": "BleeckerBarChart",
@@ -997,7 +1132,18 @@
             ],
             "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           }
-        }
+        },
+        "referenceCandidates": [
+          "evidence/reference-proposals/desktop-20261012/bauhaus-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/bauhaus-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/bauhaus-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/bauhaus-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/bauhaus-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/bauhaus-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/bauhaus-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/bauhaus-dark-text1.5-offscreen-dpr2.0.png"
+        ],
+        "referenceCandidateStatus": "proposed; baseline approval pending"
       },
       {
         "id": "BleeckerBrandLockup",
@@ -3009,7 +3155,18 @@
             "status": "diagnostic; visual acceptance failed",
             "notes": "17 changed-pixel counts improved, 36 stayed equal, 59 increased; complete frames remain compared at zero tolerance"
           }
-        ]
+        ],
+        "referenceCandidates": [
+          "evidence/reference-proposals/desktop-20261012/button-anchor-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/button-anchor-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/button-anchor-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/button-anchor-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/button-anchor-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/button-anchor-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/button-anchor-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/button-anchor-dark-text1.5-offscreen-dpr2.0.png"
+        ],
+        "referenceCandidateStatus": "proposed; baseline approval pending"
       },
       {
         "id": "BleeckerButtonGroup",
@@ -3155,7 +3312,18 @@
             ],
             "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           }
-        }
+        },
+        "referenceCandidates": [
+          "evidence/reference-proposals/desktop-20261012/button-group-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/button-group-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/button-group-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/button-group-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/button-group-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/button-group-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/button-group-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/button-group-dark-text1.5-offscreen-dpr2.0.png"
+        ],
+        "referenceCandidateStatus": "proposed; baseline approval pending"
       },
       {
         "id": "BleeckerButtonStyle",
@@ -3585,6 +3753,94 @@
               "docs/cards-and-badges.md"
             ],
             "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-light-none-outlined",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "samples/AvelinoCatalog/SurfacesFixture.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Discovered outlined variant: card fill and border, no shadow. Native comparison and complete runtime acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-light-sm-outlined",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "samples/AvelinoCatalog/SurfacesFixture.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Discovered outlined variant: card fill and border, no shadow. Native comparison and complete runtime acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-light-md-outlined",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "samples/AvelinoCatalog/SurfacesFixture.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Discovered outlined variant: card fill and border, no shadow. Native comparison and complete runtime acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-light-lg-outlined",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "samples/AvelinoCatalog/SurfacesFixture.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Discovered outlined variant: card fill and border, no shadow. Native comparison and complete runtime acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-dark-none-outlined",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "samples/AvelinoCatalog/SurfacesFixture.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Discovered outlined variant: card fill and border, no shadow. Native comparison and complete runtime acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-dark-sm-outlined",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "samples/AvelinoCatalog/SurfacesFixture.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Discovered outlined variant: card fill and border, no shadow. Native comparison and complete runtime acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-dark-md-outlined",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "samples/AvelinoCatalog/SurfacesFixture.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Discovered outlined variant: card fill and border, no shadow. Native comparison and complete runtime acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-dark-lg-outlined",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "samples/AvelinoCatalog/SurfacesFixture.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Discovered outlined variant: card fill and border, no shadow. Native comparison and complete runtime acceptance pending."
           }
         ],
         "tests": [
@@ -3667,7 +3923,170 @@
             ],
             "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           }
-        }
+        },
+        "referenceCandidates": [
+          "evidence/reference-proposals/desktop-20261012/card-surface-none-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-surface-none-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-surface-none-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-surface-none-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-surface-none-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-surface-none-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-surface-none-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-surface-none-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-surface-sm-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-surface-sm-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-surface-sm-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-surface-sm-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-surface-sm-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-surface-sm-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-surface-sm-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-surface-sm-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-surface-md-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-surface-md-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-surface-md-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-surface-md-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-surface-md-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-surface-md-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-surface-md-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-surface-md-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-surface-lg-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-surface-lg-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-surface-lg-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-surface-lg-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-surface-lg-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-surface-lg-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-surface-lg-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-surface-lg-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-outlined-none-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-outlined-none-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-outlined-none-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-outlined-none-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-outlined-none-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-outlined-none-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-outlined-none-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-outlined-none-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-outlined-sm-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-outlined-sm-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-outlined-sm-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-outlined-sm-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-outlined-sm-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-outlined-sm-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-outlined-sm-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-outlined-sm-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-outlined-md-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-outlined-md-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-outlined-md-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-outlined-md-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-outlined-md-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-outlined-md-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-outlined-md-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-outlined-md-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-outlined-lg-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-outlined-lg-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-outlined-lg-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-outlined-lg-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-outlined-lg-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-outlined-lg-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-outlined-lg-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-outlined-lg-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-elevated-none-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-elevated-none-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-elevated-none-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-elevated-none-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-elevated-none-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-elevated-none-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-elevated-none-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-elevated-none-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-elevated-sm-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-elevated-sm-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-elevated-sm-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-elevated-sm-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-elevated-sm-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-elevated-sm-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-elevated-sm-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-elevated-sm-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-elevated-md-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-elevated-md-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-elevated-md-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-elevated-md-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-elevated-md-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-elevated-md-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-elevated-md-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-elevated-md-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-elevated-lg-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-elevated-lg-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-elevated-lg-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-elevated-lg-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-elevated-lg-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-elevated-lg-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-elevated-lg-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-elevated-lg-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-subtle-none-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-subtle-none-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-subtle-none-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-subtle-none-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-subtle-none-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-subtle-none-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-subtle-none-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-subtle-none-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-subtle-sm-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-subtle-sm-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-subtle-sm-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-subtle-sm-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-subtle-sm-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-subtle-sm-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-subtle-sm-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-subtle-sm-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-subtle-md-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-subtle-md-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-subtle-md-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-subtle-md-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-subtle-md-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-subtle-md-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-subtle-md-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-subtle-md-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-subtle-lg-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-subtle-lg-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-subtle-lg-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-subtle-lg-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-subtle-lg-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-subtle-lg-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-subtle-lg-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-subtle-lg-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-transparent-none-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-transparent-none-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-transparent-none-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-transparent-none-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-transparent-none-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-transparent-none-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-transparent-none-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-transparent-none-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-transparent-sm-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-transparent-sm-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-transparent-sm-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-transparent-sm-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-transparent-sm-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-transparent-sm-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-transparent-sm-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-transparent-sm-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-transparent-md-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-transparent-md-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-transparent-md-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-transparent-md-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-transparent-md-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-transparent-md-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-transparent-md-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-transparent-md-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-transparent-lg-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-transparent-lg-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-transparent-lg-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-transparent-lg-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-transparent-lg-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-transparent-lg-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-transparent-lg-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/card-transparent-lg-dark-text1.5-offscreen-dpr2.0.png"
+        ],
+        "referenceCandidateStatus": "proposed; baseline approval pending"
       },
       {
         "id": "BleeckerCheckbox",
@@ -4093,7 +4512,18 @@
             ],
             "notes": "Candidate checks do not close parity; native images, typography/assets, accessibility and complete behavior cases remain pending."
           }
-        }
+        },
+        "referenceCandidates": [
+          "evidence/reference-proposals/desktop-20261012/data-list-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/data-list-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/data-list-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/data-list-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/data-list-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/data-list-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/data-list-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/data-list-dark-text1.5-offscreen-dpr2.0.png"
+        ],
+        "referenceCandidateStatus": "proposed; baseline approval pending"
       },
       {
         "id": "BleeckerDateRangePicker",
@@ -4598,7 +5028,34 @@
             ],
             "notes": "Candidate input/session checks do not close complete parity, native presentation, accessibility or overlay gates."
           }
-        }
+        },
+        "referenceCandidates": [
+          "evidence/reference-proposals/desktop-20261012/field-label-light-text1.0-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/field-label-light-text1.5-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/field-label-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/field-label-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/field-description-light-text1.0-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/field-description-light-text1.5-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/field-description-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/field-description-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/field-error-light-text1.0-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/field-error-light-text1.5-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/field-error-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/field-error-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/field-both-light-text1.0-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/field-both-light-text1.5-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/field-both-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/field-both-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/field-optional-light-text1.0-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/field-optional-light-text1.5-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/field-optional-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/field-optional-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/field-empty-present-light-text1.0-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/field-empty-present-light-text1.5-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/field-empty-present-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/field-empty-present-dark-text1.5-hosting-dpr2.0.png"
+        ],
+        "referenceCandidateStatus": "proposed; baseline approval pending"
       },
       {
         "id": "BleeckerFileInput",
@@ -4872,7 +5329,18 @@
             ],
             "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           }
-        }
+        },
+        "referenceCandidates": [
+          "evidence/reference-proposals/desktop-20261012/header-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/header-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/header-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/header-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/header-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/header-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/header-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/header-dark-text1.5-offscreen-dpr2.0.png"
+        ],
+        "referenceCandidateStatus": "proposed; baseline approval pending"
       },
       {
         "id": "BleeckerHeroCarousel",
@@ -5026,7 +5494,9 @@
         "tests": [],
         "captures": [],
         "comparisonResults": [],
-        "exceptions": [],
+        "exceptions": [
+          "FONT-MONO-001"
+        ],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
@@ -5228,7 +5698,22 @@
             "status": "pending",
             "evidence": []
           }
-        }
+        },
+        "referenceCandidates": [
+          "evidence/reference-proposals/desktop-20261012/spinner-sm-light-text1.0-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/spinner-sm-light-text1.5-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/spinner-sm-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/spinner-sm-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/spinner-md-light-text1.0-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/spinner-md-light-text1.5-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/spinner-md-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/spinner-md-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/spinner-lg-light-text1.0-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/spinner-lg-light-text1.5-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/spinner-lg-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/spinner-lg-dark-text1.5-hosting-dpr2.0.png"
+        ],
+        "referenceCandidateStatus": "proposed; baseline approval pending"
       },
       {
         "id": "BleeckerMediaLibrary",
@@ -5608,7 +6093,50 @@
             ],
             "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           }
-        }
+        },
+        "referenceCandidates": [
+          "evidence/reference-proposals/desktop-20261012/notification--1-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification--1-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification--1-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification--1-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification--1-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification--1-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification--1-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification--1-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification-0-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification-0-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification-0-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification-0-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification-0-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification-0-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification-0-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification-0-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification-1-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification-1-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification-1-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification-1-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification-1-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification-1-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification-1-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification-1-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification-99-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification-99-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification-99-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification-99-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification-99-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification-99-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification-99-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification-99-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification-100-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification-100-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification-100-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification-100-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification-100-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification-100-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification-100-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/notification-100-dark-text1.5-offscreen-dpr2.0.png"
+        ],
+        "referenceCandidateStatus": "proposed; baseline approval pending"
       },
       {
         "id": "BleeckerOTPInput",
@@ -5624,7 +6152,9 @@
         "tests": [],
         "captures": [],
         "comparisonResults": [],
-        "exceptions": [],
+        "exceptions": [
+          "FONT-MONO-001"
+        ],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
@@ -5892,7 +6422,34 @@
             ],
             "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           }
-        }
+        },
+        "referenceCandidates": [
+          "evidence/reference-proposals/desktop-20261012/panel-present-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/panel-present-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/panel-present-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/panel-present-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/panel-present-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/panel-present-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/panel-present-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/panel-present-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/panel-omitted-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/panel-omitted-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/panel-omitted-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/panel-omitted-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/panel-omitted-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/panel-omitted-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/panel-omitted-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/panel-omitted-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/panel-empty-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/panel-empty-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/panel-empty-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/panel-empty-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/panel-empty-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/panel-empty-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/panel-empty-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/panel-empty-dark-text1.5-offscreen-dpr2.0.png"
+        ],
+        "referenceCandidateStatus": "proposed; baseline approval pending"
       },
       {
         "id": "BleeckerPanelLayout",
@@ -6028,7 +6585,18 @@
             ],
             "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           }
-        }
+        },
+        "referenceCandidates": [
+          "evidence/reference-proposals/desktop-20261012/panel-layout-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/panel-layout-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/panel-layout-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/panel-layout-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/panel-layout-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/panel-layout-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/panel-layout-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/panel-layout-dark-text1.5-offscreen-dpr2.0.png"
+        ],
+        "referenceCandidateStatus": "proposed; baseline approval pending"
       },
       {
         "id": "BleeckerPieChart",
@@ -6450,7 +7018,106 @@
             ],
             "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           }
-        }
+        },
+        "referenceCandidates": [
+          "evidence/reference-proposals/desktop-20261012/progress-sm-default-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-sm-default-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-sm-default-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-sm-default-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-sm-default-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-sm-default-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-sm-default-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-sm-default-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-sm-success-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-sm-success-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-sm-success-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-sm-success-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-sm-success-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-sm-success-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-sm-success-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-sm-success-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-sm-warning-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-sm-warning-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-sm-warning-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-sm-warning-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-sm-warning-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-sm-warning-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-sm-warning-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-sm-warning-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-sm-destructive-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-sm-destructive-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-sm-destructive-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-sm-destructive-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-sm-destructive-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-sm-destructive-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-sm-destructive-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-sm-destructive-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-md-default-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-md-default-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-md-default-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-md-default-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-md-default-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-md-default-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-md-default-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-md-default-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-md-success-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-md-success-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-md-success-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-md-success-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-md-success-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-md-success-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-md-success-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-md-success-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-md-warning-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-md-warning-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-md-warning-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-md-warning-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-md-warning-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-md-warning-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-md-warning-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-md-warning-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-md-destructive-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-md-destructive-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-md-destructive-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-md-destructive-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-md-destructive-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-md-destructive-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-md-destructive-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-md-destructive-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-lg-default-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-lg-default-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-lg-default-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-lg-default-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-lg-default-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-lg-default-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-lg-default-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-lg-default-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-lg-success-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-lg-success-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-lg-success-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-lg-success-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-lg-success-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-lg-success-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-lg-success-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-lg-success-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-lg-warning-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-lg-warning-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-lg-warning-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-lg-warning-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-lg-warning-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-lg-warning-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-lg-warning-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-lg-warning-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-lg-destructive-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-lg-destructive-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-lg-destructive-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-lg-destructive-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-lg-destructive-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-lg-destructive-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-lg-destructive-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/progress-lg-destructive-dark-text1.5-offscreen-dpr2.0.png"
+        ],
+        "referenceCandidateStatus": "proposed; baseline approval pending"
       },
       {
         "id": "BleeckerProgressStack",
@@ -6931,7 +7598,26 @@
             ],
             "notes": "Candidate input/session checks do not close complete parity, native presentation, accessibility or overlay gates."
           }
-        }
+        },
+        "referenceCandidates": [
+          "evidence/reference-proposals/desktop-20261012/segments-a-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/segments-a-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/segments-a-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/segments-a-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/segments-a-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/segments-a-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/segments-a-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/segments-a-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/segments-c-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/segments-c-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/segments-c-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/segments-c-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/segments-c-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/segments-c-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/segments-c-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/segments-c-dark-text1.5-offscreen-dpr2.0.png"
+        ],
+        "referenceCandidateStatus": "proposed; baseline approval pending"
       },
       {
         "id": "BleeckerSelect",
@@ -7113,7 +7799,26 @@
             ],
             "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           }
-        }
+        },
+        "referenceCandidates": [
+          "evidence/reference-proposals/desktop-20261012/separator-false-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/separator-false-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/separator-false-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/separator-false-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/separator-false-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/separator-false-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/separator-false-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/separator-false-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/separator-true-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/separator-true-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/separator-true-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/separator-true-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/separator-true-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/separator-true-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/separator-true-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/separator-true-dark-text1.5-offscreen-dpr2.0.png"
+        ],
+        "referenceCandidateStatus": "proposed; baseline approval pending"
       },
       {
         "id": "BleeckerSidebarItem",
@@ -7325,7 +8030,34 @@
             ],
             "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           }
-        }
+        },
+        "referenceCandidates": [
+          "evidence/reference-proposals/desktop-20261012/skeleton-0-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/skeleton-0-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/skeleton-0-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/skeleton-0-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/skeleton-0-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/skeleton-0-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/skeleton-0-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/skeleton-0-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/skeleton-7-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/skeleton-7-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/skeleton-7-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/skeleton-7-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/skeleton-7-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/skeleton-7-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/skeleton-7-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/skeleton-7-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/skeleton-14-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/skeleton-14-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/skeleton-14-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/skeleton-14-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/skeleton-14-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/skeleton-14-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/skeleton-14-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/skeleton-14-dark-text1.5-offscreen-dpr2.0.png"
+        ],
+        "referenceCandidateStatus": "proposed; baseline approval pending"
       },
       {
         "id": "BleeckerSlider",
@@ -7689,7 +8421,50 @@
             ],
             "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           }
-        }
+        },
+        "referenceCandidates": [
+          "evidence/reference-proposals/desktop-20261012/status-default-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-default-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-default-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-default-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-default-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-default-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-default-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-default-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-live-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-live-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-live-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-live-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-live-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-live-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-live-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-live-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-offline-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-offline-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-offline-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-offline-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-offline-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-offline-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-offline-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-offline-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-warning-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-warning-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-warning-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-warning-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-warning-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-warning-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-warning-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-warning-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-info-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-info-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-info-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-info-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-info-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-info-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-info-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/status-info-dark-text1.5-offscreen-dpr2.0.png"
+        ],
+        "referenceCandidateStatus": "proposed; baseline approval pending"
       },
       {
         "id": "BleeckerStepper",
@@ -7705,7 +8480,9 @@
         "tests": [],
         "captures": [],
         "comparisonResults": [],
-        "exceptions": [],
+        "exceptions": [
+          "FONT-MONO-001"
+        ],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
@@ -8036,7 +8813,34 @@
             ],
             "notes": "Candidate input/session checks do not close complete parity, native presentation, accessibility or overlay gates."
           }
-        }
+        },
+        "referenceCandidates": [
+          "evidence/reference-proposals/desktop-20261012/switch-off-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/switch-off-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/switch-off-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/switch-off-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/switch-off-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/switch-off-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/switch-off-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/switch-off-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/switch-on-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/switch-on-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/switch-on-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/switch-on-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/switch-on-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/switch-on-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/switch-on-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/switch-on-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/switch-disabled-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/switch-disabled-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/switch-disabled-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/switch-disabled-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/switch-disabled-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/switch-disabled-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/switch-disabled-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/switch-disabled-dark-text1.5-offscreen-dpr2.0.png"
+        ],
+        "referenceCandidateStatus": "proposed; baseline approval pending"
       },
       {
         "id": "BleeckerTabs",
@@ -8317,7 +9121,18 @@
             ],
             "notes": "Candidate input/session checks do not close complete parity, native presentation, accessibility or overlay gates."
           }
-        }
+        },
+        "referenceCandidates": [
+          "evidence/reference-proposals/desktop-20261012/textarea-filled-light-text1.0-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/textarea-filled-light-text1.5-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/textarea-filled-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/textarea-filled-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/textarea-scroll-light-text1.0-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/textarea-scroll-light-text1.5-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/textarea-scroll-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/textarea-scroll-dark-text1.5-hosting-dpr2.0.png"
+        ],
+        "referenceCandidateStatus": "proposed; baseline approval pending"
       },
       {
         "id": "BleeckerTextField",
@@ -8447,7 +9262,34 @@
               "evidence/development/form-controls/candidate.json"
             ]
           }
-        }
+        },
+        "referenceCandidates": [
+          "evidence/reference-proposals/desktop-20261012/textfield-sm-light-text1.0-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/textfield-sm-light-text1.5-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/textfield-sm-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/textfield-sm-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/textfield-md-light-text1.0-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/textfield-md-light-text1.5-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/textfield-md-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/textfield-md-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/textfield-lg-light-text1.0-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/textfield-lg-light-text1.5-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/textfield-lg-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/textfield-lg-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/textfield-filled-light-text1.0-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/textfield-filled-light-text1.5-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/textfield-filled-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/textfield-filled-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/textfield-error-light-text1.0-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/textfield-error-light-text1.5-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/textfield-error-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/textfield-error-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/textfield-disabled-light-text1.0-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/textfield-disabled-light-text1.5-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/textfield-disabled-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/textfield-disabled-dark-text1.5-hosting-dpr2.0.png"
+        ],
+        "referenceCandidateStatus": "proposed; baseline approval pending"
       },
       {
         "id": "BleeckerTimelineItem",
@@ -8633,7 +9475,26 @@
             ],
             "notes": "Candidate checks do not close parity; native images, typography/assets, accessibility and complete behavior cases remain pending."
           }
-        }
+        },
+        "referenceCandidates": [
+          "evidence/reference-proposals/desktop-20261012/timeline-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/timeline-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/timeline-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/timeline-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/timeline-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/timeline-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/timeline-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/timeline-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/timeline-last-wrapped-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/timeline-last-wrapped-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/timeline-last-wrapped-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/timeline-last-wrapped-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/timeline-last-wrapped-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/timeline-last-wrapped-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/timeline-last-wrapped-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/timeline-last-wrapped-dark-text1.5-offscreen-dpr2.0.png"
+        ],
+        "referenceCandidateStatus": "proposed; baseline approval pending"
       },
       {
         "id": "BleeckerToggleStyle",
@@ -8799,7 +9660,9 @@
           "evidence/development/form-controls/candidate.json"
         ],
         "comparisonResults": [],
-        "exceptions": [],
+        "exceptions": [
+          "FONT-TOGGLE-001"
+        ],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
@@ -8878,7 +9741,58 @@
             ],
             "notes": "Candidate input/session checks do not close complete parity, native presentation, accessibility or overlay gates."
           }
-        }
+        },
+        "referenceCandidates": [
+          "evidence/reference-proposals/desktop-20261012/toggle-default-false-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-default-false-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-default-false-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-default-false-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-default-false-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-default-false-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-default-false-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-default-false-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-outline-false-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-outline-false-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-outline-false-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-outline-false-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-outline-false-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-outline-false-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-outline-false-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-outline-false-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-inherited-false-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-inherited-false-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-inherited-false-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-inherited-false-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-inherited-false-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-inherited-false-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-inherited-false-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-inherited-false-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-default-true-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-default-true-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-default-true-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-default-true-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-default-true-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-default-true-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-default-true-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-default-true-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-outline-true-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-outline-true-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-outline-true-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-outline-true-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-outline-true-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-outline-true-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-outline-true-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-outline-true-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-inherited-true-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-inherited-true-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-inherited-true-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-inherited-true-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-inherited-true-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-inherited-true-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-inherited-true-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/toggle-inherited-true-dark-text1.5-offscreen-dpr2.0.png"
+        ],
+        "referenceCandidateStatus": "proposed; baseline approval pending"
       },
       {
         "id": "BleeckerTooltip",
@@ -9070,7 +9984,18 @@
             ],
             "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           }
-        }
+        },
+        "referenceCandidates": [
+          "evidence/reference-proposals/desktop-20261012/eyebrow-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/eyebrow-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/eyebrow-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/eyebrow-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/eyebrow-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/eyebrow-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/eyebrow-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/eyebrow-dark-text1.5-offscreen-dpr2.0.png"
+        ],
+        "referenceCandidateStatus": "proposed; baseline approval pending"
       },
       {
         "id": "Text.bleeckerPill",
@@ -9086,7 +10011,9 @@
         "tests": [],
         "captures": [],
         "comparisonResults": [],
-        "exceptions": [],
+        "exceptions": [
+          "FONT-MONO-001"
+        ],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
@@ -9132,7 +10059,9 @@
         "tests": [],
         "captures": [],
         "comparisonResults": [],
-        "exceptions": [],
+        "exceptions": [
+          "FONT-MONO-001"
+        ],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
@@ -9348,7 +10277,26 @@
             ],
             "notes": "Candidate checks do not close parity; native images, typography/assets, accessibility and complete behavior cases remain pending."
           }
-        }
+        },
+        "referenceCandidates": [
+          "evidence/reference-proposals/desktop-20261012/surface-12-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/surface-12-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/surface-12-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/surface-12-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/surface-12-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/surface-12-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/surface-12-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/surface-12-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/surface-24-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/surface-24-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/surface-24-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/surface-24-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/surface-24-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/surface-24-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/reference-proposals/desktop-20261012/surface-24-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/reference-proposals/desktop-20261012/surface-24-dark-text1.5-offscreen-dpr2.0.png"
+        ],
+        "referenceCandidateStatus": "proposed; baseline approval pending"
       }
     ]
   },

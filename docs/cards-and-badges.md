@@ -6,7 +6,7 @@ complete comparisons, accessibility, scaling, and session acceptance are missing
 
 | Reference API | Linux interface and presentation |
 | --- | --- |
-| `BleeckerCard` | Default content slot; `paddingSize` none/sm/md/lg = 0/16/24/32; surface/elevated/subtle/transparent variants; continuous radius 12, border, and light-only surface/elevated shadows |
+| `BleeckerCard` | Default content slot; `paddingSize` none/sm/md/lg = 0/16/24/32; surface/outlined/elevated/subtle/transparent variants; continuous radius 12, border, and light-only surface/elevated shadows |
 | `BleeckerPanel` | Card composition with optional `title`, explicit `hasTitle` for a present empty title, title/content gap 16, default content slot |
 | `BleeckerAttentionSurface` | Required `hue` and `intensity`; pinned finite-value defaults, hue wrapping, urgency clamp 0–10, accent/label colors, theme gradient and border; padding 16 |
 | `BleeckerStatusBadge` | Required `text`; default/live/offline/warning/info; dot 6, gap 6, horizontal padding 9, minimum height 24, foreground-tinted capsule |
@@ -33,7 +33,7 @@ blur and edge rasterization likewise remain uncalibrated against native captures
 The subsequent data-display batch corrects its extra DPR transform: Canvas.Image
 already paints logical coordinates at the window's device scale.
 
-Tests cover 32 card theme/padding/variant combinations, slot dimensions and resize,
+Tests cover 40 card theme/padding/variant combinations, slot dimensions and resize,
 optional/empty panel titles, eight accent boundary/wrapping/default cases, ten
 status theme/variant combinations, six notification count boundaries, and eyebrow
 case/weight/tracking. Run `AvelinoCatalog --fixture surfaces` for the gallery;

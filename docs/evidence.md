@@ -200,3 +200,27 @@ CI verification is separate. New native comparisons, context menus, accessibilit
 complete component cases and physical/hardware verification remain pending.
 No reference image, comparison tolerance or approved exception changed.
 See [the form-control contract](form-controls.md).
+
+The clean form-controls checkpoint passes both architecture build/runtime/package
+jobs and reference CI; both strict button comparisons fail.
+[Form-controls CI](https://github.com/gaulatti/avelino/actions/runs/38295058885)
+
+The next checkpoint preserves a [supplemental native reference proposal](reference-proposal-20261012.md):
+764 candidate images from 104 isolated fixture definitions, covering all 25 started
+desktop APIs plus monospace probes. Sixty-eight captures include actual AppKit
+descendants through an isolated hosting-window cache; the rest use ImageRenderer.
+Both methods remain separate from compositor, overlay and physical-session gates.
+The proposal records matched display/raster DPR, actual native editor fonts,
+source system-font resolution, component dimensions and color-profile conversion.
+Its capture tool/source bundle is checksummed and verified outside Avelino.
+The original source artifacts and 112 expected images are unchanged.
+
+Native fixture preparation found the missing `outlined` card variant. The Linux
+candidate now supplies the source's card fill and border with no shadow. Forty
+card theme/padding/variant contracts pass; the total Qt suite passes 228 checks at
+each DPR (456 total). Fresh installed consumption and the sixteen virtual-session
+window/full-output pairs pass locally. The outlined gallery is visible within its
+expanded logical height. These checks do not close native comparison or full
+variant/runtime acceptance. Two font differences have specific proposed exceptions;
+none is approved. Twenty-three contract tests include proposal integrity,
+self-approval rejection, false DPR rejection and discovered variant reconciliation.

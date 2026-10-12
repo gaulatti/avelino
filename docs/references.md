@@ -86,6 +86,12 @@ The original capture dependency lock is retained byte-for-byte as
 `capture-dependencies.json`, with its original path, historical revision, and
 checksum in the source manifest. This is provenance rather than a Swift package.
 
+[Supplemental desktop candidates](reference-proposal-20261012.md) now cover all
+started APIs, with native AppKit controls captured separately from ImageRenderer.
+They live under `evidence/reference-proposals/`, retain proposed status, and have
+their own integrity/matrix verifier. Their Apple tooling remains in an immutable
+external source bundle. The current expected-image baseline is unchanged.
+
 ## Linux-only repository boundary
 
 Ignore rules cover Swift files, Apple projects and resources, and local reference

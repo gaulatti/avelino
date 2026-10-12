@@ -20,7 +20,7 @@ Item {
             const rows = []
             for (const dark of [false,true])
                 for (const padding of ["none","sm","md","lg"])
-                    for (const variant of ["surface","elevated","subtle","transparent"])
+                    for (const variant of ["surface","outlined","elevated","subtle","transparent"])
                         rows.push({tag:dark+"-"+padding+"-"+variant,dark:dark,padding:padding,variant:variant})
             return rows
         }
