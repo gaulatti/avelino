@@ -10,7 +10,7 @@ This is a checkpoint record, not desktop or TV acceptance.
 | Font resolution | Each preserved capture's `resolvedFont` | Actual inherited label resolves EncodeSans-Md; Qt resolves Encode Sans Medium. No font substitution approved |
 | Build / interaction / packaging | [Linux run](https://github.com/gaulatti/avelino/actions/runs/38198601179) | x86_64 and ARM64 build, pointer/keyboard/editing tests, and independent consumer pass; second consumer has no product source/build trees |
 | Initial visual comparison | `scripts/compare-captures.py`, local candidate reports | Raw comparison fails. Button rounding/placement and glyph rasterization differ. Cases remain verification-pending |
-| Wayland / X11 / accessibility / scaling matrix | `scripts/check-display-sessions.sh`, package-only consumer | Initial virtual-session harness passes locally on ARM64 using software and OpenGL/llvmpipe; full parity, accessibility, input delivery and overlay gates remain pending |
+| Wayland / X11 / accessibility / scaling matrix | [display-session CI](https://github.com/gaulatti/avelino/actions/runs/38199094278), `scripts/check-display-sessions.sh`, package-only consumer | Eight virtual-session configurations pass on x86_64 and ARM64 using software and OpenGL/llvmpipe; full parity, accessibility, input delivery and overlay gates remain pending |
 | Desktop acceptance | `docs/parity-inventory.json` | Pending; representative mirror proof precedes expansion |
 | Television / hardware | User target TBD | Pending; no physical remote or sustained playback verification |
 
@@ -29,3 +29,9 @@ The 14 px medium label's native font metrics have a 17.5 px line height. Keeping
 that fractional height and disabling center snapping avoids an extra half-pixel
 baseline shift at DPR 2. Font family, face, size, and weight remain the reference
 values. Raw glyph and rounded-edge differences remain open after this correction.
+
+The source-comparison job now reports raw button differences separately from the
+build/runtime/package jobs. Its strict failure remains visible while mirroring
+continues. Ten contract tests check immutable extraction and comparison failures,
+including RGB changes with unchanged alpha, alpha-only changes, changed expected
+checksums, incompatible text/DPR scales, missing captures, and unreviewed ICC data.

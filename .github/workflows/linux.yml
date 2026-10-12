@@ -28,6 +28,11 @@ jobs:
       - name: Consumer with source and build trees absent
         run: docker run --rm -v "$PWD/artifacts/package:/package" -w /package avelino-toolchain:qt6.8.3 bash -c 'bash check-installed.sh && bash check-display-sessions.sh'
       - uses: actions/upload-artifact@v4
+        with:
+          name: desktop-button-candidates-${{ matrix.runner }}
+          path: artifacts/linux
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: linux-evidence-${{ matrix.runner }}
@@ -37,3 +42,43 @@ jobs:
             artifacts/package/environment.json
             artifacts/package/display-evidence
             build/linux/Testing/Temporary/LastTest.log
+  button-mirror-comparison:
+    needs: build-runtime-package
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        source-runner: [ubuntu-24.04, ubuntu-24.04-arm]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -m pip install -r tools/visual-requirements.txt
+      - run: python3 scripts/verify-references.py
+      - uses: actions/download-artifact@v4
+        with:
+          name: desktop-button-candidates-${{ matrix.source-runner }}
+          path: artifacts/candidate
+      - name: Strict preserved-source comparison
+        run: python3 scripts/compare-captures.py --reference reference/captures/desktop/buttons --candidate artifacts/candidate --output artifacts/comparison
+      - name: Record independent visual result
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          report = Path('artifacts/comparison/comparison.json')
+          if report.exists():
+              result = json.loads(report.read_text())
+              passed = sum(case['status'] == 'passed' for case in result['results'])
+              with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as summary:
+                  summary.write(f"Button source comparison: **{result['status']}** ({passed}/{len(result['results'])} cases).\n\n")
+                  summary.write('Zero pixel tolerance. Build, installed consumption, display sessions, accessibility and complete desktop acceptance have separate gates.\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: desktop-button-comparison-${{ matrix.source-runner }}
+          path: artifacts/comparison
+          if-no-files-found: error

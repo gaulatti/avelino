@@ -57,3 +57,11 @@ difference. ICC-managed captures require an explicit reviewed conversion; the
 tool refuses to strip profiles or quietly reinterpret them. Initial tolerance is
 zero. A later calibrated glyph-edge rule must preserve layout and asset failures;
 it cannot be inferred from a favorable whole-screen percentage.
+
+The Linux workflow runs `button-mirror-comparison` independently for x86_64 and
+ARM64 candidates after the build/runtime/package checks. It uses preserved Git
+references and publishes the JSON report, image pairs, overlays, and raw diffs.
+The visual job fails until those 112 source cases match; it is not marked optional
+or converted into a successful build result. This initial button matrix still
+does not close pressed, focus, loading, composition, motion, or the remaining
+desktop cases. A failing comparison never updates the reference images.
