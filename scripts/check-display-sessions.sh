@@ -18,7 +18,7 @@ cleanup() {
   rm -rf "$runtime"
 }
 trap cleanup EXIT
-Xvfb -displayfd 3 -screen 0 1760x1200x24 -nolisten tcp 3>"$runtime/display" >"$evidence/xvfb.log" 2>&1 &
+Xvfb -displayfd 3 -screen 0 1920x1400x24 -nolisten tcp 3>"$runtime/display" >"$evidence/xvfb.log" 2>&1 &
 xpid=$!
 for ((i=0;i<100;i++)); do
   if [[ -s "$runtime/display" ]]; then break; fi
@@ -37,7 +37,7 @@ panel-position=none
 background-color=0xffdbe1e7
 locking=false
 INI
-    weston --backend=x11 --renderer=pixman --width=1600 --height=1100 --socket=avelino-wayland \
+    weston --backend=x11 --renderer=pixman --width=1760 --height=1280 --socket=avelino-wayland \
       --idle-time=0 --config="$runtime/weston.ini" --log="$evidence/weston.log" >"$evidence/weston-client.log" 2>&1 &
     wpid=$!
     for ((i=0;i<100;i++)); do
@@ -50,11 +50,13 @@ INI
   fi
   for backend in software opengl; do
     for configuration in standard scaled; do
-    for fixture in base controls; do
+    for fixture in base controls composition; do
       prefix="$evidence/$protocol-$backend-$configuration"
       if [[ "$fixture" == controls ]]; then prefix="$evidence/controls-$protocol-$backend-$configuration"; fi
+      if [[ "$fixture" == composition ]]; then prefix="$evidence/composition-$protocol-$backend-$configuration"; fi
       args=(--evidence "$prefix")
       if [[ "$fixture" == controls ]]; then args+=(--controls); fi
+      if [[ "$fixture" == composition ]]; then args+=(--composition); fi
       export QT_SCALE_FACTOR=1
       if [[ "$configuration" == scaled ]]; then
         export QT_SCALE_FACTOR=2
@@ -106,9 +108,12 @@ if fixture == 'base':
     assert record['cardBadgeChecks'] == 'passed', record
     assert record['dataDisplayChecks'] == 'passed' and record['dataListInputChecks'] == 'passed', record
     assert record['roundedContentClipping'] == (backend == 'opengl'), record
-else:
+elif fixture == 'controls':
     assert record['controlsChecks'] == 'passed' and record['focusRestorationChecks'] == 'passed', record
     assert 0 < record['scrollbarSize'] < 1 and record['textareaContentHeight'] > 100, record
+else:
+    assert record['compositionChecks'] == 'passed' and record['focusResizeChecks'] == 'passed', record
+    assert record['gridColumns'] == 2 and record['tileWidth'] == 251.5, record
 assert record['dpr'] == (1 if configuration == 'standard' else 2), record
 assert record['textScale'] == (1 if configuration == 'standard' else 1.5), record
 assert record['appearance'] == ('light' if configuration == 'standard' else 'dark'), record
@@ -116,12 +121,20 @@ window_bytes = Path(prefix+'.png').read_bytes()
 assert window_bytes[:8] == b'\x89PNG\r\n\x1a\n'
 physical = struct.unpack('>II', window_bytes[16:24])
 assert physical == (record['width']*record['dpr'], record['height']*record['dpr']), record
+session_bytes = Path(prefix+'-session.png').read_bytes()
+session_size = struct.unpack('>II', session_bytes[16:24])
+assert session_size == (1920, 1400), session_size
+client_output = (1920, 1400) if protocol == 'xcb' else (1760, 1280)
+# Reserve room for native window decorations as well as the complete client.
+assert physical[0] + 40 <= client_output[0] and physical[1] + 60 <= client_output[1], (physical, client_output)
 record.update({
     'environmentRecord': 'environment.json',
     'session': 'Xvfb X11' if protocol == 'xcb' else 'Weston Wayland nested on Xvfb X11',
     'sessionCaptureMethod': 'ImageMagick import -window root (full X11 output)',
     'physicalDisplay': False,
     'hardwareAcceleration': False,
+    'sessionOutputSize': list(session_size),
+    'clientOutputSize': list(client_output),
     'sessionCapture': Path(prefix+'-session.png').name,
     'sessionCaptureSha256': hashlib.sha256(Path(prefix+'-session.png').read_bytes()).hexdigest(),
     'windowCaptureSha256': hashlib.sha256(Path(prefix+'.png').read_bytes()).hexdigest(),

@@ -243,47 +243,227 @@
       },
       {
         "id": "BleeckerAppShell",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Layout.swift",
           "line": 15
         },
-        "implementation": [],
+        "implementation": [
+          "src/Avelino/BleeckerAppShell.qml"
+        ],
         "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
-        "captures": [],
+        "cases": [
+          {
+            "id": "BleeckerAppShell-light-default-sidebar-width",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerAppShell-light-custom-sidebar-width",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerAppShell-light-header-minimum-height",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerAppShell-light-header-height-mutation",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerAppShell-light-main-padding",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerAppShell-light-resize-focus",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerAppShell-light-slot-font-palette",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerAppShell-dark-default-sidebar-width",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerAppShell-dark-custom-sidebar-width",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerAppShell-dark-header-minimum-height",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerAppShell-dark-header-height-mutation",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerAppShell-dark-main-padding",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerAppShell-dark-resize-focus",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerAppShell-dark-slot-font-palette",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          }
+        ],
+        "tests": [
+          "tests/components/tst_composition.qml",
+          "tests/consumer/Composition.qml",
+          "tests/consumer/main.cpp"
+        ],
+        "captures": [
+          "evidence/development/composition/catalog/composition-dark-dpr1.png",
+          "evidence/development/composition/catalog/composition-dark-dpr2.png",
+          "evidence/development/composition/catalog/composition-light-dpr1.png",
+          "evidence/development/composition/catalog/composition-light-dpr2.png"
+        ],
         "comparisonResults": [],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "x11": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "wayland": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "keyboardPointer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "focusAccessibility": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "displayTextScaling": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "installedConsumer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           }
         }
       },
@@ -4785,93 +4965,453 @@
       },
       {
         "id": "BleeckerDashboardGrid",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Layout.swift",
           "line": 3
         },
-        "implementation": [],
+        "implementation": [
+          "src/Avelino/BleeckerDashboardGrid.qml"
+        ],
         "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
-        "captures": [],
+        "cases": [
+          {
+            "id": "BleeckerDashboardGrid-light-one-two-three-columns",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerDashboardGrid-light-threshold-widths",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerDashboardGrid-light-authoritative-order",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerDashboardGrid-light-variable-row-heights",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerDashboardGrid-light-mutation",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerDashboardGrid-light-empty",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerDashboardGrid-light-large-grid-virtualization",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerDashboardGrid-dark-one-two-three-columns",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerDashboardGrid-dark-threshold-widths",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerDashboardGrid-dark-authoritative-order",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerDashboardGrid-dark-variable-row-heights",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerDashboardGrid-dark-mutation",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerDashboardGrid-dark-empty",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerDashboardGrid-dark-large-grid-virtualization",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerDashboardGrid-light-fractional-cell-widths",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerDashboardGrid-light-focused-tile-reflow",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerDashboardGrid-dark-fractional-cell-widths",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerDashboardGrid-dark-focused-tile-reflow",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          }
+        ],
+        "tests": [
+          "tests/components/tst_composition.qml",
+          "tests/consumer/Composition.qml",
+          "tests/consumer/main.cpp"
+        ],
+        "captures": [
+          "evidence/development/composition/catalog/composition-dark-dpr1.png",
+          "evidence/development/composition/catalog/composition-dark-dpr2.png",
+          "evidence/development/composition/catalog/composition-light-dpr1.png",
+          "evidence/development/composition/catalog/composition-light-dpr2.png"
+        ],
         "comparisonResults": [],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "x11": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "wayland": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "keyboardPointer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "focusAccessibility": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "displayTextScaling": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "installedConsumer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           }
         }
       },
       {
         "id": "BleeckerDashboardSection",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Layout.swift",
           "line": 9
         },
-        "implementation": [],
+        "implementation": [
+          "src/Avelino/BleeckerDashboardSection.qml"
+        ],
         "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
-        "captures": [],
+        "cases": [
+          {
+            "id": "BleeckerDashboardSection-light-header-content-gap",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerDashboardSection-light-actions",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerDashboardSection-light-content-height-mutation",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerDashboardSection-light-intrinsic-width",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerDashboardSection-light-text-scale",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerDashboardSection-dark-header-content-gap",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerDashboardSection-dark-actions",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerDashboardSection-dark-content-height-mutation",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerDashboardSection-dark-intrinsic-width",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerDashboardSection-dark-text-scale",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          }
+        ],
+        "tests": [
+          "tests/components/tst_composition.qml",
+          "tests/consumer/Composition.qml",
+          "tests/consumer/main.cpp"
+        ],
+        "captures": [
+          "evidence/development/composition/catalog/composition-dark-dpr1.png",
+          "evidence/development/composition/catalog/composition-dark-dpr2.png",
+          "evidence/development/composition/catalog/composition-light-dpr1.png",
+          "evidence/development/composition/catalog/composition-light-dpr2.png"
+        ],
         "comparisonResults": [],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "x11": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "wayland": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "keyboardPointer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "focusAccessibility": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "displayTextScaling": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "installedConsumer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           }
         }
       },
@@ -5289,47 +5829,183 @@
       },
       {
         "id": "BleeckerFeedItem",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Extended.swift",
           "line": 13
         },
-        "implementation": [],
+        "implementation": [
+          "src/Avelino/BleeckerFeedItem.qml"
+        ],
         "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
-        "captures": [],
+        "cases": [
+          {
+            "id": "BleeckerFeedItem-light-avatar",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerFeedItem-light-adjacent-timestamp",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerFeedItem-light-author-wrap",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerFeedItem-light-content-height-mutation",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerFeedItem-light-secondary-platform-color",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerFeedItem-dark-avatar",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerFeedItem-dark-adjacent-timestamp",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerFeedItem-dark-author-wrap",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerFeedItem-dark-content-height-mutation",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerFeedItem-dark-secondary-platform-color",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          }
+        ],
+        "tests": [
+          "tests/components/tst_composition.qml",
+          "tests/consumer/Composition.qml",
+          "tests/consumer/main.cpp"
+        ],
+        "captures": [
+          "evidence/development/composition/catalog/composition-dark-dpr1.png",
+          "evidence/development/composition/catalog/composition-dark-dpr2.png",
+          "evidence/development/composition/catalog/composition-light-dpr1.png",
+          "evidence/development/composition/catalog/composition-light-dpr2.png"
+        ],
         "comparisonResults": [],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "x11": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "wayland": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "keyboardPointer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "focusAccessibility": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "displayTextScaling": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "installedConsumer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           }
         }
       },
@@ -5782,47 +6458,161 @@
       },
       {
         "id": "BleeckerFooter",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Layout.swift",
           "line": 34
         },
-        "implementation": [],
+        "implementation": [
+          "src/Avelino/BleeckerFooter.qml"
+        ],
         "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
-        "captures": [],
+        "cases": [
+          {
+            "id": "BleeckerFooter-light-separator-padding",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerFooter-light-inherited-font-palette",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerFooter-light-content-slot",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerFooter-light-constrained-width",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerFooter-dark-separator-padding",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerFooter-dark-inherited-font-palette",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerFooter-dark-content-slot",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerFooter-dark-constrained-width",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          }
+        ],
+        "tests": [
+          "tests/components/tst_composition.qml",
+          "tests/consumer/Composition.qml",
+          "tests/consumer/main.cpp"
+        ],
+        "captures": [
+          "evidence/development/composition/catalog/composition-dark-dpr1.png",
+          "evidence/development/composition/catalog/composition-dark-dpr2.png",
+          "evidence/development/composition/catalog/composition-light-dpr1.png",
+          "evidence/development/composition/catalog/composition-light-dpr2.png"
+        ],
         "comparisonResults": [],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "x11": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "wayland": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "keyboardPointer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "focusAccessibility": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "displayTextScaling": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "installedConsumer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           }
         }
       },
@@ -8165,47 +8955,249 @@
       },
       {
         "id": "BleeckerProgressStack",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Extended.swift",
           "line": 30
         },
-        "implementation": [],
+        "implementation": [
+          "src/Avelino/BleeckerProgressStack.qml"
+        ],
         "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
-        "captures": [],
+        "cases": [
+          {
+            "id": "BleeckerProgressStack-light-segments-order",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgressStack-light-two-unit-gaps",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgressStack-light-negative-clamp",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgressStack-light-overflow-clip",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgressStack-light-empty-reset",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgressStack-light-capsule-corners",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgressStack-light-height",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgressStack-light-colors",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgressStack-dark-segments-order",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgressStack-dark-two-unit-gaps",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgressStack-dark-negative-clamp",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgressStack-dark-overflow-clip",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgressStack-dark-empty-reset",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgressStack-dark-capsule-corners",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgressStack-dark-height",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgressStack-dark-colors",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          }
+        ],
+        "tests": [
+          "tests/components/tst_composition.qml",
+          "tests/consumer/Composition.qml",
+          "tests/consumer/main.cpp"
+        ],
+        "captures": [
+          "evidence/development/composition/catalog/composition-dark-dpr1.png",
+          "evidence/development/composition/catalog/composition-dark-dpr2.png",
+          "evidence/development/composition/catalog/composition-light-dpr1.png",
+          "evidence/development/composition/catalog/composition-light-dpr2.png"
+        ],
         "comparisonResults": [],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "x11": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "wayland": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "keyboardPointer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "focusAccessibility": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "displayTextScaling": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "installedConsumer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           }
         }
       },
@@ -8349,47 +9341,205 @@
       },
       {
         "id": "BleeckerSectionHeader",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Navigation.swift",
           "line": 139
         },
-        "implementation": [],
+        "implementation": [
+          "src/Avelino/BleeckerSectionHeader.qml"
+        ],
         "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
-        "captures": [],
+        "cases": [
+          {
+            "id": "BleeckerSectionHeader-light-subtitle-omitted",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerSectionHeader-light-subtitle-present",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerSectionHeader-light-subtitle-empty",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerSectionHeader-light-title-wrap",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerSectionHeader-light-actions",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerSectionHeader-light-accessible-names",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerSectionHeader-dark-subtitle-omitted",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerSectionHeader-dark-subtitle-present",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerSectionHeader-dark-subtitle-empty",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerSectionHeader-dark-title-wrap",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerSectionHeader-dark-actions",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          },
+          {
+            "id": "BleeckerSectionHeader-dark-accessible-names",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_composition.qml",
+              "docs/composition.md",
+              "evidence/development/composition/candidate.json"
+            ],
+            "notes": "Candidate contract and runtime coverage; native fixture/comparison and complete acceptance remain pending."
+          }
+        ],
+        "tests": [
+          "tests/components/tst_composition.qml",
+          "tests/consumer/Composition.qml",
+          "tests/consumer/main.cpp"
+        ],
+        "captures": [
+          "evidence/development/composition/catalog/composition-dark-dpr1.png",
+          "evidence/development/composition/catalog/composition-dark-dpr2.png",
+          "evidence/development/composition/catalog/composition-light-dpr1.png",
+          "evidence/development/composition/catalog/composition-light-dpr2.png"
+        ],
         "comparisonResults": [],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "x11": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "wayland": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "keyboardPointer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "focusAccessibility": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "displayTextScaling": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           },
           "installedConsumer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/composition/candidate.json"
+            ]
           }
         }
       },

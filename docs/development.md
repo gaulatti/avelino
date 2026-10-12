@@ -118,6 +118,9 @@ property, so fractional text-field typography remains pending.
 The catalog is a native Qt application; this repository has no browser frontend
 or application server. Application-backend Compose requirements do not apply.
 
+`AvelinoCatalog --fixture composition` exercises the dashboard, shell, footer,
+feed and stacked-progress candidates. See [their contract and pending cases](composition.md).
+
 Official framework references:
 [Qt control customization](https://doc.qt.io/qt-6.8/qtquickcontrols-customize.html),
 [QML modules](https://doc.qt.io/qt-6.8/qt-add-qml-module.html), and

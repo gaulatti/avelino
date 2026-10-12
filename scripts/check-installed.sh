@@ -5,3 +5,4 @@ cmake -S consumer -B consumer-build -G Ninja -DCMAKE_PREFIX_PATH="$PWD/install;/
 cmake --build consumer-build --parallel 2
 QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software consumer-build/InstalledConsumer
 QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software consumer-build/InstalledConsumer --controls
+QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software consumer-build/InstalledConsumer --composition

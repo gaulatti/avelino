@@ -251,3 +251,16 @@ installed-consumer window/full-output pairs pass across eight virtual configurat
 Input remains synthetic and accessibility/overlays/physical hardware remain pending.
 Both architecture CI jobs will now produce isolated API captures, with independent
 strict proposal-diagnostic jobs retaining raw differences and unapproved status.
+
+The [desktop composition candidate](../evidence/development/composition/candidate.json)
+adds seven APIs, raising started coverage to 32 of 80 (40%); none are accepted.
+It preserves four catalog captures, 498 passing Qt checks and twenty-four
+installed-package window/full-output pairs. Adaptive tiles retain fractional
+logical widths and their focused delegate across column changes. The virtual
+outputs are enlarged so the complete DPR 2 composition client fits. Exact runtime
+harness source and its hash are separate from the retained pre-enlargement build
+provenance. Native composition fixtures, full comparisons, large-grid virtualization,
+physical input/display and screen-reader acceptance remain pending. The existing
+25-API matrix still has 514 geometry matches and 40 exact matches of 724 cases.
+Fresh raw diagnostics are local; prior full comparison evidence remains committed.
+No reference, tolerance or approved exception changed. See [the contract](composition.md).

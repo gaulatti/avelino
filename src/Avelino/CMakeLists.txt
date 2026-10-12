@@ -6,6 +6,8 @@ set(qml_files BleeckerTokens.qml BleeckerTheme.qml BleeckerButton.qml
     BleeckerStatusBadge.qml BleeckerNotificationBadge.qml BleeckerEyebrow.qml
     BleeckerAvatar.qml BleeckerDataList.qml BleeckerTimelineItem.qml BleeckerSurface.qml
     BleeckerField.qml BleeckerSwitch.qml BleeckerToggleButton.qml BleeckerSegmentedControl.qml BleeckerTextArea.qml
+    BleeckerSectionHeader.qml BleeckerDashboardSection.qml BleeckerDashboardGrid.qml
+    BleeckerFooter.qml BleeckerAppShell.qml BleeckerFeedItem.qml BleeckerProgressStack.qml
     OwnedText.qml RoundedContent.qml SurfaceShadow.qml attentioncolors.js
     ContinuousSurface.qml continuouscorners.js)
 set_source_files_properties(BleeckerTokens.qml BleeckerTheme.qml PROPERTIES QT_QML_SINGLETON_TYPE TRUE)

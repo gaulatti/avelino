@@ -19,6 +19,53 @@ static QQuickItem *findVisualItem(QQuickItem *item, const QString &name) {
         if (auto found = findVisualItem(child,name)) return found;
     return nullptr;
 }
+static void runCompositionConsumer(QQuickWindow *window, QGuiApplication &app,
+                                   const QCommandLineParser &parser, double textScale) {
+    auto item = [window](const QString &name) { return findVisualItem(window->contentItem(),name); };
+    const auto shell=item("appShell"), grid=item("dashboardGrid"), section=item("dashboardSection");
+    const auto action=item("reviewAction"), feed=item("feedItem"), footer=item("footer");
+    const auto sidebar=item("bleeckerAppSidebar"), content=item("bleeckerAppContent");
+    const auto first=item("bleeckerDashboardTile0"), second=item("bleeckerDashboardTile1");
+    if (!shell || !grid || !section || !action || !feed || !footer || !sidebar || !content || !first || !second) {
+        qCritical("Installed composition is missing a visual slot"); app.exit(50); return;
+    }
+    if (grid->property("columns").toInt()!=2 || sidebar->width()!=240 || content->width()!=519
+        || first->width()!=251.5 || second->x()!=267.5 || first->height()<=0 || footer->height()<=41) {
+        qCritical("Installed composition geometry: columns=%d sidebar=%g content=%g first=%g secondX=%g tileHeight=%g footer=%g",
+            grid->property("columns").toInt(),sidebar->width(),content->width(),first->width(),second->x(),first->height(),footer->height());
+        app.exit(51); return;
+    }
+    QTest::mouseClick(window,Qt::LeftButton,Qt::NoModifier,
+        action->mapToScene(QPointF(action->width()/2,action->height()/2)).toPoint());
+    action->forceActiveFocus(); QTest::keyClick(window,Qt::Key_Space);
+    if (window->property("reviewInvocations").toInt()!=2 || !action->hasActiveFocus()) { app.exit(52); return; }
+    window->resize(700,560); QTest::qWait(80);
+    if (grid->property("columns").toInt()!=1 || second->y()<=first->y() || content->width()!=379
+        || !action->hasActiveFocus()) { app.exit(53); return; }
+    window->resize(840,560); QTest::qWait(80);
+    if (grid->property("columns").toInt()!=2 || first->width()!=251.5 || !action->hasActiveFocus()) { app.exit(54); return; }
+    qInfo("Installed composition: adaptive grid reflow, slots, pointer/keyboard actions and focus through resize passed");
+    if (!parser.isSet("evidence")) { app.exit(0); return; }
+    const auto path=parser.value("evidence");
+    if (!window->grabWindow().save(path+".png")) { app.exit(55); return; }
+    QJsonObject record{{"fixture","composition"},{"qt",qVersion()},{"platform",QGuiApplication::platformName()},
+        {"compiler",QString::fromUtf8(__VERSION__)},{"width",window->width()},{"height",window->height()},
+        {"dpr",window->devicePixelRatio()},{"graphicsApi",int(window->rendererInterface()->graphicsApi())},
+        {"requestedGraphicsBackend",qEnvironmentVariable("QSG_RHI_BACKEND")},{"quickBackend",qEnvironmentVariable("QT_QUICK_BACKEND")},
+        {"appearance",parser.isSet("dark") ? "dark" : "light"},{"textScale",textScale},
+        {"inputMethod","QTest synthetic in-process pointer and keyboard events"},
+        {"windowCaptureMethod","QQuickWindow::grabWindow; session capture recorded separately"},
+        {"compositionChecks","passed"},{"focusResizeChecks","passed"},
+        {"gridColumns",grid->property("columns").toInt()},{"tileWidth",first->width()},
+        {"accessibilityAcceptance","pending; screen-reader output unverified"},
+        {"referenceComparison","pending; no native composition fixtures accepted"}};
+    QFile file(path+".json");
+    if (!file.open(QIODevice::WriteOnly)) { app.exit(56); return; }
+    file.write(QJsonDocument(record).toJson()); file.close();
+    auto timer=new QTimer(&app);
+    QObject::connect(timer,&QTimer::timeout,&app,[&app,path] { if (QFile::exists(path+".captured")) app.exit(0); });
+    timer->start(100); QTimer::singleShot(10000,&app,[&app] { app.exit(57); });
+}
 static void runControlsConsumer(QQuickWindow *window, QGuiApplication &app,
                                 const QCommandLineParser &parser, double textScale) {
     auto item = [window](const QString &name) { return findVisualItem(window->contentItem(),name); };
@@ -95,8 +142,10 @@ int main(int argc, char **argv) {
     parser.addOption(QCommandLineOption("evidence", "Save window capture and metadata, then wait for a session capture marker.", "path"));
     parser.addOption(QCommandLineOption("dark", "Exercise dark appearance."));
     parser.addOption(QCommandLineOption("controls", "Exercise the form-control fixture."));
+    parser.addOption(QCommandLineOption("composition", "Exercise the composition fixture."));
     parser.addOption(QCommandLineOption("text-scale", "Exercise text scaling.", "factor", "1"));
     parser.process(app);
+    if (parser.isSet("controls") && parser.isSet("composition")) return 58;
     bool validScale = false;
     const double textScale = parser.value("text-scale").toDouble(&validScale);
     if (!validScale || !std::isfinite(textScale) || textScale <= 0) return 12;
@@ -105,10 +154,11 @@ int main(int argc, char **argv) {
     engine.rootContext()->setContextProperty("consumerTextScale", textScale);
     engine.addImportPath(QStringLiteral(AVELINO_INSTALLED_IMPORT_PATH));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreationFailed, &app, [] { QCoreApplication::exit(1); }, Qt::QueuedConnection);
-    engine.loadFromModule("InstalledConsumer", parser.isSet("controls") ? "Controls" : "Main");
+    engine.loadFromModule("InstalledConsumer", parser.isSet("composition") ? "Composition" : parser.isSet("controls") ? "Controls" : "Main");
     QTimer::singleShot(500, &app, [&engine, &app, &parser, textScale] {
         auto window = qobject_cast<QQuickWindow *>(engine.rootObjects().value(0));
         if (!window) { app.exit(2); return; }
+        if (parser.isSet("composition")) { runCompositionConsumer(window,app,parser,textScale); return; }
         if (parser.isSet("controls")) { runControlsConsumer(window,app,parser,textScale); return; }
         auto button = window->findChild<QQuickItem *>("button");
         auto field = window->findChild<QQuickItem *>("field");

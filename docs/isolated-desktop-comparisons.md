@@ -4,9 +4,13 @@ Status: diagnostic comparisons against **proposed** reference images. No source
 baseline, expected image, visual tolerance or exception approval changes here.
 Desktop and television acceptance remain independent and pending.
 
+The isolated matrix currently covers 25 of the 32 started desktop APIs. The seven
+[composition candidates](composition.md) have catalog and runtime fixtures;
+their native reference definitions and comparisons remain pending.
+
 `AvelinoCatalog --fixture reference-case` consumes the neutral case definitions in
 [the desktop proposal](../evidence/reference-proposals/desktop-20261012/fixtures.json).
-It instantiates the public Avelino component for all 25 started desktop APIs,
+It instantiates the public Avelino component for the 25 implemented desktop APIs covered by this proposal,
 including every proposed card/padding, progress, avatar, status, control-size and
 toggle variant. The five source monospace probes have no implemented/distributable
 Linux font counterpart and are explicitly excluded, rather than replaced silently.

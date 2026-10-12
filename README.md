@@ -37,7 +37,8 @@ See [Linux build and catalog checks](docs/development.md) and
 and text-field implementations remain verification-pending.
 Additional candidates and their unresolved acceptance cases are documented in
 [foundations](docs/foundations.md), [cards and badges](docs/cards-and-badges.md),
-and [data display](docs/data-display.md), alongside [form controls](docs/form-controls.md).
-Twenty-five of the 80 discovered desktop
+and [data display](docs/data-display.md), alongside [form controls](docs/form-controls.md)
+and [desktop composition](docs/composition.md).
+Thirty-two of the 80 discovered desktop
 entries have started; no component has passed its complete mirror gate.
 The GitHub wiki has not been initialized; documentation currently lives here.
