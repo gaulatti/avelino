@@ -20,7 +20,7 @@ int main(int argc, char *argv[]) {
     parser.addHelpOption();
     parser.addOptions({QCommandLineOption("capture", "Save the displayed fixture to PNG and exit", "path"),
                        QCommandLineOption("dark", "Use dark reference appearance"),
-                       QCommandLineOption("fixture", "Render a deterministic fixture (button)", "name"),
+                       QCommandLineOption("fixture", "Render a deterministic fixture (button or foundations)", "name"),
                        QCommandLineOption("variant", "Button variant", "name", "primary"),
                        QCommandLineOption("size", "Button size", "name", "md"),
                        QCommandLineOption("disabled", "Disable the fixture control"),
@@ -36,8 +36,10 @@ int main(int argc, char *argv[]) {
     engine.rootContext()->setContextProperty("captureDisabled", parser.isSet("disabled"));
     engine.rootContext()->setContextProperty("captureTextScale", textScale);
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreationFailed, &app, [] { QCoreApplication::exit(1); }, Qt::QueuedConnection);
-    if (parser.isSet("fixture") && parser.value("fixture") != "button") return 4;
-    engine.loadFromModule("AvelinoCatalog", parser.isSet("fixture") ? "ButtonFixture" : "Main");
+    const auto fixture = parser.value("fixture");
+    if (parser.isSet("fixture") && fixture != "button" && fixture != "foundations") return 4;
+    engine.loadFromModule("AvelinoCatalog", fixture == "foundations" ? "FoundationsFixture"
+        : fixture == "button" ? "ButtonFixture" : "Main");
     if (parser.isSet("capture")) {
         const auto path = parser.value("capture");
         QTimer::singleShot(700, &app, [&engine, &app, &parser, path] {

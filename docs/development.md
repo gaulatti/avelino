@@ -86,6 +86,13 @@ consumer uses fractional parent coordinates and checks the owned background and
 loading-label baseline in each display configuration. These checks establish
 the rendering mechanism, not source-image or transition acceptance.
 
+The [surfaces and layout batch](foundations.md) adds seven owned presentation and
+composition candidates. Its gallery is available through `--fixture foundations`;
+the build check captures both themes at both DPRs. The installed consumer includes
+every component and checks group keyboard navigation, progress geometry, separator
+alpha, frozen skeleton motion, and header/panel composition. Native source images
+and full component acceptance remain pending.
+
 Default button labels now use an owned `ButtonLabel` painted item. Qt shapes
 the text at the font's design-unit size; Avelino scales the advances and line
 metrics to the requested logical size and gives Qt's rasterizer that exact size.

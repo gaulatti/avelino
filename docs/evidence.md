@@ -11,7 +11,7 @@ This is a checkpoint record, not desktop or TV acceptance.
 | Build / interaction / packaging | [Linux run](https://github.com/gaulatti/avelino/actions/runs/38198601179) | x86_64 and ARM64 build, pointer/keyboard/editing tests, and independent consumer pass; second consumer has no product source/build trees |
 | Initial visual comparison | [comparison CI](https://github.com/gaulatti/avelino/actions/runs/38199378037), `evidence/checkpoints/68a5dfb/` | 0/112 source cases pass on each architecture. Raw candidate pixels match across architectures; button edges and glyphs still differ from Sabella. Cases remain verification-pending |
 | Wayland / X11 / accessibility / scaling matrix | [display-session CI](https://github.com/gaulatti/avelino/actions/runs/38199094278), `scripts/check-display-sessions.sh`, package-only consumer | Eight virtual-session configurations pass on x86_64 and ARM64 using software and OpenGL/llvmpipe; full parity, accessibility, input delivery and overlay gates remain pending |
-| Desktop acceptance | `docs/parity-inventory.json` | Pending; representative mirror proof precedes expansion |
+| Desktop acceptance | `docs/parity-inventory.json` | Pending; required visual, behavior, and runtime cases remain open per component |
 | Television / hardware | User target TBD | Pending; no physical remote or sustained playback verification |
 
 Font-probe instrumentation changed zero rendered pixels across all 112 source
@@ -118,3 +118,21 @@ remain unchanged, and no component or exception is accepted.
 Desktop implementation now proceeds in small component-family batches alongside
 these pending comparisons. Shared typography and asset issues remain attached
 to every affected fixture; broader implementation does not close their gates.
+
+The next batch adds separator, skeleton, Bauhaus background, determinate progress,
+button group, header, and panel-layout candidates. The new contracts exposed and
+corrected invalid CSS alpha-color strings at the Qt token boundary. This preserves
+the pinned neutral token values while making border/input colors usable by Qt.
+The component suite passes 97 checks at each of DPR 1 and 2. A fresh package-only
+container passes independent consumption and all eight virtual X11/Wayland
+configurations, including grouped keyboard activation/tab order and return to
+editing. Four light/dark, DPR 1/2 gallery captures were inspected. Native image
+comparisons for the seven new components remain missing. The inventory
+continues to report zero accepted components and zero approved exceptions.
+
+The clean typography checkpoint also passes both architecture build/runtime/package
+jobs and reference CI; all 112 visual comparisons fail on each architecture. Its
+painted text path produces different raw pixels between x86_64 and ARM64, so the
+earlier checkpoints' cross-architecture identity does not carry forward. No
+architecture difference is accepted or hidden by a tolerance.
+[Typography CI](https://github.com/gaulatti/avelino/actions/runs/38280257407)

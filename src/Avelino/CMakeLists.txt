@@ -1,4 +1,8 @@
-set(qml_files BleeckerTokens.qml BleeckerTheme.qml BleeckerButton.qml BleeckerLoadingSpinner.qml BleeckerTextField.qml ContinuousSurface.qml continuouscorners.js)
+set(qml_files BleeckerTokens.qml BleeckerTheme.qml BleeckerButton.qml
+    BleeckerLoadingSpinner.qml BleeckerTextField.qml BleeckerSeparator.qml
+    BleeckerSkeleton.qml BleeckerBauhausBackground.qml BleeckerProgress.qml
+    BleeckerButtonGroup.qml BleeckerHeader.qml BleeckerPanelLayout.qml
+    ContinuousSurface.qml continuouscorners.js)
 set_source_files_properties(BleeckerTokens.qml BleeckerTheme.qml PROPERTIES QT_QML_SINGLETON_TYPE TRUE)
 set_source_files_properties(ContinuousSurface.qml PROPERTIES QT_QML_INTERNAL_TYPE TRUE)
 file(GLOB font_resources CONFIGURE_DEPENDS "${PROJECT_SOURCE_DIR}/assets/fonts/*.ttf")

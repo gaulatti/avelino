@@ -424,47 +424,157 @@
       },
       {
         "id": "BleeckerBauhausBackground",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Surfaces.swift",
           "line": 149
         },
-        "implementation": [],
+        "implementation": [
+          "src/Avelino/BleeckerBauhausBackground.qml"
+        ],
         "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
-        "captures": [],
+        "cases": [
+          {
+            "id": "BleeckerBauhausBackground-wide-light",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerBauhausBackground-wide-dark",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerBauhausBackground-tall-light",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerBauhausBackground-tall-dark",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerBauhausBackground-resize",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerBauhausBackground-clipping",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          }
+        ],
+        "tests": [
+          "tests/components/tst_foundations.qml",
+          "tests/consumer/main.cpp"
+        ],
+        "captures": [
+          "samples/AvelinoCatalog/FoundationsFixture.qml"
+        ],
         "comparisonResults": [],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "x11": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "wayland": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "keyboardPointer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "focusAccessibility": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "displayTextScaling": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "installedConsumer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           }
         }
       },
@@ -2482,47 +2592,147 @@
       },
       {
         "id": "BleeckerButtonGroup",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Buttons.swift",
           "line": 123
         },
-        "implementation": [],
+        "implementation": [
+          "src/Avelino/BleeckerButtonGroup.qml"
+        ],
         "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
-        "captures": [],
+        "cases": [
+          {
+            "id": "BleeckerButtonGroup-default-spacing",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerButtonGroup-custom-spacing",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerButtonGroup-vertical-alignment",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerButtonGroup-hidden-child",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerButtonGroup-keyboard-activation-and-tab-order",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          }
+        ],
+        "tests": [
+          "tests/components/tst_foundations.qml",
+          "tests/consumer/main.cpp"
+        ],
+        "captures": [
+          "samples/AvelinoCatalog/FoundationsFixture.qml"
+        ],
         "comparisonResults": [],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "x11": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "wayland": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "keyboardPointer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "focusAccessibility": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "displayTextScaling": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "installedConsumer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           }
         }
       },
@@ -3310,47 +3520,137 @@
       },
       {
         "id": "BleeckerHeader",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Layout.swift",
           "line": 28
         },
-        "implementation": [],
+        "implementation": [
+          "src/Avelino/BleeckerHeader.qml"
+        ],
         "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
-        "captures": [],
+        "cases": [
+          {
+            "id": "BleeckerHeader-three-slots",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerHeader-minimum-height",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerHeader-tall-content",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerHeader-replace-slot",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          }
+        ],
+        "tests": [
+          "tests/components/tst_foundations.qml",
+          "tests/consumer/main.cpp"
+        ],
+        "captures": [
+          "samples/AvelinoCatalog/FoundationsFixture.qml"
+        ],
         "comparisonResults": [],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "x11": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "wayland": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "keyboardPointer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "focusAccessibility": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "displayTextScaling": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "installedConsumer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           }
         }
       },
@@ -4126,47 +4426,137 @@
       },
       {
         "id": "BleeckerPanelLayout",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Layout.swift",
           "line": 22
         },
-        "implementation": [],
+        "implementation": [
+          "src/Avelino/BleeckerPanelLayout.qml"
+        ],
         "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
-        "captures": [],
+        "cases": [
+          {
+            "id": "BleeckerPanelLayout-default-side-widths",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerPanelLayout-custom-side-widths",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerPanelLayout-resize",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerPanelLayout-slot-allocation",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          }
+        ],
+        "tests": [
+          "tests/components/tst_foundations.qml",
+          "tests/consumer/main.cpp"
+        ],
+        "captures": [
+          "samples/AvelinoCatalog/FoundationsFixture.qml"
+        ],
         "comparisonResults": [],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "x11": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "wayland": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "keyboardPointer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "focusAccessibility": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "displayTextScaling": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "installedConsumer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           }
         }
       },
@@ -4218,47 +4608,377 @@
       },
       {
         "id": "BleeckerProgress",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Feedback.swift",
           "line": 35
         },
-        "implementation": [],
+        "implementation": [
+          "src/Avelino/BleeckerProgress.qml"
+        ],
         "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
-        "captures": [],
+        "cases": [
+          {
+            "id": "BleeckerProgress-light-sm-default",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgress-light-sm-success",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgress-light-sm-warning",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgress-light-sm-destructive",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgress-light-md-default",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgress-light-md-success",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgress-light-md-warning",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgress-light-md-destructive",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgress-light-lg-default",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgress-light-lg-success",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgress-light-lg-warning",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgress-light-lg-destructive",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgress-dark-sm-default",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgress-dark-sm-success",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgress-dark-sm-warning",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgress-dark-sm-destructive",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgress-dark-md-default",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgress-dark-md-success",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgress-dark-md-warning",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgress-dark-md-destructive",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgress-dark-lg-default",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgress-dark-lg-success",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgress-dark-lg-warning",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgress-dark-lg-destructive",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgress-bounds-and-resize",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgress-rtl",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgress-transition",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerProgress-reduced-motion",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          }
+        ],
+        "tests": [
+          "tests/components/tst_foundations.qml",
+          "tests/consumer/main.cpp"
+        ],
+        "captures": [
+          "samples/AvelinoCatalog/FoundationsFixture.qml"
+        ],
         "comparisonResults": [],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "x11": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "wayland": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "keyboardPointer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "focusAccessibility": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "displayTextScaling": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "installedConsumer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           }
         }
       },
@@ -4632,47 +5352,137 @@
       },
       {
         "id": "BleeckerSeparator",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Surfaces.swift",
           "line": 126
         },
-        "implementation": [],
+        "implementation": [
+          "src/Avelino/BleeckerSeparator.qml"
+        ],
         "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
-        "captures": [],
+        "cases": [
+          {
+            "id": "BleeckerSeparator-horizontal-light",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerSeparator-horizontal-dark",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerSeparator-vertical-light",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerSeparator-vertical-dark",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          }
+        ],
+        "tests": [
+          "tests/components/tst_foundations.qml",
+          "tests/consumer/main.cpp"
+        ],
+        "captures": [
+          "samples/AvelinoCatalog/FoundationsFixture.qml"
+        ],
         "comparisonResults": [],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "x11": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "wayland": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "keyboardPointer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "focusAccessibility": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "displayTextScaling": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "installedConsumer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           }
         }
       },
@@ -4724,47 +5534,167 @@
       },
       {
         "id": "BleeckerSkeleton",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Surfaces.swift",
           "line": 136
         },
-        "implementation": [],
+        "implementation": [
+          "src/Avelino/BleeckerSkeleton.qml"
+        ],
         "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
-        "captures": [],
+        "cases": [
+          {
+            "id": "BleeckerSkeleton-default-radius",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerSkeleton-custom-radius",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerSkeleton-pulse",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerSkeleton-hidden",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerSkeleton-reduced-motion",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerSkeleton-light",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          },
+          {
+            "id": "BleeckerSkeleton-dark",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_foundations.qml",
+              "docs/foundations.md"
+            ],
+            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+          }
+        ],
+        "tests": [
+          "tests/components/tst_foundations.qml",
+          "tests/consumer/main.cpp"
+        ],
+        "captures": [
+          "samples/AvelinoCatalog/FoundationsFixture.qml"
+        ],
         "comparisonResults": [],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "x11": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "wayland": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "keyboardPointer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "focusAccessibility": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "displayTextScaling": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
           "installedConsumer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/foundations.md",
+              "tests/components/tst_foundations.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           }
         }
       },

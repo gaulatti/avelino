@@ -11,6 +11,7 @@
 #include <QJsonObject>
 #include <QQmlContext>
 #include <QSGRendererInterface>
+#include <QColor>
 #include <cmath>
 int main(int argc, char **argv) {
     QGuiApplication app(argc, argv);
@@ -48,6 +49,15 @@ int main(int argc, char **argv) {
         button->setProperty("loading", true);
         QTest::mouseClick(window, Qt::LeftButton, Qt::NoModifier, button->mapToScene(QPointF(10,10)).toPoint());
         if (window->property("invocations").toInt() != 1) { app.exit(10); return; }
+        auto groupFirst = window->findChild<QQuickItem *>("groupFirst");
+        auto groupSecond = window->findChild<QQuickItem *>("groupSecond");
+        if (!groupFirst || !groupSecond) { app.exit(20); return; }
+        groupFirst->forceActiveFocus();
+        QTest::keyClick(window, Qt::Key_Space);
+        QTest::keyClick(window, Qt::Key_Tab);
+        if (!groupSecond->hasActiveFocus()) { app.exit(21); return; }
+        QTest::keyClick(window, Qt::Key_Space);
+        if (window->property("groupedInvocations").toInt() != 2) { app.exit(22); return; }
         field->forceActiveFocus();
         QTest::keyClick(window, Qt::Key_A);
         QTest::keyClick(window, Qt::Key_B);
@@ -57,6 +67,21 @@ int main(int argc, char **argv) {
         QTest::keyClick(window, Qt::Key_C);
         if (field->property("text").toString() != "c") { app.exit(8); return; }
         if (!QFontDatabase::families().contains("Encode Sans") || !QFontDatabase::families().contains("Libre Franklin")) { app.exit(9); return; }
+        const auto separator = window->findChild<QQuickItem *>("separator");
+        const auto progress = window->findChild<QQuickItem *>("progress");
+        const auto progressFill = progress ? progress->findChild<QQuickItem *>("bleeckerProgressFill") : nullptr;
+        const auto skeleton = window->findChild<QQuickItem *>("skeleton");
+        const auto header = window->findChild<QQuickItem *>("header");
+        const auto panel = window->findChild<QQuickItem *>("panelLayout");
+        const auto panelCenter = panel ? panel->findChild<QQuickItem *>("bleeckerPanelContent") : nullptr;
+        const auto bauhaus = window->findChild<QQuickItem *>("bauhaus");
+        if (!separator || separator->height() != 1
+            || separator->property("color").value<QColor>().alphaF() != QColor::fromRgbF(0,0,0,0.08).alphaF()
+            || !progressFill || progressFill->width() != 63
+            || !skeleton || skeleton->property("animating").toBool()
+            || !header || header->height() != 56
+            || !panelCenter || panelCenter->width() != 86
+            || !bauhaus || !bauhaus->clip()) { app.exit(23); return; }
         // Loading changes the composition and label origin. Wait for its frame,
         // then inspect painted coordinates inside the installed component.
         QTest::qWait(50);
@@ -72,7 +97,7 @@ int main(int argc, char **argv) {
         for (const qreal coordinate : {surfaceOrigin.x(), surfaceOrigin.y(), labelBaseline.x(), labelBaseline.y()}) {
             if (std::abs(coordinate * dpr - std::round(coordinate * dpr)) > 0.00001) { app.exit(18); return; }
         }
-        qInfo("Installed consumer: pointer, disabled action, editing, selection replacement, bundled fonts, and painted placement passed");
+        qInfo("Installed consumer: actions, group keyboard navigation, editing, fonts, painted placement, and surface/layout contracts passed");
         if (parser.isSet("evidence")) {
             const auto path = parser.value("evidence");
             if (!window->grabWindow().save(path + ".png")) { app.exit(13); return; }
@@ -93,6 +118,7 @@ int main(int argc, char **argv) {
                 {"buttonLabelBaselineX", labelBaseline.x()}, {"buttonLabelBaselineY", labelBaseline.y()},
                 {"paintPlacementChecks", "passed"},
                 {"fractionalButtonGlyphPixels", fractionalLabel->property("logicalPixelSize").toDouble()},
+                {"foundationChecks", "passed"}, {"groupKeyboardChecks", "passed"},
                 {"labelRenderer", "QQuickPaintedItem/QPainter glyph runs at logical font size"},
                 {"behaviorChecks", "passed"}};
             QFile file(path + ".json");
