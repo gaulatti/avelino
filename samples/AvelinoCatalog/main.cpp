@@ -53,6 +53,9 @@ int main(int argc, char *argv[]) {
             if (surface) {
                 meta.insert("surfaceWidth", surface->width());
                 meta.insert("surfaceHeight", surface->height());
+                const auto surfaceOrigin = surface->mapToScene(QPointF(0, 0));
+                meta.insert("surfaceX", surfaceOrigin.x());
+                meta.insert("surfaceY", surfaceOrigin.y());
                 meta.insert("surfaceRadius", surface->property("radius").toDouble());
                 meta.insert("surfaceRendererType", surface->property("rendererType").toInt());
                 meta.insert("surfaceOuterPath", surface->property("outerPath").toString());
@@ -73,6 +76,12 @@ int main(int argc, char *argv[]) {
                 meta.insert("labelBaseline", label->baselineOffset());
                 const auto origin = label->mapToScene(QPointF(0, 0));
                 meta.insert("labelX", origin.x()); meta.insert("labelY", origin.y());
+                meta.insert("labelSceneBaseline", label->mapToScene(QPointF(0, label->baselineOffset())).y());
+                const auto content = label->parentItem();
+                meta.insert("labelLocalX", label->x()); meta.insert("labelLocalY", label->y());
+                meta.insert("contentX", content->x()); meta.insert("contentY", content->y());
+                meta.insert("contentWidth", content->width()); meta.insert("contentHeight", content->height());
+                meta.insert("contentImplicitHeight", content->implicitHeight());
             }
             meta.insert("fixture", parser.value("fixture"));
             meta.insert("textScale", window->property("fixtureTextScale").toDouble());

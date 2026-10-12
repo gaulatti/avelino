@@ -55,17 +55,26 @@ FocusScope {
         Accessible.description: control.loading ? qsTr("Loading") : ""
         onClicked: control.clicked()
         FontMetrics { id: labelMetrics; font: control.font }
-        contentItem: Row {
-            spacing: 8
-            BleeckerLoadingSpinner { visible: control.loading; size: "sm"; anchors.verticalCenter: parent.verticalCenter }
+        contentItem: Item {
+            implicitWidth: label.implicitWidth + (control.loading ? spinner.width + BleeckerTokens.spacing.inline : 0)
+            implicitHeight: Math.max(label.height, control.loading ? spinner.height : 0)
+            BleeckerLoadingSpinner {
+                id: spinner
+                visible: control.loading
+                size: "sm"
+                y: (parent.height - height) / 2
+            }
             Text {
+                id: label
                 objectName: "bleeckerButtonLabel"
                 text: control.text
                 font: control.font
                 color: control.foregroundColor
-                height: labelMetrics.height
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.alignWhenCentered: false
+                height: Math.ceil(labelMetrics.height * labelAlignment.devicePixelRatio) / labelAlignment.devicePixelRatio
+                x: control.loading ? spinner.width + BleeckerTokens.spacing.inline : 0
+                y: (parent.height - height) / 2
+                PixelAlignment { id: labelAlignment; target: label.parent; origin: Qt.point(label.x, label.y + label.baselineOffset) }
+                transform: Translate { x: labelAlignment.offset.x; y: labelAlignment.offset.y }
             }
         }
         background: ContinuousSurface {

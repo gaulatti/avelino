@@ -11,7 +11,7 @@ Window {
         BleeckerTheme.reducedMotion = true
     }
     Column {
-        x: 24; y: 24; spacing: 16
+        x: 24.23; y: 24.17; spacing: 16
         BleeckerButton { objectName: "button"; text: "Installed package"; onClicked: invocations++ }
         BleeckerTextField { objectName: "field"; placeholderText: "Edit here" }
     }

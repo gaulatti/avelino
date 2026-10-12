@@ -12,6 +12,8 @@ Shape {
     readonly property string borderPath: Corners.svg(width, height, radius, borderWidth / 2)
     antialiasing: true
     preferredRendererType: Shape.CurveRenderer
+    PixelAlignment { id: alignment; target: surface.parent; origin: Qt.point(surface.x, surface.y) }
+    transform: Translate { x: alignment.offset.x; y: alignment.offset.y }
     ShapePath {
         fillColor: surface.color
         strokeColor: "transparent"

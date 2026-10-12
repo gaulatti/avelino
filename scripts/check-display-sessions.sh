@@ -83,7 +83,7 @@ INI
       # Wayland surfaces are composited by Weston into this X11 output.
       import -window root "$prefix-session.png"
       python3 - "$prefix" "$protocol" "$backend" "$configuration" <<'PY'
-import hashlib, json, struct, sys
+import hashlib, json, math, struct, sys
 from pathlib import Path
 prefix, protocol, backend, configuration = sys.argv[1:]
 path = Path(prefix+'.json')
@@ -92,6 +92,10 @@ assert record['platform'] == protocol, record
 assert record['graphicsApi'] == (1 if backend == 'software' else 3), record
 assert record['buttonSurfaceRendererType'] == (3 if backend == 'software' else 4), record
 assert record['buttonSurfaceRadius'] == 7 and record['buttonSurfaceOuterPath'], record
+assert record['paintPlacementChecks'] == 'passed', record
+for key in ['buttonSurfaceX', 'buttonSurfaceY', 'buttonLabelBaselineX', 'buttonLabelBaselineY']:
+    physical = record[key] * record['dpr']
+    assert math.isfinite(physical) and abs(physical - round(physical)) <= 0.00001, (key, physical)
 assert record['dpr'] == (1 if configuration == 'standard' else 2), record
 assert record['textScale'] == (1 if configuration == 'standard' else 1.5), record
 assert record['appearance'] == ('light' if configuration == 'standard' else 'dark'), record

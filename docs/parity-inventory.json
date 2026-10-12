@@ -617,7 +617,9 @@
         "implementation": [
           "src/Avelino/BleeckerButton.qml",
           "src/Avelino/ContinuousSurface.qml",
-          "src/Avelino/continuouscorners.js"
+          "src/Avelino/continuouscorners.js",
+          "src/Avelino/pixelalignment.h",
+          "src/Avelino/pixelalignment.cpp"
         ],
         "caseDiscovery": "pending",
         "cases": [
@@ -2004,7 +2006,8 @@
         "tests": [
           "tests/components/tst_controls.qml",
           "tests/consumer/main.cpp",
-          "tests/components/tst_geometry.qml"
+          "tests/components/tst_geometry.qml",
+          "tests/components/tst_alignment.qml"
         ],
         "captures": [
           "reference/captures/desktop/buttons/captures.json",

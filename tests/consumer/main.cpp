@@ -57,7 +57,18 @@ int main(int argc, char **argv) {
         QTest::keyClick(window, Qt::Key_C);
         if (field->property("text").toString() != "c") { app.exit(8); return; }
         if (!QFontDatabase::families().contains("Encode Sans") || !QFontDatabase::families().contains("Libre Franklin")) { app.exit(9); return; }
-        qInfo("Installed consumer: pointer, disabled action, editing, selection replacement, and bundled font registration passed");
+        // Loading changes the composition and label origin. Wait for its frame,
+        // then inspect painted coordinates inside the installed component.
+        QTest::qWait(50);
+        auto label = button->findChild<QQuickItem *>("bleeckerButtonLabel");
+        if (!label) { app.exit(17); return; }
+        const qreal dpr = window->effectiveDevicePixelRatio();
+        const auto surfaceOrigin = surface->mapToScene(QPointF());
+        const auto labelBaseline = label->mapToScene(QPointF(0, label->baselineOffset()));
+        for (const qreal coordinate : {surfaceOrigin.x(), surfaceOrigin.y(), labelBaseline.x(), labelBaseline.y()}) {
+            if (std::abs(coordinate * dpr - std::round(coordinate * dpr)) > 0.00001) { app.exit(18); return; }
+        }
+        qInfo("Installed consumer: pointer, disabled action, editing, selection replacement, bundled fonts, and painted placement passed");
         if (parser.isSet("evidence")) {
             const auto path = parser.value("evidence");
             if (!window->grabWindow().save(path + ".png")) { app.exit(13); return; }
@@ -74,6 +85,9 @@ int main(int argc, char **argv) {
                 {"buttonSurfaceRendererType", surface->property("rendererType").toInt()},
                 {"buttonSurfaceRadius", surface->property("radius").toDouble()},
                 {"buttonSurfaceOuterPath", surface->property("outerPath").toString()},
+                {"buttonSurfaceX", surfaceOrigin.x()}, {"buttonSurfaceY", surfaceOrigin.y()},
+                {"buttonLabelBaselineX", labelBaseline.x()}, {"buttonLabelBaselineY", labelBaseline.y()},
+                {"paintPlacementChecks", "passed"},
                 {"behaviorChecks", "passed"}};
             QFile file(path + ".json");
             if (!file.open(QIODevice::WriteOnly)) { app.exit(14); return; }

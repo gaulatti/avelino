@@ -71,3 +71,22 @@ The eight installed-session configurations confirm software Shape rendering and
 RHI curve rendering at the expected logical radius; full desktop, accessibility,
 overlay, and television acceptance remain pending.
 [Checkpoint CI](https://github.com/gaulatti/avelino/actions/runs/38263908908)
+
+The next local button candidate aligns painted background origins and label
+baselines to physical pixels, rounds label line boxes at the effective DPR, and
+positions default content explicitly. This fixes a positioner/anchor interaction
+that displaced short link labels. Thirty-seven Qt checks pass at each of DPR 1
+and 2, including movement, transformed ancestors, displayed-window reparenting,
+all four link sizes, and pointer activation. The fresh installed package also
+passes its eight virtual X11/Wayland software/OpenGL configurations, including
+painted-coordinate checks after loading changes the composition.
+
+Against the preserved `75cb37a` candidates, this local 112-case matrix lowers
+absolute RGB error from 16,488,999 to 12,672,387. Changed-pixel counts improve in
+105 cases, stay equal in two, and increase in five. Color error improves in 108
+cases and increases in four: small link buttons in both themes, enabled and disabled.
+The light medium primary case falls from 1,001 to 863 changed pixels, with maximum
+channel error 168. These are dirty-tree development measurements, awaiting clean
+CI reproduction and a checksummed checkpoint. All 112 strict comparisons still
+fail. Expected captures, fonts, and zero-pixel tolerance remain unchanged; no
+visual, accessibility, overlay, desktop, or TV acceptance is implied.

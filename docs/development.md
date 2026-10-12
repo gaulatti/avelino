@@ -65,6 +65,27 @@ The installed consumer checks that the owned surface is present too.
 describes these backend implementations. These geometry checks do not establish
 glyph, custom-content clipping, focus, transition, or complete button acceptance.
 
+Button backgrounds and label baselines now align their painted origins to the
+window's physical pixel grid. Logical widths, positions, and padding remain
+fractional. The label line box rounds upward to a physical pixel before vertical
+centering. A native helper reads the window's effective DPR and refreshes before
+scene-graph synchronization, including ancestor motion and window reparenting.
+The helper's target excludes the painted item's own translation to avoid feedback.
+The default loading/label composition uses an explicitly positioned content item;
+this prevents positioner/anchor updates from displacing short link-button labels.
+[Qt window rendering signals](https://doc.qt.io/qt-6.8/qquickwindow.html#afterAnimating)
+document the GUI-thread synchronization point.
+
+The component suite runs at DPR 1 and 2. Its button fixtures exercise fractional
+placement, translated/scaled/rotated ancestors, reparenting between displayed
+windows, unchanged logical dimensions, and pointer activation after movement.
+All four link sizes also verify that their label remains vertically centered.
+The rotated-coordinate assertions allow two Float32 rounding units for scene
+matrices; the image comparator still allows zero changed pixels. The installed
+consumer uses fractional parent coordinates and checks the owned background and
+loading-label baseline in each display configuration. These checks establish
+the rendering mechanism, not source-image or transition acceptance.
+
 The catalog is a native Qt application; this repository has no browser frontend
 or application server. Application-backend Compose requirements do not apply.
 

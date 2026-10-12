@@ -29,5 +29,11 @@ rendering, synthetic input, and the still-pending overlay/accessibility checks.
 If a consumer exits before producing capture metadata, the harness reports its
 actual exit status and log rather than only a missing process.
 
+The installed fixture places its controls at fractional parent coordinates. It
+checks the button's owned surface and the label baseline after loading changes
+the content composition, and records their painted coordinates at the window DPR.
+The session harness verifies those coordinates independently of the catalog.
+These are package/runtime checks; they do not accept the loading appearance.
+
 No package release or complete mirror acceptance is claimed by these checkpoints.
 Release acceptance requires every desktop gate in the parity inventory to pass.
