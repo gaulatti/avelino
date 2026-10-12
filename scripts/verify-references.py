@@ -60,6 +60,28 @@ def main():
             assert case["source"] == captures["reference"] and case["dpr"] == 2
             assert case["resolvedFont"]["postScriptName"] == "EncodeSans-Md", case["path"]
         print("captures: 112 immutable source button images verified; Linux comparison acceptance remains separate")
+        source_cases = {case['path']: case for case in captures['captures']}
+        for checkpoint_path in sorted((ROOT / 'evidence/checkpoints').glob('*/checkpoint.json')):
+            checkpoint = json.loads(checkpoint_path.read_text())
+            assert checkpoint['referenceRevision'] == captures['reference'], checkpoint_path
+            for name, checksum in checkpoint['files'].items():
+                assert Path(name).name == name, name
+                assert hashlib.sha256((checkpoint_path.parent / name).read_bytes()).hexdigest() == checksum, name
+            environment = json.loads((checkpoint_path.parent / 'environment.json').read_text())
+            assert environment['sourceRevision'] == checkpoint['sourceRevision'] and not environment['uncommittedChanges']
+            reports = []
+            for arch in ['x64', 'arm64']:
+                report = json.loads((checkpoint_path.parent / f'button-comparison-{arch}.json').read_text())
+                assert len(report['results']) == checkpoint['cases']
+                assert sum(case['status'] == 'passed' for case in report['results']) == checkpoint['passed']
+                assert {case['fixture'] for case in report['results']} == set(source_cases)
+                for case in report['results']:
+                    assert case['referenceSHA256'] == source_cases[case['fixture']]['sha256'], case['fixture']
+                    if (checkpoint_path.parent / case['fixture']).exists():
+                        assert hashlib.sha256((checkpoint_path.parent / case['fixture']).read_bytes()).hexdigest() == case['candidateSHA256']
+                reports.append({case['fixture']: case['candidateSHA256'] for case in report['results']})
+            assert checkpoint['candidatePixelsIdenticalAcrossArchitectures'] == (reports[0] == reports[1])
+            print(f"checkpoint: checksummed candidate evidence verified ({checkpoint['sourceRevision']}); visual acceptance is {checkpoint['acceptance']}")
 
 
 if __name__ == "__main__":

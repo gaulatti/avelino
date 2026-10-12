@@ -9,7 +9,7 @@ This is a checkpoint record, not desktop or TV acceptance.
 | Actual SwiftUI source capture | [capture run](https://github.com/gaulatti/avelino/actions/runs/38195797603), `reference/captures/desktop/buttons/` | 112 button cases captured on macOS 27.0.1 / Xcode 27 / Swift 6.4, DPR 2 |
 | Font resolution | Each preserved capture's `resolvedFont` | Actual inherited label resolves EncodeSans-Md; Qt resolves Encode Sans Medium. No font substitution approved |
 | Build / interaction / packaging | [Linux run](https://github.com/gaulatti/avelino/actions/runs/38198601179) | x86_64 and ARM64 build, pointer/keyboard/editing tests, and independent consumer pass; second consumer has no product source/build trees |
-| Initial visual comparison | `scripts/compare-captures.py`, local candidate reports | Raw comparison fails. Button rounding/placement and glyph rasterization differ. Cases remain verification-pending |
+| Initial visual comparison | [comparison CI](https://github.com/gaulatti/avelino/actions/runs/38199378037), `evidence/checkpoints/68a5dfb/` | 0/112 source cases pass on each architecture. Raw candidate pixels match across architectures; button edges and glyphs still differ from Sabella. Cases remain verification-pending |
 | Wayland / X11 / accessibility / scaling matrix | [display-session CI](https://github.com/gaulatti/avelino/actions/runs/38199094278), `scripts/check-display-sessions.sh`, package-only consumer | Eight virtual-session configurations pass on x86_64 and ARM64 using software and OpenGL/llvmpipe; full parity, accessibility, input delivery and overlay gates remain pending |
 | Desktop acceptance | `docs/parity-inventory.json` | Pending; representative mirror proof precedes expansion |
 | Television / hardware | User target TBD | Pending; no physical remote or sustained playback verification |
@@ -35,3 +35,9 @@ build/runtime/package jobs. Its strict failure remains visible while mirroring
 continues. Ten contract tests check immutable extraction and comparison failures,
 including RGB changes with unchanged alpha, alpha-only changes, changed expected
 checksums, incompatible text/DPR scales, missing captures, and unreviewed ICC data.
+
+The `68a5dfb` checkpoint preserves both comparison reports, x86_64 environment
+metadata, and the medium primary-button candidate with checksums. It links the
+full CI candidate/runtime artifacts. The medium primary case differs in 936 pixels,
+with maximum channel error 211; alpha matches. No source image changed, no
+exception was approved, and no component was marked complete.
