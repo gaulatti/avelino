@@ -20,7 +20,7 @@ int main(int argc, char *argv[]) {
     parser.addHelpOption();
     parser.addOptions({QCommandLineOption("capture", "Save the displayed fixture to PNG and exit", "path"),
                        QCommandLineOption("dark", "Use dark reference appearance"),
-                       QCommandLineOption("fixture", "Render a deterministic fixture (button, foundations, surfaces or data-display)", "name"),
+                       QCommandLineOption("fixture", "Render a deterministic fixture (button, foundations, surfaces, data-display or controls)", "name"),
                        QCommandLineOption("variant", "Button variant", "name", "primary"),
                        QCommandLineOption("size", "Button size", "name", "md"),
                        QCommandLineOption("disabled", "Disable the fixture control"),
@@ -37,8 +37,8 @@ int main(int argc, char *argv[]) {
     engine.rootContext()->setContextProperty("captureTextScale", textScale);
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreationFailed, &app, [] { QCoreApplication::exit(1); }, Qt::QueuedConnection);
     const auto fixture = parser.value("fixture");
-    if (parser.isSet("fixture") && fixture != "button" && fixture != "foundations" && fixture != "surfaces" && fixture != "data-display") return 4;
-    engine.loadFromModule("AvelinoCatalog", fixture == "data-display" ? "DataDisplayFixture" : fixture == "surfaces" ? "SurfacesFixture" : fixture == "foundations" ? "FoundationsFixture"
+    if (parser.isSet("fixture") && fixture != "button" && fixture != "foundations" && fixture != "surfaces" && fixture != "data-display" && fixture != "controls") return 4;
+    engine.loadFromModule("AvelinoCatalog", fixture == "controls" ? "ControlsFixture" : fixture == "data-display" ? "DataDisplayFixture" : fixture == "surfaces" ? "SurfacesFixture" : fixture == "foundations" ? "FoundationsFixture"
         : fixture == "button" ? "ButtonFixture" : "Main");
     if (parser.isSet("capture")) {
         const auto path = parser.value("capture");

@@ -14,7 +14,7 @@ class ButtonLabel : public QQuickPaintedItem {
     Q_PROPERTY(QColor color READ color WRITE setColor NOTIFY colorChanged)
     Q_PROPERTY(qreal tracking READ tracking WRITE setTracking NOTIFY trackingChanged)
     Q_PROPERTY(qreal wrapWidth READ wrapWidth WRITE setWrapWidth NOTIFY wrapWidthChanged)
-    Q_PROPERTY(qreal unwrappedWidth READ unwrappedWidth NOTIFY layoutChanged)
+    Q_PROPERTY(qreal unwrappedWidth READ unwrappedWidth NOTIFY unwrappedWidthChanged)
     Q_PROPERTY(qreal logicalPixelSize READ logicalPixelSize NOTIFY layoutChanged)
     Q_PROPERTY(qreal naturalHeight READ naturalHeight NOTIFY layoutChanged)
     Q_PROPERTY(QString resolvedFamily READ resolvedFamily NOTIFY layoutChanged)
@@ -43,6 +43,7 @@ signals:
     void colorChanged();
     void trackingChanged();
     void wrapWidthChanged();
+    void unwrappedWidthChanged();
     void layoutChanged();
 private:
     void relayout();

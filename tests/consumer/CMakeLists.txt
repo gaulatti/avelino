@@ -6,7 +6,7 @@ qt_standard_project_setup(REQUIRES 6.8)
 qt_add_executable(InstalledConsumer main.cpp)
 qt_add_qml_module(InstalledConsumer URI InstalledConsumer VERSION 0.1
     OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/qml/InstalledConsumer
-    QML_FILES Main.qml)
+    QML_FILES Main.qml Controls.qml)
 qt_add_resources(InstalledConsumer "consumer_fixture_assets" PREFIX "/avelino/fixtures"
     BASE "${CMAKE_CURRENT_SOURCE_DIR}" FILES avatar-wide.ppm)
 target_link_libraries(InstalledConsumer PRIVATE Avelino::Avelino Qt6::Quick Qt6::Test)

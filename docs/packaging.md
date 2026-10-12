@@ -26,6 +26,12 @@ Weston Wayland compositor nested on it. It saves whole-output and window capture
 for software/OpenGL rendering at two display/text scales. Source and build trees
 remain absent. Metadata explicitly identifies virtual displays, Mesa software
 rendering, synthetic input, and the still-pending overlay/accessibility checks.
+The harness runs two independent windows in each configuration: the base library
+fixture and `InstalledConsumer --controls`. Their sixteen capture pairs keep
+form editing, scrolling, switch/toggle actions, disabled segmented options and
+focus restoration separate from the base composition checks. The controls fixture
+exercises the multiline editor's owned scrollbar. Context menus and other overlays
+remain unimplemented and cannot pass their gate through these captures.
 If a consumer exits before producing capture metadata, the harness reports its
 actual exit status and log rather than only a missing process.
 

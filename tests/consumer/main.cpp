@@ -19,12 +19,82 @@ static QQuickItem *findVisualItem(QQuickItem *item, const QString &name) {
         if (auto found = findVisualItem(child,name)) return found;
     return nullptr;
 }
+static void runControlsConsumer(QQuickWindow *window, QGuiApplication &app,
+                                const QCommandLineParser &parser, double textScale) {
+    auto item = [window](const QString &name) { return findVisualItem(window->contentItem(),name); };
+    auto click = [window](QQuickItem *control) {
+        QTest::mouseClick(window,Qt::LeftButton,Qt::NoModifier,
+            control->mapToScene(QPointF(control->width()/2,control->height()/2)).toPoint());
+    };
+    const auto field = item("formInput"), area = item("textArea"), editor = item("bleeckerTextAreaInput");
+    const auto toggle = item("toggle"), switchControl = item("switch"), segments = item("segments");
+    const auto first = item("bleeckerSegment0"), disabled = item("bleeckerSegment1"), last = item("bleeckerSegment2");
+    if (!field || !area || !editor || !toggle || !switchControl || !segments || !first || !disabled || !last) {
+        qCritical("Installed form control missing from visual tree"); app.exit(30); return;
+    }
+    const auto placeholder = field->findChild<QQuickItem *>("bleeckerTextFieldPlaceholder");
+    if (!placeholder || !placeholder->isVisible() || !field->isVisible() || field->width()<=0 || field->height()<=0) { app.exit(46); return; }
+    click(field);
+    if (!field->hasActiveFocus()) { app.exit(47); return; }
+    QTest::keyClick(window,Qt::Key_A); QTest::keyClick(window,Qt::Key_B);
+    if (field->property("text").toString() != "ab") { app.exit(31); return; }
+    area->forceActiveFocus(); QTest::keyClick(window,Qt::Key_X); QTest::keyClick(window,Qt::Key_Return); QTest::keyClick(window,Qt::Key_Z);
+    QTest::keyClick(window,Qt::Key_A,Qt::ControlModifier);
+    if (area->property("selectedText").toString() != "x\nz") { app.exit(32); return; }
+    QTest::keyClick(window,Qt::Key_N);
+    if (area->property("text").toString() != "n") { app.exit(33); return; }
+    click(switchControl);
+    if (!switchControl->property("checked").toBool()) { app.exit(34); return; }
+    switchControl->forceActiveFocus(); QTest::keyClick(window,Qt::Key_Space);
+    if (switchControl->property("checked").toBool()) { app.exit(35); return; }
+    click(toggle);
+    if (!toggle->property("selected").toBool() || window->property("toggleInvocations").toInt()!=1) { app.exit(36); return; }
+    click(disabled);
+    if (segments->property("selection").toString() != "a") { app.exit(37); return; }
+    click(last);
+    if (segments->property("selection").toString() != "c") { app.exit(38); return; }
+    first->forceActiveFocus(); QTest::keyClick(window,Qt::Key_Space); QTest::keyClick(window,Qt::Key_Tab);
+    if (!last->hasActiveFocus()) { app.exit(39); return; }
+    QTest::keyClick(window,Qt::Key_Space);
+    if (segments->property("selection").toString() != "c") { app.exit(40); return; }
+    QStringList lines; for (int i=0;i<30;++i) lines << "Multiline content";
+    area->setProperty("text",lines.join('\n')); QTest::qWait(50);
+    const auto viewport = item("bleeckerTextAreaViewport"), scrollbar = item("bleeckerTextAreaScrollBar");
+    if (!viewport || !scrollbar || viewport->property("contentHeight").toDouble()<=viewport->height()
+        || scrollbar->property("size").toDouble()>=1) { app.exit(41); return; }
+    scrollbar->setProperty("active",true);
+    field->forceActiveFocus(); QTest::keyClick(window,Qt::Key_A,Qt::ControlModifier);
+    for (const auto key : {Qt::Key_D,Qt::Key_O,Qt::Key_N,Qt::Key_E}) QTest::keyClick(window,key);
+    if (!field->hasActiveFocus() || field->property("text").toString()!="done") { app.exit(42); return; }
+    qInfo("Installed controls: editing, selection, multiline scrolling, switch/toggle actions, segmented disabled/tab order, and focus restoration passed");
+    if (!parser.isSet("evidence")) { app.exit(0); return; }
+    const auto path = parser.value("evidence");
+    if (!window->grabWindow().save(path+".png")) { app.exit(43); return; }
+    QJsonObject record{{"fixture","controls"},{"qt",qVersion()},{"platform",QGuiApplication::platformName()},
+        {"compiler",QString::fromUtf8(__VERSION__)},{"width",window->width()},{"height",window->height()},
+        {"dpr",window->devicePixelRatio()},{"graphicsApi",int(window->rendererInterface()->graphicsApi())},
+        {"requestedGraphicsBackend",qEnvironmentVariable("QSG_RHI_BACKEND")},{"quickBackend",qEnvironmentVariable("QT_QUICK_BACKEND")},
+        {"appearance",parser.isSet("dark") ? "dark" : "light"},{"textScale",textScale},
+        {"inputMethod","QTest synthetic in-process pointer and keyboard events"},
+        {"windowCaptureMethod","QQuickWindow::grabWindow; session capture recorded separately"},
+        {"overlayCoverage","pending; text editor context menu and other overlays unimplemented"},
+        {"controlsChecks","passed"},{"focusRestorationChecks","passed"},
+        {"scrollbarSize",scrollbar->property("size").toDouble()},{"textareaContentHeight",viewport->property("contentHeight").toDouble()},
+        {"accessibilityAcceptance","pending; attached/native Qt semantics do not prove screen-reader output"}};
+    QFile file(path+".json");
+    if (!file.open(QIODevice::WriteOnly)) { app.exit(44); return; }
+    file.write(QJsonDocument(record).toJson()); file.close();
+    auto timer = new QTimer(&app);
+    QObject::connect(timer,&QTimer::timeout,&app,[&app,path] { if (QFile::exists(path+".captured")) app.exit(0); });
+    timer->start(100); QTimer::singleShot(10000,&app,[&app] { app.exit(45); });
+}
 int main(int argc, char **argv) {
     QGuiApplication app(argc, argv);
     QCommandLineParser parser;
     parser.addHelpOption();
     parser.addOption(QCommandLineOption("evidence", "Save window capture and metadata, then wait for a session capture marker.", "path"));
     parser.addOption(QCommandLineOption("dark", "Exercise dark appearance."));
+    parser.addOption(QCommandLineOption("controls", "Exercise the form-control fixture."));
     parser.addOption(QCommandLineOption("text-scale", "Exercise text scaling.", "factor", "1"));
     parser.process(app);
     bool validScale = false;
@@ -35,10 +105,11 @@ int main(int argc, char **argv) {
     engine.rootContext()->setContextProperty("consumerTextScale", textScale);
     engine.addImportPath(QStringLiteral(AVELINO_INSTALLED_IMPORT_PATH));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreationFailed, &app, [] { QCoreApplication::exit(1); }, Qt::QueuedConnection);
-    engine.loadFromModule("InstalledConsumer", "Main");
+    engine.loadFromModule("InstalledConsumer", parser.isSet("controls") ? "Controls" : "Main");
     QTimer::singleShot(500, &app, [&engine, &app, &parser, textScale] {
         auto window = qobject_cast<QQuickWindow *>(engine.rootObjects().value(0));
         if (!window) { app.exit(2); return; }
+        if (parser.isSet("controls")) { runControlsConsumer(window,app,parser,textScale); return; }
         auto button = window->findChild<QQuickItem *>("button");
         auto field = window->findChild<QQuickItem *>("field");
         if (!button || !field) { app.exit(3); return; }
@@ -144,7 +215,7 @@ int main(int argc, char **argv) {
         if (parser.isSet("evidence")) {
             const auto path = parser.value("evidence");
             if (!window->grabWindow().save(path + ".png")) { app.exit(13); return; }
-            QJsonObject metadata{{"qt", qVersion()}, {"platform", QGuiApplication::platformName()},
+            QJsonObject metadata{{"fixture","base"},{"qt", qVersion()}, {"platform", QGuiApplication::platformName()},
                 {"compiler", QString::fromUtf8(__VERSION__)},
                 {"width", window->width()}, {"height", window->height()}, {"dpr", window->devicePixelRatio()},
                 {"graphicsApi", int(window->rendererInterface()->graphicsApi())},

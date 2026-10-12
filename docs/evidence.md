@@ -176,3 +176,27 @@ accessibility, shadow calibration and rounded clipping acceptance remain pending
 The software rounded-content gap is still visible in its fixture. No expected image,
 visual tolerance, reference source or approved exception changed.
 See [the data-display contract](data-display.md).
+
+The clean data-display checkpoint passes both architecture build/runtime/package
+jobs and reference CI. Both strict button comparisons fail.
+[Data-display CI](https://github.com/gaulatti/avelino/actions/runs/38290063185)
+
+The form-control batch adds field composition, multiline editing, switch style,
+toggle style and segmented selection candidates. Twenty-five of 80 desktop APIs
+have started (31.25% coverage); zero have passed the full mirror gate. The local
+suite passes 220 checks at each of DPR 1 and 2, retaining the earlier action tests
+alongside the new form-control tests. Fresh installed consumption passes both
+fixtures and all sixteen window/full-output pairs across eight virtual X11 and
+nested-Wayland software/OpenGL/scaling configurations. Input remains synthetic.
+
+Rendered inspection exposed the existing text field's missing software background
+and placeholder, and a switch label wrapping at its exact intrinsic width. These
+are corrected and covered by rendered composition, pointer-focus, intrinsic-width
+and narrower-width tests. The new multiline fixture exercises its owned scrollbar.
+The local source-input hashes, toolchain record, checksummed gallery and complete
+session captures are preserved in [the development candidate](../evidence/development/form-controls/candidate.json).
+Its environment explicitly records an uncommitted tree based on `ec309ff`; clean
+CI verification is separate. New native comparisons, context menus, accessibility,
+complete component cases and physical/hardware verification remain pending.
+No reference image, comparison tolerance or approved exception changed.
+See [the form-control contract](form-controls.md).

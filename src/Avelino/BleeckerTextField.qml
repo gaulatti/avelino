@@ -1,6 +1,5 @@
 import QtQuick
 import QtQuick.Templates as T
-import QtQuick.Effects
 
 T.TextField {
     id: control
@@ -24,18 +23,31 @@ T.TextField {
     opacity: enabled ? 1 : 0.6
     focusPolicy: Qt.StrongFocus
     Accessible.name: placeholderText
-    background: Rectangle {
-        radius: BleeckerTokens.radii.ui
-        color: control.enabled ? control.p.card : BleeckerTheme.alpha(control.p.muted, 0.65)
-        border.color: control.error ? control.p.destructive : control.activeFocus ? BleeckerTheme.alpha(control.p.sea, 0.75) : control.p.border
-        border.width: 1
-        layer.enabled: true
-        layer.effect: MultiEffect {
-            shadowEnabled: true
-            shadowColor: BleeckerTheme.alpha(control.activeFocus ? control.p.sea : control.p.deepSea, control.activeFocus ? 0.1 : 0.025)
-            shadowBlur: control.activeFocus ? 0.2 : 0.05
-            shadowVerticalOffset: 1
+    Text {
+        objectName: "bleeckerTextFieldPlaceholder"
+        x: control.leftPadding; y: control.topPadding
+        width: Math.max(0,control.width-control.leftPadding-control.rightPadding)
+        height: Math.max(0,control.height-control.topPadding-control.bottomPadding)
+        text: control.placeholderText; font: control.font; color: control.placeholderTextColor
+        horizontalAlignment: control.horizontalAlignment; verticalAlignment: control.verticalAlignment
+        elide: Text.ElideRight; renderType: control.renderType
+        visible: !control.length && !control.preeditText && (!control.activeFocus || control.horizontalAlignment !== Qt.AlignHCenter)
+        Accessible.ignored: true
+    }
+    background: Item {
+        SurfaceShadow {
+            objectName: "bleeckerTextFieldShadow"
+            surfaceWidth: parent.width; surfaceHeight: parent.height; radius: BleeckerTokens.radii.ui
+            fillColor: control.enabled ? control.p.card : BleeckerTheme.alpha(control.p.muted,0.65)
+            shadowColor: BleeckerTheme.alpha(control.activeFocus ? control.p.sea : control.p.deepSea,control.activeFocus ? 0.10 : 0.025)
+            blurRadius: control.activeFocus ? 4 : 1; offsetY: 1
         }
-        Behavior on border.color { ColorAnimation { duration: BleeckerTheme.reducedMotion ? 0 : BleeckerTokens.durations.control; easing.type: Easing.OutCubic } }
+        ContinuousSurface {
+            objectName: "bleeckerTextFieldSurface"
+            anchors.fill: parent; radius: BleeckerTokens.radii.ui
+            color: control.enabled ? control.p.card : BleeckerTheme.alpha(control.p.muted,0.65)
+            borderColor: control.error ? control.p.destructive : control.activeFocus ? BleeckerTheme.alpha(control.p.sea,0.75) : control.p.border
+            Behavior on borderColor { ColorAnimation { duration: BleeckerTheme.reducedMotion ? 0 : BleeckerTokens.durations.control; easing.type: Easing.OutCubic } }
+        }
     }
 }

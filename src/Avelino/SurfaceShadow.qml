@@ -8,6 +8,7 @@ Canvas {
     property real radius: BleeckerTokens.radii.card
     property real blurRadius: 10
     property real offsetY: 3
+    property bool circular: false
     property color shadowColor: "transparent"
     property color fillColor: "transparent"
     readonly property real margin: Math.ceil(blurRadius * 3 + Math.abs(offsetY))
@@ -23,6 +24,7 @@ Canvas {
     onRadiusChanged: requestPaint()
     onBlurRadiusChanged: requestPaint()
     onOffsetYChanged: requestPaint()
+    onCircularChanged: requestPaint()
     onShadowColorChanged: requestPaint()
     onFillColorChanged: requestPaint()
     onDprChanged: requestPaint()
@@ -36,7 +38,8 @@ Canvas {
         ctx.shadowOffsetY = offsetY
         ctx.fillStyle = fillColor
         ctx.beginPath()
-        for (const e of Corners.elements(surfaceWidth,surfaceHeight,radius,0)) {
+        if (circular) ctx.arc(surfaceWidth/2,surfaceHeight/2,Math.min(surfaceWidth,surfaceHeight)/2,0,Math.PI*2)
+        else for (const e of Corners.elements(surfaceWidth,surfaceHeight,radius,0)) {
             if (e.kind === "move") ctx.moveTo(e.points[0][0],e.points[0][1])
             else if (e.kind === "line") ctx.lineTo(e.points[0][0],e.points[0][1])
             else if (e.kind === "cubic") ctx.bezierCurveTo(e.points[0][0],e.points[0][1],e.points[1][0],e.points[1][1],e.points[2][0],e.points[2][1])

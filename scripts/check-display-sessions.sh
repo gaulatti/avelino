@@ -50,8 +50,11 @@ INI
   fi
   for backend in software opengl; do
     for configuration in standard scaled; do
+    for fixture in base controls; do
       prefix="$evidence/$protocol-$backend-$configuration"
+      if [[ "$fixture" == controls ]]; then prefix="$evidence/controls-$protocol-$backend-$configuration"; fi
       args=(--evidence "$prefix")
+      if [[ "$fixture" == controls ]]; then args+=(--controls); fi
       export QT_SCALE_FACTOR=1
       if [[ "$configuration" == scaled ]]; then
         export QT_SCALE_FACTOR=2
@@ -82,27 +85,32 @@ INI
       # Capture the entire displayed output, including independent surfaces.
       # Wayland surfaces are composited by Weston into this X11 output.
       import -window root "$prefix-session.png"
-      python3 - "$prefix" "$protocol" "$backend" "$configuration" <<'PY'
+      python3 - "$prefix" "$protocol" "$backend" "$configuration" "$fixture" <<'PY'
 import hashlib, json, math, struct, sys
 from pathlib import Path
-prefix, protocol, backend, configuration = sys.argv[1:]
+prefix, protocol, backend, configuration, fixture = sys.argv[1:]
 path = Path(prefix+'.json')
 record = json.loads(path.read_text())
 assert record['platform'] == protocol, record
 assert record['graphicsApi'] == (1 if backend == 'software' else 3), record
-assert record['buttonSurfaceRendererType'] == (3 if backend == 'software' else 4), record
-assert record['buttonSurfaceRadius'] == 7 and record['buttonSurfaceOuterPath'], record
-assert record['paintPlacementChecks'] == 'passed', record
-for key in ['buttonSurfaceX', 'buttonSurfaceY', 'buttonLabelBaselineX', 'buttonLabelBaselineY']:
-    physical = record[key] * record['dpr']
-    assert math.isfinite(physical) and abs(physical - round(physical)) <= 0.00001, (key, physical)
+assert record['fixture'] == fixture, record
+if fixture == 'base':
+    assert record['buttonSurfaceRendererType'] == (3 if backend == 'software' else 4), record
+    assert record['buttonSurfaceRadius'] == 7 and record['buttonSurfaceOuterPath'], record
+    assert record['paintPlacementChecks'] == 'passed', record
+    for key in ['buttonSurfaceX', 'buttonSurfaceY', 'buttonLabelBaselineX', 'buttonLabelBaselineY']:
+        physical = record[key] * record['dpr']
+        assert math.isfinite(physical) and abs(physical - round(physical)) <= 0.00001, (key, physical)
+    assert record['fractionalButtonGlyphPixels'] == 13 * record['textScale'], record
+    assert record['foundationChecks'] == 'passed' and record['groupKeyboardChecks'] == 'passed', record
+    assert record['cardBadgeChecks'] == 'passed', record
+    assert record['dataDisplayChecks'] == 'passed' and record['dataListInputChecks'] == 'passed', record
+    assert record['roundedContentClipping'] == (backend == 'opengl'), record
+else:
+    assert record['controlsChecks'] == 'passed' and record['focusRestorationChecks'] == 'passed', record
+    assert 0 < record['scrollbarSize'] < 1 and record['textareaContentHeight'] > 100, record
 assert record['dpr'] == (1 if configuration == 'standard' else 2), record
 assert record['textScale'] == (1 if configuration == 'standard' else 1.5), record
-assert record['fractionalButtonGlyphPixels'] == 13 * record['textScale'], record
-assert record['foundationChecks'] == 'passed' and record['groupKeyboardChecks'] == 'passed', record
-assert record['cardBadgeChecks'] == 'passed', record
-assert record['dataDisplayChecks'] == 'passed' and record['dataListInputChecks'] == 'passed', record
-assert record['roundedContentClipping'] == (backend == 'opengl'), record
 assert record['appearance'] == ('light' if configuration == 'standard' else 'dark'), record
 window_bytes = Path(prefix+'.png').read_bytes()
 assert window_bytes[:8] == b'\x89PNG\r\n\x1a\n'
@@ -123,6 +131,7 @@ PY
       touch "$prefix.captured"
       wait "$client"
       client=
+    done
     done
   done
 done

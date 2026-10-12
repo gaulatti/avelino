@@ -77,8 +77,18 @@ void ButtonLabel::relayout() {
         intrinsicWidth = std::max(intrinsicWidth, line.naturalTextWidth());
     }
     intrinsic.endLayout();
-    m_unwrappedWidth = intrinsicWidth * ratio;
-    if (m_wrapWidth >= 0) option.setWrapMode(QTextOption::WrapAtWordBoundaryOrAnywhere);
+    const qreal unwrappedWidth = intrinsicWidth * ratio;
+    if (m_unwrappedWidth != unwrappedWidth) {
+        m_unwrappedWidth = unwrappedWidth;
+        emit unwrappedWidthChanged();
+    }
+    // The intrinsic advance has already been shaped. Converting that exact
+    // logical width back to design units can round below QTextLayout's fixed
+    // point boundary and wrap a word that fits. Keep explicit newlines, but
+    // only enable automatic wrapping when the allocated width is smaller.
+    if (m_wrapWidth >= 0 && m_wrapWidth < m_unwrappedWidth
+        && !qFuzzyCompare(m_wrapWidth, m_unwrappedWidth))
+        option.setWrapMode(QTextOption::WrapAtWordBoundaryOrAnywhere);
     layout.setTextOption(option);
     qreal width = 0, height = 0, baseline = 0;
     layout.beginLayout();

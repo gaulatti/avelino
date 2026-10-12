@@ -43,6 +43,10 @@ The default Weston input-method keyboard appears when the text field receives
 focus; the whole-output capture preserves it as session evidence.
 No overlay component is implemented yet. [Weston's backend documentation](https://wayland.pages.freedesktop.org/weston/toc/running-weston.html)
 describes how its X11 backend composites Wayland surfaces into the parent output.
+Each configuration now runs the base fixture and `--controls` independently;
+sixteen window/full-output pairs cover the two installed-package windows.
+The catalog galleries are `--fixture foundations`, `surfaces`, `data-display`
+and `controls`; their native comparisons remain pending.
 
 In the package-only container, run `bash check-installed.sh` followed by
 `bash check-display-sessions.sh`. The latter refuses an existing output directory;

@@ -33,6 +33,7 @@ cp -R tests/consumer "$stage/consumer"
 cmake -S "$stage/consumer" -B "$stage/build" -G Ninja -DCMAKE_PREFIX_PATH="$stage/install;/opt/qt"
 cmake --build "$stage/build" --parallel 2
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer")
+(cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --controls)
 mkdir -p artifacts
 # Always publish the already-verified fresh stage. Repeated cp into an existing
 # directory nests the consumer and leaves obsolete source/install files behind.
@@ -45,7 +46,7 @@ cp artifacts/linux/environment.json artifacts/package/environment.json
 mkdir -p artifacts/linux
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --capture artifacts/linux/actions-light.png
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --dark --capture artifacts/linux/actions-dark.png
-for fixture in foundations surfaces data-display; do
+for fixture in foundations surfaces data-display controls; do
 for appearance in light dark; do
   for dpr in 1 2; do
     args=(--fixture "$fixture")
