@@ -48,3 +48,10 @@ Discovery includes nested public native view adapters and `sabellaTVPanel`, in
 addition to the registered components. These record Sabella's platform integration
 for comparison; they do not mandate UIKit-shaped APIs in Avelino. Asset verification
 also checks every bundled font and brand file against the preserved source bytes.
+
+Button capture instrumentation resolves the font inherited by the actual label
+using SwiftUI's public `Font.resolve(in:)` and its real environment context. This
+records the Core Text face, size, and weight trait rather than assuming the face
+from a token name. Linux records its rendered label font and layout metrics too.
+Capture-tool changes produce new candidates; previous images remain available for
+source and visual review and are never overwritten as accepted expectations.

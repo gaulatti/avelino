@@ -10,6 +10,8 @@
 #include <QSysInfo>
 #include <QFont>
 #include <QRawFont>
+#include <QQuickItem>
+#include <QSGRendererInterface>
 
 int main(int argc, char *argv[]) {
     QGuiApplication app(argc, argv);
@@ -39,12 +41,27 @@ int main(int argc, char *argv[]) {
                 {"architecture", QSysInfo::currentCpuArchitecture()}, {"platform", QGuiApplication::platformName()},
                 {"captureMethod", "QQuickWindow::grabWindow (single window; not compositor overlay evidence)"},
                 {"width", window->width()}, {"height", window->height()}, {"dpr", window->devicePixelRatio()},
-                {"graphicsBackend", qEnvironmentVariable("QSG_RHI_BACKEND")},
+                {"graphicsApi", int(window->rendererInterface()->graphicsApi())},
+                {"requestedGraphicsBackend", qEnvironmentVariable("QSG_RHI_BACKEND")},
                 {"quickBackend", qEnvironmentVariable("QT_QUICK_BACKEND")}};
             QFont font("Encode Sans"); font.setPixelSize(14); font.setWeight(QFont::Medium);
             const auto raw = QRawFont::fromFont(font);
             meta.insert("resolvedFontFamily", raw.familyName());
             meta.insert("resolvedFontStyle", raw.styleName());
+            const auto label = window->findChild<QQuickItem *>("bleeckerButtonLabel");
+            if (label) {
+                const auto labelFont = label->property("font").value<QFont>();
+                const auto actualFont = QRawFont::fromFont(labelFont);
+                meta.insert("labelFontFamily", actualFont.familyName());
+                meta.insert("labelFontStyle", actualFont.styleName());
+                meta.insert("labelFontWeight", int(labelFont.weight()));
+                meta.insert("labelPixelSize", labelFont.pixelSize());
+                meta.insert("labelWidth", label->width());
+                meta.insert("labelHeight", label->height());
+                meta.insert("labelBaseline", label->baselineOffset());
+                const auto origin = label->mapToScene(QPointF(0, 0));
+                meta.insert("labelX", origin.x()); meta.insert("labelY", origin.y());
+            }
             meta.insert("fixture", parser.value("fixture"));
             meta.insert("variant", parser.value("variant"));
             meta.insert("size", parser.value("size"));

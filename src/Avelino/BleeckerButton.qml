@@ -57,7 +57,7 @@ FocusScope {
         contentItem: Row {
             spacing: 8
             BleeckerLoadingSpinner { visible: control.loading; size: "sm"; anchors.verticalCenter: parent.verticalCenter }
-            Text { text: control.text; font: control.font; color: control.foregroundColor; anchors.verticalCenter: parent.verticalCenter }
+            Text { objectName: "bleeckerButtonLabel"; text: control.text; font: control.font; color: control.foregroundColor; anchors.verticalCenter: parent.verticalCenter }
         }
         background: Rectangle {
             radius: BleeckerTokens.radii.button

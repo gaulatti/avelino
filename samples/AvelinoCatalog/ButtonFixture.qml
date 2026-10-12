@@ -5,6 +5,7 @@ Window {
     color: BleeckerTheme.palette.background
     Component.onCompleted: { BleeckerTheme.dark = captureDark; BleeckerTheme.reducedMotion = true }
     BleeckerButton {
+        objectName: "fixtureButton"
         anchors.centerIn: parent
         text: "Publish"
         variant: captureVariant
