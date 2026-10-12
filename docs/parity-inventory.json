@@ -486,10 +486,35 @@
           "evidence/development/isolated-desktop/captures/attention-10-dark-text1.0-offscreen-dpr1.0.png",
           "evidence/development/isolated-desktop/captures/attention-10-dark-text1.0-offscreen-dpr2.0.png",
           "evidence/development/isolated-desktop/captures/attention-10-dark-text1.5-offscreen-dpr1.0.png",
-          "evidence/development/isolated-desktop/captures/attention-10-dark-text1.5-offscreen-dpr2.0.png"
+          "evidence/development/isolated-desktop/captures/attention-10-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/attention-0-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/attention-0-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/attention-0-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/attention-0-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/attention-0-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/attention-0-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/attention-0-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/attention-0-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/attention-5-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/attention-5-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/attention-5-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/attention-5-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/attention-5-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/attention-5-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/attention-5-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/attention-5-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/attention-10-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/attention-10-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/attention-10-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/attention-10-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/attention-10-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/attention-10-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/attention-10-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/attention-10-dark-text1.5-offscreen-dpr2.0.png"
         ],
         "comparisonResults": [
-          "evidence/development/isolated-desktop/comparison/comparison.json"
+          "evidence/development/isolated-desktop/comparison/comparison.json",
+          "evidence/development/panel-sizing/comparison/comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -500,7 +525,8 @@
               "tests/components/tst_surfaces.qml",
               "tests/consumer/main.cpp",
               "scripts/check-display-sessions.sh",
-              "evidence/development/isolated-desktop/candidate.json"
+              "evidence/development/isolated-desktop/candidate.json",
+              "evidence/development/panel-sizing/candidate.json"
             ],
             "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
@@ -879,10 +905,67 @@
           "evidence/development/isolated-desktop/captures/avatar-emoji-dark-text1.0-offscreen-dpr1.0.png",
           "evidence/development/isolated-desktop/captures/avatar-emoji-dark-text1.0-offscreen-dpr2.0.png",
           "evidence/development/isolated-desktop/captures/avatar-emoji-dark-text1.5-offscreen-dpr1.0.png",
-          "evidence/development/isolated-desktop/captures/avatar-emoji-dark-text1.5-offscreen-dpr2.0.png"
+          "evidence/development/isolated-desktop/captures/avatar-emoji-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/avatar-xs-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/avatar-xs-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/avatar-xs-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/avatar-xs-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/avatar-xs-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/avatar-xs-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/avatar-xs-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/avatar-xs-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/avatar-sm-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/avatar-sm-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/avatar-sm-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/avatar-sm-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/avatar-sm-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/avatar-sm-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/avatar-sm-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/avatar-sm-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/avatar-md-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/avatar-md-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/avatar-md-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/avatar-md-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/avatar-md-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/avatar-md-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/avatar-md-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/avatar-md-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/avatar-lg-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/avatar-lg-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/avatar-lg-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/avatar-lg-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/avatar-lg-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/avatar-lg-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/avatar-lg-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/avatar-lg-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/avatar-xl-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/avatar-xl-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/avatar-xl-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/avatar-xl-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/avatar-xl-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/avatar-xl-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/avatar-xl-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/avatar-xl-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/avatar-image-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/avatar-image-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/avatar-image-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/avatar-image-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/avatar-image-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/avatar-image-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/avatar-image-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/avatar-image-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/avatar-emoji-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/avatar-emoji-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/avatar-emoji-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/avatar-emoji-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/avatar-emoji-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/avatar-emoji-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/avatar-emoji-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/avatar-emoji-dark-text1.5-offscreen-dpr2.0.png"
         ],
         "comparisonResults": [
-          "evidence/development/isolated-desktop/comparison/comparison.json"
+          "evidence/development/isolated-desktop/comparison/comparison.json",
+          "evidence/development/panel-sizing/comparison/comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -893,7 +976,8 @@
               "tests/components/tst_data_display.qml",
               "tests/consumer/main.cpp",
               "scripts/check-display-sessions.sh",
-              "evidence/development/isolated-desktop/candidate.json"
+              "evidence/development/isolated-desktop/candidate.json",
+              "evidence/development/panel-sizing/candidate.json"
             ],
             "notes": "Candidate checks do not close parity; native images, typography/assets, accessibility and complete behavior cases remain pending."
           },
@@ -1151,10 +1235,19 @@
           "evidence/development/isolated-desktop/captures/bauhaus-dark-text1.0-offscreen-dpr1.0.png",
           "evidence/development/isolated-desktop/captures/bauhaus-dark-text1.0-offscreen-dpr2.0.png",
           "evidence/development/isolated-desktop/captures/bauhaus-dark-text1.5-offscreen-dpr1.0.png",
-          "evidence/development/isolated-desktop/captures/bauhaus-dark-text1.5-offscreen-dpr2.0.png"
+          "evidence/development/isolated-desktop/captures/bauhaus-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/bauhaus-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/bauhaus-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/bauhaus-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/bauhaus-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/bauhaus-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/bauhaus-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/bauhaus-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/bauhaus-dark-text1.5-offscreen-dpr2.0.png"
         ],
         "comparisonResults": [
-          "evidence/development/isolated-desktop/comparison/comparison.json"
+          "evidence/development/isolated-desktop/comparison/comparison.json",
+          "evidence/development/panel-sizing/comparison/comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -1165,7 +1258,8 @@
               "tests/components/tst_foundations.qml",
               "tests/consumer/main.cpp",
               "scripts/check-display-sessions.sh",
-              "evidence/development/isolated-desktop/candidate.json"
+              "evidence/development/isolated-desktop/candidate.json",
+              "evidence/development/panel-sizing/candidate.json"
             ],
             "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
@@ -3138,7 +3232,15 @@
           "evidence/development/isolated-desktop/captures/button-anchor-dark-text1.0-offscreen-dpr1.0.png",
           "evidence/development/isolated-desktop/captures/button-anchor-dark-text1.0-offscreen-dpr2.0.png",
           "evidence/development/isolated-desktop/captures/button-anchor-dark-text1.5-offscreen-dpr1.0.png",
-          "evidence/development/isolated-desktop/captures/button-anchor-dark-text1.5-offscreen-dpr2.0.png"
+          "evidence/development/isolated-desktop/captures/button-anchor-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/button-anchor-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/button-anchor-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/button-anchor-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/button-anchor-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/button-anchor-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/button-anchor-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/button-anchor-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/button-anchor-dark-text1.5-offscreen-dpr2.0.png"
         ],
         "comparisonResults": [
           {
@@ -3171,7 +3273,8 @@
             "evidence": "evidence/checkpoints/efb2a90/button-comparison-arm64.json",
             "notes": "0/112 source cases pass zero-tolerance comparison; four small-link color-error regressions remain visible"
           },
-          "evidence/development/isolated-desktop/comparison/comparison.json"
+          "evidence/development/isolated-desktop/comparison/comparison.json",
+          "evidence/development/panel-sizing/comparison/comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -3182,7 +3285,8 @@
               "evidence/checkpoints/68a5dfb/checkpoint.json",
               "https://github.com/gaulatti/avelino/actions/runs/38263908908",
               "evidence/checkpoints/efb2a90/checkpoint.json",
-              "evidence/development/isolated-desktop/candidate.json"
+              "evidence/development/isolated-desktop/candidate.json",
+              "evidence/development/panel-sizing/candidate.json"
             ],
             "notes": "Deterministic capture generation only; visual comparison remains failed"
           },
@@ -3352,10 +3456,19 @@
           "evidence/development/isolated-desktop/captures/button-group-dark-text1.0-offscreen-dpr1.0.png",
           "evidence/development/isolated-desktop/captures/button-group-dark-text1.0-offscreen-dpr2.0.png",
           "evidence/development/isolated-desktop/captures/button-group-dark-text1.5-offscreen-dpr1.0.png",
-          "evidence/development/isolated-desktop/captures/button-group-dark-text1.5-offscreen-dpr2.0.png"
+          "evidence/development/isolated-desktop/captures/button-group-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/button-group-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/button-group-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/button-group-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/button-group-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/button-group-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/button-group-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/button-group-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/button-group-dark-text1.5-offscreen-dpr2.0.png"
         ],
         "comparisonResults": [
-          "evidence/development/isolated-desktop/comparison/comparison.json"
+          "evidence/development/isolated-desktop/comparison/comparison.json",
+          "evidence/development/panel-sizing/comparison/comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -3366,7 +3479,8 @@
               "tests/components/tst_foundations.qml",
               "tests/consumer/main.cpp",
               "scripts/check-display-sessions.sh",
-              "evidence/development/isolated-desktop/candidate.json"
+              "evidence/development/isolated-desktop/candidate.json",
+              "evidence/development/panel-sizing/candidate.json"
             ],
             "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
@@ -4126,10 +4240,171 @@
           "evidence/development/isolated-desktop/captures/card-transparent-lg-dark-text1.0-offscreen-dpr1.0.png",
           "evidence/development/isolated-desktop/captures/card-transparent-lg-dark-text1.0-offscreen-dpr2.0.png",
           "evidence/development/isolated-desktop/captures/card-transparent-lg-dark-text1.5-offscreen-dpr1.0.png",
-          "evidence/development/isolated-desktop/captures/card-transparent-lg-dark-text1.5-offscreen-dpr2.0.png"
+          "evidence/development/isolated-desktop/captures/card-transparent-lg-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-surface-none-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-surface-none-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-surface-none-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-surface-none-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-surface-none-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-surface-none-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-surface-none-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-surface-none-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-surface-sm-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-surface-sm-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-surface-sm-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-surface-sm-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-surface-sm-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-surface-sm-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-surface-sm-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-surface-sm-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-surface-md-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-surface-md-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-surface-md-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-surface-md-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-surface-md-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-surface-md-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-surface-md-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-surface-md-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-surface-lg-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-surface-lg-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-surface-lg-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-surface-lg-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-surface-lg-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-surface-lg-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-surface-lg-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-surface-lg-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-outlined-none-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-outlined-none-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-outlined-none-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-outlined-none-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-outlined-none-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-outlined-none-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-outlined-none-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-outlined-none-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-outlined-sm-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-outlined-sm-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-outlined-sm-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-outlined-sm-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-outlined-sm-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-outlined-sm-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-outlined-sm-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-outlined-sm-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-outlined-md-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-outlined-md-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-outlined-md-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-outlined-md-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-outlined-md-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-outlined-md-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-outlined-md-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-outlined-md-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-outlined-lg-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-outlined-lg-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-outlined-lg-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-outlined-lg-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-outlined-lg-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-outlined-lg-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-outlined-lg-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-outlined-lg-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-elevated-none-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-elevated-none-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-elevated-none-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-elevated-none-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-elevated-none-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-elevated-none-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-elevated-none-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-elevated-none-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-elevated-sm-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-elevated-sm-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-elevated-sm-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-elevated-sm-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-elevated-sm-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-elevated-sm-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-elevated-sm-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-elevated-sm-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-elevated-md-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-elevated-md-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-elevated-md-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-elevated-md-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-elevated-md-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-elevated-md-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-elevated-md-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-elevated-md-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-elevated-lg-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-elevated-lg-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-elevated-lg-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-elevated-lg-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-elevated-lg-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-elevated-lg-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-elevated-lg-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-elevated-lg-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-subtle-none-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-subtle-none-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-subtle-none-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-subtle-none-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-subtle-none-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-subtle-none-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-subtle-none-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-subtle-none-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-subtle-sm-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-subtle-sm-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-subtle-sm-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-subtle-sm-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-subtle-sm-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-subtle-sm-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-subtle-sm-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-subtle-sm-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-subtle-md-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-subtle-md-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-subtle-md-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-subtle-md-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-subtle-md-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-subtle-md-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-subtle-md-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-subtle-md-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-subtle-lg-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-subtle-lg-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-subtle-lg-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-subtle-lg-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-subtle-lg-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-subtle-lg-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-subtle-lg-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-subtle-lg-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-transparent-none-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-transparent-none-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-transparent-none-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-transparent-none-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-transparent-none-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-transparent-none-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-transparent-none-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-transparent-none-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-transparent-sm-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-transparent-sm-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-transparent-sm-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-transparent-sm-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-transparent-sm-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-transparent-sm-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-transparent-sm-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-transparent-sm-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-transparent-md-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-transparent-md-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-transparent-md-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-transparent-md-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-transparent-md-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-transparent-md-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-transparent-md-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-transparent-md-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-transparent-lg-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-transparent-lg-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-transparent-lg-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-transparent-lg-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-transparent-lg-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-transparent-lg-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/card-transparent-lg-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/card-transparent-lg-dark-text1.5-offscreen-dpr2.0.png"
         ],
         "comparisonResults": [
-          "evidence/development/isolated-desktop/comparison/comparison.json"
+          "evidence/development/isolated-desktop/comparison/comparison.json",
+          "evidence/development/panel-sizing/comparison/comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -4140,7 +4415,8 @@
               "tests/components/tst_surfaces.qml",
               "tests/consumer/main.cpp",
               "scripts/check-display-sessions.sh",
-              "evidence/development/isolated-desktop/candidate.json"
+              "evidence/development/isolated-desktop/candidate.json",
+              "evidence/development/panel-sizing/candidate.json"
             ],
             "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
@@ -4726,10 +5002,19 @@
           "evidence/development/isolated-desktop/captures/data-list-dark-text1.0-offscreen-dpr1.0.png",
           "evidence/development/isolated-desktop/captures/data-list-dark-text1.0-offscreen-dpr2.0.png",
           "evidence/development/isolated-desktop/captures/data-list-dark-text1.5-offscreen-dpr1.0.png",
-          "evidence/development/isolated-desktop/captures/data-list-dark-text1.5-offscreen-dpr2.0.png"
+          "evidence/development/isolated-desktop/captures/data-list-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/data-list-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/data-list-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/data-list-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/data-list-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/data-list-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/data-list-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/data-list-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/data-list-dark-text1.5-offscreen-dpr2.0.png"
         ],
         "comparisonResults": [
-          "evidence/development/isolated-desktop/comparison/comparison.json"
+          "evidence/development/isolated-desktop/comparison/comparison.json",
+          "evidence/development/panel-sizing/comparison/comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -4740,7 +5025,8 @@
               "tests/components/tst_data_display.qml",
               "tests/consumer/main.cpp",
               "scripts/check-display-sessions.sh",
-              "evidence/development/isolated-desktop/candidate.json"
+              "evidence/development/isolated-desktop/candidate.json",
+              "evidence/development/panel-sizing/candidate.json"
             ],
             "notes": "Candidate checks do not close parity; native images, typography/assets, accessibility and complete behavior cases remain pending."
           },
@@ -5262,10 +5548,35 @@
           "evidence/development/isolated-desktop/captures/field-empty-present-light-text1.0-hosting-dpr2.0.png",
           "evidence/development/isolated-desktop/captures/field-empty-present-light-text1.5-hosting-dpr2.0.png",
           "evidence/development/isolated-desktop/captures/field-empty-present-dark-text1.0-hosting-dpr2.0.png",
-          "evidence/development/isolated-desktop/captures/field-empty-present-dark-text1.5-hosting-dpr2.0.png"
+          "evidence/development/isolated-desktop/captures/field-empty-present-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/field-label-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/field-label-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/field-label-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/field-label-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/field-description-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/field-description-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/field-description-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/field-description-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/field-error-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/field-error-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/field-error-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/field-error-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/field-both-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/field-both-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/field-both-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/field-both-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/field-optional-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/field-optional-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/field-optional-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/field-optional-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/field-empty-present-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/field-empty-present-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/field-empty-present-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/field-empty-present-dark-text1.5-hosting-dpr2.0.png"
         ],
         "comparisonResults": [
-          "evidence/development/isolated-desktop/comparison/comparison.json"
+          "evidence/development/isolated-desktop/comparison/comparison.json",
+          "evidence/development/panel-sizing/comparison/comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -5277,7 +5588,8 @@
               "tests/consumer/main.cpp",
               "scripts/check-display-sessions.sh",
               "evidence/development/form-controls/candidate.json",
-              "evidence/development/isolated-desktop/candidate.json"
+              "evidence/development/isolated-desktop/candidate.json",
+              "evidence/development/panel-sizing/candidate.json"
             ],
             "notes": "Candidate input/session checks do not close complete parity, native presentation, accessibility or overlay gates."
           },
@@ -5581,10 +5893,19 @@
           "evidence/development/isolated-desktop/captures/header-dark-text1.0-offscreen-dpr1.0.png",
           "evidence/development/isolated-desktop/captures/header-dark-text1.0-offscreen-dpr2.0.png",
           "evidence/development/isolated-desktop/captures/header-dark-text1.5-offscreen-dpr1.0.png",
-          "evidence/development/isolated-desktop/captures/header-dark-text1.5-offscreen-dpr2.0.png"
+          "evidence/development/isolated-desktop/captures/header-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/header-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/header-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/header-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/header-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/header-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/header-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/header-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/header-dark-text1.5-offscreen-dpr2.0.png"
         ],
         "comparisonResults": [
-          "evidence/development/isolated-desktop/comparison/comparison.json"
+          "evidence/development/isolated-desktop/comparison/comparison.json",
+          "evidence/development/panel-sizing/comparison/comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -5595,7 +5916,8 @@
               "tests/components/tst_foundations.qml",
               "tests/consumer/main.cpp",
               "scripts/check-display-sessions.sh",
-              "evidence/development/isolated-desktop/candidate.json"
+              "evidence/development/isolated-desktop/candidate.json",
+              "evidence/development/panel-sizing/candidate.json"
             ],
             "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
@@ -5983,17 +6305,31 @@
           "evidence/development/isolated-desktop/captures/spinner-lg-light-text1.0-hosting-dpr2.0.png",
           "evidence/development/isolated-desktop/captures/spinner-lg-light-text1.5-hosting-dpr2.0.png",
           "evidence/development/isolated-desktop/captures/spinner-lg-dark-text1.0-hosting-dpr2.0.png",
-          "evidence/development/isolated-desktop/captures/spinner-lg-dark-text1.5-hosting-dpr2.0.png"
+          "evidence/development/isolated-desktop/captures/spinner-lg-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/spinner-sm-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/spinner-sm-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/spinner-sm-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/spinner-sm-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/spinner-md-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/spinner-md-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/spinner-md-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/spinner-md-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/spinner-lg-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/spinner-lg-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/spinner-lg-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/spinner-lg-dark-text1.5-hosting-dpr2.0.png"
         ],
         "comparisonResults": [
-          "evidence/development/isolated-desktop/comparison/comparison.json"
+          "evidence/development/isolated-desktop/comparison/comparison.json",
+          "evidence/development/panel-sizing/comparison/comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
             "evidence": [
-              "evidence/development/isolated-desktop/candidate.json"
+              "evidence/development/isolated-desktop/candidate.json",
+              "evidence/development/panel-sizing/candidate.json"
             ]
           },
           "x11": {
@@ -6405,10 +6741,51 @@
           "evidence/development/isolated-desktop/captures/notification-100-dark-text1.0-offscreen-dpr1.0.png",
           "evidence/development/isolated-desktop/captures/notification-100-dark-text1.0-offscreen-dpr2.0.png",
           "evidence/development/isolated-desktop/captures/notification-100-dark-text1.5-offscreen-dpr1.0.png",
-          "evidence/development/isolated-desktop/captures/notification-100-dark-text1.5-offscreen-dpr2.0.png"
+          "evidence/development/isolated-desktop/captures/notification-100-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/notification--1-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/notification--1-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/notification--1-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/notification--1-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/notification--1-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/notification--1-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/notification--1-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/notification--1-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/notification-0-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/notification-0-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/notification-0-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/notification-0-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/notification-0-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/notification-0-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/notification-0-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/notification-0-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/notification-1-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/notification-1-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/notification-1-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/notification-1-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/notification-1-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/notification-1-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/notification-1-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/notification-1-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/notification-99-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/notification-99-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/notification-99-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/notification-99-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/notification-99-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/notification-99-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/notification-99-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/notification-99-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/notification-100-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/notification-100-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/notification-100-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/notification-100-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/notification-100-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/notification-100-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/notification-100-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/notification-100-dark-text1.5-offscreen-dpr2.0.png"
         ],
         "comparisonResults": [
-          "evidence/development/isolated-desktop/comparison/comparison.json"
+          "evidence/development/isolated-desktop/comparison/comparison.json",
+          "evidence/development/panel-sizing/comparison/comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -6419,7 +6796,8 @@
               "tests/components/tst_surfaces.qml",
               "tests/consumer/main.cpp",
               "scripts/check-display-sessions.sh",
-              "evidence/development/isolated-desktop/candidate.json"
+              "evidence/development/isolated-desktop/candidate.json",
+              "evidence/development/panel-sizing/candidate.json"
             ],
             "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
@@ -6761,10 +7139,35 @@
           "evidence/development/isolated-desktop/captures/panel-empty-dark-text1.0-offscreen-dpr1.0.png",
           "evidence/development/isolated-desktop/captures/panel-empty-dark-text1.0-offscreen-dpr2.0.png",
           "evidence/development/isolated-desktop/captures/panel-empty-dark-text1.5-offscreen-dpr1.0.png",
-          "evidence/development/isolated-desktop/captures/panel-empty-dark-text1.5-offscreen-dpr2.0.png"
+          "evidence/development/isolated-desktop/captures/panel-empty-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/panel-present-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/panel-present-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/panel-present-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/panel-present-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/panel-present-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/panel-present-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/panel-present-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/panel-present-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/panel-omitted-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/panel-omitted-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/panel-omitted-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/panel-omitted-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/panel-omitted-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/panel-omitted-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/panel-omitted-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/panel-omitted-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/panel-empty-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/panel-empty-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/panel-empty-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/panel-empty-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/panel-empty-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/panel-empty-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/panel-empty-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/panel-empty-dark-text1.5-offscreen-dpr2.0.png"
         ],
         "comparisonResults": [
-          "evidence/development/isolated-desktop/comparison/comparison.json"
+          "evidence/development/isolated-desktop/comparison/comparison.json",
+          "evidence/development/panel-sizing/comparison/comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -6775,7 +7178,8 @@
               "tests/components/tst_surfaces.qml",
               "tests/consumer/main.cpp",
               "scripts/check-display-sessions.sh",
-              "evidence/development/isolated-desktop/candidate.json"
+              "evidence/development/isolated-desktop/candidate.json",
+              "evidence/development/panel-sizing/candidate.json"
             ],
             "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
@@ -6785,7 +7189,8 @@
               "docs/cards-and-badges.md",
               "tests/components/tst_surfaces.qml",
               "tests/consumer/main.cpp",
-              "scripts/check-display-sessions.sh"
+              "scripts/check-display-sessions.sh",
+              "evidence/development/panel-sizing/candidate.json"
             ],
             "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
@@ -6795,7 +7200,8 @@
               "docs/cards-and-badges.md",
               "tests/components/tst_surfaces.qml",
               "tests/consumer/main.cpp",
-              "scripts/check-display-sessions.sh"
+              "scripts/check-display-sessions.sh",
+              "evidence/development/panel-sizing/candidate.json"
             ],
             "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
@@ -6805,7 +7211,8 @@
               "docs/cards-and-badges.md",
               "tests/components/tst_surfaces.qml",
               "tests/consumer/main.cpp",
-              "scripts/check-display-sessions.sh"
+              "scripts/check-display-sessions.sh",
+              "evidence/development/panel-sizing/candidate.json"
             ],
             "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
@@ -6825,7 +7232,8 @@
               "docs/cards-and-badges.md",
               "tests/components/tst_surfaces.qml",
               "tests/consumer/main.cpp",
-              "scripts/check-display-sessions.sh"
+              "scripts/check-display-sessions.sh",
+              "evidence/development/panel-sizing/candidate.json"
             ],
             "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
@@ -6835,7 +7243,8 @@
               "docs/cards-and-badges.md",
               "tests/components/tst_surfaces.qml",
               "tests/consumer/main.cpp",
-              "scripts/check-display-sessions.sh"
+              "scripts/check-display-sessions.sh",
+              "evidence/development/panel-sizing/candidate.json"
             ],
             "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           }
@@ -6935,10 +7344,19 @@
           "evidence/development/isolated-desktop/captures/panel-layout-dark-text1.0-offscreen-dpr1.0.png",
           "evidence/development/isolated-desktop/captures/panel-layout-dark-text1.0-offscreen-dpr2.0.png",
           "evidence/development/isolated-desktop/captures/panel-layout-dark-text1.5-offscreen-dpr1.0.png",
-          "evidence/development/isolated-desktop/captures/panel-layout-dark-text1.5-offscreen-dpr2.0.png"
+          "evidence/development/isolated-desktop/captures/panel-layout-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/panel-layout-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/panel-layout-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/panel-layout-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/panel-layout-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/panel-layout-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/panel-layout-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/panel-layout-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/panel-layout-dark-text1.5-offscreen-dpr2.0.png"
         ],
         "comparisonResults": [
-          "evidence/development/isolated-desktop/comparison/comparison.json"
+          "evidence/development/isolated-desktop/comparison/comparison.json",
+          "evidence/development/panel-sizing/comparison/comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -6949,7 +7367,8 @@
               "tests/components/tst_foundations.qml",
               "tests/consumer/main.cpp",
               "scripts/check-display-sessions.sh",
-              "evidence/development/isolated-desktop/candidate.json"
+              "evidence/development/isolated-desktop/candidate.json",
+              "evidence/development/panel-sizing/candidate.json"
             ],
             "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
@@ -7467,10 +7886,107 @@
           "evidence/development/isolated-desktop/captures/progress-lg-destructive-dark-text1.0-offscreen-dpr1.0.png",
           "evidence/development/isolated-desktop/captures/progress-lg-destructive-dark-text1.0-offscreen-dpr2.0.png",
           "evidence/development/isolated-desktop/captures/progress-lg-destructive-dark-text1.5-offscreen-dpr1.0.png",
-          "evidence/development/isolated-desktop/captures/progress-lg-destructive-dark-text1.5-offscreen-dpr2.0.png"
+          "evidence/development/isolated-desktop/captures/progress-lg-destructive-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-sm-default-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-sm-default-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-sm-default-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-sm-default-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-sm-default-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-sm-default-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-sm-default-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-sm-default-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-sm-success-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-sm-success-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-sm-success-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-sm-success-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-sm-success-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-sm-success-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-sm-success-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-sm-success-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-sm-warning-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-sm-warning-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-sm-warning-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-sm-warning-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-sm-warning-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-sm-warning-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-sm-warning-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-sm-warning-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-sm-destructive-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-sm-destructive-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-sm-destructive-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-sm-destructive-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-sm-destructive-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-sm-destructive-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-sm-destructive-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-sm-destructive-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-md-default-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-md-default-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-md-default-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-md-default-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-md-default-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-md-default-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-md-default-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-md-default-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-md-success-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-md-success-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-md-success-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-md-success-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-md-success-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-md-success-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-md-success-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-md-success-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-md-warning-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-md-warning-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-md-warning-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-md-warning-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-md-warning-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-md-warning-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-md-warning-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-md-warning-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-md-destructive-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-md-destructive-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-md-destructive-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-md-destructive-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-md-destructive-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-md-destructive-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-md-destructive-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-md-destructive-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-lg-default-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-lg-default-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-lg-default-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-lg-default-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-lg-default-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-lg-default-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-lg-default-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-lg-default-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-lg-success-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-lg-success-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-lg-success-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-lg-success-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-lg-success-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-lg-success-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-lg-success-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-lg-success-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-lg-warning-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-lg-warning-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-lg-warning-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-lg-warning-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-lg-warning-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-lg-warning-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-lg-warning-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-lg-warning-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-lg-destructive-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-lg-destructive-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-lg-destructive-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-lg-destructive-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-lg-destructive-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-lg-destructive-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/progress-lg-destructive-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/progress-lg-destructive-dark-text1.5-offscreen-dpr2.0.png"
         ],
         "comparisonResults": [
-          "evidence/development/isolated-desktop/comparison/comparison.json"
+          "evidence/development/isolated-desktop/comparison/comparison.json",
+          "evidence/development/panel-sizing/comparison/comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -7481,7 +7997,8 @@
               "tests/components/tst_foundations.qml",
               "tests/consumer/main.cpp",
               "scripts/check-display-sessions.sh",
-              "evidence/development/isolated-desktop/candidate.json"
+              "evidence/development/isolated-desktop/candidate.json",
+              "evidence/development/panel-sizing/candidate.json"
             ],
             "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
@@ -8059,10 +8576,27 @@
           "evidence/development/isolated-desktop/captures/segments-c-dark-text1.0-offscreen-dpr1.0.png",
           "evidence/development/isolated-desktop/captures/segments-c-dark-text1.0-offscreen-dpr2.0.png",
           "evidence/development/isolated-desktop/captures/segments-c-dark-text1.5-offscreen-dpr1.0.png",
-          "evidence/development/isolated-desktop/captures/segments-c-dark-text1.5-offscreen-dpr2.0.png"
+          "evidence/development/isolated-desktop/captures/segments-c-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/segments-a-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/segments-a-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/segments-a-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/segments-a-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/segments-a-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/segments-a-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/segments-a-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/segments-a-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/segments-c-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/segments-c-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/segments-c-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/segments-c-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/segments-c-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/segments-c-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/segments-c-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/segments-c-dark-text1.5-offscreen-dpr2.0.png"
         ],
         "comparisonResults": [
-          "evidence/development/isolated-desktop/comparison/comparison.json"
+          "evidence/development/isolated-desktop/comparison/comparison.json",
+          "evidence/development/panel-sizing/comparison/comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -8074,7 +8608,8 @@
               "tests/consumer/main.cpp",
               "scripts/check-display-sessions.sh",
               "evidence/development/form-controls/candidate.json",
-              "evidence/development/isolated-desktop/candidate.json"
+              "evidence/development/isolated-desktop/candidate.json",
+              "evidence/development/panel-sizing/candidate.json"
             ],
             "notes": "Candidate input/session checks do not close complete parity, native presentation, accessibility or overlay gates."
           },
@@ -8286,10 +8821,27 @@
           "evidence/development/isolated-desktop/captures/separator-true-dark-text1.0-offscreen-dpr1.0.png",
           "evidence/development/isolated-desktop/captures/separator-true-dark-text1.0-offscreen-dpr2.0.png",
           "evidence/development/isolated-desktop/captures/separator-true-dark-text1.5-offscreen-dpr1.0.png",
-          "evidence/development/isolated-desktop/captures/separator-true-dark-text1.5-offscreen-dpr2.0.png"
+          "evidence/development/isolated-desktop/captures/separator-true-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/separator-false-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/separator-false-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/separator-false-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/separator-false-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/separator-false-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/separator-false-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/separator-false-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/separator-false-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/separator-true-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/separator-true-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/separator-true-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/separator-true-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/separator-true-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/separator-true-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/separator-true-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/separator-true-dark-text1.5-offscreen-dpr2.0.png"
         ],
         "comparisonResults": [
-          "evidence/development/isolated-desktop/comparison/comparison.json"
+          "evidence/development/isolated-desktop/comparison/comparison.json",
+          "evidence/development/panel-sizing/comparison/comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -8300,7 +8852,8 @@
               "tests/components/tst_foundations.qml",
               "tests/consumer/main.cpp",
               "scripts/check-display-sessions.sh",
-              "evidence/development/isolated-desktop/candidate.json"
+              "evidence/development/isolated-desktop/candidate.json",
+              "evidence/development/panel-sizing/candidate.json"
             ],
             "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
@@ -8544,10 +9097,35 @@
           "evidence/development/isolated-desktop/captures/skeleton-14-dark-text1.0-offscreen-dpr1.0.png",
           "evidence/development/isolated-desktop/captures/skeleton-14-dark-text1.0-offscreen-dpr2.0.png",
           "evidence/development/isolated-desktop/captures/skeleton-14-dark-text1.5-offscreen-dpr1.0.png",
-          "evidence/development/isolated-desktop/captures/skeleton-14-dark-text1.5-offscreen-dpr2.0.png"
+          "evidence/development/isolated-desktop/captures/skeleton-14-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/skeleton-0-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/skeleton-0-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/skeleton-0-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/skeleton-0-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/skeleton-0-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/skeleton-0-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/skeleton-0-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/skeleton-0-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/skeleton-7-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/skeleton-7-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/skeleton-7-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/skeleton-7-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/skeleton-7-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/skeleton-7-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/skeleton-7-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/skeleton-7-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/skeleton-14-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/skeleton-14-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/skeleton-14-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/skeleton-14-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/skeleton-14-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/skeleton-14-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/skeleton-14-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/skeleton-14-dark-text1.5-offscreen-dpr2.0.png"
         ],
         "comparisonResults": [
-          "evidence/development/isolated-desktop/comparison/comparison.json"
+          "evidence/development/isolated-desktop/comparison/comparison.json",
+          "evidence/development/panel-sizing/comparison/comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -8558,7 +9136,8 @@
               "tests/components/tst_foundations.qml",
               "tests/consumer/main.cpp",
               "scripts/check-display-sessions.sh",
-              "evidence/development/isolated-desktop/candidate.json"
+              "evidence/development/isolated-desktop/candidate.json",
+              "evidence/development/panel-sizing/candidate.json"
             ],
             "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
           },
@@ -8978,10 +9557,51 @@
           "evidence/development/isolated-desktop/captures/status-info-dark-text1.0-offscreen-dpr1.0.png",
           "evidence/development/isolated-desktop/captures/status-info-dark-text1.0-offscreen-dpr2.0.png",
           "evidence/development/isolated-desktop/captures/status-info-dark-text1.5-offscreen-dpr1.0.png",
-          "evidence/development/isolated-desktop/captures/status-info-dark-text1.5-offscreen-dpr2.0.png"
+          "evidence/development/isolated-desktop/captures/status-info-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/status-default-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/status-default-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/status-default-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/status-default-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/status-default-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/status-default-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/status-default-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/status-default-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/status-live-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/status-live-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/status-live-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/status-live-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/status-live-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/status-live-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/status-live-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/status-live-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/status-offline-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/status-offline-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/status-offline-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/status-offline-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/status-offline-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/status-offline-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/status-offline-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/status-offline-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/status-warning-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/status-warning-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/status-warning-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/status-warning-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/status-warning-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/status-warning-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/status-warning-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/status-warning-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/status-info-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/status-info-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/status-info-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/status-info-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/status-info-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/status-info-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/status-info-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/status-info-dark-text1.5-offscreen-dpr2.0.png"
         ],
         "comparisonResults": [
-          "evidence/development/isolated-desktop/comparison/comparison.json"
+          "evidence/development/isolated-desktop/comparison/comparison.json",
+          "evidence/development/panel-sizing/comparison/comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -8992,7 +9612,8 @@
               "tests/components/tst_surfaces.qml",
               "tests/consumer/main.cpp",
               "scripts/check-display-sessions.sh",
-              "evidence/development/isolated-desktop/candidate.json"
+              "evidence/development/isolated-desktop/candidate.json",
+              "evidence/development/panel-sizing/candidate.json"
             ],
             "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
@@ -9390,10 +10011,35 @@
           "evidence/development/isolated-desktop/captures/switch-disabled-dark-text1.0-offscreen-dpr1.0.png",
           "evidence/development/isolated-desktop/captures/switch-disabled-dark-text1.0-offscreen-dpr2.0.png",
           "evidence/development/isolated-desktop/captures/switch-disabled-dark-text1.5-offscreen-dpr1.0.png",
-          "evidence/development/isolated-desktop/captures/switch-disabled-dark-text1.5-offscreen-dpr2.0.png"
+          "evidence/development/isolated-desktop/captures/switch-disabled-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/switch-off-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/switch-off-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/switch-off-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/switch-off-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/switch-off-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/switch-off-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/switch-off-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/switch-off-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/switch-on-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/switch-on-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/switch-on-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/switch-on-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/switch-on-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/switch-on-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/switch-on-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/switch-on-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/switch-disabled-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/switch-disabled-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/switch-disabled-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/switch-disabled-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/switch-disabled-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/switch-disabled-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/switch-disabled-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/switch-disabled-dark-text1.5-offscreen-dpr2.0.png"
         ],
         "comparisonResults": [
-          "evidence/development/isolated-desktop/comparison/comparison.json"
+          "evidence/development/isolated-desktop/comparison/comparison.json",
+          "evidence/development/panel-sizing/comparison/comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -9405,7 +10051,8 @@
               "tests/consumer/main.cpp",
               "scripts/check-display-sessions.sh",
               "evidence/development/form-controls/candidate.json",
-              "evidence/development/isolated-desktop/candidate.json"
+              "evidence/development/isolated-desktop/candidate.json",
+              "evidence/development/panel-sizing/candidate.json"
             ],
             "notes": "Candidate input/session checks do not close complete parity, native presentation, accessibility or overlay gates."
           },
@@ -9709,10 +10356,19 @@
           "evidence/development/isolated-desktop/captures/textarea-scroll-light-text1.0-hosting-dpr2.0.png",
           "evidence/development/isolated-desktop/captures/textarea-scroll-light-text1.5-hosting-dpr2.0.png",
           "evidence/development/isolated-desktop/captures/textarea-scroll-dark-text1.0-hosting-dpr2.0.png",
-          "evidence/development/isolated-desktop/captures/textarea-scroll-dark-text1.5-hosting-dpr2.0.png"
+          "evidence/development/isolated-desktop/captures/textarea-scroll-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/textarea-filled-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/textarea-filled-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/textarea-filled-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/textarea-filled-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/textarea-scroll-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/textarea-scroll-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/textarea-scroll-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/textarea-scroll-dark-text1.5-hosting-dpr2.0.png"
         ],
         "comparisonResults": [
-          "evidence/development/isolated-desktop/comparison/comparison.json"
+          "evidence/development/isolated-desktop/comparison/comparison.json",
+          "evidence/development/panel-sizing/comparison/comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -9724,7 +10380,8 @@
               "tests/consumer/main.cpp",
               "scripts/check-display-sessions.sh",
               "evidence/development/form-controls/candidate.json",
-              "evidence/development/isolated-desktop/candidate.json"
+              "evidence/development/isolated-desktop/candidate.json",
+              "evidence/development/panel-sizing/candidate.json"
             ],
             "notes": "Candidate input/session checks do not close complete parity, native presentation, accessibility or overlay gates."
           },
@@ -9892,10 +10549,35 @@
           "evidence/development/isolated-desktop/captures/textfield-disabled-light-text1.0-hosting-dpr2.0.png",
           "evidence/development/isolated-desktop/captures/textfield-disabled-light-text1.5-hosting-dpr2.0.png",
           "evidence/development/isolated-desktop/captures/textfield-disabled-dark-text1.0-hosting-dpr2.0.png",
-          "evidence/development/isolated-desktop/captures/textfield-disabled-dark-text1.5-hosting-dpr2.0.png"
+          "evidence/development/isolated-desktop/captures/textfield-disabled-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/textfield-sm-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/textfield-sm-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/textfield-sm-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/textfield-sm-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/textfield-md-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/textfield-md-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/textfield-md-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/textfield-md-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/textfield-lg-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/textfield-lg-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/textfield-lg-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/textfield-lg-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/textfield-filled-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/textfield-filled-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/textfield-filled-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/textfield-filled-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/textfield-error-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/textfield-error-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/textfield-error-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/textfield-error-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/textfield-disabled-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/textfield-disabled-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/textfield-disabled-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/textfield-disabled-dark-text1.5-hosting-dpr2.0.png"
         ],
         "comparisonResults": [
-          "evidence/development/isolated-desktop/comparison/comparison.json"
+          "evidence/development/isolated-desktop/comparison/comparison.json",
+          "evidence/development/panel-sizing/comparison/comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -9903,7 +10585,8 @@
             "status": "pending",
             "evidence": [
               "evidence/development/form-controls/candidate.json",
-              "evidence/development/isolated-desktop/candidate.json"
+              "evidence/development/isolated-desktop/candidate.json",
+              "evidence/development/panel-sizing/candidate.json"
             ]
           },
           "x11": {
@@ -10116,10 +10799,27 @@
           "evidence/development/isolated-desktop/captures/timeline-last-wrapped-dark-text1.0-offscreen-dpr1.0.png",
           "evidence/development/isolated-desktop/captures/timeline-last-wrapped-dark-text1.0-offscreen-dpr2.0.png",
           "evidence/development/isolated-desktop/captures/timeline-last-wrapped-dark-text1.5-offscreen-dpr1.0.png",
-          "evidence/development/isolated-desktop/captures/timeline-last-wrapped-dark-text1.5-offscreen-dpr2.0.png"
+          "evidence/development/isolated-desktop/captures/timeline-last-wrapped-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/timeline-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/timeline-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/timeline-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/timeline-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/timeline-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/timeline-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/timeline-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/timeline-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/timeline-last-wrapped-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/timeline-last-wrapped-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/timeline-last-wrapped-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/timeline-last-wrapped-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/timeline-last-wrapped-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/timeline-last-wrapped-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/timeline-last-wrapped-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/timeline-last-wrapped-dark-text1.5-offscreen-dpr2.0.png"
         ],
         "comparisonResults": [
-          "evidence/development/isolated-desktop/comparison/comparison.json"
+          "evidence/development/isolated-desktop/comparison/comparison.json",
+          "evidence/development/panel-sizing/comparison/comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -10130,7 +10830,8 @@
               "tests/components/tst_data_display.qml",
               "tests/consumer/main.cpp",
               "scripts/check-display-sessions.sh",
-              "evidence/development/isolated-desktop/candidate.json"
+              "evidence/development/isolated-desktop/candidate.json",
+              "evidence/development/panel-sizing/candidate.json"
             ],
             "notes": "Candidate checks do not close parity; native images, typography/assets, accessibility and complete behavior cases remain pending."
           },
@@ -10140,7 +10841,8 @@
               "docs/data-display.md",
               "tests/components/tst_data_display.qml",
               "tests/consumer/main.cpp",
-              "scripts/check-display-sessions.sh"
+              "scripts/check-display-sessions.sh",
+              "evidence/development/panel-sizing/candidate.json"
             ],
             "notes": "Candidate checks do not close parity; native images, typography/assets, accessibility and complete behavior cases remain pending."
           },
@@ -10150,7 +10852,8 @@
               "docs/data-display.md",
               "tests/components/tst_data_display.qml",
               "tests/consumer/main.cpp",
-              "scripts/check-display-sessions.sh"
+              "scripts/check-display-sessions.sh",
+              "evidence/development/panel-sizing/candidate.json"
             ],
             "notes": "Candidate checks do not close parity; native images, typography/assets, accessibility and complete behavior cases remain pending."
           },
@@ -10160,7 +10863,8 @@
               "docs/data-display.md",
               "tests/components/tst_data_display.qml",
               "tests/consumer/main.cpp",
-              "scripts/check-display-sessions.sh"
+              "scripts/check-display-sessions.sh",
+              "evidence/development/panel-sizing/candidate.json"
             ],
             "notes": "Candidate checks do not close parity; native images, typography/assets, accessibility and complete behavior cases remain pending."
           },
@@ -10180,7 +10884,8 @@
               "docs/data-display.md",
               "tests/components/tst_data_display.qml",
               "tests/consumer/main.cpp",
-              "scripts/check-display-sessions.sh"
+              "scripts/check-display-sessions.sh",
+              "evidence/development/panel-sizing/candidate.json"
             ],
             "notes": "Candidate checks do not close parity; native images, typography/assets, accessibility and complete behavior cases remain pending."
           },
@@ -10190,7 +10895,8 @@
               "docs/data-display.md",
               "tests/components/tst_data_display.qml",
               "tests/consumer/main.cpp",
-              "scripts/check-display-sessions.sh"
+              "scripts/check-display-sessions.sh",
+              "evidence/development/panel-sizing/candidate.json"
             ],
             "notes": "Candidate checks do not close parity; native images, typography/assets, accessibility and complete behavior cases remain pending."
           }
@@ -10424,10 +11130,59 @@
           "evidence/development/isolated-desktop/captures/toggle-inherited-true-dark-text1.0-offscreen-dpr1.0.png",
           "evidence/development/isolated-desktop/captures/toggle-inherited-true-dark-text1.0-offscreen-dpr2.0.png",
           "evidence/development/isolated-desktop/captures/toggle-inherited-true-dark-text1.5-offscreen-dpr1.0.png",
-          "evidence/development/isolated-desktop/captures/toggle-inherited-true-dark-text1.5-offscreen-dpr2.0.png"
+          "evidence/development/isolated-desktop/captures/toggle-inherited-true-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/toggle-default-false-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/toggle-default-false-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/toggle-default-false-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/toggle-default-false-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/toggle-default-false-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/toggle-default-false-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/toggle-default-false-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/toggle-default-false-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/toggle-outline-false-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/toggle-outline-false-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/toggle-outline-false-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/toggle-outline-false-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/toggle-outline-false-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/toggle-outline-false-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/toggle-outline-false-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/toggle-outline-false-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/toggle-inherited-false-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/toggle-inherited-false-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/toggle-inherited-false-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/toggle-inherited-false-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/toggle-inherited-false-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/toggle-inherited-false-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/toggle-inherited-false-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/toggle-inherited-false-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/toggle-default-true-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/toggle-default-true-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/toggle-default-true-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/toggle-default-true-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/toggle-default-true-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/toggle-default-true-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/toggle-default-true-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/toggle-default-true-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/toggle-outline-true-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/toggle-outline-true-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/toggle-outline-true-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/toggle-outline-true-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/toggle-outline-true-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/toggle-outline-true-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/toggle-outline-true-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/toggle-outline-true-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/toggle-inherited-true-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/toggle-inherited-true-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/toggle-inherited-true-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/toggle-inherited-true-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/toggle-inherited-true-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/toggle-inherited-true-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/toggle-inherited-true-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/toggle-inherited-true-dark-text1.5-offscreen-dpr2.0.png"
         ],
         "comparisonResults": [
-          "evidence/development/isolated-desktop/comparison/comparison.json"
+          "evidence/development/isolated-desktop/comparison/comparison.json",
+          "evidence/development/panel-sizing/comparison/comparison.json"
         ],
         "exceptions": [
           "FONT-TOGGLE-001"
@@ -10441,7 +11196,8 @@
               "tests/consumer/main.cpp",
               "scripts/check-display-sessions.sh",
               "evidence/development/form-controls/candidate.json",
-              "evidence/development/isolated-desktop/candidate.json"
+              "evidence/development/isolated-desktop/candidate.json",
+              "evidence/development/panel-sizing/candidate.json"
             ],
             "notes": "Candidate input/session checks do not close complete parity, native presentation, accessibility or overlay gates."
           },
@@ -10687,10 +11443,19 @@
           "evidence/development/isolated-desktop/captures/eyebrow-dark-text1.0-offscreen-dpr1.0.png",
           "evidence/development/isolated-desktop/captures/eyebrow-dark-text1.0-offscreen-dpr2.0.png",
           "evidence/development/isolated-desktop/captures/eyebrow-dark-text1.5-offscreen-dpr1.0.png",
-          "evidence/development/isolated-desktop/captures/eyebrow-dark-text1.5-offscreen-dpr2.0.png"
+          "evidence/development/isolated-desktop/captures/eyebrow-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/eyebrow-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/eyebrow-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/eyebrow-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/eyebrow-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/eyebrow-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/eyebrow-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/eyebrow-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/eyebrow-dark-text1.5-offscreen-dpr2.0.png"
         ],
         "comparisonResults": [
-          "evidence/development/isolated-desktop/comparison/comparison.json"
+          "evidence/development/isolated-desktop/comparison/comparison.json",
+          "evidence/development/panel-sizing/comparison/comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -10701,7 +11466,8 @@
               "tests/components/tst_surfaces.qml",
               "tests/consumer/main.cpp",
               "scripts/check-display-sessions.sh",
-              "evidence/development/isolated-desktop/candidate.json"
+              "evidence/development/isolated-desktop/candidate.json",
+              "evidence/development/panel-sizing/candidate.json"
             ],
             "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
@@ -10999,10 +11765,27 @@
           "evidence/development/isolated-desktop/captures/surface-24-dark-text1.0-offscreen-dpr1.0.png",
           "evidence/development/isolated-desktop/captures/surface-24-dark-text1.0-offscreen-dpr2.0.png",
           "evidence/development/isolated-desktop/captures/surface-24-dark-text1.5-offscreen-dpr1.0.png",
-          "evidence/development/isolated-desktop/captures/surface-24-dark-text1.5-offscreen-dpr2.0.png"
+          "evidence/development/isolated-desktop/captures/surface-24-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/surface-12-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/surface-12-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/surface-12-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/surface-12-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/surface-12-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/surface-12-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/surface-12-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/surface-12-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/surface-24-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/surface-24-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/surface-24-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/surface-24-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/surface-24-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/surface-24-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/panel-sizing/captures/surface-24-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/panel-sizing/captures/surface-24-dark-text1.5-offscreen-dpr2.0.png"
         ],
         "comparisonResults": [
-          "evidence/development/isolated-desktop/comparison/comparison.json"
+          "evidence/development/isolated-desktop/comparison/comparison.json",
+          "evidence/development/panel-sizing/comparison/comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -11013,7 +11796,8 @@
               "tests/components/tst_data_display.qml",
               "tests/consumer/main.cpp",
               "scripts/check-display-sessions.sh",
-              "evidence/development/isolated-desktop/candidate.json"
+              "evidence/development/isolated-desktop/candidate.json",
+              "evidence/development/panel-sizing/candidate.json"
             ],
             "notes": "Candidate checks do not close parity; native images, typography/assets, accessibility and complete behavior cases remain pending."
           },

@@ -69,3 +69,11 @@ for appearance in light dark; do
     done
   done
 done
+# Capture all started APIs through the same isolated definitions as the native
+# proposal. This checks rendering/runtime health; visual acceptance is separate.
+QML_IMPORT_PATH="$PWD/build/linux/qml" python3 scripts/capture-proposals.py \
+  --catalog build/linux/samples/AvelinoCatalog/AvelinoCatalog \
+  --reference evidence/reference-proposals/desktop-20261012 \
+  --output "$stage/proposals"
+if [[ -e artifacts/linux/proposals ]]; then mv artifacts/linux/proposals "$stage/previous-proposals"; fi
+mv "$stage/proposals" artifacts/linux/proposals

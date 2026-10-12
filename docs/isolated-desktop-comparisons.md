@@ -77,3 +77,27 @@ an unconstrained 180-pixel content slot produces a 48-pixel-wide panel rather th
 also fills the source's available vertical allocation; the Linux fixture initially
 uses only intrinsic height. These findings remain visible in this first candidate
 while their repairs are captured separately.
+
+The panel repair derives intrinsic width directly from its content slot and visible
+title, avoiding the circular relationship between the card width and its full-width
+internal body. A present empty title reserves the source fixture's 14-unit line box;
+omitting the title removes its line box and gap. Regression cases exercise all four
+paddings with present, empty and omitted titles, slot resizing, explicit constraints,
+wrapping and title removal. The timeline fixture now explicitly assigns the offered
+height to a non-final connector; the final item retains its natural height. This
+expresses the source's vertical allocation through Qt's own sizing API and does not
+change Avelino's timeline implementation or approve its remaining visual differences.
+
+Linux CI now captures all 724 cases on x64 and ARM. Separate proposal-diagnostic
+jobs compare their images and geometry with the source proposal, preserve their
+reports, and fail on raw differences. The original 112-button comparison remains a
+separate gate. Neither diagnostic job can adopt or approve a reference baseline.
+
+The [repaired candidate](../evidence/development/panel-sizing/candidate.json) preserves
+a fresh full matrix, its comparison images, 480 passing Qt checks and sixteen
+installed-package window/full-output pairs across eight virtual configurations.
+All 24 panel cases now match source component dimensions. The eight non-final
+timeline cases also match their offered dimensions; final-title text metrics still
+differ. Overall geometry matches increase from 482 to 514 of 724 cases, while exact
+pixel-and-geometry matches remain 40. Shadows, borders, typography and other
+differences remain visible in the reports. No component acceptance changes.

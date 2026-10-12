@@ -7,7 +7,7 @@ complete comparisons, accessibility, scaling, and session acceptance are missing
 | Reference API | Linux interface and presentation |
 | --- | --- |
 | `BleeckerCard` | Default content slot; `paddingSize` none/sm/md/lg = 0/16/24/32; surface/outlined/elevated/subtle/transparent variants; continuous radius 12, border, and light-only surface/elevated shadows |
-| `BleeckerPanel` | Card composition with optional `title`, explicit `hasTitle` for a present empty title, title/content gap 16, default content slot |
+| `BleeckerPanel` | Card composition with optional `title`, explicit `hasTitle` for a present empty title, title/content gap 16, default content slot; intrinsic width uses the visible title/content requirement; a present empty title reserves the pinned 14-unit line box |
 | `BleeckerAttentionSurface` | Required `hue` and `intensity`; pinned finite-value defaults, hue wrapping, urgency clamp 0–10, accent/label colors, theme gradient and border; padding 16 |
 | `BleeckerStatusBadge` | Required `text`; default/live/offline/warning/info; dot 6, gap 6, horizontal padding 9, minimum height 24, foreground-tinted capsule |
 | `BleeckerNotificationBadge` | Required integer-valued `count`; localized display through 99, `99+` above it, full count accessibility name, padding 6, minimum height 18, pinned light destructive background in both themes |

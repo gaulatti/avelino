@@ -150,6 +150,8 @@ Window {
         id: timeline
         BleeckerTimelineItem {
             width: 300; title: definition.text; date: "12 Oct"; last: definition.flag
+            // The source's non-final connector fills the offered vertical allocation.
+            height: definition.flag ? implicitHeight : definition.height
             T.Label { text: "Bulletin ready"; color: palette.windowText }
         }
     }

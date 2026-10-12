@@ -239,3 +239,15 @@ The capture inputs, raw images/label metadata and complete comparison reports ar
 checksummed in [the candidate manifest](../evidence/development/isolated-desktop/candidate.json).
 Twenty-seven contract tests cover geometry rejection, case parameters and proposal
 status alongside the existing reference and repository boundary tests.
+
+The [panel sizing repair](../evidence/development/panel-sizing/candidate.json)
+preserves a second full 724-case matrix and fresh installed-session evidence.
+All 24 panel geometries now match the source, including the distinct 14-unit
+present-empty title. The non-final timeline fixture now fills the same offered
+height. Total geometry matches rise from 482 to 514; exact image/geometry matches
+remain 40. These results close neither baseline approval nor component acceptance.
+The expanded Qt suite passes 240 checks at each DPR (480 total), and sixteen
+installed-consumer window/full-output pairs pass across eight virtual configurations.
+Input remains synthetic and accessibility/overlays/physical hardware remain pending.
+Both architecture CI jobs will now produce isolated API captures, with independent
+strict proposal-diagnostic jobs retaining raw differences and unapproved status.

@@ -59,6 +59,29 @@ Item {
             verify(title.visible); compare(title.Accessible.name,"")
             slot.height = 60; tryCompare(item,"height",48+title.height+16+60)
         }
+        function test_panel_intrinsic_slots_data() {
+            const cases = []
+            for (const padding of ["none","sm","md","lg"])
+                for (const title of ["present","empty","omitted"])
+                    cases.push({tag:padding+"-"+title,padding:padding,title:title})
+            return cases
+        }
+        function test_panel_intrinsic_slots(data) {
+            const item = createTemporaryObject(panelFactory,parent,{paddingSize:data.padding,
+                title:data.title === "present" ? "Panel" : "",hasTitle:data.title !== "omitted"})
+            verify(item)
+            const padding = {none:0,sm:16,md:24,lg:32}[data.padding]
+            const titleHeight = data.title === "present" ? 20 : data.title === "empty" ? 14 : 0
+            tryCompare(item,"width",80+padding*2)
+            tryCompare(item,"height",30+padding*2+(data.title === "omitted" ? 0 : titleHeight+16))
+            const title = findChild(item,"bleeckerPanelTitle"), slot = findChild(item,"slot")
+            compare(title.width,80)
+            slot.width = 180; tryCompare(item,"width",180+padding*2)
+            item.title = "A much longer title requiring a constrained width"; item.hasTitle = true
+            item.width = 120+padding*2
+            tryCompare(title,"width",120); verify(title.height > 20)
+            item.hasTitle = false; tryCompare(item,"height",30+padding*2)
+        }
         function test_attention_data() {
             return [
                 {tag:"red-low",hue:0,intensity:0,rgb:[0.52,0.1768,0.1768]},
