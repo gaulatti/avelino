@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 import re
 import tarfile
+from reference_sources import resolve_reference
 
 ROOT = Path(__file__).resolve().parents[1]
 VISUAL_PROTOCOLS = {"View", "ViewModifier", "ButtonStyle", "ToggleStyle", "UIViewRepresentable", "UIView"}
@@ -47,7 +48,7 @@ def location(text, offset, path):
 
 def discover(kind, record):
     declarations, modifiers, symbols, adapters, mono = [], [], [], [], []
-    with tarfile.open(ROOT / record["artifact"]) as archive:
+    with tarfile.open(resolve_reference(record)) as archive:
         sources = {m.name: archive.extractfile(m).read().decode() for m in archive.getmembers()
                    if m.isfile() and m.name.endswith(".swift")}
     for path, text in sorted(sources.items()):

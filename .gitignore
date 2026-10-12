@@ -6,5 +6,25 @@ __pycache__/
 .DS_Store
 *.user
 *.log
-/reference/capture/.build/
-/reference/capture/Package.resolved
+
+# Linux-only working tree. Reference source and Apple capture tools live outside it.
+/reference/sources/
+/reference/capture/
+*.[sS][wW][iI][fF][tT]
+*.swiftinterface
+*.swiftmodule
+*.swiftdoc
+*.swiftsourceinfo
+*.xcodeproj/
+*.xcworkspace/
+*.xcassets/
+*.xcconfig
+*.pbxproj
+*.storyboard
+*.xib
+*.ipa
+*.dSYM/
+.swiftpm/
+.build/
+Package.resolved
+*-Package.resolved

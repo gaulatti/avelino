@@ -6,7 +6,7 @@
       "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
       "tree": "db61113381a51fc3c7b3d12786609cd9e76627c8",
       "commitMetadata": "commit fe8a1d462fbd793d883fb92086a16aa2947e32c9\nAuthor:     Javier Godoy <jack@gaulatti.com>\nAuthorDate: Mon Sep 28 12:35:16 2026 -0400\nCommit:     Javier Godoy <jack@gaulatti.com>\nCommitDate: Mon Sep 28 12:43:08 2026 -0400\n\n    fix(attention): keep category labels readable on cards\n",
-      "artifact": "reference/sources/sabella-desktop-fe8a1d462fbd793d883fb92086a16aa2947e32c9.tar.gz",
+      "artifact": ".cache/reference-sources/sabella-desktop-fe8a1d462fbd793d883fb92086a16aa2947e32c9.tar.gz",
       "sha256": "d22df4c84f32dc52562476c0c938cee0a473ea68e4cd8f07fd26e724850605c5",
       "scope": [
         "Package.swift",
@@ -355,6 +355,12 @@
           }
         ],
         "version": 3
+      },
+      "storage": {
+        "kind": "git-history",
+        "repository": "https://github.com/gaulatti/avelino",
+        "revision": "0a075b23a6e8911a6e664191849901effc495180",
+        "path": "reference/sources/sabella-desktop-fe8a1d462fbd793d883fb92086a16aa2947e32c9.tar.gz"
       }
     },
     "television": {
@@ -362,7 +368,7 @@
       "revision": "f5ac479bfceaa7eab23c1716ac47420ac53dae25",
       "tree": "b1acd30b45f3c098ed3f4ffe5bf3e665ce6e5172",
       "commitMetadata": "commit f5ac479bfceaa7eab23c1716ac47420ac53dae25\nAuthor:     Javier Godoy <jack@gaulatti.com>\nAuthorDate: Mon Sep 28 19:00:51 2026 -0400\nCommit:     GitHub <noreply@github.com>\nCommitDate: Mon Sep 28 19:00:51 2026 -0400\n\n    feat(tv): tune channels with remote page buttons (#17)\n    \n    * feat(tv): tune channels with remote page buttons\n    \n    * fix(tv): place higher channels above lower channels\n    \n    * fix(tv): make channel plus advance numbering\n    \n    * feat(tv): identify channels after remote switching\n    \n    * test(tv): expose channel notice in catalog fixture\n    \n    * fix(tv): restore group focus after playback\n    \n    * feat(tv): wrap channel navigation at lineup ends\n    \n    * fix(tv): focus guide target after wrap scroll\n",
-      "artifact": "reference/sources/sabella-television-f5ac479bfceaa7eab23c1716ac47420ac53dae25.tar.gz",
+      "artifact": ".cache/reference-sources/sabella-television-f5ac479bfceaa7eab23c1716ac47420ac53dae25.tar.gz",
       "sha256": "ac62036f919ad63a36578b2b2f8b11dbfc70e83e6b6a2982829a7f515ae9dfef",
       "scope": [
         "Package.swift",
@@ -711,6 +717,12 @@
           }
         ],
         "version": 3
+      },
+      "storage": {
+        "kind": "git-history",
+        "repository": "https://github.com/gaulatti/avelino",
+        "revision": "0a075b23a6e8911a6e664191849901effc495180",
+        "path": "reference/sources/sabella-television-f5ac479bfceaa7eab23c1716ac47420ac53dae25.tar.gz"
       }
     },
     "bleecker": {
@@ -731,5 +743,11 @@
     "swift": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0",
     "sdk": "27.0",
     "captureTooling": "Pending: recorded separately per actual capture; no image acceptance yet"
+  },
+  "captureDependencyRecord": {
+    "artifact": "reference/captures/desktop/buttons/capture-dependencies.json",
+    "sha256": "c02f6553dc1a7582b3d98a95b0d8610a8c840d87721a9c2b40cdcfbda0572b1f",
+    "historicalRevision": "0a075b23a6e8911a6e664191849901effc495180",
+    "historicalPath": "reference/captures/desktop/buttons/capture-Package.resolved"
   }
 }

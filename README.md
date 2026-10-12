@@ -21,9 +21,16 @@ python3 scripts/verify-references.py
 python3 scripts/discover-reference.py --check
 ```
 
-These commands use only the source artifacts in this repository. No Sabella
-checkout, GitHub fetch, Apple font redistribution, or expected-image regeneration
-is required. Reference capture tools require the recorded Apple OS and SDK.
+These commands recover the exact checksummed source artifacts from an immutable
+historical Avelino commit into `.cache/reference-sources/`. A full clone contains
+that history; shallow checkouts need the explicit fetch documented in
+[reference reproduction](docs/references.md). No Sabella checkout is needed.
+The current tracked tree contains Linux code, rendered references, and provenance.
+Swift source and Apple capture tooling stay outside it.
+
+`.gitignore` blocks accidental Swift/Apple project additions and local reference
+caches. `python3 scripts/check-linux-boundary.py` checks the Git index, including
+archive contents, and runs in CI to catch forced additions.
 
 See [Linux build and catalog checks](docs/development.md) and
 [installed-package verification](docs/packaging.md). The initial button, spinner,

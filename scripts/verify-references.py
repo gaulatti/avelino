@@ -5,12 +5,13 @@ import json
 from pathlib import Path
 import tarfile
 import tempfile
+from reference_sources import resolve_reference
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def verify_reference(record, directory):
-    artifact = ROOT / record["artifact"]
+    artifact = resolve_reference(record)
     assert hashlib.sha256(artifact.read_bytes()).hexdigest() == record["sha256"], artifact
     expected = {entry["path"]: entry for entry in record["files"]}
     with tarfile.open(artifact, "r:gz") as archive:
@@ -36,6 +37,9 @@ def main():
     token = manifest["references"]["bleecker"]
     assert hashlib.sha256((ROOT / token["artifact"]).read_bytes()).hexdigest() == token["sha256"]
     print("bleecker: canonical token source verified")
+    lock = manifest["captureDependencyRecord"]
+    assert hashlib.sha256((ROOT / lock["artifact"]).read_bytes()).hexdigest() == lock["sha256"]
+    print("capture dependencies: original lock bytes preserved as JSON provenance")
     asset_manifest = ROOT / "assets/provenance.json"
     if asset_manifest.exists():
         assets = json.loads(asset_manifest.read_text())

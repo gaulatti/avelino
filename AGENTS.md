@@ -390,6 +390,11 @@ SwiftUI/AVPlayer APIs are reference implementation details, not Linux API mandat
 - Desktop reference: `fe8a1d462fbd793d883fb92086a16aa2947e32c9`.
 - TV reference: `f5ac479bfceaa7eab23c1716ac47420ac53dae25`.
 - Preserve siblings read-only. References must work without sibling checkouts.
+- Keep the tracked tree Linux-only: no Swift sources, Apple projects, or archives
+  containing them. Recover checksummed source references into the ignored cache
+  from their immutable historical Git locator. Keep Apple capture tooling external.
+- Run `python3 scripts/check-linux-boundary.py` before committing. Ignore rules
+  are only the first layer; the guard checks tracked paths and archive contents.
 - Reference updates require explicit authorization and reviewed source/image diffs.
 - Never regenerate expected captures to hide regressions or self-approve exceptions.
 - Keep unresolved fonts, icons, and OS presentations verification-pending.

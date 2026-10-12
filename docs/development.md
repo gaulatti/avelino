@@ -5,6 +5,13 @@ uses an immutable Ubuntu 24.04 base image and official Qt archives via aqt 3.3.0
 It supports separate ARM64 and x86_64 builds. ICU is included from Qt's archive,
 since the prebuilt Qt binaries require its matching version.
 
+Keep the tracked tree Linux-only. `.gitignore` excludes Swift/Apple project files
+and the reference source cache. Before committing, run
+`python3 scripts/check-linux-boundary.py`; the References CI job also rejects
+Apple source or projects hidden in tracked archives. Reference discovery reads
+verified historical artifacts from the ignored cache; Apple capture tools are
+external, as described in [reference reproduction](references.md).
+
 ```sh
 docker build -t avelino-toolchain:qt6.8.3 -f tools/Dockerfile .
 docker run --rm -v "$PWD:/work" avelino-toolchain:qt6.8.3 bash scripts/check-linux.sh

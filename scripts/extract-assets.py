@@ -4,15 +4,16 @@ import hashlib
 import json
 from pathlib import Path
 import tarfile
+from reference_sources import resolve_reference
 
 ROOT = Path(__file__).resolve().parents[1]
 record = json.loads((ROOT / "reference/source-manifest.json").read_text())["references"]["desktop"]
 destination = ROOT / "assets/provenance.json"
 if destination.exists():
     raise SystemExit("Assets already initialized; preserve provenance through reviewed changes.")
-assert hashlib.sha256((ROOT / record["artifact"]).read_bytes()).hexdigest() == record["sha256"]
+artifact = resolve_reference(record)
 assets = []
-with tarfile.open(ROOT / record["artifact"]) as archive:
+with tarfile.open(artifact) as archive:
     for member in archive.getmembers():
         if not member.isfile():
             continue
