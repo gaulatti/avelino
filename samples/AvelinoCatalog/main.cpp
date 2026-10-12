@@ -64,6 +64,7 @@ int main(int argc, char *argv[]) {
                 meta.insert("labelX", origin.x()); meta.insert("labelY", origin.y());
             }
             meta.insert("fixture", parser.value("fixture"));
+            meta.insert("textScale", window->property("fixtureTextScale").toDouble());
             meta.insert("variant", parser.value("variant"));
             meta.insert("size", parser.value("size"));
             meta.insert("state", parser.isSet("disabled") ? "disabled" : "enabled");

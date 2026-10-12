@@ -27,14 +27,19 @@ def compare(reference, candidate, output):
             results.append(result)
             continue
         metadata = json.loads((candidate / (name + ".json")).read_text())
-        for key in ["width", "height", "dpr", "appearance", "variant", "size", "state"]:
+        for key in ["width", "height", "dpr", "textScale", "fixture", "appearance", "variant", "size", "state"]:
             if fixture[key] != metadata.get(key):
                 result["error"] = f"Incompatible fixture metadata: {key}"
                 break
-        expected, actual = Image.open(expected_path), Image.open(actual_path)
+        with Image.open(expected_path) as source:
+            expected = source.copy()
+        with Image.open(actual_path) as source:
+            actual = source.copy()
         result.update(referenceSHA256=digest(expected_path), candidateSHA256=digest(actual_path),
                       referenceColorMetadata={k: str(v) for k, v in expected.info.items() if k in ["srgb", "gamma", "chromaticity"]},
                       candidateColorMetadata={k: str(v) for k, v in actual.info.items() if k in ["srgb", "gamma", "chromaticity"]})
+        if fixture.get("sha256") != result["referenceSHA256"]:
+            result["error"] = "Reference image is missing its preserved checksum or its bytes have changed"
         if expected.size != actual.size:
             result["error"] = "Physical pixel dimensions differ; comparison refuses resizing"
         if "icc_profile" in expected.info or "icc_profile" in actual.info:

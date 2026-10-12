@@ -1,6 +1,7 @@
 import QtQuick
 import Avelino
 Window {
+    readonly property real fixtureTextScale: BleeckerTheme.textScale
     width: 240; height: 96; visible: true
     color: BleeckerTheme.palette.background
     Component.onCompleted: { BleeckerTheme.dark = captureDark; BleeckerTheme.reducedMotion = true }

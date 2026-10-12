@@ -3,6 +3,7 @@ import Avelino
 
 Window {
     id: window
+    readonly property real fixtureTextScale: BleeckerTheme.textScale
     width: 840
     height: 600
     visible: true
