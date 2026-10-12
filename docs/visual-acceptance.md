@@ -39,3 +39,20 @@ platform adaptation cannot be used to relabel an unfinished mirror.
 Desktop has its own gate. TV additionally needs selected hardware/backend/input
 and real physical-remote and sustained-playback evidence. Headless playback,
 screenshots, and synthetic key events do not close TV hardware acceptance.
+
+## Candidate comparison tool
+
+Install `tools/visual-requirements.txt`, then run:
+
+```sh
+python3 scripts/compare-captures.py --reference artifacts/reference \
+  --candidate artifacts/linux --output artifacts/comparison
+```
+
+The tool emits per-case side-by-side images, overlays, raw pixel differences, and
+a JSON/HTML report. It fails on missing cases, incompatible logical dimensions,
+DPR, themes or states, physical image sizes, alpha differences, and any RGB pixel
+difference. ICC-managed captures require an explicit reviewed conversion; the
+tool refuses to strip profiles or quietly reinterpret them. Initial tolerance is
+zero. A later calibrated glyph-edge rule must preserve layout and asset failures;
+it cannot be inferred from a favorable whole-screen percentage.

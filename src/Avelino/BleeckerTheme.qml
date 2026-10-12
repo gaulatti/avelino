@@ -1,5 +1,6 @@
 pragma Singleton
-import QtQml
+pragma FunctionSignatureBehavior: Enforced
+import QtQuick
 QtObject {
     property bool dark: false
     property real textScale: 1.0

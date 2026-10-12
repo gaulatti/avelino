@@ -2,13 +2,14 @@ import QtQuick
 import QtTest
 import Avelino
 
-TestCase {
-    name: "ControlledActionsAndEditing"
+Item {
     width: 640; height: 400
-    when: windowShown
     BleeckerButton { id: button; x: 20; y: 20; text: "Publish" }
     BleeckerTextField { id: field; x: 20; y: 100; placeholderText: "Title" }
     SignalSpy { id: clicks; target: button; signalName: "clicked" }
+    TestCase {
+    name: "ControlledActionsAndEditing"
+    when: windowShown
     function init() { button.enabled = true; button.loading = false; button.variant = "primary"; BleeckerTheme.dark = false; BleeckerTheme.textScale = 1; BleeckerTheme.reducedMotion = true; field.text = ""; clicks.clear() }
     function test_pointer_activation_and_disabled() {
         mouseClick(button)
@@ -52,5 +53,6 @@ TestCase {
         BleeckerTheme.textScale = 1.5
         compare(field.implicitHeight, 60)
         compare(button.font.pixelSize, 21)
+    }
     }
 }
