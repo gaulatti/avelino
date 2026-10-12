@@ -6,7 +6,9 @@ import hashlib, json, subprocess
 from pathlib import Path
 def command(*args):
     return subprocess.check_output(args, text=True, stderr=subprocess.STDOUT).strip()
-files = sorted(p for folder in ['src', 'samples', 'assets', 'tokens'] for p in Path(folder).rglob('*') if p.is_file())
+files = sorted([Path('CMakeLists.txt'), Path('CMakePresets.json')] +
+    [p for folder in ['src', 'samples', 'assets', 'tokens', 'tests', 'scripts', 'cmake', 'tools']
+     for p in Path(folder).rglob('*') if p.is_file() and '__pycache__' not in p.parts])
 # The CI bind mount belongs to the runner UID, while the toolchain runs as root.
 # Trust only this explicit checkout for these read-only provenance commands.
 git = ['git', '-c', f'safe.directory={Path.cwd()}']
@@ -35,6 +37,8 @@ mkdir -p artifacts/package
 cmake --install build/linux --prefix "$PWD/artifacts/package/install"
 cp -R tests/consumer artifacts/package/consumer
 cp scripts/check-installed.sh artifacts/package/check-installed.sh
+cp scripts/check-display-sessions.sh artifacts/package/check-display-sessions.sh
+cp artifacts/linux/environment.json artifacts/package/environment.json
 mkdir -p artifacts/linux
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --capture artifacts/linux/actions-light.png
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --dark --capture artifacts/linux/actions-dark.png

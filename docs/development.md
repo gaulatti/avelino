@@ -25,6 +25,22 @@ label metrics. A dirty local capture remains distinguishable from a CI commit.
 The container's read-only Git queries trust only the mounted checkout for that
 invocation; they do not change the host or global Git configuration.
 
+The installed consumer also runs on an Xvfb X11 server and a Weston Wayland
+compositor nested on that server. Both exercise Qt's software and OpenGL renderers
+with Mesa software rendering, at DPR 1 and 2; the second configuration uses dark
+appearance and text scale 1.5. Whole-output screenshots accompany single-window
+captures, renderer logs, dimensions, checksums, and environment metadata. These
+are virtual display-session checks with synthetic in-process input. They do not
+close physical input, hardware acceleration, accessibility, or overlay acceptance.
+The default Weston input-method keyboard appears when the text field receives
+focus; the whole-output capture preserves it as session evidence.
+No overlay component is implemented yet. [Weston's backend documentation](https://wayland.pages.freedesktop.org/weston/toc/running-weston.html)
+describes how its X11 backend composites Wayland surfaces into the parent output.
+
+In the package-only container, run `bash check-installed.sh` followed by
+`bash check-display-sessions.sh`. The latter refuses an existing output directory;
+pass a new absolute directory as its first argument for another candidate run.
+
 These are implementation checks. The first Qt button, spinner, and text-field
 presentations are **verification-pending**: the SwiftUI comparisons, shadow and
 continuous-corner geometry, loading indicator, platform focus, selection treatment,

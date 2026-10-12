@@ -26,7 +26,7 @@ jobs:
           cache-to: type=gha,mode=max,scope=toolchain-${{ matrix.runner }}
       - run: docker run --rm -v "$PWD:/work" avelino-toolchain:qt6.8.3 bash scripts/check-linux.sh
       - name: Consumer with source and build trees absent
-        run: docker run --rm -v "$PWD/artifacts/package:/package" -w /package avelino-toolchain:qt6.8.3 bash check-installed.sh
+        run: docker run --rm -v "$PWD/artifacts/package:/package" -w /package avelino-toolchain:qt6.8.3 bash -c 'bash check-installed.sh && bash check-display-sessions.sh'
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -34,4 +34,6 @@ jobs:
           path: |
             artifacts/linux
             artifacts/package/install
+            artifacts/package/environment.json
+            artifacts/package/display-evidence
             build/linux/Testing/Temporary/LastTest.log
