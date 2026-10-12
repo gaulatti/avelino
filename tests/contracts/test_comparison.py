@@ -84,3 +84,37 @@ class ComparisonBoundaryTests(unittest.TestCase):
         image = Image.open(self.candidate / self.name)
         image.save(self.candidate / self.name, icc_profile=b'unreviewed-profile')
         self.assertIn('ICC', self.check('failed')['error'])
+
+    def test_component_geometry_difference_fails_even_when_pixels_match(self):
+        self.fixture['componentSize'] = dict(width=1, height=1)
+        (self.reference / 'captures.json').write_text(json.dumps({'captures': [self.fixture]}))
+        self.metadata['componentSize'] = dict(width=2, height=1)
+        self.write_metadata()
+        result = self.check('failed')
+        self.assertEqual(result['changedPixels'], 0)
+        self.assertEqual(result['geometryStatus'], 'failed')
+        self.assertEqual(result['componentGeometry']['delta']['width'], 1)
+
+    def test_missing_component_geometry_rejects_the_capture(self):
+        self.fixture['componentSize'] = dict(width=1, height=1)
+        (self.reference / 'captures.json').write_text(json.dumps({'captures': [self.fixture]}))
+        self.assertIn('geometry', self.check('failed')['error'])
+
+    def test_proposed_fixture_parameters_must_match(self):
+        self.fixture.update(api='BleeckerSwitchStyle', flag=True, value=5, text='Label')
+        (self.reference / 'captures.json').write_text(json.dumps({'captures': [self.fixture]}))
+        for key, value in [('api', 'BleeckerButton'), ('flag', False), ('value', 0), ('text', 'Wrong')]:
+            with self.subTest(key=key):
+                self.metadata = dict(self.fixture, **{key: value})
+                self.write_metadata()
+                self.assertIn(key, self.check('failed')['error'])
+
+    def test_identical_proposed_images_do_not_approve_the_baseline(self):
+        path = self.reference / 'proposal.json'
+        proposal = dict(status='proposed; no baseline approval', accepted=False)
+        path.write_text(json.dumps(proposal))
+        self.check('passed')
+        report = json.loads((self.output / 'comparison.json').read_text())
+        self.assertEqual(report['referenceStatus'], proposal['status'])
+        self.assertIn('baseline approval', report['acceptance'])
+        self.assertFalse(json.loads(path.read_text())['accepted'])

@@ -224,3 +224,18 @@ expanded logical height. These checks do not close native comparison or full
 variant/runtime acceptance. Two font differences have specific proposed exceptions;
 none is approved. Twenty-three contract tests include proposal integrity,
 self-approval rejection, false DPR rejection and discovered variant reconciliation.
+
+The reference-proposal checkpoint passes both architecture build/runtime/package
+jobs and reference CI. Both strict button comparisons still fail.
+[Reference proposal CI](https://github.com/gaulatti/avelino/actions/runs/38301755792)
+
+The next [isolated-fixture candidate](isolated-desktop-comparisons.md) preserves
+724 Linux captures across all 25 started APIs and their proposed native counterparts.
+Forty cases match pixels and component geometry exactly; 684 fail. None closes
+component acceptance or approves the proposed baseline. All captures finish without
+binding loops or JavaScript runtime errors. The first matrix reveals the panel's
+intrinsic-width collapse and the timeline fixture's missing vertical allocation.
+The capture inputs, raw images/label metadata and complete comparison reports are
+checksummed in [the candidate manifest](../evidence/development/isolated-desktop/candidate.json).
+Twenty-seven contract tests cover geometry rejection, case parameters and proposal
+status alongside the existing reference and repository boundary tests.

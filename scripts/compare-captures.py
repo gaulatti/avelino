@@ -12,11 +12,12 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def compare(reference, candidate, output):
+def compare(reference, candidate, output, apis=None):
     output.mkdir(parents=True, exist_ok=True)
     manifest = json.loads((reference / "captures.json").read_text())
     results, rows = [], []
     for fixture in manifest["captures"]:
+        if apis and fixture.get("api") not in apis: continue
         name = fixture["path"]
         expected_path, actual_path = reference / name, candidate / name
         result = {"fixture": name, "reference": str(expected_path), "candidate": str(actual_path),
@@ -27,10 +28,19 @@ def compare(reference, candidate, output):
             results.append(result)
             continue
         metadata = json.loads((candidate / (name + ".json")).read_text())
-        for key in ["width", "height", "dpr", "textScale", "fixture", "appearance", "variant", "size", "state"]:
+        for key in ["width", "height", "dpr", "textScale", "fixture", "appearance", "variant", "size", "state", "api", "flag", "value", "text"]:
+            if key not in fixture: continue
             if fixture[key] != metadata.get(key):
                 result["error"] = f"Incompatible fixture metadata: {key}"
                 break
+        if "componentSize" in fixture:
+            measured = metadata.get("componentSize", {})
+            if not all(isinstance(measured.get(axis), (int, float)) for axis in ["width", "height"]):
+                result["error"] = "Missing measured component geometry"
+            else:
+                delta = {axis: measured[axis] - fixture["componentSize"][axis] for axis in ["width", "height"]}
+                result["componentGeometry"] = {"reference": fixture["componentSize"], "candidate": measured, "delta": delta}
+                result["geometryStatus"] = "passed" if all(abs(v) <= 1e-6 for v in delta.values()) else "failed"
         with Image.open(expected_path) as source:
             expected = source.copy()
         with Image.open(actual_path) as source:
@@ -54,7 +64,7 @@ def compare(reference, candidate, output):
         result.update(changedPixels=sum(any(channel != 0 for channel in pixel) for pixel in pixels),
                       maximumChannelError=max(max(pixel) for pixel in pixels),
                       differenceBounds=delta.getbbox(), alphaDifferenceBounds=alpha_delta.getbbox())
-        result["status"] = "passed" if not delta.getbbox() and not alpha_delta.getbbox() else "failed"
+        result["status"] = "passed" if not delta.getbbox() and not alpha_delta.getbbox() and result.get("geometryStatus", "passed") == "passed" else "failed"
         stem = Path(name).stem
         delta.save(output / f"{stem}-diff.png")
         overlay = Image.blend(expected.convert("RGB"), actual.convert("RGB"), 0.5)
@@ -67,6 +77,10 @@ def compare(reference, candidate, output):
     report = {"status": "passed" if results and all(r["status"] == "passed" for r in results) else "failed",
               "acceptance": "comparison only; runtime, asset, state, session, and accessibility gates remain independent",
               "results": results}
+    if (reference / "proposal.json").is_file():
+        proposal = json.loads((reference / "proposal.json").read_text())
+        report["referenceStatus"] = proposal["status"]
+        report["acceptance"] = "diagnostic comparison against proposed references; baseline approval and all runtime/state/session gates remain pending"
     (output / "comparison.json").write_text(json.dumps(report, indent=2) + "\n")
     (output / "index.html").write_text('<!doctype html><meta charset="utf-8"><title>Avelino mirror comparison</title><style>body{font:16px sans-serif;margin:24px;background:#f6f6f6}article{background:white;padding:16px;margin:20px 0}img{display:block;max-width:100%;margin:12px 0}</style><h1>Reference and Linux candidate comparison</h1><p>No resizing, ignored regions, or visual exceptions. Raw differences remain open.</p>' + ''.join(rows))
     print(f"{report['status']}: {len(results)} fixture comparisons; report {output / 'index.html'}")
@@ -78,5 +92,6 @@ if __name__ == "__main__":
     parser.add_argument("--reference", type=Path, required=True)
     parser.add_argument("--candidate", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--api", action="append", help="Compare only this API's cases (repeatable)")
     args = parser.parse_args()
-    raise SystemExit(compare(args.reference, args.candidate, args.output))
+    raise SystemExit(compare(args.reference, args.candidate, args.output, args.api))

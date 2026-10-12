@@ -6,6 +6,7 @@
 #include <QCommandLineParser>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QJsonArray>
 #include <QFile>
 #include <QSysInfo>
 #include <QFont>
@@ -14,13 +15,36 @@
 #include <QSGRendererInterface>
 #include <cmath>
 
+static QQuickItem *findVisual(QQuickItem *root, const QString &name) {
+    if (root->objectName() == name) return root;
+    for (auto child : root->childItems()) if (auto found = findVisual(child, name)) return found;
+    return nullptr;
+}
+
+static void recordLabels(QQuickItem *root, QJsonArray &labels) {
+    const auto fontProperty = root->property("font");
+    if (root->isVisible() && fontProperty.isValid() && root->property("text").isValid()) {
+        const auto font = fontProperty.value<QFont>();
+        const auto raw = QRawFont::fromFont(font);
+        const auto position = root->mapToScene(QPointF(0, 0));
+        labels.append(QJsonObject{{"role", root->objectName()}, {"text", root->property("text").toString()},
+            {"family", raw.familyName()}, {"style", raw.styleName()}, {"weight", int(font.weight())},
+            {"requestedPointSize", font.pointSizeF()}, {"requestedPixelSize", font.pixelSize()},
+            {"width", root->width()}, {"height", root->height()}, {"x", position.x()}, {"y", position.y()},
+            {"sceneBaseline", root->mapToScene(QPointF(0, root->baselineOffset())).y()}});
+    }
+    for (auto child : root->childItems()) recordLabels(child, labels);
+}
+
 int main(int argc, char *argv[]) {
     QGuiApplication app(argc, argv);
     QCommandLineParser parser;
     parser.addHelpOption();
     parser.addOptions({QCommandLineOption("capture", "Save the displayed fixture to PNG and exit", "path"),
                        QCommandLineOption("dark", "Use dark reference appearance"),
-                       QCommandLineOption("fixture", "Render a deterministic fixture (button, foundations, surfaces, data-display or controls)", "name"),
+                       QCommandLineOption("fixture", "Render a fixture (button, foundations, surfaces, data-display, controls or reference-case)", "name"),
+                       QCommandLineOption("case", "Isolated reference fixture identifier", "id"),
+                       QCommandLineOption("case-definitions", "JSON file containing the isolated fixture definitions", "path"),
                        QCommandLineOption("variant", "Button variant", "name", "primary"),
                        QCommandLineOption("size", "Button size", "name", "md"),
                        QCommandLineOption("disabled", "Disable the fixture control"),
@@ -29,22 +53,42 @@ int main(int argc, char *argv[]) {
     bool validScale = false;
     const qreal textScale = parser.value("text-scale").toDouble(&validScale);
     if (!validScale || !std::isfinite(textScale) || textScale <= 0) return 5;
+    const auto fixture = parser.value("fixture");
+    const bool isolated = fixture == "reference-case";
+    QJsonObject definition;
+    if (isolated) {
+        if (!parser.isSet("case") || !parser.isSet("case-definitions")) return 6;
+        QFile file(parser.value("case-definitions"));
+        if (!file.open(QIODevice::ReadOnly)) return 6;
+        QJsonParseError error;
+        const auto definitions = QJsonDocument::fromJson(file.readAll(), &error).object().value("fixtures").toArray();
+        if (error.error != QJsonParseError::NoError) return 6;
+        int matches = 0;
+        for (const auto &value : definitions) {
+            const auto entry = value.toObject();
+            if (entry.value("fixture").toString() == parser.value("case")) { definition = entry; ++matches; }
+        }
+        if (matches != 1 || definition.value("width").toDouble() <= 0 || definition.value("height").toDouble() <= 0) return 6;
+    } else if (parser.isSet("case") || parser.isSet("case-definitions")) return 6;
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("captureDark", parser.isSet("dark"));
     engine.rootContext()->setContextProperty("captureVariant", parser.value("variant"));
     engine.rootContext()->setContextProperty("captureSize", parser.value("size"));
     engine.rootContext()->setContextProperty("captureDisabled", parser.isSet("disabled"));
     engine.rootContext()->setContextProperty("captureTextScale", textScale);
+    engine.rootContext()->setContextProperty("captureDefinition", definition.toVariantMap());
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreationFailed, &app, [] { QCoreApplication::exit(1); }, Qt::QueuedConnection);
-    const auto fixture = parser.value("fixture");
-    if (parser.isSet("fixture") && fixture != "button" && fixture != "foundations" && fixture != "surfaces" && fixture != "data-display" && fixture != "controls") return 4;
-    engine.loadFromModule("AvelinoCatalog", fixture == "controls" ? "ControlsFixture" : fixture == "data-display" ? "DataDisplayFixture" : fixture == "surfaces" ? "SurfacesFixture" : fixture == "foundations" ? "FoundationsFixture"
+    if (parser.isSet("fixture") && fixture != "button" && fixture != "foundations" && fixture != "surfaces" && fixture != "data-display" && fixture != "controls" && !isolated) return 4;
+    engine.loadFromModule("AvelinoCatalog", isolated ? "ReferenceCaseFixture" : fixture == "controls" ? "ControlsFixture" : fixture == "data-display" ? "DataDisplayFixture" : fixture == "surfaces" ? "SurfacesFixture" : fixture == "foundations" ? "FoundationsFixture"
         : fixture == "button" ? "ButtonFixture" : "Main");
     if (parser.isSet("capture")) {
         const auto path = parser.value("capture");
-        QTimer::singleShot(700, &app, [&engine, &app, &parser, path] {
+        QTimer::singleShot(700, &app, [&engine, &app, &parser, path, isolated, definition] {
             const auto window = qobject_cast<QQuickWindow *>(engine.rootObjects().value(0));
-            if (!window || !window->grabWindow().save(path)) { app.exit(2); return; }
+            if (!window) { app.exit(2); return; }
+            const auto component = isolated ? findVisual(window->contentItem(), "referenceCaseComponent") : nullptr;
+            if (isolated && (!component || component->width() <= 0 || component->height() <= 0)) { app.exit(6); return; }
+            if (!window->grabWindow().save(path)) { app.exit(2); return; }
             QJsonObject meta{{"qt", qVersion()}, {"os", QSysInfo::prettyProductName()},
                 {"compiler", QString::fromUtf8(__VERSION__)}, {"environmentRecord", "environment.json"},
                 {"architecture", QSysInfo::currentCpuArchitecture()}, {"platform", QGuiApplication::platformName()},
@@ -97,6 +141,18 @@ int main(int argc, char *argv[]) {
             meta.insert("size", parser.value("size"));
             meta.insert("state", parser.isSet("disabled") ? "disabled" : "enabled");
             meta.insert("appearance", parser.isSet("dark") ? "dark" : "light");
+            if (isolated) {
+                for (auto it = definition.begin(); it != definition.end(); ++it) meta.insert(it.key(), it.value());
+                meta.insert("caseDefinitions", parser.value("case-definitions"));
+                meta.insert("componentSize", QJsonObject{{"width", component->width()}, {"height", component->height()}});
+                const auto position = component->mapToScene(QPointF(0, 0));
+                meta.insert("componentOrigin", QJsonObject{{"x", position.x()}, {"y", position.y()}});
+                QJsonArray labels;
+                recordLabels(component, labels);
+                meta.insert("labels", labels);
+                meta.insert("dynamicStateTiming", "700 ms settlement; reduced motion; no matched native animation phase");
+                meta.insert("referenceAcceptance", "proposed reference; diagnostic comparison only");
+            }
             QFile file(path + ".json");
             if (!file.open(QIODevice::WriteOnly)) { app.exit(3); return; }
             file.write(QJsonDocument(meta).toJson());
