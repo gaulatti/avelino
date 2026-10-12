@@ -35,6 +35,10 @@ int main(int argc, char **argv) {
         auto button = window->findChild<QQuickItem *>("button");
         auto field = window->findChild<QQuickItem *>("field");
         if (!button || !field) { app.exit(3); return; }
+        auto surface = button->findChild<QQuickItem *>("bleeckerButtonSurface");
+        if (!surface || surface->property("radius").toDouble() != 7
+            || surface->property("borderWidth").toDouble() != 1
+            || surface->property("outerPath").toString().isEmpty()) { app.exit(16); return; }
         QTest::mouseClick(window, Qt::LeftButton, Qt::NoModifier, button->mapToScene(QPointF(button->width()/2, button->height()/2)).toPoint());
         if (window->property("invocations").toInt() != 1) { app.exit(4); return; }
         button->setProperty("enabled", false);
@@ -67,6 +71,9 @@ int main(int argc, char **argv) {
                 {"inputMethod", "QTest synthetic in-process pointer and keyboard events"},
                 {"windowCaptureMethod", "QQuickWindow::grabWindow; session capture recorded separately"},
                 {"overlayCoverage", "pending; no overlay component implemented"},
+                {"buttonSurfaceRendererType", surface->property("rendererType").toInt()},
+                {"buttonSurfaceRadius", surface->property("radius").toDouble()},
+                {"buttonSurfaceOuterPath", surface->property("outerPath").toString()},
                 {"behaviorChecks", "passed"}};
             QFile file(path + ".json");
             if (!file.open(QIODevice::WriteOnly)) { app.exit(14); return; }

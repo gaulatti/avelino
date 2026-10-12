@@ -54,6 +54,17 @@ continuous-corner geometry, loading indicator, platform focus, selection treatme
 actual X11/Wayland sessions, accessibility, and scaling matrices are unfinished.
 Do not interpret software-rendered PNGs as accepted mirror baselines.
 
+The button surface now draws explicit continuous cubic contours, including the
+half-width inset border, through an internal Qt Quick Shape. Narrow surfaces
+adjust each axis independently. Native point measurements and the geometry test
+cover normal, fractional, narrow, square, and radius-clamped surfaces. Qt uses
+its raster path renderer in software sessions and the requested curve renderer
+in RHI sessions; capture metadata records the actual renderer and both paths.
+The installed consumer checks that the owned surface is present too.
+[Qt Shape rendering](https://doc.qt.io/qt-6.8/qml-qtquick-shapes-shape.html)
+describes these backend implementations. These geometry checks do not establish
+glyph, custom-content clipping, focus, transition, or complete button acceptance.
+
 The catalog is a native Qt application; this repository has no browser frontend
 or application server. Application-backend Compose requirements do not apply.
 

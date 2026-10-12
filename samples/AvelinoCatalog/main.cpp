@@ -49,6 +49,15 @@ int main(int argc, char *argv[]) {
             const auto raw = QRawFont::fromFont(font);
             meta.insert("resolvedFontFamily", raw.familyName());
             meta.insert("resolvedFontStyle", raw.styleName());
+            const auto surface = window->findChild<QQuickItem *>("bleeckerButtonSurface");
+            if (surface) {
+                meta.insert("surfaceWidth", surface->width());
+                meta.insert("surfaceHeight", surface->height());
+                meta.insert("surfaceRadius", surface->property("radius").toDouble());
+                meta.insert("surfaceRendererType", surface->property("rendererType").toInt());
+                meta.insert("surfaceOuterPath", surface->property("outerPath").toString());
+                meta.insert("surfaceBorderPath", surface->property("borderPath").toString());
+            }
             const auto label = window->findChild<QQuickItem *>("bleeckerButtonLabel");
             if (label) {
                 const auto labelFont = label->property("font").value<QFont>();
@@ -56,6 +65,8 @@ int main(int argc, char *argv[]) {
                 meta.insert("labelFontFamily", actualFont.familyName());
                 meta.insert("labelFontStyle", actualFont.styleName());
                 meta.insert("labelFontWeight", int(labelFont.weight()));
+                meta.insert("labelFontHintingPreference", int(labelFont.hintingPreference()));
+                meta.insert("labelRenderType", label->property("renderType").toInt());
                 meta.insert("labelPixelSize", labelFont.pixelSize());
                 meta.insert("labelWidth", label->width());
                 meta.insert("labelHeight", label->height());

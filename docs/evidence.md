@@ -32,7 +32,8 @@ values. Raw glyph and rounded-edge differences remain open after this correction
 
 The source-comparison job now reports raw button differences separately from the
 build/runtime/package jobs. Its strict failure remains visible while mirroring
-continues. Ten contract tests check immutable extraction and comparison failures,
+continues. Nineteen contract tests check immutable extraction, Linux-only source
+storage, ignore rules, forced additions, archive contents, and comparison failures,
 including RGB changes with unchanged alpha, alpha-only changes, changed expected
 checksums, incompatible text/DPR scales, missing captures, and unreviewed ICC data.
 
@@ -41,3 +42,19 @@ metadata, and the medium primary-button candidate with checksums. It links the
 full CI candidate/runtime artifacts. The medium primary case differs in 936 pixels,
 with maximum channel error 211; alpha matches. No source image changed, no
 exception was approved, and no component was marked complete.
+
+The continuous-corner implementation adds supplemental native contour measurements
+in `evidence/geometry/native-rounded-rectangle.json`. The probe runs outside the
+Linux repository and records its checksum, OS, SDK, and compiler. Its macOS 27.0
+diagnostic does not replace the macOS 27.0.1 source images. Sixteen geometry cases
+compare all fill and inset-border control points, with at most one Float32 rounding
+unit of difference; the screenshot comparator still allows zero changed pixels.
+Qt Quick tests now report 26 passing cases including this contour coverage.
+
+The first local software-rendered contour candidates still fail all 112 image
+comparisons. Relative to the previous preserved candidates, total absolute RGB
+error fell from 17,682,799 to 16,488,999, while changed-pixel counts improved in
+17 cases, stayed equal in 36, and increased in 59. The light medium primary case
+changed from 936 to 1,001 differing pixels. This mixed result is diagnostic evidence,
+not visual acceptance. A native text-rendering/no-hinting probe changed zero pixels
+in eight light/dark primary cases, so those experimental settings were removed.

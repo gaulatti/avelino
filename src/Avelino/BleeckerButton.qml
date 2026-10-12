@@ -68,11 +68,12 @@ FocusScope {
                 anchors.alignWhenCentered: false
             }
         }
-        background: Rectangle {
+        background: ContinuousSurface {
+            objectName: "bleeckerButtonSurface"
             radius: BleeckerTokens.radii.button
             color: control.fillColor
-            border.width: 1
-            border.color: control.strokeColor
+            borderWidth: 1
+            borderColor: control.strokeColor
             Behavior on color { ColorAnimation { duration: BleeckerTheme.reducedMotion ? 0 : BleeckerTokens.durations.control; easing.type: Easing.OutCubic } }
         }
     }

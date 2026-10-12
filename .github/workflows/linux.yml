@@ -24,7 +24,18 @@ jobs:
           load: true
           cache-from: type=gha,scope=toolchain-${{ matrix.runner }}
           cache-to: type=gha,mode=max,scope=toolchain-${{ matrix.runner }}
+      - name: Seed obsolete package files for regeneration check
+        run: |
+          mkdir -p artifacts/package/consumer artifacts/package/install
+          printf '%s\n' 'obsolete consumer fixture' > artifacts/package/consumer/main.cpp
+          touch artifacts/package/install/obsolete-fixture
       - run: docker run --rm -v "$PWD:/work" avelino-toolchain:qt6.8.3 bash scripts/check-linux.sh
+      - name: Verify package replaced stale sources and install files
+        run: |
+          cmp tests/consumer/main.cpp artifacts/package/consumer/main.cpp
+          cmp tests/consumer/Main.qml artifacts/package/consumer/Main.qml
+          test ! -e artifacts/package/install/obsolete-fixture
+          test ! -d artifacts/package/consumer/consumer
       - name: Consumer with source and build trees absent
         run: docker run --rm -v "$PWD/artifacts/package:/package" -w /package avelino-toolchain:qt6.8.3 bash -c 'bash check-installed.sh && bash check-display-sessions.sh'
       - uses: actions/upload-artifact@v4

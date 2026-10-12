@@ -68,7 +68,14 @@ INI
       client=$!
       for ((i=0;i<100;i++)); do
         if [[ -f "$prefix.json" ]]; then break; fi
-        kill -0 "$client"
+        if ! kill -0 "$client" 2>/dev/null; then
+          result=0
+          wait "$client" || result=$?
+          client=
+          cat "$prefix.log" >&2
+          echo "Installed consumer exited with status $result before producing session evidence: $prefix" >&2
+          exit 1
+        fi
         sleep 0.1
       done
       [[ -f "$prefix.json" ]]
@@ -83,6 +90,8 @@ path = Path(prefix+'.json')
 record = json.loads(path.read_text())
 assert record['platform'] == protocol, record
 assert record['graphicsApi'] == (1 if backend == 'software' else 3), record
+assert record['buttonSurfaceRendererType'] == (3 if backend == 'software' else 4), record
+assert record['buttonSurfaceRadius'] == 7 and record['buttonSurfaceOuterPath'], record
 assert record['dpr'] == (1 if configuration == 'standard' else 2), record
 assert record['textScale'] == (1 if configuration == 'standard' else 1.5), record
 assert record['appearance'] == ('light' if configuration == 'standard' else 'dark'), record

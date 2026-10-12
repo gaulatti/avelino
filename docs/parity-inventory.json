@@ -615,7 +615,9 @@
           "line": 66
         },
         "implementation": [
-          "src/Avelino/BleeckerButton.qml"
+          "src/Avelino/BleeckerButton.qml",
+          "src/Avelino/ContinuousSurface.qml",
+          "src/Avelino/continuouscorners.js"
         ],
         "caseDiscovery": "pending",
         "cases": [
@@ -1777,7 +1779,8 @@
         ],
         "tests": [
           "tests/components/tst_controls.qml",
-          "tests/consumer/main.cpp"
+          "tests/consumer/main.cpp",
+          "tests/components/tst_geometry.qml"
         ],
         "captures": [
           "reference/captures/desktop/buttons/captures.json",
@@ -1859,7 +1862,14 @@
             ],
             "notes": "Current action/editing APIs only; open overlays and future internals remain required"
           }
-        }
+        },
+        "diagnostics": [
+          {
+            "evidence": "evidence/geometry/native-rounded-rectangle.json",
+            "status": "supplemental; visual acceptance pending",
+            "notes": "Native path control points for fill and inset border; does not replace preserved rendered fixtures or close visual, focus, clipping, or state gates"
+          }
+        ]
       },
       {
         "id": "BleeckerButtonGroup",

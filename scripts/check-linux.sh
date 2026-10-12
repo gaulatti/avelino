@@ -7,7 +7,7 @@ from pathlib import Path
 def command(*args):
     return subprocess.check_output(args, text=True, stderr=subprocess.STDOUT).strip()
 files = sorted([Path('CMakeLists.txt'), Path('CMakePresets.json')] +
-    [p for folder in ['src', 'samples', 'assets', 'tokens', 'tests', 'scripts', 'cmake', 'tools']
+    [p for folder in ['src', 'samples', 'assets', 'tokens', 'tests', 'scripts', 'cmake', 'tools', 'evidence/geometry']
      for p in Path(folder).rglob('*') if p.is_file() and '__pycache__' not in p.parts])
 # The CI bind mount belongs to the runner UID, while the toolchain runs as root.
 # Trust only this explicit checkout for these read-only provenance commands.
@@ -33,9 +33,12 @@ cp -R tests/consumer "$stage/consumer"
 cmake -S "$stage/consumer" -B "$stage/build" -G Ninja -DCMAKE_PREFIX_PATH="$stage/install;/opt/qt"
 cmake --build "$stage/build" --parallel 2
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer")
-mkdir -p artifacts/package
-cmake --install build/linux --prefix "$PWD/artifacts/package/install"
-cp -R tests/consumer artifacts/package/consumer
+mkdir -p artifacts
+# Always publish the already-verified fresh stage. Repeated cp into an existing
+# directory nests the consumer and leaves obsolete source/install files behind.
+if [[ -e artifacts/package ]]; then mv artifacts/package "$stage/previous-package"; fi
+mkdir artifacts/package
+cp -R "$stage/install" "$stage/consumer" artifacts/package/
 cp scripts/check-installed.sh artifacts/package/check-installed.sh
 cp scripts/check-display-sessions.sh artifacts/package/check-display-sessions.sh
 cp artifacts/linux/environment.json artifacts/package/environment.json

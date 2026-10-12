@@ -14,11 +14,20 @@ package and the independent consumer fixture. The original product source and
 build trees are absent. This also checks relocating the CMake/QML package prefix.
 Open overlays and internal controls will be required as those APIs are implemented.
 
+Each local run replaces the generated `artifacts/package/` directory with the
+already-verified fresh temporary installation and consumer source. This removes
+obsolete installed files and prevents nested copies from retaining old consumer
+code. CI deliberately seeds stale source and install files, then verifies their
+replacement before building the package-only consumer. Previous generated package
+outputs are temporary and are removed by the check script.
+
 The package-only consumer's display harness starts an Xvfb X11 server and a
 Weston Wayland compositor nested on it. It saves whole-output and window captures
 for software/OpenGL rendering at two display/text scales. Source and build trees
 remain absent. Metadata explicitly identifies virtual displays, Mesa software
 rendering, synthetic input, and the still-pending overlay/accessibility checks.
+If a consumer exits before producing capture metadata, the harness reports its
+actual exit status and log rather than only a missing process.
 
 No package release or complete mirror acceptance is claimed by these checkpoints.
 Release acceptance requires every desktop gate in the parity inventory to pass.
