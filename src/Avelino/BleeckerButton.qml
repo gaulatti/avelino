@@ -54,10 +54,19 @@ FocusScope {
         Accessible.name: text
         Accessible.description: control.loading ? qsTr("Loading") : ""
         onClicked: control.clicked()
+        FontMetrics { id: labelMetrics; font: control.font }
         contentItem: Row {
             spacing: 8
             BleeckerLoadingSpinner { visible: control.loading; size: "sm"; anchors.verticalCenter: parent.verticalCenter }
-            Text { objectName: "bleeckerButtonLabel"; text: control.text; font: control.font; color: control.foregroundColor; anchors.verticalCenter: parent.verticalCenter }
+            Text {
+                objectName: "bleeckerButtonLabel"
+                text: control.text
+                font: control.font
+                color: control.foregroundColor
+                height: labelMetrics.height
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.alignWhenCentered: false
+            }
         }
         background: Rectangle {
             radius: BleeckerTokens.radii.button

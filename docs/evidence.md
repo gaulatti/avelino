@@ -24,3 +24,8 @@ The first measured Linux button used an unnecessary integer width ceiling and
 center snapping. Removing those preserves fractional font/layout measurements;
 the resulting captures still need to pass geometry and glyph comparisons. This
 change does not create a tolerance or accept the remaining differences.
+
+The 14 px medium label's native font metrics have a 17.5 px line height. Keeping
+that fractional height and disabling center snapping avoids an extra half-pixel
+baseline shift at DPR 2. Font family, face, size, and weight remain the reference
+values. Raw glyph and rounded-edge differences remain open after this correction.
