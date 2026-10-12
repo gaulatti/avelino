@@ -18,7 +18,7 @@ cleanup() {
   rm -rf "$runtime"
 }
 trap cleanup EXIT
-Xvfb -displayfd 3 -screen 0 1280x1024x24 -nolisten tcp 3>"$runtime/display" >"$evidence/xvfb.log" 2>&1 &
+Xvfb -displayfd 3 -screen 0 1760x1200x24 -nolisten tcp 3>"$runtime/display" >"$evidence/xvfb.log" 2>&1 &
 xpid=$!
 for ((i=0;i<100;i++)); do
   if [[ -s "$runtime/display" ]]; then break; fi
@@ -37,7 +37,7 @@ panel-position=none
 background-color=0xffdbe1e7
 locking=false
 INI
-    weston --backend=x11 --renderer=pixman --width=1200 --height=1000 --socket=avelino-wayland \
+    weston --backend=x11 --renderer=pixman --width=1600 --height=1100 --socket=avelino-wayland \
       --idle-time=0 --config="$runtime/weston.ini" --log="$evidence/weston.log" >"$evidence/weston-client.log" 2>&1 &
     wpid=$!
     for ((i=0;i<100;i++)); do
@@ -101,6 +101,7 @@ assert record['textScale'] == (1 if configuration == 'standard' else 1.5), recor
 assert record['fractionalButtonGlyphPixels'] == 13 * record['textScale'], record
 assert record['foundationChecks'] == 'passed' and record['groupKeyboardChecks'] == 'passed', record
 assert record['cardBadgeChecks'] == 'passed', record
+assert record['dataDisplayChecks'] == 'passed' and record['dataListInputChecks'] == 'passed', record
 assert record['roundedContentClipping'] == (backend == 'opengl'), record
 assert record['appearance'] == ('light' if configuration == 'standard' else 'dark'), record
 window_bytes = Path(prefix+'.png').read_bytes()

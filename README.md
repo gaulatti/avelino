@@ -35,4 +35,8 @@ archive contents, and runs in CI to catch forced additions.
 See [Linux build and catalog checks](docs/development.md) and
 [installed-package verification](docs/packaging.md). The initial button, spinner,
 and text-field implementations remain verification-pending.
+Additional candidates and their unresolved acceptance cases are documented in
+[foundations](docs/foundations.md), [cards and badges](docs/cards-and-badges.md),
+and [data display](docs/data-display.md). Twenty of the 80 discovered desktop
+entries have started; no component has passed its complete mirror gate.
 The GitHub wiki has not been initialized; documentation currently lives here.

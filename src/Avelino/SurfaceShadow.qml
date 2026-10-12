@@ -16,8 +16,6 @@ Canvas {
     width: surfaceWidth + margin * 2; height: surfaceHeight + margin * 2
     visible: shadowColor.a > 0 && surfaceWidth > 0 && surfaceHeight > 0
     renderTarget: Canvas.Image
-    canvasSize: Qt.size(Math.ceil(width * dpr),Math.ceil(height * dpr))
-    canvasWindow: Qt.rect(0,0,canvasSize.width,canvasSize.height)
     PixelAlignment { id: alignment; target: shadow.parent }
     Accessible.ignored: true
     onSurfaceWidthChanged: requestPaint()
@@ -30,11 +28,12 @@ Canvas {
     onDprChanged: requestPaint()
     onPaint: {
         const ctx = getContext("2d")
-        ctx.reset(); ctx.clearRect(0,0,canvasSize.width,canvasSize.height)
-        ctx.scale(dpr,dpr); ctx.translate(margin,margin)
+        // Canvas.Image applies the window DPR itself; its coordinates are logical.
+        ctx.reset(); ctx.clearRect(0,0,width,height)
+        ctx.translate(margin,margin)
         ctx.shadowColor = shadowColor
-        ctx.shadowBlur = blurRadius * dpr
-        ctx.shadowOffsetY = offsetY * dpr
+        ctx.shadowBlur = blurRadius
+        ctx.shadowOffsetY = offsetY
         ctx.fillStyle = fillColor
         ctx.beginPath()
         for (const e of Corners.elements(surfaceWidth,surfaceHeight,radius,0)) {

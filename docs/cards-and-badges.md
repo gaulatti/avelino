@@ -20,7 +20,8 @@ does not resolve OS accessibility text scaling; that remains a separate gate.
 Logical tracking is applied at design-unit scale before Qt glyph rasterization
 to avoid QFont's initial 1.15-to-1.140625 px quantization. Font metrics, wrapping,
 tracking geometry, fallback, and cross-architecture pixels still require native
-comparisons. OwnedText currently provides explicit lines without automatic wrapping.
+comparisons. OwnedText now supports explicit `wrapWidth`; panel titles wrap to
+their allocated width while preserving an unwrapped intrinsic width for layout.
 
 Content clipping is deliberately reported by backend. Qt 6.8.3's software Shape
 renderer ignores texture fills. Its candidate content therefore has rectangular
@@ -29,6 +30,8 @@ ShaderEffectSource texture inside the continuous outline. GPU clipping and point
 containment require complete geometry and interaction comparisons. This is an
 unfinished implementation gap, not an approved platform exception. Canvas shadow
 blur and edge rasterization likewise remain uncalibrated against native captures.
+The subsequent data-display batch corrects its extra DPR transform: Canvas.Image
+already paints logical coordinates at the window's device scale.
 
 Tests cover 32 card theme/padding/variant combinations, slot dimensions and resize,
 optional/empty panel titles, eight accent boundary/wrapping/default cases, ten

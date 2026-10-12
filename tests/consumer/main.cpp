@@ -13,6 +13,12 @@
 #include <QSGRendererInterface>
 #include <QColor>
 #include <cmath>
+static QQuickItem *findVisualItem(QQuickItem *item, const QString &name) {
+    if (item->objectName() == name) return item;
+    for (auto child : item->childItems())
+        if (auto found = findVisualItem(child,name)) return found;
+    return nullptr;
+}
 int main(int argc, char **argv) {
     QGuiApplication app(argc, argv);
     QCommandLineParser parser;
@@ -58,6 +64,17 @@ int main(int argc, char **argv) {
         if (!groupSecond->hasActiveFocus()) { app.exit(21); return; }
         QTest::keyClick(window, Qt::Key_Space);
         if (window->property("groupedInvocations").toInt() != 2) { app.exit(22); return; }
+        const auto dataFirst = findVisualItem(window->contentItem(),"dataAction0");
+        const auto dataSecond = findVisualItem(window->contentItem(),"dataAction1");
+        if (!dataFirst || !dataSecond) { qCritical("Data-list actions missing from visual tree"); app.exit(25); return; }
+        QTest::mouseClick(window, Qt::LeftButton, Qt::NoModifier,
+            dataFirst->mapToScene(QPointF(dataFirst->width()/2,dataFirst->height()/2)).toPoint());
+        dataFirst->forceActiveFocus();
+        QTest::keyClick(window, Qt::Key_Space);
+        QTest::keyClick(window, Qt::Key_Tab);
+        if (!dataSecond->hasActiveFocus()) { app.exit(26); return; }
+        QTest::keyClick(window, Qt::Key_Space);
+        if (window->property("dataInvocations").toInt() != 3) { app.exit(27); return; }
         field->forceActiveFocus();
         QTest::keyClick(window, Qt::Key_A);
         QTest::keyClick(window, Qt::Key_B);
@@ -95,6 +112,19 @@ int main(int argc, char **argv) {
             || !statusLabel || std::abs(statusLabel->property("logicalPixelSize").toDouble() - 11 * textScale) > 0.000001
             || !notification || notification->property("text").toString() != "99+"
             || !eyebrow || eyebrow->property("logicalPixelSize").toDouble() != 10) { app.exit(24); return; }
+        const auto avatar = window->findChild<QQuickItem *>("avatar");
+        const auto imageAvatar = window->findChild<QQuickItem *>("imageAvatar");
+        const auto dataList = window->findChild<QQuickItem *>("dataList");
+        const auto timeline = window->findChild<QQuickItem *>("timeline");
+        const auto contentLabel = timeline ? timeline->findChild<QQuickItem *>("timelineContentLabel") : nullptr;
+        const auto timelineConnector = timeline ? timeline->findChild<QQuickItem *>("bleeckerTimelineConnector") : nullptr;
+        const auto surfaceModifier = window->findChild<QQuickItem *>("surfaceModifier");
+        if (!avatar || avatar->property("initials").toString() != "JD"
+            || !imageAvatar || imageAvatar->property("imageStatus").toInt() != 1
+            || !dataList || dataList->property("count").toInt() != 2
+            || !contentLabel || contentLabel->property("font").value<QFont>().family() != "Libre Franklin"
+            || !timelineConnector || timelineConnector->isVisible()
+            || !surfaceModifier || surfaceModifier->property("radius").toDouble() != 18) { app.exit(28); return; }
         // Loading changes the composition and label origin. Wait for its frame,
         // then inspect painted coordinates inside the installed component.
         QTest::qWait(50);
@@ -110,7 +140,7 @@ int main(int argc, char **argv) {
         for (const qreal coordinate : {surfaceOrigin.x(), surfaceOrigin.y(), labelBaseline.x(), labelBaseline.y()}) {
             if (std::abs(coordinate * dpr - std::round(coordinate * dpr)) > 0.00001) { app.exit(18); return; }
         }
-        qInfo("Installed consumer: actions, group keyboard navigation, editing, fonts, painted placement, foundations, cards and badges passed");
+        qInfo("Installed consumer: actions, group/list keyboard navigation, editing, fonts, painted placement, foundations, cards, badges and data display passed");
         if (parser.isSet("evidence")) {
             const auto path = parser.value("evidence");
             if (!window->grabWindow().save(path + ".png")) { app.exit(13); return; }
@@ -133,6 +163,7 @@ int main(int argc, char **argv) {
                 {"fractionalButtonGlyphPixels", fractionalLabel->property("logicalPixelSize").toDouble()},
                 {"foundationChecks", "passed"}, {"groupKeyboardChecks", "passed"},
                 {"cardBadgeChecks", "passed"},
+                {"dataDisplayChecks", "passed"}, {"dataListInputChecks", "passed"},
                 {"roundedContentClipping", card->property("roundedContentClipping").toBool()},
                 {"roundedClippingAcceptance", "pending; GPU mask and software gap require reference comparison"},
                 {"labelRenderer", "QQuickPaintedItem/QPainter glyph runs at logical font size"},

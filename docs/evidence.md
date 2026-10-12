@@ -153,3 +153,26 @@ six entries remain missing. Software rounded content clipping is unfinished;
 GPU clipping, shadow calibration, typography, wrapping, accessibility and complete
 scaling/session acceptance remain pending. No baseline, tolerance or approved
 exception changed. See [the candidate contract](cards-and-badges.md).
+
+The clean cards-and-badges checkpoint passes both architecture build/runtime/package
+jobs and reference CI. Both strict visual jobs still fail. Its downloadable artifacts
+are also recovered locally under `artifacts/ci-333ddcd/`; preserving that evidence
+independently of artifact retention remains outstanding.
+[Cards and badges CI](https://github.com/gaulatti/avelino/actions/runs/38287570519)
+
+The data-display batch adds avatar, ordered lazy data list, timeline item and the
+surface modifier candidates: 20 of 80 discovered desktop entries are started
+(25% coverage), with zero accepted. It adds grapheme-aware initials, centered image
+cover cropping, inherited timeline typography, explicit constrained title wrapping,
+and corrects extra DPR scaling in Canvas images and shared shadows. The local suite
+passes 186 checks at each of DPR 1 and 2. A fresh package-only container passes all
+eight virtual X11/nested-Wayland configurations, including pointer and keyboard
+list actions, tab order and return to field editing. The light DPR 1 and dark DPR 2
+galleries and installed Wayland/OpenGL DPR 2 window were inspected.
+
+These checks are candidate behavior evidence. Native images for the four new entries,
+font fallback/emoji assets, complete wrapping/bidi, model adapters, scrolling,
+accessibility, shadow calibration and rounded clipping acceptance remain pending.
+The software rounded-content gap is still visible in its fixture. No expected image,
+visual tolerance, reference source or approved exception changed.
+See [the data-display contract](data-display.md).

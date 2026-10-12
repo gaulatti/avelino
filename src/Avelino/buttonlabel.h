@@ -13,6 +13,8 @@ class ButtonLabel : public QQuickPaintedItem {
     Q_PROPERTY(QFont font READ font WRITE setFont NOTIFY fontChanged)
     Q_PROPERTY(QColor color READ color WRITE setColor NOTIFY colorChanged)
     Q_PROPERTY(qreal tracking READ tracking WRITE setTracking NOTIFY trackingChanged)
+    Q_PROPERTY(qreal wrapWidth READ wrapWidth WRITE setWrapWidth NOTIFY wrapWidthChanged)
+    Q_PROPERTY(qreal unwrappedWidth READ unwrappedWidth NOTIFY layoutChanged)
     Q_PROPERTY(qreal logicalPixelSize READ logicalPixelSize NOTIFY layoutChanged)
     Q_PROPERTY(qreal naturalHeight READ naturalHeight NOTIFY layoutChanged)
     Q_PROPERTY(QString resolvedFamily READ resolvedFamily NOTIFY layoutChanged)
@@ -27,6 +29,9 @@ public:
     void setColor(QColor color);
     qreal tracking() const { return m_tracking; }
     void setTracking(qreal tracking);
+    qreal wrapWidth() const { return m_wrapWidth; }
+    void setWrapWidth(qreal width);
+    qreal unwrappedWidth() const { return m_unwrappedWidth; }
     qreal logicalPixelSize() const { return m_pixels; }
     qreal naturalHeight() const { return m_height; }
     QString resolvedFamily() const { return m_family; }
@@ -37,6 +42,7 @@ signals:
     void fontChanged();
     void colorChanged();
     void trackingChanged();
+    void wrapWidthChanged();
     void layoutChanged();
 private:
     void relayout();
@@ -52,5 +58,6 @@ private:
     QColor m_color = Qt::black;
     qreal m_pixels = 14, m_height = 0;
     qreal m_tracking = 0;
+    qreal m_wrapWidth = -1, m_unwrappedWidth = 0;
     QList<Run> m_runs;
 };

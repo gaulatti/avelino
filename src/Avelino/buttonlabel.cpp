@@ -33,6 +33,13 @@ void ButtonLabel::setTracking(qreal tracking) {
     m_tracking = tracking; relayout(); emit trackingChanged();
 }
 
+void ButtonLabel::setWrapWidth(qreal width) {
+    if (!std::isfinite(width) || (width < 0 && width != -1))
+        qFatal("Label wrap width must be nonnegative or -1 for explicit lines only");
+    if (m_wrapWidth == width) return;
+    m_wrapWidth = width; relayout(); emit wrapWidthChanged();
+}
+
 void ButtonLabel::relayout() {
     m_pixels = m_font.pixelSize() > 0 ? m_font.pixelSize()
         : m_font.pointSizeF() * BleeckerFonts::logicalFontDpi() / 72;
@@ -59,13 +66,26 @@ void ButtonLabel::relayout() {
     option.setWrapMode(QTextOption::NoWrap);
     option.setUseDesignMetrics(true);
     option.setFlags(QTextOption::IncludeTrailingSpaces);
+    QTextLayout intrinsic(layoutText, shapeFont);
+    intrinsic.setTextOption(option);
+    qreal intrinsicWidth = 0;
+    intrinsic.beginLayout();
+    for (;;) {
+        auto line = intrinsic.createLine();
+        if (!line.isValid()) break;
+        line.setLineWidth(1000000);
+        intrinsicWidth = std::max(intrinsicWidth, line.naturalTextWidth());
+    }
+    intrinsic.endLayout();
+    m_unwrappedWidth = intrinsicWidth * ratio;
+    if (m_wrapWidth >= 0) option.setWrapMode(QTextOption::WrapAtWordBoundaryOrAnywhere);
     layout.setTextOption(option);
     qreal width = 0, height = 0, baseline = 0;
     layout.beginLayout();
     for (;;) {
         auto line = layout.createLine();
         if (!line.isValid()) break;
-        line.setLineWidth(1000000);
+        line.setLineWidth(m_wrapWidth >= 0 ? std::max(qreal(0.000001), m_wrapWidth / ratio) : 1000000);
         line.setPosition(QPointF(0, height));
         if (height == 0) baseline = line.ascent();
         width = std::max(width, line.naturalTextWidth());

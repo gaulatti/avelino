@@ -6,13 +6,14 @@ BleeckerCard {
     property string title: ""
     property bool hasTitle: title !== ""
     Item {
-        implicitWidth: Math.max(label.implicitWidth,host.implicitWidth)
+        implicitWidth: Math.max(label.unwrappedWidth,host.implicitWidth)
         implicitHeight: (control.hasTitle ? label.height + BleeckerTokens.spacing.component : 0) + host.implicitHeight
         width: parent.width; height: implicitHeight
         OwnedText {
             id: label
             objectName: "bleeckerPanelTitle"
             text: control.title; visible: control.hasTitle
+            width: parent.width; wrapWidth: width
             font.pointSize: BleeckerFonts.pointSizeForPixels(16)
             font.weight: Font.DemiBold
             Accessible.ignored: false; Accessible.role: Accessible.StaticText; Accessible.name: text
