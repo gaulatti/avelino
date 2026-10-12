@@ -1,0 +1,5711 @@
+{
+  "desktop": {
+    "reference": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+    "registered": [
+      "BleeckerAccordion",
+      "BleeckerActivityItem",
+      "BleeckerAdminShell",
+      "BleeckerAlert",
+      "BleeckerAppShell",
+      "BleeckerAppTabBar",
+      "BleeckerAttentionSurface",
+      "BleeckerAvatar",
+      "BleeckerBarChart",
+      "BleeckerBauhausBackground",
+      "BleeckerBrandLockup",
+      "BleeckerBrandMark",
+      "BleeckerBreadcrumb",
+      "BleeckerButton",
+      "BleeckerButtonGroup",
+      "BleeckerButtonStyle",
+      "BleeckerCard",
+      "BleeckerCheckbox",
+      "BleeckerCollectionFilters",
+      "BleeckerCommandSpotlight",
+      "BleeckerDashboardGrid",
+      "BleeckerDashboardSection",
+      "BleeckerDataList",
+      "BleeckerDateRangePicker",
+      "BleeckerDropdownMenu",
+      "BleeckerEmptyState",
+      "BleeckerErrorState",
+      "BleeckerFeedItem",
+      "BleeckerField",
+      "BleeckerFileInput",
+      "BleeckerFilterChip",
+      "BleeckerFooter",
+      "BleeckerHeader",
+      "BleeckerHeroCarousel",
+      "BleeckerIconBadge",
+      "BleeckerIconButton",
+      "BleeckerKbd",
+      "BleeckerLineChart",
+      "BleeckerLoadingOverlay",
+      "BleeckerLoadingSpinner",
+      "BleeckerMediaLibrary",
+      "BleeckerMetric",
+      "BleeckerMobileAppShell",
+      "BleeckerModal",
+      "BleeckerNotificationBadge",
+      "BleeckerOTPInput",
+      "BleeckerPageHeader",
+      "BleeckerPagination",
+      "BleeckerPanel",
+      "BleeckerPanelLayout",
+      "BleeckerPieChart",
+      "BleeckerProgress",
+      "BleeckerProgressStack",
+      "BleeckerRadioGroup",
+      "BleeckerScatterChart",
+      "BleeckerSearchField",
+      "BleeckerSectionHeader",
+      "BleeckerSecureField",
+      "BleeckerSegmentedControl",
+      "BleeckerSelect",
+      "BleeckerSeparator",
+      "BleeckerSidebarItem",
+      "BleeckerSkeleton",
+      "BleeckerSlider",
+      "BleeckerSparkline",
+      "BleeckerStatCard",
+      "BleeckerStatusBadge",
+      "BleeckerStepper",
+      "BleeckerSurfaceModifier",
+      "BleeckerSwitchStyle",
+      "BleeckerTabs",
+      "BleeckerTextArea",
+      "BleeckerTextField",
+      "BleeckerTimelineItem",
+      "BleeckerToggleStyle",
+      "BleeckerTooltip"
+    ],
+    "declarations": [
+      {
+        "name": "BleeckerButtonStyle",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerButtonStyle: ButtonStyle {",
+        "source": {
+          "path": "Sources/Sabella/Buttons.swift",
+          "line": 3
+        },
+        "sha256": "422ae75b120ae73d2e2363ede8a6982e8844348fb0f0bcda37e5f0ac06e3b2df",
+        "publicMembers": [
+          "public let variant: BleeckerButtonVariant",
+          "public let size: BleeckerButtonSize",
+          "public init(_ variant: BleeckerButtonVariant = .primary, size: BleeckerButtonSize = .md) ",
+          "public func makeBody(configuration: Configuration) -> some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [
+          "BleeckerButtonSize",
+          "BleeckerButtonVariant"
+        ],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme",
+          "@Environment(\\.isEnabled) private var isEnabled",
+          "@Environment(\\.bleeckerTextScale) private var textScale"
+        ]
+      },
+      {
+        "name": "BleeckerButton",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerButton<Label: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/Buttons.swift",
+          "line": 66
+        },
+        "sha256": "f62557065ca6b5ba61a80c9a25ea23abedb998ecac723a58bd67c858beab9486",
+        "publicMembers": [
+          "public init(",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder let label: Label",
+          "@ViewBuilder label: () -> Label"
+        ],
+        "contractTypes": [
+          "BleeckerButtonSize",
+          "BleeckerButtonVariant"
+        ],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerIconButton",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerIconButton: View {",
+        "source": {
+          "path": "Sources/Sabella/Buttons.swift",
+          "line": 101
+        },
+        "sha256": "d22fc92783c022ec51ebea489cc70fdc3e08d14f0c6d787e7398076140a6a951",
+        "publicMembers": [
+          "public init(_ systemImage: String, accessibilityLabel: String, size: BleeckerIconButtonSize = .md, variant: BleeckerIconButtonVariant = .default, action: @escaping () -> Void) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [
+          "BleeckerButtonSize",
+          "BleeckerButtonVariant",
+          "BleeckerIconButtonSize",
+          "BleeckerIconButtonVariant"
+        ],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerButtonGroup",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerButtonGroup<Content: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/Buttons.swift",
+          "line": 123
+        },
+        "sha256": "3d4915b9ede8e080cdda88b04de97bb312a4abab92da32b1986e48cb6afa093b",
+        "publicMembers": [
+          "public init(spacing: CGFloat = BleeckerSpacing.inline, @ViewBuilder content: () -> Content) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder let content: Content",
+          "@ViewBuilder content: () -> Content) { self.spacing = spacing; self.content = content() }"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerToggleStyle",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerToggleStyle: ButtonStyle {",
+        "source": {
+          "path": "Sources/Sabella/Buttons.swift",
+          "line": 130
+        },
+        "sha256": "7d02d10da8c053569dc67c21904a1bac682bca5e54c41748259984c600850d4c",
+        "publicMembers": [
+          "public init(selected: Bool, variant: BleeckerToggleVariant = .default) ",
+          "public func makeBody(configuration: Configuration) -> some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [
+          "BleeckerToggleVariant"
+        ],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme"
+        ]
+      },
+      {
+        "name": "BleeckerSegmentedControl",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerSegmentedControl<Value: Hashable>: View {",
+        "source": {
+          "path": "Sources/Sabella/Buttons.swift",
+          "line": 146
+        },
+        "sha256": "bed53b59778ec019b5fde2fe6b9b0225216bc5167057e5a72b0f97b9907cc578",
+        "publicMembers": [
+          "public init(selection: Binding<Value>, options: [BleeckerSelectOption<Value>]) ",
+          "public var body: some View "
+        ],
+        "bindings": [
+          "selection"
+        ],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme"
+        ]
+      },
+      {
+        "name": "BleeckerChartPoint",
+        "kind": "struct",
+        "visual": false,
+        "signature": "public struct BleeckerChartPoint: Identifiable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/Charts.swift",
+          "line": 5
+        },
+        "sha256": "8a851d478fb05e4b4e61948016be18e3a4b13f7592d302039e852788238e4538",
+        "publicMembers": [
+          "public let id: String; public let series: String; public let label: String; public let x: Double; public let y: Double",
+          "public init(id: String = UUID().uuidString, series: String = \"Value\", label: String = \"\", x: Double, y: Double) "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerLineChart",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerLineChart: View {",
+        "source": {
+          "path": "Sources/Sabella/Charts.swift",
+          "line": 10
+        },
+        "sha256": "118505e2758f6498ce39b2fb6de3a23d29ffbe2fcdf663ddeec11f7c9862aa02",
+        "publicMembers": [
+          "public init(_ points: [BleeckerChartPoint], area: Bool = false) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme; let points: [BleeckerChartPoint]; let area: Bool"
+        ]
+      },
+      {
+        "name": "BleeckerBarChart",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerBarChart: View {",
+        "source": {
+          "path": "Sources/Sabella/Charts.swift",
+          "line": 16
+        },
+        "sha256": "a5540db0b78b2befaebfa4f286d821a66fd4b412eaeb5e68571f85145bf875f8",
+        "publicMembers": [
+          "public init(_ points: [BleeckerChartPoint]) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme; let points: [BleeckerChartPoint]"
+        ]
+      },
+      {
+        "name": "BleeckerPieChart",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerPieChart: View {",
+        "source": {
+          "path": "Sources/Sabella/Charts.swift",
+          "line": 22
+        },
+        "sha256": "7db0e865055d76d17fb7303c07aed6ca4efee014ffe2e4e00235b83bf341d823",
+        "publicMembers": [
+          "public init(_ points: [BleeckerChartPoint], innerRadius: CGFloat = 0) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme; let points: [BleeckerChartPoint]; let innerRadius: CGFloat"
+        ]
+      },
+      {
+        "name": "BleeckerScatterChart",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerScatterChart: View {",
+        "source": {
+          "path": "Sources/Sabella/Charts.swift",
+          "line": 28
+        },
+        "sha256": "d62d77ab6cc66e194b638e42adb5fd9d6570f448454beff5bb316e9aa422bae3",
+        "publicMembers": [
+          "public init(_ points: [BleeckerChartPoint]) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme; let points: [BleeckerChartPoint]"
+        ]
+      },
+      {
+        "name": "BleeckerSparkline",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerSparkline: View {",
+        "source": {
+          "path": "Sources/Sabella/Charts.swift",
+          "line": 34
+        },
+        "sha256": "4ea22219d06408d9ad1f208a6765f3f55d555dfc1763da6a367a05bd650ed7f0",
+        "publicMembers": [
+          "public init(_ values: [Double]) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerThemeMode",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum BleeckerThemeMode: String, CaseIterable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/Contracts.swift",
+          "line": 3
+        },
+        "sha256": "78381603145eb1405aa5af6aebba8e5ceebde205310c6bf36503ecc6f98d0f0c",
+        "publicMembers": [],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [
+          "light, dark, system "
+        ],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerButtonVariant",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum BleeckerButtonVariant: String, CaseIterable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/Contracts.swift",
+          "line": 4
+        },
+        "sha256": "fd81b2fe3ad6c8aa39596b2ab83be2b85eaa692dccfbd2972304f1c5111e1bb6",
+        "publicMembers": [],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [
+          "BleeckerButtonVariant"
+        ],
+        "enumCases": [
+          "primary, secondary, outline, subtle, ghost, link, destructive "
+        ],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerButtonSize",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum BleeckerButtonSize: String, CaseIterable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/Contracts.swift",
+          "line": 5
+        },
+        "sha256": "99457de2b7abd095254ba6924a0cc2300d9166df5278fcf7ae27af2dfceb68d8",
+        "publicMembers": [],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [
+          "BleeckerButtonSize"
+        ],
+        "enumCases": [
+          "xs, sm, md, lg "
+        ],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerControlSize",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum BleeckerControlSize: String, CaseIterable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/Contracts.swift",
+          "line": 6
+        },
+        "sha256": "5ab2e9dda602b17bc9ed1f77bd6432ce16d6d49bc091a5f0ce940ff9043cb4db",
+        "publicMembers": [],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [
+          "BleeckerControlSize"
+        ],
+        "enumCases": [
+          "sm, md, lg "
+        ],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerStatusBadgeVariant",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum BleeckerStatusBadgeVariant: String, CaseIterable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/Contracts.swift",
+          "line": 7
+        },
+        "sha256": "5a69514bb5905625dbd0952e4fc6148da896670efd49a4801d1166aa266fed24",
+        "publicMembers": [],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [
+          "BleeckerStatusBadgeVariant"
+        ],
+        "enumCases": [
+          "live, offline, warning, info, `default` "
+        ],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerCardPadding",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum BleeckerCardPadding: String, CaseIterable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/Contracts.swift",
+          "line": 8
+        },
+        "sha256": "a95f12c0e2648650d8f8421934bddb874e5884e5e4df8b8eafe01e44badb5969",
+        "publicMembers": [],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [
+          "none, sm, md, lg "
+        ],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerCardVariant",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum BleeckerCardVariant: String, CaseIterable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/Contracts.swift",
+          "line": 9
+        },
+        "sha256": "4acbe57fa3772fe3515fbf3db47e76dad043c2624185afb334e7ce8eaec80c25",
+        "publicMembers": [],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [
+          "BleeckerCardVariant"
+        ],
+        "enumCases": [
+          "surface, outlined, elevated, subtle, transparent "
+        ],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerProgressSize",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum BleeckerProgressSize: String, CaseIterable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/Contracts.swift",
+          "line": 10
+        },
+        "sha256": "b0c210799bbe1c05afd5dffad9bca5a698a6d7b1249e812c6a299a0786421028",
+        "publicMembers": [],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [
+          "BleeckerProgressSize"
+        ],
+        "enumCases": [
+          "sm, md, lg "
+        ],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerProgressVariant",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum BleeckerProgressVariant: String, CaseIterable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/Contracts.swift",
+          "line": 11
+        },
+        "sha256": "bd4254d5578ee4c1f72b5b163a049f906e02073cf20e604af9aec9190a810fe1",
+        "publicMembers": [],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [
+          "BleeckerProgressVariant"
+        ],
+        "enumCases": [
+          "`default`, success, warning, destructive "
+        ],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerIconButtonSize",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum BleeckerIconButtonSize: String, CaseIterable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/Contracts.swift",
+          "line": 12
+        },
+        "sha256": "968d91a5cb9686f00b0ce91161b8acdb513a1115c62b4b7f14c333c78b2cee00",
+        "publicMembers": [],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [
+          "BleeckerIconButtonSize"
+        ],
+        "enumCases": [
+          "sm, md, lg "
+        ],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerIconButtonVariant",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum BleeckerIconButtonVariant: String, CaseIterable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/Contracts.swift",
+          "line": 13
+        },
+        "sha256": "29047e86787f11502fa092ab3a34d8ae2b414a225643317e91eb562d3df301a6",
+        "publicMembers": [],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [
+          "BleeckerIconButtonVariant"
+        ],
+        "enumCases": [
+          "`default`, subtle, ghost "
+        ],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerToggleSize",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum BleeckerToggleSize: String, CaseIterable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/Contracts.swift",
+          "line": 14
+        },
+        "sha256": "886c4e082ab2ef49777994956b2bf5ef4a7e757d41e5668c42fae89d06471fc6",
+        "publicMembers": [],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [
+          "BleeckerToggleSize"
+        ],
+        "enumCases": [
+          "sm, md, lg "
+        ],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerToggleVariant",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum BleeckerToggleVariant: String, CaseIterable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/Contracts.swift",
+          "line": 15
+        },
+        "sha256": "f7ea0d7ea01190b189d003baea3b9120e8d3164a7b98447b97fede3cb93d3905",
+        "publicMembers": [],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [
+          "BleeckerToggleVariant"
+        ],
+        "enumCases": [
+          "`default`, outline "
+        ],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerAlertType",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum BleeckerAlertType: String, CaseIterable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/Contracts.swift",
+          "line": 16
+        },
+        "sha256": "677ed0cd3e9897bc3fa3c5942d091740cae9681a245ddbfa61987d6a4ca82dec",
+        "publicMembers": [],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [
+          "BleeckerAlertType"
+        ],
+        "enumCases": [
+          "success, error, info, warning "
+        ],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerMetricFormat",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum BleeckerMetricFormat: String, CaseIterable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/Contracts.swift",
+          "line": 17
+        },
+        "sha256": "8ca48c39be744dc19ccbfcaa1ce017537193c07f3cde03a8764114bebd5abccb",
+        "publicMembers": [],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [
+          "number, currency, percent, compact "
+        ],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerAvatarSize",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum BleeckerAvatarSize: String, CaseIterable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/Contracts.swift",
+          "line": 18
+        },
+        "sha256": "a39801b6f392e75d30079c9b4e9170daaf14d94cd8adabf53cc90f04c20e5584",
+        "publicMembers": [],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [
+          "BleeckerAvatarSize"
+        ],
+        "enumCases": [
+          "xs, sm, md, lg, xl "
+        ],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerLoadingSize",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum BleeckerLoadingSize: String, CaseIterable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/Contracts.swift",
+          "line": 19
+        },
+        "sha256": "43ce1353542064171211cc7de28211887ce4488ff9a193ed3898fa89f3585f17",
+        "publicMembers": [],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [
+          "BleeckerLoadingSize"
+        ],
+        "enumCases": [
+          "sm, md, lg "
+        ],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerIconBadgeSize",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum BleeckerIconBadgeSize: String, CaseIterable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/Contracts.swift",
+          "line": 20
+        },
+        "sha256": "fefb9b8822eb7db3911bd088aecf456c0ae1003cc2a092d2679c8a4702ec78e2",
+        "publicMembers": [],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [
+          "BleeckerIconBadgeSize"
+        ],
+        "enumCases": [
+          "md, lg "
+        ],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerIconBadgeVariant",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum BleeckerIconBadgeVariant: String, CaseIterable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/Contracts.swift",
+          "line": 21
+        },
+        "sha256": "4e82c9e6808243ea1b2394dea23c8aac597f4c495639e1be2e74be3b8d2ecc56",
+        "publicMembers": [],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [
+          "BleeckerIconBadgeVariant"
+        ],
+        "enumCases": [
+          "primary, subtle, outlined "
+        ],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerSelectionOrientation",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum BleeckerSelectionOrientation: String, CaseIterable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/Contracts.swift",
+          "line": 22
+        },
+        "sha256": "3656e389f80b07c433c9f78db2a6e02fb0103726b642531debaa4b6fb9565440",
+        "publicMembers": [],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [
+          "BleeckerSelectionOrientation"
+        ],
+        "enumCases": [
+          "vertical, horizontal "
+        ],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerField",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerField<Content: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 3
+        },
+        "sha256": "77b2d827990e39be18a71fcb028867b09d09ca44274779c296e0874c0ce5eb7f",
+        "publicMembers": [
+          "public init(_ label: String, description: String? = nil, error: String? = nil, optional: Bool = false, @ViewBuilder content: () -> Content) ",
+          "public init(label: String, description: String? = nil, error: String? = nil, optional: Bool = false, @ViewBuilder content: () -> Content) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder let content: Content",
+          "@ViewBuilder content: () -> Content) {",
+          "@ViewBuilder content: () -> Content) {"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme"
+        ]
+      },
+      {
+        "name": "BleeckerTextField",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerTextField: View {",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 34
+        },
+        "sha256": "63ddb86299c28b64042f6edd8346a07c9f50547a6547a40e64d6e3f8fa273211",
+        "publicMembers": [
+          "public init(placeholder: String, text: Binding<String>, systemImage: String? = nil, error: Bool = false, size: BleeckerControlSize = .md, font: Font? = nil) ",
+          "public var body: some View "
+        ],
+        "bindings": [
+          "text"
+        ],
+        "compositionSlots": [],
+        "contractTypes": [
+          "BleeckerControlSize"
+        ],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme",
+          "@Environment(\\.isEnabled) private var isEnabled",
+          "@Environment(\\.bleeckerTextScale) private var textScale",
+          "@FocusState private var focused: Bool"
+        ]
+      },
+      {
+        "name": "BleeckerSecureField",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerSecureField: View {",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 74
+        },
+        "sha256": "4090a0b7e09a207517e6fb39dbfb57bad834911845c1657e9d6e0639fdaa81dd",
+        "publicMembers": [
+          "public init(_ placeholder: String, text: Binding<String>) ",
+          "public var body: some View "
+        ],
+        "bindings": [
+          "text"
+        ],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme",
+          "@State private var revealed = false"
+        ]
+      },
+      {
+        "name": "BleeckerSearchField",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerSearchField: View {",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 91
+        },
+        "sha256": "60ba203ac2159617e0cd8ddd77ab705b13efc03042253c69c5b2c53099363b2a",
+        "publicMembers": [
+          "public init(placeholder: String, text: Binding<String>) ",
+          "public var body: some View "
+        ],
+        "bindings": [
+          "text"
+        ],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerTextArea",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerTextArea: View {",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 98
+        },
+        "sha256": "083f891ec86981b91387386d9d84465ba61c6bccd58551d68d493c297957374a",
+        "publicMembers": [
+          "public init(text: Binding<String>, minHeight: CGFloat = 96) ",
+          "public var body: some View "
+        ],
+        "bindings": [
+          "text"
+        ],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme",
+          "@Environment(\\.bleeckerTextScale) private var textScale"
+        ]
+      },
+      {
+        "name": "BleeckerSelectOption",
+        "kind": "struct",
+        "visual": false,
+        "signature": "public struct BleeckerSelectOption<Value: Hashable>: Identifiable {",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 119
+        },
+        "sha256": "51714403d2f0410f0183f48e6ad6e2488fd88be397a3e5094ad1008e190786d5",
+        "publicMembers": [
+          "public let value: Value",
+          "public let label: String",
+          "public let disabled: Bool",
+          "public var id: Value ",
+          "public init(value: Value, label: String, disabled: Bool = false) "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerSelect",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerSelect<Value: Hashable>: View {",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 127
+        },
+        "sha256": "7f1f86285ebbe9324fe13ee7c422ec94535d97033bc1993fbc341f69c611de0a",
+        "publicMembers": [
+          "public init(selection: Binding<Value>, options: [BleeckerSelectOption<Value>], placeholder: String = \"Select\u2026\", systemImage: String? = nil) ",
+          "public var body: some View "
+        ],
+        "bindings": [
+          "selection"
+        ],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme",
+          "@Environment(\\.isEnabled) private var isEnabled",
+          "@State private var presented = false"
+        ]
+      },
+      {
+        "name": "BleeckerSwitchStyle",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerSwitchStyle: ToggleStyle {",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 177
+        },
+        "sha256": "2ef3255a027608dc391e2c9d85b479b9ec464973ab0e60771ac2aecd2f1fa138",
+        "publicMembers": [
+          "public init() ",
+          "public func makeBody(configuration: Configuration) -> some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme"
+        ]
+      },
+      {
+        "name": "BleeckerCheckbox",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerCheckbox: View {",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 194
+        },
+        "sha256": "2d7928df83027cf769f0745987122a9861d9e7065a2e8e7cad3cb056e95174ed",
+        "publicMembers": [
+          "public init(_ label: String, checked: Binding<Bool>, size: BleeckerControlSize = .md) ",
+          "public var body: some View "
+        ],
+        "bindings": [
+          "checked"
+        ],
+        "compositionSlots": [],
+        "contractTypes": [
+          "BleeckerControlSize"
+        ],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme"
+        ]
+      },
+      {
+        "name": "BleeckerRadioGroup",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerRadioGroup<Value: Hashable>: View {",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 219
+        },
+        "sha256": "44004aebe599bceba47e3ac30ddbcec611bbdb909dc0c30ff9cadedd1e08739e",
+        "publicMembers": [
+          "public init(selection: Binding<Value>, options: [BleeckerSelectOption<Value>], orientation: BleeckerSelectionOrientation = .vertical) ",
+          "public var body: some View "
+        ],
+        "bindings": [
+          "selection"
+        ],
+        "compositionSlots": [
+          "@ViewBuilder private var items: some View {"
+        ],
+        "contractTypes": [
+          "BleeckerSelectionOrientation"
+        ],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerStepper",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerStepper: View {",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 239
+        },
+        "sha256": "77eda35eaa50e14a7baa388022b1b59fc8be32824dc71115812a0c08a5677a08",
+        "publicMembers": [
+          "public init(_ label: String, value: Binding<Int>, in range: ClosedRange<Int>, step: Int = 1, displayOffset: Int = 0) ",
+          "public init(label: String, value: Binding<Int>, range: ClosedRange<Int>, step: Int = 1, displayOffset: Int = 0) ",
+          "public var body: some View "
+        ],
+        "bindings": [
+          "value"
+        ],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme"
+        ]
+      },
+      {
+        "name": "BleeckerAvatar",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerAvatar: View {",
+        "source": {
+          "path": "Sources/Sabella/DataDisplay.swift",
+          "line": 3
+        },
+        "sha256": "e7e5a77101e809f7f931a9aacadba4eddf349bc342f07b8fdbfb05e9b76a3525",
+        "publicMembers": [
+          "public init(name: String, image: Image? = nil, size: BleeckerAvatarSize = .md) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [
+          "BleeckerAvatarSize"
+        ],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme"
+        ]
+      },
+      {
+        "name": "BleeckerIconBadge",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerIconBadge: View {",
+        "source": {
+          "path": "Sources/Sabella/DataDisplay.swift",
+          "line": 16
+        },
+        "sha256": "e7e9d2e747f6bad40bd588961ba569432c844a408512da5fb62bf461d63fe4a3",
+        "publicMembers": [
+          "public init(_ systemImage: String, size: BleeckerIconBadgeSize = .md, variant: BleeckerIconBadgeVariant = .primary) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [
+          "BleeckerIconBadgeSize",
+          "BleeckerIconBadgeVariant"
+        ],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme"
+        ]
+      },
+      {
+        "name": "BleeckerMetric",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerMetric: View {",
+        "source": {
+          "path": "Sources/Sabella/DataDisplay.swift",
+          "line": 26
+        },
+        "sha256": "090e5bab6ac750d31a3141f7ebd209952d8c02c5ef9ac2278916f3ef76c37260",
+        "publicMembers": [
+          "public init(_ label: String, value: Double, format: BleeckerMetricFormat = .number, currencyCode: String = \"USD\") ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme"
+        ]
+      },
+      {
+        "name": "BleeckerStatCard",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerStatCard: View {",
+        "source": {
+          "path": "Sources/Sabella/DataDisplay.swift",
+          "line": 34
+        },
+        "sha256": "356a834efcdd0f9616b4985740aba87088143f3cb2110e6934fbc38d7269810b",
+        "publicMembers": [
+          "public init(_ label: String, value: Double, format: BleeckerMetricFormat = .number, systemImage: String = \"chart.line.uptrend.xyaxis\", delta: Double? = nil) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerDataList",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerDataList<Row: Identifiable, RowContent: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/DataDisplay.swift",
+          "line": 40
+        },
+        "sha256": "4255439d24c3bb1b8fb48720f164834cb7ec0e03a26032781f6703414ebb98c0",
+        "publicMembers": [
+          "public init(_ rows: [Row], @ViewBuilder rowContent: @escaping (Row) -> RowContent) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder rowContent: @escaping (Row) -> RowContent) { self.rows = rows; self.rowContent = rowContent }"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerTimelineItem",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerTimelineItem<Content: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/DataDisplay.swift",
+          "line": 46
+        },
+        "sha256": "fcff393af7697472936f9006c3c59429f5bdb14c0305d698935d653a0ba94af0",
+        "publicMembers": [
+          "public init(_ title: String, date: String, last: Bool = false, @ViewBuilder content: () -> Content) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder let content: Content",
+          "@ViewBuilder content: () -> Content) { self.title = title; self.date = date; self.last = last; self.content = content() }"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme"
+        ]
+      },
+      {
+        "name": "BleeckerFilterChip",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerFilterChip: View {",
+        "source": {
+          "path": "Sources/Sabella/DataDisplay.swift",
+          "line": 53
+        },
+        "sha256": "dd69a7879c597408021e9c476e1832c51d42a124469b071a7a67322854397b7d",
+        "publicMembers": [
+          "public init(_ label: String, selected: Bool = false, remove: (() -> Void)? = nil, action: @escaping () -> Void) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme"
+        ]
+      },
+      {
+        "name": "BleeckerKbd",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerKbd: View {",
+        "source": {
+          "path": "Sources/Sabella/DataDisplay.swift",
+          "line": 60
+        },
+        "sha256": "ee6e93fd9ca7a4df14c84d5eaf2dd3970312c9dca18df4c5c05beeecab9038e1",
+        "publicMembers": [
+          "public init(_ key: String) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme"
+        ]
+      },
+      {
+        "name": "BleeckerActivityItem",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerActivityItem<Actions: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/Extended.swift",
+          "line": 6
+        },
+        "sha256": "614abec88c20e3b176191ea5e34a7fe562fa8244bf3f806c11a66a15cd3ae775",
+        "publicMembers": [
+          "public init(_ title: String, detail: String, timestamp: String, systemImage: String = \"clock\", @ViewBuilder actions: () -> Actions) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder let actions: Actions",
+          "@ViewBuilder actions: () -> Actions) { self.title = title; self.detail = detail; self.timestamp = timestamp; self.systemImage = systemImage; self.actions = actions() }"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme"
+        ]
+      },
+      {
+        "name": "BleeckerFeedItem",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerFeedItem<Content: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/Extended.swift",
+          "line": 13
+        },
+        "sha256": "1d4edef99a6de8e0679cef3fc51bc6cc1e2abe3eaf14dd83f42cc8048f6e1157",
+        "publicMembers": [
+          "public init(author: String, timestamp: String, @ViewBuilder content: () -> Content) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder let content: Content",
+          "@ViewBuilder content: () -> Content) { self.author = author; self.timestamp = timestamp; self.content = content() }"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerErrorState",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerErrorState<Actions: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/Extended.swift",
+          "line": 19
+        },
+        "sha256": "33e58f5b7cd68cb3f3443eefaf2499b802e1a0f83a1127e85d9b63f779974cd8",
+        "publicMembers": [
+          "public init(_ title: String = \"Something went wrong\", message: String, @ViewBuilder actions: () -> Actions) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder let actions: Actions",
+          "@ViewBuilder actions: () -> Actions) { self.title = title; self.message = message; self.actions = actions() }"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerProgressSegment",
+        "kind": "struct",
+        "visual": false,
+        "signature": "public struct BleeckerProgressSegment: Identifiable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/Extended.swift",
+          "line": 25
+        },
+        "sha256": "b31409e92b74d6d92f003cce3b647698b1e126f1899adc6f8c40a5dac5257c18",
+        "publicMembers": [
+          "public let id: String; public let value: Double; public let color: Color",
+          "public init(id: String = UUID().uuidString, value: Double, color: Color) "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerProgressStack",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerProgressStack: View {",
+        "source": {
+          "path": "Sources/Sabella/Extended.swift",
+          "line": 30
+        },
+        "sha256": "61549d86d789675ca965189e5961e70b2ea8a5ec5d0a6d9c9cd02936cec85567",
+        "publicMembers": [
+          "public init(_ segments: [BleeckerProgressSegment], height: CGFloat = 8) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme"
+        ]
+      },
+      {
+        "name": "BleeckerSlider",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerSlider: View {",
+        "source": {
+          "path": "Sources/Sabella/Extended.swift",
+          "line": 37
+        },
+        "sha256": "c088f80415b75c7c6f0ba26884d4a0108a43de8e421380dcc9da41577d03b12b",
+        "publicMembers": [
+          "public init(value: Binding<Double>, in range: ClosedRange<Double> = 0...1, step: Double? = nil) ",
+          "public var body: some View "
+        ],
+        "bindings": [
+          "value"
+        ],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme"
+        ]
+      },
+      {
+        "name": "BleeckerOTPInput",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerOTPInput: View {",
+        "source": {
+          "path": "Sources/Sabella/Extended.swift",
+          "line": 56
+        },
+        "sha256": "d63fb3a2c399e3655162e0aa2a962c14c09164968e6fce3915cb39a5f67a3200",
+        "publicMembers": [
+          "public init(code: Binding<String>, length: Int = 6) ",
+          "public var body: some View "
+        ],
+        "bindings": [
+          "code"
+        ],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerDateRangePicker",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerDateRangePicker: View {",
+        "source": {
+          "path": "Sources/Sabella/Extended.swift",
+          "line": 63
+        },
+        "sha256": "1f8fa0c6020039c5c2b978c3d9bdbd237e3d2a71cfdc96c8cf5d03b8c138edb1",
+        "publicMembers": [
+          "public init(start: Binding<Date>, end: Binding<Date>, in range: ClosedRange<Date>? = nil) ",
+          "public var body: some View "
+        ],
+        "bindings": [
+          "start",
+          "end"
+        ],
+        "compositionSlots": [
+          "@ViewBuilder private func datePicker(_ title: String, selection: Binding<Date>) -> some View { if let range { DatePicker(title, selection: selection, in: range, displayedComponents: .date).labelsHidden() } else { DatePicker(title, selection: selection, displayedComponents: .date).labelsHidden() } }"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerFileInput",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerFileInput: View {",
+        "source": {
+          "path": "Sources/Sabella/Extended.swift",
+          "line": 70
+        },
+        "sha256": "a18d7bc63a850f0331e789fbec048058a59f722ec885f3e2d422a4c304c01e17",
+        "publicMembers": [
+          "public init(_ title: String = \"Choose file\u2026\", allowedContentTypes: [UTType], onResult: @escaping (Result<[URL], Error>) -> Void) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@State private var importing = false"
+        ]
+      },
+      {
+        "name": "BleeckerCollectionFilters",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerCollectionFilters<Content: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/Extended.swift",
+          "line": 78
+        },
+        "sha256": "536f23f5a6b89f75ba2174f7dca9e133108fab8cc26ead02c463c3f34ab5eef2",
+        "publicMembers": [
+          "public init(query: Binding<String>, @ViewBuilder content: () -> Content) ",
+          "public var body: some View "
+        ],
+        "bindings": [
+          "query"
+        ],
+        "compositionSlots": [
+          "@ViewBuilder let content: Content",
+          "@ViewBuilder content: () -> Content) { _query = query; self.content = content() }"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerMediaLibrary",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerMediaLibrary<Item: Identifiable, Tile: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/Extended.swift",
+          "line": 84
+        },
+        "sha256": "5be263b4eec0b9b75a632ae9e408e0b3f7a532863432e77206ef4daee3f8e1e2",
+        "publicMembers": [
+          "public init(_ items: [Item], minimumTileWidth: CGFloat = 160, @ViewBuilder tile: @escaping (Item) -> Tile) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder tile: @escaping (Item) -> Tile) { self.items = items; self.minimumTileWidth = minimumTileWidth; self.tile = tile }"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerHeroCarousel",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerHeroCarousel<Item: Identifiable, Slide: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/Extended.swift",
+          "line": 90
+        },
+        "sha256": "32e291307422de37450ce57cc722fcf73674627f2b3197e5c80918b72ec7c10f",
+        "publicMembers": [
+          "public init(_ items: [Item], @ViewBuilder slide: @escaping (Item) -> Slide) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder slide: @escaping (Item) -> Slide) { self.items = items; self.slide = slide }"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerStatusBadge",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerStatusBadge: View {",
+        "source": {
+          "path": "Sources/Sabella/Feedback.swift",
+          "line": 3
+        },
+        "sha256": "702b36c8f7c09106faa50379544222cedd23ae4f84465867ccbfe894a875c6c5",
+        "publicMembers": [
+          "public init(_ text: String, variant: BleeckerStatusBadgeVariant = .default) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [
+          "BleeckerStatusBadgeVariant"
+        ],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme"
+        ]
+      },
+      {
+        "name": "BleeckerAlert",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerAlert<Content: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/Feedback.swift",
+          "line": 17
+        },
+        "sha256": "8a9d43d0862f4b8319d68b7cd0503197f4f7b2551f380349406fe24a78221442",
+        "publicMembers": [
+          "public init(_ title: String, type: BleeckerAlertType = .info, @ViewBuilder content: () -> Content) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder let content: Content",
+          "@ViewBuilder content: () -> Content) { self.title = title; self.type = type; self.content = content() }"
+        ],
+        "contractTypes": [
+          "BleeckerAlertType"
+        ],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme"
+        ]
+      },
+      {
+        "name": "BleeckerProgress",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerProgress: View {",
+        "source": {
+          "path": "Sources/Sabella/Feedback.swift",
+          "line": 35
+        },
+        "sha256": "cbedeb58fd156f2034f75994ebe7f0772310e8c4052305daad53a8e9b2392e4c",
+        "publicMembers": [
+          "public init(value: Double, size: BleeckerProgressSize = .md, variant: BleeckerProgressVariant = .default) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [
+          "BleeckerProgressSize",
+          "BleeckerProgressVariant"
+        ],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme"
+        ]
+      },
+      {
+        "name": "BleeckerLoadingSpinner",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerLoadingSpinner: View {",
+        "source": {
+          "path": "Sources/Sabella/Feedback.swift",
+          "line": 50
+        },
+        "sha256": "bed576d7a1a800a616beacc96868ed83cd9196d6bdf5a12f0a7908ad175e6ccc",
+        "publicMembers": [
+          "public init(size: BleeckerLoadingSize = .md) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [
+          "BleeckerLoadingSize"
+        ],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerLoadingOverlay",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerLoadingOverlay: View {",
+        "source": {
+          "path": "Sources/Sabella/Feedback.swift",
+          "line": 62
+        },
+        "sha256": "01407746f682611b357dcdde4c7b33c82b809f73e0690aa789f77115bb2fca2f",
+        "publicMembers": [
+          "public init(_ message: String = \"Loading\u2026\") ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme"
+        ]
+      },
+      {
+        "name": "BleeckerEmptyState",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerEmptyState<Actions: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/Feedback.swift",
+          "line": 72
+        },
+        "sha256": "6d1416de619876f0e2940c581bcb51a8caf9031921ac1cc7c7e428749881ed0b",
+        "publicMembers": [
+          "public init(icon: String = \"tray\", title: String, message: String, @ViewBuilder actions: () -> Actions) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder let actions: Actions",
+          "@ViewBuilder actions: () -> Actions) { self.icon = icon; self.title = title; self.message = message; self.actions = actions() }"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme"
+        ]
+      },
+      {
+        "name": "BleeckerNotificationBadge",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerNotificationBadge: View {",
+        "source": {
+          "path": "Sources/Sabella/Feedback.swift",
+          "line": 82
+        },
+        "sha256": "01ed738abafcc53f0d04c2985a499b21d6734f1c70e144857287597f6743e96c",
+        "publicMembers": [
+          "public init(_ count: Int) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaFonts",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum SabellaFonts {",
+        "source": {
+          "path": "Sources/Sabella/Fonts.swift",
+          "line": 5
+        },
+        "sha256": "f22e524b8eff69d556b5dc5dbbafb3171a9f09cc171dac34ed37165de57d13e0",
+        "publicMembers": [
+          "public static let postScriptNames = [",
+          "public static func register() ",
+          "public static func isRegistered(postScriptName: String) -> Bool "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerDashboardGrid",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerDashboardGrid<Content: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/Layout.swift",
+          "line": 3
+        },
+        "sha256": "b59355bb68aa14a9c3397d0df71e8efc09433f3816b3c5199090a0b54c37e282",
+        "publicMembers": [
+          "public init(minimumColumnWidth: CGFloat = 260, spacing: CGFloat = BleeckerSpacing.component, @ViewBuilder content: () -> Content) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder let content: Content",
+          "@ViewBuilder content: () -> Content) { self.minimumColumnWidth = minimumColumnWidth; self.spacing = spacing; self.content = content() }"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerDashboardSection",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerDashboardSection<Actions: View, Content: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/Layout.swift",
+          "line": 9
+        },
+        "sha256": "c638ba1d2fe0375e3b911afcf15c3260e96699978a419e0e153f4a07668447eb",
+        "publicMembers": [
+          "public init(_ title: String, subtitle: String? = nil, @ViewBuilder actions: () -> Actions, @ViewBuilder content: () -> Content) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder let actions: Actions; @ViewBuilder let content: Content",
+          "@ViewBuilder actions: () -> Actions, @ViewBuilder content: () -> Content) { self.title = title; self.subtitle = subtitle; self.actions = actions(); self.content = content() }"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerAppShell",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerAppShell<Sidebar: View, Header: View, Content: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/Layout.swift",
+          "line": 15
+        },
+        "sha256": "7109bdcce72a0eaf70689f469107e7c303b7ef85eb7fe2d46a064435c0663b08",
+        "publicMembers": [
+          "public init(sidebarWidth: CGFloat = 240, @ViewBuilder sidebar: () -> Sidebar, @ViewBuilder header: () -> Header, @ViewBuilder content: () -> Content) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder let sidebar: Sidebar; @ViewBuilder let header: Header; @ViewBuilder let content: Content",
+          "@ViewBuilder sidebar: () -> Sidebar, @ViewBuilder header: () -> Header, @ViewBuilder content: () -> Content) { self.sidebarWidth = sidebarWidth; self.sidebar = sidebar(); self.header = header(); self.content = content() }"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme"
+        ]
+      },
+      {
+        "name": "BleeckerPanelLayout",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerPanelLayout<Leading: View, Content: View, Trailing: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/Layout.swift",
+          "line": 22
+        },
+        "sha256": "2415332167d10c5b00f2793b2c645a9dad2496f223aa621a9e01c9bbff63defd",
+        "publicMembers": [
+          "public init(leadingWidth: CGFloat = 240, trailingWidth: CGFloat = 300, @ViewBuilder leading: () -> Leading, @ViewBuilder content: () -> Content, @ViewBuilder trailing: () -> Trailing) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder let leading: Leading; @ViewBuilder let content: Content; @ViewBuilder let trailing: Trailing",
+          "@ViewBuilder leading: () -> Leading, @ViewBuilder content: () -> Content, @ViewBuilder trailing: () -> Trailing) { self.leadingWidth = leadingWidth; self.trailingWidth = trailingWidth; self.leading = leading(); self.content = content(); self.trailing = trailing() }"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerHeader",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerHeader<Leading: View, Center: View, Trailing: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/Layout.swift",
+          "line": 28
+        },
+        "sha256": "069bc1ad5223afe028437cd8bfd555e0de6c15078ee188a1c6c521622c34e79e",
+        "publicMembers": [
+          "public init(@ViewBuilder leading: () -> Leading, @ViewBuilder center: () -> Center, @ViewBuilder trailing: () -> Trailing) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder let leading: Leading; @ViewBuilder let center: Center; @ViewBuilder let trailing: Trailing",
+          "@ViewBuilder leading: () -> Leading, @ViewBuilder center: () -> Center, @ViewBuilder trailing: () -> Trailing) { self.leading = leading(); self.center = center(); self.trailing = trailing() }"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerFooter",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerFooter<Content: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/Layout.swift",
+          "line": 34
+        },
+        "sha256": "c0ab301ea73dc1c02dc79c23dac576043a19ede90dded800b39f21919a04faac",
+        "publicMembers": [
+          "public init(@ViewBuilder content: () -> Content) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder let content: Content",
+          "@ViewBuilder content: () -> Content) { self.content = content() }"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme; @ViewBuilder let content: Content"
+        ]
+      },
+      {
+        "name": "BleeckerShellPlatform",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum BleeckerShellPlatform: String, CaseIterable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/Mobile.swift",
+          "line": 7
+        },
+        "sha256": "3d33c401b668ce57175e67db89fb89f93ca6f07e9aeb2518ecd6a1ae08e79965",
+        "publicMembers": [],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [
+          "iOS",
+          "iPadOS",
+          "macOS",
+          "tvOS"
+        ],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerShellPresentation",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum BleeckerShellPresentation: String, CaseIterable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/Mobile.swift",
+          "line": 15
+        },
+        "sha256": "ed1434f76ca516af742ae46f42705d5eb803b71042731f862d907d0306ea933e",
+        "publicMembers": [],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [
+          "bottomBar",
+          "drawer",
+          "sidebar",
+          "toolbar",
+          "television"
+        ],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerShellLayout",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum BleeckerShellLayout {",
+        "source": {
+          "path": "Sources/Sabella/Mobile.swift",
+          "line": 24
+        },
+        "sha256": "1801296ef07f88705152b4e03282ac356d889c15ae12ab2c72511d7e1939e34f",
+        "publicMembers": [
+          "public static func adminPresentation(",
+          "public static func tabPresentation(platform: BleeckerShellPlatform) -> BleeckerShellPresentation "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [
+          ".macOS: .sidebar",
+          ".tvOS: .television",
+          ".iOS, .iPadOS: width >= breakpoint ? .sidebar : .drawer",
+          ".iOS, .iPadOS: .bottomBar",
+          ".macOS: .toolbar",
+          ".tvOS: .television"
+        ],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerAppTab",
+        "kind": "struct",
+        "visual": false,
+        "signature": "public struct BleeckerAppTab<Value: Hashable>: Identifiable {",
+        "source": {
+          "path": "Sources/Sabella/Mobile.swift",
+          "line": 59
+        },
+        "sha256": "16569a9f0f1c9d526b7c593d99221c707464d8b8bc4d5493d19e43cbd503ecca",
+        "publicMembers": [
+          "public let value: Value",
+          "public let label: String",
+          "public let systemImage: String",
+          "public let badge: Int?",
+          "public let accessibilityLabel: String",
+          "public let disabled: Bool",
+          "public var id: Value ",
+          "public init("
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerAppTabBar",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerAppTabBar<Value: Hashable>: View {",
+        "source": {
+          "path": "Sources/Sabella/Mobile.swift",
+          "line": 87
+        },
+        "sha256": "a89018982fdca65e8d32ea7842f43592178aee50e52136387eac868f70d4251b",
+        "publicMembers": [
+          "public init(selection: Binding<Value>, tabs: [BleeckerAppTab<Value>]) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme",
+          "@FocusState private var focusedTab: Value?"
+        ]
+      },
+      {
+        "name": "BleeckerMobileAppShell",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerMobileAppShell<Value: Hashable, Header: View, Content: View, Footer: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/Mobile.swift",
+          "line": 195
+        },
+        "sha256": "54f34917cfdfb63e57d3a1d02de3cbc2b0348bc462f7caa72949c02afd0b2535",
+        "publicMembers": [
+          "public init(",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder private let header: Header",
+          "@ViewBuilder private let content: Content",
+          "@ViewBuilder private let footer: Footer",
+          "@ViewBuilder header: () -> Header,",
+          "@ViewBuilder footer: () -> Footer,",
+          "@ViewBuilder content: () -> Content"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerAdminShell",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerAdminShell<Sidebar: View, Header: View, Content: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/Mobile.swift",
+          "line": 292
+        },
+        "sha256": "022eecd769883c41e6179977dff4e1b353a95ee8deb02e85512c3f2f5916c15e",
+        "publicMembers": [
+          "public init(",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder private let sidebar: Sidebar",
+          "@ViewBuilder private let header: Header",
+          "@ViewBuilder private let content: Content",
+          "@ViewBuilder sidebar: () -> Sidebar,",
+          "@ViewBuilder header: () -> Header,",
+          "@ViewBuilder content: () -> Content"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme",
+          "@Environment(\\.accessibilityReduceMotion) private var reduceMotion"
+        ]
+      },
+      {
+        "name": "BleeckerBrandMark",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerBrandMark: View {",
+        "source": {
+          "path": "Sources/Sabella/Navigation.swift",
+          "line": 3
+        },
+        "sha256": "81328ca0ea4f9d151ad63f65fb33df69a48a8cf653076144d5052d83414a01e5",
+        "publicMembers": [
+          "public init(size: CGFloat = 64) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme"
+        ]
+      },
+      {
+        "name": "BleeckerBrandLockup",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerBrandLockup: View {",
+        "source": {
+          "path": "Sources/Sabella/Navigation.swift",
+          "line": 18
+        },
+        "sha256": "d70ed10b50e1a35dcbd6d64d7ccad95314cc8950413b7df771a45a0101c93b17",
+        "publicMembers": [
+          "public init(name: String) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme"
+        ]
+      },
+      {
+        "name": "BleeckerSidebarItem",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerSidebarItem: View {",
+        "source": {
+          "path": "Sources/Sabella/Navigation.swift",
+          "line": 55
+        },
+        "sha256": "a4100585c471c00b6e8b242505c0857c3267ca8292d984b1ce738cc86bdbd3bd",
+        "publicMembers": [
+          "public init(_ title: String, systemImage: String, selected: Bool, action: @escaping () -> Void) ",
+          "public init(title: String, systemImage: String, selected: Bool, action: @escaping () -> Void) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme",
+          "@FocusState private var focused: Bool"
+        ]
+      },
+      {
+        "name": "BleeckerPageHeader",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerPageHeader<Actions: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/Navigation.swift",
+          "line": 122
+        },
+        "sha256": "cc6b18ba039ccdd7a15270d2396453992cd83bfe468d967c92e442aa09c2f07e",
+        "publicMembers": [
+          "public init(eyebrow: String, title: String, description: String, @ViewBuilder actions: () -> Actions) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder let actions: Actions",
+          "@ViewBuilder actions: () -> Actions) { self.eyebrow = eyebrow; self.title = title; self.description = description; self.actions = actions() }"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme"
+        ]
+      },
+      {
+        "name": "BleeckerSectionHeader",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerSectionHeader<Actions: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/Navigation.swift",
+          "line": 139
+        },
+        "sha256": "ee8fef2062bed19d1f3a3c34102d81edcba5922e6b513227465488f03727b150",
+        "publicMembers": [
+          "public init(_ title: String, subtitle: String? = nil, @ViewBuilder actions: () -> Actions) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder let actions: Actions",
+          "@ViewBuilder actions: () -> Actions) { self.title = title; self.subtitle = subtitle; self.actions = actions() }"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme"
+        ]
+      },
+      {
+        "name": "BleeckerBreadcrumbItem",
+        "kind": "struct",
+        "visual": false,
+        "signature": "public struct BleeckerBreadcrumbItem: Identifiable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/Navigation.swift",
+          "line": 149
+        },
+        "sha256": "e50e00106ef3c858080d217f7231fb8595b91d7a8dedf18dd6aa6ff81fbf9bc6",
+        "publicMembers": [
+          "public let id = UUID(); public let title: String; public let systemImage: String?",
+          "public init(_ title: String, systemImage: String? = nil) "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerBreadcrumb",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerBreadcrumb: View {",
+        "source": {
+          "path": "Sources/Sabella/Navigation.swift",
+          "line": 154
+        },
+        "sha256": "d02de3308ca9fe719c756858005b58aa96b006951745ad10c5b1aa96af328490",
+        "publicMembers": [
+          "public init(_ items: [BleeckerBreadcrumbItem], onSelect: ((Int) -> Void)? = nil) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme"
+        ]
+      },
+      {
+        "name": "BleeckerTabs",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerTabs<Value: Hashable>: View {",
+        "source": {
+          "path": "Sources/Sabella/Navigation.swift",
+          "line": 176
+        },
+        "sha256": "8e8e93c3688e67c99ceda5f615c108d9e0aceb9c3b3113edae4f4bb687389e44",
+        "publicMembers": [
+          "public init(selection: Binding<Value>, options: [BleeckerSelectOption<Value>]) ",
+          "public var body: some View "
+        ],
+        "bindings": [
+          "selection"
+        ],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerPagination",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerPagination: View {",
+        "source": {
+          "path": "Sources/Sabella/Navigation.swift",
+          "line": 182
+        },
+        "sha256": "756ba431f62533265d99731c5ef4a71b2617b4116d9e8a900f12783ce8434de6",
+        "publicMembers": [
+          "public init(page: Int, pageCount: Int, onPage: @escaping (Int) -> Void) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerAccordion",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerAccordion<Content: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/Navigation.swift",
+          "line": 190
+        },
+        "sha256": "3beadd75b72d2f156eec973bfa36679c160a1f5b4a57cb1fc313e1b562d1149b",
+        "publicMembers": [
+          "public init(_ title: String, expanded: Bool = false, @ViewBuilder content: () -> Content) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder let content: Content",
+          "@ViewBuilder content: () -> Content) { self.title = title; _expanded = State(initialValue: expanded); self.content = content() }"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme",
+          "@State private var expanded: Bool; @ViewBuilder let content: Content"
+        ]
+      },
+      {
+        "name": "BleeckerModal",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerModal<Content: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/Overlays.swift",
+          "line": 3
+        },
+        "sha256": "d03c65e4b8fe7ab662b12a84c7dd40f1dce97b88f4d2a7f4e5ed6b7f59983476",
+        "publicMembers": [
+          "public init(_ title: String, width: CGFloat = 480, @ViewBuilder content: () -> Content) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder let content: Content",
+          "@ViewBuilder content: () -> Content) { self.title = title; self.width = width; self.content = content() }"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.dismiss) private var dismiss",
+          "@Environment(\\.colorScheme) private var scheme"
+        ]
+      },
+      {
+        "name": "BleeckerTooltip",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerTooltip<Content: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/Overlays.swift",
+          "line": 11
+        },
+        "sha256": "d2140fdc10d1ba29d06f15ee3ef375d194c15223d795f38327a862e7913ca778",
+        "publicMembers": [
+          "public init(_ text: String, @ViewBuilder content: () -> Content) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder let content: Content",
+          "@ViewBuilder content: () -> Content) { self.text = text; self.content = content() }"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerMenuItem",
+        "kind": "struct",
+        "visual": false,
+        "signature": "public struct BleeckerMenuItem: Identifiable {",
+        "source": {
+          "path": "Sources/Sabella/Overlays.swift",
+          "line": 17
+        },
+        "sha256": "96df50b5436ef9c59303f93e4734b619672df0bc1ba5970c766a22e44208413a",
+        "publicMembers": [
+          "public let id = UUID(); public let title: String; public let systemImage: String?; public let destructive: Bool; public let action: () -> Void",
+          "public init(_ title: String, systemImage: String? = nil, destructive: Bool = false, action: @escaping () -> Void) "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerDropdownMenu",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerDropdownMenu<Label: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/Overlays.swift",
+          "line": 22
+        },
+        "sha256": "9f7ef6ee383c370bf60ffec05f67384f9135c8e508ca515e67082da87453d9b7",
+        "publicMembers": [
+          "public init(items: [BleeckerMenuItem], @ViewBuilder label: () -> Label) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder let label: Label",
+          "@ViewBuilder label: () -> Label) { self.items = items; self.label = label() }"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerCommandSpotlight",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerCommandSpotlight<Item: Identifiable, Row: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/Overlays.swift",
+          "line": 28
+        },
+        "sha256": "c661019713e1a7c688e0413f20cf1011f123bf24b84674738daf62044a7963d7",
+        "publicMembers": [
+          "public init(query: Binding<String>, items: [Item], @ViewBuilder row: @escaping (Item) -> Row) ",
+          "public var body: some View "
+        ],
+        "bindings": [
+          "query"
+        ],
+        "compositionSlots": [
+          "@ViewBuilder row: @escaping (Item) -> Row) { _query = query; self.items = items; self.row = row }"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerAttentionSurface",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerAttentionSurface<Content: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/Surfaces.swift",
+          "line": 5
+        },
+        "sha256": "7122f010b7b81578d07eeb3b382a7fee8e6768633607ff35f894a1b9839033d8",
+        "publicMembers": [
+          "public init(hue: Double, intensity: Double, @ViewBuilder content: () -> Content) ",
+          "public var body: some View ",
+          "public static func accent(hue: Double, intensity: Double) -> Color ",
+          "public static func labelAccent(hue: Double, intensity: Double, scheme: ColorScheme) -> Color "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder let content: Content",
+          "@ViewBuilder content: () -> Content) {"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme"
+        ]
+      },
+      {
+        "name": "BleeckerCard",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerCard<Content: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/Surfaces.swift",
+          "line": 86
+        },
+        "sha256": "9c0134d34005a2db9344abffae82cc0ed3382874322a334596d4e85badc418eb",
+        "publicMembers": [
+          "public init(padding: BleeckerCardPadding = .md, variant: BleeckerCardVariant = .surface, @ViewBuilder content: () -> Content) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder let content: Content",
+          "@ViewBuilder content: () -> Content) {"
+        ],
+        "contractTypes": [
+          "BleeckerCardVariant"
+        ],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme"
+        ]
+      },
+      {
+        "name": "BleeckerPanel",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerPanel<Content: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/Surfaces.swift",
+          "line": 112
+        },
+        "sha256": "edb445cec4a4d7b5ccebb963574c22edbacd326d299f5ed890651c4204364f31",
+        "publicMembers": [
+          "public init(title: String? = nil, @ViewBuilder content: () -> Content) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder let content: Content",
+          "@ViewBuilder content: () -> Content) { self.title = title; self.content = content() }"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerSeparator",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerSeparator: View {",
+        "source": {
+          "path": "Sources/Sabella/Surfaces.swift",
+          "line": 126
+        },
+        "sha256": "ff5e5da881bd522086838980ae560971069741d95767029603f034928635f84f",
+        "publicMembers": [
+          "public init(vertical: Bool = false) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme"
+        ]
+      },
+      {
+        "name": "BleeckerSkeleton",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerSkeleton: View {",
+        "source": {
+          "path": "Sources/Sabella/Surfaces.swift",
+          "line": 136
+        },
+        "sha256": "edf4d8e9f097fc68ce3841a1e773816cee9fc8feba9e8a68f935bc15473cd16a",
+        "publicMembers": [
+          "public init(radius: CGFloat = BleeckerRadius.ui) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme",
+          "@State private var phase = false"
+        ]
+      },
+      {
+        "name": "BleeckerBauhausBackground",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerBauhausBackground: View {",
+        "source": {
+          "path": "Sources/Sabella/Surfaces.swift",
+          "line": 149
+        },
+        "sha256": "9fbe83b105b0f4a329ea17d18e0421dcbfdf68a127f1321fbe5dbb6406f3780d",
+        "publicMembers": [
+          "public init() ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme"
+        ]
+      },
+      {
+        "name": "State",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum State: String, CaseIterable, Hashable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionPlaybackActivity.swift",
+          "line": 5
+        },
+        "sha256": "ce3e6502ba8731f6333d230147d328818b78618aeca918f0eaa597df38b60a8f",
+        "publicMembers": [],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [
+          "starting",
+          "buffering",
+          "playing",
+          "paused",
+          "failed",
+          "stopped"
+        ],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerSpacing",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum BleeckerSpacing {",
+        "source": {
+          "path": "Sources/Sabella/Tokens.swift",
+          "line": 4
+        },
+        "sha256": "e9eff1b4a124fe5419bbd44baaeafbdf3d1d837229b51f49b739d16b16ffd387",
+        "publicMembers": [
+          "public static let detail: CGFloat = 4",
+          "public static let inline: CGFloat = 8",
+          "public static let control: CGFloat = 12",
+          "public static let component: CGFloat = 16",
+          "public static let group: CGFloat = 24",
+          "public static let container: CGFloat = 32",
+          "public static let section: CGFloat = 48",
+          "public static let page: CGFloat = 64"
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerRadius",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum BleeckerRadius {",
+        "source": {
+          "path": "Sources/Sabella/Tokens.swift",
+          "line": 15
+        },
+        "sha256": "465326cc72333abd1a2d29530e2f8c6a5d66877f3718af33ba910fc2e541a18b",
+        "publicMembers": [
+          "public static let button: CGFloat = 7",
+          "public static let card: CGFloat = 12",
+          "public static let ui: CGFloat = 7",
+          "public static let dialog: CGFloat = 14",
+          "public static let pill: CGFloat = 9_999"
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerDuration",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum BleeckerDuration {",
+        "source": {
+          "path": "Sources/Sabella/Tokens.swift",
+          "line": 23
+        },
+        "sha256": "a678ef36e4ebd414e384e4c1561f6b6d06a9074c4af2610481e8fb3a724977a3",
+        "publicMembers": [
+          "public static let fast = 0.15",
+          "public static let standard = 0.20",
+          "public static let deliberate = 0.30",
+          "public static let enter = 0.22",
+          "public static let exit = 0.32",
+          "public static let control = 0.19",
+          "public static let surface = 0.22",
+          "public static let overlay = 0.24"
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerTypography",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum BleeckerTypography {",
+        "source": {
+          "path": "Sources/Sabella/Tokens.swift",
+          "line": 34
+        },
+        "sha256": "ac981eeb3245553c5743a58c36e9f37d744cdf557fa9687e4873d79ed14a12de",
+        "publicMembers": [
+          "public static func primary(_ size: CGFloat, weight: Font.Weight = .regular) -> Font ",
+          "public static func secondary(_ size: CGFloat, weight: Font.Weight = .regular) -> Font ",
+          "public static func mono(_ size: CGFloat, weight: Font.Weight = .regular) -> Font "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerFontFamily",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum BleeckerFontFamily: Sendable {",
+        "source": {
+          "path": "Sources/Sabella/Tokens.swift",
+          "line": 89
+        },
+        "sha256": "657c93b2c25bb309b399f99a5a1e61a89d2b2777ed6041ae692a0338a5e7b811",
+        "publicMembers": [],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [
+          "primary, secondary, mono"
+        ],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerPalette",
+        "kind": "struct",
+        "visual": false,
+        "signature": "public struct BleeckerPalette: Sendable {",
+        "source": {
+          "path": "Sources/Sabella/Tokens.swift",
+          "line": 117
+        },
+        "sha256": "3558e4a3d4bec90528522d444f04c0f0401040b53628bd12eed09f5c7d65c47f",
+        "publicMembers": [
+          "public let sand, desert, terracotta, sea, deepSea, lightSand, darkSand, sunset: Color",
+          "public let accentGold, accentBlue, accentOxblood, accentBronze, accentRed, accentYellow: Color",
+          "public let textPrimary, textSecondary, background, foreground, card, cardForeground: Color",
+          "public let popover, popoverForeground, muted, mutedForeground, border, input, ring: Color",
+          "public let primary, primaryForeground, secondary, secondaryForeground: Color",
+          "public let destructive, destructiveForeground, accent, accentForeground, live: Color",
+          "public static func resolve(_ scheme: ColorScheme) -> Self ",
+          "public static let light = Self(",
+          "public static let dark = Self("
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "BleeckerSurfaceModifier",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct BleeckerSurfaceModifier: ViewModifier {",
+        "source": {
+          "path": "Sources/Sabella/Tokens.swift",
+          "line": 171
+        },
+        "sha256": "7fb3e66cf3a5097c1a2a96b59968ffcfcf9bc4b61d012f0504dc116befa3e501",
+        "publicMembers": [
+          "public func body(content: Content) -> some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme"
+        ]
+      }
+    ],
+    "modifiers": [
+      {
+        "name": "View.bleeckerFont",
+        "signature": "func bleeckerFont(_ family: BleeckerFontFamily, size: CGFloat,\n                      weight: Font.Weight = .regular) -> some View",
+        "source": {
+          "path": "Sources/Sabella/Tokens.swift",
+          "line": 111
+        }
+      },
+      {
+        "name": "View.bleeckerSurface",
+        "signature": "func bleeckerSurface(radius: CGFloat = BleeckerRadius.card) -> some View",
+        "source": {
+          "path": "Sources/Sabella/Tokens.swift",
+          "line": 186
+        }
+      },
+      {
+        "name": "Text.bleeckerEyebrow",
+        "signature": "func bleeckerEyebrow() -> some View",
+        "source": {
+          "path": "Sources/Sabella/Tokens.swift",
+          "line": 192
+        }
+      },
+      {
+        "name": "Text.bleeckerPill",
+        "signature": "func bleeckerPill() -> some View",
+        "source": {
+          "path": "Sources/Sabella/Tokens.swift",
+          "line": 196
+        }
+      }
+    ],
+    "symbolInputs": [
+      {
+        "input": "systemImage",
+        "expression": "String",
+        "source": {
+          "path": "Sources/Sabella/Buttons.swift",
+          "line": 102
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "String, accessibilityLabel: String, size: BleeckerIconButtonSize = .md, variant: BleeckerIconButtonVariant = .default, action: @escaping () -> Void) {",
+        "source": {
+          "path": "Sources/Sabella/Buttons.swift",
+          "line": 108
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemName",
+        "expression": "systemImage).frame(width: edge, height: edge) }",
+        "source": {
+          "path": "Sources/Sabella/Buttons.swift",
+          "line": 113
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "String?",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 41
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "String? = nil, error: Bool = false, size: BleeckerControlSize = .md, font: Font? = nil) {",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 46
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemName",
+        "expression": "systemImage).font(.system(size: 14, weight: .medium)).foregroundStyle(p.textSecondary) }",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 54
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemName",
+        "expression": "\"xmark\").font(.system(size: 10, weight: .bold)) }",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 57
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemName",
+        "expression": "revealed ? \"eye.slash\" : \"eye\") }.buttonStyle(.plain).foregroundStyle(p.textSecondary)",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 85
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "\"magnifyingglass\") }",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 95
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "String?",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 133
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "String? = nil) {",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 136
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemName",
+        "expression": "systemImage).foregroundStyle(p.sea) }",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 150
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemName",
+        "expression": "\"chevron.down\").font(.system(size: 11, weight: .semibold)).foregroundStyle(p.textSecondary)",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 153
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemName",
+        "expression": "\"checkmark\").foregroundStyle(p.sea) } }",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 165
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemName",
+        "expression": "\"checkmark\").font(.system(size: 10, weight: .bold)).foregroundStyle(p.primaryForeground) } }",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 210
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "selection == option.value ? \"largecircle.fill.circle\" : \"circle\")",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 233
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemName",
+        "expression": "\"minus\") }.disabled(value <= range.lowerBound)",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 253
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemName",
+        "expression": "\"plus\") }.disabled(value >= range.upperBound)",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 255
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "String; let size: BleeckerIconBadgeSize; let variant: BleeckerIconBadgeVariant",
+        "source": {
+          "path": "Sources/Sabella/DataDisplay.swift",
+          "line": 18
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "String, size: BleeckerIconBadgeSize = .md, variant: BleeckerIconBadgeVariant = .primary) { self.systemImage = systemImage; self.size = size; self.variant = variant }",
+        "source": {
+          "path": "Sources/Sabella/DataDisplay.swift",
+          "line": 19
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemName",
+        "expression": "systemImage).font(.system(size: edge * 0.4, weight: .medium)).foregroundStyle(variant == .primary ? p.primaryForeground : p.sea).frame(width: edge, height: edge).background(variant == .primary ? p.primary : p.muted).clipShape(RoundedRectangle(cornerRadius: BleeckerRadius.ui)).overlay { if variant == .outlined { RoundedRectangle(cornerRadius: BleeckerRadius.ui).strokeBorder(p.sea.opacity(0.4)) } }",
+        "source": {
+          "path": "Sources/Sabella/DataDisplay.swift",
+          "line": 22
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "String; let delta: Double?",
+        "source": {
+          "path": "Sources/Sabella/DataDisplay.swift",
+          "line": 35
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "String = \"chart.line.uptrend.xyaxis\", delta: Double? = nil) { self.label = label; self.value = value; self.format = format; self.systemImage = systemImage; self.delta = delta }",
+        "source": {
+          "path": "Sources/Sabella/DataDisplay.swift",
+          "line": 36
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemName",
+        "expression": "\"xmark\").font(.caption2) }.buttonStyle(.plain) } }.font(BleeckerTypography.primary(12, weight: .medium)).foregroundStyle(selected ? p.primaryForeground : p.textPrimary).padding(.horizontal, 10).frame(minHeight: 28).background(selected ? p.primary : p.muted).clipShape(Capsule()).overlay { Capsule().strokeBorder(selected ? .clear : p.border) } }",
+        "source": {
+          "path": "Sources/Sabella/DataDisplay.swift",
+          "line": 57
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "String; @ViewBuilder let actions: Actions",
+        "source": {
+          "path": "Sources/Sabella/Extended.swift",
+          "line": 8
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "String = \"clock\", @ViewBuilder actions: () -> Actions) { self.title = title; self.detail = detail; self.timestamp = timestamp; self.systemImage = systemImage; self.actions = actions() }",
+        "source": {
+          "path": "Sources/Sabella/Extended.swift",
+          "line": 9
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemName",
+        "expression": "\"minus\") }",
+        "source": {
+          "path": "Sources/Sabella/Extended.swift",
+          "line": 45
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemName",
+        "expression": "\"plus\") }",
+        "source": {
+          "path": "Sources/Sabella/Extended.swift",
+          "line": 47
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemName",
+        "expression": "\"arrow.right\").foregroundStyle(.secondary); datePicker(\"To\", selection: $end) } }",
+        "source": {
+          "path": "Sources/Sabella/Extended.swift",
+          "line": 66
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemName",
+        "expression": "icon).foregroundStyle(c).padding(.top, 1)",
+        "source": {
+          "path": "Sources/Sabella/Feedback.swift",
+          "line": 26
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemName",
+        "expression": "icon).font(.system(size: 28)).foregroundStyle(p.sea); Text(title).font(BleeckerTypography.primary(17, weight: .semibold)); Text(message).font(BleeckerTypography.secondary(13)).foregroundStyle(p.textSecondary).multilineTextAlignment(.center); actions }.padding(32)",
+        "source": {
+          "path": "Sources/Sabella/Feedback.swift",
+          "line": 78
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "String",
+        "source": {
+          "path": "Sources/Sabella/Mobile.swift",
+          "line": 62
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "String,",
+        "source": {
+          "path": "Sources/Sabella/Mobile.swift",
+          "line": 72
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemName",
+        "expression": "tab.systemImage)",
+        "source": {
+          "path": "Sources/Sabella/Mobile.swift",
+          "line": 116
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemName",
+        "expression": "tab.systemImage)",
+        "source": {
+          "path": "Sources/Sabella/Mobile.swift",
+          "line": 160
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "tab.systemImage).tag(tab.value)",
+        "source": {
+          "path": "Sources/Sabella/Mobile.swift",
+          "line": 252
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "\"sidebar.left\"",
+        "source": {
+          "path": "Sources/Sabella/Mobile.swift",
+          "line": 445
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "String; let selected: Bool; let action: () -> Void",
+        "source": {
+          "path": "Sources/Sabella/Navigation.swift",
+          "line": 60
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "String, selected: Bool, action: @escaping () -> Void) { self.title = title; self.systemImage = systemImage; self.selected = selected; self.action = action }",
+        "source": {
+          "path": "Sources/Sabella/Navigation.swift",
+          "line": 61
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "String, selected: Bool, action: @escaping () -> Void) { self.init(title, systemImage: systemImage, selected: selected, action: action) }",
+        "source": {
+          "path": "Sources/Sabella/Navigation.swift",
+          "line": 62
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemName",
+        "expression": "systemImage).font(.system(size: sidebarIconSize, weight: .medium)).frame(width: sidebarIconWidth); Text(title).font(BleeckerTypography.primary(sidebarTextSize, weight: .medium)); Spacer() }",
+        "source": {
+          "path": "Sources/Sabella/Navigation.swift",
+          "line": 74
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "String?",
+        "source": {
+          "path": "Sources/Sabella/Navigation.swift",
+          "line": 150
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "String? = nil) { self.title = title; self.systemImage = systemImage }",
+        "source": {
+          "path": "Sources/Sabella/Navigation.swift",
+          "line": 151
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemName",
+        "expression": "\"chevron.right\").font(.caption2).foregroundStyle(p.textSecondary) }",
+        "source": {
+          "path": "Sources/Sabella/Navigation.swift",
+          "line": 162
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemName",
+        "expression": "icon) }",
+        "source": {
+          "path": "Sources/Sabella/Navigation.swift",
+          "line": 165
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemName",
+        "expression": "\"chevron.down\").rotationEffect(.degrees(expanded ? 180 : 0)) } }.buttonStyle(.plain); if expanded { content.transition(.opacity.combined(with: .move(edge: .top))) } }.padding(14).background(p.card).clipShape(RoundedRectangle(cornerRadius: BleeckerRadius.ui)).overlay { RoundedRectangle(cornerRadius: BleeckerRadius.ui).strokeBorder(p.border) }",
+        "source": {
+          "path": "Sources/Sabella/Navigation.swift",
+          "line": 196
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "String?; public let destructive: Bool; public let action: () -> Void",
+        "source": {
+          "path": "Sources/Sabella/Overlays.swift",
+          "line": 18
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "String? = nil, destructive: Bool = false, action: @escaping () -> Void) { self.title = title; self.systemImage = systemImage; self.destructive = destructive; self.action = action }",
+        "source": {
+          "path": "Sources/Sabella/Overlays.swift",
+          "line": 19
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "item.systemImage ?? \"circle\") } } } label: { label }.menuStyle(.borderlessButton) }",
+        "source": {
+          "path": "Sources/Sabella/Overlays.swift",
+          "line": 25
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      }
+    ],
+    "platformAdapters": [
+      {
+        "expression": "ProgressView(",
+        "source": {
+          "path": "Sources/Sabella/Buttons.swift",
+          "line": 88
+        }
+      },
+      {
+        "expression": "ProgressView(",
+        "source": {
+          "path": "Sources/Sabella/Buttons.swift",
+          "line": 90
+        }
+      },
+      {
+        "expression": ".buttonStyle(",
+        "source": {
+          "path": "Sources/Sabella/Buttons.swift",
+          "line": 96
+        }
+      },
+      {
+        "expression": ".buttonStyle(",
+        "source": {
+          "path": "Sources/Sabella/Buttons.swift",
+          "line": 114
+        }
+      },
+      {
+        "expression": ".buttonStyle(",
+        "source": {
+          "path": "Sources/Sabella/Buttons.swift",
+          "line": 161
+        }
+      },
+      {
+        "expression": ".textFieldStyle(",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 55
+        }
+      },
+      {
+        "expression": ".buttonStyle(",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 58
+        }
+      },
+      {
+        "expression": ".textFieldStyle(",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 83
+        }
+      },
+      {
+        "expression": ".textFieldStyle(",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 84
+        }
+      },
+      {
+        "expression": ".buttonStyle(",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 85
+        }
+      },
+      {
+        "expression": "TextEditor(",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 112
+        }
+      },
+      {
+        "expression": "Picker(",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 143
+        }
+      },
+      {
+        "expression": ".buttonStyle(",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 159
+        }
+      },
+      {
+        "expression": ".popover(",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 160
+        }
+      },
+      {
+        "expression": ".buttonStyle(",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 168
+        }
+      },
+      {
+        "expression": ".buttonStyle(",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 190
+        }
+      },
+      {
+        "expression": ".buttonStyle(",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 213
+        }
+      },
+      {
+        "expression": ".buttonStyle(",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 234
+        }
+      },
+      {
+        "expression": "Divider(",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 252
+        }
+      },
+      {
+        "expression": ".buttonStyle(",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 256
+        }
+      },
+      {
+        "expression": ".buttonStyle(",
+        "source": {
+          "path": "Sources/Sabella/DataDisplay.swift",
+          "line": 57
+        }
+      },
+      {
+        "expression": ".buttonStyle(",
+        "source": {
+          "path": "Sources/Sabella/DataDisplay.swift",
+          "line": 57
+        }
+      },
+      {
+        "expression": "DatePicker(",
+        "source": {
+          "path": "Sources/Sabella/Extended.swift",
+          "line": 67
+        }
+      },
+      {
+        "expression": "DatePicker(",
+        "source": {
+          "path": "Sources/Sabella/Extended.swift",
+          "line": 67
+        }
+      },
+      {
+        "expression": ".buttonStyle(",
+        "source": {
+          "path": "Sources/Sabella/Extended.swift",
+          "line": 74
+        }
+      },
+      {
+        "expression": ".fileImporter(",
+        "source": {
+          "path": "Sources/Sabella/Extended.swift",
+          "line": 74
+        }
+      },
+      {
+        "expression": "ProgressView(",
+        "source": {
+          "path": "Sources/Sabella/Feedback.swift",
+          "line": 55
+        }
+      },
+      {
+        "expression": "ProgressView(",
+        "source": {
+          "path": "Sources/Sabella/Feedback.swift",
+          "line": 57
+        }
+      },
+      {
+        "expression": ".buttonStyle(",
+        "source": {
+          "path": "Sources/Sabella/Mobile.swift",
+          "line": 139
+        }
+      },
+      {
+        "expression": ".buttonStyle(",
+        "source": {
+          "path": "Sources/Sabella/Mobile.swift",
+          "line": 179
+        }
+      },
+      {
+        "expression": "Picker(",
+        "source": {
+          "path": "Sources/Sabella/Mobile.swift",
+          "line": 250
+        }
+      },
+      {
+        "expression": ".buttonStyle(",
+        "source": {
+          "path": "Sources/Sabella/Mobile.swift",
+          "line": 382
+        }
+      },
+      {
+        "expression": ".buttonStyle(",
+        "source": {
+          "path": "Sources/Sabella/Navigation.swift",
+          "line": 78
+        }
+      },
+      {
+        "expression": ".buttonStyle(",
+        "source": {
+          "path": "Sources/Sabella/Navigation.swift",
+          "line": 169
+        }
+      },
+      {
+        "expression": ".buttonStyle(",
+        "source": {
+          "path": "Sources/Sabella/Navigation.swift",
+          "line": 196
+        }
+      },
+      {
+        "expression": ".help(",
+        "source": {
+          "path": "Sources/Sabella/Overlays.swift",
+          "line": 14
+        }
+      },
+      {
+        "expression": ".menuStyle(",
+        "source": {
+          "path": "Sources/Sabella/Overlays.swift",
+          "line": 25
+        }
+      }
+    ],
+    "monospaceUses": [
+      {
+        "expression": "BleeckerTypography.mono(12, weight: .bold)).frame(minWidth: 34)",
+        "source": {
+          "path": "Sources/Sabella/Controls.swift",
+          "line": 254
+        },
+        "resolvedFace": null,
+        "fixtureEvidence": null,
+        "status": "pending"
+      },
+      {
+        "expression": "BleeckerTypography.mono(10, weight: .medium)).padding(.horizontal, 6).frame(minHeight: 22).background(p.muted).clipShape(RoundedRectangle(cornerRadius: 4)).overlay { RoundedRectangle(cornerRadius: 4).strokeBorder(p.border) } }",
+        "source": {
+          "path": "Sources/Sabella/DataDisplay.swift",
+          "line": 64
+        },
+        "resolvedFace": null,
+        "fixtureEvidence": null,
+        "status": "pending"
+      },
+      {
+        "expression": "BleeckerTypography.mono(20, weight: .semibold)).multilineTextAlignment(.center).accessibilityLabel(\"Verification code\") }",
+        "source": {
+          "path": "Sources/Sabella/Extended.swift",
+          "line": 59
+        },
+        "resolvedFace": null,
+        "fixtureEvidence": null,
+        "status": "pending"
+      },
+      {
+        "expression": ".system(size: size, weight: weight, design: .monospaced)",
+        "source": {
+          "path": "Sources/Sabella/Tokens.swift",
+          "line": 46
+        },
+        "resolvedFace": null,
+        "fixtureEvidence": null,
+        "status": "pending"
+      },
+      {
+        "expression": "BleeckerTypography.mono(scaledSize, weight: weight)",
+        "source": {
+          "path": "Sources/Sabella/Tokens.swift",
+          "line": 104
+        },
+        "resolvedFace": null,
+        "fixtureEvidence": null,
+        "status": "pending"
+      },
+      {
+        "expression": "BleeckerTypography.mono(9, weight: .bold)).padding(.horizontal, 7).padding(.vertical, 4)",
+        "source": {
+          "path": "Sources/Sabella/Tokens.swift",
+          "line": 213
+        },
+        "resolvedFace": null,
+        "fixtureEvidence": null,
+        "status": "pending"
+      }
+    ],
+    "unregisteredVisualAPIs": [],
+    "caseDiscovery": "pending: extracted API inputs require explicit fixture matrices; counts do not establish coverage"
+  },
+  "television": {
+    "reference": "f5ac479bfceaa7eab23c1716ac47420ac53dae25",
+    "registered": [
+      "SabellaTVAmbientBackground",
+      "SabellaTVBroadcastCell",
+      "SabellaTVCallsignOverlay",
+      "SabellaTVCard",
+      "SabellaTVCarouselDots",
+      "SabellaTVChannelGroupBrowser",
+      "SabellaTVChannelGroupDirectory",
+      "SabellaTVChannelGuide",
+      "SabellaTVChannelHome",
+      "SabellaTVChromeHeader",
+      "SabellaTVChromeScreen",
+      "SabellaTVClock",
+      "SabellaTVContextBadge",
+      "SabellaTVDVROverlay",
+      "SabellaTVDemoOverlay",
+      "SabellaTVEditorialRail",
+      "SabellaTVEmergencyHeader",
+      "SabellaTVEmergencyLayout",
+      "SabellaTVHero",
+      "SabellaTVLiveBadge",
+      "SabellaTVLivePlayer",
+      "SabellaTVLoadingState",
+      "SabellaTVMarquee",
+      "SabellaTVNavigationBar",
+      "SabellaTVNavigationHeader",
+      "SabellaTVPlaybackFailure",
+      "SabellaTVPlaybackOverlay",
+      "SabellaTVPlayerSurface",
+      "SabellaTVPrimaryButtonStyle",
+      "SabellaTVQuadLayout",
+      "SabellaTVRadioNowPlaying",
+      "SabellaTVRegistration",
+      "SabellaTVScreen",
+      "SabellaTVSectionLabel",
+      "SabellaTVShelf",
+      "SabellaTVSignalVisualizer",
+      "SabellaTVSinglePlayback",
+      "SabellaTVStandby",
+      "SabellaTVStatusPill",
+      "SabellaTVTestPattern",
+      "SabellaTVUserButton",
+      "SabellaTVUserSettings"
+    ],
+    "declarations": [
+      {
+        "name": "SabellaTVContent",
+        "kind": "struct",
+        "visual": false,
+        "signature": "public struct SabellaTVContent: Identifiable, Hashable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 4
+        },
+        "sha256": "adea0f3a62179e250cfbad139d5c0b01f6d3fe47b97f88bee30ba48da7f915a2",
+        "publicMembers": [
+          "public let id: String",
+          "public let title: String",
+          "public let subtitle: String",
+          "public let systemImage: String",
+          "public init(id: String, title: String, subtitle: String, systemImage: String) "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVChannelGroupSummary",
+        "kind": "struct",
+        "visual": false,
+        "signature": "public struct SabellaTVChannelGroupSummary: Identifiable, Hashable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 18
+        },
+        "sha256": "bc9e893982299207a91b62bbf4e58ac5a1c397ed030d78c928f3ba83ca0190af",
+        "publicMembers": [
+          "public let id: String",
+          "public let name: String",
+          "public let channelCount: Int",
+          "public let systemImage: String",
+          "public init(id: String, name: String, channelCount: Int, systemImage: String = \"rectangle.3.group.fill\") "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVChannelGroupBrowser",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVChannelGroupBrowser: View {",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 32
+        },
+        "sha256": "8145e516d425a2c1215822a26de166b19ac3e8d3544614330123e33d00d7c30a",
+        "publicMembers": [
+          "public init(",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@FocusState private var focusedID: String?",
+          "@FocusState private var browseAllFocused: Bool",
+          "@State private var focusRestoration = SabellaTVGroupFocusRestoration()"
+        ]
+      },
+      {
+        "name": "SabellaTVChannelGroupDirectory",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVChannelGroupDirectory: View {",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 164
+        },
+        "sha256": "fe0c1132a6fbffa6b10ca6e69be752f91f6769f748a57dcb036af0db824dadd8",
+        "publicMembers": [
+          "public init(",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@FocusState private var focusedID: String?",
+          "@State private var focusRestoration = SabellaTVGroupFocusRestoration()"
+        ]
+      },
+      {
+        "name": "SabellaTVChannel",
+        "kind": "struct",
+        "visual": false,
+        "signature": "public struct SabellaTVChannel: Identifiable, Hashable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 389
+        },
+        "sha256": "404a4d206b79b16593f701075a739270d8efdd568234116cc3fb1b6b2fe0b7b4",
+        "publicMembers": [
+          "public let id: String",
+          "public let streamURL: URL",
+          "public let number: String",
+          "public let name: String",
+          "public let mark: String",
+          "public let tone: SabellaTVChannelTone",
+          "public let now: String",
+          "public let next: String?",
+          "public let progress: Double",
+          "public let currentTime: String?",
+          "public let nextTime: String?",
+          "public let backgroundPlayback: SabellaTVBackgroundPlayback",
+          "public let medium: SabellaTVChannelMedium",
+          "public init("
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVChannelMedium",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum SabellaTVChannelMedium: Hashable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 435
+        },
+        "sha256": "8b4aeb452640d03b6ac169fcf26b6705b453e8c2174044c687421d2ebaa6cc54",
+        "publicMembers": [],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [
+          "automatic",
+          "television",
+          "radio"
+        ],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVBackgroundPlayback",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum SabellaTVBackgroundPlayback: Hashable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 443
+        },
+        "sha256": "6d5f760ae3435d7293b8d1d1b4f994b01d4569773a4617022145e26c0cc7d4a6",
+        "publicMembers": [],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [
+          "automatic",
+          "suspend",
+          "audio"
+        ],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVChannelTone",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum SabellaTVChannelTone: Hashable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 456
+        },
+        "sha256": "7d6e6e81e72e3e96d92d0724c6a8c4f1a41de7e37fafe24d382a08b6fa0892f0",
+        "publicMembers": [],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [
+          "sea",
+          "red",
+          "gold",
+          "terracotta",
+          ".sea: BleeckerPalette.dark.sea",
+          ".red: BleeckerPalette.dark.accentRed",
+          ".gold: BleeckerPalette.dark.accentGold",
+          ".terracotta: BleeckerPalette.dark.terracotta"
+        ],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVArtworkRatio",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum SabellaTVArtworkRatio: Sendable {",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 472
+        },
+        "sha256": "a8934aed0dae13a4944a816b96b79917163feaaa7e4a404dfb0fbe6577f2fd6a",
+        "publicMembers": [],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [
+          "landscape",
+          "poster",
+          ".landscape: 0.5625",
+          ".poster: 1.5"
+        ],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVScreen",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVScreen<Content: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 484
+        },
+        "sha256": "3c936613df0e270c18bbafbc49b6909413799ffe296b1809026d7e3a274c83a9",
+        "publicMembers": [
+          "public init(@ViewBuilder content: () -> Content) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder private let content: Content",
+          "@ViewBuilder content: () -> Content) {"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme",
+          "@Environment(\\.accessibilityReduceTransparency) private var reduceTransparency"
+        ]
+      },
+      {
+        "name": "SabellaTVContextBadge",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVContextBadge: View {",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 511
+        },
+        "sha256": "83459f7205ccc35f4003953a4d997a51118db76897896676a38d229da09f264f",
+        "publicMembers": [
+          "public init(_ text: String, systemImage: String? = nil) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVLiveBadge",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVLiveBadge: View {",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 534
+        },
+        "sha256": "20d1e89c5be91b6086cdc11cc325a8359cc7a14788484947f8945a2cce1259fb",
+        "publicMembers": [
+          "public init(_ text: String = \"LIVE\") ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVChannelGuide",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVChannelGuide: View {",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 566
+        },
+        "sha256": "d1bd85efcb52050f18d0e85dced21a1694edfb61ce83cde51fdbf6f08f51fcef",
+        "publicMembers": [
+          "public init(",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.accessibilityReduceMotion) private var reduceMotion",
+          "@State private var highlightedID: String",
+          "@State private var loadToLast = SabellaTVChannelLoadToEnd()",
+          "@State private var wrapError: String?",
+          "@FocusState private var focusedChannelID: String?"
+        ]
+      },
+      {
+        "name": "SabellaTVNavigationItem",
+        "kind": "struct",
+        "visual": false,
+        "signature": "public struct SabellaTVNavigationItem<Value: Hashable>: Identifiable {",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 1017
+        },
+        "sha256": "c81f7f3d957a36cdb65a9885926074ddc2a154818fee9ef0ffa352963d002d68",
+        "publicMembers": [
+          "public let value: Value",
+          "public let title: String",
+          "public var id: Value ",
+          "public init(_ value: Value, title: String) "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVNavigationBar",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVNavigationBar<Value: Hashable>: View {",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 1028
+        },
+        "sha256": "d812a1c41db9ea92d0ef2d6f8801d5834e1c111254cec7c97bb9ac7fc8132be6",
+        "publicMembers": [
+          "public init(",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVHero",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVHero<Background: View, Actions: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 1082
+        },
+        "sha256": "0d94dfabf1865b4bb44d3a8a52392e80776b2f5fa0be4a19d6ff551adbff9fb6",
+        "publicMembers": [
+          "public init(",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder private let background: Background",
+          "@ViewBuilder private let actions: Actions",
+          "@ViewBuilder background: () -> Background,",
+          "@ViewBuilder actions: () -> Actions"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVPrimaryButtonStyle",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVPrimaryButtonStyle: ButtonStyle {",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 1148
+        },
+        "sha256": "c6a0105adaf262b3f5030d83b6f2a7d91180c1d93201dec22c6c35c8c9ea7c0b",
+        "publicMembers": [
+          "public init() ",
+          "public func makeBody(configuration: Configuration) -> some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.isFocused) private var focused"
+        ]
+      },
+      {
+        "name": "SabellaTVCard",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVCard<Artwork: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 1175
+        },
+        "sha256": "5904108c400150cfc300cf8b392bab8998c1311663e41d914f0206be81760a2d",
+        "publicMembers": [
+          "public init(",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder private let artwork: Artwork",
+          "@ViewBuilder artwork: () -> Artwork"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.accessibilityReduceMotion) private var reduceMotion",
+          "@FocusState private var focused: Bool"
+        ]
+      },
+      {
+        "name": "SabellaTVEditorialRail",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVEditorialRail<Item: Identifiable, Card: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 1269
+        },
+        "sha256": "3ab8f77179bef6298a999e0a35939b848dc031ca4e3dc9fb94abe67830a12891",
+        "publicMembers": [
+          "public init(",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder card: @escaping (Item) -> Card"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVShelf",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVShelf<Item: Identifiable, Card: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 1315
+        },
+        "sha256": "0a0aacfcafce31d8456f071a492a844404ce757af72b7c151ca60368acc944da",
+        "publicMembers": [
+          "public init(_ title: String, items: [Item], @ViewBuilder card: @escaping (Item) -> Card) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder card: @escaping (Item) -> Card) {"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVPlaybackOverlay",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVPlaybackOverlay: View {",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 1345
+        },
+        "sha256": "33a2812dd07e9d9fa7f1a2b54125c2cdfe8fbf3a933356da8fe150dc16824716",
+        "publicMembers": [
+          "public init(",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVDVRAction",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum SabellaTVDVRAction: Hashable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionBroadcast.swift",
+          "line": 10
+        },
+        "sha256": "230d6cd0b760d6397b8ddfb2665f00d5b127ea334e64ce7323d5f620aaeeb280",
+        "publicMembers": [],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [
+          "none, play, pause, rewind, fastForward"
+        ],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVPlayerSurface",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVPlayerSurface: UIViewRepresentable {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionBroadcast.swift",
+          "line": 14
+        },
+        "sha256": "bfb057ed7f07b90dade4db7164276e322c6371cac62ec81c24abf5f12c8e9994",
+        "publicMembers": [
+          "public init(player: AVPlayer, gravity: AVLayerVideoGravity = .resizeAspect) ",
+          "public func makeUIView(context: Context) -> PlayerView ",
+          "public func updateUIView(_ view: PlayerView, context: Context) "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVSinglePlayback",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVSinglePlayback<Media: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionBroadcast.swift",
+          "line": 29
+        },
+        "sha256": "752e8772154b500a0b9a52f9689ea9bf00ad69a3e33447fd462ab68381e0163a",
+        "publicMembers": [
+          "public init(",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder private let media: Media",
+          "@ViewBuilder media: () -> Media"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVLivePlayer",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVLivePlayer: View {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionBroadcast.swift",
+          "line": 167
+        },
+        "sha256": "5022e830d5668597291a0e21c13325d8923ed9a9ba61562c8a628724c3bdc63c",
+        "publicMembers": [
+          "public init(",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.scenePhase) private var scenePhase",
+          "@Environment(\\.accessibilityReduceMotion) private var reduceMotion",
+          "@StateObject private var playback: SabellaTVLivePlaybackModel",
+          "@StateObject private var channelNotice = SabellaTVChannelChangeNoticeModel()",
+          "@State private var pendingChannelIndex: Int?",
+          "@State private var loadToLast = SabellaTVChannelLoadToEnd()",
+          "@State private var channelNavigationError: String?"
+        ]
+      },
+      {
+        "name": "SabellaTVDVROverlay",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVDVROverlay: View {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionBroadcast.swift",
+          "line": 1057
+        },
+        "sha256": "887d098c06e877ee9297b1713a31b18ff1453f53009b771ffb6e48955731130b",
+        "publicMembers": [
+          "public init(currentTime: Double, duration: Double, quality: String? = nil, action: SabellaTVDVRAction = .none) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVQuadLayout",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVQuadLayout<Cell: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionBroadcast.swift",
+          "line": 1123
+        },
+        "sha256": "0ce2e7ee5142257873821cd26d266aba59958d413887300689250700fde24812",
+        "publicMembers": [
+          "public init(expandedIndex: Int? = nil, spacing: CGFloat = 6, @ViewBuilder cell: @escaping (Int) -> Cell) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder cell: @escaping (Int) -> Cell) {"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVBroadcastCell",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVBroadcastCell<Content: View, Placeholder: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionBroadcast.swift",
+          "line": 1149
+        },
+        "sha256": "fc145636fa3cf171db66613ad538bbc20d5d2265b44c3e6fb031d1761cd82e4d",
+        "publicMembers": [
+          "public init(selected: Bool, selectionColor: Color = BleeckerPalette.dark.sea, failure: String? = nil, buffering: Bool = false, @ViewBuilder content: () -> Content, @ViewBuilder placeholder: () -> Placeholder) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder content: () -> Content, @ViewBuilder placeholder: () -> Placeholder) {"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVTestPattern",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVTestPattern: View {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionBroadcast.swift",
+          "line": 1186
+        },
+        "sha256": "94d85163f4b5073c0cb5f1516c83e7da34a468d55c72916c717b7b0e1ad32a6e",
+        "publicMembers": [
+          "public init(title: String, logoURL: URL? = nil, audioLevel: @escaping () -> Float = ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVEmergencyHeader",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVEmergencyHeader: View {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionBroadcast.swift",
+          "line": 1234
+        },
+        "sha256": "04ed96754e729cf45915231331a5de9776e5087625b3e5a0b4263e92bad3ac87",
+        "publicMembers": [
+          "public init() ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVCarouselDots",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVCarouselDots<ID: Hashable>: View {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionBroadcast.swift",
+          "line": 1250
+        },
+        "sha256": "90f3bc72bf6b67d2da6b0fddb0008606bbea3a86f4c87753ef982dcc9ddfe204",
+        "publicMembers": [
+          "public init(items: [ID], active: Set<ID>) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVEmergencyLayout",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVEmergencyLayout<Channels: View, Ticker: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionBroadcast.swift",
+          "line": 1259
+        },
+        "sha256": "681ad3b1fafc5b734a62788be602a34ee36d6a4c9f4fa27724193a8924734faa",
+        "publicMembers": [
+          "public init(allOffline: Bool, @ViewBuilder channels: () -> Channels, @ViewBuilder ticker: () -> Ticker) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder channels: () -> Channels, @ViewBuilder ticker: () -> Ticker) { self.allOffline = allOffline; self.channels = channels(); self.ticker = ticker() }"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVMarquee",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVMarquee: UIViewRepresentable {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionBroadcast.swift",
+          "line": 1281
+        },
+        "sha256": "754c7f67fc0986a02452bd934d4f02d5a2cb4a954e2ff3863341d73bcd515eeb",
+        "publicMembers": [
+          "public init(items: [String]) ",
+          "public func makeUIView(context: Context) -> MarqueeView ",
+          "public func updateUIView(_ view: MarqueeView, context: Context) ",
+          "public static func dismantleUIView(_ view: MarqueeView, coordinator: ()) "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVAmbientBackground",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVAmbientBackground: View {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 4
+        },
+        "sha256": "7e300c00bd645919055aaf242d3ea36a43a70d887c92b131b32b644ce78b5f72",
+        "publicMembers": [
+          "public init(animated: Bool = true) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.colorScheme) private var scheme",
+          "@Environment(\\.accessibilityReduceMotion) private var reduceMotion",
+          "@State private var phase = false"
+        ]
+      },
+      {
+        "name": "SabellaTVChromeHeader",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVChromeHeader: View {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 34
+        },
+        "sha256": "00a295e2ebdff8e885d438bf5209dce2ca74bc60d915fce49a069cb2919c38ad",
+        "publicMembers": [
+          "public init(productName: String, showsClock: Bool = true) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVClock",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVClock: View {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 56
+        },
+        "sha256": "9f33d28aa7286ca148d8098a0ff5026a9065b26eac337c63d4c28f00c260717c",
+        "publicMembers": [
+          "public init() ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVNavigationHeader",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVNavigationHeader<Value: Hashable, Utilities: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 70
+        },
+        "sha256": "3fe97af9bcdc355bbe87534823542ebd7cf7ff64991d0d698373b54cad4b545f",
+        "publicMembers": [
+          "public init(",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder utilities: () -> Utilities"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@FocusState private var focusedItem: Value?"
+        ]
+      },
+      {
+        "name": "SabellaTVUserButton",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVUserButton: View {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 123
+        },
+        "sha256": "8ab9ea3e693f71ace02b1c2c4540c59be5a20f257ce7dcf5da19878b6e52c0e8",
+        "publicMembers": [
+          "public init(selected: Bool, action: @escaping () -> Void) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVChromeScreen",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVChromeScreen<Content: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 162
+        },
+        "sha256": "2d7f74e589f5c27422be166dbac4a926747a5f366589e08b91c7998f93794f9e",
+        "publicMembers": [
+          "public init(productName: String, @ViewBuilder content: () -> Content) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder content: () -> Content) {"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVChannelHomeState",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum SabellaTVChannelHomeState {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 187
+        },
+        "sha256": "9b87446dc8b2c0deede103f0bd1cd92d8acbd6c0106aa3a63c4988d67a6348f9",
+        "publicMembers": [],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [
+          "loading",
+          "failed(message: String)",
+          "empty",
+          "ready([SabellaTVChannelGroupSummary])"
+        ],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVChannelBrowserPage",
+        "kind": "enum",
+        "visual": false,
+        "signature": "public enum SabellaTVChannelBrowserPage: Hashable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 194
+        },
+        "sha256": "0ad7c8ed016b8d094ae2823b06c1c52eb94b4820a1b80afe785fc2069f16f09d",
+        "publicMembers": [],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [
+          "home",
+          "channels",
+          "user"
+        ],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVUserAction",
+        "kind": "struct",
+        "visual": false,
+        "signature": "public struct SabellaTVUserAction: Identifiable, Hashable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 200
+        },
+        "sha256": "a1f26070454205fab27693d784954a9bb1672a1e28aac689e1af0e8b6f61e33e",
+        "publicMembers": [
+          "public let id: String",
+          "public let title: String",
+          "public let subtitle: String",
+          "public let systemImage: String",
+          "public init(id: String, title: String, subtitle: String, systemImage: String) "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVChannelHome",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVChannelHome: View {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 214
+        },
+        "sha256": "980f3f8b40a050061706c0416f8dd55c8748a932beac68d8d9c247942e9b3775",
+        "publicMembers": [
+          "public init(",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.accessibilityReduceMotion) private var reduceMotion",
+          "@State private var headerFocusRequested = false",
+          "@State private var contentFocusRequested = false"
+        ]
+      },
+      {
+        "name": "SabellaTVUserSettings",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVUserSettings: View {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 347
+        },
+        "sha256": "d5bb86bec3900957822a53cc7e634f9a96e992164479db1fa97b6625e704a52c",
+        "publicMembers": [
+          "public init(",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@FocusState private var focusedActionID: String?"
+        ]
+      },
+      {
+        "name": "SabellaTVStatusPill",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVStatusPill: View {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 496
+        },
+        "sha256": "1e52f269c8c14ff1675003298e24a5a02a2334274519e608065d16c307d3f12d",
+        "publicMembers": [
+          "public init(_ text: String, color: Color) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVSectionLabel",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVSectionLabel: View {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 521
+        },
+        "sha256": "753e428ea748ed412f97cd546f3a699cf761c0e07ca3061fff00b955d0928679",
+        "publicMembers": [
+          "public init(_ text: String) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVPanelModifier",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVPanelModifier: ViewModifier {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 534
+        },
+        "sha256": "e9b1e64e2519615e720ada4a0de24730b1b0992fc181e70316a849ad0a96d1d8",
+        "publicMembers": [
+          "public init(radius: CGFloat = 30) ",
+          "public func body(content: Content) -> some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVLoadingState",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVLoadingState: View {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 552
+        },
+        "sha256": "4f73ce047aab0d10da80c8f9deacd332c4bb85b4d6620b618cf3b55b4453cd4a",
+        "publicMembers": [
+          "public init(_ message: String) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVRegistration",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVRegistration<Code: View>: View {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 568
+        },
+        "sha256": "b83c9c01e89d50835367cd803023fe3102240ed9468e74995a153f8fef523f35",
+        "publicMembers": [
+          "public init(deviceID: String, demo: @escaping () -> Void, @ViewBuilder code: () -> Code) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [
+          "@ViewBuilder code: () -> Code) { self.deviceID = deviceID; self.demo = demo; self.code = code() }"
+        ],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVStandby",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVStandby: View {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 590
+        },
+        "sha256": "e4a9ff7f789f171ba4944fb0981d809de5f0840f77f5bc20a9bc36bdc34b6965",
+        "publicMembers": [
+          "public init(deviceID: String, nickname: String? = nil) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.accessibilityReduceMotion) private var reduceMotion",
+          "@State private var pulse = false"
+        ]
+      },
+      {
+        "name": "SabellaTVDemoOverlay",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVDemoOverlay: View {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 610
+        },
+        "sha256": "88c43c0c2ac13e785357e31879109da131e7a6f9aa8abadbe5399d5dd528a6f0",
+        "publicMembers": [
+          "public init(productName: String, buffering: Bool) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVSignalVisualizer",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVSignalVisualizer: View {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 624
+        },
+        "sha256": "72a7ee58b4e5db539926745653e7afc5ed67aa421ad1ad8f6a1885f83075337f",
+        "publicMembers": [
+          "public init(active: Bool, buffering: Bool = false) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.accessibilityReduceMotion) private var reduceMotion"
+        ]
+      },
+      {
+        "name": "SabellaTVRadioNowPlaying",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVRadioNowPlaying: View {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 655
+        },
+        "sha256": "daf63022bf2fe7233ce8cb817bb91cd1c23521f3c71daedcefebcdf88edb3578",
+        "publicMembers": [
+          "public init(",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@Environment(\\.accessibilityReduceMotion) private var reduceMotion"
+        ]
+      },
+      {
+        "name": "SabellaTVPlaybackFailure",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVPlaybackFailure: View {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 758
+        },
+        "sha256": "fec44fa7f9c74295733adb4d590c5a4d38bd29ce12016ac32b13dd5a97b01f08",
+        "publicMembers": [
+          "public init(title: String, message: String, retry: @escaping () -> Void) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      },
+      {
+        "name": "SabellaTVCallsignOverlay",
+        "kind": "struct",
+        "visual": true,
+        "signature": "public struct SabellaTVCallsignOverlay: View {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 791
+        },
+        "sha256": "ebc9cf7ca21c0040aea025eeda36413cdffde53a10514ba39296790cf652b1a3",
+        "publicMembers": [
+          "public init(nickname: String? = nil, deviceCode: String) ",
+          "public var body: some View "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": [
+          "@State private var opacity: Double = 0"
+        ]
+      },
+      {
+        "name": "SabellaTVPlaybackActivity",
+        "kind": "struct",
+        "visual": false,
+        "signature": "public struct SabellaTVPlaybackActivity: Hashable, Sendable {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionPlaybackActivity.swift",
+          "line": 4
+        },
+        "sha256": "30558c30b5991ef112ba617f7e861f6995a046d49c73e7aa958959adae01f8c9",
+        "publicMembers": [
+          "public let channelID: String",
+          "public let state: State",
+          "public init(channelID: String, state: State) "
+        ],
+        "bindings": [],
+        "compositionSlots": [],
+        "contractTypes": [],
+        "enumCases": [],
+        "stateInputs": []
+      }
+    ],
+    "modifiers": [],
+    "symbolInputs": [
+      {
+        "input": "systemImage",
+        "expression": "String",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 8
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "String) {",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 10
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "String",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 22
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "String = \"rectangle.3.group.fill\") {",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 24
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemName",
+        "expression": "\"play.tv.fill\")",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 77
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "\"square.grid.2x2.fill\")",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 84
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemName",
+        "expression": "item.group.systemImage)",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 315
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "String?",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 513
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "String? = nil) {",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 515
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemName",
+        "expression": "systemImage) }",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 522
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemName",
+        "expression": "\"dot.radiowaves.left.and.right\")",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 543
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemName",
+        "expression": "\"chevron.left\").foregroundStyle(BleeckerPalette.dark.sea)",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 634
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "isPlaying ? \"pause.fill\" : \"play.fill\",",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 761
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "isMuted ? \"speaker.slash.fill\" : \"speaker.wave.2.fill\",",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 768
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "String, action: @escaping () -> Void) -> some View {",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 894
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemName",
+        "expression": "systemImage)",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 896
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemName",
+        "expression": "mediumIcon)",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 958
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "\"dot.radiowaves.left.and.right\")",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 1382
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "\"gobackward.10\") }",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 1397
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "isPlaying ? \"pause.fill\" : \"play.fill\")",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 1400
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "\"goforward.10\") }",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 1403
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemName",
+        "expression": "actionImage).font(.system(size: 92, weight: .medium)).foregroundStyle(.white.opacity(0.86))",
+        "source": {
+          "path": "Sources/Sabella/TelevisionBroadcast.swift",
+          "line": 1100
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemName",
+        "expression": "\"person.crop.circle.fill\")",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 134
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "String",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 204
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "String) {",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 206
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemName",
+        "expression": "\"person.crop.circle.fill\")",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 373
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemName",
+        "expression": "action.systemImage)",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 397
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemName",
+        "expression": "icon)",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 484
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemImage",
+        "expression": "\"waveform\")",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 718
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      },
+      {
+        "input": "systemName",
+        "expression": "\"antenna.radiowaves.left.and.right.slash\").font(.system(size: 64))",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 773
+        },
+        "resolution": "pending",
+        "replacement": null,
+        "provenance": null,
+        "comparison": null,
+        "exception": null
+      }
+    ],
+    "platformAdapters": [
+      {
+        "expression": ".buttonStyle(",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 86
+        }
+      },
+      {
+        "expression": ".buttonStyle(",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 365
+        }
+      },
+      {
+        "expression": "ProgressView(",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 673
+        }
+      },
+      {
+        "expression": "ProgressView(",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 681
+        }
+      },
+      {
+        "expression": ".buttonStyle(",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 901
+        }
+      },
+      {
+        "expression": ".buttonStyle(",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 993
+        }
+      },
+      {
+        "expression": ".buttonStyle(",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 1061
+        }
+      },
+      {
+        "expression": ".buttonStyle(",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 1259
+        }
+      },
+      {
+        "expression": "ProgressView(",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 1384
+        }
+      },
+      {
+        "expression": ".buttonStyle(",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 1406
+        }
+      },
+      {
+        "expression": "ProgressView(",
+        "source": {
+          "path": "Sources/Sabella/TelevisionBroadcast.swift",
+          "line": 137
+        }
+      },
+      {
+        "expression": "ProgressView(",
+        "source": {
+          "path": "Sources/Sabella/TelevisionBroadcast.swift",
+          "line": 254
+        }
+      },
+      {
+        "expression": "ProgressView(",
+        "source": {
+          "path": "Sources/Sabella/TelevisionBroadcast.swift",
+          "line": 429
+        }
+      },
+      {
+        "expression": "ProgressView(",
+        "source": {
+          "path": "Sources/Sabella/TelevisionBroadcast.swift",
+          "line": 1178
+        }
+      },
+      {
+        "expression": ".buttonStyle(",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 139
+        }
+      },
+      {
+        "expression": ".buttonStyle(",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 413
+        }
+      },
+      {
+        "expression": ".buttonStyle(",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 479
+        }
+      },
+      {
+        "expression": "ProgressView(",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 559
+        }
+      },
+      {
+        "expression": ".buttonStyle(",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 579
+        }
+      },
+      {
+        "expression": ".buttonStyle(",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 783
+        }
+      }
+    ],
+    "monospaceUses": [
+      {
+        "expression": "BleeckerTypography.mono(24, weight: .bold))",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 197
+        },
+        "resolvedFace": null,
+        "fixtureEvidence": null,
+        "status": "pending"
+      },
+      {
+        "expression": "BleeckerTypography.mono(22, weight: .bold))",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 330
+        },
+        "resolvedFace": null,
+        "fixtureEvidence": null,
+        "status": "pending"
+      },
+      {
+        "expression": "BleeckerTypography.mono(14, weight: .bold))",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 748
+        },
+        "resolvedFace": null,
+        "fixtureEvidence": null,
+        "status": "pending"
+      },
+      {
+        "expression": "BleeckerTypography.mono(17, weight: .semibold))",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 950
+        },
+        "resolvedFace": null,
+        "fixtureEvidence": null,
+        "status": "pending"
+      },
+      {
+        "expression": "BleeckerTypography.mono(17, weight: .medium))",
+        "source": {
+          "path": "Sources/Sabella/Television.swift",
+          "line": 1392
+        },
+        "resolvedFace": null,
+        "fixtureEvidence": null,
+        "status": "pending"
+      },
+      {
+        "expression": "BleeckerTypography.mono(27, weight: .bold))",
+        "source": {
+          "path": "Sources/Sabella/TelevisionBroadcast.swift",
+          "line": 476
+        },
+        "resolvedFace": null,
+        "fixtureEvidence": null,
+        "status": "pending"
+      },
+      {
+        "expression": "BleeckerTypography.mono(22, weight: isLive ? .bold : .regular))",
+        "source": {
+          "path": "Sources/Sabella/TelevisionBroadcast.swift",
+          "line": 1077
+        },
+        "resolvedFace": null,
+        "fixtureEvidence": null,
+        "status": "pending"
+      },
+      {
+        "expression": "BleeckerTypography.mono(22)).foregroundStyle(.white.opacity(0.7))",
+        "source": {
+          "path": "Sources/Sabella/TelevisionBroadcast.swift",
+          "line": 1088
+        },
+        "resolvedFace": null,
+        "fixtureEvidence": null,
+        "status": "pending"
+      },
+      {
+        "expression": "BleeckerTypography.mono(15, weight: .bold))",
+        "source": {
+          "path": "Sources/Sabella/TelevisionBroadcast.swift",
+          "line": 1091
+        },
+        "resolvedFace": null,
+        "fixtureEvidence": null,
+        "status": "pending"
+      },
+      {
+        "expression": "BleeckerTypography.mono(min(size.width, size.height) * 0.038)).foregroundStyle(.white), at: CGPoint(x: size.width * 0.03, y: size.height * 0.04), anchor: .leading)",
+        "source": {
+          "path": "Sources/Sabella/TelevisionBroadcast.swift",
+          "line": 1224
+        },
+        "resolvedFace": null,
+        "fixtureEvidence": null,
+        "status": "pending"
+      },
+      {
+        "expression": "BleeckerTypography.mono(min(size.width, size.height) * 0.038)).foregroundStyle(.white), at: CGPoint(x: size.width * 0.97, y: size.height * 0.04), anchor: .trailing)",
+        "source": {
+          "path": "Sources/Sabella/TelevisionBroadcast.swift",
+          "line": 1225
+        },
+        "resolvedFace": null,
+        "fixtureEvidence": null,
+        "status": "pending"
+      },
+      {
+        "expression": "BleeckerTypography.mono(27, weight: .bold))",
+        "source": {
+          "path": "Sources/Sabella/TelevisionBroadcast.swift",
+          "line": 1242
+        },
+        "resolvedFace": null,
+        "fixtureEvidence": null,
+        "status": "pending"
+      },
+      {
+        "expression": "BleeckerTypography.mono(22, weight: .medium))",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 62
+        },
+        "resolvedFace": null,
+        "fixtureEvidence": null,
+        "status": "pending"
+      },
+      {
+        "expression": "BleeckerTypography.mono(15, weight: .bold))",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 509
+        },
+        "resolvedFace": null,
+        "fixtureEvidence": null,
+        "status": "pending"
+      },
+      {
+        "expression": "BleeckerTypography.mono(16, weight: .bold))",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 528
+        },
+        "resolvedFace": null,
+        "fixtureEvidence": null,
+        "status": "pending"
+      },
+      {
+        "expression": "BleeckerTypography.mono(25, weight: .medium)).foregroundStyle(BleeckerPalette.dark.textSecondary)",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 603
+        },
+        "resolvedFace": null,
+        "fixtureEvidence": null,
+        "status": "pending"
+      },
+      {
+        "expression": "BleeckerTypography.mono(17, weight: .bold))",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 719
+        },
+        "resolvedFace": null,
+        "fixtureEvidence": null,
+        "status": "pending"
+      },
+      {
+        "expression": "BleeckerTypography.mono(15, weight: .bold))",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 743
+        },
+        "resolvedFace": null,
+        "fixtureEvidence": null,
+        "status": "pending"
+      },
+      {
+        "expression": "BleeckerTypography.mono(22, weight: .semibold)).tracking(3)",
+        "source": {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "line": 813
+        },
+        "resolvedFace": null,
+        "fixtureEvidence": null,
+        "status": "pending"
+      }
+    ],
+    "unregisteredVisualAPIs": [
+      "SabellaTVPanelModifier"
+    ],
+    "caseDiscovery": "pending: extracted API inputs require explicit fixture matrices; counts do not establish coverage"
+  }
+}

@@ -1,0 +1,735 @@
+{
+  "schemaVersion": 1,
+  "references": {
+    "desktop": {
+      "repository": "https://github.com/gaulatti/sabella",
+      "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+      "tree": "db61113381a51fc3c7b3d12786609cd9e76627c8",
+      "commitMetadata": "commit fe8a1d462fbd793d883fb92086a16aa2947e32c9\nAuthor:     Javier Godoy <jack@gaulatti.com>\nAuthorDate: Mon Sep 28 12:35:16 2026 -0400\nCommit:     Javier Godoy <jack@gaulatti.com>\nCommitDate: Mon Sep 28 12:43:08 2026 -0400\n\n    fix(attention): keep category labels readable on cards\n",
+      "artifact": "reference/sources/sabella-desktop-fe8a1d462fbd793d883fb92086a16aa2947e32c9.tar.gz",
+      "sha256": "d22df4c84f32dc52562476c0c938cee0a473ea68e4cd8f07fd26e724850605c5",
+      "scope": [
+        "Package.swift",
+        "Package.resolved",
+        "Sources"
+      ],
+      "files": [
+        {
+          "path": "Package.resolved",
+          "gitBlob": "d1043b1f70ca0e2425999de96f9211ba0f6ac5b0",
+          "mode": "100644",
+          "sha256": "467f525fde7dea40761bbe92fadd1fce40de25884edb538765d939103d237fe5"
+        },
+        {
+          "path": "Package.swift",
+          "gitBlob": "0d4b97781b26b1379810f480913238cf6aa0565e",
+          "mode": "100644",
+          "sha256": "12830ebe531174e0246003b449102b628b5b22c70c4cb34245525bdba56573b7"
+        },
+        {
+          "path": "Sources/Sabella/Buttons.swift",
+          "gitBlob": "d5d28396cb63d7ae3e39b0358517918979a6813a",
+          "mode": "100644",
+          "sha256": "ee1d289a2b7cfc4f4b89a568f24682d74a310e7ee4aebaee6a8e06d59f301f88"
+        },
+        {
+          "path": "Sources/Sabella/Charts.swift",
+          "gitBlob": "543be6038febd4b993330cf7218743dc61775665",
+          "mode": "100644",
+          "sha256": "3d5d10b5f2b2c1668871a9587b045cf4e5a000b2c3320c2c3261c88e69b26933"
+        },
+        {
+          "path": "Sources/Sabella/Contracts.swift",
+          "gitBlob": "d88505bda26ccc1e512773526750d4906aa23dfc",
+          "mode": "100644",
+          "sha256": "09c60a15e2b83978b900b0d8b3a750be79c7045a5adcdc13162f2aa133bb3e5b"
+        },
+        {
+          "path": "Sources/Sabella/Controls.swift",
+          "gitBlob": "0218be757ee9ba2702c767e820ffddfd4b71a934",
+          "mode": "100644",
+          "sha256": "aa4d6a88bc8af3221fea53daffecb2383e9447e8c3811619071afb12bfaebf04"
+        },
+        {
+          "path": "Sources/Sabella/DataDisplay.swift",
+          "gitBlob": "cc39d05cc8de1ee8b166e352444d4f5b4d9901fa",
+          "mode": "100644",
+          "sha256": "3e9c35de28ba0ed7ecff3bd88e342fc2f05336640c2b493fbd499d1ef980435d"
+        },
+        {
+          "path": "Sources/Sabella/Extended.swift",
+          "gitBlob": "6c9028bc20bd3161ee8b036b453f0c744876c5b2",
+          "mode": "100644",
+          "sha256": "03edecd88c901f43e9dcad5034d6e0fe7f84aec74abae3f72c41f6bc74500ea6"
+        },
+        {
+          "path": "Sources/Sabella/Feedback.swift",
+          "gitBlob": "dd296a395df35faabd8bd7f85ddfb77196de6dec",
+          "mode": "100644",
+          "sha256": "7cd4e89b4e2d9033996002688f7db20e6c11343f6608a5f941917e2e8b4f0930"
+        },
+        {
+          "path": "Sources/Sabella/Fonts.swift",
+          "gitBlob": "b63fc255c08037994d498121f379b21fc4eddf2f",
+          "mode": "100644",
+          "sha256": "12ab0cca0fa61e51195f8b3e86e585444991dc64027617c4dea2e60851d52744"
+        },
+        {
+          "path": "Sources/Sabella/Layout.swift",
+          "gitBlob": "617767c505f5092caf7a50ffe060234b5b02564f",
+          "mode": "100644",
+          "sha256": "8aa17e7eb3801dd72b94124882fe5ac4c9d558a1a9c5c80e5df903762c85f87f"
+        },
+        {
+          "path": "Sources/Sabella/Mobile.swift",
+          "gitBlob": "37ecdfb41c73ff5cf4783c5b3a60c95338bda1be",
+          "mode": "100644",
+          "sha256": "1feea91528f96a09679d67e381a9d0a79a58fa9ce8a6e0bc29d36c5edb4f24fa"
+        },
+        {
+          "path": "Sources/Sabella/Navigation.swift",
+          "gitBlob": "6c62abecc69eecfe5b33761c56ef4382bdbae71f",
+          "mode": "100644",
+          "sha256": "14cec81653ac61cfc7b0287b512047af6c90f98eadb63a9bc31b24db04f04f2e"
+        },
+        {
+          "path": "Sources/Sabella/Overlays.swift",
+          "gitBlob": "430464031ba4dd6001c1cb54acb4eecd3b3a5e99",
+          "mode": "100644",
+          "sha256": "de00b9d46fa101d2c4baa73747302dd8247dcda6208f2e4f3b9f3c581fb1c5a9"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Assets.xcassets/BleeckerLogo.imageset/BleeckerLogo.png",
+          "gitBlob": "be438a9d34b618cd1b892a99f2d3e643403b7d0e",
+          "mode": "100644",
+          "sha256": "3eadafd84a1f3b37261bad85b8a8e5512ed7aa9b3baae38aa8321cc3a6cbb9c2"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Assets.xcassets/BleeckerLogo.imageset/Contents.json",
+          "gitBlob": "1037cf096902455c44423fb69a3e3d84eba2373d",
+          "mode": "100644",
+          "sha256": "e3f281b2806082e3d2845f44d0650093584b4a5ddba1f92bd7d3d56b4302c04a"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Assets.xcassets/Contents.json",
+          "gitBlob": "73c00596a7fca3f3d4bdd64053b69d86745f9e10",
+          "mode": "100644",
+          "sha256": "0fd49ba3c3585c709678e0046a821c3c60685ec7063720d30d3a3448be3a208b"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/EncodeSans-Black.ttf",
+          "gitBlob": "05ba6ea8b799e8bd5ee5ef292b48fd26ae23780b",
+          "mode": "100644",
+          "sha256": "eb0d5153cadc5d71f6563da7e6b32757e1a1062fc508c981cd8b9aa97073ebc0"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/EncodeSans-Bold.ttf",
+          "gitBlob": "f8f4bef13280b03cd2ed85c63cddb43627377ccd",
+          "mode": "100644",
+          "sha256": "b6f0d04888140d10006fbeeebc194d33f28fdb50ece52ff16f6e4f952d2ccc85"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/EncodeSans-ExtraBold.ttf",
+          "gitBlob": "9c8693b31fafc254cf95b4df70cbc3d6a4ac7c4a",
+          "mode": "100644",
+          "sha256": "5165a64478506a1939f1aecc907406012418524d9b16e178e43c7e3343078924"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/EncodeSans-ExtraLight.ttf",
+          "gitBlob": "14caad93c5fe391b7df83bc9e170853874e6639a",
+          "mode": "100644",
+          "sha256": "9f56c1767e8619572c60a6b4eda16fcc727a83586c794fe58b4c58f3b698a38d"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/EncodeSans-Light.ttf",
+          "gitBlob": "cc70866ca7acde6b722dbfe02e1f0af3d104624d",
+          "mode": "100644",
+          "sha256": "3f1992cfbff24c8d928c38c603af7b26c544ae328201a25bce5f56b1cd1d2cbd"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/EncodeSans-Medium.ttf",
+          "gitBlob": "c5e941821749916492d64c23d7b172c81d37689b",
+          "mode": "100644",
+          "sha256": "40a222af6b6dcd6940866415df454f2e27e798f5dc16539d72c67449c0eeca98"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/EncodeSans-Regular.ttf",
+          "gitBlob": "7d461f830870172e1c20df5901a951ccc246a479",
+          "mode": "100644",
+          "sha256": "756006a45004ac1fe39ed907c7d71d1c721524d4b1c87ed0a479cb913aeba182"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/EncodeSans-SemiBold.ttf",
+          "gitBlob": "4209a603ca559f59b15baa077448e8222c082883",
+          "mode": "100644",
+          "sha256": "9972f69621823bdd3c67738c02c813c8a52067871e92e467880cb2fa0a47ced5"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/EncodeSans-Thin.ttf",
+          "gitBlob": "86e7dfb82df922384482880e432a924425b1cb71",
+          "mode": "100644",
+          "sha256": "b152696686ef5a05df7ad975ab044b2632bfd12a20265533d94cf79ed1fa9ffa"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/LibreFranklin-Black.ttf",
+          "gitBlob": "8e59e70f88b5947fe25921a5126ee67cad55325e",
+          "mode": "100644",
+          "sha256": "ed426c38ba0c58ad27e70d59bef4239a2fe6149f79cc62afd6b28f9e6eec1101"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/LibreFranklin-Bold.ttf",
+          "gitBlob": "40a7b893ea9e8a6597e674ff4700947f9c2cf6e7",
+          "mode": "100644",
+          "sha256": "3134a143a2a801a0e80198ea03cd7cc99066bcaeeaaecda758e852725c225303"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/LibreFranklin-ExtraBold.ttf",
+          "gitBlob": "d3380d0a8c37191b269dee571af387c2cb212d9a",
+          "mode": "100644",
+          "sha256": "e14e48d8c0ad279318b6fbbc172d0ffee57af2e66db088eb4e0e43ff66a5e2e6"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/LibreFranklin-ExtraLight.ttf",
+          "gitBlob": "f01ee68c762cf94753a63a18f88e2cb275cf934e",
+          "mode": "100644",
+          "sha256": "aeb60b86b0e2aca2a2ef41731c5f80ad2128beeb65235ab8fe2f8988080265f6"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/LibreFranklin-Light.ttf",
+          "gitBlob": "f00b8aa9d55a51e1784a3eb4043d6faeed95721c",
+          "mode": "100644",
+          "sha256": "07c06ab5ec2e102d4e93d8fa17d71233112a9ef9a0d8b9cd0f9dd0fa8e367e1d"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/LibreFranklin-Medium.ttf",
+          "gitBlob": "a77b10b58b7316a912c54ba718aee13172264f1d",
+          "mode": "100644",
+          "sha256": "72b6de5d4dd950a17e28b5ac3d459ec5291b9039c985c6089763facbc96d91a9"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/LibreFranklin-Regular.ttf",
+          "gitBlob": "60da26946412be0631423569842a50ac589fa510",
+          "mode": "100644",
+          "sha256": "01e26222a56e141e3abae670ab22be77f063999fc4ef64c4a9651de19b7728a8"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/LibreFranklin-SemiBold.ttf",
+          "gitBlob": "de129abce484646f25a7bc65f6befd45586885bf",
+          "mode": "100644",
+          "sha256": "d9bc4e45291495f350d0653e3250cfadfe2fd2f3f166c6f6ee2d68cab7fc9692"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/LibreFranklin-Thin.ttf",
+          "gitBlob": "16533758ffbfb5fd938644fbb6436e0bf0002b67",
+          "mode": "100644",
+          "sha256": "6f30fb3bdd7818a387dee382183b955b1fd22e4d5fdf48763959adcb0d0c3e97"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/OFL-EncodeSans.txt",
+          "gitBlob": "9dadca8c43036cf9ce52e9513eb8628ac33c743f",
+          "mode": "100644",
+          "sha256": "b47f4d635e8c592a37e98f751627cad0a81694c56aecc603b33819a908ea9625"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/OFL-LibreFranklin.txt",
+          "gitBlob": "04cef395b1c1643f71dae8451a96fa7c073301d4",
+          "mode": "100644",
+          "sha256": "2710268527181a27b8e938617551bae29e714e6525247be6679bf897a9942a60"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/README.md",
+          "gitBlob": "d305be816582f4bd3e83b76bc4fef70dd6471005",
+          "mode": "100644",
+          "sha256": "8fc3e57cc9bfe4ecd99169d08ac634a9185d1bf4e7d7013d07025bdb0ec57c03"
+        },
+        {
+          "path": "Sources/Sabella/Surfaces.swift",
+          "gitBlob": "4d60fd3cb4cc91e97c844380835cadcc1df34e44",
+          "mode": "100644",
+          "sha256": "660633e3404144001744fe7372fcbd82c5a2a7971e568dae2e4bf116003a0cfa"
+        },
+        {
+          "path": "Sources/Sabella/Television.swift",
+          "gitBlob": "f384fa4f2be007b917a1b1e02bca5f84c62ccfcb",
+          "mode": "100644",
+          "sha256": "b5f7e61aaaeba448c619f2f56dcab9d0032ecb17903173e747eebd9ab981b1a6"
+        },
+        {
+          "path": "Sources/Sabella/TelevisionBroadcast.swift",
+          "gitBlob": "d808b2fbd191db4a6b0b797d703f5c4cceae4167",
+          "mode": "100644",
+          "sha256": "b5b3ffda50aff1515e7ca8ae9b88be345ad045c179f307664e7cec25b3995e81"
+        },
+        {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "gitBlob": "91d65a059bc6bac2017613b34addee04f1bbda93",
+          "mode": "100644",
+          "sha256": "91291b282a5bae074ab820221bbc33b5a78aca4207d14a1b827df6cdaf0ad894"
+        },
+        {
+          "path": "Sources/Sabella/TelevisionPlaybackActivity.swift",
+          "gitBlob": "68f011c2f3cee20fa6f375f137af9d181551ff39",
+          "mode": "100644",
+          "sha256": "b7faa4f34337710764cbf7c7969d6efd98ae97e4217f192ec2f148ce9a2f9066"
+        },
+        {
+          "path": "Sources/Sabella/TelevisionStreamPolicy.swift",
+          "gitBlob": "e37c39d79eb9ee6f93f27dcdd3d5cb57fb310a79",
+          "mode": "100644",
+          "sha256": "7ec90287ff55f972dd45618c2031af545533b48346325f773be7a508bb56281f"
+        },
+        {
+          "path": "Sources/Sabella/Tokens.swift",
+          "gitBlob": "e97341a6316bc52a6d2d7cd6c906593ec358a5f7",
+          "mode": "100644",
+          "sha256": "9244d424fb0746d523961ade481be88ebbc0da785625ba48a83294ae620decdc"
+        },
+        {
+          "path": "Sources/SabellaCatalog/AdvancedGalleries.swift",
+          "gitBlob": "fb1b87aa694ef0712bd2a05fcfd8799821b4153b",
+          "mode": "100644",
+          "sha256": "6a883f678b48f81778d89a2978ecd7e91fe12c94f7b25c745b8027b49528cd7c"
+        },
+        {
+          "path": "Sources/SabellaCatalog/CatalogApp.swift",
+          "gitBlob": "9597d1f72b5a1c5d07645fbd6c69b472031041dc",
+          "mode": "100644",
+          "sha256": "c853bb90bdf895fa0150fc6d53dda0c42d311b2192c5262a9592b7d62708b0e2"
+        },
+        {
+          "path": "Sources/SabellaCatalog/CoreGalleries.swift",
+          "gitBlob": "3da35e4ac6f5363cffa1ab230850cf924e1a780b",
+          "mode": "100644",
+          "sha256": "173a7faaffa14f07a1b43f95aee10d436aeef59744b3059011ceeba49d62151d"
+        },
+        {
+          "path": "Sources/SabellaCatalog/TelevisionGalleries.swift",
+          "gitBlob": "f9f754955150511957b396754633413722b01a7f",
+          "mode": "100644",
+          "sha256": "bfa2c067ad5a9cfe481ee4cbcfd2e36e62c8b4092abff7dc2fb5068066d67f7b"
+        },
+        {
+          "path": "Sources/SabellaCatalogSupport/CatalogCoverage.swift",
+          "gitBlob": "eb9ad29dce1982d664cb2b5c320036385fafaacf",
+          "mode": "100644",
+          "sha256": "d2700f64da7d24335ea83f90a55c8fdf7376ea13d271199c75ee50d507cb8f72"
+        },
+        {
+          "path": "Sources/SabellaKSPlayerWorkaround/SabellaKSPlayerWorkaround.m",
+          "gitBlob": "18a6046575638d694935ef7a209c57c960bc85d3",
+          "mode": "100644",
+          "sha256": "860bc3bcbf6156b5d1d548fd8f99deddc75880a72d5c4af1e025a68bbfd9a015"
+        },
+        {
+          "path": "Sources/SabellaKSPlayerWorkaround/include/SabellaKSPlayerWorkaround.h",
+          "gitBlob": "a238e7691f0e5cd8a27a243baf32a4c529ea45ba",
+          "mode": "100644",
+          "sha256": "c86a607b61eec949b570071faced26e147c556c272b10fd06d2622b71a3a4c60"
+        },
+        {
+          "path": "Sources/SabellaShellExamples/ShellExampleApp.swift",
+          "gitBlob": "8b560957383b529d2fba94937a014be3af5fe160",
+          "mode": "100644",
+          "sha256": "e8b697d0b792aedb5447b2c3884e355b8c665c1702201f6d5883e1394a951ad6"
+        }
+      ],
+      "dependencies": {
+        "originHash": "501b4d13df9db2e33bed64aacb06ab31bb07b1fe604c00381220dfdffadad3d5",
+        "pins": [
+          {
+            "identity": "ffmpegkit",
+            "kind": "remoteSourceControl",
+            "location": "https://github.com/kingslay/FFmpegKit.git",
+            "state": {
+              "revision": "c32be9bfb628042737ad3ef622e930c5c7b15954",
+              "version": "6.1.4"
+            }
+          },
+          {
+            "identity": "ksplayer",
+            "kind": "remoteSourceControl",
+            "location": "https://github.com/kingslay/KSPlayer.git",
+            "state": {
+              "revision": "10a40a1c0001d75307ad5922d1d1bc0cb01c89b4"
+            }
+          }
+        ],
+        "version": 3
+      }
+    },
+    "television": {
+      "repository": "https://github.com/gaulatti/sabella",
+      "revision": "f5ac479bfceaa7eab23c1716ac47420ac53dae25",
+      "tree": "b1acd30b45f3c098ed3f4ffe5bf3e665ce6e5172",
+      "commitMetadata": "commit f5ac479bfceaa7eab23c1716ac47420ac53dae25\nAuthor:     Javier Godoy <jack@gaulatti.com>\nAuthorDate: Mon Sep 28 19:00:51 2026 -0400\nCommit:     GitHub <noreply@github.com>\nCommitDate: Mon Sep 28 19:00:51 2026 -0400\n\n    feat(tv): tune channels with remote page buttons (#17)\n    \n    * feat(tv): tune channels with remote page buttons\n    \n    * fix(tv): place higher channels above lower channels\n    \n    * fix(tv): make channel plus advance numbering\n    \n    * feat(tv): identify channels after remote switching\n    \n    * test(tv): expose channel notice in catalog fixture\n    \n    * fix(tv): restore group focus after playback\n    \n    * feat(tv): wrap channel navigation at lineup ends\n    \n    * fix(tv): focus guide target after wrap scroll\n",
+      "artifact": "reference/sources/sabella-television-f5ac479bfceaa7eab23c1716ac47420ac53dae25.tar.gz",
+      "sha256": "ac62036f919ad63a36578b2b2f8b11dbfc70e83e6b6a2982829a7f515ae9dfef",
+      "scope": [
+        "Package.swift",
+        "Package.resolved",
+        "Sources"
+      ],
+      "files": [
+        {
+          "path": "Package.resolved",
+          "gitBlob": "d1043b1f70ca0e2425999de96f9211ba0f6ac5b0",
+          "mode": "100644",
+          "sha256": "467f525fde7dea40761bbe92fadd1fce40de25884edb538765d939103d237fe5"
+        },
+        {
+          "path": "Package.swift",
+          "gitBlob": "0d4b97781b26b1379810f480913238cf6aa0565e",
+          "mode": "100644",
+          "sha256": "12830ebe531174e0246003b449102b628b5b22c70c4cb34245525bdba56573b7"
+        },
+        {
+          "path": "Sources/Sabella/Buttons.swift",
+          "gitBlob": "d601a3d7c253ecada90a44df3a1c7bf7db26ff9c",
+          "mode": "100644",
+          "sha256": "5a75a79ed533c33b7d1a5753c1aeb74a31695950f3f8bb26a00938f5cc09182b"
+        },
+        {
+          "path": "Sources/Sabella/Charts.swift",
+          "gitBlob": "543be6038febd4b993330cf7218743dc61775665",
+          "mode": "100644",
+          "sha256": "3d5d10b5f2b2c1668871a9587b045cf4e5a000b2c3320c2c3261c88e69b26933"
+        },
+        {
+          "path": "Sources/Sabella/Contracts.swift",
+          "gitBlob": "d88505bda26ccc1e512773526750d4906aa23dfc",
+          "mode": "100644",
+          "sha256": "09c60a15e2b83978b900b0d8b3a750be79c7045a5adcdc13162f2aa133bb3e5b"
+        },
+        {
+          "path": "Sources/Sabella/Controls.swift",
+          "gitBlob": "6c6d7144ac01776fa23c1f9df22de1b1ab814ea7",
+          "mode": "100644",
+          "sha256": "e344bd2f5b9aa88f5c37abb27e70db2e487262fdcfd73d76c59c4e493467057d"
+        },
+        {
+          "path": "Sources/Sabella/DataDisplay.swift",
+          "gitBlob": "cc39d05cc8de1ee8b166e352444d4f5b4d9901fa",
+          "mode": "100644",
+          "sha256": "3e9c35de28ba0ed7ecff3bd88e342fc2f05336640c2b493fbd499d1ef980435d"
+        },
+        {
+          "path": "Sources/Sabella/Extended.swift",
+          "gitBlob": "6c9028bc20bd3161ee8b036b453f0c744876c5b2",
+          "mode": "100644",
+          "sha256": "03edecd88c901f43e9dcad5034d6e0fe7f84aec74abae3f72c41f6bc74500ea6"
+        },
+        {
+          "path": "Sources/Sabella/Feedback.swift",
+          "gitBlob": "918b6853fe4439e7ecafd459dc5320022e94e75f",
+          "mode": "100644",
+          "sha256": "9f5173230953442351f1177b079c4660156343dbc9709d7a42983dd842d6d2a0"
+        },
+        {
+          "path": "Sources/Sabella/Fonts.swift",
+          "gitBlob": "b63fc255c08037994d498121f379b21fc4eddf2f",
+          "mode": "100644",
+          "sha256": "12ab0cca0fa61e51195f8b3e86e585444991dc64027617c4dea2e60851d52744"
+        },
+        {
+          "path": "Sources/Sabella/Layout.swift",
+          "gitBlob": "617767c505f5092caf7a50ffe060234b5b02564f",
+          "mode": "100644",
+          "sha256": "8aa17e7eb3801dd72b94124882fe5ac4c9d558a1a9c5c80e5df903762c85f87f"
+        },
+        {
+          "path": "Sources/Sabella/Mobile.swift",
+          "gitBlob": "37ecdfb41c73ff5cf4783c5b3a60c95338bda1be",
+          "mode": "100644",
+          "sha256": "1feea91528f96a09679d67e381a9d0a79a58fa9ce8a6e0bc29d36c5edb4f24fa"
+        },
+        {
+          "path": "Sources/Sabella/Navigation.swift",
+          "gitBlob": "6c62abecc69eecfe5b33761c56ef4382bdbae71f",
+          "mode": "100644",
+          "sha256": "14cec81653ac61cfc7b0287b512047af6c90f98eadb63a9bc31b24db04f04f2e"
+        },
+        {
+          "path": "Sources/Sabella/Overlays.swift",
+          "gitBlob": "430464031ba4dd6001c1cb54acb4eecd3b3a5e99",
+          "mode": "100644",
+          "sha256": "de00b9d46fa101d2c4baa73747302dd8247dcda6208f2e4f3b9f3c581fb1c5a9"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Assets.xcassets/BleeckerLogo.imageset/BleeckerLogo.png",
+          "gitBlob": "be438a9d34b618cd1b892a99f2d3e643403b7d0e",
+          "mode": "100644",
+          "sha256": "3eadafd84a1f3b37261bad85b8a8e5512ed7aa9b3baae38aa8321cc3a6cbb9c2"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Assets.xcassets/BleeckerLogo.imageset/Contents.json",
+          "gitBlob": "1037cf096902455c44423fb69a3e3d84eba2373d",
+          "mode": "100644",
+          "sha256": "e3f281b2806082e3d2845f44d0650093584b4a5ddba1f92bd7d3d56b4302c04a"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Assets.xcassets/Contents.json",
+          "gitBlob": "73c00596a7fca3f3d4bdd64053b69d86745f9e10",
+          "mode": "100644",
+          "sha256": "0fd49ba3c3585c709678e0046a821c3c60685ec7063720d30d3a3448be3a208b"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/EncodeSans-Black.ttf",
+          "gitBlob": "05ba6ea8b799e8bd5ee5ef292b48fd26ae23780b",
+          "mode": "100644",
+          "sha256": "eb0d5153cadc5d71f6563da7e6b32757e1a1062fc508c981cd8b9aa97073ebc0"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/EncodeSans-Bold.ttf",
+          "gitBlob": "f8f4bef13280b03cd2ed85c63cddb43627377ccd",
+          "mode": "100644",
+          "sha256": "b6f0d04888140d10006fbeeebc194d33f28fdb50ece52ff16f6e4f952d2ccc85"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/EncodeSans-ExtraBold.ttf",
+          "gitBlob": "9c8693b31fafc254cf95b4df70cbc3d6a4ac7c4a",
+          "mode": "100644",
+          "sha256": "5165a64478506a1939f1aecc907406012418524d9b16e178e43c7e3343078924"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/EncodeSans-ExtraLight.ttf",
+          "gitBlob": "14caad93c5fe391b7df83bc9e170853874e6639a",
+          "mode": "100644",
+          "sha256": "9f56c1767e8619572c60a6b4eda16fcc727a83586c794fe58b4c58f3b698a38d"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/EncodeSans-Light.ttf",
+          "gitBlob": "cc70866ca7acde6b722dbfe02e1f0af3d104624d",
+          "mode": "100644",
+          "sha256": "3f1992cfbff24c8d928c38c603af7b26c544ae328201a25bce5f56b1cd1d2cbd"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/EncodeSans-Medium.ttf",
+          "gitBlob": "c5e941821749916492d64c23d7b172c81d37689b",
+          "mode": "100644",
+          "sha256": "40a222af6b6dcd6940866415df454f2e27e798f5dc16539d72c67449c0eeca98"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/EncodeSans-Regular.ttf",
+          "gitBlob": "7d461f830870172e1c20df5901a951ccc246a479",
+          "mode": "100644",
+          "sha256": "756006a45004ac1fe39ed907c7d71d1c721524d4b1c87ed0a479cb913aeba182"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/EncodeSans-SemiBold.ttf",
+          "gitBlob": "4209a603ca559f59b15baa077448e8222c082883",
+          "mode": "100644",
+          "sha256": "9972f69621823bdd3c67738c02c813c8a52067871e92e467880cb2fa0a47ced5"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/EncodeSans-Thin.ttf",
+          "gitBlob": "86e7dfb82df922384482880e432a924425b1cb71",
+          "mode": "100644",
+          "sha256": "b152696686ef5a05df7ad975ab044b2632bfd12a20265533d94cf79ed1fa9ffa"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/LibreFranklin-Black.ttf",
+          "gitBlob": "8e59e70f88b5947fe25921a5126ee67cad55325e",
+          "mode": "100644",
+          "sha256": "ed426c38ba0c58ad27e70d59bef4239a2fe6149f79cc62afd6b28f9e6eec1101"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/LibreFranklin-Bold.ttf",
+          "gitBlob": "40a7b893ea9e8a6597e674ff4700947f9c2cf6e7",
+          "mode": "100644",
+          "sha256": "3134a143a2a801a0e80198ea03cd7cc99066bcaeeaaecda758e852725c225303"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/LibreFranklin-ExtraBold.ttf",
+          "gitBlob": "d3380d0a8c37191b269dee571af387c2cb212d9a",
+          "mode": "100644",
+          "sha256": "e14e48d8c0ad279318b6fbbc172d0ffee57af2e66db088eb4e0e43ff66a5e2e6"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/LibreFranklin-ExtraLight.ttf",
+          "gitBlob": "f01ee68c762cf94753a63a18f88e2cb275cf934e",
+          "mode": "100644",
+          "sha256": "aeb60b86b0e2aca2a2ef41731c5f80ad2128beeb65235ab8fe2f8988080265f6"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/LibreFranklin-Light.ttf",
+          "gitBlob": "f00b8aa9d55a51e1784a3eb4043d6faeed95721c",
+          "mode": "100644",
+          "sha256": "07c06ab5ec2e102d4e93d8fa17d71233112a9ef9a0d8b9cd0f9dd0fa8e367e1d"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/LibreFranklin-Medium.ttf",
+          "gitBlob": "a77b10b58b7316a912c54ba718aee13172264f1d",
+          "mode": "100644",
+          "sha256": "72b6de5d4dd950a17e28b5ac3d459ec5291b9039c985c6089763facbc96d91a9"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/LibreFranklin-Regular.ttf",
+          "gitBlob": "60da26946412be0631423569842a50ac589fa510",
+          "mode": "100644",
+          "sha256": "01e26222a56e141e3abae670ab22be77f063999fc4ef64c4a9651de19b7728a8"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/LibreFranklin-SemiBold.ttf",
+          "gitBlob": "de129abce484646f25a7bc65f6befd45586885bf",
+          "mode": "100644",
+          "sha256": "d9bc4e45291495f350d0653e3250cfadfe2fd2f3f166c6f6ee2d68cab7fc9692"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/LibreFranklin-Thin.ttf",
+          "gitBlob": "16533758ffbfb5fd938644fbb6436e0bf0002b67",
+          "mode": "100644",
+          "sha256": "6f30fb3bdd7818a387dee382183b955b1fd22e4d5fdf48763959adcb0d0c3e97"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/OFL-EncodeSans.txt",
+          "gitBlob": "9dadca8c43036cf9ce52e9513eb8628ac33c743f",
+          "mode": "100644",
+          "sha256": "b47f4d635e8c592a37e98f751627cad0a81694c56aecc603b33819a908ea9625"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/OFL-LibreFranklin.txt",
+          "gitBlob": "04cef395b1c1643f71dae8451a96fa7c073301d4",
+          "mode": "100644",
+          "sha256": "2710268527181a27b8e938617551bae29e714e6525247be6679bf897a9942a60"
+        },
+        {
+          "path": "Sources/Sabella/Resources/Fonts/README.md",
+          "gitBlob": "d305be816582f4bd3e83b76bc4fef70dd6471005",
+          "mode": "100644",
+          "sha256": "8fc3e57cc9bfe4ecd99169d08ac634a9185d1bf4e7d7013d07025bdb0ec57c03"
+        },
+        {
+          "path": "Sources/Sabella/Surfaces.swift",
+          "gitBlob": "503826381f8eefd73e1a1e7f03b4b55591efabf4",
+          "mode": "100644",
+          "sha256": "ee4644277d17e84a133f03dd251aec9f9af76dbc46b26829019dfe65e10ace7f"
+        },
+        {
+          "path": "Sources/Sabella/Television.swift",
+          "gitBlob": "bca265e039fe0b1e2c691680a5bd0dd48d1e4d74",
+          "mode": "100644",
+          "sha256": "88de013a45031884a110c51d4a9cd760ffce183c109aafdee3cbc0427bb56d10"
+        },
+        {
+          "path": "Sources/Sabella/TelevisionBroadcast.swift",
+          "gitBlob": "7c884eb5fd22653cf935fa693e2da588e0a978bf",
+          "mode": "100644",
+          "sha256": "2e36243f2fc16df5e228c4066a87f69707558d20d5d275476c3050dc203c132c"
+        },
+        {
+          "path": "Sources/Sabella/TelevisionOperations.swift",
+          "gitBlob": "91d65a059bc6bac2017613b34addee04f1bbda93",
+          "mode": "100644",
+          "sha256": "91291b282a5bae074ab820221bbc33b5a78aca4207d14a1b827df6cdaf0ad894"
+        },
+        {
+          "path": "Sources/Sabella/TelevisionPlaybackActivity.swift",
+          "gitBlob": "68f011c2f3cee20fa6f375f137af9d181551ff39",
+          "mode": "100644",
+          "sha256": "b7faa4f34337710764cbf7c7969d6efd98ae97e4217f192ec2f148ce9a2f9066"
+        },
+        {
+          "path": "Sources/Sabella/TelevisionStreamPolicy.swift",
+          "gitBlob": "e37c39d79eb9ee6f93f27dcdd3d5cb57fb310a79",
+          "mode": "100644",
+          "sha256": "7ec90287ff55f972dd45618c2031af545533b48346325f773be7a508bb56281f"
+        },
+        {
+          "path": "Sources/Sabella/Tokens.swift",
+          "gitBlob": "d83b91b13c853b51fa480c91884efb798de071ce",
+          "mode": "100644",
+          "sha256": "8bcf3538bd1d27fb91f661a7970894f10e73dcad69ccef6622056512683dfca5"
+        },
+        {
+          "path": "Sources/SabellaCatalog/AdvancedGalleries.swift",
+          "gitBlob": "fb1b87aa694ef0712bd2a05fcfd8799821b4153b",
+          "mode": "100644",
+          "sha256": "6a883f678b48f81778d89a2978ecd7e91fe12c94f7b25c745b8027b49528cd7c"
+        },
+        {
+          "path": "Sources/SabellaCatalog/CatalogApp.swift",
+          "gitBlob": "9597d1f72b5a1c5d07645fbd6c69b472031041dc",
+          "mode": "100644",
+          "sha256": "c853bb90bdf895fa0150fc6d53dda0c42d311b2192c5262a9592b7d62708b0e2"
+        },
+        {
+          "path": "Sources/SabellaCatalog/CoreGalleries.swift",
+          "gitBlob": "c44a08de2a26482c55e32b8d0894683987c0bdec",
+          "mode": "100644",
+          "sha256": "462e1cbcb33921b61071db3afecfe962af97aa29bdc1057feba198a9b4eff583"
+        },
+        {
+          "path": "Sources/SabellaCatalog/TelevisionGalleries.swift",
+          "gitBlob": "e92aba20adfd7e2477047305c428b3807977dcc0",
+          "mode": "100644",
+          "sha256": "85b7105f033ae867775467e28d8d8968e411e887206d4d6651b635936aa68966"
+        },
+        {
+          "path": "Sources/SabellaCatalogSupport/CatalogCoverage.swift",
+          "gitBlob": "9d3a4b216b6624913300c1b9cba42c9a25b956f2",
+          "mode": "100644",
+          "sha256": "8cc81b93de2afe9957c1f601b39dd240dcedb640c2982e98e2eb639f52343477"
+        },
+        {
+          "path": "Sources/SabellaKSPlayerWorkaround/SabellaKSPlayerWorkaround.m",
+          "gitBlob": "18a6046575638d694935ef7a209c57c960bc85d3",
+          "mode": "100644",
+          "sha256": "860bc3bcbf6156b5d1d548fd8f99deddc75880a72d5c4af1e025a68bbfd9a015"
+        },
+        {
+          "path": "Sources/SabellaKSPlayerWorkaround/include/SabellaKSPlayerWorkaround.h",
+          "gitBlob": "a238e7691f0e5cd8a27a243baf32a4c529ea45ba",
+          "mode": "100644",
+          "sha256": "c86a607b61eec949b570071faced26e147c556c272b10fd06d2622b71a3a4c60"
+        },
+        {
+          "path": "Sources/SabellaShellExamples/ShellExampleApp.swift",
+          "gitBlob": "8b560957383b529d2fba94937a014be3af5fe160",
+          "mode": "100644",
+          "sha256": "e8b697d0b792aedb5447b2c3884e355b8c665c1702201f6d5883e1394a951ad6"
+        }
+      ],
+      "dependencies": {
+        "originHash": "501b4d13df9db2e33bed64aacb06ab31bb07b1fe604c00381220dfdffadad3d5",
+        "pins": [
+          {
+            "identity": "ffmpegkit",
+            "kind": "remoteSourceControl",
+            "location": "https://github.com/kingslay/FFmpegKit.git",
+            "state": {
+              "revision": "c32be9bfb628042737ad3ef622e930c5c7b15954",
+              "version": "6.1.4"
+            }
+          },
+          {
+            "identity": "ksplayer",
+            "kind": "remoteSourceControl",
+            "location": "https://github.com/kingslay/KSPlayer.git",
+            "state": {
+              "revision": "10a40a1c0001d75307ad5922d1d1bc0cb01c89b4"
+            }
+          }
+        ],
+        "version": 3
+      }
+    },
+    "bleecker": {
+      "repository": "https://github.com/gaulatti/bleecker",
+      "revision": "0bd7032e42d4c346c6e2201ad2feff96e635f73f",
+      "artifact": "tokens/bleecker-source.ts",
+      "sha256": "8e76c8f1aded0b61edd3309b3ae75f607ccda679b90b4e29f4d10b45ae2c99d9"
+    },
+    "orchard": {
+      "repository": "https://github.com/gaulatti/orchard",
+      "revision": "31fa020e74b9ee37c50d0fa21fac85eabc766a7e",
+      "role": "Peer workflow reference; not the visual baseline or scope authority"
+    }
+  },
+  "preservationEnvironment": {
+    "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0\nBuildVersion:\t\t26A428",
+    "xcode": "Xcode 27.0\nBuild version 27A266a",
+    "swift": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0",
+    "sdk": "27.0",
+    "captureTooling": "Pending: recorded separately per actual capture; no image acceptance yet"
+  }
+}

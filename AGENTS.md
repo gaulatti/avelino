@@ -379,3 +379,26 @@ end-to-end contract.
 <!-- END AGENTIC-CODING MANAGED RULES -->
 
 <!-- Repository-specific instructions below are maintained locally. -->
+
+# Avelino
+
+Build the Linux peer of Bleecker, Sabella, and Orchard. Bleecker owns shared
+tokens and platform-neutral contracts; each peer owns its platform integration.
+This task uses Sabella rendered fixtures as the appearance and behavior reference.
+SwiftUI/AVPlayer APIs are reference implementation details, not Linux API mandates.
+
+- Desktop reference: `fe8a1d462fbd793d883fb92086a16aa2947e32c9`.
+- TV reference: `f5ac479bfceaa7eab23c1716ac47420ac53dae25`.
+- Preserve siblings read-only. References must work without sibling checkouts.
+- Reference updates require explicit authorization and reviewed source/image diffs.
+- Never regenerate expected captures to hide regressions or self-approve exceptions.
+- Keep unresolved fonts, icons, and OS presentations verification-pending.
+- Own the entire Qt control presentation, including every internal control/popup.
+  Use Qt templates for native input, focus, editing, and accessibility behavior.
+- Reconcile discovered APIs, modifiers, states, slots, and adapters with the parity
+  inventory. Registered type counts are only the starting inventory.
+- Record offscreen, X11, Wayland, input, focus/accessibility, scaling, packaging,
+  desktop, and TV evidence separately. Offscreen captures do not close session gates.
+- TV needs a selected hardware/decoder/input target before implementation, and
+  physical remote plus sustained playback checks before acceptance.
+- Push coherent checkpoints to remote `main` often, as explicitly requested.
