@@ -7,9 +7,12 @@ from pathlib import Path
 def command(*args):
     return subprocess.check_output(args, text=True, stderr=subprocess.STDOUT).strip()
 files = sorted(p for folder in ['src', 'samples', 'assets', 'tokens'] for p in Path(folder).rglob('*') if p.is_file())
+# The CI bind mount belongs to the runner UID, while the toolchain runs as root.
+# Trust only this explicit checkout for these read-only provenance commands.
+git = ['git', '-c', f'safe.directory={Path.cwd()}']
 metadata = {
-    'sourceRevision': command('git', 'rev-parse', 'HEAD'),
-    'uncommittedChanges': bool(command('git', 'status', '--porcelain')),
+    'sourceRevision': command(*git, 'rev-parse', 'HEAD'),
+    'uncommittedChanges': bool(command(*git, 'status', '--porcelain')),
     'compiler': command('c++', '--version'),
     'qt': command('qmake', '-query', 'QT_VERSION'),
     'cmake': command('cmake', '--version'),

@@ -22,6 +22,8 @@ Every Linux capture links an environment record with source revision, dirty-tree
 state, exact source/resource hashes, compiler, Qt, CMake, and installed package
 versions. The image metadata also records the actual renderer API and resolved
 label metrics. A dirty local capture remains distinguishable from a CI commit.
+The container's read-only Git queries trust only the mounted checkout for that
+invocation; they do not change the host or global Git configuration.
 
 These are implementation checks. The first Qt button, spinner, and text-field
 presentations are **verification-pending**: the SwiftUI comparisons, shadow and
