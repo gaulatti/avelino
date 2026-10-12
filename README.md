@@ -25,5 +25,7 @@ These commands use only the source artifacts in this repository. No Sabella
 checkout, GitHub fetch, Apple font redistribution, or expected-image regeneration
 is required. Reference capture tools require the recorded Apple OS and SDK.
 
-Build and catalog instructions will accompany the first runnable implementation.
+See [Linux build and catalog checks](docs/development.md) and
+[installed-package verification](docs/packaging.md). The initial button, spinner,
+and text-field implementations remain verification-pending.
 The GitHub wiki has not been initialized; documentation currently lives here.

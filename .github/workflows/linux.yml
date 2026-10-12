@@ -1,0 +1,26 @@
+name: Linux
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  build-runtime-package:
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [ubuntu-24.04, ubuntu-24.04-arm]
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.14.0'
+      - run: node scripts/generate-tokens.mjs --check
+      - run: docker build -t avelino-toolchain:qt6.8.3 -f tools/Dockerfile .
+      - run: docker run --rm -v "$PWD:/work" avelino-toolchain:qt6.8.3 bash scripts/check-linux.sh
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: linux-evidence-${{ matrix.runner }}
+          path: |
+            artifacts/linux
+            build/linux/Testing/Temporary/LastTest.log

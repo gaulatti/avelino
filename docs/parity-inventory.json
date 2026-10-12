@@ -608,16 +608,28 @@
       },
       {
         "id": "BleeckerButton",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Buttons.swift",
           "line": 66
         },
-        "implementation": [],
+        "implementation": [
+          "src/Avelino/BleeckerButton.qml"
+        ],
         "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
+        "cases": [
+          {
+            "id": "initial-presentation",
+            "status": "pending",
+            "evidence": [],
+            "notes": "Runtime and reference comparisons pending; matrix expansion required"
+          }
+        ],
+        "tests": [
+          "tests/components/tst_controls.qml",
+          "tests/consumer/main.cpp"
+        ],
         "captures": [],
         "comparisonResults": [],
         "exceptions": [],
@@ -1804,15 +1816,24 @@
       },
       {
         "id": "BleeckerLoadingSpinner",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Feedback.swift",
           "line": 50
         },
-        "implementation": [],
+        "implementation": [
+          "src/Avelino/BleeckerLoadingSpinner.qml"
+        ],
         "caseDiscovery": "pending",
-        "cases": [],
+        "cases": [
+          {
+            "id": "initial-presentation",
+            "status": "pending",
+            "evidence": [],
+            "notes": "Runtime and reference comparisons pending; matrix expansion required"
+          }
+        ],
         "tests": [],
         "captures": [],
         "comparisonResults": [],
@@ -3322,16 +3343,28 @@
       },
       {
         "id": "BleeckerTextField",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Controls.swift",
           "line": 34
         },
-        "implementation": [],
+        "implementation": [
+          "src/Avelino/BleeckerTextField.qml"
+        ],
         "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
+        "cases": [
+          {
+            "id": "initial-presentation",
+            "status": "pending",
+            "evidence": [],
+            "notes": "Runtime and reference comparisons pending; matrix expansion required"
+          }
+        ],
+        "tests": [
+          "tests/components/tst_controls.qml",
+          "tests/consumer/main.cpp"
+        ],
         "captures": [],
         "comparisonResults": [],
         "exceptions": [],
