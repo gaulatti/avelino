@@ -3,7 +3,7 @@ import Avelino
 Window {
     property int invocations: 0
     property int groupedInvocations: 0
-    width: 400; height: 400; visible: true
+    width: 400; height: 448; visible: true
     title: "Avelino installed consumer"
     color: BleeckerTheme.palette.background
     Component.onCompleted: {
@@ -11,17 +11,25 @@ Window {
         BleeckerTheme.textScale = consumerTextScale
         BleeckerTheme.reducedMotion = true
     }
-    Column {
-        x: 24.23; y: 24.17; spacing: 16
-        BleeckerButton { objectName: "button"; text: "Installed package"; onClicked: invocations++ }
-        BleeckerButton { objectName: "fractionalButton"; text: "Fractional size"; size: "sm" }
-        BleeckerTextField { objectName: "field"; placeholderText: "Edit here" }
+    BleeckerCard {
+        objectName: "card"
+        x: 16; y: 8; width: 368; height: 200; paddingSize: "none"
+        Column {
+            x: 8.23; y: 16.17; spacing: 16
+            BleeckerButton { objectName: "button"; text: "Installed package"; onClicked: invocations++ }
+            BleeckerButton { objectName: "fractionalButton"; text: "Fractional size"; size: "sm" }
+            BleeckerTextField { objectName: "field"; placeholderText: "Edit here" }
+        }
     }
     Component { id: leadingSlot; Rectangle { implicitWidth: 20; implicitHeight: 16; color: BleeckerTheme.palette.sea } }
     Component { id: centerSlot; Rectangle { implicitWidth: 30; implicitHeight: 24; color: BleeckerTheme.palette.desert } }
     Component { id: trailingSlot; Rectangle { implicitWidth: 20; implicitHeight: 16; color: BleeckerTheme.palette.live } }
-    Row {
-        x: 24; y: 210; spacing: 16
+    BleeckerPanel {
+        objectName: "panelSurface"
+        x: 16; y: 208; width: 368; height: 174; paddingSize: "none"
+        variant: "transparent"
+        Row {
+        x: 8; y: 2; spacing: 16
         Column {
             width: 168; spacing: 8
             BleeckerSeparator { objectName: "separator"; width: parent.width }
@@ -43,5 +51,16 @@ Window {
                 BleeckerButton { objectName: "groupSecond"; text: "Two"; size: "xs"; onClicked: groupedInvocations++ }
             }
         }
+        }
+    }
+    Row {
+        x: 24; y: 392; spacing: 16
+        BleeckerAttentionSurface {
+            objectName: "attentionSurface"
+            hue: 210; intensity: 5; width: 150; height: 44
+            BleeckerEyebrow { objectName: "eyebrow"; text: "Queue" }
+        }
+        BleeckerStatusBadge { objectName: "statusBadge"; text: "Live"; variant: "live" }
+        BleeckerNotificationBadge { objectName: "notificationBadge"; count: 100 }
     }
 }

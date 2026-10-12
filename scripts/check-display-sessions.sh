@@ -37,7 +37,7 @@ panel-position=none
 background-color=0xffdbe1e7
 locking=false
 INI
-    weston --backend=x11 --renderer=pixman --width=1200 --height=900 --socket=avelino-wayland \
+    weston --backend=x11 --renderer=pixman --width=1200 --height=1000 --socket=avelino-wayland \
       --idle-time=0 --config="$runtime/weston.ini" --log="$evidence/weston.log" >"$evidence/weston-client.log" 2>&1 &
     wpid=$!
     for ((i=0;i<100;i++)); do
@@ -100,6 +100,8 @@ assert record['dpr'] == (1 if configuration == 'standard' else 2), record
 assert record['textScale'] == (1 if configuration == 'standard' else 1.5), record
 assert record['fractionalButtonGlyphPixels'] == 13 * record['textScale'], record
 assert record['foundationChecks'] == 'passed' and record['groupKeyboardChecks'] == 'passed', record
+assert record['cardBadgeChecks'] == 'passed', record
+assert record['roundedContentClipping'] == (backend == 'opengl'), record
 assert record['appearance'] == ('light' if configuration == 'standard' else 'dark'), record
 window_bytes = Path(prefix+'.png').read_bytes()
 assert window_bytes[:8] == b'\x89PNG\r\n\x1a\n'

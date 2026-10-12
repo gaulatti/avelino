@@ -136,3 +136,20 @@ painted text path produces different raw pixels between x86_64 and ARM64, so the
 earlier checkpoints' cross-architecture identity does not carry forward. No
 architecture difference is accepted or hidden by a tolerance.
 [Typography CI](https://github.com/gaulatti/avelino/actions/runs/38280257407)
+
+The foundations checkpoint passes both architecture build/runtime/package jobs
+and reference CI. Both strict visual jobs fail. These outcomes are independent;
+the green runtime jobs do not imply desktop acceptance.
+[Foundations CI](https://github.com/gaulatti/avelino/actions/runs/38282966451)
+
+The cards-and-badges batch adds six more desktop candidates, bringing started
+entries to 16 of the 80 discovered APIs (20% coverage, zero accepted entries).
+The local suite passes 157 checks at each of DPR 1 and 2. A fresh package-only
+container passes all eight virtual X11/nested-Wayland software/OpenGL configurations,
+including pointer/keyboard actions and editing inside a card. Four light/dark
+DPR 1/2 gallery captures and the installed OpenGL window were inspected. This
+is local development evidence; clean CI is separate. Native images for these
+six entries remain missing. Software rounded content clipping is unfinished;
+GPU clipping, shadow calibration, typography, wrapping, accessibility and complete
+scaling/session acceptance remain pending. No baseline, tolerance or approved
+exception changed. See [the candidate contract](cards-and-badges.md).

@@ -12,6 +12,7 @@ class ButtonLabel : public QQuickPaintedItem {
     Q_PROPERTY(QString text READ text WRITE setText NOTIFY textChanged)
     Q_PROPERTY(QFont font READ font WRITE setFont NOTIFY fontChanged)
     Q_PROPERTY(QColor color READ color WRITE setColor NOTIFY colorChanged)
+    Q_PROPERTY(qreal tracking READ tracking WRITE setTracking NOTIFY trackingChanged)
     Q_PROPERTY(qreal logicalPixelSize READ logicalPixelSize NOTIFY layoutChanged)
     Q_PROPERTY(qreal naturalHeight READ naturalHeight NOTIFY layoutChanged)
     Q_PROPERTY(QString resolvedFamily READ resolvedFamily NOTIFY layoutChanged)
@@ -24,6 +25,8 @@ public:
     void setFont(const QFont &font);
     QColor color() const { return m_color; }
     void setColor(QColor color);
+    qreal tracking() const { return m_tracking; }
+    void setTracking(qreal tracking);
     qreal logicalPixelSize() const { return m_pixels; }
     qreal naturalHeight() const { return m_height; }
     QString resolvedFamily() const { return m_family; }
@@ -33,6 +36,7 @@ signals:
     void textChanged();
     void fontChanged();
     void colorChanged();
+    void trackingChanged();
     void layoutChanged();
 private:
     void relayout();
@@ -47,5 +51,6 @@ private:
     QFont m_font;
     QColor m_color = Qt::black;
     qreal m_pixels = 14, m_height = 0;
+    qreal m_tracking = 0;
     QList<Run> m_runs;
 };

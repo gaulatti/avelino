@@ -27,6 +27,12 @@ void ButtonLabel::setColor(QColor color) {
     m_color = color; update(); emit colorChanged();
 }
 
+void ButtonLabel::setTracking(qreal tracking) {
+    if (!std::isfinite(tracking)) qFatal("Label tracking requires a finite value");
+    if (m_tracking == tracking) return;
+    m_tracking = tracking; relayout(); emit trackingChanged();
+}
+
 void ButtonLabel::relayout() {
     m_pixels = m_font.pixelSize() > 0 ? m_font.pixelSize()
         : m_font.pointSizeF() * BleeckerFonts::logicalFontDpi() / 72;
@@ -41,6 +47,10 @@ void ButtonLabel::relayout() {
     shapeFont.setPixelSize(units);
     if (shapeFont.letterSpacingType() == QFont::AbsoluteSpacing)
         shapeFont.setLetterSpacing(QFont::AbsoluteSpacing, shapeFont.letterSpacing() / ratio);
+    // Apply explicit logical tracking at design-unit scale. QFont otherwise
+    // quantizes a 1.15 px request to 1.140625 before shaping starts.
+    if (m_tracking != 0)
+        shapeFont.setLetterSpacing(QFont::AbsoluteSpacing, m_tracking / ratio);
     shapeFont.setWordSpacing(shapeFont.wordSpacing() / ratio);
     QString layoutText = m_text;
     layoutText.replace(QChar('\n'), QChar::LineSeparator);

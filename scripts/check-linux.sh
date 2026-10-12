@@ -45,13 +45,15 @@ cp artifacts/linux/environment.json artifacts/package/environment.json
 mkdir -p artifacts/linux
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --capture artifacts/linux/actions-light.png
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --dark --capture artifacts/linux/actions-dark.png
+for fixture in foundations surfaces; do
 for appearance in light dark; do
   for dpr in 1 2; do
-    args=(--fixture foundations)
+    args=(--fixture "$fixture")
     if [[ "$appearance" == dark ]]; then args+=(--dark); fi
     QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software QT_SCALE_FACTOR="$dpr" \
-      build/linux/samples/AvelinoCatalog/AvelinoCatalog "${args[@]}" --capture "artifacts/linux/foundations-$appearance-dpr$dpr.png"
+      build/linux/samples/AvelinoCatalog/AvelinoCatalog "${args[@]}" --capture "artifacts/linux/$fixture-$appearance-dpr$dpr.png"
   done
+done
 done
 for appearance in light dark; do
   for variant in primary secondary outline subtle ghost link destructive; do

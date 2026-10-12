@@ -286,47 +286,207 @@
       },
       {
         "id": "BleeckerAttentionSurface",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Surfaces.swift",
           "line": 5
         },
-        "implementation": [],
+        "implementation": [
+          "src/Avelino/BleeckerAttentionSurface.qml"
+        ],
         "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
-        "captures": [],
+        "cases": [
+          {
+            "id": "BleeckerAttentionSurface-hue-red",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerAttentionSurface-hue-green",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerAttentionSurface-hue-blue",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerAttentionSurface-intensity-middle",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerAttentionSurface-intensity-high",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerAttentionSurface-negative-wrap-clamp",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerAttentionSurface-positive-wrap-clamp",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerAttentionSurface-nonfinite",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerAttentionSurface-gradient-light",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerAttentionSurface-gradient-dark",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerAttentionSurface-rounded-clipping",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          }
+        ],
+        "tests": [
+          "tests/components/tst_surfaces.qml",
+          "tests/consumer/main.cpp"
+        ],
+        "captures": [
+          "samples/AvelinoCatalog/SurfacesFixture.qml"
+        ],
         "comparisonResults": [],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
           "x11": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
           "wayland": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
           "keyboardPointer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
           "focusAccessibility": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
           "displayTextScaling": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
           "installedConsumer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           }
         }
       },
@@ -2784,47 +2944,467 @@
       },
       {
         "id": "BleeckerCard",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Surfaces.swift",
           "line": 86
         },
-        "implementation": [],
+        "implementation": [
+          "src/Avelino/BleeckerCard.qml"
+        ],
         "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
-        "captures": [],
+        "cases": [
+          {
+            "id": "BleeckerCard-light-none-surface",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-light-none-elevated",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-light-none-subtle",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-light-none-transparent",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-light-sm-surface",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-light-sm-elevated",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-light-sm-subtle",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-light-sm-transparent",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-light-md-surface",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-light-md-elevated",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-light-md-subtle",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-light-md-transparent",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-light-lg-surface",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-light-lg-elevated",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-light-lg-subtle",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-light-lg-transparent",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-dark-none-surface",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-dark-none-elevated",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-dark-none-subtle",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-dark-none-transparent",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-dark-sm-surface",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-dark-sm-elevated",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-dark-sm-subtle",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-dark-sm-transparent",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-dark-md-surface",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-dark-md-elevated",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-dark-md-subtle",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-dark-md-transparent",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-dark-lg-surface",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-dark-lg-elevated",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-dark-lg-subtle",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-dark-lg-transparent",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-shadow-calibration",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-rounded-clipping-software",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-rounded-clipping-gpu",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-interactive-content",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerCard-constrained-content",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          }
+        ],
+        "tests": [
+          "tests/components/tst_surfaces.qml",
+          "tests/consumer/main.cpp"
+        ],
+        "captures": [
+          "samples/AvelinoCatalog/SurfacesFixture.qml"
+        ],
         "comparisonResults": [],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
           "x11": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
           "wayland": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
           "keyboardPointer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
           "focusAccessibility": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
           "displayTextScaling": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
           "installedConsumer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           }
         }
       },
@@ -4196,47 +4776,197 @@
       },
       {
         "id": "BleeckerNotificationBadge",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Feedback.swift",
           "line": 82
         },
-        "implementation": [],
+        "implementation": [
+          "src/Avelino/BleeckerNotificationBadge.qml"
+        ],
         "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
-        "captures": [],
+        "cases": [
+          {
+            "id": "BleeckerNotificationBadge-count--1",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerNotificationBadge-count-0",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerNotificationBadge-count-1",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerNotificationBadge-count-99",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerNotificationBadge-count-100",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerNotificationBadge-count-1000",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerNotificationBadge-dark-fill",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerNotificationBadge-locale",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerNotificationBadge-integer-domain",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerNotificationBadge-accessibility-name",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          }
+        ],
+        "tests": [
+          "tests/components/tst_surfaces.qml",
+          "tests/consumer/main.cpp"
+        ],
+        "captures": [
+          "samples/AvelinoCatalog/SurfacesFixture.qml"
+        ],
         "comparisonResults": [],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
           "x11": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
           "wayland": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
           "keyboardPointer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
           "focusAccessibility": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
           "displayTextScaling": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
           "installedConsumer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           }
         }
       },
@@ -4380,47 +5110,147 @@
       },
       {
         "id": "BleeckerPanel",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Surfaces.swift",
           "line": 112
         },
-        "implementation": [],
+        "implementation": [
+          "src/Avelino/BleeckerPanel.qml"
+        ],
         "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
-        "captures": [],
+        "cases": [
+          {
+            "id": "BleeckerPanel-title",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerPanel-no-title",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerPanel-present-empty-title",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerPanel-resize",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerPanel-constrained-title",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          }
+        ],
+        "tests": [
+          "tests/components/tst_surfaces.qml",
+          "tests/consumer/main.cpp"
+        ],
+        "captures": [
+          "samples/AvelinoCatalog/SurfacesFixture.qml"
+        ],
         "comparisonResults": [],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
           "x11": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
           "wayland": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
           "keyboardPointer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
           "focusAccessibility": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
           "displayTextScaling": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
           "installedConsumer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           }
         }
       },
@@ -5838,47 +6668,227 @@
       },
       {
         "id": "BleeckerStatusBadge",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Feedback.swift",
           "line": 3
         },
-        "implementation": [],
+        "implementation": [
+          "src/Avelino/BleeckerStatusBadge.qml"
+        ],
         "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
-        "captures": [],
+        "cases": [
+          {
+            "id": "BleeckerStatusBadge-light-default",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerStatusBadge-light-live",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerStatusBadge-light-offline",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerStatusBadge-light-warning",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerStatusBadge-light-info",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerStatusBadge-dark-default",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerStatusBadge-dark-live",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerStatusBadge-dark-offline",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerStatusBadge-dark-warning",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerStatusBadge-dark-info",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerStatusBadge-text-scale",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerStatusBadge-dynamic-text",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "BleeckerStatusBadge-constrained-text",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          }
+        ],
+        "tests": [
+          "tests/components/tst_surfaces.qml",
+          "tests/consumer/main.cpp"
+        ],
+        "captures": [
+          "samples/AvelinoCatalog/SurfacesFixture.qml"
+        ],
         "comparisonResults": [],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
           "x11": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
           "wayland": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
           "keyboardPointer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
           "focusAccessibility": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
           "displayTextScaling": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
           "installedConsumer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           }
         }
       },
@@ -6335,47 +7345,147 @@
       },
       {
         "id": "Text.bleeckerEyebrow",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Tokens.swift",
           "line": 192
         },
-        "implementation": [],
+        "implementation": [
+          "src/Avelino/BleeckerEyebrow.qml"
+        ],
         "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
-        "captures": [],
+        "cases": [
+          {
+            "id": "Text.bleeckerEyebrow-case",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "Text.bleeckerEyebrow-weight",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "Text.bleeckerEyebrow-tracking",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "Text.bleeckerEyebrow-fixed-size",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "Text.bleeckerEyebrow-wrapping",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "tests/components/tst_surfaces.qml",
+              "docs/cards-and-badges.md"
+            ],
+            "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          }
+        ],
+        "tests": [
+          "tests/components/tst_surfaces.qml",
+          "tests/consumer/main.cpp"
+        ],
+        "captures": [
+          "samples/AvelinoCatalog/SurfacesFixture.qml"
+        ],
         "comparisonResults": [],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
           "x11": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
           "wayland": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
           "keyboardPointer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
           "focusAccessibility": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
           "displayTextScaling": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           },
           "installedConsumer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/cards-and-badges.md",
+              "tests/components/tst_surfaces.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh"
+            ],
+            "notes": "Candidate checks do not close parity. Native images, clipping, typography, accessibility and complete behavior cases remain pending."
           }
         }
       },
