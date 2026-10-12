@@ -86,6 +86,24 @@ consumer uses fractional parent coordinates and checks the owned background and
 loading-label baseline in each display configuration. These checks establish
 the rendering mechanism, not source-image or transition acceptance.
 
+Default button labels now use an owned `ButtonLabel` painted item. Qt shapes
+the text at the font's design-unit size; Avelino scales the advances and line
+metrics to the requested logical size and gives Qt's rasterizer that exact size.
+This avoids rounding a 13 px label at text scale 1.5 to 20 px: it requests 19.5 px.
+The control's font remains available to consumers, including explicit pixel-size
+overrides. Glyph runs carry value data across synchronization; the painting
+thread creates its own `QRawFont`, as required by
+[Qt's thread-local font contract](https://doc.qt.io/qt-6.8/qrawfont.html).
+
+The typography suite exercises all four button sizes at four text scales,
+consumer font-size overrides, literal markup, and line breaks at DPR 1 and 2.
+The installed consumer includes the 13 px button and records its requested glyph
+size in each display configuration. The catalog accepts `--text-scale` and records
+the label renderer and fractional metrics. These checks do not close glyph
+rasterization, opacity composition, wrapping, custom font/content, accessibility,
+or visual acceptance. Text-field editing still uses Qt's integer pixel-size font
+property, so fractional text-field typography remains pending.
+
 The catalog is a native Qt application; this repository has no browser frontend
 or application server. Application-backend Compose requirements do not apply.
 

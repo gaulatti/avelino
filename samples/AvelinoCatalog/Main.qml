@@ -9,7 +9,7 @@ Window {
     visible: true
     title: "Avelino — mirror workbench"
     color: BleeckerTheme.palette.background
-    Component.onCompleted: { BleeckerTheme.dark = captureDark; BleeckerTheme.reducedMotion = true }
+    Component.onCompleted: { BleeckerTheme.dark = captureDark; BleeckerTheme.reducedMotion = true; BleeckerTheme.textScale = captureTextScale }
     Text { x: 32; y: 24; text: "Actions and editing"; font.family: BleeckerTheme.primaryFont; font.pixelSize: 24; font.weight: Font.DemiBold; color: BleeckerTheme.palette.textPrimary }
     Text { x: 32; y: 62; text: "Mirror fixtures — verification pending"; font.family: BleeckerTheme.secondaryFont; font.pixelSize: 13; color: BleeckerTheme.palette.textSecondary }
     Column {

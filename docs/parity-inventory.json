@@ -619,7 +619,11 @@
           "src/Avelino/ContinuousSurface.qml",
           "src/Avelino/continuouscorners.js",
           "src/Avelino/pixelalignment.h",
-          "src/Avelino/pixelalignment.cpp"
+          "src/Avelino/pixelalignment.cpp",
+          "src/Avelino/buttonlabel.h",
+          "src/Avelino/buttonlabel.cpp",
+          "src/Avelino/bleeckerfonts.h",
+          "src/Avelino/bleeckerfonts.cpp"
         ],
         "caseDiscovery": "pending",
         "cases": [
@@ -2343,7 +2347,8 @@
           "tests/components/tst_controls.qml",
           "tests/consumer/main.cpp",
           "tests/components/tst_geometry.qml",
-          "tests/components/tst_alignment.qml"
+          "tests/components/tst_alignment.qml",
+          "tests/components/tst_typography.qml"
         ],
         "captures": [
           "reference/captures/desktop/buttons/captures.json",
@@ -2449,7 +2454,7 @@
               "https://github.com/gaulatti/avelino/actions/runs/38263908908",
               "evidence/checkpoints/efb2a90/checkpoint.json"
             ],
-            "notes": "Initial installed consumer virtual-session checks only. Full component cases, real input delivery, accessibility, overlays, and visual parity remain pending."
+            "notes": "Fractional button font requests are exercised by the component suite and installed consumer. Source-image parity, fractional text-field typography, real input delivery, accessibility, and full scaling coverage remain pending."
           },
           "installedConsumer": {
             "status": "passed",

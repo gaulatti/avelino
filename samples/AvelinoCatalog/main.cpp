@@ -12,6 +12,7 @@
 #include <QRawFont>
 #include <QQuickItem>
 #include <QSGRendererInterface>
+#include <cmath>
 
 int main(int argc, char *argv[]) {
     QGuiApplication app(argc, argv);
@@ -22,13 +23,18 @@ int main(int argc, char *argv[]) {
                        QCommandLineOption("fixture", "Render a deterministic fixture (button)", "name"),
                        QCommandLineOption("variant", "Button variant", "name", "primary"),
                        QCommandLineOption("size", "Button size", "name", "md"),
-                       QCommandLineOption("disabled", "Disable the fixture control")});
+                       QCommandLineOption("disabled", "Disable the fixture control"),
+                       QCommandLineOption("text-scale", "Use a positive logical text scale", "factor", "1")});
     parser.process(app);
+    bool validScale = false;
+    const qreal textScale = parser.value("text-scale").toDouble(&validScale);
+    if (!validScale || !std::isfinite(textScale) || textScale <= 0) return 5;
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("captureDark", parser.isSet("dark"));
     engine.rootContext()->setContextProperty("captureVariant", parser.value("variant"));
     engine.rootContext()->setContextProperty("captureSize", parser.value("size"));
     engine.rootContext()->setContextProperty("captureDisabled", parser.isSet("disabled"));
+    engine.rootContext()->setContextProperty("captureTextScale", textScale);
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreationFailed, &app, [] { QCoreApplication::exit(1); }, Qt::QueuedConnection);
     if (parser.isSet("fixture") && parser.value("fixture") != "button") return 4;
     engine.loadFromModule("AvelinoCatalog", parser.isSet("fixture") ? "ButtonFixture" : "Main");
@@ -64,13 +70,13 @@ int main(int argc, char *argv[]) {
             const auto label = window->findChild<QQuickItem *>("bleeckerButtonLabel");
             if (label) {
                 const auto labelFont = label->property("font").value<QFont>();
-                const auto actualFont = QRawFont::fromFont(labelFont);
-                meta.insert("labelFontFamily", actualFont.familyName());
-                meta.insert("labelFontStyle", actualFont.styleName());
+                meta.insert("labelFontFamily", label->property("resolvedFamily").toString());
+                meta.insert("labelFontStyle", label->property("resolvedStyle").toString());
                 meta.insert("labelFontWeight", int(labelFont.weight()));
                 meta.insert("labelFontHintingPreference", int(labelFont.hintingPreference()));
-                meta.insert("labelRenderType", label->property("renderType").toInt());
-                meta.insert("labelPixelSize", labelFont.pixelSize());
+                meta.insert("labelRenderer", "QQuickPaintedItem/QPainter glyph runs at logical font size");
+                meta.insert("labelPixelSize", label->property("logicalPixelSize").toDouble());
+                meta.insert("labelFontPointSize", labelFont.pointSizeF());
                 meta.insert("labelWidth", label->width());
                 meta.insert("labelHeight", label->height());
                 meta.insert("labelBaseline", label->baselineOffset());

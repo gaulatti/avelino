@@ -62,6 +62,10 @@ int main(int argc, char **argv) {
         QTest::qWait(50);
         auto label = button->findChild<QQuickItem *>("bleeckerButtonLabel");
         if (!label) { app.exit(17); return; }
+        const auto fractional = window->findChild<QQuickItem *>("fractionalButton");
+        const auto fractionalLabel = fractional ? fractional->findChild<QQuickItem *>("bleeckerButtonLabel") : nullptr;
+        if (!fractionalLabel || std::abs(fractionalLabel->property("logicalPixelSize").toDouble() - 13 * textScale) > 0.000001
+            || fractionalLabel->property("resolvedFamily").toString() != "Encode Sans") { app.exit(19); return; }
         const qreal dpr = window->effectiveDevicePixelRatio();
         const auto surfaceOrigin = surface->mapToScene(QPointF());
         const auto labelBaseline = label->mapToScene(QPointF(0, label->baselineOffset()));
@@ -88,6 +92,8 @@ int main(int argc, char **argv) {
                 {"buttonSurfaceX", surfaceOrigin.x()}, {"buttonSurfaceY", surfaceOrigin.y()},
                 {"buttonLabelBaselineX", labelBaseline.x()}, {"buttonLabelBaselineY", labelBaseline.y()},
                 {"paintPlacementChecks", "passed"},
+                {"fractionalButtonGlyphPixels", fractionalLabel->property("logicalPixelSize").toDouble()},
+                {"labelRenderer", "QQuickPaintedItem/QPainter glyph runs at logical font size"},
                 {"behaviorChecks", "passed"}};
             QFile file(path + ".json");
             if (!file.open(QIODevice::WriteOnly)) { app.exit(14); return; }

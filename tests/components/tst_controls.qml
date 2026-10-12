@@ -52,7 +52,7 @@ Item {
         compare(field.color.toString(), "#f0f4f8")
         BleeckerTheme.textScale = 1.5
         compare(field.implicitHeight, 60)
-        compare(button.font.pixelSize, 21)
+        compare(findChild(button, "bleeckerButtonLabel").logicalPixelSize, 21)
     }
     }
 }

@@ -12,4 +12,6 @@ public:
     explicit BleeckerFonts(QObject *parent = nullptr);
     QString primary() const { return QStringLiteral("Encode Sans"); }
     QString secondary() const { return QStringLiteral("Libre Franklin"); }
+    Q_INVOKABLE qreal pointSizeForPixels(qreal pixels) const;
+    static qreal logicalFontDpi();
 };

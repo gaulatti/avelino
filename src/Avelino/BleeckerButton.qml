@@ -47,14 +47,13 @@ FocusScope {
         focus: true
         focusPolicy: Qt.StrongFocus
         font.family: BleeckerTheme.primaryFont
-        font.pixelSize: control.textSize * BleeckerTheme.textScale
+        font.pointSize: BleeckerFonts.pointSizeForPixels(control.textSize * BleeckerTheme.textScale)
         font.weight: Font.Medium
         leftPadding: control.leftPadding
         rightPadding: control.rightPadding
         Accessible.name: text
         Accessible.description: control.loading ? qsTr("Loading") : ""
         onClicked: control.clicked()
-        FontMetrics { id: labelMetrics; font: control.font }
         contentItem: Item {
             implicitWidth: label.implicitWidth + (control.loading ? spinner.width + BleeckerTokens.spacing.inline : 0)
             implicitHeight: Math.max(label.height, control.loading ? spinner.height : 0)
@@ -64,13 +63,13 @@ FocusScope {
                 size: "sm"
                 y: (parent.height - height) / 2
             }
-            Text {
+            ButtonLabel {
                 id: label
                 objectName: "bleeckerButtonLabel"
                 text: control.text
                 font: control.font
                 color: control.foregroundColor
-                height: Math.ceil(labelMetrics.height * labelAlignment.devicePixelRatio) / labelAlignment.devicePixelRatio
+                height: Math.ceil(naturalHeight * labelAlignment.devicePixelRatio) / labelAlignment.devicePixelRatio
                 x: control.loading ? spinner.width + BleeckerTokens.spacing.inline : 0
                 y: (parent.height - height) / 2
                 PixelAlignment { id: labelAlignment; target: label.parent; origin: Qt.point(label.x, label.y + label.baselineOffset) }

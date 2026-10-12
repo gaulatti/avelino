@@ -1,5 +1,6 @@
 #include "bleeckerfonts.h"
 #include <QFontDatabase>
+#include <QRawFont>
 
 BleeckerFonts::BleeckerFonts(QObject *parent) : QObject(parent) {
     static const bool registered = [] {
@@ -15,4 +16,14 @@ BleeckerFonts::BleeckerFonts(QObject *parent) : QObject(parent) {
         return true;
     }();
     Q_UNUSED(registered);
+}
+
+qreal BleeckerFonts::logicalFontDpi() {
+    QFont probe;
+    probe.setPointSizeF(72);
+    return QRawFont::fromFont(probe).pixelSize();
+}
+
+qreal BleeckerFonts::pointSizeForPixels(qreal pixels) const {
+    return pixels * 72 / logicalFontDpi();
 }

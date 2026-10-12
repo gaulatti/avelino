@@ -98,6 +98,7 @@ for key in ['buttonSurfaceX', 'buttonSurfaceY', 'buttonLabelBaselineX', 'buttonL
     assert math.isfinite(physical) and abs(physical - round(physical)) <= 0.00001, (key, physical)
 assert record['dpr'] == (1 if configuration == 'standard' else 2), record
 assert record['textScale'] == (1 if configuration == 'standard' else 1.5), record
+assert record['fractionalButtonGlyphPixels'] == 13 * record['textScale'], record
 assert record['appearance'] == ('light' if configuration == 'standard' else 'dark'), record
 window_bytes = Path(prefix+'.png').read_bytes()
 assert window_bytes[:8] == b'\x89PNG\r\n\x1a\n'

@@ -13,6 +13,7 @@ Window {
     Column {
         x: 24.23; y: 24.17; spacing: 16
         BleeckerButton { objectName: "button"; text: "Installed package"; onClicked: invocations++ }
+        BleeckerButton { objectName: "fractionalButton"; text: "Fractional size"; size: "sm" }
         BleeckerTextField { objectName: "field"; placeholderText: "Edit here" }
     }
 }

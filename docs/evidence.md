@@ -103,3 +103,18 @@ candidate coverage and painted coordinates as well as hashes. Replay the strict
 comparison against this candidate directory with an output under `artifacts/`;
 exit status 1 is the preserved failed result.
 [Clean CI](https://github.com/gaulatti/avelino/actions/runs/38273039988)
+
+The fractional-typography candidate preserves a 19.5 px requested button font
+instead of rounding it to 20 px. Fifty-seven Qt checks pass at each of DPR 1 and
+2. The default 14 px label's advance becomes 46.487 logical pixels. Its first
+dirty-tree comparison has mixed results: total absolute RGB error increases
+from 12,672,387 to 12,731,331; 42 cases improve, four stay equal, and 66 worsen.
+The light medium primary case decreases from 863 to 859 changed pixels. All
+112 strict comparisons still fail. The new painted text path also exposes
+opacity-composition differences in disabled text. Clean CI reproduction and
+preserved candidate evidence are still required. Source images and tolerance
+remain unchanged, and no component or exception is accepted.
+
+Desktop implementation now proceeds in small component-family batches alongside
+these pending comparisons. Shared typography and asset issues remain attached
+to every affected fixture; broader implementation does not close their gates.

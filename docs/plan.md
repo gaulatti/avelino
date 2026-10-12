@@ -47,8 +47,9 @@ decision; the five desktop chart families need a matching controlled renderer.
 3. **Prove representative mirroring.** Capture buttons (all sizes/variants/states),
    plain text fields, an open selector, cards, attention surfaces, and a shell
    using identical fixtures. Compare real SwiftUI and Linux images. Resolve asset
-   and typography differences before accepting affected fixtures. This visual
-   gate precedes expansion to the remaining families.
+   and typography differences before accepting affected fixtures. Pending
+   comparisons remain open while implementation proceeds in small batches across
+   the remaining families; they never become accepted through coverage counts.
 4. **Actions and forms.** Complete selection, editing, disabled/loading/error,
    focus, keyboard, pointer, content-slot, scaling, and accessibility cases.
 5. **Surfaces, feedback, navigation, layouts.** Complete themes, dimensions,
