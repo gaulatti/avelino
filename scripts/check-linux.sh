@@ -13,3 +13,16 @@ cmake --build "$stage/build" --parallel 2
 mkdir -p artifacts/linux
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --capture artifacts/linux/actions-light.png
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --dark --capture artifacts/linux/actions-dark.png
+for appearance in light dark; do
+  for variant in primary secondary outline subtle ghost link destructive; do
+    for size in xs sm md lg; do
+      for state in enabled disabled; do
+        args=(--fixture button --variant "$variant" --size "$size")
+        if [[ "$appearance" == dark ]]; then args+=(--dark); fi
+        if [[ "$state" == disabled ]]; then args+=(--disabled); fi
+        QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software QT_SCALE_FACTOR=2 \
+          build/linux/samples/AvelinoCatalog/AvelinoCatalog "${args[@]}" --capture "artifacts/linux/button-$appearance-$variant-$size-$state.png"
+      done
+    done
+  done
+done

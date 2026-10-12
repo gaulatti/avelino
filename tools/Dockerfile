@@ -3,7 +3,7 @@ ARG TARGETARCH
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential cmake ninja-build python3 python3-venv ca-certificates git \
-    libgl1 libegl1 libopengl0 libdbus-1-3 libfontconfig1 libxkbcommon0 \
+    libgl1 libegl1 libopengl0 libgl-dev libegl-dev libopengl-dev libdbus-1-3 libfontconfig1 libxkbcommon0 \
     libxcb-cursor0 libxcb-icccm4 libxcb-keysyms1 libxcb-shape0 libxcb-xinerama0 \
     libxcb-randr0 libxcb-render-util0 libxcb-xkb1 libxkbcommon-x11-0 \
     libxcb-image0 libxcb-sync1 libxcb-xfixes0 libxcb-util1 libx11-xcb1 \

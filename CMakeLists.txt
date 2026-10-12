@@ -21,5 +21,5 @@ write_basic_package_version_file(${CMAKE_CURRENT_BINARY_DIR}/AvelinoConfigVersio
     VERSION ${PROJECT_VERSION} COMPATIBILITY SameMajorVersion)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/AvelinoConfig.cmake ${CMAKE_CURRENT_BINARY_DIR}/AvelinoConfigVersion.cmake
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Avelino)
-install(DIRECTORY assets/fonts/ DESTINATION ${CMAKE_INSTALL_DATADIR}/avelino/fonts FILES_MATCHING PATTERN '*.txt' PATTERN '*.md')
+install(DIRECTORY assets/fonts/ DESTINATION ${CMAKE_INSTALL_DATADIR}/avelino/fonts FILES_MATCHING PATTERN "*.txt" PATTERN "*.md")
 install(FILES assets/provenance.json DESTINATION ${CMAKE_INSTALL_DATADIR}/avelino)

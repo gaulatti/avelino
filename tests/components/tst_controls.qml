@@ -44,8 +44,8 @@ TestCase {
     }
     function test_host_theme_independent_dark_and_text_scale() {
         BleeckerTheme.dark = true
-        compare(button.background.color, Qt.color("#5ba3f5"))
-        compare(field.color, Qt.color("#f0f4f8"))
+        compare(button.background.color.toString(), "#5ba3f5")
+        compare(field.color.toString(), "#f0f4f8")
         BleeckerTheme.textScale = 1.5
         compare(field.implicitHeight, 60)
         compare(button.font.pixelSize, 21)
