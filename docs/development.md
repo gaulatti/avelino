@@ -18,6 +18,11 @@ bundled font registration. Loading suppression must hold even when a consumer
 explicitly sets `enabled: true`; an internal native Button template enforces it.
 It currently has no accepted overlay implementation.
 
+Every Linux capture links an environment record with source revision, dirty-tree
+state, exact source/resource hashes, compiler, Qt, CMake, and installed package
+versions. The image metadata also records the actual renderer API and resolved
+label metrics. A dirty local capture remains distinguishable from a CI commit.
+
 These are implementation checks. The first Qt button, spinner, and text-field
 presentations are **verification-pending**: the SwiftUI comparisons, shadow and
 continuous-corner geometry, loading indicator, platform focus, selection treatment,

@@ -38,6 +38,7 @@ int main(int argc, char *argv[]) {
             const auto window = qobject_cast<QQuickWindow *>(engine.rootObjects().value(0));
             if (!window || !window->grabWindow().save(path)) { app.exit(2); return; }
             QJsonObject meta{{"qt", qVersion()}, {"os", QSysInfo::prettyProductName()},
+                {"compiler", QString::fromUtf8(__VERSION__)}, {"environmentRecord", "environment.json"},
                 {"architecture", QSysInfo::currentCpuArchitecture()}, {"platform", QGuiApplication::platformName()},
                 {"captureMethod", "QQuickWindow::grabWindow (single window; not compositor overlay evidence)"},
                 {"width", window->width()}, {"height", window->height()}, {"dpr", window->devicePixelRatio()},

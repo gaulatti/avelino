@@ -1,6 +1,7 @@
 FROM ubuntu:24.04@sha256:534baea6a22c03a63003dbc8dbe78fe34bc0d7e595d9a9dc9834884ff530eb55
 ARG TARGETARCH
 ENV DEBIAN_FRONTEND=noninteractive
+ENV LANG=C.UTF-8
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential cmake ninja-build python3 python3-venv ca-certificates git \
     libgl1 libegl1 libopengl0 libgl-dev libegl-dev libopengl-dev libdbus-1-3 libfontconfig1 libxkbcommon0 \

@@ -26,8 +26,9 @@ class ImmutableArtifactTests(unittest.TestCase):
 
     def test_modified_archive_hash_fails_before_extracting(self):
         self.record["sha256"] = "0" * 64
-        with tempfile.TemporaryDirectory() as clean, self.assertRaises(AssertionError):
-            verify.verify_reference(self.record, Path(clean))
+        with tempfile.TemporaryDirectory() as clean:
+            with self.assertRaises(AssertionError):
+                verify.verify_reference(self.record, Path(clean))
             self.assertEqual(list(Path(clean).iterdir()), [])
 
 

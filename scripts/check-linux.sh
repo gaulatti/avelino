@@ -1,5 +1,23 @@
 #!/usr/bin/env bash
 set -euo pipefail
+mkdir -p artifacts/linux
+python3 - <<'PY'
+import hashlib, json, subprocess
+from pathlib import Path
+def command(*args):
+    return subprocess.check_output(args, text=True, stderr=subprocess.STDOUT).strip()
+files = sorted(p for folder in ['src', 'samples', 'assets', 'tokens'] for p in Path(folder).rglob('*') if p.is_file())
+metadata = {
+    'sourceRevision': command('git', 'rev-parse', 'HEAD'),
+    'uncommittedChanges': bool(command('git', 'status', '--porcelain')),
+    'compiler': command('c++', '--version'),
+    'qt': command('qmake', '-query', 'QT_VERSION'),
+    'cmake': command('cmake', '--version'),
+    'installedPackages': command('dpkg-query', '-W'),
+    'sourceInputs': {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in files},
+}
+Path('artifacts/linux/environment.json').write_text(json.dumps(metadata, indent=2)+'\n')
+PY
 cmake --preset linux
 cmake --build --preset linux
 QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software ctest --preset linux
