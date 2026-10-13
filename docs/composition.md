@@ -30,11 +30,28 @@ the existing expected baseline has not changed.
 
 Measured open differences include intrinsic feed-content centering, progress-stack
 capsule extent, wrapped-title line spacing and present-empty subtitle/footer line
-heights. The current progress renderer clips at the allocated control width;
+heights. The first progress renderer clipped at the allocated control width;
 the source capsule instead follows the sum of segment widths and gaps and can
 paint beyond that allocation. The source's present-empty 12-point secondary line
 occupies 14 logical units. These are implementation corrections, with no approved
 exceptions or tolerance changes.
+
+The [repaired candidate](../evidence/development/composition-repair/candidate.json)
+preserves a fresh 256-case matrix: geometry matches increase from 184 to 240,
+while exact image-and-geometry matches remain 60. Every section-header,
+dashboard-section and feed case now matches the proposed source dimensions.
+The button anchor's fractional width and the empty-footer line height still
+differ; typography, semantic colors and capsule-edge rasterization also remain
+open. All 724 PNGs in the original desktop matrix reproduce the prior repaired
+candidate byte for byte. No component or reference baseline is accepted here.
+
+The fresh Linux build and 498 Qt checks pass at DPR 1 and 2. A package-only
+container passes the three consumer fixtures and all 24 virtual X11/Wayland
+window/full-output checks, split across software/OpenGL and standard/scaled
+configurations. The progress regression additionally verifies that a clipping
+parent hides overflow while the unclipped control paints beyond its allocation.
+Capture input hashes retain the pre-addition test file; the final regression
+test and its separate successful run are preserved with the repaired evidence.
 
 The runtime harness was enlarged after the verified build to fit the complete
 1680 × 1120 scaled composition client. Original build input hashes are retained;
@@ -49,7 +66,7 @@ provenance. New captures use X11 1920 × 1400 and nested Wayland 1760 × 1280.
 | `BleeckerAppShell` | Required `sidebar`, `header` and `content` component slots. Sidebar content width defaults to 240 plus 16 padding on all sides; its intrinsic block is vertically centered, and a vertical separator precedes the main area. Header minimum height 64 with 24 horizontal padding; main content has 24 padding and a header separator. |
 | `BleeckerFooter` | Default content slot, separator, 20 vertical padding, inherited Libre Franklin 12 and secondary text color. Template labels inherit the control font/palette; raw QtQuick text binds them explicitly. |
 | `BleeckerFeedItem` | Required author/timestamp and a default content slot. Small avatar 32, gap 12, body spacing 6 and vertical padding 8. Author is Encode Sans 13 semibold; timestamp Libre Franklin 11. |
-| `BleeckerProgressStack` | Ordered segments with `id`, `value` and `color`, height default 8. Segment widths are `max(0, offeredWidth × value)`, with 2 between segments. Values are not normalized; overflow is clipped by the capsule. |
+| `BleeckerProgressStack` | Ordered segments with `id`, `value` and `color`, height default 8. Segment widths are `max(0, offeredWidth × value)`, with 2 between segments. Values are not normalized. The capsule covers the sum of those widths and gaps; its painted extent can exceed the allocated control width. |
 
 The interfaces use native QML factories and content slots; generic Swift types
 are not Linux requirements. The current dashboard-grid layout instantiates its
@@ -63,14 +80,17 @@ tile delegates; it preserves the focused tile and its input state.
 
 Source `.secondary` in the feed timestamp is a platform semantic color. The
 candidate currently uses the shared secondary token; native capture must resolve
-the actual rendered color before acceptance. The section header's present-empty
-subtitle also needs measured native line-height evidence. No substitution or
-exception is approved by this implementation.
+the actual rendered color before acceptance. No substitution or exception is
+approved by this implementation. Measured native line boxes are 22 for each
+section-title line, 16 for each feed-author line and 14 for the section's
+present-empty subtitle. The text renderer exposes an optional logical `lineHeight`
+for these measured cases; its default retains existing metrics.
 
 The stacked-progress capsule is painted and clipped explicitly on both software
 and OpenGL backends. Its renderer retains gaps after zero-width segments, negative
-values clamp to zero, and overflowing values remain visible only inside the
-capsule. Rasterization still requires comparison against Sabella.
+values clamp to zero, and overflowing values paint within the segment-sized capsule
+beyond the offered control width. Empty segments paint no track. Rasterization
+still requires comparison against Sabella.
 
 `AvelinoCatalog --fixture composition` shows the seven candidates together.
 `InstalledConsumer --composition` exercises the same composition through an
@@ -83,7 +103,7 @@ physical-display and screen-reader checks remain separate.
 The component suite also covers optional/present-empty subtitles, title wrapping,
 action slots, ordered variable-height rows, collection mutation/empty state,
 feed slot resizing, inherited footer typography/palette, shell allocation changes,
-and rendered progress gaps/negative/overflow/reset states at DPR 1 and 2.
+and rendered progress gaps/negative/overflow/parent-clipping/reset states at DPR 1 and 2.
 
 References are `Layout.swift`, `Navigation.swift` and `Extended.swift` at the
 pinned desktop revision `fe8a1d462fbd793d883fb92086a16aa2947e32c9`.

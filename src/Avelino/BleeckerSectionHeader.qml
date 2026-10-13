@@ -17,6 +17,7 @@ Item {
             id: titleLabel
             objectName: "bleeckerSectionTitle"
             text: control.title; width: labels.width; wrapWidth: width
+            lineHeight: 22
             font.pointSize: BleeckerFonts.pointSizeForPixels(17); font.weight: Font.DemiBold
             Accessible.ignored: false; Accessible.role: Accessible.StaticText; Accessible.name: text
         }
@@ -24,6 +25,7 @@ Item {
             id: subtitleLabel
             objectName: "bleeckerSectionSubtitle"
             text: control.subtitle; visible: control.hasSubtitle
+            height: text === "" ? 14 : Math.ceil(naturalHeight)
             width: labels.width; wrapWidth: width
             font.family: BleeckerTheme.secondaryFont; font.pointSize: BleeckerFonts.pointSizeForPixels(12)
             color: BleeckerTheme.palette.textSecondary

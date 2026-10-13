@@ -8,9 +8,11 @@ Item {
     implicitWidth: 44 + Math.max(authorLabel.unwrappedWidth + timestampLabel.unwrappedWidth + 8, host.implicitWidth)
     implicitHeight: Math.max(32, headerHeight + 6 + host.implicitHeight) + 16
     readonly property real headerHeight: Math.max(authorLabel.height, timestampLabel.height)
-    BleeckerAvatar { name: control.author; size: "sm"; y: 8 }
+    readonly property real bodyWidth: Math.max(44 + host.implicitWidth, Math.min(width, implicitWidth))
+    readonly property real bodyX: (width - bodyWidth) / 2
+    BleeckerAvatar { name: control.author; size: "sm"; x: control.bodyX; y: 8 }
     Item {
-        x: 44; y: 8; width: Math.max(0, control.width - 44)
+        x: control.bodyX + 44; y: 8; width: Math.max(0, control.bodyWidth - 44)
         OwnedText {
             id: authorLabel
             objectName: "bleeckerFeedAuthor"
@@ -18,6 +20,7 @@ Item {
             width: Math.min(unwrappedWidth, Math.max(0, parent.width - timestampLabel.width - 8)); wrapWidth: width
             y: (control.headerHeight - height) / 2
             font.pointSize: BleeckerFonts.pointSizeForPixels(13); font.weight: Font.DemiBold
+            lineHeight: 16
             Accessible.ignored: false; Accessible.role: Accessible.StaticText; Accessible.name: text
         }
         OwnedText {

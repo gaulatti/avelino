@@ -7,6 +7,7 @@ Item {
     id: root
     width: 1100; height: 850
     property int invocations: 0
+    Rectangle { anchors.fill: parent; color: "white" }
     PixelAlignment { id: displayAlignment; target: root }
     Component { id: action; BleeckerButton { text: "Review"; size: "xs"; onClicked: root.invocations++ } }
     Component { id: sectionFactory; BleeckerDashboardSection { title: "Newsroom"; actions: action; Rectangle { objectName: "sectionSlot"; width: 180; height: 40; color: "red" } } }
@@ -24,6 +25,7 @@ Item {
         }
     }
     Component { id: progressFactory; BleeckerProgressStack { width: 100; height: 12 } }
+    Component { id: clippingHostFactory; Item { width: 100; height: 12; clip: true } }
     TestCase {
         name: "CompositionContracts"
         when: windowShown
@@ -39,7 +41,7 @@ Item {
             mouseClick(actionSlot.item); compare(root.invocations,1)
             item.subtitle = "Ready for review"; tryCompare(subtitle,"visible",true)
             tryCompare(subtitle,"y",title.height+3)
-            item.subtitle = ""; item.hasSubtitle = true; verify(subtitle.height > 0)
+            item.subtitle = ""; item.hasSubtitle = true; compare(subtitle.height,14)
             item.title = "A long newsroom heading that wraps at the offered width"
             item.width = 200; verify(title.height > 22)
             findChild(item,"sectionSlot").height = 70; tryCompare(item,"height",header.height+16+70)
@@ -61,8 +63,10 @@ Item {
             const item=createTemporaryObject(feedFactory,root,{width:400})
             const author=findChild(item,"bleeckerFeedAuthor"), timestamp=findChild(item,"bleeckerFeedTimestamp"), slot=findChild(item,"bleeckerFeedContent")
             compare(timestamp.x,author.width+8); verify(timestamp.x+timestamp.width<300)
+            compare(item.bodyWidth,224); compare(item.bodyX,88); compare(item.height,78)
             compare(slot.y,item.headerHeight+6); compare(item.height,item.headerHeight+6+40+16)
             item.author="A substantially longer author name wraps in a narrow feed"; item.width=220
+            compare(item.bodyWidth,224); compare(item.bodyX,-2); compare(author.height,48); compare(item.height,110)
             verify(author.height>20); compare(item.height,item.headerHeight+6+40+16)
             findChild(item,"feedSlot").height=80; tryCompare(item,"height",item.headerHeight+6+80+16)
         }
@@ -100,14 +104,27 @@ Item {
             // QuickTest's software item grab crops to logical dimensions even
             // when its pixels retain the window DPR. Capture the larger root.
             const image=grabImage(root), dpr=displayAlignment.devicePixelRatio, mid=Math.floor(item.height*dpr/2)
+            compare(findChild(item,"bleeckerProgressStackTrack").width,52)
             compare(image.red(Math.floor(10*dpr),mid),255); compare(image.blue(Math.floor(35*dpr),mid),255)
             const muted=item.trackColor
             compare(image.red(Math.floor(26*dpr),mid),Math.round(muted.r*255))
+            compare(image.red(Math.floor(75*dpr),mid),255); compare(image.blue(Math.floor(75*dpr),mid),255)
             item.segments=[{id:"negative",value:-1,color:"red"},{id:"overflow",value:2,color:"blue"}]
             verify(waitForRendering(item)); wait(40)
             compare(grabImage(root).blue(Math.floor(50*dpr),mid),255)
+            compare(findChild(item,"bleeckerProgressStackTrack").width,202)
+            compare(grabImage(root).red(Math.floor(150*dpr),mid),0)
+            compare(grabImage(root).blue(Math.floor(150*dpr),mid),255)
+            const clippingHost=createTemporaryObject(clippingHostFactory,root)
+            item.parent=clippingHost
+            verify(waitForRendering(item)); wait(40)
+            compare(grabImage(root).red(Math.floor(50*dpr),mid),0)
+            compare(grabImage(root).red(Math.floor(150*dpr),mid),255)
+            compare(grabImage(root).blue(Math.floor(150*dpr),mid),255)
             item.segments=[]; verify(waitForRendering(item)); wait(40)
-            compare(grabImage(root).red(Math.floor(50*dpr),mid),Math.round(muted.r*255))
+            compare(findChild(item,"bleeckerProgressStackTrack").width,0)
+            compare(grabImage(root).red(Math.floor(50*dpr),mid),255)
+            compare(grabImage(root).blue(Math.floor(50*dpr),mid),255)
         }
     }
 }

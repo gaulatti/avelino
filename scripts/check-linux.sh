@@ -71,10 +71,15 @@ for appearance in light dark; do
   done
 done
 # Capture implemented APIs covered by the isolated native proposal definitions.
-# New composition APIs have gallery/runtime evidence; native cases are pending.
 QML_IMPORT_PATH="$PWD/build/linux/qml" python3 scripts/capture-proposals.py \
   --catalog build/linux/samples/AvelinoCatalog/AvelinoCatalog \
   --reference evidence/reference-proposals/desktop-20261012 \
   --output "$stage/proposals"
 if [[ -e artifacts/linux/proposals ]]; then mv artifacts/linux/proposals "$stage/previous-proposals"; fi
 mv "$stage/proposals" artifacts/linux/proposals
+QML_IMPORT_PATH="$PWD/build/linux/qml" python3 scripts/capture-proposals.py \
+  --catalog build/linux/samples/AvelinoCatalog/AvelinoCatalog \
+  --reference evidence/reference-proposals/composition-20261012-v1 \
+  --output "$stage/composition-proposals"
+if [[ -e artifacts/linux/composition-proposals ]]; then mv artifacts/linux/composition-proposals "$stage/previous-composition-proposals"; fi
+mv "$stage/composition-proposals" artifacts/linux/composition-proposals

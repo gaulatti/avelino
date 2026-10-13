@@ -40,6 +40,13 @@ void ButtonLabel::setWrapWidth(qreal width) {
     m_wrapWidth = width; relayout(); emit wrapWidthChanged();
 }
 
+void ButtonLabel::setLineHeight(qreal height) {
+    if (!std::isfinite(height) || height < 0)
+        qFatal("Label line height must be finite and nonnegative");
+    if (m_lineHeight == height) return;
+    m_lineHeight = height; relayout(); emit lineHeightChanged();
+}
+
 void ButtonLabel::relayout() {
     m_pixels = m_font.pixelSize() > 0 ? m_font.pixelSize()
         : m_font.pointSizeF() * BleeckerFonts::logicalFontDpi() / 72;
@@ -99,7 +106,7 @@ void ButtonLabel::relayout() {
         line.setPosition(QPointF(0, height));
         if (height == 0) baseline = line.ascent();
         width = std::max(width, line.naturalTextWidth());
-        height += line.height();
+        height += m_lineHeight > 0 ? m_lineHeight / ratio : line.height();
     }
     layout.endLayout();
     m_runs.clear();

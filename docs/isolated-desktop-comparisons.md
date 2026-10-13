@@ -9,6 +9,11 @@ matrix and the new [composition proposal](../evidence/reference-proposals/compos
 The latter adds 256 cases, including an unchanged button anchor. Its
 [first strict comparison](../evidence/development/composition-native-before/candidate.json)
 has 184 geometry and 60 exact matches; complete component acceptance remains pending.
+The [composition sizing repair](../evidence/development/composition-repair/candidate.json)
+raises geometry matches to 240 of 256 while exact matches remain 60. Header,
+section and feed dimensions now match every captured proposal case. The button
+anchor and empty footer retain geometry differences; all remaining pixel
+differences stay visible, with no tolerance or reference approval.
 
 `AvelinoCatalog --fixture reference-case` consumes the neutral case definitions in
 [the desktop proposal](../evidence/reference-proposals/desktop-20261012/fixtures.json).
@@ -98,6 +103,8 @@ Linux CI now captures all 724 cases on x64 and ARM. Separate proposal-diagnostic
 jobs compare their images and geometry with the source proposal, preserve their
 reports, and fail on raw differences. The original 112-button comparison remains a
 separate gate. Neither diagnostic job can adopt or approve a reference baseline.
+The composition matrix also runs independently for each architecture, producing
+four proposal-diagnostic jobs across the two reference groups.
 
 The [repaired candidate](../evidence/development/panel-sizing/candidate.json) preserves
 a fresh full matrix, its comparison images, 480 passing Qt checks and sixteen

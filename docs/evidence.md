@@ -264,3 +264,15 @@ physical input/display and screen-reader acceptance remain pending. The existing
 25-API matrix still has 514 geometry matches and 40 exact matches of 724 cases.
 Fresh raw diagnostics are local; prior full comparison evidence remains committed.
 No reference, tolerance or approved exception changed. See [the contract](composition.md).
+
+The [composition sizing repair](../evidence/development/composition-repair/candidate.json)
+preserves 256 fresh isolated captures and their strict comparison: 240 geometry
+matches and 60 exact image-and-geometry matches, compared with 184 and 60 before
+the repair. Section headers, dashboard sections and feeds now match all proposed
+dimensions; progress capsules follow their segment extent and clear when empty.
+The button anchor, empty footer and remaining pixel differences stay open.
+The fresh original 724-case PNG matrix matches the prior panel-sizing evidence
+byte for byte. Linux build, 498 Qt checks and all 24 package-only virtual-session
+window/full-output checks pass. Input remains synthetic; source approval, complete
+cases, physical display/input, accessibility and TV hardware acceptance remain
+pending. Both reference groups now have separate x64 and ARM CI comparisons.
