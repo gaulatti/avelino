@@ -10035,47 +10035,829 @@
       },
       {
         "id": "BleeckerSelect",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Controls.swift",
           "line": 127
         },
-        "implementation": [],
-        "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
-        "captures": [],
+        "implementation": [
+          "src/Avelino/BleeckerSelect.qml",
+          "src/Avelino/SelectionGlyph.qml"
+        ],
+        "caseDiscovery": "candidate matrix defined; full native behavior and presentation reconciliation pending",
+        "cases": [
+          {
+            "id": "BleeckerSelect-light-closed-selected",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-light-unknown-placeholder",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-light-closed-disabled",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-light-empty-options",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-light-open-selected-checkmark",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-light-disabled-pointer",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-light-disabled-keyboard",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-light-keyboard-navigation-commit",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-light-escape-preserves-selection-focus",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-light-outside-dismissal",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-light-scroll-height-bound",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-light-external-selection-update",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-light-open-option-mutation",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-light-narrow-label-elision",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-light-text-scaling",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-light-leading-content-slot",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-light-symbol-geometry",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-light-native-popover-presentation",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-light-window-edge-placement",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-light-reordered-option-focus",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-light-rtl",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-light-accessibility-output",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-light-opening-closing-motion",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-dark-closed-selected",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-dark-unknown-placeholder",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-dark-closed-disabled",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-dark-empty-options",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-dark-open-selected-checkmark",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-dark-disabled-pointer",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-dark-disabled-keyboard",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-dark-keyboard-navigation-commit",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-dark-escape-preserves-selection-focus",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-dark-outside-dismissal",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-dark-scroll-height-bound",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-dark-external-selection-update",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-dark-open-option-mutation",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-dark-narrow-label-elision",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-dark-text-scaling",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-dark-leading-content-slot",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-dark-symbol-geometry",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-dark-native-popover-presentation",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-dark-window-edge-placement",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-dark-reordered-option-focus",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-dark-rtl",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-dark-accessibility-output",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          },
+          {
+            "id": "BleeckerSelect-dark-opening-closing-motion",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Linux candidate checks do not establish full native visual, behavior, symbol, session or accessibility acceptance."
+          }
+        ],
+        "tests": [
+          "tests/components/tst_select.qml",
+          "tests/consumer/Selection.qml",
+          "tests/consumer/main.cpp"
+        ],
+        "captures": [
+          "evidence/development/selection/catalog/selection-dark-dpr1.png",
+          "evidence/development/selection/catalog/selection-dark-dpr2.png",
+          "evidence/development/selection/catalog/selection-light-dpr1.png",
+          "evidence/development/selection/catalog/selection-light-dpr2.png",
+          "evidence/development/selection/sessions/selection-wayland-opengl-scaled-session.png",
+          "evidence/development/selection/sessions/selection-wayland-opengl-scaled.png",
+          "evidence/development/selection/sessions/selection-wayland-opengl-standard-session.png",
+          "evidence/development/selection/sessions/selection-wayland-opengl-standard.png",
+          "evidence/development/selection/sessions/selection-wayland-software-scaled-session.png",
+          "evidence/development/selection/sessions/selection-wayland-software-scaled.png",
+          "evidence/development/selection/sessions/selection-wayland-software-standard-session.png",
+          "evidence/development/selection/sessions/selection-wayland-software-standard.png",
+          "evidence/development/selection/sessions/selection-xcb-opengl-scaled-session.png",
+          "evidence/development/selection/sessions/selection-xcb-opengl-scaled.png",
+          "evidence/development/selection/sessions/selection-xcb-opengl-standard-session.png",
+          "evidence/development/selection/sessions/selection-xcb-opengl-standard.png",
+          "evidence/development/selection/sessions/selection-xcb-software-scaled-session.png",
+          "evidence/development/selection/sessions/selection-xcb-software-scaled.png",
+          "evidence/development/selection/sessions/selection-xcb-software-standard-session.png",
+          "evidence/development/selection/sessions/selection-xcb-software-standard.png"
+        ],
         "comparisonResults": [],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Implementation checks are separate from acceptance; native captures/comparisons, physical input, complete cases and accessibility remain pending."
           },
           "x11": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Implementation checks are separate from acceptance; native captures/comparisons, physical input, complete cases and accessibility remain pending."
           },
           "wayland": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Implementation checks are separate from acceptance; native captures/comparisons, physical input, complete cases and accessibility remain pending."
           },
           "keyboardPointer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Implementation checks are separate from acceptance; native captures/comparisons, physical input, complete cases and accessibility remain pending."
           },
           "focusAccessibility": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Implementation checks are separate from acceptance; native captures/comparisons, physical input, complete cases and accessibility remain pending."
           },
           "displayTextScaling": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Implementation checks are separate from acceptance; native captures/comparisons, physical input, complete cases and accessibility remain pending."
           },
           "installedConsumer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/selectors.md",
+              "tests/components/tst_select.qml",
+              "tests/consumer/Selection.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/selection-symbols.json",
+              "evidence/development/selection/candidate.json"
+            ],
+            "notes": "Implementation checks are separate from acceptance; native captures/comparisons, physical input, complete cases and accessibility remain pending."
           }
         }
       },

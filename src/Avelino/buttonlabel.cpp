@@ -3,6 +3,7 @@
 #include <QPainter>
 #include <QRawFont>
 #include <QTextLayout>
+#include <QFontMetricsF>
 #include <QtEndian>
 #include <algorithm>
 #include <cmath>
@@ -47,6 +48,13 @@ void ButtonLabel::setLineHeight(qreal height) {
     m_lineHeight = height; relayout(); emit lineHeightChanged();
 }
 
+void ButtonLabel::setElideWidth(qreal width) {
+    if (!std::isfinite(width) || (width < 0 && width != -1))
+        qFatal("Label elide width must be nonnegative or -1 when disabled");
+    if (m_elideWidth == width) return;
+    m_elideWidth = width; relayout(); emit elideWidthChanged();
+}
+
 void ButtonLabel::relayout() {
     m_pixels = m_font.pixelSize() > 0 ? m_font.pixelSize()
         : m_font.pointSizeF() * BleeckerFonts::logicalFontDpi() / 72;
@@ -68,7 +76,6 @@ void ButtonLabel::relayout() {
     shapeFont.setWordSpacing(shapeFont.wordSpacing() / ratio);
     QString layoutText = m_text;
     layoutText.replace(QChar('\n'), QChar::LineSeparator);
-    QTextLayout layout(layoutText, shapeFont);
     QTextOption option;
     option.setWrapMode(QTextOption::NoWrap);
     option.setUseDesignMetrics(true);
@@ -96,6 +103,9 @@ void ButtonLabel::relayout() {
     if (m_wrapWidth >= 0 && m_wrapWidth < m_unwrappedWidth
         && !qFuzzyCompare(m_wrapWidth, m_unwrappedWidth))
         option.setWrapMode(QTextOption::WrapAtWordBoundaryOrAnywhere);
+    if (m_elideWidth >= 0)
+        layoutText = QFontMetricsF(shapeFont).elidedText(layoutText, Qt::ElideRight, m_elideWidth / ratio);
+    QTextLayout layout(layoutText, shapeFont);
     layout.setTextOption(option);
     qreal width = 0, height = 0, baseline = 0;
     layout.beginLayout();

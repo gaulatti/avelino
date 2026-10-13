@@ -19,6 +19,90 @@ static QQuickItem *findVisualItem(QQuickItem *item, const QString &name) {
         if (auto found = findVisualItem(child,name)) return found;
     return nullptr;
 }
+static void runSelectionConsumer(QQuickWindow *window, QGuiApplication &app,
+                                 const QCommandLineParser &parser, double textScale) {
+    const auto select=findVisualItem(window->contentItem(),"select");
+    const auto longSelect=findVisualItem(window->contentItem(),"longSelect");
+    const auto field=findVisualItem(window->contentItem(),"nextField");
+    if (!select || !longSelect || !field) { app.exit(60); return; }
+    auto popup=select->property("popup").value<QObject*>();
+    auto longPopup=longSelect->property("popup").value<QObject*>();
+    if (!popup || !longPopup) { app.exit(61); return; }
+    auto click=[window](QQuickItem *item) {
+        QTest::mouseClick(window,Qt::LeftButton,Qt::NoModifier,
+            item->mapToScene(QPointF(item->width()/2,item->height()/2)).toPoint());
+        QTest::qWait(60);
+    };
+    click(select);
+    auto list=popup->property("contentItem").value<QQuickItem*>();
+    if (!popup->property("visible").toBool() || !list) { app.exit(62); return; }
+    const auto disabled=findVisualItem(list,"bleeckerSelectOption1");
+    const auto last=findVisualItem(list,"bleeckerSelectOption2");
+    if (!disabled || !last || disabled->isEnabled()) { app.exit(63); return; }
+    click(disabled);
+    if (window->property("chosen").toString()!="morning" || window->property("activations").toInt()!=0
+        || !popup->property("visible").toBool()) { app.exit(64); return; }
+    click(last);
+    if (window->property("chosen").toString()!="evening" || popup->property("visible").toBool()
+        || !select->hasActiveFocus()) { app.exit(65); return; }
+    select->forceActiveFocus(); QTest::keyClick(window,Qt::Key_Space); QTest::qWait(50);
+    QTest::keyClick(window,Qt::Key_Home); QTest::keyClick(window,Qt::Key_Down);
+    if (list->property("currentIndex").toInt()!=2) { app.exit(66); return; }
+    QTest::keyClick(window,Qt::Key_Home); QTest::keyClick(window,Qt::Key_Escape);
+    if (window->property("chosen").toString()!="evening" || popup->property("visible").toBool()
+        || !select->hasActiveFocus()) { app.exit(67); return; }
+    QTest::keyClick(window,Qt::Key_Space); QTest::qWait(50);
+    QTest::keyClick(window,Qt::Key_Home); QTest::keyClick(window,Qt::Key_Return);
+    if (window->property("chosen").toString()!="morning" || popup->property("visible").toBool()) { app.exit(68); return; }
+    window->setProperty("chosen","evening");
+    if (select->property("displayText").toString()!="Evening edition") { app.exit(69); return; }
+    click(select);
+    QTest::mouseClick(window,Qt::LeftButton,Qt::NoModifier,QPoint(740,540));
+    QTest::qWait(40);
+    if (popup->property("visible").toBool() || window->property("activations").toInt()!=2) { app.exit(70); return; }
+    click(field); QTest::keyClick(window,Qt::Key_X);
+    if (!field->hasActiveFocus() || field->property("text").toString()!="x") { app.exit(71); return; }
+    click(longSelect); QTest::keyClick(window,Qt::Key_End);
+    auto longList=longPopup->property("contentItem").value<QQuickItem*>();
+    if (!longList || longList->property("currentIndex").toInt()!=38 || longList->property("contentY").toDouble()<=0) { app.exit(72); return; }
+    QTest::keyClick(window,Qt::Key_Return);
+    if (window->property("longChosen").toInt()!=38 || longPopup->property("visible").toBool()
+        || !longSelect->hasActiveFocus()) { app.exit(73); return; }
+    click(longSelect);
+    auto scrollbar=findVisualItem(longList,"bleeckerSelectScrollBar");
+    if (!scrollbar || scrollbar->property("size").toDouble()>=1 || longPopup->property("height").toDouble()!=288) { app.exit(74); return; }
+    if (!QMetaObject::invokeMethod(longList,"positionViewAtEnd")) { app.exit(78); return; }
+    scrollbar->setProperty("active",true); QTest::qWait(80);
+    const auto disabledLast=findVisualItem(longList,"bleeckerSelectOption39");
+    if (!disabledLast || disabledLast->isEnabled()) { app.exit(79); return; }
+    const auto disabledY=disabledLast->mapToItem(longList,QPointF(0,0)).y();
+    if (disabledY<0 || disabledY+disabledLast->height()>longList->height()+0.00001) { app.exit(80); return; }
+    qInfo("Installed selector: pointer/keyboard activation, disabled options, external selection, Escape/outside dismissal, focus restoration and scroll extent passed");
+    if (!parser.isSet("evidence")) { app.exit(0); return; }
+    const auto path=parser.value("evidence");
+    if (!window->grabWindow().save(path+".png")) { app.exit(75); return; }
+    const auto origin=longList->mapToScene(QPointF(0,0));
+    QJsonObject record{{"fixture","selection"},{"qt",qVersion()},{"platform",QGuiApplication::platformName()},
+        {"compiler",QString::fromUtf8(__VERSION__)},{"width",window->width()},{"height",window->height()},
+        {"dpr",window->devicePixelRatio()},{"graphicsApi",int(window->rendererInterface()->graphicsApi())},
+        {"requestedGraphicsBackend",qEnvironmentVariable("QSG_RHI_BACKEND")},{"quickBackend",qEnvironmentVariable("QT_QUICK_BACKEND")},
+        {"appearance",parser.isSet("dark") ? "dark" : "light"},{"textScale",textScale},
+        {"inputMethod","QTest synthetic in-process pointer and keyboard events"},
+        {"windowCaptureMethod","QQuickWindow::grabWindow; open Popup.Item included; full session captured separately"},
+        {"selectionChecks","passed"},{"focusRestorationChecks","passed"},{"popupVisible",longPopup->property("visible").toBool()},
+        {"popupType",longPopup->property("popupType").toInt()},{"popupHeight",longPopup->property("height").toDouble()},
+        {"popupContentX",origin.x()},{"popupContentY",origin.y()},{"popupContentWidth",longList->width()},{"popupContentHeight",longList->height()},
+        {"scrollbarSize",scrollbar->property("size").toDouble()},{"selectedValue",window->property("longChosen").toInt()},
+        {"disabledRowVisible",true},
+        {"symbolAcceptance","pending; original chevron/checkmark candidates have no approved source equivalence"},
+        {"accessibilityAcceptance","pending; attached/native Qt semantics do not prove screen-reader output"}};
+    QFile file(path+".json");
+    if (!file.open(QIODevice::WriteOnly)) { app.exit(76); return; }
+    file.write(QJsonDocument(record).toJson()); file.close();
+    auto timer=new QTimer(&app);
+    QObject::connect(timer,&QTimer::timeout,&app,[&app,path] { if (QFile::exists(path+".captured")) app.exit(0); });
+    timer->start(100); QTimer::singleShot(10000,&app,[&app] { app.exit(77); });
+}
 static void runCompositionConsumer(QQuickWindow *window, QGuiApplication &app,
                                    const QCommandLineParser &parser, double textScale) {
     auto item = [window](const QString &name) { return findVisualItem(window->contentItem(),name); };
@@ -143,9 +227,10 @@ int main(int argc, char **argv) {
     parser.addOption(QCommandLineOption("dark", "Exercise dark appearance."));
     parser.addOption(QCommandLineOption("controls", "Exercise the form-control fixture."));
     parser.addOption(QCommandLineOption("composition", "Exercise the composition fixture."));
+    parser.addOption(QCommandLineOption("selection", "Exercise the selector and open popup fixture."));
     parser.addOption(QCommandLineOption("text-scale", "Exercise text scaling.", "factor", "1"));
     parser.process(app);
-    if (parser.isSet("controls") && parser.isSet("composition")) return 58;
+    if (int(parser.isSet("controls"))+int(parser.isSet("composition"))+int(parser.isSet("selection"))>1) return 58;
     bool validScale = false;
     const double textScale = parser.value("text-scale").toDouble(&validScale);
     if (!validScale || !std::isfinite(textScale) || textScale <= 0) return 12;
@@ -154,10 +239,11 @@ int main(int argc, char **argv) {
     engine.rootContext()->setContextProperty("consumerTextScale", textScale);
     engine.addImportPath(QStringLiteral(AVELINO_INSTALLED_IMPORT_PATH));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreationFailed, &app, [] { QCoreApplication::exit(1); }, Qt::QueuedConnection);
-    engine.loadFromModule("InstalledConsumer", parser.isSet("composition") ? "Composition" : parser.isSet("controls") ? "Controls" : "Main");
+    engine.loadFromModule("InstalledConsumer", parser.isSet("selection") ? "Selection" : parser.isSet("composition") ? "Composition" : parser.isSet("controls") ? "Controls" : "Main");
     QTimer::singleShot(500, &app, [&engine, &app, &parser, textScale] {
         auto window = qobject_cast<QQuickWindow *>(engine.rootObjects().value(0));
         if (!window) { app.exit(2); return; }
+        if (parser.isSet("selection")) { runSelectionConsumer(window,app,parser,textScale); return; }
         if (parser.isSet("composition")) { runCompositionConsumer(window,app,parser,textScale); return; }
         if (parser.isSet("controls")) { runControlsConsumer(window,app,parser,textScale); return; }
         auto button = window->findChild<QQuickItem *>("button");

@@ -26,16 +26,21 @@ Weston Wayland compositor nested on it. It saves whole-output and window capture
 for software/OpenGL rendering at two display/text scales. Source and build trees
 remain absent. Metadata explicitly identifies virtual displays, Mesa software
 rendering, synthetic input, and the still-pending overlay/accessibility checks.
-The harness runs three independent windows in each configuration: the base library
-fixture, `InstalledConsumer --controls` and `InstalledConsumer --composition`.
-Their twenty-four capture pairs keep
+The harness runs four independent windows in each configuration: the base library
+fixture, `InstalledConsumer --controls`, `InstalledConsumer --composition` and
+`InstalledConsumer --selection`. Their thirty-two capture pairs keep
 form editing, scrolling, switch/toggle actions, disabled segmented options and
 focus restoration separate from the base composition checks. The controls fixture
-exercises the multiline editor's owned scrollbar. Context menus and other overlays
+exercises the multiline editor's owned scrollbar. The selector fixture exercises
+its open owned item popup, checkmark and scrollbar. Popup type, visible bounds,
+disabled rows, scrolling, dismissal and restored focus are checked independently.
+Context menus and separate-window overlays
 remain unimplemented and cannot pass their gate through these captures.
 The composition fixture checks ordered adaptive-grid reflow and focus through
 window resizing, plus section/action, shell, footer, feed and progress slots.
 These runtime checks do not close their native visual comparisons.
+The package includes the original selection-symbol candidates' provenance record;
+their source equivalence and distribution acceptance remain pending.
 The X11 output is 1920 × 1400 and the nested Wayland output 1760 × 1280.
 The harness checks that each complete scaled client fits with room for decorations;
 the composition fixture's 1680 × 1120 client must not be cropped by the compositor.

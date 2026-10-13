@@ -7,7 +7,7 @@ accepted mirror completion.
 
 The [checksummed development evidence](../evidence/development/composition/candidate.json)
 preserves four catalog images, 498 passing Qt checks and twenty-four installed
-window/full-output pairs. Desktop coverage is 32 of 80 APIs started (40%), with
+window/full-output pairs. At that checkpoint, desktop coverage was 32 of 80 APIs started (40%), with
 zero accepted components. The previous 25-API diagnostic comparison remains at
 514 geometry matches and 40 exact matches of 724 cases. Its fresh raw comparison
 outputs are local; the previous complete comparison artifacts remain committed.

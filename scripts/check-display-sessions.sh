@@ -50,13 +50,15 @@ INI
   fi
   for backend in software opengl; do
     for configuration in standard scaled; do
-    for fixture in base controls composition; do
+    for fixture in base controls composition selection; do
       prefix="$evidence/$protocol-$backend-$configuration"
       if [[ "$fixture" == controls ]]; then prefix="$evidence/controls-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == composition ]]; then prefix="$evidence/composition-$protocol-$backend-$configuration"; fi
+      if [[ "$fixture" == selection ]]; then prefix="$evidence/selection-$protocol-$backend-$configuration"; fi
       args=(--evidence "$prefix")
       if [[ "$fixture" == controls ]]; then args+=(--controls); fi
       if [[ "$fixture" == composition ]]; then args+=(--composition); fi
+      if [[ "$fixture" == selection ]]; then args+=(--selection); fi
       export QT_SCALE_FACTOR=1
       if [[ "$configuration" == scaled ]]; then
         export QT_SCALE_FACTOR=2
@@ -111,9 +113,18 @@ if fixture == 'base':
 elif fixture == 'controls':
     assert record['controlsChecks'] == 'passed' and record['focusRestorationChecks'] == 'passed', record
     assert 0 < record['scrollbarSize'] < 1 and record['textareaContentHeight'] > 100, record
-else:
+elif fixture == 'composition':
     assert record['compositionChecks'] == 'passed' and record['focusResizeChecks'] == 'passed', record
     assert record['gridColumns'] == 2 and record['tileWidth'] == 251.5, record
+else:
+    assert record['fixture'] == 'selection' and record['selectionChecks'] == 'passed', record
+    assert record['focusRestorationChecks'] == 'passed' and record['popupVisible'] is True, record
+    assert record['popupType'] == 0 and record['popupHeight'] == 288 and record['selectedValue'] == 38, record
+    assert record['disabledRowVisible'] is True, record
+    assert 0 < record['scrollbarSize'] < 1, record
+    assert record['popupContentX'] >= 0 and record['popupContentY'] >= 0, record
+    assert record['popupContentX'] + record['popupContentWidth'] <= record['width'], record
+    assert record['popupContentY'] + record['popupContentHeight'] <= record['height'], record
 assert record['dpr'] == (1 if configuration == 'standard' else 2), record
 assert record['textScale'] == (1 if configuration == 'standard' else 1.5), record
 assert record['appearance'] == ('light' if configuration == 'standard' else 'dark'), record

@@ -41,12 +41,17 @@ are virtual display-session checks with synthetic in-process input. They do not
 close physical input, hardware acceleration, accessibility, or overlay acceptance.
 The default Weston input-method keyboard appears when the text field receives
 focus; the whole-output capture preserves it as session evidence.
-No overlay component is implemented yet. [Weston's backend documentation](https://wayland.pages.freedesktop.org/weston/toc/running-weston.html)
+[Weston's backend documentation](https://wayland.pages.freedesktop.org/weston/toc/running-weston.html)
 describes how its X11 backend composites Wayland surfaces into the parent output.
-Each configuration now runs the base fixture and `--controls` independently;
-sixteen window/full-output pairs cover the two installed-package windows.
-The catalog galleries are `--fixture foundations`, `surfaces`, `data-display`
-and `controls`; their native comparisons remain pending.
+Each configuration runs the base fixture, `--controls`, `--composition` and
+`--selection` independently; thirty-two window/full-output pairs cover them.
+The catalog galleries are `--fixture foundations`, `surfaces`, `data-display`,
+`controls`, `composition` and `selection`; their native comparisons remain pending.
+
+The selector's open `Popup.Item` and scrollbars remain
+inside the captured client, with explicit bounds checks. Native selector/popover
+and symbol comparisons, separate-window overlays and screen-reader acceptance
+remain pending. See [the selector contract](selectors.md).
 
 In the package-only container, run `bash check-installed.sh` followed by
 `bash check-display-sessions.sh`. The latter refuses an existing output directory;

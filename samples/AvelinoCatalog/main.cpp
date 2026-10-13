@@ -42,7 +42,7 @@ int main(int argc, char *argv[]) {
     parser.addHelpOption();
     parser.addOptions({QCommandLineOption("capture", "Save the displayed fixture to PNG and exit", "path"),
                        QCommandLineOption("dark", "Use dark reference appearance"),
-                       QCommandLineOption("fixture", "Render a fixture (button, foundations, surfaces, data-display, controls, composition or reference-case)", "name"),
+                       QCommandLineOption("fixture", "Render a fixture (button, foundations, surfaces, data-display, controls, composition, selection or reference-case)", "name"),
                        QCommandLineOption("case", "Isolated reference fixture identifier", "id"),
                        QCommandLineOption("case-definitions", "JSON file containing the isolated fixture definitions", "path"),
                        QCommandLineOption("variant", "Button variant", "name", "primary"),
@@ -78,8 +78,8 @@ int main(int argc, char *argv[]) {
     engine.rootContext()->setContextProperty("captureTextScale", textScale);
     engine.rootContext()->setContextProperty("captureDefinition", definition.toVariantMap());
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreationFailed, &app, [] { QCoreApplication::exit(1); }, Qt::QueuedConnection);
-    if (parser.isSet("fixture") && fixture != "button" && fixture != "foundations" && fixture != "surfaces" && fixture != "data-display" && fixture != "controls" && fixture != "composition" && !isolated) return 4;
-    engine.loadFromModule("AvelinoCatalog", isolated ? "ReferenceCaseFixture" : fixture == "composition" ? "CompositionFixture" : fixture == "controls" ? "ControlsFixture" : fixture == "data-display" ? "DataDisplayFixture" : fixture == "surfaces" ? "SurfacesFixture" : fixture == "foundations" ? "FoundationsFixture"
+    if (parser.isSet("fixture") && fixture != "button" && fixture != "foundations" && fixture != "surfaces" && fixture != "data-display" && fixture != "controls" && fixture != "composition" && fixture != "selection" && !isolated) return 4;
+    engine.loadFromModule("AvelinoCatalog", isolated ? "ReferenceCaseFixture" : fixture == "selection" ? "SelectionFixture" : fixture == "composition" ? "CompositionFixture" : fixture == "controls" ? "ControlsFixture" : fixture == "data-display" ? "DataDisplayFixture" : fixture == "surfaces" ? "SurfacesFixture" : fixture == "foundations" ? "FoundationsFixture"
         : fixture == "button" ? "ButtonFixture" : "Main");
     if (parser.isSet("capture")) {
         const auto path = parser.value("capture");
@@ -88,6 +88,15 @@ int main(int argc, char *argv[]) {
             if (!window) { app.exit(2); return; }
             const auto component = isolated ? findVisual(window->contentItem(), "referenceCaseComponent") : nullptr;
             const bool expectedEmpty = definition.value("expectedEmpty").toBool();
+            QObject *selectorPopup=nullptr;
+            QQuickItem *selectorPopupContent=nullptr;
+            if (parser.value("fixture")=="selection") {
+                const auto selector=findVisual(window->contentItem(),"selectorCandidate");
+                if (selector) selectorPopup=selector->property("popup").value<QObject*>();
+                if (selectorPopup) selectorPopupContent=selectorPopup->property("contentItem").value<QQuickItem*>();
+                if (!selectorPopup || !selectorPopupContent || !selectorPopup->property("visible").toBool()
+                    || selectorPopup->property("popupType").toInt()!=0) { app.exit(7); return; }
+            }
             if (isolated && (!component || component->width() <= 0 || component->height() < 0
                 || (component->height() == 0 && !expectedEmpty)
                 || (expectedEmpty && (definition.value("api").toString() != "BleeckerDashboardGrid"
@@ -145,6 +154,15 @@ int main(int argc, char *argv[]) {
             meta.insert("size", parser.value("size"));
             meta.insert("state", parser.isSet("disabled") ? "disabled" : "enabled");
             meta.insert("appearance", parser.isSet("dark") ? "dark" : "light");
+            if (selectorPopup) {
+                const auto origin=selectorPopupContent->mapToScene(QPointF(0,0));
+                meta.insert("popupVisible",true); meta.insert("popupType",selectorPopup->property("popupType").toInt());
+                meta.insert("popupContentOrigin",QJsonObject{{"x",origin.x()},{"y",origin.y()}});
+                meta.insert("popupContentSize",QJsonObject{{"width",selectorPopupContent->width()},{"height",selectorPopupContent->height()}});
+                meta.insert("overlayCoverage","Open owned Popup.Item is inside the captured window; compositor/session evidence is separate");
+                meta.insert("symbolAcceptance","pending; original chevron/checkmark candidates");
+                QJsonArray labels; recordLabels(window->contentItem(),labels); meta.insert("labels",labels);
+            }
             if (isolated) {
                 for (auto it = definition.begin(); it != definition.end(); ++it) meta.insert(it.key(), it.value());
                 meta.insert("caseDefinitions", parser.value("case-definitions"));

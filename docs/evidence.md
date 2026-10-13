@@ -276,3 +276,15 @@ byte for byte. Linux build, 498 Qt checks and all 24 package-only virtual-sessio
 window/full-output checks pass. Input remains synthetic; source approval, complete
 cases, physical display/input, accessibility and TV hardware acceptance remain
 pending. Both reference groups now have separate x64 and ARM CI comparisons.
+
+The [selector candidate](../evidence/development/selection/candidate.json) adds
+`BleeckerSelect`, raising started desktop coverage to 33 of 80; none are accepted.
+Its source-inspired button/popover has caller-owned values, disabled options,
+ordered keyboard movement, explicit dismissal/focus behavior and a bounded
+scrolling viewport. The preserved evidence includes 512 passing Qt checks,
+four gallery images and 32 package-only window/full-output pairs, eight with the
+selected row, disabled row and scrollbar visible in the open selector.
+Basic/Fusion/default-style images are identical. All 724 original desktop and
+256 composition PNGs and comparison metadata remain unchanged. Native selector
+captures, OS popover presentation, original-symbol equivalence, complete cases,
+RTL, edge placement, physical input and screen-reader acceptance remain pending.

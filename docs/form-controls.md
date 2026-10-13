@@ -1,8 +1,9 @@
 # Form control candidates
 
-Five more desktop APIs have candidates. All remain verification-pending: native
-reference images, full behavior cases, accessibility output and strict visual
-comparisons are missing.
+Five more desktop APIs have candidates. All remain verification-pending. Native
+captures are preserved as proposed references; full behavior cases, accessibility
+output and strict visual acceptance remain open. The [selector](selectors.md)
+has a separate candidate with an owned open popup.
 
 | Reference API | Linux interface and owned presentation |
 | --- | --- |
