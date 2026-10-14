@@ -70,7 +70,7 @@ static void runSelectionConsumer(QQuickWindow *window, QGuiApplication &app,
         || !longSelect->hasActiveFocus()) { app.exit(73); return; }
     click(longSelect);
     auto scrollbar=findVisualItem(longList,"bleeckerSelectScrollBar");
-    if (!scrollbar || scrollbar->property("size").toDouble()>=1 || longPopup->property("height").toDouble()!=288) { app.exit(74); return; }
+    if (!scrollbar || scrollbar->property("size").toDouble()>=1 || longPopup->property("height").toDouble()!=314) { app.exit(74); return; }
     if (!QMetaObject::invokeMethod(longList,"positionViewAtEnd")) { app.exit(78); return; }
     scrollbar->setProperty("active",true); QTest::qWait(80);
     const auto disabledLast=findVisualItem(longList,"bleeckerSelectOption39");

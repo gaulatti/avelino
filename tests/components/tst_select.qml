@@ -46,6 +46,7 @@ Item {
             keyClick(Qt.Key_Home); compare(list.currentIndex,0)
             keyClick(Qt.Key_Escape); tryCompare(item,"presented",false); compare(root.chosen,"c"); verify(item.activeFocus)
             keyClick(Qt.Key_Space); tryCompare(item,"presented",true)
+            keyClick(Qt.Key_End); compare(list.currentIndex,2)
             keyClick(Qt.Key_Up); compare(list.currentIndex,0)
             keyClick(Qt.Key_Space); tryCompare(item,"presented",false); compare(root.chosen,"a")
         }
@@ -64,7 +65,7 @@ Item {
             const rows=[]; for (let i=0;i<40;i++) rows.push({value:i,label:"Edition "+i,disabled:i===39})
             root.chosen=0
             const item=createTemporaryObject(selectFactory,root,{options:rows})
-            mouseClick(item); tryCompare(item,"presented",true); compare(item.popup.height,288)
+            mouseClick(item); tryCompare(item,"presented",true); compare(item.popup.height,314)
             const list=item.popup.contentItem
             keyClick(Qt.Key_End); compare(list.currentIndex,38); verify(list.contentY>0)
             const scrollbar=findChild(list,"bleeckerSelectScrollBar"); verify(scrollbar.size<1)
@@ -83,6 +84,33 @@ Item {
             verify(label.unwrappedWidth>label.width); compare(label.elideWidth,label.width); verify(label.implicitWidth<=label.width)
             BleeckerTheme.dark=true
             compare(findChild(item,"bleeckerSelectSurface").color.toString(),BleeckerTheme.palette.card.toString())
+        }
+        function test_source_popup_geometry_and_initial_scroll() {
+            root.chosen="c"
+            const item=createTemporaryObject(selectFactory,root,{x:100,y:100,width:300})
+            mouseClick(item); tryCompare(item,"presented",true)
+            const list=item.popup.contentItem
+            compare(item.popup.width,246); compare(item.popup.height,146)
+            compare(item.popup.x,27); compare(item.popup.y,40)
+            compare(list.width,220); compare(list.height,120)
+            compare(list.currentIndex,0); verify(!list.keyboardNavigationActive)
+            const first=findChild(list.itemAtIndex(0),"bleeckerSelectOption0"), disabled=findChild(list.itemAtIndex(1),"bleeckerSelectOption1")
+            compare(first.x,4); compare(first.width,212); compare(disabled.opacity,0.5)
+            item.popup.close()
+            const rows=[];for(let i=0;i<40;i++) rows.push({value:i,label:"Edition "+i})
+            root.chosen=38;item.options=rows;mouseClick(item);tryCompare(item,"presented",true)
+            compare(list.currentIndex,0);verify(list.contentY<=0)
+        }
+        function test_line_limit_one_for_newlines_and_unicode_separators() {
+            const item=createTemporaryObject(selectFactory,root)
+            const label=findChild(item,"bleeckerSelectLabel")
+            item.options=[{value:"a",label:"First line"}]
+            const singleHeight=label.naturalHeight
+            for (const separator of ["\n","\r\n","\u2028","\u2029"]) {
+                item.options=[{value:"a",label:"First line"+separator+"Second line"}]
+                compare(label.naturalHeight,singleHeight)
+                verify(label.unwrappedWidth>0)
+            }
         }
     }
 }

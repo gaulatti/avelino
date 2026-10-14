@@ -96,11 +96,24 @@ void ButtonLabel::relayout() {
         m_unwrappedWidth = unwrappedWidth;
         emit unwrappedWidthChanged();
     }
+    // Intrinsic advance stays independent of the offered elision width.
+    // Otherwise a newline's ellipsis can change the control's implicit width
+    // while its allocated width is being used to configure this renderer.
+    if (m_elideWidth >= 0) {
+        for (qsizetype i = 0; i < layoutText.size(); ++i) {
+            const auto ch = layoutText[i];
+            if (ch == QChar::LineSeparator || ch == QChar::ParagraphSeparator
+                || ch == QLatin1Char('\r') || ch == QChar(0x0085)) {
+                layoutText = layoutText.left(i) + QChar(0x2026);
+                break;
+            }
+        }
+    }
     // The intrinsic advance has already been shaped. Converting that exact
     // logical width back to design units can round below QTextLayout's fixed
     // point boundary and wrap a word that fits. Keep explicit newlines, but
     // only enable automatic wrapping when the allocated width is smaller.
-    if (m_wrapWidth >= 0 && m_wrapWidth < m_unwrappedWidth
+    if (m_elideWidth < 0 && m_wrapWidth >= 0 && m_wrapWidth < m_unwrappedWidth
         && !qFuzzyCompare(m_wrapWidth, m_unwrappedWidth))
         option.setWrapMode(QTextOption::WrapAtWordBoundaryOrAnywhere);
     if (m_elideWidth >= 0)

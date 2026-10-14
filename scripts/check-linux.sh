@@ -84,3 +84,9 @@ QML_IMPORT_PATH="$PWD/build/linux/qml" python3 scripts/capture-proposals.py \
   --output "$stage/composition-proposals"
 if [[ -e artifacts/linux/composition-proposals ]]; then mv artifacts/linux/composition-proposals "$stage/previous-composition-proposals"; fi
 mv "$stage/composition-proposals" artifacts/linux/composition-proposals
+QML_IMPORT_PATH="$PWD/build/linux/qml" python3 scripts/capture-proposals.py \
+  --catalog build/linux/samples/AvelinoCatalog/AvelinoCatalog \
+  --reference evidence/reference-proposals/selectors-20261013 \
+  --output "$stage/selector-proposals"
+if [[ -e artifacts/linux/selector-proposals ]]; then mv artifacts/linux/selector-proposals "$stage/previous-selector-proposals"; fi
+mv "$stage/selector-proposals" artifacts/linux/selector-proposals

@@ -119,7 +119,7 @@ elif fixture == 'composition':
 else:
     assert record['fixture'] == 'selection' and record['selectionChecks'] == 'passed', record
     assert record['focusRestorationChecks'] == 'passed' and record['popupVisible'] is True, record
-    assert record['popupType'] == 0 and record['popupHeight'] == 288 and record['selectedValue'] == 38, record
+    assert record['popupType'] == 0 and record['popupHeight'] == 314 and record['selectedValue'] == 38, record
     assert record['disabledRowVisible'] is True, record
     assert 0 < record['scrollbarSize'] < 1, record
     assert record['popupContentX'] >= 0 and record['popupContentY'] >= 0, record

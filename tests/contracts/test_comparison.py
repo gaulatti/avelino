@@ -100,6 +100,22 @@ class ComparisonBoundaryTests(unittest.TestCase):
         (self.reference / 'captures.json').write_text(json.dumps({'captures': [self.fixture]}))
         self.assertIn('geometry', self.check('failed')['error'])
 
+    def test_popover_position_difference_fails_even_with_identical_pixels(self):
+        geometry = dict(x=0, y=0, width=1, height=1)
+        self.fixture['popoverGeometry'] = geometry
+        (self.reference / 'captures.json').write_text(json.dumps({'captures': [self.fixture]}))
+        self.metadata['popoverGeometry'] = dict(geometry, x=1)
+        self.write_metadata()
+        result = self.check('failed')
+        self.assertEqual(result['geometryStatus'], 'failed')
+        self.assertEqual(result['changedPixels'], 0)
+        self.assertEqual(result['popoverGeometry']['delta']['x'], 1)
+
+    def test_missing_popover_geometry_rejects_the_capture(self):
+        self.fixture['popoverGeometry'] = dict(x=0, y=0, width=1, height=1)
+        (self.reference / 'captures.json').write_text(json.dumps({'captures': [self.fixture]}))
+        self.assertIn('popover geometry', self.check('failed')['error'])
+
     def test_proposed_fixture_parameters_must_match(self):
         self.fixture.update(api='BleeckerSwitchStyle', flag=True, value=5, text='Label', expectedEmpty=False)
         (self.reference / 'captures.json').write_text(json.dumps({'captures': [self.fixture]}))

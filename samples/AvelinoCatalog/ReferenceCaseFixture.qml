@@ -36,7 +36,8 @@ Window {
                 "View.bleeckerSurface": surface,
                 "BleeckerSectionHeader": sectionHeader, "BleeckerDashboardSection": dashboardSection,
                 "BleeckerDashboardGrid": dashboardGrid, "BleeckerAppShell": appShell,
-                "BleeckerFooter": footer, "BleeckerFeedItem": feed, "BleeckerProgressStack": progressStack
+                "BleeckerFooter": footer, "BleeckerFeedItem": feed, "BleeckerProgressStack": progressStack,
+                "BleeckerSelect": select
             }
             if (!components[definition.api]) throw new Error("Unimplemented reference API: " + definition.api)
             return components[definition.api]
@@ -44,6 +45,23 @@ Window {
         onLoaded: item.objectName = "referenceCaseComponent"
     }
     Component { id: button; BleeckerButton { text: "Publish" } }
+    Component { id: searchGlyph; SearchGlyph {} }
+    Component {
+        id: select
+        BleeckerSelect {
+            width: definition.value; selection: definition.text; enabled: !definition.flag
+            leading: definition.variant === "leading" ? searchGlyph : null
+            options: {
+                if (definition.variant === "empty") return []
+                if (definition.variant === "open-long") {
+                    const rows=[];for(let i=0;i<40;i++) rows.push({value:String(i),label:"Edition "+i,disabled:i===39});return rows
+                }
+                const label=definition.variant === "newline" ? "First line\nSecond line" : definition.variant === "constrained" ? "A substantially longer choice needs truncation" : "Morning edition"
+                return [{value:"a",label:label},{value:"b",label:"Disabled edition",disabled:true},{value:"c",label:"Evening edition"}]
+            }
+            Component.onCompleted: if (definition.variant.startsWith("open-")) Qt.callLater(() => popup.open())
+        }
+    }
     Component { id: sectionAction; Rectangle { width: 80; height: 24; color: BleeckerTheme.palette.live } }
     Component {
         id: sectionHeader

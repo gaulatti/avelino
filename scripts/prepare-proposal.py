@@ -28,16 +28,36 @@ def prepare(source, tooling, output, scope=None):
     assert manifest["reference"] == provenance["referenceRevision"] == expected["revision"]
     assert provenance["referenceArchiveSha256"] == expected["sha256"]
     if scope is not None:
-        assert scope == "desktop-composition", "Unknown reference proposal scope"
-        assert {c["api"] for c in manifest["captures"]} == {
+        allowed = {"desktop-composition": {
             "BleeckerButton", "BleeckerSectionHeader", "BleeckerDashboardSection", "BleeckerDashboardGrid",
-            "BleeckerAppShell", "BleeckerFooter", "BleeckerFeedItem", "BleeckerProgressStack"}
+            "BleeckerAppShell", "BleeckerFooter", "BleeckerFeedItem", "BleeckerProgressStack"},
+            "desktop-selectors": {"BleeckerButton", "BleeckerSelect"}}
+        assert scope in allowed, "Unknown reference proposal scope"
+        assert {c["api"] for c in manifest["captures"]} == allowed[scope]
         manifest["scope"] = scope
     blanks, fixtures, intentional_empty = [], {}, set()
     for case in manifest["captures"]:
         name = Path(case["path"])
         assert name.name == str(name) and name.suffix == ".png", "Only named PNG captures can be copied"
         file = source / name
+        if "popoverGeometry" in case:
+            geometry, dpr = case["popoverGeometry"], case["dpr"]
+            parts = {}
+            for key in ["mainPath", "popoverPath"]:
+                part = Path(case[key])
+                assert part.name == str(part) and part.suffix == ".png", "Only own named PNG parts can be composed"
+                parts[key] = Image.open(source / part).convert("RGBA")
+                shutil.copyfile(source / part, output / part)
+            image = parts["mainPath"]
+            assert image.size == (case["width"] * dpr, case["height"] * dpr)
+            assert parts["popoverPath"].size == (geometry["width"] * dpr, geometry["height"] * dpr)
+            origin = [geometry[axis] * dpr for axis in ["x", "y"]]
+            assert all(abs(value - round(value)) <= 1e-6 for value in origin), "Popover origin is not on the measured pixel grid"
+            assert all(value >= 0 for value in origin)
+            assert origin[0] + parts["popoverPath"].width <= image.width and origin[1] + parts["popoverPath"].height <= image.height
+            image.alpha_composite(parts["popoverPath"], tuple(round(value) for value in origin))
+            image.save(output / name)
+            file = output / name
         image = Image.open(file).convert("RGBA")
         assert image.size == (case["width"] * case["dpr"], case["height"] * case["dpr"])
         assert case["environmentDisplayScale"] == case["dpr"]
@@ -55,7 +75,7 @@ def prepare(source, tooling, output, scope=None):
         case["sha256"] = sha(file)
         profile = Image.open(file).info.get("icc_profile")
         case["pngIccProfileSha256"] = hashlib.sha256(profile).hexdigest() if profile else None
-        shutil.copyfile(file, output / name)
+        if file != output / name: shutil.copyfile(file, output / name)
         fixtures[case["fixture"]] = {key: case[key] for key in ["fixture", "api", "width", "height", "variant", "size", "value", "flag", "text"]}
         if "expectedEmpty" in case: fixtures[case["fixture"]]["expectedEmpty"] = empty
     assert not blanks, f"Blank native captures: {blanks}"
@@ -111,6 +131,6 @@ if __name__ == "__main__":
     parser.add_argument("--captures", required=True)
     parser.add_argument("--tooling", required=True)
     parser.add_argument("--output", required=True)
-    parser.add_argument("--scope", choices=["desktop-composition"])
+    parser.add_argument("--scope", choices=["desktop-composition", "desktop-selectors"])
     args = parser.parse_args()
     print(f"Prepared {prepare(args.captures, args.tooling, args.output, args.scope)} review candidates; expected images unchanged")

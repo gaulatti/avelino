@@ -102,7 +102,7 @@ jobs:
       fail-fast: false
       matrix:
         source-runner: [ubuntu-24.04, ubuntu-24.04-arm]
-        reference-group: [desktop, composition]
+        reference-group: [desktop, composition, selectors]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -123,8 +123,12 @@ jobs:
           comparison = importlib.util.module_from_spec(spec)
           spec.loader.exec_module(comparison)
           group = '${{ matrix.reference-group }}'
-          captures = Path('artifacts/candidate') / ('proposals' if group == 'desktop' else 'composition-proposals')
-          reference = Path('evidence/reference-proposals') / ('desktop-20261012' if group == 'desktop' else 'composition-20261012-v1')
+          directories = {'desktop': ('proposals', 'desktop-20261012'),
+                         'composition': ('composition-proposals', 'composition-20261012-v1'),
+                         'selectors': ('selector-proposals', 'selectors-20261013')}
+          capture_directory, reference_directory = directories[group]
+          captures = Path('artifacts/candidate') / capture_directory
+          reference = Path('evidence/reference-proposals') / reference_directory
           result = json.loads((captures / 'capture-results.json').read_text())
           assert result['status'] == 'captured'
           raise SystemExit(comparison.compare(reference, captures,

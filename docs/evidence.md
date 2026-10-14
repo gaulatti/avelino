@@ -288,3 +288,15 @@ Basic/Fusion/default-style images are identical. All 724 original desktop and
 256 composition PNGs and comparison metadata remain unchanged. Native selector
 captures, OS popover presentation, original-symbol equivalence, complete cases,
 RTL, edge placement, physical input and screen-reader acceptance remain pending.
+
+The [native-derived selector repair](../evidence/development/selection-native/candidate.json)
+corrects popup direction/centering, its independent width and viewport/chrome
+allocation, initial list position, disabled-row opacity and single-line newline
+truncation. All 72 selector geometries and eight popup positions/sizes match the
+80-case proposed source matrix; exact comparisons remain zero and anchor widths
+still differ. The source replay reproduces its PNG parts and metadata after clean
+extraction and helper recompilation against preserved reference objects. Source
+glass/shadow compositor output is missing, so no OS presentation is accepted.
+The repair passes 516 Qt checks, 32 contract checks and 32 package-only virtual
+session checks; all 980 prior regression PNGs and component dimensions remain
+unchanged. No expected source baseline, tolerance or exception has changed.

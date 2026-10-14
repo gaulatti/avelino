@@ -4,7 +4,17 @@ Status: diagnostic comparisons against **proposed** reference images. No source
 baseline, expected image, visual tolerance or exception approval changes here.
 Desktop and television acceptance remain independent and pending.
 
-The isolated matrices cover all 32 started desktop APIs: the original 25-API
+The [selector proposal](../evidence/reference-proposals/selectors-20261013/proposal.json)
+adds 80 cases, including eight anchors. Its
+[strict comparison](../evidence/development/selection-native/candidate.json)
+matches all 72 selector component dimensions and all eight open-popup positions
+and sizes; no image is an exact match. Native popover glass/shadow compositor
+output is missing from the source view caches and remains a separate open gate.
+Comparison now fails on mismatched or missing popover geometry, including when
+the image pixels otherwise match. Selector diagnostics run separately on x64/ARM.
+
+The isolated matrices cover all 33 started desktop APIs: the selector proposal,
+the original 25-API
 matrix and the new [composition proposal](../evidence/reference-proposals/composition-20261012-v1/proposal.json).
 The latter adds 256 cases, including an unchanged button anchor. Its
 [first strict comparison](../evidence/development/composition-native-before/candidate.json)

@@ -97,6 +97,14 @@ int main(int argc, char *argv[]) {
                 if (!selectorPopup || !selectorPopupContent || !selectorPopup->property("visible").toBool()
                     || selectorPopup->property("popupType").toInt()!=0) { app.exit(7); return; }
             }
+            const bool openSelector=isolated && definition.value("api").toString()=="BleeckerSelect"
+                && definition.value("variant").toString().startsWith("open-");
+            if (openSelector && component) {
+                selectorPopup=component->property("popup").value<QObject*>();
+                if (selectorPopup) selectorPopupContent=selectorPopup->property("contentItem").value<QQuickItem*>();
+                if (!selectorPopup || !selectorPopupContent || !selectorPopup->property("visible").toBool()
+                    || selectorPopup->property("popupType").toInt()!=0) { app.exit(7); return; }
+            }
             if (isolated && (!component || component->width() <= 0 || component->height() < 0
                 || (component->height() == 0 && !expectedEmpty)
                 || (expectedEmpty && (definition.value("api").toString() != "BleeckerDashboardGrid"
@@ -156,6 +164,9 @@ int main(int argc, char *argv[]) {
             meta.insert("appearance", parser.isSet("dark") ? "dark" : "light");
             if (selectorPopup) {
                 const auto origin=selectorPopupContent->mapToScene(QPointF(0,0));
+                meta.insert("popoverGeometry",QJsonObject{{"x",origin.x()-selectorPopup->property("leftPadding").toDouble()},
+                    {"y",origin.y()-selectorPopup->property("topPadding").toDouble()},
+                    {"width",selectorPopup->property("width").toDouble()},{"height",selectorPopup->property("height").toDouble()}});
                 meta.insert("popupVisible",true); meta.insert("popupType",selectorPopup->property("popupType").toInt());
                 meta.insert("popupContentOrigin",QJsonObject{{"x",origin.x()},{"y",origin.y()}});
                 meta.insert("popupContentSize",QJsonObject{{"width",selectorPopupContent->width()},{"height",selectorPopupContent->height()}});

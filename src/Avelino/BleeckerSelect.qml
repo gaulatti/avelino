@@ -29,8 +29,7 @@ T.Button {
         if (!choicePopup || !choicePopup.visible) return
         Qt.callLater(() => {
             if (!choicePopup.visible) return
-            const selected=options.findIndex(option => option.value === selection && !option.disabled)
-            choices.currentIndex=selected>=0 ? selected : enabledIndex(0,1)
+            choices.currentIndex=enabledIndex(0,1)
             choices.forceActiveFocus()
         })
     }
@@ -76,15 +75,16 @@ T.Button {
         id: choicePopup
         objectName: "bleeckerSelectPopup"
         popupType: T.Popup.Item
-        y: -height; width: Math.max(220,control.width)
-        implicitHeight: Math.min(288,choices.contentHeight+8)
-        padding: 4; margins: 8; focus: true; modal: false; dim: false
+        readonly property real chromeInset: 13
+        x: (control.width-width)/2; y: control.height; width: 220+chromeInset*2
+        implicitHeight: Math.min(288,choices.contentHeight)+chromeInset*2
+        padding: chromeInset; margins: 8; focus: true; modal: false; dim: false
         enabled: control.enabled
         closePolicy: T.Popup.CloseOnEscape | T.Popup.CloseOnPressOutside
         onOpened: {
-            const selected=control.options.findIndex(option => option.value === control.selection && !option.disabled)
-            choices.currentIndex=selected>=0 ? selected : control.enabledIndex(0,1)
-            if (choices.currentIndex>=0) choices.positionViewAtIndex(choices.currentIndex,ListView.Contain)
+            choices.currentIndex=control.enabledIndex(0,1)
+            choices.positionViewAtBeginning()
+            choices.keyboardNavigationActive=false
             choices.forceActiveFocus()
         }
         onClosed: if (control.enabled && control.visible) control.forceActiveFocus()
@@ -96,11 +96,14 @@ T.Button {
         contentItem: ListView {
             id: choices
             objectName: "bleeckerSelectChoices"
+            property bool keyboardNavigationActive: false
             clip: true; spacing: 2; boundsBehavior: Flickable.StopAtBounds
             model: control.options; keyNavigationEnabled: false
+            header: Item { height: 4 }
+            footer: Item { height: 4 }
             function move(start, step) {
                 const index=control.enabledIndex(start,step)
-                if (index>=0) { currentIndex=index; positionViewAtIndex(index,ListView.Contain); forceActiveFocus() }
+                if (index>=0) { keyboardNavigationActive=true; currentIndex=index; positionViewAtIndex(index,ListView.Contain); forceActiveFocus() }
             }
             Keys.onPressed: event => {
                 if (event.key===Qt.Key_Down) move(currentIndex+1,1)
@@ -111,20 +114,27 @@ T.Button {
                 else { event.accepted=false; return }
                 event.accepted=true
             }
-            delegate: T.ItemDelegate {
-                id: optionButton
+            delegate: Item {
+                id: row
                 required property var modelData
                 required property int index
+                width: choices.width; height: optionButton.implicitHeight
+                enabled: !modelData.disabled
+              T.ItemDelegate {
+                id: optionButton
+                readonly property var modelData: row.modelData
+                readonly property int index: row.index
                 objectName: "bleeckerSelectOption"+index
                 readonly property bool selected: modelData.value === control.selection
                 text: modelData.label; enabled: !modelData.disabled
-                width: choices.width; implicitHeight: Math.max(36,optionLabel.height)
+                x: 4; width: Math.max(0,choices.width-8); implicitHeight: Math.max(36,optionLabel.height)
                 leftPadding: 12; rightPadding: 12; topPadding: 0; bottomPadding: 0
                 font: control.font; focusPolicy: Qt.TabFocus
-                opacity: enabled ? 1 : 0.6
+                opacity: enabled ? 1 : 0.5
                 Accessible.name: text
                 Accessible.description: selected ? qsTr("Selected") : ""
                 onActiveFocusChanged: if (activeFocus) choices.currentIndex=index
+                onVisualFocusChanged: if (visualFocus) choices.keyboardNavigationActive=true
                 onClicked: control.choose(index)
                 contentItem: Item {
                     implicitHeight: optionLabel.height
@@ -143,8 +153,9 @@ T.Button {
                 }
                 background: ContinuousSurface {
                     radius: BleeckerTokens.radii.button; borderWidth: 0
-                    color: optionButton.index===choices.currentIndex || optionButton.hovered ? BleeckerTheme.palette.muted : "transparent"
+                    color: choices.keyboardNavigationActive && optionButton.index===choices.currentIndex ? BleeckerTheme.palette.muted : "transparent"
                 }
+              }
             }
             T.ScrollBar.vertical: T.ScrollBar {
                 objectName: "bleeckerSelectScrollBar"

@@ -19,6 +19,8 @@ CONTRACT_AXES = {
 }
 COMPOSITION_APIS = {"BleeckerButton", "BleeckerSectionHeader", "BleeckerDashboardSection",
     "BleeckerDashboardGrid", "BleeckerAppShell", "BleeckerFooter", "BleeckerFeedItem", "BleeckerProgressStack"}
+SCOPED_APIS = {"desktop-composition": COMPOSITION_APIS,
+    "desktop-selectors": {"BleeckerButton", "BleeckerSelect"}}
 
 
 def verify(directory):
@@ -43,8 +45,9 @@ def verify(directory):
     assert len(captures) == proposal["captures"] and not manifest["unrenderedCases"]
     scoped = proposal.get("scope")
     if scoped:
-        assert scoped == "desktop-composition" and manifest.get("scope") == scoped
-        assert {case["api"] for case in captures} == COMPOSITION_APIS, "Missing composition API"
+        assert scoped in SCOPED_APIS and manifest.get("scope") == scoped
+        message = "Missing composition API" if scoped == "desktop-composition" else "Missing selector API"
+        assert {case["api"] for case in captures} == SCOPED_APIS[scoped], message
     keys = set()
     for case in captures:
         assert case["source"] == reference["revision"]
@@ -72,7 +75,7 @@ def verify(directory):
     discovery = json.loads((ROOT / "reference/api-discovery.json").read_text())["desktop"]
     declarations = {d["name"]: d for d in discovery["declarations"]}
     for api, axes in CONTRACT_AXES.items():
-        if scoped and api not in COMPOSITION_APIS: continue
+        if scoped and api not in SCOPED_APIS[scoped]: continue
         values = []
         for contract in axes.values():
             names = [name.strip().strip("`") for row in declarations[contract]["enumCases"] for name in row.split(",")]

@@ -41,6 +41,14 @@ def compare(reference, candidate, output, apis=None):
                 delta = {axis: measured[axis] - fixture["componentSize"][axis] for axis in ["width", "height"]}
                 result["componentGeometry"] = {"reference": fixture["componentSize"], "candidate": measured, "delta": delta}
                 result["geometryStatus"] = "passed" if all(abs(v) <= 1e-6 for v in delta.values()) else "failed"
+        if "popoverGeometry" in fixture:
+            measured = metadata.get("popoverGeometry", {})
+            if not all(isinstance(measured.get(axis), (int, float)) for axis in ["x", "y", "width", "height"]):
+                result["error"] = "Missing measured popover geometry"
+            else:
+                delta = {axis: measured[axis] - fixture["popoverGeometry"][axis] for axis in ["x", "y", "width", "height"]}
+                result["popoverGeometry"] = {"reference": fixture["popoverGeometry"], "candidate": measured, "delta": delta}
+                if any(abs(v) > 1e-6 for v in delta.values()): result["geometryStatus"] = "failed"
         with Image.open(expected_path) as source:
             expected = source.copy()
         with Image.open(actual_path) as source:
