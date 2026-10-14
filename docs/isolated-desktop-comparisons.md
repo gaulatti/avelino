@@ -155,3 +155,13 @@ and button-group cases; the composition's eight present-empty footer cases still
 differ. The eight eyebrow geometries now match after retaining final tracking.
 System fonts, native editing, glyph/rasterization, compositor, physical input and
 screen-reader gates stay open. No baseline or acceptance changes.
+
+The [secure-field proposal](../evidence/reference-proposals/secure-field-20261014/proposal.json)
+and [candidate](../evidence/development/secure-field/candidate.json) add 40 native
+masked/revealed cases and eight button anchors. All 48 root component bounds match
+and zero exact images match. Fixed source typography, native properties, reveal
+state and preserved caller values are recorded independently of the raw images.
+All 1,338 earlier PNGs and full metadata are byte-identical, preserving the preceding
+matrix results. Coverage is now 35/80 desktop candidates with zero complete acceptance.
+The native replay's one three-pixel anchor variation is retained and unaccepted;
+all 40 secure-field PNGs replay byte for byte. No expected image or tolerance changes.

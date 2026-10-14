@@ -365,3 +365,35 @@ For the preceding checkbox checkpoint `39867a5`, the
 passed. Its [Linux workflow](https://github.com/gaulatti/avelino/actions/runs/38496406419)
 passed both architecture build/runtime/package jobs and failed the strict visual
 jobs. Those results are separate from this candidate's local checks and its CI.
+
+## Secure-field candidate
+
+The [secure-field checkpoint](../evidence/development/secure-field/candidate.json)
+adds masked editing and the visibility action through a Qt TextField template,
+owned eye/slash candidates and the shared surface. Started desktop coverage is
+35/80; none are accepted. The 40 secure-field native cases plus eight button anchors
+have 48 matching root component bounds and zero exact images. Native editor state,
+font and caller-value preservation are recorded; declared colors and cached ink
+still differ. Source images remain proposed, with native DPR 1/compositor and
+complete behavior/focus/glyph/input-method/RTL/physical/screen-reader gates pending.
+
+All 2,784 Qt checks, 37 contract checks, six installed offscreen modes and 48 fresh
+package-only virtual-session pairs pass. Eight pairs cover secure editing,
+reveal/hide, disabled input, clipboard, traversal and actual Qt password/value/action
+interfaces. The reveal action uses an explicit Button role. Its candidate glyph
+provenance is installed with the library and verified against the source record.
+Default, Basic and Fusion secure-field gallery PNGs are byte-identical.
+
+All 1,338 prior PNGs and full metadata are unchanged; the current capture drivers,
+source inputs and per-file hashes are retained with links to preceding raw evidence.
+Clean native helper replay reproduces all 40 secure-field PNGs and the manifest;
+one scaled DPR 1 button anchor varies by three pixels at channel level one. Its
+raw alternate and differences remain preserved without a new tolerance or reference
+adoption. Documentation and inventory are updated in-repository because the public
+wiki remote is unavailable. No application backend, metrics endpoint, configuration
+or TV behavior changes.
+
+For typography `b31551b`, [References CI](https://github.com/gaulatti/avelino/actions/runs/38638734160)
+passed and [Linux CI](https://github.com/gaulatti/avelino/actions/runs/38638734175)
+passed both x64/ARM64 build/runtime/package jobs. Its ten strict visual jobs failed.
+Those results are separate from this candidate's local checks and future CI.

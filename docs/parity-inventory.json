@@ -12385,49 +12385,877 @@
       },
       {
         "id": "BleeckerSecureField",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Controls.swift",
-          "line": 74
+          "line": 74,
+          "captureProposal": "evidence/reference-proposals/secure-field-20261014/proposal.json"
         },
-        "implementation": [],
-        "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
-        "captures": [],
-        "comparisonResults": [],
+        "implementation": [
+          "src/Avelino/BleeckerSecureField.qml",
+          "src/Avelino/SecureEyeGlyph.qml",
+          "src/Avelino/BleeckerTheme.qml"
+        ],
+        "caseDiscovery": "40 native own-window captures cover masked/revealed, empty/filled/long/disabled/constrained states, both appearances and text scales at measured DPR 2; complete focus, caret, context-menu, input-method, RTL, physical input and screen-reader acceptance pending",
+        "cases": [
+          {
+            "id": "secure-masked-empty-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-masked-empty-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-masked-empty-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-masked-empty-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-masked-empty-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-masked-empty-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-masked-empty-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-masked-empty-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-masked-filled-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-masked-filled-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-masked-filled-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-masked-filled-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-masked-filled-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-masked-filled-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-masked-filled-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-masked-filled-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-masked-long-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-masked-long-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-masked-long-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-masked-long-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-masked-long-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-masked-long-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-masked-long-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-masked-long-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-masked-disabled-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-masked-disabled-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-masked-disabled-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-masked-disabled-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-masked-disabled-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-masked-disabled-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-masked-disabled-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-masked-disabled-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-masked-narrow-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-masked-narrow-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-masked-narrow-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-masked-narrow-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-masked-narrow-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-masked-narrow-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-masked-narrow-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-masked-narrow-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-revealed-empty-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-revealed-empty-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-revealed-empty-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-revealed-empty-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-revealed-empty-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-revealed-empty-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-revealed-empty-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-revealed-empty-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-revealed-filled-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-revealed-filled-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-revealed-filled-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-revealed-filled-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-revealed-filled-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-revealed-filled-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-revealed-filled-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-revealed-filled-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-revealed-long-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-revealed-long-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-revealed-long-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-revealed-long-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-revealed-long-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-revealed-long-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-revealed-long-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-revealed-long-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-revealed-disabled-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-revealed-disabled-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-revealed-disabled-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-revealed-disabled-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-revealed-disabled-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-revealed-disabled-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-revealed-disabled-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-revealed-disabled-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-revealed-narrow-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-revealed-narrow-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-revealed-narrow-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-revealed-narrow-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-revealed-narrow-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-revealed-narrow-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "secure-revealed-narrow-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/secure-field-20261014/secure-revealed-narrow-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Proposed source component bounds and native editor state/font; exact rasterization, password/system glyphs and complete platform semantics remain pending."
+          },
+          {
+            "id": "caller-model-and-external-value",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Qt candidate runtime checks; full native behavior and physical/screen-reader equivalence remain pending."
+          },
+          {
+            "id": "masked-and-revealed-clipboard",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Qt candidate runtime checks; full native behavior and physical/screen-reader equivalence remain pending."
+          },
+          {
+            "id": "keyboard-reveal-and-disabled-traversal",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Qt candidate runtime checks; full native behavior and physical/screen-reader equivalence remain pending."
+          },
+          {
+            "id": "immediate-masking-and-real-accessible-value",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Qt candidate runtime checks; full native behavior and physical/screen-reader equivalence remain pending."
+          }
+        ],
+        "tests": [
+          "tests/components/tst_secure_field.qml",
+          "tests/consumer/SecureField.qml",
+          "tests/consumer/securefieldchecks.h",
+          "tests/contracts/test_proposals.py"
+        ],
+        "captures": [
+          "evidence/development/secure-field/captures/secure-masked-empty-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-masked-empty-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-masked-empty-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-masked-empty-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-masked-filled-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-masked-filled-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-masked-filled-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-masked-filled-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-masked-long-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-masked-long-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-masked-long-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-masked-long-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-masked-disabled-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-masked-disabled-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-masked-disabled-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-masked-disabled-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-masked-narrow-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-masked-narrow-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-masked-narrow-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-masked-narrow-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-revealed-empty-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-revealed-empty-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-revealed-empty-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-revealed-empty-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-revealed-filled-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-revealed-filled-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-revealed-filled-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-revealed-filled-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-revealed-long-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-revealed-long-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-revealed-long-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-revealed-long-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-revealed-disabled-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-revealed-disabled-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-revealed-disabled-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-revealed-disabled-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-revealed-narrow-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-revealed-narrow-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-revealed-narrow-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/secure-field/captures/secure-revealed-narrow-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/secure-field/catalog/secure-field-light-dpr1.png",
+          "evidence/development/secure-field/catalog/secure-field-light-dpr2.png",
+          "evidence/development/secure-field/catalog/secure-field-dark-dpr1.png",
+          "evidence/development/secure-field/catalog/secure-field-dark-dpr2.png"
+        ],
+        "comparisonResults": [
+          "evidence/development/secure-field/comparison/comparison.json"
+        ],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Candidate offscreen/virtual-session, synthetic input and Qt interface evidence; complete source, physical, glyph/font and screen-reader acceptance pending."
           },
           "x11": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Candidate offscreen/virtual-session, synthetic input and Qt interface evidence; complete source, physical, glyph/font and screen-reader acceptance pending."
           },
           "wayland": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Candidate offscreen/virtual-session, synthetic input and Qt interface evidence; complete source, physical, glyph/font and screen-reader acceptance pending."
           },
           "keyboardPointer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Candidate offscreen/virtual-session, synthetic input and Qt interface evidence; complete source, physical, glyph/font and screen-reader acceptance pending."
           },
           "focusAccessibility": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Candidate offscreen/virtual-session, synthetic input and Qt interface evidence; complete source, physical, glyph/font and screen-reader acceptance pending."
           },
           "displayTextScaling": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Candidate offscreen/virtual-session, synthetic input and Qt interface evidence; complete source, physical, glyph/font and screen-reader acceptance pending."
           },
           "installedConsumer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/secure-field.md",
+              "tests/components/tst_secure_field.qml",
+              "tests/consumer/SecureField.qml",
+              "tests/consumer/securefieldchecks.h",
+              "assets/secure-field-symbols.json",
+              "evidence/reference-proposals/secure-field-20261014/proposal.json",
+              "evidence/development/secure-field/candidate.json"
+            ],
+            "notes": "Candidate offscreen/virtual-session, synthetic input and Qt interface evidence; complete source, physical, glyph/font and screen-reader acceptance pending."
           }
-        }
+        },
+        "diagnostics": [
+          {
+            "evidence": "evidence/reference-proposals/secure-field-20261014/tooling-provenance.json",
+            "status": "native secure-field replay identical; one button anchor varies",
+            "notes": "All 40 secure-field PNGs and capture data replay byte-identically; one scaled DPR 1 button anchor differs by three pixels at channel level one. No tolerance or baseline approval."
+          }
+        ]
       },
       {
         "id": "BleeckerSegmentedControl",

@@ -21,7 +21,8 @@ COMPOSITION_APIS = {"BleeckerButton", "BleeckerSectionHeader", "BleeckerDashboar
     "BleeckerDashboardGrid", "BleeckerAppShell", "BleeckerFooter", "BleeckerFeedItem", "BleeckerProgressStack"}
 SCOPED_APIS = {"desktop-composition": COMPOSITION_APIS,
     "desktop-selectors": {"BleeckerButton", "BleeckerSelect"},
-    "desktop-checkbox": {"BleeckerButton", "BleeckerCheckbox"}}
+    "desktop-checkbox": {"BleeckerButton", "BleeckerCheckbox"},
+    "desktop-secure-field": {"BleeckerButton", "BleeckerSecureField"}}
 
 SCOPED_CONTRACT_AXES = {"desktop-checkbox": {"BleeckerCheckbox": {"size": "BleeckerControlSize"}}}
 
@@ -50,7 +51,7 @@ def verify(directory):
     if scoped:
         assert scoped in SCOPED_APIS and manifest.get("scope") == scoped
         message = {"desktop-composition": "Missing composition API", "desktop-selectors": "Missing selector API",
-            "desktop-checkbox": "Missing checkbox API"}[scoped]
+            "desktop-checkbox": "Missing checkbox API", "desktop-secure-field": "Missing secure-field API"}[scoped]
         assert {case["api"] for case in captures} == SCOPED_APIS[scoped], message
     keys = set()
     for case in captures:
@@ -76,6 +77,18 @@ def verify(directory):
         assert {(c["appearance"], c["textScale"]) for c in rows} == set(itertools.product(["light", "dark"], [1, 1.5]))
         expected_dprs = {1, 2} if rows[0]["captureMethod"] == "SwiftUI.ImageRenderer/CoreGraphics" else {2}
         assert {(c["appearance"], c["textScale"], c["dpr"]) for c in rows} == set(itertools.product(["light", "dark"], [1, 1.5], expected_dprs))
+    if scoped == "desktop-secure-field":
+        required = {f"{mode}-{state}" for mode in ["masked", "revealed"]
+                    for state in ["empty", "filled", "long", "disabled", "narrow"]}
+        assert required <= {f["variant"] for f in fixtures if f["api"] == "BleeckerSecureField"}, "Missing secure-field state combinations"
+        for case in captures:
+            if case["api"] != "BleeckerSecureField": continue
+            revealed = case["variant"].startswith("revealed-")
+            assert case.get("revealed") is revealed and case.get("sourceValuePreserved") is True, "Invalid source reveal/value state"
+            fonts = case["nativeControlFonts"]
+            assert len(fonts) == 1 and fonts[0]["secure"] is not revealed, "Invalid native secure/plain editor"
+            assert fonts[0]["pointSize"] == 14 and fonts[0]["fontName"] == "EncodeSans-Regular", "Invalid native secure-field font"
+            assert fonts[0]["enabled"] is not case["flag"], "Invalid native disabled state"
     discovery = json.loads((ROOT / "reference/api-discovery.json").read_text())["desktop"]
     declarations = {d["name"]: d for d in discovery["declarations"]}
     for api, axes in {**CONTRACT_AXES, **SCOPED_CONTRACT_AXES.get(scoped, {})}.items():

@@ -5,6 +5,8 @@ captures are preserved as proposed references; full behavior cases, accessibilit
 output and strict visual acceptance remain open. The [selector](selectors.md)
 has a separate candidate with an owned open popup.
 The [checkbox](checkbox.md) separately covers boolean selection and all three sizes.
+The [secure field](secure-field.md) separately covers masked editing and its
+visibility action with fixed source typography.
 
 | Reference API | Linux interface and owned presentation |
 | --- | --- |

@@ -44,9 +44,11 @@ focus; the whole-output capture preserves it as session evidence.
 [Weston's backend documentation](https://wayland.pages.freedesktop.org/weston/toc/running-weston.html)
 describes how its X11 backend composites Wayland surfaces into the parent output.
 Each configuration runs the base fixture, `--controls`, `--composition`,
-`--selection` and `--checkbox` independently; forty window/full-output pairs cover them.
+`--selection`, `--checkbox` and `--secure-field` independently; forty-eight
+window/full-output pairs cover them.
 The catalog galleries are `--fixture foundations`, `surfaces`, `data-display`,
-`controls`, `composition`, `selection` and `checkbox`; their native comparisons remain pending.
+`controls`, `composition`, `selection`, `checkbox` and `secure-field`; their native
+comparisons remain pending.
 
 The selector's open `Popup.Item` and scrollbars remain
 inside the captured client, with explicit bounds checks. Native selector/popover
@@ -55,6 +57,8 @@ remain pending. See [the selector contract](selectors.md).
 The [checkbox contract](checkbox.md) adds bound-state/input checks and real Qt
 accessibility interface queries. Its native font/glyph, full behavior and
 screen-reader acceptance remain pending.
+The [secure-field contract](secure-field.md) adds masking/reveal, clipboard,
+caller-model and native Qt password/action interface checks.
 
 In the package-only container, run `bash check-installed.sh` followed by
 `bash check-display-sessions.sh`. The latter refuses an existing output directory;

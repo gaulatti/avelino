@@ -153,3 +153,36 @@ class CheckboxProposalIntegrity(unittest.TestCase):
         self.remove_cases_with_updated_checksums(lambda case: case["api"] == "BleeckerCheckbox" and case["size"] == "lg")
         with self.assertRaisesRegex(AssertionError, "Missing discovered contract combinations"):
             verifier.verify(self.directory)
+
+
+class SecureFieldProposalIntegrity(unittest.TestCase):
+    remove_cases_with_updated_checksums = CheckboxProposalIntegrity.remove_cases_with_updated_checksums
+
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.directory = Path(self.temp.name) / "proposal"
+        shutil.copytree(ROOT / "evidence/reference-proposals/secure-field-20261014", self.directory)
+
+    def test_scope_cannot_drop_secure_field_api(self):
+        self.remove_cases_with_updated_checksums(lambda case: case["api"] == "BleeckerSecureField")
+        with self.assertRaisesRegex(AssertionError, "Missing secure-field API"):
+            verifier.verify(self.directory)
+
+    def test_revealed_disabled_state_cannot_be_omitted(self):
+        self.remove_cases_with_updated_checksums(lambda case: case["variant"] == "revealed-disabled")
+        with self.assertRaisesRegex(AssertionError, "Missing secure-field state combinations"):
+            verifier.verify(self.directory)
+
+    def test_false_reveal_state_is_rejected_with_updated_checksums(self):
+        path = self.directory / "captures.json"
+        manifest = json.loads(path.read_text())
+        case = next(c for c in manifest["captures"] if c["api"] == "BleeckerSecureField")
+        case["revealed"] = not case["revealed"]
+        path.write_text(json.dumps(manifest))
+        proposal_path = self.directory / "proposal.json"
+        proposal = json.loads(proposal_path.read_text())
+        proposal["files"]["captures.json"] = hashlib.sha256(path.read_bytes()).hexdigest()
+        proposal_path.write_text(json.dumps(proposal))
+        with self.assertRaisesRegex(AssertionError, "Invalid source reveal/value state"):
+            verifier.verify(self.directory)

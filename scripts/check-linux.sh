@@ -29,6 +29,7 @@ QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software ctest --preset linux
 stage="$(mktemp -d)"
 trap 'rm -rf "$stage"' EXIT
 cmake --install build/linux --prefix "$stage/install"
+cmp assets/secure-field-symbols.json "$stage/install/share/avelino/secure-field-symbols.json"
 cp -R tests/consumer "$stage/consumer"
 cmake -S "$stage/consumer" -B "$stage/build" -G Ninja -DCMAKE_PREFIX_PATH="$stage/install;/opt/qt"
 cmake --build "$stage/build" --parallel 2
@@ -37,6 +38,7 @@ cmake --build "$stage/build" --parallel 2
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --composition)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --selection)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --checkbox)
+(cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --secure-field)
 mkdir -p artifacts
 # Always publish the already-verified fresh stage. Repeated cp into an existing
 # directory nests the consumer and leaves obsolete source/install files behind.
@@ -49,7 +51,7 @@ cp artifacts/linux/environment.json artifacts/package/environment.json
 mkdir -p artifacts/linux
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --capture artifacts/linux/actions-light.png
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --dark --capture artifacts/linux/actions-dark.png
-for fixture in foundations surfaces data-display controls composition selection checkbox; do
+for fixture in foundations surfaces data-display controls composition selection checkbox secure-field; do
 for appearance in light dark; do
   for dpr in 1 2; do
     args=(--fixture "$fixture")
@@ -97,3 +99,9 @@ QML_IMPORT_PATH="$PWD/build/linux/qml" python3 scripts/capture-proposals.py \
   --output "$stage/checkbox-proposals"
 if [[ -e artifacts/linux/checkbox-proposals ]]; then mv artifacts/linux/checkbox-proposals "$stage/previous-checkbox-proposals"; fi
 mv "$stage/checkbox-proposals" artifacts/linux/checkbox-proposals
+QML_IMPORT_PATH="$PWD/build/linux/qml" python3 scripts/capture-proposals.py \
+  --catalog build/linux/samples/AvelinoCatalog/AvelinoCatalog \
+  --reference evidence/reference-proposals/secure-field-20261014 \
+  --output "$stage/secure-field-proposals"
+if [[ -e artifacts/linux/secure-field-proposals ]]; then mv artifacts/linux/secure-field-proposals "$stage/previous-secure-field-proposals"; fi
+mv "$stage/secure-field-proposals" artifacts/linux/secure-field-proposals
