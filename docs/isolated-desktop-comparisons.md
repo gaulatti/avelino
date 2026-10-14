@@ -13,7 +13,7 @@ output is missing from the source view caches and remains a separate open gate.
 Comparison now fails on mismatched or missing popover geometry, including when
 the image pixels otherwise match. Selector diagnostics run separately on x64/ARM.
 
-The isolated matrices cover all 33 started desktop APIs: the selector proposal,
+The isolated matrices cover all 34 started desktop APIs: the selector and checkbox proposals,
 the original 25-API
 matrix and the new [composition proposal](../evidence/reference-proposals/composition-20261012-v1/proposal.json).
 The latter adds 256 cases, including an unchanged button anchor. Its
@@ -124,3 +124,13 @@ timeline cases also match their offered dimensions; final-title text metrics sti
 differ. Overall geometry matches increase from 482 to 514 of 724 cases, while exact
 pixel-and-geometry matches remain 40. Shadows, borders, typography and other
 differences remain visible in the reports. No component acceptance changes.
+
+The [checkbox proposal](../evidence/reference-proposals/checkbox-20261013/proposal.json)
+and [candidate evidence](../evidence/development/checkbox/candidate.json) add all
+three checkbox sizes, boolean/disabled states, wrapped and empty labels at both
+appearances, text scales and DPRs. Its 128 checkbox cases have 88 geometry matches
+and zero exact image matches; eight button anchors still differ in width. Small
+scaled typography, medium scaled height and wrapped-line spacing remain failures.
+The scoped verifier requires every discovered control size and both APIs; coherent
+checksum updates cannot hide omission of a size or the checkbox API.
+The matrices now cover all 34 started desktop APIs, without accepting any entry.

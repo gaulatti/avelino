@@ -300,3 +300,29 @@ glass/shadow compositor output is missing, so no OS presentation is accepted.
 The repair passes 516 Qt checks, 32 contract checks and 32 package-only virtual
 session checks; all 980 prior regression PNGs and component dimensions remain
 unchanged. No expected source baseline, tolerance or exception has changed.
+
+## Checkbox candidate
+
+The [checkbox checkpoint](../evidence/development/checkbox/candidate.json) adds
+`BleeckerCheckbox`, raising started desktop coverage to 34 of 80; none are accepted.
+Its 128 checkbox source cases plus eight button anchors replay byte for byte from
+clean external extraction and helper recompilation against preserved source objects.
+The native tools/source remain outside the tracked Linux tree.
+
+All 574 Qt checks, 34 contract checks and 40 installed-package virtual-session
+checks pass. Eight of those session pairs exercise caller state, pointer/keyboard
+activation, disabled input, focus traversal, wrapping and a real Qt accessibility
+role/name/checked-state query. Default, Basic and Fusion galleries are byte-identical.
+All 1,060 earlier regression PNGs and their component dimensions remain unchanged.
+
+Strict checkbox comparisons match 88/128 geometries and 0/128 exact images.
+Scaled font sizing/height, wrapped-line spacing, symbol equivalence, complete
+focus/hover/RTL behavior and physical/screen-reader acceptance remain pending.
+The explicit Qt accessibility role and source regular font weight correct template
+and host-inheritance omissions; they do not close platform acceptance.
+
+For the preceding selector repair `67e9262`, the
+[References workflow](https://github.com/gaulatti/avelino/actions/runs/38492804316)
+passed. The [Linux workflow](https://github.com/gaulatti/avelino/actions/runs/38492804344)
+passed build/runtime/package jobs on both architectures; strict visual comparison
+jobs failed. This is separate from the checkbox's local evidence and future CI.

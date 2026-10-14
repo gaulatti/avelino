@@ -36,6 +36,7 @@ cmake --build "$stage/build" --parallel 2
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --controls)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --composition)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --selection)
+(cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --checkbox)
 mkdir -p artifacts
 # Always publish the already-verified fresh stage. Repeated cp into an existing
 # directory nests the consumer and leaves obsolete source/install files behind.
@@ -48,7 +49,7 @@ cp artifacts/linux/environment.json artifacts/package/environment.json
 mkdir -p artifacts/linux
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --capture artifacts/linux/actions-light.png
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --dark --capture artifacts/linux/actions-dark.png
-for fixture in foundations surfaces data-display controls composition selection; do
+for fixture in foundations surfaces data-display controls composition selection checkbox; do
 for appearance in light dark; do
   for dpr in 1 2; do
     args=(--fixture "$fixture")
@@ -90,3 +91,9 @@ QML_IMPORT_PATH="$PWD/build/linux/qml" python3 scripts/capture-proposals.py \
   --output "$stage/selector-proposals"
 if [[ -e artifacts/linux/selector-proposals ]]; then mv artifacts/linux/selector-proposals "$stage/previous-selector-proposals"; fi
 mv "$stage/selector-proposals" artifacts/linux/selector-proposals
+QML_IMPORT_PATH="$PWD/build/linux/qml" python3 scripts/capture-proposals.py \
+  --catalog build/linux/samples/AvelinoCatalog/AvelinoCatalog \
+  --reference evidence/reference-proposals/checkbox-20261013 \
+  --output "$stage/checkbox-proposals"
+if [[ -e artifacts/linux/checkbox-proposals ]]; then mv artifacts/linux/checkbox-proposals "$stage/previous-checkbox-proposals"; fi
+mv "$stage/checkbox-proposals" artifacts/linux/checkbox-proposals

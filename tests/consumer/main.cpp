@@ -12,12 +12,74 @@
 #include <QQmlContext>
 #include <QSGRendererInterface>
 #include <QColor>
+#include <QAccessible>
 #include <cmath>
 static QQuickItem *findVisualItem(QQuickItem *item, const QString &name) {
     if (item->objectName() == name) return item;
     for (auto child : item->childItems())
         if (auto found = findVisualItem(child,name)) return found;
     return nullptr;
+}
+static void runCheckboxConsumer(QQuickWindow *window, QGuiApplication &app,
+                                const QCommandLineParser &parser, double textScale) {
+    auto item=[window](const QString &name) { return findVisualItem(window->contentItem(),name); };
+    const auto box=item("checkbox"), disabled=item("disabledCheckbox"), next=item("nextCheckbox");
+    const auto wrapped=item("wrappedCheckbox"), field=item("checkboxNextField");
+    if (!box || !disabled || !next || !wrapped || !field) { app.exit(81); return; }
+    auto click=[window](QQuickItem *target) {
+        QTest::mouseClick(window,Qt::LeftButton,Qt::NoModifier,
+            target->mapToScene(QPointF(target->width()-2,target->height()/2)).toPoint());
+        QTest::qWait(40);
+    };
+    auto accessible=QAccessible::queryAccessibleInterface(box);
+    if (!accessible || accessible->role()!=QAccessible::CheckBox || !accessible->state().checkable
+        || accessible->state().checked || accessible->text(QAccessible::Name)!="Keep edition") {
+        qCritical("Installed checkbox accessibility: interface=%d role=%d checkable=%d checked=%d name=%s",
+            accessible!=nullptr, accessible ? int(accessible->role()) : -1,
+            accessible ? accessible->state().checkable : -1,
+            accessible ? accessible->state().checked : -1,
+            accessible ? qPrintable(accessible->text(QAccessible::Name)) : "unavailable");
+        app.exit(82); return;
+    }
+    click(box);
+    if (!window->property("chosen").toBool() || window->property("changes").toInt()!=1
+        || !accessible->state().checked || accessible->text(QAccessible::Description)!="Selected") { app.exit(83); return; }
+    click(disabled);
+    if (!disabled->property("checked").toBool() || window->property("changes").toInt()!=1) { app.exit(84); return; }
+    window->setProperty("chosen",false);
+    if (box->property("checked").toBool() || accessible->state().checked) { app.exit(85); return; }
+    box->forceActiveFocus(); QTest::keyClick(window,Qt::Key_Space);
+    if (!window->property("chosen").toBool() || window->property("changes").toInt()!=2) { app.exit(86); return; }
+    QTest::keyClick(window,Qt::Key_Tab);
+    if (!next->hasActiveFocus() || disabled->hasActiveFocus()) { app.exit(87); return; }
+    QTest::keyClick(window,Qt::Key_Space);
+    if (!next->property("checked").toBool()) { app.exit(88); return; }
+    click(field); QTest::keyClick(window,Qt::Key_X);
+    if (!field->hasActiveFocus() || field->property("text").toString()!="x") { app.exit(89); return; }
+    const auto label=findVisualItem(wrapped,"bleeckerCheckboxLabel");
+    if (!label || label->height()<=18 || wrapped->width()!=160 || wrapped->height()!=label->height()) { app.exit(90); return; }
+    qInfo("Installed checkbox: model updates, pointer/keyboard toggling, disabled input, tab order, wrapped label and real Qt accessibility role/name/state passed");
+    if (!parser.isSet("evidence")) { app.exit(0); return; }
+    const auto path=parser.value("evidence");
+    if (!window->grabWindow().save(path+".png")) { app.exit(91); return; }
+    QJsonObject record{{"fixture","checkbox"},{"qt",qVersion()},{"platform",QGuiApplication::platformName()},
+        {"compiler",QString::fromUtf8(__VERSION__)},{"width",window->width()},{"height",window->height()},
+        {"dpr",window->devicePixelRatio()},{"graphicsApi",int(window->rendererInterface()->graphicsApi())},
+        {"requestedGraphicsBackend",qEnvironmentVariable("QSG_RHI_BACKEND")},{"quickBackend",qEnvironmentVariable("QT_QUICK_BACKEND")},
+        {"appearance",parser.isSet("dark") ? "dark" : "light"},{"textScale",textScale},
+        {"inputMethod","QTest synthetic in-process pointer and keyboard events"},
+        {"windowCaptureMethod","QQuickWindow::grabWindow; full session captured separately"},
+        {"checkboxChecks","passed"},{"focusChecks","passed"},{"qtAccessibilityChecks","passed"},
+        {"checkedValue",window->property("chosen").toBool()},{"changes",window->property("changes").toInt()},
+        {"wrappedLabelHeight",label->height()},{"wrappedControlHeight",wrapped->height()},
+        {"symbolAcceptance","pending; original checkmark geometry has no approved source equivalence"},
+        {"accessibilityAcceptance","pending; querying Qt interfaces does not prove screen-reader output"}};
+    QFile file(path+".json");
+    if (!file.open(QIODevice::WriteOnly)) { app.exit(92); return; }
+    file.write(QJsonDocument(record).toJson()); file.close();
+    auto timer=new QTimer(&app);
+    QObject::connect(timer,&QTimer::timeout,&app,[&app,path] { if (QFile::exists(path+".captured")) app.exit(0); });
+    timer->start(100); QTimer::singleShot(10000,&app,[&app] { app.exit(93); });
 }
 static void runSelectionConsumer(QQuickWindow *window, QGuiApplication &app,
                                  const QCommandLineParser &parser, double textScale) {
@@ -228,9 +290,10 @@ int main(int argc, char **argv) {
     parser.addOption(QCommandLineOption("controls", "Exercise the form-control fixture."));
     parser.addOption(QCommandLineOption("composition", "Exercise the composition fixture."));
     parser.addOption(QCommandLineOption("selection", "Exercise the selector and open popup fixture."));
+    parser.addOption(QCommandLineOption("checkbox", "Exercise checkbox states, input and Qt accessibility."));
     parser.addOption(QCommandLineOption("text-scale", "Exercise text scaling.", "factor", "1"));
     parser.process(app);
-    if (int(parser.isSet("controls"))+int(parser.isSet("composition"))+int(parser.isSet("selection"))>1) return 58;
+    if (int(parser.isSet("controls"))+int(parser.isSet("composition"))+int(parser.isSet("selection"))+int(parser.isSet("checkbox"))>1) return 58;
     bool validScale = false;
     const double textScale = parser.value("text-scale").toDouble(&validScale);
     if (!validScale || !std::isfinite(textScale) || textScale <= 0) return 12;
@@ -239,10 +302,11 @@ int main(int argc, char **argv) {
     engine.rootContext()->setContextProperty("consumerTextScale", textScale);
     engine.addImportPath(QStringLiteral(AVELINO_INSTALLED_IMPORT_PATH));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreationFailed, &app, [] { QCoreApplication::exit(1); }, Qt::QueuedConnection);
-    engine.loadFromModule("InstalledConsumer", parser.isSet("selection") ? "Selection" : parser.isSet("composition") ? "Composition" : parser.isSet("controls") ? "Controls" : "Main");
+    engine.loadFromModule("InstalledConsumer", parser.isSet("checkbox") ? "Checkbox" : parser.isSet("selection") ? "Selection" : parser.isSet("composition") ? "Composition" : parser.isSet("controls") ? "Controls" : "Main");
     QTimer::singleShot(500, &app, [&engine, &app, &parser, textScale] {
         auto window = qobject_cast<QQuickWindow *>(engine.rootObjects().value(0));
         if (!window) { app.exit(2); return; }
+        if (parser.isSet("checkbox")) { runCheckboxConsumer(window,app,parser,textScale); return; }
         if (parser.isSet("selection")) { runSelectionConsumer(window,app,parser,textScale); return; }
         if (parser.isSet("composition")) { runCompositionConsumer(window,app,parser,textScale); return; }
         if (parser.isSet("controls")) { runControlsConsumer(window,app,parser,textScale); return; }

@@ -111,3 +111,45 @@ class ProposalIntegrity(unittest.TestCase):
         proposal_path.write_text(json.dumps(proposal))
         with self.assertRaisesRegex(AssertionError, "Missing composition API"):
             verifier.verify(self.directory)
+
+
+class CheckboxProposalIntegrity(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.directory = Path(self.temp.name) / "proposal"
+        shutil.copytree(ROOT / "evidence/reference-proposals/checkbox-20261013", self.directory)
+
+    def remove_cases_with_updated_checksums(self, predicate):
+        paths = {name: self.directory / name for name in ["captures.json", "fixtures.json", "api-index.json", "proposal.json"]}
+        captures = json.loads(paths["captures.json"].read_text())
+        removed = [case for case in captures["captures"] if predicate(case)]
+        names = {case["path"] for case in removed}
+        identifiers = {case["fixture"] for case in removed}
+        captures["captures"] = [case for case in captures["captures"] if case["path"] not in names]
+        fixtures = json.loads(paths["fixtures.json"].read_text())
+        fixtures["fixtures"] = [fixture for fixture in fixtures["fixtures"] if fixture["fixture"] not in identifiers]
+        index = json.loads(paths["api-index.json"].read_text())
+        for entry in index.values():
+            entry["captures"] = [name for name in entry["captures"] if name not in names]
+            entry["fixtures"] = [name for name in entry["fixtures"] if name not in identifiers]
+        proposal = json.loads(paths["proposal.json"].read_text())
+        proposal["captures"] = len(captures["captures"])
+        proposal["fixtureDefinitions"] = len(fixtures["fixtures"])
+        for name in names:
+            (self.directory / name).unlink()
+            del proposal["files"][name]
+        for name, value in [("captures.json", captures), ("fixtures.json", fixtures), ("api-index.json", index)]:
+            paths[name].write_text(json.dumps(value))
+            proposal["files"][name] = hashlib.sha256(paths[name].read_bytes()).hexdigest()
+        paths["proposal.json"].write_text(json.dumps(proposal))
+
+    def test_scope_cannot_drop_checkbox_api(self):
+        self.remove_cases_with_updated_checksums(lambda case: case["api"] == "BleeckerCheckbox")
+        with self.assertRaisesRegex(AssertionError, "Missing checkbox API"):
+            verifier.verify(self.directory)
+
+    def test_discovered_size_cannot_be_omitted_from_valid_capture_matrix(self):
+        self.remove_cases_with_updated_checksums(lambda case: case["api"] == "BleeckerCheckbox" and case["size"] == "lg")
+        with self.assertRaisesRegex(AssertionError, "Missing discovered contract combinations"):
+            verifier.verify(self.directory)

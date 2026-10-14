@@ -50,14 +50,16 @@ INI
   fi
   for backend in software opengl; do
     for configuration in standard scaled; do
-    for fixture in base controls composition selection; do
+    for fixture in base controls composition selection checkbox; do
       prefix="$evidence/$protocol-$backend-$configuration"
       if [[ "$fixture" == controls ]]; then prefix="$evidence/controls-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == composition ]]; then prefix="$evidence/composition-$protocol-$backend-$configuration"; fi
+      if [[ "$fixture" == checkbox ]]; then prefix="$evidence/checkbox-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == selection ]]; then prefix="$evidence/selection-$protocol-$backend-$configuration"; fi
       args=(--evidence "$prefix")
       if [[ "$fixture" == controls ]]; then args+=(--controls); fi
       if [[ "$fixture" == composition ]]; then args+=(--composition); fi
+      if [[ "$fixture" == checkbox ]]; then args+=(--checkbox); fi
       if [[ "$fixture" == selection ]]; then args+=(--selection); fi
       export QT_SCALE_FACTOR=1
       if [[ "$configuration" == scaled ]]; then
@@ -116,6 +118,11 @@ elif fixture == 'controls':
 elif fixture == 'composition':
     assert record['compositionChecks'] == 'passed' and record['focusResizeChecks'] == 'passed', record
     assert record['gridColumns'] == 2 and record['tileWidth'] == 251.5, record
+elif fixture == 'checkbox':
+    assert record['checkboxChecks'] == 'passed' and record['focusChecks'] == 'passed', record
+    assert record['qtAccessibilityChecks'] == 'passed' and record['checkedValue'] is True, record
+    assert record['changes'] == 2 and record['wrappedLabelHeight'] > 18, record
+    assert record['wrappedLabelHeight'] == record['wrappedControlHeight'], record
 else:
     assert record['fixture'] == 'selection' and record['selectionChecks'] == 'passed', record
     assert record['focusRestorationChecks'] == 'passed' and record['popupVisible'] is True, record

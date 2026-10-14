@@ -20,7 +20,10 @@ CONTRACT_AXES = {
 COMPOSITION_APIS = {"BleeckerButton", "BleeckerSectionHeader", "BleeckerDashboardSection",
     "BleeckerDashboardGrid", "BleeckerAppShell", "BleeckerFooter", "BleeckerFeedItem", "BleeckerProgressStack"}
 SCOPED_APIS = {"desktop-composition": COMPOSITION_APIS,
-    "desktop-selectors": {"BleeckerButton", "BleeckerSelect"}}
+    "desktop-selectors": {"BleeckerButton", "BleeckerSelect"},
+    "desktop-checkbox": {"BleeckerButton", "BleeckerCheckbox"}}
+
+SCOPED_CONTRACT_AXES = {"desktop-checkbox": {"BleeckerCheckbox": {"size": "BleeckerControlSize"}}}
 
 
 def verify(directory):
@@ -46,7 +49,8 @@ def verify(directory):
     scoped = proposal.get("scope")
     if scoped:
         assert scoped in SCOPED_APIS and manifest.get("scope") == scoped
-        message = "Missing composition API" if scoped == "desktop-composition" else "Missing selector API"
+        message = {"desktop-composition": "Missing composition API", "desktop-selectors": "Missing selector API",
+            "desktop-checkbox": "Missing checkbox API"}[scoped]
         assert {case["api"] for case in captures} == SCOPED_APIS[scoped], message
     keys = set()
     for case in captures:
@@ -74,7 +78,7 @@ def verify(directory):
         assert {(c["appearance"], c["textScale"], c["dpr"]) for c in rows} == set(itertools.product(["light", "dark"], [1, 1.5], expected_dprs))
     discovery = json.loads((ROOT / "reference/api-discovery.json").read_text())["desktop"]
     declarations = {d["name"]: d for d in discovery["declarations"]}
-    for api, axes in CONTRACT_AXES.items():
+    for api, axes in {**CONTRACT_AXES, **SCOPED_CONTRACT_AXES.get(scoped, {})}.items():
         if scoped and api not in SCOPED_APIS[scoped]: continue
         values = []
         for contract in axes.values():

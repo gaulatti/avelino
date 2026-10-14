@@ -4856,47 +4856,2626 @@
       },
       {
         "id": "BleeckerCheckbox",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Controls.swift",
-          "line": 194
+          "line": 194,
+          "captureProposal": "evidence/reference-proposals/checkbox-20261013/proposal.json"
         },
-        "implementation": [],
-        "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
-        "captures": [],
-        "comparisonResults": [],
+        "implementation": [
+          "src/Avelino/BleeckerCheckbox.qml",
+          "src/Avelino/CheckboxGlyph.qml"
+        ],
+        "caseDiscovery": "128 proposed native checkbox captures cover all three discovered sizes, boolean/disabled states, constrained wrapping and empty labels; complete focus, accessibility, input, RTL and font/glyph acceptance pending",
+        "cases": [
+          {
+            "id": "checkbox-sm-unchecked-enabled-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-sm-unchecked-enabled-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-sm-unchecked-enabled-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-sm-unchecked-enabled-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-sm-unchecked-enabled-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-sm-unchecked-enabled-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-sm-unchecked-enabled-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-sm-unchecked-enabled-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-sm-unchecked-enabled-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-sm-unchecked-enabled-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-sm-unchecked-enabled-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-sm-unchecked-enabled-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-sm-unchecked-enabled-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-sm-unchecked-enabled-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-sm-unchecked-enabled-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-sm-unchecked-enabled-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-sm-unchecked-disabled-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-sm-unchecked-disabled-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-sm-unchecked-disabled-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-sm-unchecked-disabled-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-sm-unchecked-disabled-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-sm-unchecked-disabled-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-sm-unchecked-disabled-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-sm-unchecked-disabled-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-sm-unchecked-disabled-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-sm-unchecked-disabled-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-sm-unchecked-disabled-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-sm-unchecked-disabled-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-sm-unchecked-disabled-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-sm-unchecked-disabled-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-sm-unchecked-disabled-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-sm-unchecked-disabled-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-sm-checked-enabled-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-sm-checked-enabled-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-sm-checked-enabled-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-sm-checked-enabled-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-sm-checked-enabled-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-sm-checked-enabled-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-sm-checked-enabled-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-sm-checked-enabled-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-sm-checked-enabled-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-sm-checked-enabled-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-sm-checked-enabled-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-sm-checked-enabled-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-sm-checked-enabled-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-sm-checked-enabled-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-sm-checked-enabled-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-sm-checked-enabled-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-sm-checked-disabled-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-sm-checked-disabled-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-sm-checked-disabled-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-sm-checked-disabled-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-sm-checked-disabled-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-sm-checked-disabled-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-sm-checked-disabled-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-sm-checked-disabled-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-sm-checked-disabled-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-sm-checked-disabled-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-sm-checked-disabled-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-sm-checked-disabled-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-sm-checked-disabled-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-sm-checked-disabled-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-sm-checked-disabled-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-sm-checked-disabled-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-md-unchecked-enabled-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-md-unchecked-enabled-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-md-unchecked-enabled-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-md-unchecked-enabled-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-md-unchecked-enabled-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-md-unchecked-enabled-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-md-unchecked-enabled-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-md-unchecked-enabled-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-md-unchecked-enabled-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-md-unchecked-enabled-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-md-unchecked-enabled-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-md-unchecked-enabled-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-md-unchecked-enabled-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-md-unchecked-enabled-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-md-unchecked-enabled-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-md-unchecked-enabled-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-md-unchecked-disabled-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-md-unchecked-disabled-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-md-unchecked-disabled-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-md-unchecked-disabled-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-md-unchecked-disabled-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-md-unchecked-disabled-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-md-unchecked-disabled-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-md-unchecked-disabled-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-md-unchecked-disabled-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-md-unchecked-disabled-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-md-unchecked-disabled-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-md-unchecked-disabled-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-md-unchecked-disabled-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-md-unchecked-disabled-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-md-unchecked-disabled-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-md-unchecked-disabled-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-md-checked-enabled-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-md-checked-enabled-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-md-checked-enabled-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-md-checked-enabled-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-md-checked-enabled-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-md-checked-enabled-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-md-checked-enabled-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-md-checked-enabled-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-md-checked-enabled-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-md-checked-enabled-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-md-checked-enabled-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-md-checked-enabled-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-md-checked-enabled-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-md-checked-enabled-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-md-checked-enabled-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-md-checked-enabled-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-md-checked-disabled-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-md-checked-disabled-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-md-checked-disabled-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-md-checked-disabled-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-md-checked-disabled-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-md-checked-disabled-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-md-checked-disabled-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-md-checked-disabled-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-md-checked-disabled-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-md-checked-disabled-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-md-checked-disabled-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-md-checked-disabled-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-md-checked-disabled-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-md-checked-disabled-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-md-checked-disabled-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-md-checked-disabled-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-lg-unchecked-enabled-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-lg-unchecked-enabled-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-lg-unchecked-enabled-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-lg-unchecked-enabled-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-lg-unchecked-enabled-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-lg-unchecked-enabled-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-lg-unchecked-enabled-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-lg-unchecked-enabled-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-lg-unchecked-enabled-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-lg-unchecked-enabled-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-lg-unchecked-enabled-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-lg-unchecked-enabled-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-lg-unchecked-enabled-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-lg-unchecked-enabled-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-lg-unchecked-enabled-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-lg-unchecked-enabled-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-lg-unchecked-disabled-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-lg-unchecked-disabled-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-lg-unchecked-disabled-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-lg-unchecked-disabled-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-lg-unchecked-disabled-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-lg-unchecked-disabled-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-lg-unchecked-disabled-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-lg-unchecked-disabled-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-lg-unchecked-disabled-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-lg-unchecked-disabled-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-lg-unchecked-disabled-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-lg-unchecked-disabled-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-lg-unchecked-disabled-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-lg-unchecked-disabled-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-lg-unchecked-disabled-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-lg-unchecked-disabled-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-lg-checked-enabled-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-lg-checked-enabled-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-lg-checked-enabled-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-lg-checked-enabled-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-lg-checked-enabled-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-lg-checked-enabled-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-lg-checked-enabled-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-lg-checked-enabled-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-lg-checked-enabled-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-lg-checked-enabled-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-lg-checked-enabled-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-lg-checked-enabled-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-lg-checked-enabled-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-lg-checked-enabled-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-lg-checked-enabled-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-lg-checked-enabled-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-lg-checked-disabled-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-lg-checked-disabled-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-lg-checked-disabled-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-lg-checked-disabled-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-lg-checked-disabled-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-lg-checked-disabled-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-lg-checked-disabled-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-lg-checked-disabled-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-lg-checked-disabled-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-lg-checked-disabled-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-lg-checked-disabled-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-lg-checked-disabled-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-lg-checked-disabled-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-lg-checked-disabled-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-lg-checked-disabled-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-lg-checked-disabled-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-narrow-false-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-narrow-false-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-narrow-false-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-narrow-false-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-narrow-false-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-narrow-false-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-narrow-false-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-narrow-false-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-narrow-false-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-narrow-false-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-narrow-false-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-narrow-false-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-narrow-false-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-narrow-false-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-narrow-false-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-narrow-false-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-empty-false-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-empty-false-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-empty-false-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-empty-false-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-empty-false-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-empty-false-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-empty-false-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-empty-false-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-empty-false-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-empty-false-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-empty-false-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-empty-false-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-empty-false-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-empty-false-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-empty-false-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-empty-false-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-narrow-true-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-narrow-true-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-narrow-true-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-narrow-true-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-narrow-true-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-narrow-true-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-narrow-true-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-narrow-true-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-narrow-true-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-narrow-true-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-narrow-true-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-narrow-true-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-narrow-true-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-narrow-true-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-narrow-true-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-narrow-true-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-empty-true-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-empty-true-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-empty-true-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-empty-true-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-empty-true-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-empty-true-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-empty-true-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-empty-true-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-empty-true-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-empty-true-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-empty-true-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-empty-true-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-empty-true-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-empty-true-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "checkbox-empty-true-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/checkbox-20261013/checkbox-empty-true-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Candidate evidence; scaled font sizing, wrapped-line spacing, exact pixels and complete native behavior/session/accessibility acceptance remain open."
+          },
+          {
+            "id": "BleeckerCheckbox-light-caller-model",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Synthetic Linux actions and real Qt interface queries do not establish complete native/physical/screen-reader acceptance."
+          },
+          {
+            "id": "BleeckerCheckbox-light-keyboard-pointer",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Synthetic Linux actions and real Qt interface queries do not establish complete native/physical/screen-reader acceptance."
+          },
+          {
+            "id": "BleeckerCheckbox-light-disabled-tab-order",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Synthetic Linux actions and real Qt interface queries do not establish complete native/physical/screen-reader acceptance."
+          },
+          {
+            "id": "BleeckerCheckbox-light-qt-accessibility-interface",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Synthetic Linux actions and real Qt interface queries do not establish complete native/physical/screen-reader acceptance."
+          },
+          {
+            "id": "BleeckerCheckbox-light-rtl",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Synthetic Linux actions and real Qt interface queries do not establish complete native/physical/screen-reader acceptance."
+          },
+          {
+            "id": "BleeckerCheckbox-light-physical-input-screen-reader",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Synthetic Linux actions and real Qt interface queries do not establish complete native/physical/screen-reader acceptance."
+          },
+          {
+            "id": "BleeckerCheckbox-dark-caller-model",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Synthetic Linux actions and real Qt interface queries do not establish complete native/physical/screen-reader acceptance."
+          },
+          {
+            "id": "BleeckerCheckbox-dark-keyboard-pointer",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Synthetic Linux actions and real Qt interface queries do not establish complete native/physical/screen-reader acceptance."
+          },
+          {
+            "id": "BleeckerCheckbox-dark-disabled-tab-order",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Synthetic Linux actions and real Qt interface queries do not establish complete native/physical/screen-reader acceptance."
+          },
+          {
+            "id": "BleeckerCheckbox-dark-qt-accessibility-interface",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Synthetic Linux actions and real Qt interface queries do not establish complete native/physical/screen-reader acceptance."
+          },
+          {
+            "id": "BleeckerCheckbox-dark-rtl",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Synthetic Linux actions and real Qt interface queries do not establish complete native/physical/screen-reader acceptance."
+          },
+          {
+            "id": "BleeckerCheckbox-dark-physical-input-screen-reader",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Synthetic Linux actions and real Qt interface queries do not establish complete native/physical/screen-reader acceptance."
+          }
+        ],
+        "tests": [
+          "tests/components/tst_checkbox.qml",
+          "tests/consumer/Checkbox.qml",
+          "tests/consumer/main.cpp",
+          "tests/contracts/test_proposals.py"
+        ],
+        "captures": [
+          "evidence/development/checkbox/captures/checkbox-sm-unchecked-enabled-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-sm-unchecked-enabled-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-sm-unchecked-enabled-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-sm-unchecked-enabled-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-sm-unchecked-enabled-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-sm-unchecked-enabled-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-sm-unchecked-enabled-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-sm-unchecked-enabled-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-sm-unchecked-disabled-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-sm-unchecked-disabled-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-sm-unchecked-disabled-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-sm-unchecked-disabled-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-sm-unchecked-disabled-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-sm-unchecked-disabled-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-sm-unchecked-disabled-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-sm-unchecked-disabled-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-sm-checked-enabled-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-sm-checked-enabled-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-sm-checked-enabled-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-sm-checked-enabled-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-sm-checked-enabled-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-sm-checked-enabled-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-sm-checked-enabled-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-sm-checked-enabled-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-sm-checked-disabled-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-sm-checked-disabled-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-sm-checked-disabled-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-sm-checked-disabled-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-sm-checked-disabled-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-sm-checked-disabled-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-sm-checked-disabled-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-sm-checked-disabled-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-md-unchecked-enabled-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-md-unchecked-enabled-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-md-unchecked-enabled-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-md-unchecked-enabled-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-md-unchecked-enabled-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-md-unchecked-enabled-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-md-unchecked-enabled-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-md-unchecked-enabled-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-md-unchecked-disabled-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-md-unchecked-disabled-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-md-unchecked-disabled-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-md-unchecked-disabled-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-md-unchecked-disabled-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-md-unchecked-disabled-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-md-unchecked-disabled-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-md-unchecked-disabled-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-md-checked-enabled-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-md-checked-enabled-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-md-checked-enabled-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-md-checked-enabled-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-md-checked-enabled-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-md-checked-enabled-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-md-checked-enabled-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-md-checked-enabled-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-md-checked-disabled-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-md-checked-disabled-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-md-checked-disabled-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-md-checked-disabled-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-md-checked-disabled-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-md-checked-disabled-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-md-checked-disabled-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-md-checked-disabled-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-lg-unchecked-enabled-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-lg-unchecked-enabled-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-lg-unchecked-enabled-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-lg-unchecked-enabled-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-lg-unchecked-enabled-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-lg-unchecked-enabled-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-lg-unchecked-enabled-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-lg-unchecked-enabled-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-lg-unchecked-disabled-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-lg-unchecked-disabled-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-lg-unchecked-disabled-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-lg-unchecked-disabled-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-lg-unchecked-disabled-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-lg-unchecked-disabled-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-lg-unchecked-disabled-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-lg-unchecked-disabled-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-lg-checked-enabled-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-lg-checked-enabled-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-lg-checked-enabled-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-lg-checked-enabled-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-lg-checked-enabled-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-lg-checked-enabled-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-lg-checked-enabled-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-lg-checked-enabled-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-lg-checked-disabled-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-lg-checked-disabled-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-lg-checked-disabled-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-lg-checked-disabled-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-lg-checked-disabled-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-lg-checked-disabled-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-lg-checked-disabled-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-lg-checked-disabled-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-narrow-false-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-narrow-false-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-narrow-false-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-narrow-false-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-narrow-false-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-narrow-false-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-narrow-false-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-narrow-false-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-empty-false-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-empty-false-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-empty-false-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-empty-false-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-empty-false-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-empty-false-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-empty-false-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-empty-false-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-narrow-true-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-narrow-true-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-narrow-true-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-narrow-true-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-narrow-true-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-narrow-true-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-narrow-true-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-narrow-true-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-empty-true-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-empty-true-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-empty-true-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-empty-true-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-empty-true-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-empty-true-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/checkbox/captures/checkbox-empty-true-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/checkbox/captures/checkbox-empty-true-dark-text1.5-offscreen-dpr2.0.png"
+        ],
+        "comparisonResults": [
+          "evidence/development/checkbox/comparison/comparison.json"
+        ],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Offscreen, virtual sessions, synthetic input and Qt interface queries are candidate evidence; full native, physical input, font/glyph and screen-reader acceptance remain pending."
           },
           "x11": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Offscreen, virtual sessions, synthetic input and Qt interface queries are candidate evidence; full native, physical input, font/glyph and screen-reader acceptance remain pending."
           },
           "wayland": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Offscreen, virtual sessions, synthetic input and Qt interface queries are candidate evidence; full native, physical input, font/glyph and screen-reader acceptance remain pending."
           },
           "keyboardPointer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Offscreen, virtual sessions, synthetic input and Qt interface queries are candidate evidence; full native, physical input, font/glyph and screen-reader acceptance remain pending."
           },
           "focusAccessibility": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Offscreen, virtual sessions, synthetic input and Qt interface queries are candidate evidence; full native, physical input, font/glyph and screen-reader acceptance remain pending."
           },
           "displayTextScaling": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Offscreen, virtual sessions, synthetic input and Qt interface queries are candidate evidence; full native, physical input, font/glyph and screen-reader acceptance remain pending."
           },
           "installedConsumer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/checkbox.md",
+              "tests/components/tst_checkbox.qml",
+              "tests/consumer/Checkbox.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "assets/checkbox-symbols.json",
+              "evidence/reference-proposals/checkbox-20261013/proposal.json",
+              "evidence/development/checkbox/candidate.json"
+            ],
+            "notes": "Offscreen, virtual sessions, synthetic input and Qt interface queries are candidate evidence; full native, physical input, font/glyph and screen-reader acceptance remain pending."
           }
         }
       },

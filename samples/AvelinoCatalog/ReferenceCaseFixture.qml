@@ -37,7 +37,7 @@ Window {
                 "BleeckerSectionHeader": sectionHeader, "BleeckerDashboardSection": dashboardSection,
                 "BleeckerDashboardGrid": dashboardGrid, "BleeckerAppShell": appShell,
                 "BleeckerFooter": footer, "BleeckerFeedItem": feed, "BleeckerProgressStack": progressStack,
-                "BleeckerSelect": select
+                "BleeckerSelect": select, "BleeckerCheckbox": checkbox
             }
             if (!components[definition.api]) throw new Error("Unimplemented reference API: " + definition.api)
             return components[definition.api]
@@ -45,6 +45,14 @@ Window {
         onLoaded: item.objectName = "referenceCaseComponent"
     }
     Component { id: button; BleeckerButton { text: "Publish" } }
+    Component {
+        id: checkbox
+        BleeckerCheckbox {
+            size: definition.size; checked: definition.flag; text: definition.text
+            enabled: !definition.variant.endsWith("disabled")
+            width: definition.value > 0 ? definition.value : implicitWidth
+        }
+    }
     Component { id: searchGlyph; SearchGlyph {} }
     Component {
         id: select
