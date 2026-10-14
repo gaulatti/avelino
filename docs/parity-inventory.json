@@ -1055,7 +1055,9 @@
         ],
         "tests": [
           "tests/components/tst_data_display.qml",
-          "tests/consumer/main.cpp"
+          "tests/consumer/main.cpp",
+          "tests/components/tst_native_typography.qml",
+          "tests/components/tst_typography.qml"
         ],
         "captures": [
           "samples/AvelinoCatalog/DataDisplayFixture.qml",
@@ -1309,7 +1311,14 @@
           "evidence/reference-proposals/desktop-20261012/avatar-emoji-dark-text1.5-offscreen-dpr1.0.png",
           "evidence/reference-proposals/desktop-20261012/avatar-emoji-dark-text1.5-offscreen-dpr2.0.png"
         ],
-        "referenceCandidateStatus": "proposed; baseline approval pending"
+        "referenceCandidateStatus": "proposed; baseline approval pending",
+        "diagnostics": [
+          {
+            "evidence": "evidence/development/typography-repair/candidate.json",
+            "status": "measured source typography candidate; complete acceptance pending",
+            "notes": "Bundled-family resolved size, line box, baseline and physical-pixel intrinsic width use 2,160 pinned source probes; exact rasterization, system/fallback fonts, physical input and screen-reader gates remain open."
+          }
+        ]
       },
       {
         "id": "BleeckerBarChart",
@@ -3425,7 +3434,8 @@
           "tests/consumer/main.cpp",
           "tests/components/tst_geometry.qml",
           "tests/components/tst_alignment.qml",
-          "tests/components/tst_typography.qml"
+          "tests/components/tst_typography.qml",
+          "tests/components/tst_native_typography.qml"
         ],
         "captures": [
           "reference/captures/desktop/buttons/captures.json",
@@ -3574,6 +3584,11 @@
             "evidence": "evidence/checkpoints/75cb37a/geometry-change.json",
             "status": "diagnostic; visual acceptance failed",
             "notes": "17 changed-pixel counts improved, 36 stayed equal, 59 increased; complete frames remain compared at zero tolerance"
+          },
+          {
+            "evidence": "evidence/development/typography-repair/candidate.json",
+            "status": "measured source typography candidate; complete acceptance pending",
+            "notes": "Bundled-family resolved size, line box, baseline and physical-pixel intrinsic width use 2,160 pinned source probes; exact rasterization, system/fallback fonts, physical input and screen-reader gates remain open."
           }
         ],
         "referenceCandidates": [
@@ -7242,7 +7257,9 @@
           "tests/components/tst_checkbox.qml",
           "tests/consumer/Checkbox.qml",
           "tests/consumer/main.cpp",
-          "tests/contracts/test_proposals.py"
+          "tests/contracts/test_proposals.py",
+          "tests/components/tst_native_typography.qml",
+          "tests/components/tst_typography.qml"
         ],
         "captures": [
           "evidence/development/checkbox/captures/checkbox-sm-unchecked-enabled-light-text1.0-offscreen-dpr1.0.png",
@@ -7477,7 +7494,14 @@
             ],
             "notes": "Offscreen, virtual sessions, synthetic input and Qt interface queries are candidate evidence; full native, physical input, font/glyph and screen-reader acceptance remain pending."
           }
-        }
+        },
+        "diagnostics": [
+          {
+            "evidence": "evidence/development/typography-repair/candidate.json",
+            "status": "measured source typography candidate; complete acceptance pending",
+            "notes": "Bundled-family resolved size, line box, baseline and physical-pixel intrinsic width use 2,160 pinned source probes; exact rasterization, system/fallback fonts, physical input and screen-reader gates remain open."
+          }
+        ]
       },
       {
         "id": "BleeckerCollectionFilters",
@@ -8026,7 +8050,9 @@
         "tests": [
           "tests/components/tst_composition.qml",
           "tests/consumer/Composition.qml",
-          "tests/consumer/main.cpp"
+          "tests/consumer/main.cpp",
+          "tests/components/tst_native_typography.qml",
+          "tests/components/tst_typography.qml"
         ],
         "captures": [
           "evidence/development/composition/catalog/composition-dark-dpr1.png",
@@ -8079,7 +8105,14 @@
               "evidence/development/composition/candidate.json"
             ]
           }
-        }
+        },
+        "diagnostics": [
+          {
+            "evidence": "evidence/development/typography-repair/candidate.json",
+            "status": "measured source typography candidate; complete acceptance pending",
+            "notes": "Bundled-family resolved size, line box, baseline and physical-pixel intrinsic width use 2,160 pinned source probes; exact rasterization, system/fallback fonts, physical input and screen-reader gates remain open."
+          }
+        ]
       },
       {
         "id": "BleeckerDataList",
@@ -8641,7 +8674,9 @@
         "tests": [
           "tests/components/tst_composition.qml",
           "tests/consumer/Composition.qml",
-          "tests/consumer/main.cpp"
+          "tests/consumer/main.cpp",
+          "tests/components/tst_native_typography.qml",
+          "tests/components/tst_typography.qml"
         ],
         "captures": [
           "evidence/development/composition/catalog/composition-dark-dpr1.png",
@@ -8694,7 +8729,14 @@
               "evidence/development/composition/candidate.json"
             ]
           }
-        }
+        },
+        "diagnostics": [
+          {
+            "evidence": "evidence/development/typography-repair/candidate.json",
+            "status": "measured source typography candidate; complete acceptance pending",
+            "notes": "Bundled-family resolved size, line box, baseline and physical-pixel intrinsic width use 2,160 pinned source probes; exact rasterization, system/fallback fonts, physical input and screen-reader gates remain open."
+          }
+        ]
       },
       {
         "id": "BleeckerField",
@@ -8882,7 +8924,9 @@
         ],
         "tests": [
           "tests/components/tst_form_controls.qml",
-          "tests/consumer/main.cpp"
+          "tests/consumer/main.cpp",
+          "tests/components/tst_native_typography.qml",
+          "tests/components/tst_typography.qml"
         ],
         "captures": [
           "samples/AvelinoCatalog/ControlsFixture.qml",
@@ -9049,7 +9093,14 @@
           "evidence/reference-proposals/desktop-20261012/field-empty-present-dark-text1.0-hosting-dpr2.0.png",
           "evidence/reference-proposals/desktop-20261012/field-empty-present-dark-text1.5-hosting-dpr2.0.png"
         ],
-        "referenceCandidateStatus": "proposed; baseline approval pending"
+        "referenceCandidateStatus": "proposed; baseline approval pending",
+        "diagnostics": [
+          {
+            "evidence": "evidence/development/typography-repair/candidate.json",
+            "status": "measured source typography candidate; complete acceptance pending",
+            "notes": "Bundled-family resolved size, line box, baseline and physical-pixel intrinsic width use 2,160 pinned source probes; exact rasterization, system/fallback fonts, physical input and screen-reader gates remain open."
+          }
+        ]
       },
       {
         "id": "BleeckerFileInput",
@@ -10192,7 +10243,9 @@
         ],
         "tests": [
           "tests/components/tst_surfaces.qml",
-          "tests/consumer/main.cpp"
+          "tests/consumer/main.cpp",
+          "tests/components/tst_native_typography.qml",
+          "tests/components/tst_typography.qml"
         ],
         "captures": [
           "samples/AvelinoCatalog/SurfacesFixture.qml",
@@ -10398,7 +10451,14 @@
           "evidence/reference-proposals/desktop-20261012/notification-100-dark-text1.5-offscreen-dpr1.0.png",
           "evidence/reference-proposals/desktop-20261012/notification-100-dark-text1.5-offscreen-dpr2.0.png"
         ],
-        "referenceCandidateStatus": "proposed; baseline approval pending"
+        "referenceCandidateStatus": "proposed; baseline approval pending",
+        "diagnostics": [
+          {
+            "evidence": "evidence/development/typography-repair/candidate.json",
+            "status": "measured source typography candidate; complete acceptance pending",
+            "notes": "Bundled-family resolved size, line box, baseline and physical-pixel intrinsic width use 2,160 pinned source probes; exact rasterization, system/fallback fonts, physical input and screen-reader gates remain open."
+          }
+        ]
       },
       {
         "id": "BleeckerOTPInput",
@@ -10606,7 +10666,9 @@
         ],
         "tests": [
           "tests/components/tst_surfaces.qml",
-          "tests/consumer/main.cpp"
+          "tests/consumer/main.cpp",
+          "tests/components/tst_native_typography.qml",
+          "tests/components/tst_typography.qml"
         ],
         "captures": [
           "samples/AvelinoCatalog/SurfacesFixture.qml",
@@ -10769,7 +10831,14 @@
           "evidence/reference-proposals/desktop-20261012/panel-empty-dark-text1.5-offscreen-dpr1.0.png",
           "evidence/reference-proposals/desktop-20261012/panel-empty-dark-text1.5-offscreen-dpr2.0.png"
         ],
-        "referenceCandidateStatus": "proposed; baseline approval pending"
+        "referenceCandidateStatus": "proposed; baseline approval pending",
+        "diagnostics": [
+          {
+            "evidence": "evidence/development/typography-repair/candidate.json",
+            "status": "measured source typography candidate; complete acceptance pending",
+            "notes": "Bundled-family resolved size, line box, baseline and physical-pixel intrinsic width use 2,160 pinned source probes; exact rasterization, system/fallback fonts, physical input and screen-reader gates remain open."
+          }
+        ]
       },
       {
         "id": "BleeckerPanelLayout",
@@ -12250,7 +12319,9 @@
         "tests": [
           "tests/components/tst_composition.qml",
           "tests/consumer/Composition.qml",
-          "tests/consumer/main.cpp"
+          "tests/consumer/main.cpp",
+          "tests/components/tst_native_typography.qml",
+          "tests/components/tst_typography.qml"
         ],
         "captures": [
           "evidence/development/composition/catalog/composition-dark-dpr1.png",
@@ -12303,7 +12374,14 @@
               "evidence/development/composition/candidate.json"
             ]
           }
-        }
+        },
+        "diagnostics": [
+          {
+            "evidence": "evidence/development/typography-repair/candidate.json",
+            "status": "measured source typography candidate; complete acceptance pending",
+            "notes": "Bundled-family resolved size, line box, baseline and physical-pixel intrinsic width use 2,160 pinned source probes; exact rasterization, system/fallback fonts, physical input and screen-reader gates remain open."
+          }
+        ]
       },
       {
         "id": "BleeckerSecureField",
@@ -12467,7 +12545,9 @@
         ],
         "tests": [
           "tests/components/tst_form_controls.qml",
-          "tests/consumer/main.cpp"
+          "tests/consumer/main.cpp",
+          "tests/components/tst_native_typography.qml",
+          "tests/components/tst_typography.qml"
         ],
         "captures": [
           "samples/AvelinoCatalog/ControlsFixture.qml",
@@ -12610,7 +12690,14 @@
           "evidence/reference-proposals/desktop-20261012/segments-c-dark-text1.5-offscreen-dpr1.0.png",
           "evidence/reference-proposals/desktop-20261012/segments-c-dark-text1.5-offscreen-dpr2.0.png"
         ],
-        "referenceCandidateStatus": "proposed; baseline approval pending"
+        "referenceCandidateStatus": "proposed; baseline approval pending",
+        "diagnostics": [
+          {
+            "evidence": "evidence/development/typography-repair/candidate.json",
+            "status": "measured source typography candidate; complete acceptance pending",
+            "notes": "Bundled-family resolved size, line box, baseline and physical-pixel intrinsic width use 2,160 pinned source probes; exact rasterization, system/fallback fonts, physical input and screen-reader gates remain open."
+          }
+        ]
       },
       {
         "id": "BleeckerSelect",
@@ -13413,7 +13500,9 @@
         "tests": [
           "tests/components/tst_select.qml",
           "tests/consumer/Selection.qml",
-          "tests/consumer/main.cpp"
+          "tests/consumer/main.cpp",
+          "tests/components/tst_native_typography.qml",
+          "tests/components/tst_typography.qml"
         ],
         "captures": [
           "evidence/development/selection/catalog/selection-dark-dpr1.png",
@@ -13620,7 +13709,14 @@
             ],
             "notes": "Implementation checks are separate from acceptance; native captures/comparisons, physical input, complete cases and accessibility remain pending."
           }
-        }
+        },
+        "diagnostics": [
+          {
+            "evidence": "evidence/development/typography-repair/candidate.json",
+            "status": "measured source typography candidate; complete acceptance pending",
+            "notes": "Bundled-family resolved size, line box, baseline and physical-pixel intrinsic width use 2,160 pinned source probes; exact rasterization, system/fallback fonts, physical input and screen-reader gates remain open."
+          }
+        ]
       },
       {
         "id": "BleeckerSeparator",
@@ -14390,7 +14486,9 @@
         ],
         "tests": [
           "tests/components/tst_surfaces.qml",
-          "tests/consumer/main.cpp"
+          "tests/consumer/main.cpp",
+          "tests/components/tst_native_typography.qml",
+          "tests/components/tst_typography.qml"
         ],
         "captures": [
           "samples/AvelinoCatalog/SurfacesFixture.qml",
@@ -14596,7 +14694,14 @@
           "evidence/reference-proposals/desktop-20261012/status-info-dark-text1.5-offscreen-dpr1.0.png",
           "evidence/reference-proposals/desktop-20261012/status-info-dark-text1.5-offscreen-dpr2.0.png"
         ],
-        "referenceCandidateStatus": "proposed; baseline approval pending"
+        "referenceCandidateStatus": "proposed; baseline approval pending",
+        "diagnostics": [
+          {
+            "evidence": "evidence/development/typography-repair/candidate.json",
+            "status": "measured source typography candidate; complete acceptance pending",
+            "notes": "Bundled-family resolved size, line box, baseline and physical-pixel intrinsic width use 2,160 pinned source probes; exact rasterization, system/fallback fonts, physical input and screen-reader gates remain open."
+          }
+        ]
       },
       {
         "id": "BleeckerStepper",
@@ -14858,7 +14963,9 @@
         ],
         "tests": [
           "tests/components/tst_form_controls.qml",
-          "tests/consumer/main.cpp"
+          "tests/consumer/main.cpp",
+          "tests/components/tst_native_typography.qml",
+          "tests/components/tst_typography.qml"
         ],
         "captures": [
           "samples/AvelinoCatalog/ControlsFixture.qml",
@@ -15025,7 +15132,14 @@
           "evidence/reference-proposals/desktop-20261012/switch-disabled-dark-text1.5-offscreen-dpr1.0.png",
           "evidence/reference-proposals/desktop-20261012/switch-disabled-dark-text1.5-offscreen-dpr2.0.png"
         ],
-        "referenceCandidateStatus": "proposed; baseline approval pending"
+        "referenceCandidateStatus": "proposed; baseline approval pending",
+        "diagnostics": [
+          {
+            "evidence": "evidence/development/typography-repair/candidate.json",
+            "status": "measured source typography candidate; complete acceptance pending",
+            "notes": "Bundled-family resolved size, line box, baseline and physical-pixel intrinsic width use 2,160 pinned source probes; exact rasterization, system/fallback fonts, physical input and screen-reader gates remain open."
+          }
+        ]
       },
       {
         "id": "BleeckerTabs",
@@ -15656,7 +15770,9 @@
         ],
         "tests": [
           "tests/components/tst_data_display.qml",
-          "tests/consumer/main.cpp"
+          "tests/consumer/main.cpp",
+          "tests/components/tst_native_typography.qml",
+          "tests/components/tst_typography.qml"
         ],
         "captures": [
           "samples/AvelinoCatalog/DataDisplayFixture.qml",
@@ -15795,7 +15911,14 @@
           "evidence/reference-proposals/desktop-20261012/timeline-last-wrapped-dark-text1.5-offscreen-dpr1.0.png",
           "evidence/reference-proposals/desktop-20261012/timeline-last-wrapped-dark-text1.5-offscreen-dpr2.0.png"
         ],
-        "referenceCandidateStatus": "proposed; baseline approval pending"
+        "referenceCandidateStatus": "proposed; baseline approval pending",
+        "diagnostics": [
+          {
+            "evidence": "evidence/development/typography-repair/candidate.json",
+            "status": "measured source typography candidate; complete acceptance pending",
+            "notes": "Bundled-family resolved size, line box, baseline and physical-pixel intrinsic width use 2,160 pinned source probes; exact rasterization, system/fallback fonts, physical input and screen-reader gates remain open."
+          }
+        ]
       },
       {
         "id": "BleeckerToggleStyle",
@@ -15953,7 +16076,9 @@
         ],
         "tests": [
           "tests/components/tst_form_controls.qml",
-          "tests/consumer/main.cpp"
+          "tests/consumer/main.cpp",
+          "tests/components/tst_native_typography.qml",
+          "tests/components/tst_typography.qml"
         ],
         "captures": [
           "samples/AvelinoCatalog/ControlsFixture.qml",
@@ -16194,7 +16319,14 @@
           "evidence/reference-proposals/desktop-20261012/toggle-inherited-true-dark-text1.5-offscreen-dpr1.0.png",
           "evidence/reference-proposals/desktop-20261012/toggle-inherited-true-dark-text1.5-offscreen-dpr2.0.png"
         ],
-        "referenceCandidateStatus": "proposed; baseline approval pending"
+        "referenceCandidateStatus": "proposed; baseline approval pending",
+        "diagnostics": [
+          {
+            "evidence": "evidence/development/typography-repair/candidate.json",
+            "status": "measured source typography candidate; complete acceptance pending",
+            "notes": "Bundled-family resolved size, line box, baseline and physical-pixel intrinsic width use 2,160 pinned source probes; exact rasterization, system/fallback fonts, physical input and screen-reader gates remain open."
+          }
+        ]
       },
       {
         "id": "BleeckerTooltip",
@@ -16308,7 +16440,9 @@
         ],
         "tests": [
           "tests/components/tst_surfaces.qml",
-          "tests/consumer/main.cpp"
+          "tests/consumer/main.cpp",
+          "tests/components/tst_native_typography.qml",
+          "tests/components/tst_typography.qml"
         ],
         "captures": [
           "samples/AvelinoCatalog/SurfacesFixture.qml",
@@ -16418,7 +16552,14 @@
           "evidence/reference-proposals/desktop-20261012/eyebrow-dark-text1.5-offscreen-dpr1.0.png",
           "evidence/reference-proposals/desktop-20261012/eyebrow-dark-text1.5-offscreen-dpr2.0.png"
         ],
-        "referenceCandidateStatus": "proposed; baseline approval pending"
+        "referenceCandidateStatus": "proposed; baseline approval pending",
+        "diagnostics": [
+          {
+            "evidence": "evidence/development/typography-repair/candidate.json",
+            "status": "measured source typography candidate; complete acceptance pending",
+            "notes": "Bundled-family resolved size, line box, baseline and physical-pixel intrinsic width use 2,160 pinned source probes; exact rasterization, system/fallback fonts, physical input and screen-reader gates remain open."
+          }
+        ]
       },
       {
         "id": "Text.bleeckerPill",

@@ -108,6 +108,10 @@ if fixture == 'base':
         physical = record[key] * record['dpr']
         assert math.isfinite(physical) and abs(physical - round(physical)) <= 0.00001, (key, physical)
     assert record['fractionalButtonGlyphPixels'] == 13 * record['textScale'], record
+    assert record['sourceFontMetricChecks'] == 'passed', record
+    assert record['resolvedFractionalFontPixels'] == (13 if configuration == 'standard' else 20), record
+    assert record['fractionalFontLineHeight'] == (16 if configuration == 'standard' else 25), record
+    assert record['fractionalFontBaseline'] == (13 if configuration == 'standard' else 21), record
     assert record['foundationChecks'] == 'passed' and record['groupKeyboardChecks'] == 'passed', record
     assert record['cardBadgeChecks'] == 'passed', record
     assert record['dataDisplayChecks'] == 'passed' and record['dataListInputChecks'] == 'passed', record

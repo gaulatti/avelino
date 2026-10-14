@@ -78,10 +78,18 @@ Basic and Fusion checkbox gallery PNGs are byte-identical. The Qt suite passes
 287 checks per DPR (574 total); 34 contract checks pass. All 1,060 earlier
 regression PNGs and component dimensions are unchanged.
 
-Of 128 checkbox captures, 88 component geometries match and zero exact images
-match. The forty remaining geometry differences concern small scaled text,
+At the initial checkbox checkpoint, 88 of 128 component geometries match and zero
+exact images match. The forty geometry differences concern small scaled text,
 medium scaled height and constrained wrapped-line spacing. Eight anchor widths
 also differ. These are recorded failures, with no tolerance or exception.
 The source's regular font weight now overrides a bold host font. The Qt template
 requires an explicit checkbox accessibility role to expose the correct interface;
 the installed consumer verifies role, name, checked state and selected description.
+
+The subsequent [shared typography repair](typography.md) and
+[refreshed evidence](../evidence/development/typography-repair/candidate.json) match all 128 checkbox component geometries and all
+eight button anchors. The small scaled font, medium line height and wrapped line
+spacing now follow measured native rules. Exact images remain 0/136; the raw pixel
+regressions are retained in the case-by-case audit. This supersedes the initial
+geometry failures above without approving the glyph, rasterization or platform
+gates.

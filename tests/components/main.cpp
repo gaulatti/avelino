@@ -15,6 +15,14 @@ public slots:
         const auto cases = QJsonDocument::fromJson(file.readAll()).object().value("cases").toArray();
         if (cases.size() != 8) qFatal("Native geometry evidence is incomplete");
         engine->rootContext()->setContextProperty("nativeGeometry", cases.toVariantList());
+        QFile typography(QStringLiteral(NATIVE_TYPOGRAPHY_FILE));
+        if (!typography.open(QIODevice::ReadOnly)) qFatal("Native typography evidence is missing");
+        const auto data = QJsonDocument::fromJson(typography.readAll()).object();
+        if (data.value("referenceRevision").toString() != "fe8a1d462fbd793d883fb92086a16aa2947e32c9")
+            qFatal("Native typography reference revision differs");
+        const auto fontCases = data.value("cases").toArray();
+        if (fontCases.size() != 2160) qFatal("Native typography evidence is incomplete");
+        engine->rootContext()->setContextProperty("nativeTypography", fontCases.toVariantList());
     }
 };
 QUICK_TEST_MAIN_WITH_SETUP(avelino, FixtureSetup)

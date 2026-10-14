@@ -3,9 +3,11 @@
 #include <QFont>
 #include <QGlyphRun>
 #include <QtQml/qqmlregistration.h>
+#include "pixelalignment.h"
 
 // Avelino's default button label. Qt shapes Unicode; Avelino preserves the
-// requested logical size and design advances before Qt rasterizes each run.
+// requested logical size separately from the measured source font resolution,
+// line boxes and intrinsic view bounds before Qt rasterizes each run.
 class ButtonLabel : public QQuickPaintedItem {
     Q_OBJECT
     QML_ELEMENT
@@ -18,6 +20,8 @@ class ButtonLabel : public QQuickPaintedItem {
     Q_PROPERTY(qreal elideWidth READ elideWidth WRITE setElideWidth NOTIFY elideWidthChanged)
     Q_PROPERTY(qreal unwrappedWidth READ unwrappedWidth NOTIFY unwrappedWidthChanged)
     Q_PROPERTY(qreal logicalPixelSize READ logicalPixelSize NOTIFY layoutChanged)
+    Q_PROPERTY(qreal resolvedPixelSize READ resolvedPixelSize NOTIFY layoutChanged)
+    Q_PROPERTY(qreal glyphAdvance READ glyphAdvance NOTIFY layoutChanged)
     Q_PROPERTY(qreal naturalHeight READ naturalHeight NOTIFY layoutChanged)
     Q_PROPERTY(QString resolvedFamily READ resolvedFamily NOTIFY layoutChanged)
     Q_PROPERTY(QString resolvedStyle READ resolvedStyle NOTIFY layoutChanged)
@@ -39,6 +43,8 @@ public:
     void setElideWidth(qreal width);
     qreal unwrappedWidth() const { return m_unwrappedWidth; }
     qreal logicalPixelSize() const { return m_pixels; }
+    qreal resolvedPixelSize() const { return m_resolvedPixels; }
+    qreal glyphAdvance() const { return m_glyphAdvance; }
     qreal naturalHeight() const { return m_height; }
     QString resolvedFamily() const { return m_family; }
     QString resolvedStyle() const { return m_style; }
@@ -65,10 +71,11 @@ private:
     QString m_text, m_family, m_style;
     QFont m_font;
     QColor m_color = Qt::black;
-    qreal m_pixels = 14, m_height = 0;
+    qreal m_pixels = 14, m_resolvedPixels = 14, m_height = 0, m_glyphAdvance = 0;
     qreal m_tracking = 0;
     qreal m_wrapWidth = -1, m_unwrappedWidth = 0;
     qreal m_lineHeight = 0;
     qreal m_elideWidth = -1;
     QList<Run> m_runs;
+    PixelAlignment m_layoutMetrics;
 };

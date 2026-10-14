@@ -44,6 +44,8 @@ images. Focus outlines, thumb shadow rasterization, inherited toggle label fonts
 editing insets, full constrained segment layouts, RTL, transitions, native text
 scaling, screen readers, context menus and selection/caret states remain pending.
 The scrollbar appearance also needs the native presentation reference and comparison.
+Owned labels use the [measured native font metrics](typography.md); editor caret,
+selection, native insets and system/fallback-font presentation remain separate gates.
 No host theme is used to supply these templates' visual delegates; no visual
 exception is approved.
 

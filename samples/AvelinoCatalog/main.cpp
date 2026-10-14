@@ -27,11 +27,17 @@ static void recordLabels(QQuickItem *root, QJsonArray &labels) {
         const auto font = fontProperty.value<QFont>();
         const auto raw = QRawFont::fromFont(font);
         const auto position = root->mapToScene(QPointF(0, 0));
-        labels.append(QJsonObject{{"role", root->objectName()}, {"text", root->property("text").toString()},
+        QJsonObject record{{"role", root->objectName()}, {"text", root->property("text").toString()},
             {"family", raw.familyName()}, {"style", raw.styleName()}, {"weight", int(font.weight())},
             {"requestedPointSize", font.pointSizeF()}, {"requestedPixelSize", font.pixelSize()},
             {"width", root->width()}, {"height", root->height()}, {"x", position.x()}, {"y", position.y()},
-            {"sceneBaseline", root->mapToScene(QPointF(0, root->baselineOffset())).y()}});
+            {"sceneBaseline", root->mapToScene(QPointF(0, root->baselineOffset())).y()}};
+        if (root->property("resolvedPixelSize").isValid()) {
+            record.insert("requestedLogicalPixelSize",root->property("logicalPixelSize").toDouble());
+            record.insert("resolvedGlyphPixelSize",root->property("resolvedPixelSize").toDouble());
+            record.insert("glyphAdvance",root->property("glyphAdvance").toDouble());
+        }
+        labels.append(record);
     }
     for (auto child : root->childItems()) recordLabels(child, labels);
 }

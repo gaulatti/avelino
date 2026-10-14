@@ -75,7 +75,7 @@ shared by catalog and consumer fixtures. It proposes no library mapping from an
 arbitrary SF Symbol name and grants no visual or distribution acceptance.
 
 The owned text renderer's optional `elideWidth` shapes a single elided line at
-font design-unit precision. Its default `-1` keeps existing typography unchanged.
+font design-unit precision using the [measured source typography rules](typography.md). Its default `-1` keeps existing typography unchanged.
 The selector gives it the allocated width directly, avoiding an implicit-size
 feedback loop. Accents and a multi-code-point emoji appear in the narrow-label
 regression; rendering equivalence remains a separate visual gate.

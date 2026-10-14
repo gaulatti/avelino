@@ -126,11 +126,32 @@ pixel-and-geometry matches remain 40. Shadows, borders, typography and other
 differences remain visible in the reports. No component acceptance changes.
 
 The [checkbox proposal](../evidence/reference-proposals/checkbox-20261013/proposal.json)
-and [candidate evidence](../evidence/development/checkbox/candidate.json) add all
+and [initial candidate evidence](../evidence/development/checkbox/candidate.json) add all
 three checkbox sizes, boolean/disabled states, wrapped and empty labels at both
 appearances, text scales and DPRs. Its 128 checkbox cases have 88 geometry matches
-and zero exact image matches; eight button anchors still differ in width. Small
-scaled typography, medium scaled height and wrapped-line spacing remain failures.
+and zero exact image matches; eight button anchors differ in width at that
+checkpoint. Small scaled typography, medium scaled height and wrapped-line spacing
+are recorded failures there, superseded by the typography results below.
 The scoped verifier requires every discovered control size and both APIs; coherent
 checksum updates cannot hide omission of a size or the checkbox API.
 The matrices now cover all 34 started desktop APIs, without accepting any entry.
+
+The [measured typography repair](typography.md) preserves a
+[fresh full candidate](../evidence/development/typography-repair/candidate.json) for all four matrices:
+
+| Matrix | Geometry matches | Exact image and geometry matches |
+| --- | --- | --- |
+| Desktop proposal | 702/724 | 40/724 |
+| Composition proposal | 248/256 | 60/256 |
+| Selector proposal, including anchors | 80/80 | 0/80 |
+| Checkbox proposal, including anchors | 136/136 | 0/136 |
+
+The separate original button matrix remains 0/112 exact; it has no measured source
+component bounds. The four proposal matrices lose no prior geometry or exact pass.
+Raw changed-pixel counts increase in 22 previously failing cases; all increases,
+decreases and unchanged counts remain in the [audit](../evidence/development/typography-repair/before-after.json).
+The desktop's remaining dimensions concern spinner, inherited system-font toggle
+and button-group cases; the composition's eight present-empty footer cases still
+differ. The eight eyebrow geometries now match after retaining final tracking.
+System fonts, native editing, glyph/rasterization, compositor, physical input and
+screen-reader gates stay open. No baseline or acceptance changes.

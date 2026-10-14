@@ -3,8 +3,11 @@ import QtTest
 import Avelino
 
 Item {
+    id: root
     width: 500; height: 200
+    PixelAlignment { id: metrics; target: root }
     Component { id: component; BleeckerButton { text: "Publish" } }
+    Component { id: eyebrowComponent; BleeckerEyebrow { text: "Cards and badges" } }
     TestCase {
         name: "ButtonLogicalTypography"
         when: windowShown
@@ -23,10 +26,16 @@ Item {
             const button = createTemporaryObject(component, parent, {size:data.size})
             verify(button)
             const label = findChild(button, "bleeckerButtonLabel")
-            const width = label.implicitWidth
             BleeckerTheme.textScale = data.scale
             tryCompare(label, "logicalPixelSize", data.pixels * data.scale)
-            verify(Math.abs(label.implicitWidth - width * data.scale) < 0.000001)
+            const reference = nativeTypography.find(row => row.family === "primary" && row.weight === "medium"
+                && row.mode === "button" && row.requestedSize === data.pixels * data.scale
+                && row.dpr === metrics.devicePixelRatio)
+            verify(reference, "The exact requested size must have a measured source case")
+            compare(label.resolvedPixelSize, reference.metrics.resolvedPointSize)
+            compare(label.implicitWidth, reference.width)
+            compare(label.naturalHeight, reference.height)
+            compare(label.baselineOffset, reference.baseline)
             compare(label.resolvedFamily, "Encode Sans")
             compare(label.resolvedStyle, "Medium")
         }
@@ -35,6 +44,22 @@ Item {
             const label = findChild(button, "bleeckerButtonLabel")
             button.font.pixelSize = 18
             tryCompare(label, "logicalPixelSize", 18)
+        }
+        function test_source_eyebrow_tracking_data() {
+            const rows = []
+            for (const scale of [1, 1.5])
+                for (const dark of [false, true])
+                    rows.push({tag:scale + "-" + dark, scale:scale, dark:dark})
+            return rows
+        }
+        function test_source_eyebrow_tracking(data) {
+            BleeckerTheme.textScale = data.scale; BleeckerTheme.dark = data.dark
+            const label = createTemporaryObject(eyebrowComponent, parent)
+            // All eight pinned desktop eyebrow proposal cases measure 103x12,
+            // including the final 1.15-unit tracking space at both DPRs.
+            compare(label.implicitWidth, 103)
+            compare(label.implicitHeight, 12)
+            BleeckerTheme.dark = false
         }
         function test_literal_label_and_line_break() {
             const button = createTemporaryObject(component, parent)

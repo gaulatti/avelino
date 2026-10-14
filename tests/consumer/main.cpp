@@ -404,7 +404,19 @@ int main(int argc, char **argv) {
         const auto fractional = window->findChild<QQuickItem *>("fractionalButton");
         const auto fractionalLabel = fractional ? fractional->findChild<QQuickItem *>("bleeckerButtonLabel") : nullptr;
         if (!fractionalLabel || std::abs(fractionalLabel->property("logicalPixelSize").toDouble() - 13 * textScale) > 0.000001
-            || fractionalLabel->property("resolvedFamily").toString() != "Encode Sans") { app.exit(19); return; }
+            || fractionalLabel->property("resolvedFamily").toString() != "Encode Sans"
+            || fractionalLabel->property("resolvedPixelSize").toDouble() != std::round(13 * textScale)) { app.exit(19); return; }
+        if (textScale == 1 || textScale == 1.5) {
+            const qreal sourceHeight = textScale == 1 ? 16 : 25;
+            const qreal sourceBaseline = textScale == 1 ? 13 : 21;
+            if (fractionalLabel->property("naturalHeight").toDouble() != sourceHeight
+                || fractionalLabel->baselineOffset() != sourceBaseline) {
+                qCritical("Source font metrics: scale=%.17g height=%.17g expected=%.17g baseline=%.17g expected=%.17g",
+                    double(textScale), fractionalLabel->property("naturalHeight").toDouble(), double(sourceHeight),
+                    double(fractionalLabel->baselineOffset()), double(sourceBaseline));
+                app.exit(94); return;
+            }
+        }
         const qreal dpr = window->effectiveDevicePixelRatio();
         const auto surfaceOrigin = surface->mapToScene(QPointF());
         const auto labelBaseline = label->mapToScene(QPointF(0, label->baselineOffset()));
@@ -432,12 +444,16 @@ int main(int argc, char **argv) {
                 {"buttonLabelBaselineX", labelBaseline.x()}, {"buttonLabelBaselineY", labelBaseline.y()},
                 {"paintPlacementChecks", "passed"},
                 {"fractionalButtonGlyphPixels", fractionalLabel->property("logicalPixelSize").toDouble()},
+                {"resolvedFractionalFontPixels", fractionalLabel->property("resolvedPixelSize").toDouble()},
+                {"fractionalFontLineHeight", fractionalLabel->property("naturalHeight").toDouble()},
+                {"fractionalFontBaseline", fractionalLabel->baselineOffset()},
+                {"sourceFontMetricChecks", "passed"},
                 {"foundationChecks", "passed"}, {"groupKeyboardChecks", "passed"},
                 {"cardBadgeChecks", "passed"},
                 {"dataDisplayChecks", "passed"}, {"dataListInputChecks", "passed"},
                 {"roundedContentClipping", card->property("roundedContentClipping").toBool()},
                 {"roundedClippingAcceptance", "pending; GPU mask and software gap require reference comparison"},
-                {"labelRenderer", "QQuickPaintedItem/QPainter glyph runs at logical font size"},
+                {"labelRenderer", "QQuickPaintedItem/QPainter glyph runs at resolved source font size; requested size retained"},
                 {"behaviorChecks", "passed"}};
             QFile file(path + ".json");
             if (!file.open(QIODevice::WriteOnly)) { app.exit(14); return; }

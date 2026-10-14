@@ -1,0 +1,45 @@
+{
+  "source": "evidence/geometry/native-typography.json",
+  "requestPath": [
+    "BleeckerTheme.textScale or caller font override",
+    "BleeckerFonts.pointSizeForPixels",
+    "OwnedText or BleeckerButton label",
+    "ButtonLabel source-family resolution, shaping and line layout",
+    "QRawFont glyph painting",
+    "component intrinsic sizing and content placement",
+    "catalog reference-case metadata and installed consumer"
+  ],
+  "directOrTransitiveLabelConsumers": [
+    "BleeckerAvatar",
+    "BleeckerButton",
+    "BleeckerCheckbox",
+    "BleeckerDashboardSection",
+    "BleeckerFeedItem",
+    "BleeckerField",
+    "BleeckerNotificationBadge",
+    "BleeckerPanel",
+    "BleeckerSectionHeader",
+    "BleeckerSegmentedControl",
+    "BleeckerSelect",
+    "BleeckerStatusBadge",
+    "BleeckerSwitchStyle",
+    "BleeckerTimelineItem",
+    "BleeckerToggleStyle",
+    "Text.bleeckerEyebrow"
+  ],
+  "unaffectedBoundaries": {
+    "textEditing": "BleeckerTextField/TextArea retain Qt native editing and their existing font paths; fractional editing parity remains pending.",
+    "slotContainers": "Other started components retain their wrappers, constraints and slots; all existing fixture compositions were recaptured because their supplied labels can use the shared renderer.",
+    "tokens": "No token values, reference revisions, source expected images, tolerances or approved exceptions changed.",
+    "backend": "Native library/catalog only; no application backend, persistence, telemetry endpoint or production configuration is affected.",
+    "TV": "No TV implementation or acceptance changes; hardware/decoder/input target is still required."
+  },
+  "tests": [
+    "tests/components/tst_native_typography.qml",
+    "tests/components/tst_typography.qml",
+    "tests/components/tst_form_controls.qml",
+    "tests/consumer/main.cpp",
+    "scripts/check-display-sessions.sh"
+  ],
+  "referenceStatus": "Measured typography probes and existing proposed component references; no baseline adoption or complete component acceptance."
+}

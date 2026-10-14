@@ -40,6 +40,7 @@ Additional candidates and their unresolved acceptance cases are documented in
 and [data display](docs/data-display.md), alongside [form controls](docs/form-controls.md)
 and [desktop composition](docs/composition.md), plus [selectors](docs/selectors.md)
 and [checkboxes](docs/checkbox.md).
+Shared label sizing follows [measured native typography](docs/typography.md).
 Thirty-four of the 80 discovered desktop
 entries have started; no component has passed its complete mirror gate.
-The GitHub wiki has not been initialized; documentation currently lives here.
+The public GitHub wiki remote is unavailable; documentation currently lives here.

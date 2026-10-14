@@ -80,11 +80,11 @@ Item {
             const label = findChild(item,"bleeckerSwitchLabel")
             for (const scale of [1,1.5]) {
                 BleeckerTheme.textScale = scale
-                compare(label.naturalHeight,17.5*scale)
+                compare(label.naturalHeight,scale === 1 ? 17 : 27)
                 fuzzyCompare(label.width,label.unwrappedWidth,0.000001)
             }
             item.width = 48+label.unwrappedWidth/2
-            tryVerify(() => label.naturalHeight>=35*1.5)
+            tryVerify(() => label.naturalHeight>=54)
         }
         function test_toggle_data() {
             const rows = []

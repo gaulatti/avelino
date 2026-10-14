@@ -326,3 +326,42 @@ For the preceding selector repair `67e9262`, the
 passed. The [Linux workflow](https://github.com/gaulatti/avelino/actions/runs/38492804344)
 passed build/runtime/package jobs on both architectures; strict visual comparison
 jobs failed. This is separate from the checkbox's local evidence and future CI.
+
+## Measured typography candidate
+
+The [typography repair](../evidence/development/typography-repair/candidate.json) follows 2,160 pinned native font/Text probes and
+eight existing eyebrow cases. Source font resolution, independently rounded line
+metrics, physical-pixel intrinsic widths and final tracking are carried through
+the shared renderer, public components, catalog metadata and installed package.
+Exact logical metrics avoid the design-unit round trip that produced
+15.999999999999998 for a 16-unit line.
+
+| Matrix | Geometry matches | Exact image and geometry matches |
+| --- | --- | --- |
+| Desktop proposal | 702/724 | 40/724 |
+| Composition proposal | 248/256 | 60/256 |
+| Selector proposal, including anchors | 80/80 | 0/80 |
+| Checkbox proposal, including anchors | 136/136 | 0/136 |
+
+All 2,748 Qt checks, 34 contract checks, five offscreen installed modes and
+40 fresh package-only virtual-session pairs pass. Source/build trees are absent
+from the package-only container; it is read-only apart from temporary build and
+evidence mounts. Sessions distinguish X11/nested Wayland, software/Mesa OpenGL,
+standard/scaled text and display, synthetic input/focus and real Qt interface
+queries. They do not establish physical or screen-reader acceptance.
+
+No geometry or exact-image pass is lost in the four proposal matrices. The
+[audit](../evidence/development/typography-repair/before-after.json) preserves all
+raw pixel regressions (22 cases have higher changed-pixel counts). Original
+buttons remain 0/112 exact. Started coverage stays 34/80 desktop entries with zero
+complete acceptance; television remains separate and pending. Expected images,
+reference pins, tolerances and approved exceptions are unchanged. Relevant
+in-repository docs and the parity inventory are updated; the public wiki remote
+is unavailable. This native library change has no application-backend or metrics
+endpoint impact.
+
+For the preceding checkbox checkpoint `39867a5`, the
+[References workflow](https://github.com/gaulatti/avelino/actions/runs/38496406343)
+passed. Its [Linux workflow](https://github.com/gaulatti/avelino/actions/runs/38496406419)
+passed both architecture build/runtime/package jobs and failed the strict visual
+jobs. Those results are separate from this candidate's local checks and its CI.

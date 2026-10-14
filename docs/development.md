@@ -105,23 +105,27 @@ every component and checks group keyboard navigation, progress geometry, separat
 alpha, frozen skeleton motion, and header/panel composition. Native source images
 and full component acceptance remain pending.
 
-Default button labels now use an owned `ButtonLabel` painted item. Qt shapes
-the text at the font's design-unit size; Avelino scales the advances and line
-metrics to the requested logical size and gives Qt's rasterizer that exact size.
-This avoids rounding a 13 px label at text scale 1.5 to 20 px: it requests 19.5 px.
+Default button labels use an owned `ButtonLabel` painted item. Qt shapes at
+font design-unit precision; the two bundled families now resolve sizes, line
+boxes and intrinsic view bounds using [measured native typography](typography.md).
+The requested logical size remains separate from the source-resolved glyph size.
+For example, a source custom-font request of 19.5 resolves to 20, with a 25-unit
+line box and baseline 21. This corrects the earlier assumption that preserving
+the fractional request as the rendered size reproduced the source.
+
 The control's font remains available to consumers, including explicit pixel-size
-overrides. Glyph runs carry value data across synchronization; the painting
-thread creates its own `QRawFont`, as required by
+overrides. Glyph runs carry value data across synchronization; the painting thread
+creates its own `QRawFont`, as required by
 [Qt's thread-local font contract](https://doc.qt.io/qt-6.8/qrawfont.html).
 
-The typography suite exercises all four button sizes at four text scales,
-consumer font-size overrides, literal markup, and line breaks at DPR 1 and 2.
-The installed consumer includes the 13 px button and records its requested glyph
-size in each display configuration. The catalog accepts `--text-scale` and records
-the label renderer and fractional metrics. These checks do not close glyph
-rasterization, opacity composition, wrapping, custom font/content, accessibility,
-or visual acceptance. Text-field editing still uses Qt's integer pixel-size font
-property, so fractional text-field typography remains pending.
+The typography suite checks all 2,160 measured source cases at their matching DPR,
+all four button sizes at four text scales, consumer font-size overrides, literal
+markup, explicit line heights and wrapping. The installed consumer verifies both
+requested/resolved sizes and source line metrics. Existing catalog fixtures record
+the same fields. Exact rasterization, system/fallback fonts, custom content,
+screen-reader output and complete component acceptance remain pending.
+Text-field and text-area editing still use Qt's native font path; fractional-size
+editing typography requires separate source comparison.
 
 The catalog is a native Qt application; this repository has no browser frontend
 or application server. Application-backend Compose requirements do not apply.
