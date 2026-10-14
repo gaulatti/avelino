@@ -44,10 +44,10 @@ focus; the whole-output capture preserves it as session evidence.
 [Weston's backend documentation](https://wayland.pages.freedesktop.org/weston/toc/running-weston.html)
 describes how its X11 backend composites Wayland surfaces into the parent output.
 Each configuration runs the base fixture, `--controls`, `--composition`,
-`--selection`, `--checkbox`, `--secure-field`, `--search-field` and `--collection-filters` independently; sixty-four
+`--selection`, `--checkbox`, `--secure-field`, `--search-field`, `--collection-filters` and `--slider` independently; seventy-two
 window/full-output pairs cover them.
 The catalog galleries are `--fixture foundations`, `surfaces`, `data-display`,
-`controls`, `composition`, `selection`, `checkbox`, `secure-field`, `search-field` and `collection-filters`; their native
+`controls`, `composition`, `selection`, `checkbox`, `secure-field`, `search-field`, `collection-filters` and `slider`; their native
 comparisons remain pending.
 
 The selector's open `Popup.Item` and scrollbars remain
@@ -145,3 +145,7 @@ Official framework references:
 [Qt control customization](https://doc.qt.io/qt-6.8/qtquickcontrols-customize.html),
 [QML modules](https://doc.qt.io/qt-6.8/qt-add-qml-module.html), and
 [Qt Quick Test](https://doc.qt.io/qt-6.8/qtquicktest-index.html).
+
+The [slider contract](slider.md) adds retained numeric bindings, native template
+input/value interfaces, partial intervals, decimal endpoints and bounded dense
+ticks. Source keyboard equivalence remains explicitly pending.

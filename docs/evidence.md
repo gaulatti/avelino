@@ -458,3 +458,38 @@ included. For preceding search-field commit `b8cb7db`,
 [Linux CI](https://github.com/gaulatti/avelino/actions/runs/38646185524) passed both
 architecture build/runtime/package jobs while all fourteen strict visual jobs
 failed. These results are separate from this checkpoint's local evidence and CI.
+
+## Slider candidate
+
+The [slider checkpoint](../evidence/development/slider/candidate.json) adds the
+horizontal range control using an owned Qt template. A native property adapter
+preserves caller bindings through pointer/drag, Qt keyboard and actual accessibility
+value/action updates. Disabled interface writes are rejected. The exposed caller
+range/value is retained while the input offers the source's integral stepped
+intervals, including `0...1`/step `0.3` ending at `0.8999999999999999` and the
+`0...0.3`/step `0.1` endpoint `0.30000000000000004`. Dense tick rendering is bounded
+by display width; a million-step case is exercised.
+
+The 92-case native matrix has 92/92 matching root bounds and 0/92 exact images. Final values, bounds, step and binding
+update occurrence are verified independently of pixels. The initial protocol
+varied in 20 replay images; it remains preserved with all changed replay pairs.
+The animation-disabled 600 ms v2 protocol reproduced all 93 files byte-for-byte.
+Source helpers use preserved verified objects, not a new full source build, and
+request an active control context explicitly. They did not obtain an active key
+window; six source keyboard cases and the failed probe remain explicit.
+
+All 2,926 Qt checks, 48 contract tests, three invalid-startup cases,
+nine installed offscreen modes and 72 fresh package-only virtual-session pairs
+pass. Eight slider pairs cover both protocols/renderers/display-text scales.
+Default/Basic/Fusion gallery images are identical. All 1,694 earlier offscreen
+PNGs and complete metadata remain unchanged. Started coverage is 39/80 desktop
+APIs, with none accepted. Native keyboard/other missing source contexts, exact
+appearance, physical input/display and actual screen-reader gates stay open.
+
+The public wiki remains unavailable; documentation and inventory are updated in
+this repository. This native library work has no backend, metrics, configuration
+or TV behavior changes. For preceding `aed193d`,
+[References CI](https://github.com/gaulatti/avelino/actions/runs/38649754611) passed;
+[Linux CI](https://github.com/gaulatti/avelino/actions/runs/38649754666) passed both
+architecture build/runtime/package jobs while all sixteen strict visual jobs
+failed. Those results remain separate from this checkpoint's local checks and CI.

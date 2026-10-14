@@ -12,6 +12,12 @@ QtObject {
     readonly property color nativeEditorText: Qt.rgba(dark ? 1 : 0, dark ? 1 : 0, dark ? 1 : 0, 216/255)
     readonly property color nativeEditorPlaceholder: Qt.rgba(dark ? 1 : 0, dark ? 1 : 0, dark ? 1 : 0, (dark ? 140 : 127)/255)
     readonly property color nativeEditorDisabledText: Qt.rgba(dark ? 1 : 0, dark ? 1 : 0, dark ? 1 : 0, 63/255)
+    // Owned Linux presentation of the pinned source slider's system surfaces.
+    readonly property color nativeSliderFill: dark ? "#60a5f5" : "#2b5580"
+    readonly property color nativeSliderTrack: dark ? "#252f37" : "#e6e6e6"
+    readonly property color nativeSliderHandle: dark ? "#dbddde" : "#ffffff"
+    readonly property color nativeSliderTick: dark ? "#485157" : "#bdbdbd"
+    readonly property color nativeSliderDisabledFill: dark ? "#303a40" : "#dadada"
     function alpha(value: color, opacity: real): color {
         return Qt.rgba(value.r, value.g, value.b, value.a * opacity)
     }

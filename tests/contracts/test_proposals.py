@@ -250,3 +250,36 @@ class CollectionFilterProposalIntegrity(unittest.TestCase):
         proposal_path.write_text(json.dumps(proposal))
         with self.assertRaisesRegex(AssertionError, 'Invalid collection selected state'):
             verifier.verify(self.directory)
+
+
+class SliderProposalIntegrity(unittest.TestCase):
+    remove_cases_with_updated_checksums = CheckboxProposalIntegrity.remove_cases_with_updated_checksums
+
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.directory = Path(self.temp.name) / "proposal"
+        shutil.copytree(ROOT / "evidence/reference-proposals/slider-20261014-v2", self.directory)
+
+    def test_source_pointer_case_cannot_be_omitted(self):
+        self.remove_cases_with_updated_checksums(lambda c: c['variant'] == 'clicked-disabled')
+        with self.assertRaisesRegex(AssertionError, 'Missing slider state combinations'):
+            verifier.verify(self.directory)
+
+    def change_manifest(self, mutate):
+        path = self.directory / 'captures.json'
+        manifest = json.loads(path.read_text());mutate(manifest)
+        path.write_text(json.dumps(manifest))
+        proposal_path = self.directory / 'proposal.json';proposal = json.loads(proposal_path.read_text())
+        proposal['files']['captures.json'] = hashlib.sha256(path.read_bytes()).hexdigest()
+        proposal_path.write_text(json.dumps(proposal))
+
+    def test_fractional_endpoint_cannot_be_rounded_away(self):
+        self.change_manifest(lambda m: next(c for c in m['captures'] if c['variant'] == 'clicked-decimal-upper').update(sourceValueAfterAction=0.3))
+        with self.assertRaisesRegex(AssertionError, 'Invalid source slider value'):
+            verifier.verify(self.directory)
+
+    def test_pending_keyboard_gate_cannot_be_closed(self):
+        self.change_manifest(lambda m: m.update(sourceKeyboardStatus='passed'))
+        with self.assertRaisesRegex(AssertionError, 'Source keyboard gate cannot be self-approved'):
+            verifier.verify(self.directory)

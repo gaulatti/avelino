@@ -24,7 +24,8 @@ SCOPED_APIS = {"desktop-composition": COMPOSITION_APIS,
     "desktop-checkbox": {"BleeckerButton", "BleeckerCheckbox"},
     "desktop-secure-field": {"BleeckerButton", "BleeckerSecureField"},
     "desktop-search-field": {"BleeckerButton", "BleeckerTextField", "BleeckerSearchField"},
-    "desktop-collection-filters": {"BleeckerButton", "BleeckerFilterChip", "BleeckerCollectionFilters"}}
+    "desktop-collection-filters": {"BleeckerButton", "BleeckerFilterChip", "BleeckerCollectionFilters"},
+    "desktop-slider": {"BleeckerButton", "BleeckerSlider"}}
 
 SCOPED_CONTRACT_AXES = {"desktop-checkbox": {"BleeckerCheckbox": {"size": "BleeckerControlSize"}}}
 
@@ -54,7 +55,7 @@ def verify(directory):
         assert scoped in SCOPED_APIS and manifest.get("scope") == scoped
         message = {"desktop-composition": "Missing composition API", "desktop-selectors": "Missing selector API",
             "desktop-checkbox": "Missing checkbox API", "desktop-secure-field": "Missing secure-field API",
-            "desktop-search-field": "Missing search-field API", "desktop-collection-filters": "Missing collection-filter API"}[scoped]
+            "desktop-search-field": "Missing search-field API", "desktop-collection-filters": "Missing collection-filter API", "desktop-slider": "Missing slider API"}[scoped]
         assert {case["api"] for case in captures} == SCOPED_APIS[scoped], message
     keys = set()
     for case in captures:
@@ -123,6 +124,24 @@ def verify(directory):
             fonts = case["nativeControlFonts"]
             assert len(fonts) == 1 and fonts[0]["pointSize"] == 14*case["textScale"] and fonts[0]["fontName"] == "EncodeSans-Regular", "Invalid collection editor font"
             assert fonts[0]["enabled"] is not case["flag"], "Invalid collection disabled state"
+    if scoped == "desktop-slider":
+        required = {"continuous", "lower", "upper", "disabled", "narrow", "stepped", "off-grid", "signed", "shifted", "clicked-upper", "clicked-lower", "external", "clicked-disabled", "dense", "dense-narrow", "tiny", "odd", "clicked-odd-upper", "clicked-decimal-upper", "clicked-odd2-upper", "dragged"}
+        assert required <= {f["variant"] for f in fixtures if f["api"] == "BleeckerSlider"}, "Missing slider state combinations"
+        assert manifest.get("sourceKeyboardStatus", "").startswith("pending;"), "Source keyboard gate cannot be self-approved"
+        assert set(manifest.get("unverifiedInputCases", [])) == {"slider-key-right", "slider-key-left", "slider-key-step", "slider-key-signed", "slider-key-disabled", "slider-key-upper"}, "Missing unverified source keyboard cases"
+        for case in captures:
+            if case["api"] != "BleeckerSlider": continue
+            size, variant = case["size"], case["variant"]
+            minimum, maximum = {"signed": (-5, 5), "shifted": (10, 22), "decimal": (0, 0.3)}.get(size, (0, 1))
+            step = {"unit":0,"signed":0.5,"shifted":3,"quarter":0.25,"dense":0.01,"tiny":0.000001,"odd":0.3,"odd2":0.26,"decimal":0.1}[size]
+            assert (case.get("sourceMinimum"), case.get("sourceMaximum"), case.get("sourceStep")) == (minimum, maximum, step), "Invalid source slider range"
+            expected = {"clicked-upper":1,"clicked-lower":0,"external":0.8,"clicked-odd-upper":0.8999999999999999,"clicked-decimal-upper":0.30000000000000004,"clicked-odd2-upper":0.78,"dragged":0.75}.get(variant, float(case["text"]))
+            assert case.get("sourceValueAfterAction") == expected, "Invalid source slider value"
+            updated = (variant.startswith("clicked-") and not case["flag"]) or variant == "dragged"
+            assert case.get("sourceBindingUpdated") is updated and (case.get("sourceUserEdits",0) > 0) is updated, "Invalid source slider binding update"
+            if variant != "dragged":
+                assert case.get("sourceUserEdits") == int(updated), "Invalid source slider callback count"
+            assert case.get("sourceControlActiveState") == "active", "Missing explicit native slider active context"
     discovery = json.loads((ROOT / "reference/api-discovery.json").read_text())["desktop"]
     declarations = {d["name"]: d for d in discovery["declarations"]}
     for api, axes in {**CONTRACT_AXES, **SCOPED_CONTRACT_AXES.get(scoped, {})}.items():

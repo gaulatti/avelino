@@ -35,7 +35,8 @@ def prepare(source, tooling, output, scope=None):
             "desktop-checkbox": {"BleeckerButton", "BleeckerCheckbox"},
             "desktop-secure-field": {"BleeckerButton", "BleeckerSecureField"},
             "desktop-search-field": {"BleeckerButton", "BleeckerTextField", "BleeckerSearchField"},
-    "desktop-collection-filters": {"BleeckerButton", "BleeckerFilterChip", "BleeckerCollectionFilters"}}
+            "desktop-collection-filters": {"BleeckerButton", "BleeckerFilterChip", "BleeckerCollectionFilters"},
+            "desktop-slider": {"BleeckerButton", "BleeckerSlider"}}
         assert scope in allowed, "Unknown reference proposal scope"
         assert {c["api"] for c in manifest["captures"]} == allowed[scope]
         manifest["scope"] = scope
@@ -135,6 +136,6 @@ if __name__ == "__main__":
     parser.add_argument("--captures", required=True)
     parser.add_argument("--tooling", required=True)
     parser.add_argument("--output", required=True)
-    parser.add_argument("--scope", choices=["desktop-composition", "desktop-selectors", "desktop-checkbox", "desktop-secure-field", "desktop-search-field", "desktop-collection-filters"])
+    parser.add_argument("--scope", choices=["desktop-composition", "desktop-selectors", "desktop-checkbox", "desktop-secure-field", "desktop-search-field", "desktop-collection-filters", "desktop-slider"])
     args = parser.parse_args()
     print(f"Prepared {prepare(args.captures, args.tooling, args.output, args.scope)} review candidates; expected images unchanged")

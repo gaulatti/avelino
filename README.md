@@ -40,8 +40,8 @@ Additional candidates and their unresolved acceptance cases are documented in
 and [data display](docs/data-display.md), alongside [form controls](docs/form-controls.md)
 and [desktop composition](docs/composition.md), plus [selectors](docs/selectors.md)
 and [checkboxes](docs/checkbox.md), plus [secure fields](docs/secure-field.md)
-and [search fields](docs/search-field.md), plus [collection filters](docs/collection-filters.md).
+and [search fields](docs/search-field.md), plus [collection filters](docs/collection-filters.md) and [sliders](docs/slider.md).
 Shared label sizing follows [measured native typography](docs/typography.md).
-Thirty-eight of the 80 discovered desktop
+Thirty-nine of the 80 discovered desktop
 entries have started; no component has passed its complete mirror gate.
 The public GitHub wiki remote is unavailable; documentation currently lives here.

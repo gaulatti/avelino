@@ -10,6 +10,8 @@ Window {
     property bool collectionHasChip: definition.variant !== "empty"
     property int collectionActivations: 0
     property int collectionRemovals: 0
+    property real sliderValue: definition.api === "BleeckerSlider" ? Number(definition.text) : 0
+    property int sliderEdits: 0
     readonly property real fixtureTextScale: BleeckerTheme.textScale
     width: definition.width; height: definition.height; visible: true
     color: BleeckerTheme.palette.background
@@ -41,7 +43,7 @@ Window {
                 "BleeckerSectionHeader": sectionHeader, "BleeckerDashboardSection": dashboardSection,
                 "BleeckerDashboardGrid": dashboardGrid, "BleeckerAppShell": appShell,
                 "BleeckerFooter": footer, "BleeckerFeedItem": feed, "BleeckerProgressStack": progressStack,
-                "BleeckerSelect": select, "BleeckerCheckbox": checkbox, "BleeckerSecureField": secureField, "BleeckerSearchField": searchField, "BleeckerFilterChip": filterChip, "BleeckerCollectionFilters": collectionFilters
+                "BleeckerSelect": select, "BleeckerCheckbox": checkbox, "BleeckerSecureField": secureField, "BleeckerSearchField": searchField, "BleeckerFilterChip": filterChip, "BleeckerCollectionFilters": collectionFilters, "BleeckerSlider": slider
             }
             if (definition.api === "BleeckerTextField" && definition.fixture.startsWith("search-text-")) return searchField
             if (!components[definition.api]) throw new Error("Unimplemented reference API: " + definition.api)
@@ -76,6 +78,20 @@ Window {
             text: "Edition"; selected: window.collectionSelected; removable: true
             onClicked: { window.collectionActivations++; window.collectionSelected=!window.collectionSelected }
             onRemoveRequested: { window.collectionRemovals++; window.collectionHasChip=false }
+        }
+    }
+    Component {
+        id: slider
+        BleeckerSlider {
+            width: definition.value; value: window.sliderValue; enabled: !definition.flag
+            from: definition.size === "signed" ? -5 : definition.size === "shifted" ? 10 : 0
+            to: definition.size === "signed" ? 5 : definition.size === "shifted" ? 22 : definition.size === "decimal" ? 0.3 : 1
+            stepSize: {
+                const steps={unit:0,signed:0.5,shifted:3,quarter:0.25,dense:0.01,tiny:0.000001,odd:0.3,odd2:0.26,decimal:0.1}
+                if (!(definition.size in steps)) throw new Error("Unknown slider range fixture: "+definition.size)
+                return steps[definition.size]
+            }
+            onMoved: { window.sliderValue=value;window.sliderEdits++ }
         }
     }
     Component { id: button; BleeckerButton { text: "Publish" } }

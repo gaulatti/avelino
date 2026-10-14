@@ -9,7 +9,7 @@ set(qml_files BleeckerTokens.qml BleeckerTheme.qml BleeckerButton.qml
     BleeckerSectionHeader.qml BleeckerDashboardSection.qml BleeckerDashboardGrid.qml
     BleeckerFooter.qml BleeckerAppShell.qml BleeckerFeedItem.qml BleeckerProgressStack.qml
     BleeckerSelect.qml SelectionGlyph.qml BleeckerCheckbox.qml CheckboxGlyph.qml BleeckerSecureField.qml SecureEyeGlyph.qml BleeckerSearchField.qml InputGlyph.qml
-    BleeckerFilterChip.qml BleeckerCollectionFilters.qml CapsuleContent.qml
+    BleeckerFilterChip.qml BleeckerCollectionFilters.qml CapsuleContent.qml BleeckerSlider.qml
     OwnedText.qml RoundedContent.qml SurfaceShadow.qml attentioncolors.js
     ContinuousSurface.qml continuouscorners.js)
 set_source_files_properties(BleeckerTokens.qml BleeckerTheme.qml PROPERTIES QT_QML_SINGLETON_TYPE TRUE)
@@ -23,7 +23,7 @@ qt_add_library(Avelino SHARED)
 qt_add_qml_module(Avelino URI Avelino VERSION 0.1
     OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/qml/Avelino
     QML_FILES ${qml_files}
-    SOURCES bleeckerfonts.h bleeckerfonts.cpp pixelalignment.h pixelalignment.cpp buttonlabel.h buttonlabel.cpp texttools.h texttools.cpp
+    SOURCES bleeckerfonts.h bleeckerfonts.cpp pixelalignment.h pixelalignment.cpp buttonlabel.h buttonlabel.cpp texttools.h texttools.cpp valuetools.h valuetools.cpp
     RESOURCES ${font_resources})
 target_link_libraries(Avelino PUBLIC Qt6::Core Qt6::Gui Qt6::Qml Qt6::Quick Qt6::QuickControls2)
 target_include_directories(Avelino PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})

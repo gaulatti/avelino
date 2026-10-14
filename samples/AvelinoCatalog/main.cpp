@@ -12,6 +12,7 @@
 #include <QFont>
 #include <QRawFont>
 #include <QQuickItem>
+#include <QMouseEvent>
 #include <QSGRendererInterface>
 #include <cmath>
 
@@ -48,7 +49,7 @@ int main(int argc, char *argv[]) {
     parser.addHelpOption();
     parser.addOptions({QCommandLineOption("capture", "Save the displayed fixture to PNG and exit", "path"),
                        QCommandLineOption("dark", "Use dark reference appearance"),
-                       QCommandLineOption("fixture", "Render a fixture (button, foundations, surfaces, data-display, controls, composition, selection, checkbox, secure-field, search-field, collection-filters or reference-case)", "name"),
+                       QCommandLineOption("fixture", "Render a fixture (button, foundations, surfaces, data-display, controls, composition, selection, checkbox, secure-field, search-field, collection-filters, slider or reference-case)", "name"),
                        QCommandLineOption("case", "Isolated reference fixture identifier", "id"),
                        QCommandLineOption("case-definitions", "JSON file containing the isolated fixture definitions", "path"),
                        QCommandLineOption("variant", "Button variant", "name", "primary"),
@@ -84,8 +85,8 @@ int main(int argc, char *argv[]) {
     engine.rootContext()->setContextProperty("captureTextScale", textScale);
     engine.rootContext()->setContextProperty("captureDefinition", definition.toVariantMap());
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreationFailed, &app, [] { QCoreApplication::exit(1); }, Qt::QueuedConnection);
-    if (parser.isSet("fixture") && fixture != "button" && fixture != "foundations" && fixture != "surfaces" && fixture != "data-display" && fixture != "controls" && fixture != "composition" && fixture != "selection" && fixture != "checkbox" && fixture != "secure-field" && fixture != "search-field" && fixture != "collection-filters" && !isolated) return 4;
-    engine.loadFromModule("AvelinoCatalog", isolated ? "ReferenceCaseFixture" : fixture == "collection-filters" ? "CollectionFiltersFixture" : fixture == "search-field" ? "SearchFieldFixture" : fixture == "secure-field" ? "SecureFieldFixture" : fixture == "checkbox" ? "CheckboxFixture" : fixture == "selection" ? "SelectionFixture" : fixture == "composition" ? "CompositionFixture" : fixture == "controls" ? "ControlsFixture" : fixture == "data-display" ? "DataDisplayFixture" : fixture == "surfaces" ? "SurfacesFixture" : fixture == "foundations" ? "FoundationsFixture"
+    if (parser.isSet("fixture") && fixture != "button" && fixture != "foundations" && fixture != "surfaces" && fixture != "data-display" && fixture != "controls" && fixture != "composition" && fixture != "selection" && fixture != "checkbox" && fixture != "secure-field" && fixture != "search-field" && fixture != "collection-filters" && fixture != "slider" && !isolated) return 4;
+    engine.loadFromModule("AvelinoCatalog", isolated ? "ReferenceCaseFixture" : fixture == "slider" ? "SliderFixture" : fixture == "collection-filters" ? "CollectionFiltersFixture" : fixture == "search-field" ? "SearchFieldFixture" : fixture == "secure-field" ? "SecureFieldFixture" : fixture == "checkbox" ? "CheckboxFixture" : fixture == "selection" ? "SelectionFixture" : fixture == "composition" ? "CompositionFixture" : fixture == "controls" ? "ControlsFixture" : fixture == "data-display" ? "DataDisplayFixture" : fixture == "surfaces" ? "SurfacesFixture" : fixture == "foundations" ? "FoundationsFixture"
         : fixture == "button" ? "ButtonFixture" : "Main");
     if (parser.isSet("capture")) {
         const auto path = parser.value("capture");
@@ -98,6 +99,31 @@ int main(int argc, char *argv[]) {
                 // Native proposal captures are defocused after the action.
                 // Interactive consumers separately verify restored editing focus.
                 field->setFocus(false);
+            });
+        }
+        if (isolated && definition.value("api").toString()=="BleeckerSlider") {
+            QTimer::singleShot(150,&app,[&engine,&app,definition] {
+                const auto window=qobject_cast<QQuickWindow *>(engine.rootObjects().value(0));
+                const auto slider=window ? findVisual(window->contentItem(),"referenceCaseComponent") : nullptr;
+                if (!slider) { app.exit(13);return; }
+                const auto variant=definition.value("variant").toString();
+                if (variant.startsWith("clicked-")) {
+                    const auto point=slider->mapToScene(QPointF(variant.endsWith("upper") ? slider->width()-1 : 1,slider->height()/2));
+                    const auto global=QPointF(window->mapToGlobal(point.toPoint()));
+                    QMouseEvent down(QEvent::MouseButtonPress,point,global,Qt::LeftButton,Qt::LeftButton,Qt::NoModifier);
+                    QMouseEvent up(QEvent::MouseButtonRelease,point,global,Qt::LeftButton,Qt::NoButton,Qt::NoModifier);
+                    QCoreApplication::sendEvent(window,&down);QCoreApplication::sendEvent(window,&up);
+                }
+                if (variant=="dragged") {
+                    const auto start=slider->mapToScene(QPointF(10+0.35*(slider->width()-20),8));
+                    const auto end=slider->mapToScene(QPointF(10+0.75*(slider->width()-20),8));
+                    QMouseEvent down(QEvent::MouseButtonPress,start,QPointF(window->mapToGlobal(start.toPoint())),Qt::LeftButton,Qt::LeftButton,Qt::NoModifier);
+                    QMouseEvent move(QEvent::MouseMove,end,QPointF(window->mapToGlobal(end.toPoint())),Qt::NoButton,Qt::LeftButton,Qt::NoModifier);
+                    QMouseEvent up(QEvent::MouseButtonRelease,end,QPointF(window->mapToGlobal(end.toPoint())),Qt::LeftButton,Qt::NoButton,Qt::NoModifier);
+                    QCoreApplication::sendEvent(window,&down);QCoreApplication::sendEvent(window,&move);QCoreApplication::sendEvent(window,&up);
+                }
+                if (variant=="external") window->setProperty("sliderValue",0.8);
+                slider->setFocus(false);
             });
         }
         if (isolated && definition.value("api").toString()=="BleeckerCollectionFilters") {
@@ -224,6 +250,15 @@ int main(int argc, char *argv[]) {
                 }
                 if (definition.value("fixture").toString().startsWith("search-"))
                     meta.insert("sourceValueAfterAction",component->property("text").toString());
+                if (definition.value("api").toString()=="BleeckerSlider") {
+                    meta.insert("sourceMinimum",component->property("from").toDouble());
+                    meta.insert("sourceMaximum",component->property("to").toDouble());
+                    meta.insert("sourceStep",component->property("stepSize").toDouble());
+                    meta.insert("sourceValueAfterAction",component->property("value").toDouble());
+                    meta.insert("linuxModelEdits",window->property("sliderEdits").toInt());
+                    meta.insert("sourceBindingUpdated",window->property("sliderEdits").toInt()>0);
+                    meta.insert("sourceControlActiveState","active");
+                }
                 if (definition.value("api").toString()=="BleeckerCollectionFilters") {
                     meta.insert("sourceQueryAfterAction",component->property("query").toString());
                     meta.insert("sourceContentAfterAction",window->property("collectionHasChip").toBool());

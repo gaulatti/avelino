@@ -17877,49 +17877,1385 @@
       },
       {
         "id": "BleeckerSlider",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Extended.swift",
           "line": 37
         },
-        "implementation": [],
-        "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
-        "captures": [],
-        "comparisonResults": [],
+        "implementation": [
+          "src/Avelino/BleeckerSlider.qml",
+          "src/Avelino/valuetools.cpp",
+          "src/Avelino/BleeckerTheme.qml"
+        ],
+        "caseDiscovery": "Continuous, stepped, signed/shifted, fractional, dense, pointer/drag/disabled and binding matrices; source keyboard, inactive/natural presentation, physical and reader acceptance pending",
+        "cases": [
+          {
+            "id": "slider-continuous-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-continuous-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-continuous-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-continuous-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-continuous-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-continuous-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-continuous-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-continuous-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-lower-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-lower-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-lower-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-lower-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-lower-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-lower-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-lower-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-lower-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-upper-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-upper-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-upper-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-upper-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-upper-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-upper-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-upper-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-upper-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-disabled-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-disabled-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-disabled-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-disabled-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-disabled-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-disabled-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-disabled-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-disabled-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-narrow-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-narrow-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-narrow-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-narrow-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-narrow-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-narrow-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-narrow-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-narrow-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-stepped-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-stepped-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-stepped-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-stepped-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-stepped-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-stepped-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-stepped-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-stepped-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-off-grid-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-off-grid-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-off-grid-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-off-grid-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-off-grid-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-off-grid-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-off-grid-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-off-grid-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-signed-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-signed-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-signed-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-signed-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-signed-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-signed-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-signed-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-signed-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-shifted-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-shifted-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-shifted-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-shifted-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-shifted-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-shifted-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-shifted-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-shifted-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-clicked-upper-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-clicked-upper-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-clicked-upper-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-clicked-upper-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-clicked-upper-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-clicked-upper-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-clicked-upper-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-clicked-upper-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-clicked-lower-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-clicked-lower-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-clicked-lower-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-clicked-lower-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-clicked-lower-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-clicked-lower-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-clicked-lower-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-clicked-lower-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-external-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-external-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-external-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-external-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-external-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-external-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-external-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-external-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-clicked-disabled-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-clicked-disabled-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-clicked-disabled-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-clicked-disabled-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-clicked-disabled-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-clicked-disabled-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-clicked-disabled-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-clicked-disabled-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-dense-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-dense-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-dense-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-dense-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-dense-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-dense-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-dense-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-dense-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-dense-narrow-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-dense-narrow-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-dense-narrow-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-dense-narrow-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-dense-narrow-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-dense-narrow-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-dense-narrow-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-dense-narrow-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-tiny-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-tiny-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-tiny-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-tiny-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-tiny-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-tiny-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-tiny-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-tiny-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-odd-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-odd-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-odd-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-odd-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-odd-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-odd-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-odd-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-odd-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-clicked-odd-upper-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-clicked-odd-upper-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-clicked-odd-upper-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-clicked-odd-upper-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-clicked-odd-upper-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-clicked-odd-upper-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-clicked-odd-upper-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-clicked-odd-upper-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-clicked-decimal-upper-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-clicked-decimal-upper-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-clicked-decimal-upper-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-clicked-decimal-upper-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-clicked-decimal-upper-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-clicked-decimal-upper-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-clicked-decimal-upper-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-clicked-decimal-upper-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-clicked-odd2-upper-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-clicked-odd2-upper-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-clicked-odd2-upper-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-clicked-odd2-upper-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-clicked-odd2-upper-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-clicked-odd2-upper-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-clicked-odd2-upper-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-clicked-odd2-upper-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-dragged-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-dragged-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-dragged-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-dragged-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-dragged-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-dragged-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-dragged-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/slider-20261014-v2/slider-dragged-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/slider.md",
+              "tests/components/tst_slider.qml",
+              "tests/consumer/sliderchecks.h",
+              "evidence/development/slider/candidate.json"
+            ],
+            "notes": "Source numeric range, interval and final caller state compared separately. Source keyboard, inactive presentation and complete physical/accessibility acceptance pending."
+          },
+          {
+            "id": "slider-key-right",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": null,
+            "evidence": [
+              "docs/slider.md",
+              "evidence/development/slider/source-keyboard-probe.json"
+            ],
+            "notes": "Native helper did not obtain focus; Qt adapter checks do not establish source keyboard equivalence."
+          },
+          {
+            "id": "slider-key-left",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": null,
+            "evidence": [
+              "docs/slider.md",
+              "evidence/development/slider/source-keyboard-probe.json"
+            ],
+            "notes": "Native helper did not obtain focus; Qt adapter checks do not establish source keyboard equivalence."
+          },
+          {
+            "id": "slider-key-step",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": null,
+            "evidence": [
+              "docs/slider.md",
+              "evidence/development/slider/source-keyboard-probe.json"
+            ],
+            "notes": "Native helper did not obtain focus; Qt adapter checks do not establish source keyboard equivalence."
+          },
+          {
+            "id": "slider-key-signed",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": null,
+            "evidence": [
+              "docs/slider.md",
+              "evidence/development/slider/source-keyboard-probe.json"
+            ],
+            "notes": "Native helper did not obtain focus; Qt adapter checks do not establish source keyboard equivalence."
+          },
+          {
+            "id": "slider-key-disabled",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": null,
+            "evidence": [
+              "docs/slider.md",
+              "evidence/development/slider/source-keyboard-probe.json"
+            ],
+            "notes": "Native helper did not obtain focus; Qt adapter checks do not establish source keyboard equivalence."
+          },
+          {
+            "id": "slider-key-upper",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": null,
+            "evidence": [
+              "docs/slider.md",
+              "evidence/development/slider/source-keyboard-probe.json"
+            ],
+            "notes": "Native helper did not obtain focus; Qt adapter checks do not establish source keyboard equivalence."
+          },
+          {
+            "id": "slider-source-inactive",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": null,
+            "evidence": [
+              "docs/slider.md"
+            ],
+            "notes": "Additional source context/input evidence is required; current static active DPR 2 captures do not close this case."
+          },
+          {
+            "id": "slider-source-unconstrained",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": null,
+            "evidence": [
+              "docs/slider.md"
+            ],
+            "notes": "Additional source context/input evidence is required; current static active DPR 2 captures do not close this case."
+          },
+          {
+            "id": "slider-source-rtl",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": null,
+            "evidence": [
+              "docs/slider.md"
+            ],
+            "notes": "Additional source context/input evidence is required; current static active DPR 2 captures do not close this case."
+          },
+          {
+            "id": "slider-source-native-dpr1",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": null,
+            "evidence": [
+              "docs/slider.md"
+            ],
+            "notes": "Additional source context/input evidence is required; current static active DPR 2 captures do not close this case."
+          },
+          {
+            "id": "slider-source-motion",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": null,
+            "evidence": [
+              "docs/slider.md"
+            ],
+            "notes": "Additional source context/input evidence is required; current static active DPR 2 captures do not close this case."
+          },
+          {
+            "id": "slider-source-touch",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": null,
+            "evidence": [
+              "docs/slider.md"
+            ],
+            "notes": "Additional source context/input evidence is required; current static active DPR 2 captures do not close this case."
+          }
+        ],
+        "tests": [
+          "tests/components/tst_slider.qml",
+          "tests/consumer/Slider.qml",
+          "tests/consumer/sliderchecks.h",
+          "tests/components/check-invalid-slider.py"
+        ],
+        "captures": [
+          "evidence/development/slider/captures/slider-continuous-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-continuous-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-continuous-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-continuous-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-lower-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-lower-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-lower-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-lower-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-upper-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-upper-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-upper-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-upper-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-disabled-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-disabled-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-disabled-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-disabled-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-narrow-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-narrow-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-narrow-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-narrow-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-stepped-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-stepped-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-stepped-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-stepped-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-off-grid-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-off-grid-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-off-grid-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-off-grid-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-signed-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-signed-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-signed-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-signed-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-shifted-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-shifted-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-shifted-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-shifted-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-clicked-upper-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-clicked-upper-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-clicked-upper-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-clicked-upper-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-clicked-lower-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-clicked-lower-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-clicked-lower-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-clicked-lower-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-external-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-external-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-external-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-external-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-clicked-disabled-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-clicked-disabled-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-clicked-disabled-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-clicked-disabled-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-dense-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-dense-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-dense-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-dense-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-dense-narrow-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-dense-narrow-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-dense-narrow-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-dense-narrow-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-tiny-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-tiny-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-tiny-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-tiny-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-odd-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-odd-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-odd-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-odd-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-clicked-odd-upper-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-clicked-odd-upper-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-clicked-odd-upper-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-clicked-odd-upper-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-clicked-decimal-upper-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-clicked-decimal-upper-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-clicked-decimal-upper-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-clicked-decimal-upper-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-clicked-odd2-upper-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-clicked-odd2-upper-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-clicked-odd2-upper-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-clicked-odd2-upper-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-dragged-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-dragged-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-dragged-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/slider/captures/slider-dragged-dark-text1.5-hosting-dpr2.0.png"
+        ],
+        "comparisonResults": [
+          "evidence/development/slider/comparison/comparison.json"
+        ],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/slider/candidate.json"
+            ]
           },
           "x11": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/slider/candidate.json"
+            ]
           },
           "wayland": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/slider/candidate.json"
+            ]
           },
           "keyboardPointer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/slider/candidate.json"
+            ]
           },
           "focusAccessibility": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/slider/candidate.json"
+            ]
           },
           "displayTextScaling": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/slider/candidate.json"
+            ]
           },
           "installedConsumer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/slider/candidate.json"
+            ]
           }
-        }
+        },
+        "diagnostics": [
+          {
+            "evidence": "evidence/development/slider/candidate.json",
+            "status": "candidate; complete acceptance pending",
+            "notes": "Native property writes retain bindings; actual Qt value/action interfaces and source fractional endpoints have separate checks. Source keyboard, inactive/natural presentation, exact rasterization, actual readers and physical sessions remain open."
+          }
+        ]
       },
       {
         "id": "BleeckerSparkline",

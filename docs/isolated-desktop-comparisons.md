@@ -186,3 +186,19 @@ retained as differences without tolerances. Started desktop coverage is 38/80,
 with zero complete acceptance. Curved software clipping, source symbols,
 cache/color/compositor behavior, complete editing/RTL, physical input and actual
 screen readers remain pending.
+
+The [slider v2 proposal](../evidence/reference-proposals/slider-20261014-v2/proposal.json)
+and [candidate](../evidence/development/slider/candidate.json) add 84 slider cases
+and eight anchors: 92/92 matching root bounds and 0/92 exact images. The matrix includes actual pointer endpoint,
+disabled, drag and external caller values; the comparator checks range, step,
+final value and whether the binding changed. Integral interval geometry and the
+source's decimal endpoint ULP are preserved. Source/Linux intermediate write
+counts remain separate diagnostics.
+
+The initial protocol replay varied in 20 images. Its source and replay pairs remain
+preserved. The local animation-disabled v2 protocol with 600 ms settlement replayed
+all 93 files byte-for-byte, without changing system preferences. Six source
+keyboard cases remain unverified because the helper did not obtain focus. All
+1,694 earlier offscreen PNG/full metadata pairs remain unchanged. Coverage is
+39/80 desktop APIs started, with none accepted. Remaining source contexts, exact
+appearance, physical input/display and actual screen readers stay open.
