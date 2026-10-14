@@ -74,6 +74,13 @@ class ComparisonBoundaryTests(unittest.TestCase):
         (self.reference / 'captures.json').write_text(json.dumps({'captures': [self.fixture]}))
         self.assertIn('checksum', self.check('failed')['error'])
 
+    def test_post_action_value_fails_even_with_identical_pixels(self):
+        self.fixture['sourceValueAfterAction'] = ''
+        (self.reference / 'captures.json').write_text(json.dumps({'captures': [self.fixture]}))
+        self.metadata['sourceValueAfterAction'] = 'uncleared'
+        self.write_metadata()
+        self.assertIn('sourceValueAfterAction', self.check('failed')['error'])
+
     def test_missing_candidate_and_physical_dimension_change_fail(self):
         (self.candidate / self.name).unlink()
         self.assertIn('Missing', self.check('failed')['error'])

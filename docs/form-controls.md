@@ -7,6 +7,8 @@ has a separate candidate with an owned open popup.
 The [checkbox](checkbox.md) separately covers boolean selection and all three sizes.
 The [secure field](secure-field.md) separately covers masked editing and its
 visibility action with fixed source typography.
+The [search field](search-field.md) covers the magnifier/clear path and the shared
+field's leading/trailing slots, including all sizes and error state.
 
 | Reference API | Linux interface and owned presentation |
 | --- | --- |

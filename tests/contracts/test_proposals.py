@@ -186,3 +186,35 @@ class SecureFieldProposalIntegrity(unittest.TestCase):
         proposal_path.write_text(json.dumps(proposal))
         with self.assertRaisesRegex(AssertionError, "Invalid source reveal/value state"):
             verifier.verify(self.directory)
+
+
+class SearchFieldProposalIntegrity(unittest.TestCase):
+    remove_cases_with_updated_checksums = CheckboxProposalIntegrity.remove_cases_with_updated_checksums
+
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.directory = Path(self.temp.name) / "proposal"
+        shutil.copytree(ROOT / "evidence/reference-proposals/search-field-20261014", self.directory)
+
+    def test_scope_cannot_drop_search_wrapper(self):
+        self.remove_cases_with_updated_checksums(lambda c: c['api'] == 'BleeckerSearchField')
+        with self.assertRaisesRegex(AssertionError, 'Missing search-field API'):
+            verifier.verify(self.directory)
+
+    def test_clear_case_cannot_be_omitted_with_updated_checksums(self):
+        self.remove_cases_with_updated_checksums(lambda c: c['variant'] == 'cleared')
+        with self.assertRaisesRegex(AssertionError, 'Missing search-field state combinations'):
+            verifier.verify(self.directory)
+
+    def test_false_cleared_value_is_rejected_with_updated_checksums(self):
+        path = self.directory / 'captures.json'
+        manifest = json.loads(path.read_text())
+        next(c for c in manifest['captures'] if c['variant'] == 'cleared')['sourceValueAfterAction'] = 'uncleared'
+        path.write_text(json.dumps(manifest))
+        proposal_path = self.directory / 'proposal.json'
+        proposal = json.loads(proposal_path.read_text())
+        proposal['files']['captures.json'] = hashlib.sha256(path.read_bytes()).hexdigest()
+        proposal_path.write_text(json.dumps(proposal))
+        with self.assertRaisesRegex(AssertionError, 'Invalid source clear value'):
+            verifier.verify(self.directory)

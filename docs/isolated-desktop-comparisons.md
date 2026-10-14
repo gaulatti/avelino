@@ -165,3 +165,13 @@ All 1,338 earlier PNGs and full metadata are byte-identical, preserving the prec
 matrix results. Coverage is now 35/80 desktop candidates with zero complete acceptance.
 The native replay's one three-pixel anchor variation is retained and unaccepted;
 all 40 secure-field PNGs replay byte for byte. No expected image or tolerance changes.
+
+The [search-field proposal](../evidence/reference-proposals/search-field-20261014/proposal.json)
+and [candidate](../evidence/development/search-field/candidate.json) add 108 native
+search/shared-field cases plus eight anchors, with 116/116 matching root component bounds and 0/116 exact images.
+The comparator also verifies the actual post-clear caller value. Source clear
+states are captured defocused; runtime fixtures independently verify restored
+editing focus. All 1,390 preceding PNGs and full metadata are unchanged, retaining
+the previous matrix results. Started coverage is 36/80 desktop APIs, with zero
+complete acceptance. Native glyphs/cache/compositor, complete editing/RTL/input
+methods, physical input and screen readers remain pending.

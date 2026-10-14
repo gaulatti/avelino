@@ -12101,49 +12101,421 @@
       },
       {
         "id": "BleeckerSearchField",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Controls.swift",
-          "line": 91
+          "line": 91,
+          "searchCaptureProposal": "evidence/reference-proposals/search-field-20261014/proposal.json"
         },
-        "implementation": [],
-        "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
-        "captures": [],
-        "comparisonResults": [],
+        "implementation": [
+          "src/Avelino/BleeckerSearchField.qml",
+          "src/Avelino/BleeckerTextField.qml",
+          "src/Avelino/InputGlyph.qml"
+        ],
+        "caseDiscovery": "24 native wrapper cases plus shared field search presentation at all three sizes; clear/model, focus, Return and Qt interface candidates; complete native, glyph, editing, RTL/input-method and physical/screen-reader gates pending",
+        "cases": [
+          {
+            "id": "search-wrapper-md-empty-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-wrapper-md-empty-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-wrapper-md-empty-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-wrapper-md-empty-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-wrapper-md-empty-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-wrapper-md-empty-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-wrapper-md-empty-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-wrapper-md-empty-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-wrapper-md-filled-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-wrapper-md-filled-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-wrapper-md-filled-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-wrapper-md-filled-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-wrapper-md-filled-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-wrapper-md-filled-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-wrapper-md-filled-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-wrapper-md-filled-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-wrapper-md-long-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-wrapper-md-long-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-wrapper-md-long-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-wrapper-md-long-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-wrapper-md-long-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-wrapper-md-long-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-wrapper-md-long-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-wrapper-md-long-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-wrapper-md-disabled-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-wrapper-md-disabled-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-wrapper-md-disabled-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-wrapper-md-disabled-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-wrapper-md-disabled-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-wrapper-md-disabled-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-wrapper-md-disabled-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-wrapper-md-disabled-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-wrapper-md-narrow-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-wrapper-md-narrow-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-wrapper-md-narrow-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-wrapper-md-narrow-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-wrapper-md-narrow-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-wrapper-md-narrow-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-wrapper-md-narrow-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-wrapper-md-narrow-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-wrapper-md-cleared-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-wrapper-md-cleared-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-wrapper-md-cleared-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-wrapper-md-cleared-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-wrapper-md-cleared-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-wrapper-md-cleared-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-wrapper-md-cleared-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-wrapper-md-cleared-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          }
+        ],
+        "tests": [
+          "tests/components/tst_search_field.qml",
+          "tests/consumer/SearchField.qml",
+          "tests/consumer/searchfieldchecks.h",
+          "tests/contracts/test_proposals.py",
+          "tests/contracts/test_comparison.py"
+        ],
+        "captures": [
+          "evidence/development/search-field/captures/search-wrapper-md-empty-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-wrapper-md-empty-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-wrapper-md-empty-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-wrapper-md-empty-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-wrapper-md-filled-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-wrapper-md-filled-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-wrapper-md-filled-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-wrapper-md-filled-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-wrapper-md-long-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-wrapper-md-long-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-wrapper-md-long-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-wrapper-md-long-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-wrapper-md-disabled-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-wrapper-md-disabled-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-wrapper-md-disabled-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-wrapper-md-disabled-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-wrapper-md-narrow-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-wrapper-md-narrow-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-wrapper-md-narrow-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-wrapper-md-narrow-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-wrapper-md-cleared-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-wrapper-md-cleared-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-wrapper-md-cleared-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-wrapper-md-cleared-dark-text1.5-hosting-dpr2.0.png"
+        ],
+        "comparisonResults": [
+          "evidence/development/search-field/comparison/comparison.json"
+        ],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/search-field/candidate.json"
+            ]
           },
           "x11": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/search-field/candidate.json"
+            ]
           },
           "wayland": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/search-field/candidate.json"
+            ]
           },
           "keyboardPointer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/search-field/candidate.json"
+            ]
           },
           "focusAccessibility": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/search-field/candidate.json"
+            ]
           },
           "displayTextScaling": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/search-field/candidate.json"
+            ]
           },
           "installedConsumer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/search-field/candidate.json"
+            ]
           }
-        }
+        },
+        "diagnostics": [
+          {
+            "evidence": "evidence/development/search-field/candidate.json",
+            "status": "candidate; complete acceptance pending",
+            "notes": "Leading/trailing slot sizing, default regular font and clear signal/caller boundary; source system-symbol glyphs and complete editing/context-menu/focus/input-method/RTL/reader acceptance remain open."
+          }
+        ]
       },
       {
         "id": "BleeckerSectionHeader",
@@ -16288,7 +16660,8 @@
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Controls.swift",
-          "line": 34
+          "line": 34,
+          "searchCaptureProposal": "evidence/reference-proposals/search-field-20261014/proposal.json"
         },
         "implementation": [
           "src/Avelino/BleeckerTextField.qml"
@@ -16333,12 +16706,1109 @@
               "docs/form-controls.md"
             ],
             "notes": "Linux regression coverage; native comparison and full required states remain pending."
+          },
+          {
+            "id": "search-text-sm-empty-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-sm-empty-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-sm-empty-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-sm-empty-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-sm-empty-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-sm-empty-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-sm-empty-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-sm-empty-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-sm-filled-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-sm-filled-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-sm-filled-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-sm-filled-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-sm-filled-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-sm-filled-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-sm-filled-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-sm-filled-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-sm-long-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-sm-long-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-sm-long-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-sm-long-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-sm-long-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-sm-long-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-sm-long-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-sm-long-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-sm-disabled-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-sm-disabled-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-sm-disabled-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-sm-disabled-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-sm-disabled-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-sm-disabled-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-sm-disabled-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-sm-disabled-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-sm-narrow-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-sm-narrow-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-sm-narrow-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-sm-narrow-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-sm-narrow-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-sm-narrow-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-sm-narrow-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-sm-narrow-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-sm-cleared-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-sm-cleared-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-sm-cleared-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-sm-cleared-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-sm-cleared-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-sm-cleared-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-sm-cleared-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-sm-cleared-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-sm-error-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-sm-error-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-sm-error-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-sm-error-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-sm-error-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-sm-error-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-sm-error-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-sm-error-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-md-empty-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-md-empty-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-md-empty-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-md-empty-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-md-empty-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-md-empty-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-md-empty-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-md-empty-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-md-filled-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-md-filled-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-md-filled-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-md-filled-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-md-filled-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-md-filled-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-md-filled-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-md-filled-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-md-long-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-md-long-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-md-long-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-md-long-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-md-long-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-md-long-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-md-long-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-md-long-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-md-disabled-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-md-disabled-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-md-disabled-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-md-disabled-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-md-disabled-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-md-disabled-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-md-disabled-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-md-disabled-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-md-narrow-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-md-narrow-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-md-narrow-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-md-narrow-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-md-narrow-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-md-narrow-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-md-narrow-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-md-narrow-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-md-cleared-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-md-cleared-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-md-cleared-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-md-cleared-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-md-cleared-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-md-cleared-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-md-cleared-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-md-cleared-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-md-error-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-md-error-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-md-error-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-md-error-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-md-error-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-md-error-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-md-error-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-md-error-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-lg-empty-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-lg-empty-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-lg-empty-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-lg-empty-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-lg-empty-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-lg-empty-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-lg-empty-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-lg-empty-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-lg-filled-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-lg-filled-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-lg-filled-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-lg-filled-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-lg-filled-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-lg-filled-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-lg-filled-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-lg-filled-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-lg-long-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-lg-long-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-lg-long-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-lg-long-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-lg-long-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-lg-long-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-lg-long-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-lg-long-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-lg-disabled-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-lg-disabled-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-lg-disabled-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-lg-disabled-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-lg-disabled-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-lg-disabled-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-lg-disabled-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-lg-disabled-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-lg-narrow-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-lg-narrow-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-lg-narrow-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-lg-narrow-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-lg-narrow-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-lg-narrow-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-lg-narrow-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-lg-narrow-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-lg-cleared-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-lg-cleared-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-lg-cleared-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-lg-cleared-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-lg-cleared-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-lg-cleared-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-lg-cleared-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-lg-cleared-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-lg-error-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-lg-error-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-lg-error-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-lg-error-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-lg-error-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-lg-error-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "search-text-lg-error-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/search-field-20261014/search-text-lg-error-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/search-field.md",
+              "tests/components/tst_search_field.qml",
+              "tests/consumer/searchfieldchecks.h",
+              "evidence/development/search-field/candidate.json"
+            ],
+            "notes": "Source clear action/value, fixed glyph allocation, scaled source size/font; exact pixels and complete native/physical/accessibility acceptance pending."
           }
         ],
         "tests": [
           "tests/components/tst_controls.qml",
           "tests/consumer/main.cpp",
-          "tests/components/tst_form_controls.qml"
+          "tests/components/tst_form_controls.qml",
+          "tests/components/tst_search_field.qml",
+          "tests/consumer/SearchField.qml",
+          "tests/consumer/searchfieldchecks.h",
+          "tests/contracts/test_proposals.py",
+          "tests/contracts/test_comparison.py"
         ],
         "captures": [
           "samples/AvelinoCatalog/ControlsFixture.qml",
@@ -16391,11 +17861,96 @@
           "evidence/development/panel-sizing/captures/textfield-disabled-light-text1.0-hosting-dpr2.0.png",
           "evidence/development/panel-sizing/captures/textfield-disabled-light-text1.5-hosting-dpr2.0.png",
           "evidence/development/panel-sizing/captures/textfield-disabled-dark-text1.0-hosting-dpr2.0.png",
-          "evidence/development/panel-sizing/captures/textfield-disabled-dark-text1.5-hosting-dpr2.0.png"
+          "evidence/development/panel-sizing/captures/textfield-disabled-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-sm-empty-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-sm-empty-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-sm-empty-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-sm-empty-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-sm-filled-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-sm-filled-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-sm-filled-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-sm-filled-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-sm-long-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-sm-long-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-sm-long-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-sm-long-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-sm-disabled-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-sm-disabled-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-sm-disabled-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-sm-disabled-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-sm-narrow-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-sm-narrow-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-sm-narrow-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-sm-narrow-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-sm-cleared-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-sm-cleared-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-sm-cleared-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-sm-cleared-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-sm-error-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-sm-error-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-sm-error-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-sm-error-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-md-empty-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-md-empty-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-md-empty-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-md-empty-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-md-filled-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-md-filled-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-md-filled-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-md-filled-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-md-long-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-md-long-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-md-long-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-md-long-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-md-disabled-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-md-disabled-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-md-disabled-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-md-disabled-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-md-narrow-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-md-narrow-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-md-narrow-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-md-narrow-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-md-cleared-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-md-cleared-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-md-cleared-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-md-cleared-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-md-error-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-md-error-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-md-error-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-md-error-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-lg-empty-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-lg-empty-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-lg-empty-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-lg-empty-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-lg-filled-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-lg-filled-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-lg-filled-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-lg-filled-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-lg-long-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-lg-long-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-lg-long-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-lg-long-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-lg-disabled-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-lg-disabled-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-lg-disabled-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-lg-disabled-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-lg-narrow-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-lg-narrow-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-lg-narrow-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-lg-narrow-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-lg-cleared-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-lg-cleared-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-lg-cleared-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-lg-cleared-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-lg-error-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-lg-error-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-lg-error-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/search-field/captures/search-text-lg-error-dark-text1.5-hosting-dpr2.0.png"
         ],
         "comparisonResults": [
           "evidence/development/isolated-desktop/comparison/comparison.json",
-          "evidence/development/panel-sizing/comparison/comparison.json"
+          "evidence/development/panel-sizing/comparison/comparison.json",
+          "evidence/development/search-field/comparison/comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -16404,7 +17959,8 @@
             "evidence": [
               "evidence/development/form-controls/candidate.json",
               "evidence/development/isolated-desktop/candidate.json",
-              "evidence/development/panel-sizing/candidate.json"
+              "evidence/development/panel-sizing/candidate.json",
+              "evidence/development/search-field/candidate.json"
             ]
           },
           "x11": {
@@ -16413,7 +17969,8 @@
               "evidence/checkpoints/68a5dfb/checkpoint.json",
               "scripts/check-display-sessions.sh",
               "https://github.com/gaulatti/avelino/actions/runs/38199378037",
-              "evidence/development/form-controls/candidate.json"
+              "evidence/development/form-controls/candidate.json",
+              "evidence/development/search-field/candidate.json"
             ],
             "notes": "Initial installed consumer virtual-session checks only. Full component cases, real input delivery, accessibility, overlays, and visual parity remain pending."
           },
@@ -16423,7 +17980,8 @@
               "evidence/checkpoints/68a5dfb/checkpoint.json",
               "scripts/check-display-sessions.sh",
               "https://github.com/gaulatti/avelino/actions/runs/38199378037",
-              "evidence/development/form-controls/candidate.json"
+              "evidence/development/form-controls/candidate.json",
+              "evidence/development/search-field/candidate.json"
             ],
             "notes": "Initial installed consumer virtual-session checks only. Full component cases, real input delivery, accessibility, overlays, and visual parity remain pending."
           },
@@ -16433,7 +17991,8 @@
               "evidence/checkpoints/68a5dfb/checkpoint.json",
               "scripts/check-display-sessions.sh",
               "https://github.com/gaulatti/avelino/actions/runs/38199378037",
-              "evidence/development/form-controls/candidate.json"
+              "evidence/development/form-controls/candidate.json",
+              "evidence/development/search-field/candidate.json"
             ],
             "notes": "Initial installed consumer virtual-session checks only. Full component cases, real input delivery, accessibility, overlays, and visual parity remain pending."
           },
@@ -16443,7 +18002,8 @@
               "evidence/checkpoints/68a5dfb/checkpoint.json",
               "scripts/check-display-sessions.sh",
               "https://github.com/gaulatti/avelino/actions/runs/38199378037",
-              "evidence/development/form-controls/candidate.json"
+              "evidence/development/form-controls/candidate.json",
+              "evidence/development/search-field/candidate.json"
             ],
             "notes": "Initial installed consumer virtual-session checks only. Full component cases, real input delivery, accessibility, overlays, and visual parity remain pending."
           },
@@ -16453,14 +18013,16 @@
               "evidence/checkpoints/68a5dfb/checkpoint.json",
               "scripts/check-display-sessions.sh",
               "https://github.com/gaulatti/avelino/actions/runs/38199378037",
-              "evidence/development/form-controls/candidate.json"
+              "evidence/development/form-controls/candidate.json",
+              "evidence/development/search-field/candidate.json"
             ],
             "notes": "Initial installed consumer virtual-session checks only. Full component cases, real input delivery, accessibility, overlays, and visual parity remain pending."
           },
           "installedConsumer": {
             "status": "pending",
             "evidence": [
-              "evidence/development/form-controls/candidate.json"
+              "evidence/development/form-controls/candidate.json",
+              "evidence/development/search-field/candidate.json"
             ]
           }
         },
@@ -16490,7 +18052,14 @@
           "evidence/reference-proposals/desktop-20261012/textfield-disabled-dark-text1.0-hosting-dpr2.0.png",
           "evidence/reference-proposals/desktop-20261012/textfield-disabled-dark-text1.5-hosting-dpr2.0.png"
         ],
-        "referenceCandidateStatus": "proposed; baseline approval pending"
+        "referenceCandidateStatus": "proposed; baseline approval pending",
+        "diagnostics": [
+          {
+            "evidence": "evidence/development/search-field/candidate.json",
+            "status": "candidate; complete acceptance pending",
+            "notes": "Leading/trailing slot sizing, default regular font and clear signal/caller boundary; source system-symbol glyphs and complete editing/context-menu/focus/input-method/RTL/reader acceptance remain open."
+          }
+        ]
       },
       {
         "id": "BleeckerTimelineItem",

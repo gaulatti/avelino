@@ -26,10 +26,10 @@ Weston Wayland compositor nested on it. It saves whole-output and window capture
 for software/OpenGL rendering at two display/text scales. Source and build trees
 remain absent. Metadata explicitly identifies virtual displays, Mesa software
 rendering, synthetic input, and the still-pending overlay/accessibility checks.
-The harness runs six independent windows in each configuration: the base library
+The harness runs seven independent windows in each configuration: the base library
 fixture, `InstalledConsumer --controls`, `InstalledConsumer --composition` and
 `InstalledConsumer --selection`, `InstalledConsumer --checkbox` and
-`InstalledConsumer --secure-field`. Their forty-eight capture pairs keep
+`InstalledConsumer --secure-field` and `InstalledConsumer --search-field`. Their fifty-six capture pairs keep
 form editing, scrolling, switch/toggle actions, disabled segmented options and
 focus restoration separate from the base composition checks. The controls fixture
 exercises the multiline editor's owned scrollbar. The selector fixture exercises
@@ -40,13 +40,15 @@ wrapping and the real Qt accessibility role/name/checked-state interface.
 The secure-field fixture checks immediate masking, caller-model editing,
 reveal/hide, disabled input, clipboard behavior, keyboard traversal and the actual
 Qt password/value/action interfaces. Screen-reader output remains separate.
+The search fixture checks caller editing, pointer/keyboard clear, empty-action
+removal, disabled traversal, Return, fixed slots and actual Qt interfaces.
 Screen-reader output remains a separate unaccepted gate.
 Context menus and separate-window overlays
 remain unimplemented and cannot pass their gate through these captures.
 The composition fixture checks ordered adaptive-grid reflow and focus through
 window resizing, plus section/action, shell, footer, feed and progress slots.
 These runtime checks do not close their native visual comparisons.
-The package includes the original selection/checkbox/secure-field-symbol candidates' provenance records;
+The package includes the original selection/checkbox/secure-field/search-field-symbol candidates' provenance records;
 their source equivalence and distribution acceptance remain pending.
 The X11 output is 1920 × 1400 and the nested Wayland output 1760 × 1280.
 The harness checks that each complete scaled client fits with room for decorations;

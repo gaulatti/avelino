@@ -397,3 +397,33 @@ For typography `b31551b`, [References CI](https://github.com/gaulatti/avelino/ac
 passed and [Linux CI](https://github.com/gaulatti/avelino/actions/runs/38638734175)
 passed both x64/ARM64 build/runtime/package jobs. Its ten strict visual jobs failed.
 Those results are separate from this candidate's local checks and future CI.
+
+## Search-field candidate
+
+The [search-field checkpoint](../evidence/development/search-field/candidate.json)
+adds the magnifier and conditional clear action through shared text-field slots.
+Pointer/keyboard clear updates the caller once and restores focus. Empty slots
+restore padding and height; default regular typography overrides a bold ancestor
+while explicit caller fonts remain available. Coverage is 36/80 desktop candidates;
+none are accepted.
+
+The 116-case native matrix covers search plus shared-field sizes/error states,
+with 116/116 matching root component bounds and 0/116 exact images. Post-action values are compared independently of
+pixels. All 108 field PNGs and data replay byte-identically; one scaled DPR 1 anchor
+varies by three pixels at channel level one, retained without a tolerance or baseline
+update. All 1,390 earlier PNGs and complete metadata remain unchanged.
+
+All 2,846 Qt checks, 41 contract tests, seven installed offscreen modes and 56 fresh
+package-only session pairs pass. Eight search pairs exercise model editing, clear,
+Return, disabled traversal, fixed slots and actual Qt editor/action interfaces.
+Default/Basic/Fusion DPR 2 gallery PNGs are identical. Installed symbol provenance
+is checked against the source. Native glyph/cache/compositor, custom-font and
+complete editing/RTL/input-method, physical input/display and actual screen-reader
+gates remain pending. Documentation and inventory are updated in-repository;
+the public wiki remote is unavailable. This native UI change has no backend,
+metrics endpoint, configuration or TV behavior impact.
+
+For secure field `02ac648`, [References CI](https://github.com/gaulatti/avelino/actions/runs/38643225493)
+passed and [Linux CI](https://github.com/gaulatti/avelino/actions/runs/38643225490)
+passed both architecture build/runtime/package jobs while all twelve strict visual
+jobs failed. Those results remain separate from this checkpoint's local checks and CI.

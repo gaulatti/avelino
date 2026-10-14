@@ -37,12 +37,17 @@ Window {
                 "BleeckerSectionHeader": sectionHeader, "BleeckerDashboardSection": dashboardSection,
                 "BleeckerDashboardGrid": dashboardGrid, "BleeckerAppShell": appShell,
                 "BleeckerFooter": footer, "BleeckerFeedItem": feed, "BleeckerProgressStack": progressStack,
-                "BleeckerSelect": select, "BleeckerCheckbox": checkbox, "BleeckerSecureField": secureField
+                "BleeckerSelect": select, "BleeckerCheckbox": checkbox, "BleeckerSecureField": secureField, "BleeckerSearchField": searchField
             }
+            if (definition.api === "BleeckerTextField" && definition.fixture.startsWith("search-text-")) return searchField
             if (!components[definition.api]) throw new Error("Unimplemented reference API: " + definition.api)
             return components[definition.api]
         }
         onLoaded: item.objectName = "referenceCaseComponent"
+    }
+    Component {
+        id: searchField
+        BleeckerSearchField { width: definition.value; size: definition.size; error: definition.variant === "error"; text: definition.text; placeholderText: "Search editions"; enabled: !definition.flag }
     }
     Component { id: button; BleeckerButton { text: "Publish" } }
     Component {

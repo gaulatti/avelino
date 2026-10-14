@@ -22,7 +22,8 @@ COMPOSITION_APIS = {"BleeckerButton", "BleeckerSectionHeader", "BleeckerDashboar
 SCOPED_APIS = {"desktop-composition": COMPOSITION_APIS,
     "desktop-selectors": {"BleeckerButton", "BleeckerSelect"},
     "desktop-checkbox": {"BleeckerButton", "BleeckerCheckbox"},
-    "desktop-secure-field": {"BleeckerButton", "BleeckerSecureField"}}
+    "desktop-secure-field": {"BleeckerButton", "BleeckerSecureField"},
+    "desktop-search-field": {"BleeckerButton", "BleeckerTextField", "BleeckerSearchField"}}
 
 SCOPED_CONTRACT_AXES = {"desktop-checkbox": {"BleeckerCheckbox": {"size": "BleeckerControlSize"}}}
 
@@ -51,7 +52,8 @@ def verify(directory):
     if scoped:
         assert scoped in SCOPED_APIS and manifest.get("scope") == scoped
         message = {"desktop-composition": "Missing composition API", "desktop-selectors": "Missing selector API",
-            "desktop-checkbox": "Missing checkbox API", "desktop-secure-field": "Missing secure-field API"}[scoped]
+            "desktop-checkbox": "Missing checkbox API", "desktop-secure-field": "Missing secure-field API",
+            "desktop-search-field": "Missing search-field API"}[scoped]
         assert {case["api"] for case in captures} == SCOPED_APIS[scoped], message
     keys = set()
     for case in captures:
@@ -89,6 +91,19 @@ def verify(directory):
             assert len(fonts) == 1 and fonts[0]["secure"] is not revealed, "Invalid native secure/plain editor"
             assert fonts[0]["pointSize"] == 14 and fonts[0]["fontName"] == "EncodeSans-Regular", "Invalid native secure-field font"
             assert fonts[0]["enabled"] is not case["flag"], "Invalid native disabled state"
+    if scoped == "desktop-search-field":
+        for api in ["BleeckerSearchField", "BleeckerTextField"]:
+            required = {"empty", "filled", "long", "disabled", "narrow", "cleared"} | ({"error"} if api == "BleeckerTextField" else set())
+            sizes = ["sm", "md", "lg"] if api == "BleeckerTextField" else ["md"]
+            assert {(size, state) for size in sizes for state in required} <= {(f["size"], f["variant"]) for f in fixtures if f["api"] == api}, "Missing search-field state combinations"
+        for case in captures:
+            if case["api"] == "BleeckerButton": continue
+            cleared = case["variant"] == "cleared"
+            assert case.get("clearButtonActivated") is cleared and case.get("sourceBindingChecked") is True, "Invalid source clear state"
+            assert case.get("sourceValueAfterAction") == ("" if cleared else case["text"]), "Invalid source clear value"
+            fonts = case["nativeControlFonts"]
+            assert len(fonts) == 1 and fonts[0]["secure"] is False and fonts[0]["enabled"] is not case["flag"], "Invalid native search editor"
+            assert fonts[0]["pointSize"] == (12 if case["size"] == "sm" else 14) * case["textScale"] and fonts[0]["fontName"] == "EncodeSans-Regular", "Invalid native search font"
     discovery = json.loads((ROOT / "reference/api-discovery.json").read_text())["desktop"]
     declarations = {d["name"]: d for d in discovery["declarations"]}
     for api, axes in {**CONTRACT_AXES, **SCOPED_CONTRACT_AXES.get(scoped, {})}.items():

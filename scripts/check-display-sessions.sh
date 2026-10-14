@@ -50,18 +50,20 @@ INI
   fi
   for backend in software opengl; do
     for configuration in standard scaled; do
-    for fixture in base controls composition selection checkbox secure-field; do
+    for fixture in base controls composition selection checkbox secure-field search-field; do
       prefix="$evidence/$protocol-$backend-$configuration"
       if [[ "$fixture" == controls ]]; then prefix="$evidence/controls-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == composition ]]; then prefix="$evidence/composition-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == checkbox ]]; then prefix="$evidence/checkbox-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == secure-field ]]; then prefix="$evidence/secure-field-$protocol-$backend-$configuration"; fi
+      if [[ "$fixture" == search-field ]]; then prefix="$evidence/search-field-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == selection ]]; then prefix="$evidence/selection-$protocol-$backend-$configuration"; fi
       args=(--evidence "$prefix")
       if [[ "$fixture" == controls ]]; then args+=(--controls); fi
       if [[ "$fixture" == composition ]]; then args+=(--composition); fi
       if [[ "$fixture" == checkbox ]]; then args+=(--checkbox); fi
       if [[ "$fixture" == secure-field ]]; then args+=(--secure-field); fi
+      if [[ "$fixture" == search-field ]]; then args+=(--search-field); fi
       if [[ "$fixture" == selection ]]; then args+=(--selection); fi
       export QT_SCALE_FACTOR=1
       if [[ "$configuration" == scaled ]]; then
@@ -134,6 +136,11 @@ elif fixture == 'secure-field':
         assert record[key] == 'passed', record
     assert record['sourceHeight'] == 40 and record['fontPointSize'] == 10.5, record
     assert record['revealed'] is True, record
+elif fixture == 'search-field':
+    for key in ['searchFieldChecks','clearBindingChecks','focusChecks','qtAccessibilityChecks']:
+        assert record[key] == 'passed', record
+    assert record['sourceHeight'] == 40*record['textScale'], record
+    assert record['leadingWidth'] == 16.5 and record['clearWidth'] == 18.5, record
 else:
     assert record['fixture'] == 'selection' and record['selectionChecks'] == 'passed', record
     assert record['focusRestorationChecks'] == 'passed' and record['popupVisible'] is True, record

@@ -1,0 +1,86 @@
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Performing Test HAVE_STDATOMIC
+-- Performing Test HAVE_STDATOMIC - Success
+-- Found WrapAtomic: TRUE  
+-- Found OpenGL: /usr/lib/aarch64-linux-gnu/libOpenGL.so   
+-- Found WrapOpenGL: TRUE  
+-- Could NOT find XKB (missing: XKB_LIBRARY XKB_INCLUDE_DIR) (Required is at least version "0.5.0")
+-- Could NOT find WrapVulkanHeaders (missing: Vulkan_INCLUDE_DIR) 
+-- Could NOT find WrapVulkanHeaders (missing: Vulkan_INCLUDE_DIR) 
+-- Configuring done (0.5s)
+-- Generating done (0.0s)
+-- Build files have been written to: /tmp/package/consumer-build
+[1/35] Copying InstalledConsumer qml resources into build dir
+[2/35] Copying InstalledConsumer qml sources into build dir
+[3/35] Running qmlimportscanner for InstalledConsumer
+[4/35] Automatic MOC and UIC for target InstalledConsumer
+[5/35] Running rcc for resource qmake_InstalledConsumer
+[6/35] Generating .rcc/qmlcache/InstalledConsumer_qmlcache_loader.cpp
+[7/35] Running rcc for resource consumer_fixture_assets
+[8/35] Running AUTOMOC file extraction for target InstalledConsumer
+[9/35] Running rcc for resource InstalledConsumer_raw_qml_0
+[10/35] Running moc --collect-json for target InstalledConsumer
+[11/35] Automatic QML type registration for target InstalledConsumer
+[12/35] Generating .rcc/qmlcache/InstalledConsumer_Controls_qml.cpp, .rcc/qmlcache/InstalledConsumer_Controls_qml.cpp.aotstats
+[13/35] Generating .rcc/qmlcache/InstalledConsumer_Main_qml.cpp, .rcc/qmlcache/InstalledConsumer_Main_qml.cpp.aotstats
+[14/35] Generating .rcc/qmlcache/InstalledConsumer_Composition_qml.cpp, .rcc/qmlcache/InstalledConsumer_Composition_qml.cpp.aotstats
+[15/35] Generating .rcc/qmlcache/InstalledConsumer_Selection_qml.cpp, .rcc/qmlcache/InstalledConsumer_Selection_qml.cpp.aotstats
+[16/35] Generating .rcc/qmlcache/InstalledConsumer_Checkbox_qml.cpp, .rcc/qmlcache/InstalledConsumer_Checkbox_qml.cpp.aotstats
+[17/35] Generating .rcc/qmlcache/InstalledConsumer_SecureField_qml.cpp, .rcc/qmlcache/InstalledConsumer_SecureField_qml.cpp.aotstats
+[18/35] Generating .rcc/qmlcache/InstalledConsumer_SearchField_qml.cpp, .rcc/qmlcache/InstalledConsumer_SearchField_qml.cpp.aotstats
+[19/35] Generating .rcc/qmlcache/InstalledConsumer_SearchGlyph_qml.cpp, .rcc/qmlcache/InstalledConsumer_SearchGlyph_qml.cpp.aotstats
+[20/35] Building CXX object CMakeFiles/InstalledConsumer.dir/InstalledConsumer_autogen/mocs_compilation.cpp.o
+[21/35] Building CXX object CMakeFiles/InstalledConsumer.dir/installedconsumer_qmltyperegistrations.cpp.o
+[22/35] Building CXX object CMakeFiles/InstalledConsumer.dir/.qt/rcc/qrc_qmake_InstalledConsumer.cpp.o
+[23/35] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_qmlcache_loader.cpp.o
+[24/35] Building CXX object CMakeFiles/InstalledConsumer.dir/main.cpp.o
+/tmp/package/consumer/main.cpp: In function ‘void runCheckboxConsumer(QQuickWindow*, QGuiApplication&, const QCommandLineParser&, double)’:
+/tmp/package/consumer/main.cpp:39:86: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long long unsigned int’ [-Wformat=]
+   39 |         qCritical("Installed checkbox accessibility: interface=%d role=%d checkable=%d checked=%d name=%s",
+      |                                                                                     ~^
+      |                                                                                      |
+      |                                                                                      int
+      |                                                                                     %lld
+   40 |             accessible!=nullptr, accessible ? int(accessible->role()) : -1,
+   41 |             accessible ? accessible->state().checkable : -1,
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~                           
+      |                        |
+      |                        long long unsigned int
+/tmp/package/consumer/main.cpp:39:97: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘long long unsigned int’ [-Wformat=]
+   39 |         qCritical("Installed checkbox accessibility: interface=%d role=%d checkable=%d checked=%d name=%s",
+      |                                                                                                ~^
+      |                                                                                                 |
+      |                                                                                                 int
+      |                                                                                                %lld
+......
+   42 |             accessible ? accessible->state().checked : -1,
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~                                        
+      |                        |
+      |                        long long unsigned int
+[25/35] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_Main_qml.cpp.o
+[26/35] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_Controls_qml.cpp.o
+[27/35] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_Composition_qml.cpp.o
+[28/35] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_Selection_qml.cpp.o
+[29/35] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_Checkbox_qml.cpp.o
+[30/35] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_SecureField_qml.cpp.o
+[31/35] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_SearchField_qml.cpp.o
+[32/35] Building CXX object CMakeFiles/InstalledConsumer.dir/.qt/rcc/qrc_InstalledConsumer_raw_qml_0.cpp.o
+[33/35] Building CXX object CMakeFiles/InstalledConsumer.dir/.qt/rcc/qrc_consumer_fixture_assets.cpp.o
+[34/35] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_SearchGlyph_qml.cpp.o
+[35/35] Linking CXX executable InstalledConsumer
+Installed consumer: actions, group/list keyboard navigation, editing, fonts, painted placement, foundations, cards, badges and data display passed
+Installed controls: editing, selection, multiline scrolling, switch/toggle actions, segmented disabled/tab order, and focus restoration passed
+Installed composition: adaptive grid reflow, slots, pointer/keyboard actions and focus through resize passed
+Installed selector: pointer/keyboard activation, disabled options, external selection, Escape/outside dismissal, focus restoration and scroll extent passed
+Installed checkbox: model updates, pointer/keyboard toggling, disabled input, tab order, wrapped label and real Qt accessibility role/name/state passed
+Installed secure field: caller value, masking, reveal, disabled input, clipboard, keyboard focus and real Qt accessibility interfaces passed
+Installed search field: editing, caller binding, pointer/keyboard clear, disabled traversal, Return, fixed slots and real Qt interfaces passed
+Installed consumer exercised X11 and nested Wayland with software and OpenGL renderers; mirror, overlays, physical input and accessibility remain pending.
