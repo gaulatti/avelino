@@ -7505,49 +7505,697 @@
       },
       {
         "id": "BleeckerCollectionFilters",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Extended.swift",
           "line": 78
         },
-        "implementation": [],
-        "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
-        "captures": [],
-        "comparisonResults": [],
+        "implementation": [
+          "src/Avelino/BleeckerCollectionFilters.qml",
+          "src/Avelino/BleeckerSearchField.qml"
+        ],
+        "caseDiscovery": "Source selection/removal and query/content callback matrices; exact glyph/cache/compositor and complete editing/physical/screen-reader acceptance pending",
+        "cases": [
+          {
+            "id": "filters-empty-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-empty-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-empty-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-empty-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-empty-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-empty-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-empty-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-empty-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-chip-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-chip-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-chip-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-chip-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-chip-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-chip-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-chip-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-chip-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-selected-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-selected-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-selected-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-selected-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-selected-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-selected-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-selected-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-selected-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-filled-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-filled-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-filled-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-filled-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-filled-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-filled-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-filled-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-filled-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-disabled-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-disabled-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-disabled-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-disabled-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-disabled-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-disabled-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-disabled-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-disabled-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-narrow-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-narrow-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-narrow-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-narrow-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-narrow-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-narrow-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-narrow-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-narrow-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-long-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-long-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-long-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-long-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-long-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-long-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-long-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-long-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-cleared-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-cleared-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-cleared-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-cleared-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-cleared-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-cleared-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-cleared-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-cleared-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-removed-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-removed-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-removed-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-removed-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-removed-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-removed-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-removed-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-removed-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-activated-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-activated-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-activated-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-activated-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-activated-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-activated-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-activated-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-activated-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-tall-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-tall-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-tall-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-tall-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-tall-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-tall-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "filters-tall-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/filters-tall-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          }
+        ],
+        "tests": [
+          "tests/components/tst_collection_filters.qml",
+          "tests/consumer/CollectionFilters.qml",
+          "tests/consumer/collectionfilterschecks.h"
+        ],
+        "captures": [
+          "evidence/development/collection-filters/captures/filters-empty-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-empty-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-empty-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-empty-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-chip-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-chip-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-chip-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-chip-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-selected-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-selected-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-selected-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-selected-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-filled-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-filled-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-filled-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-filled-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-disabled-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-disabled-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-disabled-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-disabled-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-narrow-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-narrow-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-narrow-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-narrow-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-long-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-long-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-long-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-long-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-cleared-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-cleared-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-cleared-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-cleared-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-removed-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-removed-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-removed-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-removed-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-activated-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-activated-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-activated-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-activated-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-tall-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-tall-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-tall-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/collection-filters/captures/filters-tall-dark-text1.5-hosting-dpr2.0.png"
+        ],
+        "comparisonResults": [
+          "evidence/development/collection-filters/comparison/comparison.json"
+        ],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/collection-filters/candidate.json"
+            ]
           },
           "x11": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/collection-filters/candidate.json"
+            ]
           },
           "wayland": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/collection-filters/candidate.json"
+            ]
           },
           "keyboardPointer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/collection-filters/candidate.json"
+            ]
           },
           "focusAccessibility": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/collection-filters/candidate.json"
+            ]
           },
           "displayTextScaling": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/collection-filters/candidate.json"
+            ]
           },
           "installedConsumer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/collection-filters/candidate.json"
+            ]
           }
-        }
+        },
+        "diagnostics": [
+          {
+            "evidence": "evidence/development/collection-filters/candidate.json",
+            "status": "candidate; complete acceptance pending",
+            "notes": "Caller owns query, selection and chip removal; source dimensions and actual post-action state have separate checks. Software rounded clipping, glyph/native rasterization, actual readers and physical sessions remain open."
+          }
+        ]
       },
       {
         "id": "BleeckerCommandSpotlight",
@@ -9150,49 +9798,1874 @@
       },
       {
         "id": "BleeckerFilterChip",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/DataDisplay.swift",
           "line": 53
         },
-        "implementation": [],
-        "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
-        "captures": [],
-        "comparisonResults": [],
+        "implementation": [
+          "src/Avelino/BleeckerFilterChip.qml",
+          "src/Avelino/CapsuleContent.qml",
+          "src/Avelino/InputGlyph.qml"
+        ],
+        "caseDiscovery": "Source selection/removal and query/content callback matrices; exact glyph/cache/compositor and complete editing/physical/screen-reader acceptance pending",
+        "cases": [
+          {
+            "id": "chip-false-plain-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-plain-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-plain-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-plain-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-plain-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-plain-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-plain-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-plain-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-plain-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-plain-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-plain-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-plain-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-plain-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-plain-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-plain-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-plain-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-removable-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-removable-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-removable-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-removable-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-removable-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-removable-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-removable-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-removable-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-removable-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-removable-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-removable-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-removable-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-removable-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-removable-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-removable-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-removable-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-disabled-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-disabled-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-disabled-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-disabled-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-disabled-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-disabled-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-disabled-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-disabled-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-disabled-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-disabled-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-disabled-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-disabled-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-disabled-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-disabled-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-disabled-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-disabled-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-removable-disabled-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-removable-disabled-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-removable-disabled-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-removable-disabled-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-removable-disabled-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-removable-disabled-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-removable-disabled-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-removable-disabled-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-removable-disabled-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-removable-disabled-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-removable-disabled-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-removable-disabled-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-removable-disabled-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-removable-disabled-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-removable-disabled-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-removable-disabled-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-empty-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-empty-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-empty-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-empty-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-empty-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-empty-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-empty-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-empty-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-empty-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-empty-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-empty-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-empty-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-empty-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-empty-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-empty-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-empty-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-removable-empty-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-removable-empty-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-removable-empty-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-removable-empty-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-removable-empty-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-removable-empty-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-removable-empty-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-removable-empty-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-removable-empty-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-removable-empty-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-removable-empty-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-removable-empty-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-removable-empty-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-removable-empty-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-removable-empty-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-removable-empty-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-narrow-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-narrow-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-narrow-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-narrow-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-narrow-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-narrow-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-narrow-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-narrow-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-narrow-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-narrow-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-narrow-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-narrow-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-narrow-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-narrow-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-narrow-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-narrow-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-removable-narrow-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-removable-narrow-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-removable-narrow-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-removable-narrow-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-removable-narrow-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-removable-narrow-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-removable-narrow-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-removable-narrow-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-removable-narrow-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-removable-narrow-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-removable-narrow-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-removable-narrow-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-removable-narrow-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-removable-narrow-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-false-removable-narrow-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-false-removable-narrow-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-plain-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-plain-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-plain-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-plain-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-plain-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-plain-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-plain-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-plain-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-plain-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-plain-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-plain-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-plain-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-plain-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-plain-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-plain-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-plain-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-removable-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-removable-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-removable-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-removable-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-removable-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-removable-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-removable-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-removable-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-removable-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-removable-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-removable-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-removable-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-removable-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-removable-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-removable-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-removable-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-disabled-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-disabled-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-disabled-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-disabled-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-disabled-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-disabled-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-disabled-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-disabled-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-disabled-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-disabled-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-disabled-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-disabled-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-disabled-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-disabled-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-disabled-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-disabled-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-removable-disabled-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-removable-disabled-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-removable-disabled-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-removable-disabled-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-removable-disabled-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-removable-disabled-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-removable-disabled-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-removable-disabled-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-removable-disabled-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-removable-disabled-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-removable-disabled-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-removable-disabled-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-removable-disabled-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-removable-disabled-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-removable-disabled-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-removable-disabled-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-empty-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-empty-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-empty-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-empty-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-empty-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-empty-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-empty-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-empty-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-empty-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-empty-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-empty-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-empty-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-empty-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-empty-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-empty-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-empty-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-removable-empty-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-removable-empty-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-removable-empty-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-removable-empty-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-removable-empty-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-removable-empty-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-removable-empty-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-removable-empty-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-removable-empty-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-removable-empty-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-removable-empty-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-removable-empty-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-removable-empty-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-removable-empty-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-removable-empty-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-removable-empty-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-narrow-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-narrow-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-narrow-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-narrow-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-narrow-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-narrow-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-narrow-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-narrow-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-narrow-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-narrow-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-narrow-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-narrow-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-narrow-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-narrow-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-narrow-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-narrow-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-removable-narrow-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-removable-narrow-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-removable-narrow-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-removable-narrow-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-removable-narrow-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-removable-narrow-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-removable-narrow-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-removable-narrow-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-removable-narrow-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-removable-narrow-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-removable-narrow-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-removable-narrow-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-removable-narrow-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-removable-narrow-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "chip-true-removable-narrow-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/collection-filters-20261014/chip-true-removable-narrow-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/collection-filters.md",
+              "tests/components/tst_collection_filters.qml",
+              "tests/consumer/collectionfilterschecks.h",
+              "evidence/development/collection-filters/candidate.json"
+            ],
+            "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          }
+        ],
+        "tests": [
+          "tests/components/tst_collection_filters.qml",
+          "tests/consumer/CollectionFilters.qml",
+          "tests/consumer/collectionfilterschecks.h"
+        ],
+        "captures": [
+          "evidence/development/collection-filters/captures/chip-false-plain-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-false-plain-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-false-plain-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-false-plain-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-false-plain-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-false-plain-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-false-plain-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-false-plain-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-false-removable-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-false-removable-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-false-removable-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-false-removable-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-false-removable-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-false-removable-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-false-removable-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-false-removable-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-false-disabled-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-false-disabled-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-false-disabled-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-false-disabled-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-false-disabled-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-false-disabled-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-false-disabled-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-false-disabled-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-false-removable-disabled-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-false-removable-disabled-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-false-removable-disabled-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-false-removable-disabled-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-false-removable-disabled-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-false-removable-disabled-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-false-removable-disabled-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-false-removable-disabled-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-false-empty-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-false-empty-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-false-empty-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-false-empty-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-false-empty-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-false-empty-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-false-empty-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-false-empty-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-false-removable-empty-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-false-removable-empty-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-false-removable-empty-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-false-removable-empty-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-false-removable-empty-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-false-removable-empty-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-false-removable-empty-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-false-removable-empty-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-false-narrow-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-false-narrow-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-false-narrow-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-false-narrow-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-false-narrow-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-false-narrow-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-false-narrow-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-false-narrow-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-false-removable-narrow-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-false-removable-narrow-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-false-removable-narrow-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-false-removable-narrow-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-false-removable-narrow-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-false-removable-narrow-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-false-removable-narrow-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-false-removable-narrow-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-true-plain-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-true-plain-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-true-plain-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-true-plain-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-true-plain-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-true-plain-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-true-plain-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-true-plain-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-true-removable-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-true-removable-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-true-removable-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-true-removable-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-true-removable-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-true-removable-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-true-removable-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-true-removable-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-true-disabled-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-true-disabled-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-true-disabled-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-true-disabled-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-true-disabled-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-true-disabled-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-true-disabled-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-true-disabled-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-true-removable-disabled-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-true-removable-disabled-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-true-removable-disabled-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-true-removable-disabled-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-true-removable-disabled-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-true-removable-disabled-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-true-removable-disabled-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-true-removable-disabled-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-true-empty-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-true-empty-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-true-empty-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-true-empty-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-true-empty-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-true-empty-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-true-empty-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-true-empty-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-true-removable-empty-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-true-removable-empty-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-true-removable-empty-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-true-removable-empty-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-true-removable-empty-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-true-removable-empty-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-true-removable-empty-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-true-removable-empty-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-true-narrow-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-true-narrow-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-true-narrow-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-true-narrow-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-true-narrow-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-true-narrow-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-true-narrow-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-true-narrow-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-true-removable-narrow-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-true-removable-narrow-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-true-removable-narrow-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-true-removable-narrow-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-true-removable-narrow-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-true-removable-narrow-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/collection-filters/captures/chip-true-removable-narrow-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/collection-filters/captures/chip-true-removable-narrow-dark-text1.5-offscreen-dpr2.0.png"
+        ],
+        "comparisonResults": [
+          "evidence/development/collection-filters/comparison/comparison.json"
+        ],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/collection-filters/candidate.json"
+            ]
           },
           "x11": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/collection-filters/candidate.json"
+            ]
           },
           "wayland": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/collection-filters/candidate.json"
+            ]
           },
           "keyboardPointer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/collection-filters/candidate.json"
+            ]
           },
           "focusAccessibility": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/collection-filters/candidate.json"
+            ]
           },
           "displayTextScaling": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/collection-filters/candidate.json"
+            ]
           },
           "installedConsumer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/collection-filters/candidate.json"
+            ]
           }
-        }
+        },
+        "diagnostics": [
+          {
+            "evidence": "evidence/development/collection-filters/candidate.json",
+            "status": "candidate; complete acceptance pending",
+            "notes": "Caller owns query, selection and chip removal; source dimensions and actual post-action state have separate checks. Software rounded clipping, glyph/native rasterization, actual readers and physical sessions remain open."
+          }
+        ]
       },
       {
         "id": "BleeckerFooter",

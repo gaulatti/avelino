@@ -427,3 +427,34 @@ For secure field `02ac648`, [References CI](https://github.com/gaulatti/avelino/
 passed and [Linux CI](https://github.com/gaulatti/avelino/actions/runs/38643225490)
 passed both architecture build/runtime/package jobs while all twelve strict visual
 jobs failed. Those results remain separate from this checkpoint's local checks and CI.
+
+## Collection filters and chip candidates
+
+The [collection-filter checkpoint](../evidence/development/collection-filters/candidate.json)
+adds bound search with caller content and chips with independent label/removal
+actions. The caller owns query, selection and removal. Replacing tall content with
+a chip exposed a Loader geometry loop; positioning now belongs to a separate
+parent, and the regression fails on binding warnings and checks resulting sizes.
+Coverage is 38/80 desktop candidates, with none accepted.
+
+The 180-case native matrix has 180/180 matching root bounds and 0/180 exact images. Query, content, selected state and
+callback counts are checked independently of pixels. A clean helper replay
+reproduced 170/181 files byte-for-byte; eleven images varied by at most one channel
+level. Replay pairs and differences are preserved without baseline or tolerance
+changes. All 1,510 earlier PNGs and full metadata remain unchanged.
+
+All 2,888 Qt checks, 45 contract tests, eight installed offscreen modes
+and 64 fresh package-only session pairs pass. Eight pairs cover the new workflow
+in Xvfb/nested Weston, software/Mesa OpenGL, light/DPR 1 and dark/DPR 2/text 1.5.
+Those are synthetic-input/interface checks; physical displays/input, real desktop
+compositors, source glyphs and actual readers remain pending. Software curved
+content clipping is explicitly unsupported and unaccepted. Default/Basic/Fusion
+DPR 2 gallery PNGs match exactly. Source/package symbol provenance is verified.
+
+Documentation and inventory use in-repository files because the public wiki
+remote remains unavailable. No backend, metrics, configuration or TV changes are
+included. For preceding search-field commit `b8cb7db`,
+[References CI](https://github.com/gaulatti/avelino/actions/runs/38646185312) passed;
+[Linux CI](https://github.com/gaulatti/avelino/actions/runs/38646185524) passed both
+architecture build/runtime/package jobs while all fourteen strict visual jobs
+failed. These results are separate from this checkpoint's local evidence and CI.

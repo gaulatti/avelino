@@ -23,7 +23,8 @@ SCOPED_APIS = {"desktop-composition": COMPOSITION_APIS,
     "desktop-selectors": {"BleeckerButton", "BleeckerSelect"},
     "desktop-checkbox": {"BleeckerButton", "BleeckerCheckbox"},
     "desktop-secure-field": {"BleeckerButton", "BleeckerSecureField"},
-    "desktop-search-field": {"BleeckerButton", "BleeckerTextField", "BleeckerSearchField"}}
+    "desktop-search-field": {"BleeckerButton", "BleeckerTextField", "BleeckerSearchField"},
+    "desktop-collection-filters": {"BleeckerButton", "BleeckerFilterChip", "BleeckerCollectionFilters"}}
 
 SCOPED_CONTRACT_AXES = {"desktop-checkbox": {"BleeckerCheckbox": {"size": "BleeckerControlSize"}}}
 
@@ -53,7 +54,7 @@ def verify(directory):
         assert scoped in SCOPED_APIS and manifest.get("scope") == scoped
         message = {"desktop-composition": "Missing composition API", "desktop-selectors": "Missing selector API",
             "desktop-checkbox": "Missing checkbox API", "desktop-secure-field": "Missing secure-field API",
-            "desktop-search-field": "Missing search-field API"}[scoped]
+            "desktop-search-field": "Missing search-field API", "desktop-collection-filters": "Missing collection-filter API"}[scoped]
         assert {case["api"] for case in captures} == SCOPED_APIS[scoped], message
     keys = set()
     for case in captures:
@@ -104,6 +105,24 @@ def verify(directory):
             fonts = case["nativeControlFonts"]
             assert len(fonts) == 1 and fonts[0]["secure"] is False and fonts[0]["enabled"] is not case["flag"], "Invalid native search editor"
             assert fonts[0]["pointSize"] == (12 if case["size"] == "sm" else 14) * case["textScale"] and fonts[0]["fontName"] == "EncodeSans-Regular", "Invalid native search font"
+    if scoped == "desktop-collection-filters":
+        chip_variants = {"plain", "removable", "disabled", "removable-disabled", "empty", "removable-empty", "narrow", "removable-narrow"}
+        assert {(variant, flag) for variant in chip_variants for flag in [False, True]} <= {(f["variant"], f["flag"]) for f in fixtures if f["api"] == "BleeckerFilterChip"}, "Missing filter-chip state combinations"
+        required = {"empty", "chip", "selected", "filled", "disabled", "narrow", "long", "cleared", "removed", "activated", "tall"}
+        assert required <= {f["variant"] for f in fixtures if f["api"] == "BleeckerCollectionFilters"}, "Missing collection-filter state combinations"
+        for case in captures:
+            if case["api"] == "BleeckerFilterChip":
+                font = case["resolvedLabelFonts"]["chipExpression"]
+                assert font["pointSize"] == 12 and font["postScriptName"] == "EncodeSans-Md", "Invalid fixed chip font"
+            if case["api"] != "BleeckerCollectionFilters": continue
+            variant = case["variant"]
+            assert case.get("sourceQueryAfterAction") == ("" if variant == "cleared" else case["text"]), "Invalid collection query state"
+            assert case.get("sourceContentAfterAction") is (variant not in {"empty", "removed"}), "Invalid collection content state"
+            assert case.get("sourceSelectedAfterAction") is (variant in {"selected", "activated"}), "Invalid collection selected state"
+            assert case.get("sourceActionCounts") == {"activations": int(variant == "activated"), "removals": int(variant == "removed")}, "Invalid collection action counts"
+            fonts = case["nativeControlFonts"]
+            assert len(fonts) == 1 and fonts[0]["pointSize"] == 14*case["textScale"] and fonts[0]["fontName"] == "EncodeSans-Regular", "Invalid collection editor font"
+            assert fonts[0]["enabled"] is not case["flag"], "Invalid collection disabled state"
     discovery = json.loads((ROOT / "reference/api-discovery.json").read_text())["desktop"]
     declarations = {d["name"]: d for d in discovery["declarations"]}
     for api, axes in {**CONTRACT_AXES, **SCOPED_CONTRACT_AXES.get(scoped, {})}.items():

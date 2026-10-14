@@ -50,7 +50,7 @@ INI
   fi
   for backend in software opengl; do
     for configuration in standard scaled; do
-    for fixture in base controls composition selection checkbox secure-field search-field; do
+    for fixture in base controls composition selection checkbox secure-field search-field collection-filters; do
       prefix="$evidence/$protocol-$backend-$configuration"
       if [[ "$fixture" == controls ]]; then prefix="$evidence/controls-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == composition ]]; then prefix="$evidence/composition-$protocol-$backend-$configuration"; fi
@@ -58,6 +58,7 @@ INI
       if [[ "$fixture" == secure-field ]]; then prefix="$evidence/secure-field-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == search-field ]]; then prefix="$evidence/search-field-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == selection ]]; then prefix="$evidence/selection-$protocol-$backend-$configuration"; fi
+      if [[ "$fixture" == collection-filters ]]; then prefix="$evidence/collection-filters-$protocol-$backend-$configuration"; fi
       args=(--evidence "$prefix")
       if [[ "$fixture" == controls ]]; then args+=(--controls); fi
       if [[ "$fixture" == composition ]]; then args+=(--composition); fi
@@ -65,6 +66,7 @@ INI
       if [[ "$fixture" == secure-field ]]; then args+=(--secure-field); fi
       if [[ "$fixture" == search-field ]]; then args+=(--search-field); fi
       if [[ "$fixture" == selection ]]; then args+=(--selection); fi
+      if [[ "$fixture" == collection-filters ]]; then args+=(--collection-filters); fi
       export QT_SCALE_FACTOR=1
       if [[ "$configuration" == scaled ]]; then
         export QT_SCALE_FACTOR=2
@@ -136,6 +138,11 @@ elif fixture == 'secure-field':
         assert record[key] == 'passed', record
     assert record['sourceHeight'] == 40 and record['fontPointSize'] == 10.5, record
     assert record['revealed'] is True, record
+elif fixture == 'collection-filters':
+    for key in ['collectionFilterChecks','callerBindingChecks','focusChecks','qtAccessibilityChecks']:
+        assert record[key] == 'passed', record
+    assert record['sourceHeight'] == 40*record['textScale'] and record['wrappedChipHeight'] == 45, record
+    assert record['roundedContentClipping'] == (backend == 'opengl'), record
 elif fixture == 'search-field':
     for key in ['searchFieldChecks','clearBindingChecks','focusChecks','qtAccessibilityChecks']:
         assert record[key] == 'passed', record

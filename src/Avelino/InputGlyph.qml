@@ -3,6 +3,7 @@ import QtQuick
 Canvas {
     required property string symbol
     property color color: BleeckerTheme.palette.textSecondary
+    property real strokeWidth: symbol === "search" ? 1.4 : 2
     implicitWidth: symbol === "search" ? 16.5 : 10.5
     implicitHeight: implicitWidth
     Accessible.ignored: true
@@ -10,11 +11,12 @@ Canvas {
     onColorChanged: requestPaint()
     onWidthChanged: requestPaint()
     onHeightChanged: requestPaint()
+    onStrokeWidthChanged: requestPaint()
     onPaint: {
         const ctx=getContext("2d")
         ctx.reset(); ctx.scale(width/14,height/14)
         ctx.strokeStyle=color; ctx.lineCap="round"
-        ctx.lineWidth=symbol === "search" ? 1.4 : 2
+        ctx.lineWidth=strokeWidth
         ctx.beginPath()
         if (symbol === "search") {
             ctx.arc(5.8,5.8,4.1,0,Math.PI*2)

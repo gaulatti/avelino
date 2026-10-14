@@ -46,6 +46,18 @@ class ComparisonBoundaryTests(unittest.TestCase):
     def test_identical_pixels_and_equivalent_metadata_pass(self):
         self.check('passed')
 
+    def test_collection_actions_must_match(self):
+        for key, value in [('sourceQueryAfterAction', ''), ('sourceContentAfterAction', False),
+                           ('sourceSelectedAfterAction', True), ('sourceActionCounts', {'activations': 1, 'removals': 0})]:
+            with self.subTest(key=key):
+                self.fixture[key] = value
+                self.metadata[key] = 'incorrect'
+                (self.reference / 'captures.json').write_text(json.dumps({'captures': [self.fixture]}))
+                self.write_metadata()
+                self.assertIn(key, self.check('failed')['error'])
+                del self.fixture[key]
+                del self.metadata[key]
+
     def test_rgb_change_with_unchanged_alpha_fails(self):
         image = Image.open(self.candidate / self.name)
         image.putpixel((0, 0), (254, 255, 255, 255))

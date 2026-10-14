@@ -6,6 +6,10 @@ import Avelino
 Window {
     id: window
     readonly property var definition: captureDefinition
+    property bool collectionSelected: definition.variant === "selected"
+    property bool collectionHasChip: definition.variant !== "empty"
+    property int collectionActivations: 0
+    property int collectionRemovals: 0
     readonly property real fixtureTextScale: BleeckerTheme.textScale
     width: definition.width; height: definition.height; visible: true
     color: BleeckerTheme.palette.background
@@ -37,7 +41,7 @@ Window {
                 "BleeckerSectionHeader": sectionHeader, "BleeckerDashboardSection": dashboardSection,
                 "BleeckerDashboardGrid": dashboardGrid, "BleeckerAppShell": appShell,
                 "BleeckerFooter": footer, "BleeckerFeedItem": feed, "BleeckerProgressStack": progressStack,
-                "BleeckerSelect": select, "BleeckerCheckbox": checkbox, "BleeckerSecureField": secureField, "BleeckerSearchField": searchField
+                "BleeckerSelect": select, "BleeckerCheckbox": checkbox, "BleeckerSecureField": secureField, "BleeckerSearchField": searchField, "BleeckerFilterChip": filterChip, "BleeckerCollectionFilters": collectionFilters
             }
             if (definition.api === "BleeckerTextField" && definition.fixture.startsWith("search-text-")) return searchField
             if (!components[definition.api]) throw new Error("Unimplemented reference API: " + definition.api)
@@ -48,6 +52,31 @@ Window {
     Component {
         id: searchField
         BleeckerSearchField { width: definition.value; size: definition.size; error: definition.variant === "error"; text: definition.text; placeholderText: "Search editions"; enabled: !definition.flag }
+    }
+    Component {
+        id: filterChip
+        BleeckerFilterChip {
+            text: definition.text; selected: definition.flag
+            removable: definition.variant.startsWith("removable")
+            enabled: !definition.variant.endsWith("disabled")
+            width: definition.value > 0 ? definition.value : implicitWidth
+        }
+    }
+    Component {
+        id: collectionFilters
+        BleeckerCollectionFilters {
+            width: definition.value; query: definition.text; enabled: !definition.flag
+            content: definition.variant === "tall" ? collectionTall : window.collectionHasChip ? collectionChip : null
+        }
+    }
+    Component { id: collectionTall; Rectangle { implicitWidth: 100; implicitHeight: 84; color: BleeckerTokens.colors.light.sea } }
+    Component {
+        id: collectionChip
+        BleeckerFilterChip {
+            text: "Edition"; selected: window.collectionSelected; removable: true
+            onClicked: { window.collectionActivations++; window.collectionSelected=!window.collectionSelected }
+            onRemoveRequested: { window.collectionRemovals++; window.collectionHasChip=false }
+        }
     }
     Component { id: button; BleeckerButton { text: "Publish" } }
     Component {

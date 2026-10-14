@@ -26,10 +26,11 @@ Weston Wayland compositor nested on it. It saves whole-output and window capture
 for software/OpenGL rendering at two display/text scales. Source and build trees
 remain absent. Metadata explicitly identifies virtual displays, Mesa software
 rendering, synthetic input, and the still-pending overlay/accessibility checks.
-The harness runs seven independent windows in each configuration: the base library
+The harness runs eight independent windows in each configuration: the base library
 fixture, `InstalledConsumer --controls`, `InstalledConsumer --composition` and
 `InstalledConsumer --selection`, `InstalledConsumer --checkbox` and
-`InstalledConsumer --secure-field` and `InstalledConsumer --search-field`. Their fifty-six capture pairs keep
+`InstalledConsumer --secure-field`, `InstalledConsumer --search-field` and
+`InstalledConsumer --collection-filters`. Their sixty-four capture pairs keep
 form editing, scrolling, switch/toggle actions, disabled segmented options and
 focus restoration separate from the base composition checks. The controls fixture
 exercises the multiline editor's owned scrollbar. The selector fixture exercises
@@ -42,6 +43,10 @@ reveal/hide, disabled input, clipboard behavior, keyboard traversal and the actu
 Qt password/value/action interfaces. Screen-reader output remains separate.
 The search fixture checks caller editing, pointer/keyboard clear, empty-action
 removal, disabled traversal, Return, fixed slots and actual Qt interfaces.
+The collection fixture checks composed query/clear/Return, independent caller
+actions, removal and reclaimed width, tall content, disabled traversal, wrapped
+chips and actual Qt grouping/editor/button interfaces. Its curved content clip
+is supported only by the CurveRenderer; software clipping remains pending.
 Screen-reader output remains a separate unaccepted gate.
 Context menus and separate-window overlays
 remain unimplemented and cannot pass their gate through these captures.

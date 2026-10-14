@@ -1,0 +1,44 @@
+{
+  "actionPath": [
+    "caller query model",
+    "BleeckerCollectionFilters query alias and queryEdited/accepted forwarding",
+    "normal BleeckerSearchField editor and clear action",
+    "caller Component slot and sizing",
+    "BleeckerFilterChip independent template buttons",
+    "caller selected/removal model",
+    "content destruction/replacement and reclaimed search width",
+    "catalog actual state and strict comparison",
+    "independent installed package and virtual sessions"
+  ],
+  "source": [
+    "Sources/Sabella/DataDisplay.swift:53",
+    "Sources/Sabella/Extended.swift:78"
+  ],
+  "regressionBoundary": "Replacing tall slot content with a chip previously caused Loader geometry feedback; positioning now belongs to a separate parent. The regression fails on warnings and checks final dimensions.",
+  "sourceMeasurements": {
+    "chipMinimumHeight": 28,
+    "fontLogicalPixels": 12,
+    "horizontalPadding": 10,
+    "removeGap": 6,
+    "removeAllocation": 10,
+    "collectionGap": 10,
+    "collectionMinimumHeight": 40
+  },
+  "adapters": [
+    "Qt Component replaces generic SwiftUI content.",
+    "Explicit removable property plus notification signals preserve independent caller ownership.",
+    "Original Canvas xmark remains unaccepted.",
+    "CurveRenderer capsule masks content; software rounded clipping remains pending."
+  ],
+  "unaffected": [
+    "Existing search glyph defaults and all prior PNG/full metadata pairs",
+    "Backend/configuration/metrics",
+    "TV and hardware target selection"
+  ],
+  "pending": [
+    "Exact rasterization, glyphs, native cache/color/compositor matching",
+    "Software rounded clipping",
+    "Complete editing/RTL/input methods and custom-font wrap cases",
+    "Physical input/display and actual screen-reader output"
+  ]
+}

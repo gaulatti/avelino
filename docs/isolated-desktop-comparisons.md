@@ -175,3 +175,14 @@ editing focus. All 1,390 preceding PNGs and full metadata are unchanged, retaini
 the previous matrix results. Started coverage is 36/80 desktop APIs, with zero
 complete acceptance. Native glyphs/cache/compositor, complete editing/RTL/input
 methods, physical input and screen readers remain pending.
+
+The [collection-filter proposal](../evidence/reference-proposals/collection-filters-20261014/proposal.json)
+and [Linux candidate](../evidence/development/collection-filters/candidate.json) add
+128 chip cases, 44 composed collection cases and eight anchors: 180/180 matching root bounds and 0/180 exact images.
+The comparator also checks actual query, selected/content state and independent
+activation/removal counts. All 1,510 earlier PNGs and complete metadata remain
+unchanged. Eleven native replay images vary by at most one channel level and are
+retained as differences without tolerances. Started desktop coverage is 38/80,
+with zero complete acceptance. Curved software clipping, source symbols,
+cache/color/compositor behavior, complete editing/RTL, physical input and actual
+screen readers remain pending.
