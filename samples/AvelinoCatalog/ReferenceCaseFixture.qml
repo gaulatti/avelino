@@ -1,4 +1,5 @@
 import QtQuick
+import QtQuick.Templates as T
 import QtQuick.Layouts
 import QtQuick.Templates as T
 import Avelino
@@ -20,6 +21,11 @@ Window {
     property int integerCalls: 0
     property int pageRequests: 0
     property var lastPageRequest: null
+    property string accordionTitle: definition.text
+    property string accordionBodyText: definition.variant === "long-body" ? "Keep selected editions available for review" : "Body copy"
+    property int accordionMounts:0
+    property int accordionUnmounts:0
+    property int accordionCounterValue:0
     property int iconCalls: 0
     property var boundSelection: definition.text
     property int boundActivations: 0
@@ -54,7 +60,7 @@ Window {
                 "BleeckerSectionHeader": sectionHeader, "BleeckerDashboardSection": dashboardSection,
                 "BleeckerDashboardGrid": dashboardGrid, "BleeckerAppShell": appShell,
                 "BleeckerFooter": footer, "BleeckerFeedItem": feed, "BleeckerProgressStack": progressStack,
-                "BleeckerSelect": select, "BleeckerCheckbox": checkbox, "BleeckerSecureField": secureField, "BleeckerSearchField": searchField, "BleeckerFilterChip": filterChip, "BleeckerCollectionFilters": collectionFilters, "BleeckerSlider": slider, "BleeckerTabs": boundSelectionFrame, "BleeckerPagination": paginationFrame, "BleeckerIconButton": iconButton
+                "BleeckerSelect": select, "BleeckerCheckbox": checkbox, "BleeckerSecureField": secureField, "BleeckerSearchField": searchField, "BleeckerFilterChip": filterChip, "BleeckerCollectionFilters": collectionFilters, "BleeckerSlider": slider, "BleeckerTabs": boundSelectionFrame, "BleeckerPagination": paginationFrame, "BleeckerIconButton": iconButton, "BleeckerAccordion": accordion
             }
             if (definition.fixture.startsWith("pagination-i64-")) return paginationIntegerFrame
             if (definition.fixture.startsWith("segments-bound-")) return boundSelectionFrame
@@ -63,6 +69,57 @@ Window {
             return components[definition.api]
         }
         onLoaded: item.objectName = "referenceCaseComponent"
+    }
+    Component {
+        id:accordion
+        BleeckerAccordion {
+            width:definition.variant === "intrinsic" ? implicitWidth : Number(definition.size)
+            title:window.accordionTitle;initiallyExpanded:definition.value===1;enabled:!definition.flag
+            LayoutMirroring.enabled:definition.variant === "rtl";LayoutMirroring.childrenInherit:true
+            content:definition.variant === "empty-content" ? null : definition.variant === "zero-content" ? accordionZero
+                : definition.variant === "two-rows" ? accordionTwo : definition.variant === "counter" || (definition.fixture.startsWith("accordion-action-") && definition.variant !== "body-update") ? accordionCounter : accordionCopy
+        }
+    }
+    Component {
+        id:accordionCopy
+        AccordionText {
+            text:window.accordionBodyText;wrapWidth:parent.availableWidth
+            Component.onCompleted:window.accordionMounts++
+            Component.onDestruction:window.accordionUnmounts++
+        }
+    }
+    Component {
+        id:accordionZero
+        Item {
+            implicitWidth:0;implicitHeight:0
+            Component.onCompleted:window.accordionMounts++
+            Component.onDestruction:window.accordionUnmounts++
+        }
+    }
+    Component {
+        id:accordionTwo
+        Column {
+            spacing:10
+            AccordionText {text:"First row"}
+            AccordionText {text:"Second row"}
+            Component.onCompleted:window.accordionMounts++
+            Component.onDestruction:window.accordionUnmounts++
+        }
+    }
+    Component {
+        id:accordionCounter
+        T.Button {
+            id:button
+            objectName:"referenceAccordionCounter"
+            property int count:0
+            implicitWidth:label.implicitWidth;implicitHeight:label.height
+            padding:0;background:null;opacity:!enabled ? 0.5 : down ? 0.75 : 1
+            text:"Counter "+count
+            contentItem:AccordionText {id:label;text:button.text}
+            onClicked:{count++;window.accordionCounterValue=count}
+            Component.onCompleted:{window.accordionMounts++;window.accordionCounterValue=count}
+            Component.onDestruction:window.accordionUnmounts++
+        }
     }
     Component {
         id: searchField

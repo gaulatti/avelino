@@ -621,3 +621,25 @@ records every gain/loss and raw pixel-count change; no root/exact or measured pa
 TV, source-pin, expected-image or tolerance changes. The public wiki is still
 unavailable; in-repository typography, development and inventory documentation
 are updated.
+
+## Accordion state and conditional content
+
+The [accordion checkpoint](../evidence/development/accordion/candidate.json)
+connects initializer/title/Component producers, the native Qt header input mask,
+private expansion state, conditional content creation/removal, child state reset,
+normal child editing/actions and later producer updates. The actual pinned source
+component proves title/chevron activation, spacer rejection, constructor ownership,
+retitle state retention and reopen/reset behavior. Source font/image expressions
+and the default rounded contour are recorded separately. Source motion is disabled
+for settled captures, so phase equivalence remains pending.
+
+The 192 source cases have a 193-file byte-identical clean replay. Linux records
+192/192 source root bounds and 0/192 exact images, with all expansion/lifetime/counter/producer metadata matching.
+All 3,214 Qt checks, 64 contracts and eleven existing invalid-startup refusals pass.
+Thirteen installed offscreen modes, 104 package-only virtual-session pairs and
+63 catalog startup captures pass; host-style gallery PNGs match. All 2,782 prior
+PNG/full metadata pairs are unchanged. Exact visuals, symbols, source keyboard,
+motion, clipping/overflow, physical input/display and actual readers remain open.
+Coverage is 43/80 desktop APIs started, none accepted. No backend/metrics,
+configuration, TV, source-pin, expected-capture or tolerance changes. Public wiki
+access remains unavailable; the in-repository contract and inventory are updated.

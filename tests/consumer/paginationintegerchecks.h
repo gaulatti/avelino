@@ -7,10 +7,19 @@ static void runPaginationIntegerConsumer(QQuickWindow *window,QGuiApplication &a
     if (!check(pager && minimum && safe && narrow && field,"missing fixture")) return;
     const qreal nativeNarrowWidth=window->devicePixelRatio()==1 ? 260 : 259.5;
     for (const qreal offered : {257.,260.,264.}) {
-        narrow->setWidth(offered);QTest::qWait(20);
-        const auto body=narrow->property("contentSize").toSizeF();
-        if (!check(body.width()==(offered==257 ? 257 : nativeNarrowWidth) && body.height()==45,
-            "source wrapped body width/height through resize")) return;
+        narrow->setWidth(offered);
+        const qreal expectedWidth=offered==257 ? 257 : nativeNarrowWidth;
+        // Qt positioners batch layout until a frame; elapsed time is not readiness.
+        const bool settled=QTest::qWaitFor([narrow,expectedWidth] {
+            const auto body=narrow->property("contentSize").toSizeF();
+            return body.width()==expectedWidth && body.height()==45;
+        },1000);
+        if (!settled) {
+            const auto body=narrow->property("contentSize").toSizeF();
+            qCritical("Pagination resize offered=%.17g DPR=%.17g body=%.17gx%.17g expected=%.17gx45",
+                offered,window->devicePixelRatio(),body.width(),body.height(),expectedWidth);
+        }
+        if (!check(settled,"source wrapped body width/height through resize")) return;
     }
     narrow->setWidth(260);
     auto button=[](QQuickItem *pager,bool next){return findVisualItem(pager,next ? "bleeckerNextPage":"bleeckerPreviousPage");};

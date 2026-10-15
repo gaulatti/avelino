@@ -40,3 +40,9 @@ Neither proposal is approved or applied to an accepted fixture. Affected entries
 remain pending while work continues on components using distributable source assets.
 
 [Icon buttons and pagination](pagination.md) use a required caller Component icon slot in place of SF Symbol lookup. Pagination owns original left/right chevron candidates. This is a documented API adapter, with no approved symbol exception; dynamic SF Symbol coverage, exact artwork, source keyboard/focus remain pending. The [exact pagination integer update](pagination-integers.md) verifies the complete signed 64-bit domain using a decimal-string QML boundary.
+
+[Accordion](accordion.md) maps the source initializer to `initiallyExpanded` and
+represents conditional generic content by a Component factory. Only the title and
+chevron rectangles participate in pointer activation; the blank spacer does not.
+The plain header uses a native Qt template and original rotated chevron candidate.
+Source state/lifecycle and physical/reader/motion/asset acceptance remain separate.

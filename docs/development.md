@@ -44,10 +44,10 @@ focus; the whole-output capture preserves it as session evidence.
 [Weston's backend documentation](https://wayland.pages.freedesktop.org/weston/toc/running-weston.html)
 describes how its X11 backend composites Wayland surfaces into the parent output.
 Each configuration runs the base fixture, `--controls`, `--composition`,
-`--selection`, `--checkbox`, `--secure-field`, `--search-field`, `--collection-filters`, `--slider`, `--tabs`, `--pagination` and `--pagination-integers` independently; ninety-six
+`--selection`, `--checkbox`, `--secure-field`, `--search-field`, `--collection-filters`, `--slider`, `--tabs`, `--pagination`, `--pagination-integers` and `--accordion` independently; one hundred four
 window/full-output pairs cover them.
 The catalog galleries are `--fixture foundations`, `surfaces`, `data-display`,
-`controls`, `composition`, `selection`, `checkbox`, `secure-field`, `search-field`, `collection-filters`, `slider`, `tabs`, `pagination` and `pagination-integers`; their native
+`controls`, `composition`, `selection`, `checkbox`, `secure-field`, `search-field`, `collection-filters`, `slider`, `tabs`, `pagination`, `pagination-integers` and `accordion`; their native
 comparisons remain pending.
 
 The selector's open `Popup.Item` and scrollbars remain
@@ -167,3 +167,8 @@ The [exact pagination integer contract](pagination-integers.md) uses native arit
 The [source wrapping contract](wrapping.md) adds 120 measured text cases and
 full-range pagination resize checks. Source ink bounds and trailing whitespace
 remain distinct from shaped advances and exact pixel acceptance.
+
+The [accordion contract](accordion.md) adds a conditional content factory and
+initializer-owned state. The installed consumer checks header hit regions,
+creation/destruction and reset, normal form editing/actions, Qt accessibility
+and focus restoration through repeated collapses and later producer updates.

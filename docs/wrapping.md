@@ -44,3 +44,12 @@ The catalog's Basic/Fusion/default gallery images match. Source artwork/rasteriz
 font/script/layout contexts, physical input/display and actual readers remain open.
 No source pin, accepted image, tolerance or exception changed. Coverage stays
 42/80 desktop APIs started, with none accepted.
+
+The installed resize check now awaits the exact expected row width/height rather
+than assuming that 20 ms elapsed means layout finished. Qt 6.8.3
+[positioners synchronize layout with painting](https://github.com/qt/qtdeclarative/blob/v6.8.3/src/quick/items/qquickpositioners.cpp#L123).
+A one-second failure bound retains exact numeric comparisons and reports actual
+dimensions on failure. An isolated Wayland/OpenGL profile passed after an earlier
+full-matrix failure, consistent with frame scheduling; the complete installed
+matrix is required again after this harness change. No control geometry or
+comparison tolerance is changed.

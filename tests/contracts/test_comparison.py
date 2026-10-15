@@ -50,6 +50,8 @@ class ComparisonBoundaryTests(unittest.TestCase):
         for key, value in [('sourceQueryAfterAction', ''), ('sourceContentAfterAction', False),
                            ('sourceSelectedAfterAction', True), ('sourceActionCounts', {'activations': 1, 'removals': 0}),
                            ('sourcePageAfterActionDecimal', '9223372036854775807'), ('sourcePageCountAfterActionDecimal', '-9223372036854775808'), ('sourceRequestedPageDecimal', None),
+                           ('sourceExpandedAfterAction', True), ('sourceMounts', 2), ('sourceUnmounts', 1), ('sourceCounterValue', 0),
+                           ('sourceTitleAfterAction', 'Details'), ('sourceInitialAfterAction', False), ('sourceContentTextAfterAction', 'Body copy'),
                            ('sourcePageAfterAction', 5), ('sourcePageCountAfterAction', 8), ('sourceRequestedPage', None), ('sourceAction', 'previous'), ('sourceActivations', 1),
                            ('sourceMinimum', 0), ('sourceMaximum', 1), ('sourceStep', 0.3), ('sourceBindingUpdated', True)]:
             with self.subTest(key=key):

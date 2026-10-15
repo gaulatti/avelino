@@ -19,11 +19,19 @@
       "candidate": "right",
       "comparison": null,
       "exception": null
+    },
+    {
+      "sourceSymbol": "chevron.down",
+      "sourceRole": "BleeckerAccordion header; inherited source body symbol font, rotating 180 degrees when expanded",
+      "candidate": "original right chevron rotated 90/270 degrees in the measured source image frame",
+      "comparison": null,
+      "exception": null
     }
   ],
   "dynamicInputs": {
     "BleeckerIconButton.systemImage": "Linux accepts a required caller-owned Component slot; SF Symbol lookup is not provided. Source dynamic-symbol equivalence remains pending."
   },
   "fixtureImplementation": "tests/consumer/NavigationIcon.qml",
-  "geometryRationale": "Original normalized chevron paths sized from the pinned enabled ghost icon bounds and coverage; exact symbol shape/rasterization remains pending."
+  "geometryRationale": "Original normalized chevron paths sized from the pinned enabled ghost icon bounds and coverage; exact symbol shape/rasterization remains pending.",
+  "accordionFrameEvidence": "Source expression probes at DPR 1, 1.25, 1.5, 1.75 report 16 by 9; DPR 2, 2.5, 3 report 14.5 by 8.5. Broader scaling and exact symbol equivalence remain pending."
 }

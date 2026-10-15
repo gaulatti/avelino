@@ -370,3 +370,39 @@ class ExactPaginationProposalIntegrity(unittest.TestCase):
         self.change_manifest(lambda m: next(c for c in m['captures'] if c['variant'] == 'negative-count').update(sourcePageCountAfterActionDecimal='1'))
         with self.assertRaisesRegex(AssertionError, 'Invalid exact page count'):
             verifier.verify(self.directory)
+
+
+class AccordionProposalIntegrity(unittest.TestCase):
+    remove_cases_with_updated_checksums = CheckboxProposalIntegrity.remove_cases_with_updated_checksums
+    change_manifest = SliderProposalIntegrity.change_manifest
+
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.directory = Path(self.temp.name) / 'proposal'
+        shutil.copytree(ROOT / 'evidence/reference-proposals/accordion-20261014', self.directory)
+
+    def test_spacer_input_case_cannot_be_omitted(self):
+        self.remove_cases_with_updated_checksums(lambda c: c['variant'] == 'open-spacer')
+        with self.assertRaisesRegex(AssertionError, 'Missing accordion action cases'):
+            verifier.verify(self.directory)
+
+    def test_disabled_action_cannot_be_hidden_by_static_case(self):
+        self.remove_cases_with_updated_checksums(lambda c: c['fixture'] == 'accordion-action-disabled')
+        with self.assertRaisesRegex(AssertionError, 'Missing accordion action cases'):
+            verifier.verify(self.directory)
+
+    def test_initializer_must_not_replace_owned_state(self):
+        self.change_manifest(lambda m: next(c for c in m['captures'] if c['variant'] == 'initial-update').update(sourceExpandedAfterAction=True))
+        with self.assertRaisesRegex(AssertionError, 'Invalid source accordion expanded state'):
+            verifier.verify(self.directory)
+
+    def test_reopen_must_reset_child_state(self):
+        self.change_manifest(lambda m: next(c for c in m['captures'] if c['variant'] == 'reopen').update(sourceCounterValue=1))
+        with self.assertRaisesRegex(AssertionError, 'Invalid source accordion child state'):
+            verifier.verify(self.directory)
+
+    def test_close_must_destroy_content(self):
+        self.change_manifest(lambda m: next(c for c in m['captures'] if c['variant'] == 'close').update(sourceUnmounts=0))
+        with self.assertRaisesRegex(AssertionError, 'Invalid source accordion content lifecycle'):
+            verifier.verify(self.directory)

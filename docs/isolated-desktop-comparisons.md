@@ -230,3 +230,12 @@ pointer requests. Exact strings preserve JSON/QML transport. All 185 native
 files replayed exactly. The 2,594 preceding PNG/full metadata pairs are unchanged.
 Source keyboard/focus, exact pixels, physical sessions and actual readers remain
 separate pending gates.
+
+The [accordion proposal](../evidence/reference-proposals/accordion-20261014/proposal.json)
+and [Linux candidate](../evidence/development/accordion/candidate.json) add 184
+initializer/lifecycle/content/input cases and eight anchors: 192/192 source root bounds and 0/192 exact images. Source
+state, lifecycle and private counter values match independently of pixels. The title and
+chevron activate; the blank spacer does not. Clean native replay preserves all
+193 outputs. Earlier 2,782 PNG/full metadata pairs are unchanged. Exact artwork,
+source keyboard/focus/motion, physical/reader and broader composition contexts
+remain pending; no baseline or exception is approved.

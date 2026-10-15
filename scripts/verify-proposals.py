@@ -28,7 +28,8 @@ SCOPED_APIS = {"desktop-composition": COMPOSITION_APIS,
     "desktop-slider": {"BleeckerButton", "BleeckerSlider"},
     "desktop-tabs": {"BleeckerButton", "BleeckerSegmentedControl", "BleeckerTabs"},
     "desktop-pagination": {"BleeckerButton", "BleeckerIconButton", "BleeckerPagination"},
-    "desktop-pagination-integers": {"BleeckerButton", "BleeckerPagination"}}
+    "desktop-pagination-integers": {"BleeckerButton", "BleeckerPagination"},
+    "desktop-accordion": {"BleeckerButton", "BleeckerAccordion"}}
 
 SCOPED_CONTRACT_AXES = {"desktop-pagination": {"BleeckerIconButton": {"size":"BleeckerIconButtonSize", "variant":"BleeckerIconButtonVariant"}}, "desktop-checkbox": {"BleeckerCheckbox": {"size": "BleeckerControlSize"}}}
 
@@ -58,7 +59,7 @@ def verify(directory):
         assert scoped in SCOPED_APIS and manifest.get("scope") == scoped
         message = {"desktop-composition": "Missing composition API", "desktop-selectors": "Missing selector API",
             "desktop-checkbox": "Missing checkbox API", "desktop-secure-field": "Missing secure-field API",
-            "desktop-search-field": "Missing search-field API", "desktop-collection-filters": "Missing collection-filter API", "desktop-slider": "Missing slider API", "desktop-tabs": "Missing tabs API", "desktop-pagination": "Missing pagination API", "desktop-pagination-integers": "Missing exact pagination API"}[scoped]
+            "desktop-search-field": "Missing search-field API", "desktop-collection-filters": "Missing collection-filter API", "desktop-slider": "Missing slider API", "desktop-tabs": "Missing tabs API", "desktop-pagination": "Missing pagination API", "desktop-pagination-integers": "Missing exact pagination API", "desktop-accordion": "Missing accordion API"}[scoped]
         assert {case["api"] for case in captures} == SCOPED_APIS[scoped], message
     keys = set()
     for case in captures:
@@ -204,6 +205,28 @@ def verify(directory):
             assert case["sourceRequestedPageDecimal"] == request, "Invalid exact requested page"
             assert case["sourcePageAfterActionDecimal"] == expected, "Invalid exact caller page"
             assert case["sourcePageCountAfterActionDecimal"] == (str(lower) if action == "shrink-count" else str(count)), "Invalid exact page count"
+    if scoped == "desktop-accordion":
+        static_variants={"closed","open","empty-content","zero-content","two-rows","counter","empty-title","empty-title-open","long-title","long-title-open","multiline","wide","intrinsic","rtl","disabled","disabled-open","long-body"}
+        action_variants={"open-title","open-spacer","open-glyph","close","reopen","initial-update","retitle","disabled","disabled-open","pressed","outside-release","body-update"}
+        assert static_variants <= {f["variant"] for f in fixtures if f["api"] == "BleeckerAccordion" and not f["fixture"].startswith("accordion-action-")}, "Missing accordion state/content/input cases"
+        assert action_variants <= {f["variant"] for f in fixtures if f["api"] == "BleeckerAccordion" and f["fixture"].startswith("accordion-action-")}, "Missing accordion action cases"
+        assert manifest.get("sourceKeyboardStatus", "").startswith("pending;"), "Source accordion keyboard gate cannot be self-approved"
+        for case in captures:
+            if case["api"] != "BleeckerAccordion": continue
+            action=case["sourceAction"];initial=case["value"] == 1
+            assert action == (case["variant"] if case["fixture"].startswith("accordion-action-") else "none"), "Invalid accordion action classification"
+            assert case["captureMethod"].startswith("NSHostingView.cacheDisplay" if action != "none" else "SwiftUI.ImageRenderer"), "Invalid accordion input capture method"
+            expanded=initial if action == "none" else action in {"open-title","open-glyph","reopen","retitle","body-update","disabled-open"}
+            mounts=int(initial and case["variant"] != "empty-content") if action == "none" else 2 if action == "reopen" else int(initial or action in {"open-title","open-glyph"})
+            assert case["sourceExpandedAfterAction"] == expanded, "Invalid source accordion expanded state"
+            assert case["sourceMounts"] == mounts and case["sourceUnmounts"] == int(action in {"close","reopen"}), "Invalid source accordion content lifecycle"
+            assert case["sourceCounterValue"] == int(action == "retitle"), "Invalid source accordion child state"
+            assert case["sourceInitialAfterAction"] == (initial or action == "initial-update"), "Invalid source accordion initializer update"
+            assert case["sourceTitleAfterAction"] == ("Updated title" if action == "retitle" else case["text"]), "Invalid source accordion title update"
+            body="Updated body copy" if action == "body-update" else "Keep selected editions available for review" if case["variant"] == "long-body" else "Body copy"
+            assert case["sourceContentTextAfterAction"] == body, "Invalid source accordion content update"
+            font=case["resolvedLabelFonts"]["title"]
+            assert font["pointSize"] == 14 and font["postScriptName"] == "EncodeSans-SmBold", "Invalid source accordion title font"
     discovery = json.loads((ROOT / "reference/api-discovery.json").read_text())["desktop"]
     declarations = {d["name"]: d for d in discovery["declarations"]}
     for api, axes in {**CONTRACT_AXES, **SCOPED_CONTRACT_AXES.get(scoped, {})}.items():

@@ -51,7 +51,7 @@ int main(int argc, char *argv[]) {
     parser.addHelpOption();
     parser.addOptions({QCommandLineOption("capture", "Save the displayed fixture to PNG and exit", "path"),
                        QCommandLineOption("dark", "Use dark reference appearance"),
-                       QCommandLineOption("fixture", "Render a fixture (button, foundations, surfaces, data-display, controls, composition, selection, checkbox, secure-field, search-field, collection-filters, slider, tabs, pagination, pagination-integers or reference-case)", "name"),
+                       QCommandLineOption("fixture", "Render a fixture (button, foundations, surfaces, data-display, controls, composition, selection, checkbox, secure-field, search-field, collection-filters, slider, tabs, pagination, pagination-integers, accordion or reference-case)", "name"),
                        QCommandLineOption("case", "Isolated reference fixture identifier", "id"),
                        QCommandLineOption("case-definitions", "JSON file containing the isolated fixture definitions", "path"),
                        QCommandLineOption("variant", "Button variant", "name", "primary"),
@@ -89,8 +89,8 @@ int main(int argc, char *argv[]) {
     engine.rootContext()->setContextProperty("captureTextScale", textScale);
     engine.rootContext()->setContextProperty("captureDefinition", definition.toVariantMap());
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreationFailed, &app, [] { QCoreApplication::exit(1); }, Qt::QueuedConnection);
-    if (parser.isSet("fixture") && fixture != "button" && fixture != "foundations" && fixture != "surfaces" && fixture != "data-display" && fixture != "controls" && fixture != "composition" && fixture != "selection" && fixture != "checkbox" && fixture != "secure-field" && fixture != "search-field" && fixture != "collection-filters" && fixture != "slider" && fixture != "tabs" && fixture != "pagination" && fixture != "pagination-integers" && !isolated) return 4;
-    engine.loadFromModule("AvelinoCatalog", isolated ? "ReferenceCaseFixture" : fixture == "pagination-integers" ? "PaginationIntegerFixture" : fixture == "pagination" ? "PaginationFixture" : fixture == "tabs" ? "TabsFixture" : fixture == "slider" ? "SliderFixture" : fixture == "collection-filters" ? "CollectionFiltersFixture" : fixture == "search-field" ? "SearchFieldFixture" : fixture == "secure-field" ? "SecureFieldFixture" : fixture == "checkbox" ? "CheckboxFixture" : fixture == "selection" ? "SelectionFixture" : fixture == "composition" ? "CompositionFixture" : fixture == "controls" ? "ControlsFixture" : fixture == "data-display" ? "DataDisplayFixture" : fixture == "surfaces" ? "SurfacesFixture" : fixture == "foundations" ? "FoundationsFixture"
+    if (parser.isSet("fixture") && fixture != "button" && fixture != "foundations" && fixture != "surfaces" && fixture != "data-display" && fixture != "controls" && fixture != "composition" && fixture != "selection" && fixture != "checkbox" && fixture != "secure-field" && fixture != "search-field" && fixture != "collection-filters" && fixture != "slider" && fixture != "tabs" && fixture != "pagination" && fixture != "pagination-integers" && fixture != "accordion" && !isolated) return 4;
+    engine.loadFromModule("AvelinoCatalog", isolated ? "ReferenceCaseFixture" : fixture == "accordion" ? "AccordionFixture" : fixture == "pagination-integers" ? "PaginationIntegerFixture" : fixture == "pagination" ? "PaginationFixture" : fixture == "tabs" ? "TabsFixture" : fixture == "slider" ? "SliderFixture" : fixture == "collection-filters" ? "CollectionFiltersFixture" : fixture == "search-field" ? "SearchFieldFixture" : fixture == "secure-field" ? "SecureFieldFixture" : fixture == "checkbox" ? "CheckboxFixture" : fixture == "selection" ? "SelectionFixture" : fixture == "composition" ? "CompositionFixture" : fixture == "controls" ? "ControlsFixture" : fixture == "data-display" ? "DataDisplayFixture" : fixture == "surfaces" ? "SurfacesFixture" : fixture == "foundations" ? "FoundationsFixture"
         : fixture == "button" ? "ButtonFixture" : "Main");
     if (parser.isSet("capture")) {
         const auto path = parser.value("capture");
@@ -136,6 +136,36 @@ int main(int argc, char *argv[]) {
                     }
                     if (!fixture.endsWith("-pressed")) input->setFocus(false);
                 }
+            });
+        }
+        if (isolated && definition.value("api").toString()=="BleeckerAccordion" && definition.value("fixture").toString().startsWith("accordion-action-")) {
+            QTimer::singleShot(150,&app,[&engine,&app,definition] {
+                const auto window=qobject_cast<QQuickWindow *>(engine.rootObjects().value(0));
+                const auto component=window ? findVisual(window->contentItem(),"referenceCaseComponent") : nullptr;
+                const auto input=component ? component->property("inputItem").value<QQuickItem*>() : nullptr;
+                if(!input){app.exit(17);return;}
+                const auto action=definition.value("variant").toString();
+                const auto point=[component,input](const QString &kind) {
+                    auto target=findVisual(component,kind=="glyph" ? "bleeckerAccordionChevron":"bleeckerAccordionTitle");
+                    return kind=="spacer" ? input->mapToScene(QPointF(input->width()/2,7)) : target->mapToScene(QPointF(kind=="glyph" ? target->width()/2:5,target->height()/2));
+                };
+                const auto click=[window](const QPointF &position){QTest::mouseClick(window,Qt::LeftButton,Qt::NoModifier,position.toPoint());};
+                if(action=="initial-update") component->setProperty("initiallyExpanded",true);
+                else if(action=="body-update") window->setProperty("accordionBodyText",QStringLiteral("Updated body copy"));
+                else if(action=="retitle" || action=="reopen") {
+                    const auto counter=findVisual(component,"referenceAccordionCounter");
+                    if(!counter){app.exit(17);return;}
+                    click(counter->mapToScene(QPointF(counter->width()/2,counter->height()/2)));
+                    if(action=="retitle") window->setProperty("accordionTitle",QStringLiteral("Updated title"));
+                    else {click(point("title"));QCoreApplication::processEvents();click(point("title"));}
+                } else if(action=="pressed") {
+                    QTest::mousePress(window,Qt::LeftButton,Qt::NoModifier,point("title").toPoint());
+                    if(!input->property("down").toBool()){app.exit(17);return;}
+                } else if(action=="outside-release") {
+                    const auto start=point("title"),end=input->mapToScene(QPointF(input->width()+30,7));
+                    QTest::mousePress(window,Qt::LeftButton,Qt::NoModifier,start.toPoint());QTest::mouseMove(window,end.toPoint());QTest::mouseRelease(window,Qt::LeftButton,Qt::NoModifier,end.toPoint());
+                } else click(point(action=="open-spacer" ? "spacer":action=="open-glyph" ? "glyph":"title"));
+                if(action!="pressed") input->setFocus(false);
             });
         }
         if (isolated && (definition.value("api").toString()=="BleeckerTabs" || definition.value("fixture").toString().startsWith("segments-bound-"))) {
@@ -344,6 +374,22 @@ int main(int argc, char *argv[]) {
                     meta.insert("sourceSelectionAfterAction",QJsonValue::fromVariant(body->property("selection")));
                     meta.insert("sourceActivations",window->property("boundActivations").toInt());
                     meta.insert("bodySize",QJsonObject{{"width",body->width()},{"height",body->height()}});
+                }
+                if(definition.value("api").toString()=="BleeckerAccordion") {
+                    meta.insert("sourceAction",definition.value("fixture").toString().startsWith("accordion-action-") ? definition.value("variant"):QJsonValue("none"));
+                    const auto surface=findVisual(component,"bleeckerAccordionSurface");
+                    const auto header=component->property("inputItem").value<QQuickItem*>();
+                    if(!surface || !header){app.exit(17);return;}
+                    meta.insert("accordionSurface",QJsonObject{{"radius",surface->property("radius").toDouble()},{"outerPath",surface->property("outerPath").toString()},{"borderPath",surface->property("borderPath").toString()},{"rendererType",surface->property("rendererType").toInt()}});
+                    meta.insert("accordionRoundedClipping",component->property("roundedContentClipping").toBool());
+                    meta.insert("accordionHeaderDown",header->property("down").toBool());
+                    meta.insert("sourceExpandedAfterAction",component->property("expanded").toBool());
+                    meta.insert("sourceMounts",window->property("accordionMounts").toInt());
+                    meta.insert("sourceUnmounts",window->property("accordionUnmounts").toInt());
+                    meta.insert("sourceCounterValue",window->property("accordionCounterValue").toInt());
+                    meta.insert("sourceTitleAfterAction",component->property("title").toString());
+                    meta.insert("sourceInitialAfterAction",component->property("initiallyExpanded").toBool());
+                    meta.insert("sourceContentTextAfterAction",window->property("accordionBodyText").toString());
                 }
                 if (definition.value("api").toString()=="BleeckerSlider") {
                     meta.insert("sourceMinimum",component->property("from").toDouble());
