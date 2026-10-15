@@ -6,6 +6,9 @@ target_compile_definitions(AvelinoComponentTests PRIVATE
     NATIVE_WRAPPING_FILE="${PROJECT_SOURCE_DIR}/evidence/geometry/native-wrapping.json"
     NATIVE_CENTERED_TEXT_FILE="${PROJECT_SOURCE_DIR}/evidence/geometry/native-presentation-states.json"
     NATIVE_HOSTED_LOADING_FILE="${PROJECT_SOURCE_DIR}/evidence/geometry/native-loading-hosted.json"
+    NATIVE_PROSE_BOUNDARIES_FILE="${PROJECT_SOURCE_DIR}/evidence/geometry/native-prose-boundaries.json"
+    NATIVE_ALERT_TEXT_FILE="${PROJECT_SOURCE_DIR}/evidence/geometry/native-alert-text-layout.json"
+    NATIVE_ALERT_FILE="${PROJECT_SOURCE_DIR}/evidence/geometry/native-alert.json"
     NATIVE_SPINNER_FILE="${PROJECT_SOURCE_DIR}/evidence/geometry/native-spinner.json"
     NATIVE_TYPOGRAPHY_FILE="${PROJECT_SOURCE_DIR}/evidence/geometry/native-typography.json")
 add_test(NAME components COMMAND AvelinoComponentTests -import ${CMAKE_BINARY_DIR}/qml)

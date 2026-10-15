@@ -85,3 +85,11 @@ QVariantMap BleeckerValueTools::pagination(const QVariant &pageValue,const QVari
         {"previousRequest",previous ? QVariant(QString::number(page-1)) : QVariant()},
         {"nextRequest",next ? QVariant(QString::number(page+1)) : QVariant()}};
 }
+
+int BleeckerValueTools::alertTypeIndex(const QString &type) const {
+    if(type==QStringLiteral("info"))return 0;
+    if(type==QStringLiteral("success"))return 1;
+    if(type==QStringLiteral("error"))return 2;
+    if(type==QStringLiteral("warning"))return 3;
+    qFatal("Unknown Bleecker alert type");
+}

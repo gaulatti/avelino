@@ -53,3 +53,24 @@ dimensions on failure. An isolated Wayland/OpenGL profile passed after an earlie
 full-matrix failure, consistent with frame scheduling; the complete installed
 matrix is required again after this harness change. No control geometry or
 comparison tolerance is changed.
+
+The [alert investigation](alert.md) adds 96 secondary-font prose cases: regular
+and semibold, 13/18 units, two strings, six widths and DPR 1/2. Both the measured
+Text bounds and line probes match untouched source PNGs exactly in every case;
+the clean replay is part of its 722-file source witness. A final token of up to ten measured ASCII characters in the two-line examples
+stays with the preceding word when both fit. Explicit 10/11-character controls
+include narrow repeated letters and short numeric tokens. Longer tokens,
+three-line paragraphs and full-range numeric labels are negative controls. The label renderer performs a shaping-preserving preliminary layout,
+then shortens only the affected penultimate line through Qt's public line API.
+Existing explicit paragraph boundaries, elision and pure glyph advance are
+preserved. This is measured Latin behavior, with broader scripts/contexts still
+unaccepted. All preceding component images and geometry must be audited after
+this shared change; a passing new helper case is insufficient.
+
+The [supplemental boundaries](../evidence/geometry/native-prose-boundaries.json)
+provide 84 further trusted cases from a 179-file clean replay. One native-hosted
+primary18 TextRenderer image changes under instrumentation and is excluded;
+its raw diagnostic is retained. The initial broader rule worsened four actual
+loading-overlay images. The corrected full run must independently rerun the
+entire old-image and package/session matrix before a checkpoint. Physical/native
+keyboard and broader Unicode grapheme handling remain separate gates.

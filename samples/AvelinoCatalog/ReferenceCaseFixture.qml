@@ -45,7 +45,7 @@ Window {
         sourceComponent: {
             const components = {
                 "BleeckerButton": button, "BleeckerLoadingSpinner": spinner,
-                "BleeckerEmptyState":emptyState,"BleeckerErrorState":errorState,"BleeckerLoadingOverlay":loadingOverlay,
+                "BleeckerAlert":alert,"BleeckerEmptyState":emptyState,"BleeckerErrorState":errorState,"BleeckerLoadingOverlay":loadingOverlay,
                 "BleeckerTextField": textField, "BleeckerTextArea": textArea,
                 "BleeckerField": field, "BleeckerSwitchStyle": switchControl,
                 "BleeckerToggleStyle": toggle, "BleeckerSegmentedControl": segments,
@@ -71,6 +71,30 @@ Window {
         }
         onLoaded: item.objectName = "referenceCaseComponent"
     }
+    Component {
+        id:alert
+        BleeckerAlert {
+            title:definition.title;type:definition.alertType;enabled:!definition.flag
+            maximumWidth:definition.variant==="intrinsic" ? -1:Number(definition.size)
+            LayoutMirroring.enabled:definition.variant==="rtl";LayoutMirroring.childrenInherit:true
+            content:definition.contentMode==="empty" ? null:definition.contentMode==="zero" ? stateZero:definition.contentMode==="button" ? stateAction:definition.contentMode==="tall" ? alertTall:definition.contentMode==="overflow" ? alertOverflow:alertText
+            Component.onCompleted:if(definition.variant==="symbol-font20")icon=alertLargeIcon
+        }
+    }
+    Component {
+        id:alertText
+        ButtonLabel {
+            text:definition.text;font.family:parent.font.family
+            font.pointSize:definition.contentMode==="custom-font" ? BleeckerFonts.pointSizeForPixels(18):parent.font.pointSize
+            font.weight:definition.contentMode==="custom-font" ? Font.DemiBold:Font.Normal
+            color:definition.contentMode==="custom-font" ? BleeckerTheme.nativeRed:parent.foregroundColor
+            wrapWidth:parent.availableWidth
+            horizontalAlignment:definition.variant==="rtl" ? Qt.AlignRight:Qt.AlignLeft
+        }
+    }
+    Component {id:alertTall;Rectangle {implicitWidth:72;implicitHeight:90;color:BleeckerTheme.nativeRed}}
+    Component {id:alertOverflow;Item {implicitWidth:72;implicitHeight:90;Rectangle {x:-40;y:-40;width:72;height:90;color:BleeckerTheme.nativeRed}}}
+    Component {id:alertLargeIcon;AlertGlyph {color:BleeckerTheme.palette.sea;PixelAlignment {id:alertIconMetrics;target:parent} implicitWidth:alertIconMetrics.devicePixelRatio<2 ? 24:23;implicitHeight:implicitWidth}}
     Component {
         id:emptyState
         BleeckerEmptyState {

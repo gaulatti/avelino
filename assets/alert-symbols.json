@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "status": "original Linux symbol candidates; exact source artwork and distribution acceptance pending",
+  "implementation": "src/Avelino/AlertGlyph.qml",
+  "origin": "original filled circle/triangle and punched-out info, check and warning strokes; no Apple bitmap, vector or font asset",
+  "referenceRevision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+  "frameEvidence": "evidence/reference-investigations/alert-20261015/captures.json#sourceSymbols",
+  "symbols": {
+    "info": "info.circle.fill",
+    "success": "checkmark.circle.fill",
+    "warning": "exclamationmark.circle.fill",
+    "error": "exclamationmark.triangle.fill"
+  },
+  "sourceDefaultFrames": "circles 15x15; triangle 16x15 at DPR1 and 16.5x14.5 at DPR2",
+  "dynamicInput": "caller-owned icon Component; AlertGlyph is a Linux renderer whose frame can be supplied for a measured source context; no SF Symbol string resolver",
+  "repositoryLicense": "not yet declared",
+  "comparison": null,
+  "exception": null,
+  "callerStyleColorWitness": {
+    "source": "evidence/reference-investigations/alert-20261015/captures.json",
+    "method": "opaque center pixel of the actual tall Color.red content at (652,501), DPR2, both schemes",
+    "light": "#ff383c",
+    "dark": "#ff4245",
+    "scope": "native semantic Color.red fixture mapping; does not replace Bleecker destructive tokens"
+  }
+}

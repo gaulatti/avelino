@@ -114,3 +114,17 @@ adds. `scripts/check-linux-boundary.py` therefore inspects the Git index and
 recognized tar, zip, gzip, bzip2, and xz contents, including nested archives and
 archives with disguised filenames. Unsupported archives and inspection limits
 fail the check. CI runs this check before recovering external references.
+
+The [alert investigation](alert.md) preserves 256 actual component renders,
+96 native lifecycle records and 96 isolated text-layout cases. All 352 image
+instrumentation witnesses are byte-identical to uninstrumented rendering. Its
+37-input external source bundle replays 722 raw files exactly; the linked
+`investigation.json` and provenance retain the full-source/public-download limits.
+The 256-image proposal stays review-only, with expected images and pins unchanged.
+
+The supplemental [prose boundaries](../evidence/reference-investigations/prose-boundaries-20261015/investigation.json)
+preserve explicit short/long token and renderer-context counterexamples. A
+separate 37-input clean extraction replays all 179 files exactly. The 84 trusted
+Qt cases retain their source paths; a native-hosted primary18 renderer witness
+that changes under instrumentation is excluded and preserved as a diagnostic.
+Neither replay approves a new expected image or a visual tolerance.

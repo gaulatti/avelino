@@ -10,6 +10,23 @@ class FixtureSetup : public QObject {
     Q_OBJECT
 public slots:
     void qmlEngineAvailable(QQmlEngine *engine) {
+        QFile proseBoundaries(QStringLiteral(NATIVE_PROSE_BOUNDARIES_FILE));
+        if(!proseBoundaries.open(QIODevice::ReadOnly))qFatal("Native prose boundaries missing");
+        const auto proseData=QJsonDocument::fromJson(proseBoundaries.readAll()).object();
+        if(proseData.value("reference").toString()!="fe8a1d462fbd793d883fb92086a16aa2947e32c9" || proseData.value("cases").toArray().size()!=84)qFatal("Native prose boundaries invalid");
+        engine->rootContext()->setContextProperty("nativeProseBoundaries",proseData.value("cases").toArray().toVariantList());
+        QFile alertText(QStringLiteral(NATIVE_ALERT_TEXT_FILE));
+        if(!alertText.open(QIODevice::ReadOnly))qFatal("Native alert text evidence missing");
+        const auto alertTextData=QJsonDocument::fromJson(alertText.readAll()).object();
+        if(alertTextData.value("reference").toString()!="fe8a1d462fbd793d883fb92086a16aa2947e32c9" || alertTextData.value("cases").toArray().size()!=96)qFatal("Native alert text evidence invalid");
+        engine->rootContext()->setContextProperty("nativeAlertTextCases",alertTextData.value("cases").toArray().toVariantList());
+        QFile alert(QStringLiteral(NATIVE_ALERT_FILE));
+        if(!alert.open(QIODevice::ReadOnly))qFatal("Native alert evidence missing");
+        const auto alertData=QJsonDocument::fromJson(alert.readAll()).object();
+        if(alertData.value("reference").toString()!="fe8a1d462fbd793d883fb92086a16aa2947e32c9" || alertData.value("captures").toArray().size()!=256)qFatal("Native alert evidence invalid");
+        QJsonArray alertCases;for(const auto &entry:alertData.value("captures").toArray())if(entry.toObject().value("api").toString()=="BleeckerAlert")alertCases.append(entry);
+        engine->rootContext()->setContextProperty("nativeAlertCaptures",alertCases.toVariantList());
+        engine->rootContext()->setContextProperty("nativeAlertBehavior",alertData.value("behavior").toArray().toVariantList());
         QFile file(QStringLiteral(NATIVE_GEOMETRY_FILE));
         if (!file.open(QIODevice::ReadOnly)) qFatal("Native geometry evidence is missing");
         const auto cases = QJsonDocument::fromJson(file.readAll()).object().value("cases").toArray();

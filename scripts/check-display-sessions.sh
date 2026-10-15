@@ -50,7 +50,7 @@ INI
   fi
   for backend in software opengl; do
     for configuration in standard scaled; do
-    for fixture in base controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner; do
+    for fixture in base controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert; do
       prefix="$evidence/$protocol-$backend-$configuration"
       if [[ "$fixture" == controls ]]; then prefix="$evidence/controls-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == composition ]]; then prefix="$evidence/composition-$protocol-$backend-$configuration"; fi
@@ -63,6 +63,7 @@ INI
       if [[ "$fixture" == tabs ]]; then prefix="$evidence/tabs-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == pagination ]]; then prefix="$evidence/pagination-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == pagination-integers ]]; then prefix="$evidence/pagination-integers-$protocol-$backend-$configuration"; fi
+      if [[ "$fixture" == alert ]]; then prefix="$evidence/alert-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == spinner ]]; then prefix="$evidence/spinner-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == presentation-states ]]; then prefix="$evidence/presentation-states-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == accordion ]]; then prefix="$evidence/accordion-$protocol-$backend-$configuration"; fi
@@ -78,6 +79,7 @@ INI
       if [[ "$fixture" == tabs ]]; then args+=(--tabs); fi
       if [[ "$fixture" == pagination ]]; then args+=(--pagination); fi
       if [[ "$fixture" == pagination-integers ]]; then args+=(--pagination-integers); fi
+      if [[ "$fixture" == alert ]]; then args+=(--alert); fi
       if [[ "$fixture" == spinner ]]; then args+=(--spinner); fi
       if [[ "$fixture" == presentation-states ]]; then args+=(--presentation-states); fi
       if [[ "$fixture" == accordion ]]; then args+=(--accordion); fi
@@ -152,6 +154,11 @@ elif fixture == 'secure-field':
         assert record[key] == 'passed', record
     assert record['sourceHeight'] == 40 and record['fontPointSize'] == 10.5, record
     assert record['revealed'] is True, record
+elif fixture == 'alert':
+    for key in ['alertChecks','focusChecks','qtAccessibilityChecks']:
+        assert record[key]=='passed',record
+    assert (record['mounts'],record['unmounts'],record['actions'],record['counter'])==(3,2,4,0),record
+    assert record['narrowWidth']<=180 and record['roundedContentClipping']==(backend=='opengl'),record
 elif fixture == 'spinner':
     for key in ['spinnerChecks','focusChecks','qtAccessibilityChecks']:
         assert record[key]=='passed',record

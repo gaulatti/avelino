@@ -46,6 +46,8 @@ model-frame timing, with visual and physical acceptance still pending.
 Shared label sizing follows [measured native typography](docs/typography.md).
 The [empty/error/loading source investigation](docs/presentation-states.md)
 now has [Linux presentation-state candidates](docs/presentation-states.md); complete mirror acceptance remains pending.
-Forty-six of the 80 discovered desktop
+The [alert candidate](docs/alert.md) adds typed feedback with caller-owned content
+and native prose-layout evidence.
+Forty-seven of the 80 discovered desktop
 entries have started; no component has passed its complete mirror gate.
 The public GitHub wiki remote is unavailable; documentation currently lives here.

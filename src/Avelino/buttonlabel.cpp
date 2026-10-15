@@ -5,6 +5,8 @@
 #include <QTextLayout>
 #include <QFontMetricsF>
 #include <QtEndian>
+#include <QRegularExpression>
+#include <QMap>
 #include <algorithm>
 #include <cmath>
 
@@ -198,6 +200,46 @@ void ButtonLabel::relayout() {
         layoutText = QFontMetricsF(shapeFont).elidedText(layoutText, Qt::ElideRight, m_elideWidth / ratio);
     QTextLayout layout(layoutText, shapeFont);
     layout.setTextOption(option);
+    // Measured source two-line text keeps a final token of at most ten UTF-16
+    // characters with its predecessor when both fit. Longer tokens and longer
+    // paragraphs retain their breaks.
+    // Preserve explicit paragraph breaks and leave
+    // earlier lines and their shaping untouched.
+    QMap<int,int> paragraphBreaks;
+    if (sourceFont && option.wrapMode()!=QTextOption::NoWrap && m_elideWidth<0) {
+        QTextLayout greedy(layoutText,shapeFont);greedy.setTextOption(option);
+        greedy.beginLayout();
+        while (true) {
+            auto line=greedy.createLine();if(!line.isValid())break;
+            line.setLineWidth(std::max(qreal(0.000001),m_wrapWidth/ratio));
+        }
+        greedy.endLayout();
+        const QRegularExpression spaces(QStringLiteral("\\s+"));
+        for(int i=1;i<greedy.lineCount();++i) {
+            const auto last=greedy.lineAt(i),previous=greedy.lineAt(i-1);
+            const auto tail=layoutText.mid(last.textStart(),last.textLength());
+            const bool paragraphEnd=i==greedy.lineCount()-1 || tail.contains(QChar::LineSeparator) || tail.contains(QChar::ParagraphSeparator);
+            const auto before=layoutText.mid(previous.textStart(),previous.textLength());
+            const auto finalWord=tail.trimmed();
+            const bool shortToken=finalWord.size()<=10;
+            bool twoLines=true;
+            if(i>=2){const auto earlier=greedy.lineAt(i-2);const auto preceding=layoutText.mid(earlier.textStart(),earlier.textLength());twoLines=preceding.contains(QChar::LineSeparator) || preceding.contains(QChar::ParagraphSeparator);}
+
+            if(!paragraphEnd || !twoLines || !shortToken || before.contains(QChar::LineSeparator) || before.contains(QChar::ParagraphSeparator)
+                || tail.trimmed().split(spaces,Qt::SkipEmptyParts).size()!=1
+                || before.trimmed().split(spaces,Qt::SkipEmptyParts).size()<2)continue;
+            auto trimmedEnd=previous.textStart()+previous.textLength();
+            while(trimmedEnd>previous.textStart() && layoutText.at(trimmedEnd-1).isSpace())--trimmedEnd;
+            auto wordStart=trimmedEnd;
+            while(wordStart>previous.textStart() && !layoutText.at(wordStart-1).isSpace())--wordStart;
+            if(wordStart==previous.textStart())continue;
+            const auto candidateText=layoutText.mid(wordStart,last.textStart()+last.textLength()-wordStart);
+            QTextLayout candidate(candidateText,shapeFont);auto single=option;single.setWrapMode(QTextOption::NoWrap);candidate.setTextOption(single);
+            candidate.beginLayout();auto candidateLine=candidate.createLine();candidateLine.setLineWidth(1000000);candidate.endLayout();
+            if(sourceMetrics(candidateLine,candidateText).width<=m_wrapWidth)
+                paragraphBreaks.insert(previous.textStart(),wordStart-previous.textStart());
+        }
+    }
     qreal width = 0, height = 0, baseline = 0;
     if (sourceFont && m_text.isEmpty()) {
         // The pinned empty Text keeps the source's default empty line box,
@@ -211,7 +253,9 @@ void ButtonLabel::relayout() {
     for (;;) {
         auto line = layout.createLine();
         if (!line.isValid()) break;
-        line.setLineWidth(m_wrapWidth >= 0 ? std::max(qreal(0.000001), m_wrapWidth / ratio) : 1000000);
+        const auto lineWidth=m_wrapWidth>=0 ? std::max(qreal(0.000001),m_wrapWidth/ratio):1000000;
+        if(paragraphBreaks.contains(line.textStart()))line.setNumColumns(paragraphBreaks.value(line.textStart()),lineWidth);
+        else line.setLineWidth(lineWidth);
         const qreal ascent = sourceFont ? std::round(line.ascent() * ratio) : line.ascent() * ratio;
         const qreal descent = sourceFont ? std::round(line.descent() * ratio) : line.descent() * ratio;
         line.setPosition(QPointF(0, (height + ascent) / ratio - line.ascent()));

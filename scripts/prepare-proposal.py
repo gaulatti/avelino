@@ -41,7 +41,8 @@ def prepare(source, tooling, output, scope=None):
     "desktop-pagination": {"BleeckerButton", "BleeckerIconButton", "BleeckerPagination"},
     "desktop-pagination-integers": {"BleeckerButton", "BleeckerPagination"},
     "desktop-accordion": {"BleeckerButton", "BleeckerAccordion"},
-            "desktop-presentation-states": {"BleeckerButton", "BleeckerEmptyState", "BleeckerErrorState", "BleeckerLoadingOverlay"}}
+            "desktop-presentation-states": {"BleeckerButton", "BleeckerEmptyState", "BleeckerErrorState", "BleeckerLoadingOverlay"},
+            "desktop-alert":{"BleeckerButton","BleeckerAlert"}}
         assert scope in allowed, "Unknown reference proposal scope"
         assert {c["api"] for c in manifest["captures"]} == allowed[scope]
         manifest["scope"] = scope
@@ -88,6 +89,8 @@ def prepare(source, tooling, output, scope=None):
         if file != output / name: shutil.copyfile(file, output / name)
         fixtures[case["fixture"]] = {key: case[key] for key in ["fixture", "api", "width", "height", "variant", "size", "value", "flag", "text"]}
         if "expectedEmpty" in case: fixtures[case["fixture"]]["expectedEmpty"] = empty
+        if scope == "desktop-alert":
+            fixtures[case["fixture"]].update({key:case[key] for key in ["title","alertType","contentMode"]})
         if scope == "desktop-presentation-states":
             fixtures[case["fixture"]].update({key:case[key] for key in ["title","actionsMode"]})
     assert not blanks, f"Blank native captures: {blanks}"
@@ -146,6 +149,6 @@ if __name__ == "__main__":
     parser.add_argument("--captures", required=True)
     parser.add_argument("--tooling", required=True)
     parser.add_argument("--output", required=True)
-    parser.add_argument("--scope", choices=["desktop-composition", "desktop-selectors", "desktop-checkbox", "desktop-secure-field", "desktop-search-field", "desktop-collection-filters", "desktop-slider", "desktop-tabs", "desktop-pagination", "desktop-pagination-integers", "desktop-accordion", "desktop-presentation-states"])
+    parser.add_argument("--scope", choices=["desktop-composition", "desktop-selectors", "desktop-checkbox", "desktop-secure-field", "desktop-search-field", "desktop-collection-filters", "desktop-slider", "desktop-tabs", "desktop-pagination", "desktop-pagination-integers", "desktop-accordion", "desktop-presentation-states", "desktop-alert"])
     args = parser.parse_args()
     print(f"Prepared {prepare(args.captures, args.tooling, args.output, args.scope)} review candidates; expected images unchanged")

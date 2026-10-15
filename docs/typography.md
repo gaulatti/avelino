@@ -92,3 +92,7 @@ advance, applies the source whitespace bound, then rounds to the physical pixel
 grid. It does not add component-specific padding. The full-range pagination label
 is the user-visible regression, including repeated caller resizing/updates in the
 independently installed consumer.
+
+The [alert prose matrix](alert.md) adds measured two-line wrapping boundaries
+without changing font resolution or glyph advances. The [wrapping contract](wrapping.md)
+records positive and negative controls and the required shared-renderer audit.
