@@ -26,12 +26,12 @@ Weston Wayland compositor nested on it. It saves whole-output and window capture
 for software/OpenGL rendering at two display/text scales. Source and build trees
 remain absent. Metadata explicitly identifies virtual displays, Mesa software
 rendering, synthetic input, and the still-pending overlay/accessibility checks.
-The harness runs eleven independent windows in each configuration: the base library
+The harness runs twelve independent windows in each configuration: the base library
 fixture, `InstalledConsumer --controls`, `InstalledConsumer --composition` and
 `InstalledConsumer --selection`, `InstalledConsumer --checkbox` and
 `InstalledConsumer --secure-field`, `InstalledConsumer --search-field` and
-`InstalledConsumer --collection-filters`, `InstalledConsumer --slider`, `InstalledConsumer --tabs` and `InstalledConsumer --pagination`.
-Their eighty-eight capture pairs keep
+`InstalledConsumer --collection-filters`, `InstalledConsumer --slider`, `InstalledConsumer --tabs`, `InstalledConsumer --pagination` and `InstalledConsumer --pagination-integers`.
+Their ninety-six capture pairs keep
 form editing, scrolling, switch/toggle actions, disabled segmented options and
 focus restoration separate from the base composition checks. The controls fixture
 exercises the multiline editor's owned scrollbar. The selector fixture exercises
@@ -94,11 +94,13 @@ using the same GNU install directories as the exported CMake package. Launch
 `QML_IMPORT_PATH` override is required. The Qt 6.8.3 runtime remains a prerequisite.
 The source-build catalog continues to use the documented build-tree import path.
 
-`check-installed-catalog.sh` exercises all thirteen galleries at both appearances
-and DPRs, both action galleries, and the default button: 55 images with physical
+`check-installed-catalog.sh` exercises all fourteen galleries at both appearances
+and DPRs, both action galleries, and the default button: 59 images with physical
 size/metadata checks. Both QML import environment variables are unset. A copied
 executable without its module must fail with the missing-module error. The full
 Linux check runs this against the staged install, then the package-only check
 repeats it after relocation. CI preserves both capture sets. `catalog-evidence`
 refuses existing output; rerun against a fresh package copy. These startup checks
 do not close compositor, physical input, screen-reader or strict visual gates.
+
+The exact-pagination window verifies full Int64 labels and string requests across pointer, keyboard, actual accessibility actions and later caller updates. Unsafe numeric input and malformed/out-of-range string values are refused. Its virtual-session evidence remains separate from real reader/physical acceptance.

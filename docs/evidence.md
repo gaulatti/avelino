@@ -576,3 +576,27 @@ This verifies offscreen startup and relocation. It does not turn the preceding
 88 library virtual sessions into catalog sessions or close physical, compositor,
 screen-reader, exact visual or remaining desktop/TV gates. Reference pins,
 expected captures, tolerances and exceptions are unchanged.
+
+## Full pagination integer domain
+
+The [exact pagination checkpoint](../evidence/development/pagination-integers/candidate.json)
+removes the Qt 32-bit domain restriction. Qt 6.8.3 converts native 64-bit values to
+JavaScript doubles; the native helper therefore validates safe numeric inputs or
+canonical decimal strings and performs all arithmetic/formatting in C++. The
+request signal now carries strings, including ordinary values such as `"5"`.
+This is an explicit breaking signature change, documented in the migration.
+
+The native source executes the same Int64 cases and records exact strings:
+184/184 matching root bounds, 168/176 matching pagination bodies and 0/184 exact images. All final page/count/request and callback values match. Disabled
+extremes cannot overflow. Actual Qt pointer, keyboard and accessibility paths
+are followed by external caller updates. Invalid or unsafe input fails startup.
+All 185 helper output files replayed byte-for-byte.
+
+All 3,072 Qt checks, 59 contracts, eight pagination and three slider
+invalid-startup cases, twelve installed offscreen modes, 96 package-only virtual
+session pairs and 59 installed-catalog captures pass. The previous 2,594 PNG and
+complete metadata pairs are unchanged; host-style gallery PNGs match. The integer
+behavior gap is closed, while exact appearance, source keyboard/focus, physical
+input/display and screen readers remain pending. No backend, metrics,
+configuration, TV, source-pin, expected-image or tolerance changes. Public wiki
+access remains unavailable; the in-repository contract/inventory is updated.

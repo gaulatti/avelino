@@ -27,8 +27,10 @@ disabled at `page<=1`; Next requests `min(pageCount,page+1)` and is disabled at
 grouping (for example `Page 1,000 of 2,000` in `en_US`), without repairing
 an out-of-range caller page. Zero/negative counts and pages outside the count are
 preserved as source behavior. The caller decides whether to apply a request.
-Qt `int` properties are a platform adapter; source Swift integers beyond the Qt
-32-bit property range remain unverified.
+The [exact-integer update](pagination-integers.md) replaces the initial Qt `int`
+limitation with native 64-bit arithmetic and decimal-string request values.
+The original checkpoint below is historical; the updated signal signature and
+input representation are documented in that migration.
 
 The page label uses fixed 12-unit primary text; the source button style applies
 text scaling to its symbol font while retaining the icon frame and minimum button
@@ -58,3 +60,7 @@ remain open. No source pin, accepted capture, tolerance or exception changed.
 A separate package-only catalog probe at `eed9aac` failed to locate the installed Avelino QML
 module. The subsequent catalog relocation fix and its regression checks are
 documented separately; independent library consumption remains a separate check. See [packaging](packaging.md).
+
+The subsequent [full integer update](pagination-integers.md) closes the initial
+32-bit range limitation. Its string request signature is a documented breaking
+change; the historical evidence above is preserved unchanged.

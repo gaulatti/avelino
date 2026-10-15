@@ -18283,9 +18283,10 @@
         "implementation": [
           "src/Avelino/BleeckerPagination.qml",
           "src/Avelino/BleeckerButton.qml",
-          "src/Avelino/NavigationGlyph.qml"
+          "src/Avelino/NavigationGlyph.qml",
+          "src/Avelino/valuetools.cpp"
         ],
-        "caseDiscovery": "All icon sizes/variants/directions/disabled and held-press cases; pagination boundaries, caller requests/external updates, locale grouping, constrained/wide/RTL and disabled input; source focus/keyboard, large integer and physical/reader acceptance pending",
+        "caseDiscovery": "Full signed Int64 page/count and exact string requests, safe numeric input, explicit invalid-input refusal, ordinary/narrow/RTL, caller updates and disabled endpoints; strict visual, source keyboard/focus and physical/reader acceptance pending",
         "cases": [
           {
             "id": "pagination-first-light-text1.0-offscreen-dpr1.0",
@@ -20262,6 +20263,2294 @@
               "evidence/development/pagination/candidate.json"
             ],
             "notes": "Candidate final caller state and bounds compared separately; exact symbol/pixel, source focus/keyboard, wider integer and physical/screen-reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-int32-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-int32-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-int32-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-int32-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-int32-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-int32-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-int32-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-int32-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-int32-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-int32-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-int32-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-int32-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-int32-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-int32-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-int32-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-int32-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-int32-after-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-int32-after-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-int32-after-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-int32-after-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-int32-after-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-int32-after-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-int32-after-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-int32-after-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-int32-after-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-int32-after-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-int32-after-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-int32-after-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-int32-after-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-int32-after-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-int32-after-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-int32-after-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-safe-limit-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-safe-limit-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-safe-limit-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-safe-limit-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-safe-limit-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-safe-limit-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-safe-limit-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-safe-limit-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-safe-limit-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-safe-limit-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-safe-limit-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-safe-limit-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-safe-limit-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-safe-limit-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-safe-limit-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-safe-limit-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-beyond-safe-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-beyond-safe-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-beyond-safe-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-beyond-safe-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-beyond-safe-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-beyond-safe-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-beyond-safe-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-beyond-safe-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-beyond-safe-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-beyond-safe-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-beyond-safe-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-beyond-safe-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-beyond-safe-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-beyond-safe-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-beyond-safe-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-beyond-safe-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-upper-before-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-upper-before-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-upper-before-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-upper-before-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-upper-before-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-upper-before-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-upper-before-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-upper-before-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-upper-before-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-upper-before-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-upper-before-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-upper-before-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-upper-before-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-upper-before-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-upper-before-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-upper-before-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-upper-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-upper-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-upper-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-upper-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-upper-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-upper-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-upper-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-upper-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-upper-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-upper-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-upper-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-upper-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-upper-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-upper-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-upper-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-upper-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-minimum-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-minimum-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-minimum-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-minimum-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-minimum-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-minimum-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-minimum-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-minimum-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-minimum-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-minimum-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-minimum-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-minimum-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-minimum-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-minimum-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-minimum-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-minimum-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-lower-equal-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-lower-equal-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-lower-equal-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-lower-equal-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-lower-equal-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-lower-equal-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-lower-equal-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-lower-equal-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-lower-equal-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-lower-equal-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-lower-equal-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-lower-equal-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-lower-equal-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-lower-equal-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-lower-equal-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-lower-equal-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-negative-count-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-negative-count-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-negative-count-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-negative-count-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-negative-count-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-negative-count-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-negative-count-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-negative-count-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-negative-count-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-negative-count-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-negative-count-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-negative-count-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-negative-count-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-negative-count-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-negative-count-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-negative-count-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-above-count-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-above-count-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-above-count-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-above-count-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-above-count-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-above-count-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-above-count-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-above-count-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-above-count-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-above-count-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-above-count-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-above-count-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-above-count-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-above-count-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-above-count-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-above-count-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-wide-count-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-wide-count-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-wide-count-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-wide-count-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-wide-count-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-wide-count-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-wide-count-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-wide-count-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-wide-count-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-wide-count-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-wide-count-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-wide-count-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-wide-count-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-wide-count-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-wide-count-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-wide-count-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-negative-middle-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-negative-middle-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-negative-middle-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-negative-middle-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-negative-middle-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-negative-middle-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-negative-middle-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-negative-middle-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-negative-middle-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-negative-middle-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-negative-middle-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-negative-middle-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-negative-middle-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-negative-middle-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-negative-middle-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-negative-middle-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-rtl-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-rtl-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-rtl-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-rtl-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-rtl-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-rtl-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-rtl-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-rtl-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-rtl-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-rtl-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-rtl-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-rtl-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-rtl-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-rtl-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-rtl-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-rtl-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-narrow-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-narrow-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-narrow-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-narrow-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-narrow-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-narrow-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-narrow-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-narrow-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-narrow-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-narrow-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-narrow-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-narrow-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-narrow-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-narrow-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-narrow-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-narrow-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-disabled-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-disabled-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-disabled-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-disabled-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-disabled-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-disabled-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-disabled-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-disabled-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-disabled-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-disabled-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-disabled-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-disabled-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-disabled-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-disabled-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-disabled-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-disabled-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-next-i32-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-next-i32-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-next-i32-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-next-i32-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-next-i32-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-next-i32-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-next-i32-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-next-i32-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-next-safe-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-next-safe-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-next-safe-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-next-safe-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-next-safe-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-next-safe-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-next-safe-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-next-safe-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-next-beyond-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-next-beyond-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-next-beyond-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-next-beyond-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-next-beyond-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-next-beyond-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-next-beyond-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-next-beyond-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-previous-beyond-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-previous-beyond-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-previous-beyond-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-previous-beyond-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-previous-beyond-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-previous-beyond-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-previous-beyond-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-previous-beyond-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-next-upper-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-next-upper-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-next-upper-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-next-upper-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-next-upper-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-next-upper-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-next-upper-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-next-upper-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-previous-upper-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-previous-upper-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-previous-upper-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-previous-upper-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-previous-upper-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-previous-upper-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-previous-upper-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-previous-upper-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-disabled-upper-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-disabled-upper-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-disabled-upper-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-disabled-upper-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-disabled-upper-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-disabled-upper-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-disabled-upper-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-disabled-upper-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-next-min-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-next-min-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-next-min-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-next-min-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-next-min-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-next-min-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-next-min-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-next-min-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-disabled-min-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-disabled-min-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-disabled-min-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-disabled-min-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-disabled-min-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-disabled-min-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-disabled-min-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-disabled-min-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-previous-negative-count-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-previous-negative-count-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-previous-negative-count-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-previous-negative-count-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-previous-negative-count-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-previous-negative-count-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-previous-negative-count-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-previous-negative-count-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-no-handler-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-no-handler-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-no-handler-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-no-handler-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-no-handler-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-no-handler-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-no-handler-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-no-handler-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-external-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-external-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-external-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-external-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-external-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-external-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-external-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-external-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-shrink-count-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-shrink-count-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-shrink-count-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-shrink-count-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-shrink-count-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-shrink-count-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-shrink-count-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-shrink-count-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-disabled-group-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-disabled-group-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-disabled-group-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-disabled-group-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-disabled-group-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-disabled-group-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "pagination-i64-action-disabled-group-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/pagination-integers-20261014/pagination-i64-action-disabled-group-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
+            ],
+            "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
           }
         ],
         "tests": [
@@ -20269,15 +22558,23 @@
           "tests/consumer/Pagination.qml",
           "tests/consumer/paginationchecks.h",
           "tests/contracts/test_proposals.py",
-          "tests/contracts/test_comparison.py"
+          "tests/contracts/test_comparison.py",
+          "tests/components/tst_pagination_integers.qml",
+          "tests/components/check-invalid-pagination.py",
+          "tests/consumer/PaginationIntegers.qml",
+          "tests/consumer/paginationintegerchecks.h"
         ],
         "captures": [
           "samples/AvelinoCatalog/PaginationFixture.qml",
           "evidence/reference-proposals/pagination-20261014/proposal.json",
-          "evidence/development/pagination/candidate.json"
+          "evidence/development/pagination/candidate.json",
+          "samples/AvelinoCatalog/PaginationIntegerFixture.qml",
+          "evidence/reference-proposals/pagination-integers-20261014/proposal.json",
+          "evidence/development/pagination-integers/candidate.json"
         ],
         "comparisonResults": [
-          "evidence/development/pagination/comparison/comparison.json"
+          "evidence/development/pagination/comparison/comparison.json",
+          "evidence/development/pagination-integers/comparison/comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -20287,7 +22584,11 @@
               "docs/pagination.md",
               "tests/components/tst_pagination.qml",
               "tests/consumer/paginationchecks.h",
-              "evidence/development/pagination/candidate.json"
+              "evidence/development/pagination/candidate.json",
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
             ],
             "notes": "Candidate evidence only; exact symbol/pixel, physical and screen-reader gates remain open."
           },
@@ -20298,7 +22599,11 @@
               "tests/components/tst_pagination.qml",
               "tests/consumer/paginationchecks.h",
               "evidence/development/pagination/candidate.json",
-              "evidence/development/pagination/sessions"
+              "evidence/development/pagination/sessions",
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
             ],
             "notes": "Candidate evidence only; exact symbol/pixel, physical and screen-reader gates remain open."
           },
@@ -20309,7 +22614,11 @@
               "tests/components/tst_pagination.qml",
               "tests/consumer/paginationchecks.h",
               "evidence/development/pagination/candidate.json",
-              "evidence/development/pagination/sessions"
+              "evidence/development/pagination/sessions",
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
             ],
             "notes": "Candidate evidence only; exact symbol/pixel, physical and screen-reader gates remain open."
           },
@@ -20319,7 +22628,11 @@
               "docs/pagination.md",
               "tests/components/tst_pagination.qml",
               "tests/consumer/paginationchecks.h",
-              "evidence/development/pagination/candidate.json"
+              "evidence/development/pagination/candidate.json",
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
             ],
             "notes": "Candidate evidence only; exact symbol/pixel, physical and screen-reader gates remain open."
           },
@@ -20329,7 +22642,11 @@
               "docs/pagination.md",
               "tests/components/tst_pagination.qml",
               "tests/consumer/paginationchecks.h",
-              "evidence/development/pagination/candidate.json"
+              "evidence/development/pagination/candidate.json",
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
             ],
             "notes": "Candidate evidence only; exact symbol/pixel, physical and screen-reader gates remain open."
           },
@@ -20339,7 +22656,11 @@
               "docs/pagination.md",
               "tests/components/tst_pagination.qml",
               "tests/consumer/paginationchecks.h",
-              "evidence/development/pagination/candidate.json"
+              "evidence/development/pagination/candidate.json",
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
             ],
             "notes": "Candidate evidence only; exact symbol/pixel, physical and screen-reader gates remain open."
           },
@@ -20351,7 +22672,11 @@
               "tests/consumer/paginationchecks.h",
               "evidence/development/pagination/candidate.json",
               "evidence/development/pagination/sessions",
-              "evidence/development/catalog-runtime/candidate.json"
+              "evidence/development/catalog-runtime/candidate.json",
+              "docs/pagination-integers.md",
+              "tests/components/tst_pagination_integers.qml",
+              "tests/consumer/paginationintegerchecks.h",
+              "evidence/development/pagination-integers/candidate.json"
             ],
             "notes": "Candidate evidence only; exact symbol/pixel, physical and screen-reader gates remain open."
           }

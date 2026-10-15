@@ -221,3 +221,12 @@ replayed byte-for-byte. Thirty-six held-press cases check down state at capture
 and one callback after release. The 48 enabled ghost-symbol measurements and
 152 matching child body measurements remain diagnostic; root bounds cannot
 close those gates. No glyph substitution, expected image or tolerance is approved.
+
+The [full integer proposal](../evidence/reference-proposals/pagination-integers-20261014/proposal.json)
+and [candidate](../evidence/development/pagination-integers/candidate.json) record
+184/184 matching root bounds, 168/176 matching pagination bodies and 0/184 exact images. The matrix crosses signed 32-bit, JavaScript safe-integer and signed
+64-bit boundaries, including minimum/maximum disabled states and actual source
+pointer requests. Exact strings preserve JSON/QML transport. All 185 native
+files replayed exactly. The 2,594 preceding PNG/full metadata pairs are unchanged.
+Source keyboard/focus, exact pixels, physical sessions and actual readers remain
+separate pending gates.

@@ -12,8 +12,12 @@ Window {
     property int collectionRemovals: 0
     property real sliderValue: definition.api === "BleeckerSlider" ? Number(definition.text) : 0
     property int sliderEdits: 0
-    property int pageValue: definition.api === "BleeckerPagination" ? Number(definition.text) : 0
+    property int pageValue: definition.api === "BleeckerPagination" && !definition.fixture.startsWith("pagination-i64-") ? Number(definition.text) : 0
     property int pageTotal: definition.value
+    property string integerPage: definition.fixture.startsWith("pagination-i64-") ? definition.text : "0"
+    property string integerCount: definition.fixture.startsWith("pagination-i64-") ? definition.size : "0"
+    property var integerRequested: null
+    property int integerCalls: 0
     property int pageRequests: 0
     property var lastPageRequest: null
     property int iconCalls: 0
@@ -52,6 +56,7 @@ Window {
                 "BleeckerFooter": footer, "BleeckerFeedItem": feed, "BleeckerProgressStack": progressStack,
                 "BleeckerSelect": select, "BleeckerCheckbox": checkbox, "BleeckerSecureField": secureField, "BleeckerSearchField": searchField, "BleeckerFilterChip": filterChip, "BleeckerCollectionFilters": collectionFilters, "BleeckerSlider": slider, "BleeckerTabs": boundSelectionFrame, "BleeckerPagination": paginationFrame, "BleeckerIconButton": iconButton
             }
+            if (definition.fixture.startsWith("pagination-i64-")) return paginationIntegerFrame
             if (definition.fixture.startsWith("segments-bound-")) return boundSelectionFrame
             if (definition.api === "BleeckerTextField" && definition.fixture.startsWith("search-text-")) return searchField
             if (!components[definition.api]) throw new Error("Unimplemented reference API: " + definition.api)
@@ -158,6 +163,27 @@ Window {
                 color:icon.foregroundColor;pixelSize:icon.glyphPixelSize
             }
             onClicked: window.iconCalls++
+        }
+    }
+    Component {
+        id: paginationIntegerFrame
+        Item {
+            id: frame
+            enabled: !definition.flag
+            implicitWidth: definition.variant === "narrow" ? 260 : pager.naturalWidth
+            implicitHeight: pager.implicitHeight
+            LayoutMirroring.enabled: definition.variant === "rtl";LayoutMirroring.childrenInherit: true
+            BleeckerPagination {
+                id: pager
+                objectName: "bleeckerPaginationBody"
+                anchors.centerIn:parent;anchors.alignWhenCentered:false
+                width: Math.min(frame.width,naturalWidth)
+                page: window.integerPage;pageCount:window.integerCount;locale:Qt.locale("en_US")
+                onPageRequested: page => {
+                    window.integerCalls++;window.integerRequested=page
+                    if (definition.variant !== "no-handler") window.integerPage=page
+                }
+            }
         }
     }
     Component {

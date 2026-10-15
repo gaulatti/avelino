@@ -26,6 +26,7 @@ static QQuickItem *findVisualItem(QQuickItem *item, const QString &name) {
 #include "sliderchecks.h"
 #include "tabschecks.h"
 #include "paginationchecks.h"
+#include "paginationintegerchecks.h"
 static void runCheckboxConsumer(QQuickWindow *window, QGuiApplication &app,
                                 const QCommandLineParser &parser, double textScale) {
     auto item=[window](const QString &name) { return findVisualItem(window->contentItem(),name); };
@@ -300,6 +301,7 @@ int main(int argc, char **argv) {
     parser.addOption(QCommandLineOption("composition", "Exercise the composition fixture."));
     parser.addOption(QCommandLineOption("selection", "Exercise the selector and open popup fixture."));
     parser.addOption(QCommandLineOption("checkbox", "Exercise checkbox states, input and Qt accessibility."));
+    parser.addOption(QCommandLineOption("pagination-integers", "Exercise exact signed 64-bit pagination."));
     parser.addOption(QCommandLineOption("pagination", "Exercise icon buttons and caller-owned pagination."));
     parser.addOption(QCommandLineOption("tabs", "Exercise tabs and bound segmented selection."));
     parser.addOption(QCommandLineOption("slider", "Exercise slider ranges, binding and Qt input."));
@@ -308,7 +310,7 @@ int main(int argc, char **argv) {
     parser.addOption(QCommandLineOption("secure-field", "Exercise secure editing, reveal and Qt accessibility."));
     parser.addOption(QCommandLineOption("text-scale", "Exercise text scaling.", "factor", "1"));
     parser.process(app);
-    if (int(parser.isSet("controls"))+int(parser.isSet("composition"))+int(parser.isSet("selection"))+int(parser.isSet("checkbox"))+int(parser.isSet("secure-field"))+int(parser.isSet("search-field"))+int(parser.isSet("collection-filters"))+int(parser.isSet("slider"))+int(parser.isSet("tabs"))+int(parser.isSet("pagination"))>1) return 58;
+    if (int(parser.isSet("controls"))+int(parser.isSet("composition"))+int(parser.isSet("selection"))+int(parser.isSet("checkbox"))+int(parser.isSet("secure-field"))+int(parser.isSet("search-field"))+int(parser.isSet("collection-filters"))+int(parser.isSet("slider"))+int(parser.isSet("tabs"))+int(parser.isSet("pagination"))+int(parser.isSet("pagination-integers"))>1) return 58;
     bool validScale = false;
     const double textScale = parser.value("text-scale").toDouble(&validScale);
     if (!validScale || !std::isfinite(textScale) || textScale <= 0) return 12;
@@ -317,11 +319,12 @@ int main(int argc, char **argv) {
     engine.rootContext()->setContextProperty("consumerTextScale", textScale);
     engine.addImportPath(QStringLiteral(AVELINO_INSTALLED_IMPORT_PATH));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreationFailed, &app, [] { QCoreApplication::exit(1); }, Qt::QueuedConnection);
-    engine.loadFromModule("InstalledConsumer", parser.isSet("pagination") ? "Pagination" : parser.isSet("tabs") ? "Tabs" : parser.isSet("slider") ? "Slider" : parser.isSet("collection-filters") ? "CollectionFilters" : parser.isSet("search-field") ? "SearchField" : parser.isSet("secure-field") ? "SecureField" : parser.isSet("checkbox") ? "Checkbox" : parser.isSet("selection") ? "Selection" : parser.isSet("composition") ? "Composition" : parser.isSet("controls") ? "Controls" : "Main");
+    engine.loadFromModule("InstalledConsumer", parser.isSet("pagination-integers") ? "PaginationIntegers" : parser.isSet("pagination") ? "Pagination" : parser.isSet("tabs") ? "Tabs" : parser.isSet("slider") ? "Slider" : parser.isSet("collection-filters") ? "CollectionFilters" : parser.isSet("search-field") ? "SearchField" : parser.isSet("secure-field") ? "SecureField" : parser.isSet("checkbox") ? "Checkbox" : parser.isSet("selection") ? "Selection" : parser.isSet("composition") ? "Composition" : parser.isSet("controls") ? "Controls" : "Main");
     QTimer::singleShot(500, &app, [&engine, &app, &parser, textScale] {
         auto window = qobject_cast<QQuickWindow *>(engine.rootObjects().value(0));
         if (!window) { app.exit(2); return; }
         if (parser.isSet("checkbox")) { runCheckboxConsumer(window,app,parser,textScale); return; }
+        if (parser.isSet("pagination-integers")) {runPaginationIntegerConsumer(window,app,parser,textScale);return;}
         if (parser.isSet("pagination")) { runPaginationConsumer(window,app,parser,textScale);return; }
         if (parser.isSet("tabs")) { runTabsConsumer(window,app,parser,textScale);return; }
         if (parser.isSet("slider")) { runSliderConsumer(window,app,parser,textScale);return; }

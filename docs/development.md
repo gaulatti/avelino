@@ -44,10 +44,10 @@ focus; the whole-output capture preserves it as session evidence.
 [Weston's backend documentation](https://wayland.pages.freedesktop.org/weston/toc/running-weston.html)
 describes how its X11 backend composites Wayland surfaces into the parent output.
 Each configuration runs the base fixture, `--controls`, `--composition`,
-`--selection`, `--checkbox`, `--secure-field`, `--search-field`, `--collection-filters`, `--slider`, `--tabs` and `--pagination` independently; eighty-eight
+`--selection`, `--checkbox`, `--secure-field`, `--search-field`, `--collection-filters`, `--slider`, `--tabs`, `--pagination` and `--pagination-integers` independently; ninety-six
 window/full-output pairs cover them.
 The catalog galleries are `--fixture foundations`, `surfaces`, `data-display`,
-`controls`, `composition`, `selection`, `checkbox`, `secure-field`, `search-field`, `collection-filters`, `slider`, `tabs` and `pagination`; their native
+`controls`, `composition`, `selection`, `checkbox`, `secure-field`, `search-field`, `collection-filters`, `slider`, `tabs`, `pagination` and `pagination-integers`; their native
 comparisons remain pending.
 
 The selector's open `Popup.Item` and scrollbars remain
@@ -161,3 +161,5 @@ dependency; the Avelino library does not link Qt Test.
 The installed catalog discovers its packaged QML module without a build-tree
 import override. `scripts/check-installed-catalog.sh` is copied into each fresh
 package and verifies all gallery startup paths and missing-module refusal.
+
+The [exact pagination integer contract](pagination-integers.md) uses native arithmetic over the complete signed 64-bit range. Large inputs and all requests use decimal strings; `pageRequested` now has a string signature. The `pagination-integers` gallery and consumer cover the precision and overflow boundaries.

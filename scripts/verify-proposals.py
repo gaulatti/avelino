@@ -27,7 +27,8 @@ SCOPED_APIS = {"desktop-composition": COMPOSITION_APIS,
     "desktop-collection-filters": {"BleeckerButton", "BleeckerFilterChip", "BleeckerCollectionFilters"},
     "desktop-slider": {"BleeckerButton", "BleeckerSlider"},
     "desktop-tabs": {"BleeckerButton", "BleeckerSegmentedControl", "BleeckerTabs"},
-    "desktop-pagination": {"BleeckerButton", "BleeckerIconButton", "BleeckerPagination"}}
+    "desktop-pagination": {"BleeckerButton", "BleeckerIconButton", "BleeckerPagination"},
+    "desktop-pagination-integers": {"BleeckerButton", "BleeckerPagination"}}
 
 SCOPED_CONTRACT_AXES = {"desktop-pagination": {"BleeckerIconButton": {"size":"BleeckerIconButtonSize", "variant":"BleeckerIconButtonVariant"}}, "desktop-checkbox": {"BleeckerCheckbox": {"size": "BleeckerControlSize"}}}
 
@@ -57,7 +58,7 @@ def verify(directory):
         assert scoped in SCOPED_APIS and manifest.get("scope") == scoped
         message = {"desktop-composition": "Missing composition API", "desktop-selectors": "Missing selector API",
             "desktop-checkbox": "Missing checkbox API", "desktop-secure-field": "Missing secure-field API",
-            "desktop-search-field": "Missing search-field API", "desktop-collection-filters": "Missing collection-filter API", "desktop-slider": "Missing slider API", "desktop-tabs": "Missing tabs API", "desktop-pagination": "Missing pagination API"}[scoped]
+            "desktop-search-field": "Missing search-field API", "desktop-collection-filters": "Missing collection-filter API", "desktop-slider": "Missing slider API", "desktop-tabs": "Missing tabs API", "desktop-pagination": "Missing pagination API", "desktop-pagination-integers": "Missing exact pagination API"}[scoped]
         assert {case["api"] for case in captures} == SCOPED_APIS[scoped], message
     keys = set()
     for case in captures:
@@ -184,6 +185,25 @@ def verify(directory):
             assert case.get("sourcePageAfterAction") == expected, "Invalid source caller page"
             assert case.get("sourcePageCountAfterAction") == (3 if action == "shrink-count" else count), "Invalid source page count"
             assert case["resolvedLabelFonts"]["sourceExpression"]["pointSize"] == 12, "Invalid source pagination label font"
+    if scoped == "desktop-pagination-integers":
+        required = {"int32", "int32-after", "safe-limit", "beyond-safe", "upper-before", "upper", "minimum", "lower-equal", "negative-count", "above-count", "wide-count", "negative-middle", "rtl", "narrow", "disabled", "next-i32", "next-safe", "next-beyond", "previous-beyond", "next-upper", "previous-upper", "disabled-upper", "next-min", "disabled-min", "previous-negative-count", "no-handler", "external", "shrink-count", "disabled-group"}
+        assert required <= {f["variant"] for f in fixtures if f["api"] == "BleeckerPagination"}, "Missing full integer pagination cases"
+        assert manifest.get("sourceKeyboardStatus", "").startswith("pending;"), "Source exact pagination keyboard gate cannot be self-approved"
+        lower,upper = -(2**63),2**63-1
+        def decimal(value):
+            assert isinstance(value,str) and str(int(value)) == value and lower <= int(value) <= upper, "Invalid exact integer representation"
+            return int(value)
+        for case in captures:
+            if case["api"] != "BleeckerPagination": continue
+            page,count = decimal(case["text"]),decimal(case["size"])
+            action = case["sourceAction"]
+            rejected = action in {"none", "disabled-upper", "disabled-min", "disabled-group"}
+            request = None if rejected else str(max(1,page-1) if action.startswith("previous-") else min(count,page+1))
+            expected = str(upper-2) if action == "external" else str(page) if rejected or action == "no-handler" else request
+            assert case["sourceActivations"] == int(not rejected), "Invalid exact pagination callback count"
+            assert case["sourceRequestedPageDecimal"] == request, "Invalid exact requested page"
+            assert case["sourcePageAfterActionDecimal"] == expected, "Invalid exact caller page"
+            assert case["sourcePageCountAfterActionDecimal"] == (str(lower) if action == "shrink-count" else str(count)), "Invalid exact page count"
     discovery = json.loads((ROOT / "reference/api-discovery.json").read_text())["desktop"]
     declarations = {d["name"]: d for d in discovery["declarations"]}
     for api, axes in {**CONTRACT_AXES, **SCOPED_CONTRACT_AXES.get(scoped, {})}.items():
