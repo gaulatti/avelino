@@ -643,3 +643,22 @@ motion, clipping/overflow, physical input/display and actual readers remain open
 Coverage is 43/80 desktop APIs started, none accepted. No backend/metrics,
 configuration, TV, source-pin, expected-capture or tolerance changes. Public wiki
 access remains unavailable; the in-repository contract and inventory are updated.
+
+## Empty, error and loading source investigation
+
+The [presentation-state investigation](../evidence/reference-investigations/presentation-states-20261014/investigation.json)
+adds 304 pinned source captures, 68 own-window pointer/lifecycle cases and
+63 independent centered-text witnesses. All 431 raw files replay byte-for-byte
+from verified external build inputs. Source actions retain state through producer
+updates and reset after removal/recreation; the loading overlay blocks pointer
+input within its offered rectangle, with successful no-overlay positive controls.
+All integer-DPR text instrumentation witnesses preserve the original PNGs. One
+fractional-DPR witness changes pixels and remains untrusted.
+
+The source-only verifier runs in References CI. All 72 contract tests pass,
+including eight adversarial checks for false acceptance/coverage, input, lifetime
+and text-identity claims. Linux renderer/consumer/catalog code, source pins,
+expected images, tolerances, approved exceptions and TV are unchanged. The three
+APIs remain implementation-pending and coverage remains 43/80 started, none fully
+accepted. No new Linux runtime or visual pass is claimed. The public wiki remote
+remains unavailable; the contract and inventory are maintained in-repository.

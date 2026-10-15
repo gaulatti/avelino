@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "status": "source investigation verified; Linux implementation and full parity pending",
+  "preparationRevision": "599b6109676aa8145128e4560598b5abf9e7d074",
+  "sourceInvestigation": "evidence/reference-investigations/presentation-states-20261014/investigation.json",
+  "contractTests": 72,
+  "newAdversarialTests": 8,
+  "nativeReplay": {
+    "filesCompared": 431,
+    "byteIdenticalFiles": 431,
+    "changedFiles": []
+  },
+  "desktopImplementationsStarted": 43,
+  "desktopApisDiscovered": 80,
+  "acceptedDesktopApis": 0,
+  "linuxRuntimeRerun": false,
+  "reason": "No Linux library, consumer, catalog, asset or build input changed in this source-only checkpoint.",
+  "verificationInputs": {
+    ".github/workflows/references.yml": "87c30c2b871ab616cc2042ad9c2ed3f70355ef52cd9e230668518e875fb4c0b3",
+    "docs/parity-inventory.json": "3039a1b7422aec124371d0a1a6b57a1d19f81803533fb21edb45537f75a0fed4",
+    "reference/api-discovery.json": "656ba153dade1d5b1ff77b482c9cd7f4afed3c2b4db7322f5414cff70c06c9c7",
+    "reference/source-manifest.json": "0197ff93eea5015aa19c87033e92a485cfc5ed2a4f7fbecee78235dc40b7c9d0",
+    "scripts/capture-proposals.py": "a8f5e02e8460a0b3e641d7d709526e33f8006be5df9387a9fe454af4027f8a18",
+    "scripts/check-linux-boundary.py": "8501a0a442225ed51cb0b580083772195ce4b7ebc0787861f553869a9ed0126d",
+    "scripts/compare-captures.py": "de3f9d5dd31fcc3dcd41855528421b99699d1d0cf30abb84f26f43c6987ca73f",
+    "scripts/discover-reference.py": "0133afb54e588cbf35cca6e3de572be066b0e4c303734c3d704dec0fd72bdcdb",
+    "scripts/extract-assets.py": "8e9fc4fbf416dd07cc5faca64fd22997af3fdba98a0ba40ac15652790176dac5",
+    "scripts/prepare-proposal.py": "694d22c48c5ddb0b9881eb2b1a7fb6bb8d7dd2e04d50d7ba3cb7eaf3e3f15eba",
+    "scripts/reference_sources.py": "5ec4bcbaba8e0f523b63d66e20d8625e7601feb8461e1d5fa034ccaeba8a244e",
+    "scripts/verify-presentation-state-source.py": "bfbc0f5018421d7a18dfa4269cb2bec3ce5f7d4100c402b4b9900380533a93b9",
+    "scripts/verify-proposals.py": "23291531cb71ba1ff96cf8c5a00b42b72778e444b1cb3859df6fa741bf6aab22",
+    "scripts/verify-references.py": "3217810951a552242fbb0f1a4b135f51f847840a52a4630428071976112dddda",
+    "tests/contracts/test_comparison.py": "0d2ead43c3bbe1be8399085392b2d51ce6f47eebb642de2dd07f658cb5b716b3",
+    "tests/contracts/test_linux_boundary.py": "094882929eed6451ed1b73f7e0825936af0c60b90c7b742f7bae83bb8df1e87e",
+    "tests/contracts/test_presentation_state_source.py": "8ca578c1230c517c086867ff77ef2d1ae31f8786c981ee6bc997baf6a9292c9c",
+    "tests/contracts/test_proposals.py": "a7dec6120021faaacb79e41a9ede3b655193bcb419282c0b18409e20731d247d",
+    "tests/contracts/test_reference_storage.py": "17869f6ce71959aaad4a8caa82ff24d856bbea2f4edb6af70e7c6f1220db4eb0",
+    "tests/contracts/test_references.py": "708edcff3f75989323ba29d5f1f2b841d3f70c0c0247427e6e30c9b137ce139e"
+  },
+  "files": {
+    "contracts.log": "c83abbbe588bcaf6caf6dd356a8b952fc768673113b62b8a2ba0fd7a6a49baf8",
+    "native-replay.log": "225af5a187d73d570f5e0bd486ee7503658c7378776e92c81df0647f62353da9",
+    "proposals.log": "6c1d08d85c44f740209e01f8f43a0d3390cdaee87529dced59d0421f780523ca",
+    "references.log": "4ac12ff776d768cb483b86473b1ffa8ababa598f9228cc39de5401998463d92c",
+    "source-verification.log": "c04cb39a6e323be59bdd83aa43cf133f30d4953a9f733e2f303d55fdac69b9b9"
+  }
+}
