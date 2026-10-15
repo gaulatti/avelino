@@ -11,7 +11,7 @@ set(qml_files BleeckerTokens.qml BleeckerTheme.qml BleeckerButton.qml
     BleeckerSelect.qml SelectionGlyph.qml BleeckerCheckbox.qml CheckboxGlyph.qml BleeckerSecureField.qml SecureEyeGlyph.qml BleeckerSearchField.qml InputGlyph.qml
     BleeckerFilterChip.qml BleeckerCollectionFilters.qml CapsuleContent.qml BleeckerSlider.qml
     OwnedText.qml RoundedContent.qml SurfaceShadow.qml attentioncolors.js
-    ContinuousSurface.qml continuouscorners.js)
+    ContinuousSurface.qml continuouscorners.js spinnerpresentation.js)
 set_source_files_properties(BleeckerTokens.qml BleeckerTheme.qml PROPERTIES QT_QML_SINGLETON_TYPE TRUE)
 set_source_files_properties(ContinuousSurface.qml OwnedText.qml RoundedContent.qml SurfaceShadow.qml SelectionGlyph.qml CheckboxGlyph.qml SecureEyeGlyph.qml InputGlyph.qml CapsuleContent.qml NavigationGlyph.qml StateGlyph.qml PROPERTIES QT_QML_INTERNAL_TYPE TRUE)
 file(GLOB font_resources CONFIGURE_DEPENDS "${PROJECT_SOURCE_DIR}/assets/fonts/*.ttf")

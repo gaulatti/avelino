@@ -19,4 +19,5 @@ jobs:
       - run: python3 scripts/verify-proposals.py
       - run: python3 scripts/verify-presentation-state-source.py
       - run: python3 scripts/verify-native-loading.py
+      - run: python3 scripts/verify-spinner-source.py
       - run: python3 -m unittest discover -s tests/contracts -v

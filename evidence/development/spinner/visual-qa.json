@@ -1,0 +1,89 @@
+{
+  "method": "manual inspection of actual PNGs; no image editing or acceptance exceptions",
+  "reviewed": [
+    "artifacts/spinner/overlay-preview.png",
+    "artifacts/spinner/host-styles/Basic-light.png",
+    "artifacts/spinner/host-styles/Basic-dark.png",
+    "evidence/reference-investigations/spinner-20261015/spinner-md-default-inherited-light.png",
+    "artifacts/spinner/package-only/sessions/spinner-xcb-software-standard-session.png",
+    "artifacts/spinner/package-only/sessions/spinner-wayland-opengl-scaled-session.png",
+    "artifacts/linux/actions-dark.png",
+    "evidence/development/spinner/captures/presentation-catalog/presentation-states-dark-dpr2.png"
+  ],
+  "observations": [
+    "Light/dark gallery presents three sizes, explicit color, loading buttons and overlay without client clipping.",
+    "X11 standard and Wayland Mesa scaled consumer show fixed inner glyphs inside narrow/wide caller frames and continued editing.",
+    "Wayland scaled whole-output capture includes the Weston on-screen keyboard, truncated at the compositor boundary; OS keyboard presentation is unaccepted and no mask or capture change hides it.",
+    "Exact raster, native phase synchronization and physical display/reader acceptance remain pending.",
+    "All six changed existing gallery captures retain byte-identical full metadata; changed-pixel bounds isolate the loading indicator. No label/layout/pointer contract is promoted to accepted."
+  ],
+  "completeMirrorAccepted": false,
+  "catalogChanges": [
+    {
+      "group": "catalog",
+      "path": "actions-dark.png",
+      "differenceBoundsFromPrevious": [
+        153,
+        506,
+        169,
+        522
+      ],
+      "changedPixelsFromPrevious": 142
+    },
+    {
+      "group": "catalog",
+      "path": "actions-light.png",
+      "differenceBoundsFromPrevious": [
+        153,
+        506,
+        169,
+        522
+      ],
+      "changedPixelsFromPrevious": 142
+    },
+    {
+      "group": "presentation-catalog",
+      "path": "presentation-states-dark-dpr1.png",
+      "differenceBoundsFromPrevious": [
+        207,
+        442,
+        239,
+        474
+      ],
+      "changedPixelsFromPrevious": 513
+    },
+    {
+      "group": "presentation-catalog",
+      "path": "presentation-states-dark-dpr2.png",
+      "differenceBoundsFromPrevious": [
+        414,
+        883,
+        478,
+        947
+      ],
+      "changedPixelsFromPrevious": 1744
+    },
+    {
+      "group": "presentation-catalog",
+      "path": "presentation-states-light-dpr1.png",
+      "differenceBoundsFromPrevious": [
+        207,
+        442,
+        239,
+        474
+      ],
+      "changedPixelsFromPrevious": 513
+    },
+    {
+      "group": "presentation-catalog",
+      "path": "presentation-states-light-dpr2.png",
+      "differenceBoundsFromPrevious": [
+        414,
+        883,
+        478,
+        947
+      ],
+      "changedPixelsFromPrevious": 1744
+    }
+  ]
+}

@@ -44,10 +44,10 @@ focus; the whole-output capture preserves it as session evidence.
 [Weston's backend documentation](https://wayland.pages.freedesktop.org/weston/toc/running-weston.html)
 describes how its X11 backend composites Wayland surfaces into the parent output.
 Each configuration runs the base fixture, `--controls`, `--composition`,
-`--selection`, `--checkbox`, `--secure-field`, `--search-field`, `--collection-filters`, `--slider`, `--tabs`, `--pagination`, `--pagination-integers` `--accordion` and `--presentation-states` independently; one hundred twelve
+`--selection`, `--checkbox`, `--secure-field`, `--search-field`, `--collection-filters`, `--slider`, `--tabs`, `--pagination`, `--pagination-integers`, `--accordion`, `--presentation-states` and `--spinner` independently; one hundred twenty
 window/full-output pairs cover them.
 The catalog galleries are `--fixture foundations`, `surfaces`, `data-display`,
-`controls`, `composition`, `selection`, `checkbox`, `secure-field`, `search-field`, `collection-filters`, `slider`, `tabs`, `pagination`, `pagination-integers` `accordion` and `presentation-states`; their native
+`controls`, `composition`, `selection`, `checkbox`, `secure-field`, `search-field`, `collection-filters`, `slider`, `tabs`, `pagination`, `pagination-integers`, `accordion`, `presentation-states` and `spinner`; their native
 comparisons remain pending.
 
 The selector's open `Popup.Item` and scrollbars remain
@@ -182,3 +182,7 @@ checked separately from rasterization. Button `maximumWidth` supplies a label
 layout proposal; the default `-1` retains intrinsic behavior. Invalid proposals
 and unsupported alignment fail real QML startup. All preceding captures/metadata
 must be checked for regression before publishing a checkpoint.
+
+The [shared spinner](spinner.md) has its own installed consumer and gallery. Its
+public native animation-model witnesses and 112 loading-button geometry/input
+cases remain separate from exact raster, physical motion and reader acceptance.

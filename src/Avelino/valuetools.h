@@ -12,6 +12,7 @@ class BleeckerValueTools final : public QObject {
 public:
     using QObject::QObject;
     Q_INVOKABLE qreal sliderIntervals(qreal from, qreal to, qreal step) const;
+    Q_INVOKABLE int spinnerEdge(const QString &size) const;
     Q_INVOKABLE QVariantMap pagination(const QVariant &page, const QVariant &pageCount, const QLocale &locale) const;
     Q_INVOKABLE void select(QObject *control, const QVariant &value) const;
     Q_INVOKABLE void setValue(QObject *control, qreal value) const;

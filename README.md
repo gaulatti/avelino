@@ -41,6 +41,8 @@ and [data display](docs/data-display.md), alongside [form controls](docs/form-co
 and [desktop composition](docs/composition.md), plus [selectors](docs/selectors.md)
 and [checkboxes](docs/checkbox.md), plus [secure fields](docs/secure-field.md)
 and [search fields](docs/search-field.md), plus [collection filters](docs/collection-filters.md), [sliders](docs/slider.md), and [tabs](docs/tabs.md), and [pagination/icon buttons](docs/pagination.md), plus [accordions](docs/accordion.md).
+The [shared spinner contract](docs/spinner.md) records measured native sizes and
+model-frame timing, with visual and physical acceptance still pending.
 Shared label sizing follows [measured native typography](docs/typography.md).
 The [empty/error/loading source investigation](docs/presentation-states.md)
 now has [Linux presentation-state candidates](docs/presentation-states.md); complete mirror acceptance remains pending.

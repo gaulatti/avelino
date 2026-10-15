@@ -12,6 +12,7 @@ cases = [('BleeckerButton { text: "Create"; maximumWidth: '+value+' }',
           b'Text maximum width must be nonnegative or -1') for value in ['-2', 'Number.NaN', 'Number.POSITIVE_INFINITY']]
 cases.append(('ButtonLabel { text: "Message"; horizontalAlignment: Qt.AlignJustify }',
               b'Label horizontal alignment must be left, center or right'))
+cases.append(('BleeckerLoadingSpinner { size: "unknown" }', b'Unknown Bleecker loading-spinner size'))
 for declaration, expected in cases:
     with tempfile.TemporaryDirectory(prefix='avelino-invalid-presentation-') as directory:
         path = Path(directory) / 'tst_invalid.qml'
@@ -19,4 +20,4 @@ for declaration, expected in cases:
                         '\nTestCase { when:windowShown; function test_refusal() { fail("Invalid layout was accepted") } } }')
         result = subprocess.run([runner, '-import', imports, '-input', str(path)], capture_output=True)
         assert result.returncode != 0 and expected in result.stdout+result.stderr, (declaration, result.stdout+result.stderr)
-print('Presentation startup refused three invalid button width proposals and unsupported text alignment')
+print('Presentation startup refused three invalid button width proposals unsupported text alignment and an unknown spinner size')

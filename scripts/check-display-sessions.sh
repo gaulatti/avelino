@@ -50,7 +50,7 @@ INI
   fi
   for backend in software opengl; do
     for configuration in standard scaled; do
-    for fixture in base controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states; do
+    for fixture in base controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner; do
       prefix="$evidence/$protocol-$backend-$configuration"
       if [[ "$fixture" == controls ]]; then prefix="$evidence/controls-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == composition ]]; then prefix="$evidence/composition-$protocol-$backend-$configuration"; fi
@@ -63,6 +63,7 @@ INI
       if [[ "$fixture" == tabs ]]; then prefix="$evidence/tabs-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == pagination ]]; then prefix="$evidence/pagination-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == pagination-integers ]]; then prefix="$evidence/pagination-integers-$protocol-$backend-$configuration"; fi
+      if [[ "$fixture" == spinner ]]; then prefix="$evidence/spinner-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == presentation-states ]]; then prefix="$evidence/presentation-states-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == accordion ]]; then prefix="$evidence/accordion-$protocol-$backend-$configuration"; fi
       args=(--evidence "$prefix")
@@ -77,6 +78,7 @@ INI
       if [[ "$fixture" == tabs ]]; then args+=(--tabs); fi
       if [[ "$fixture" == pagination ]]; then args+=(--pagination); fi
       if [[ "$fixture" == pagination-integers ]]; then args+=(--pagination-integers); fi
+      if [[ "$fixture" == spinner ]]; then args+=(--spinner); fi
       if [[ "$fixture" == presentation-states ]]; then args+=(--presentation-states); fi
       if [[ "$fixture" == accordion ]]; then args+=(--accordion); fi
       export QT_SCALE_FACTOR=1
@@ -150,6 +152,12 @@ elif fixture == 'secure-field':
         assert record[key] == 'passed', record
     assert record['sourceHeight'] == 40 and record['fontPointSize'] == 10.5, record
     assert record['revealed'] is True, record
+elif fixture == 'spinner':
+    for key in ['spinnerChecks','focusChecks','qtAccessibilityChecks']:
+        assert record[key]=='passed',record
+    assert (record['smallEdge'],record['mediumEdge'],record['largeEdge'])==(16,32,32),record
+    assert record['frameCount']==24 and record['cycleMilliseconds']==800 and record['actions']==3,record
+    assert record['sourceAnimationAcceptance'].startswith('pending;'),record
 elif fixture == 'presentation-states':
     for key in ['presentationChecks','focusChecks','qtAccessibilityChecks','overlayPointerChecks']:
         assert record[key] == 'passed', record

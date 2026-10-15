@@ -92,6 +92,20 @@ They live under `evidence/reference-proposals/`, retain proposed status, and hav
 their own integrity/matrix verifier. Their Apple tooling remains in an immutable
 external source bundle. The current expected-image baseline is unchanged.
 
+The [native spinner investigation](spinner.md) preserves 186 hosted context
+images and 144 controlled public animation-model frames. Its external source
+bundle and 35 input hashes are identified in
+[`tooling-provenance.json`](../evidence/reference-investigations/spinner-20261015/tooling-provenance.json).
+A clean extraction, input-hash check, helper recompilation and replay reproduced
+all 335 raw image/metadata files byte-for-byte. Phase-zero snapshots match the
+uninstrumented native image in each size/appearance case. The helper links
+preserved pinned-source objects; fresh full Sabella compilation and a public
+helper download remain pending. `scripts/verify-spinner-source.py` checks the
+tracked geometry, complete model-frame matrix, source identity witnesses and
+product opacity measurements. These witnesses are separate from physical native
+animation timing and from Linux image acceptance. No native bitmap or vector is
+installed as a product asset.
+
 ## Linux-only repository boundary
 
 Ignore rules cover Swift files, Apple projects and resources, and local reference

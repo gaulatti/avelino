@@ -26,12 +26,13 @@ Weston Wayland compositor nested on it. It saves whole-output and window capture
 for software/OpenGL rendering at two display/text scales. Source and build trees
 remain absent. Metadata explicitly identifies virtual displays, Mesa software
 rendering, synthetic input, and the still-pending overlay/accessibility checks.
-The harness runs thirteen independent windows in each configuration: the base library
+The harness runs fifteen independent windows in each configuration: the base library
 fixture, `InstalledConsumer --controls`, `InstalledConsumer --composition` and
 `InstalledConsumer --selection`, `InstalledConsumer --checkbox` and
 `InstalledConsumer --secure-field`, `InstalledConsumer --search-field` and
-`InstalledConsumer --collection-filters`, `InstalledConsumer --slider`, `InstalledConsumer --tabs`, `InstalledConsumer --pagination`, `InstalledConsumer --pagination-integers` `InstalledConsumer --accordion` and `InstalledConsumer --presentation-states`.
-Their one hundred four capture pairs keep
+`InstalledConsumer --collection-filters`, `InstalledConsumer --slider`, `InstalledConsumer --tabs`, `InstalledConsumer --pagination`, `InstalledConsumer --pagination-integers`, `InstalledConsumer --accordion`,
+`InstalledConsumer --presentation-states` and `InstalledConsumer --spinner`.
+Their one hundred twenty capture pairs keep
 form editing, scrolling, switch/toggle actions, disabled segmented options and
 focus restoration separate from the base composition checks. The controls fixture
 exercises the multiline editor's owned scrollbar. The selector fixture exercises
@@ -94,8 +95,8 @@ using the same GNU install directories as the exported CMake package. Launch
 `QML_IMPORT_PATH` override is required. The Qt 6.8.3 runtime remains a prerequisite.
 The source-build catalog continues to use the documented build-tree import path.
 
-`check-installed-catalog.sh` exercises all fifteen galleries at both appearances
-and DPRs, both action galleries, and the default button: 67 images with physical
+`check-installed-catalog.sh` exercises all seventeen galleries at both appearances
+and DPRs, both action galleries, and the default button: 71 images with physical
 size/metadata checks. Both QML import environment variables are unset. A copied
 executable without its module must fail with the missing-module error. The full
 Linux check runs this against the staged install, then the package-only check
@@ -119,3 +120,10 @@ then prove inside blocking, outside activation and input restoration after remov
 The installed catalog includes `presentation-states` in both appearances/DPRs.
 Source keyboard trapping, exact progress/symbol rendering, physical input and
 actual screen-reader behavior remain separate acceptance work.
+
+The spinner package installs `spinner-presentation.json` alongside its owned
+QML/JavaScript presentation. The spinner consumer verifies 16/32/32 sizes, fixed
+inner glyph bounds, phase progression, hidden/stopped/reduced-motion behavior,
+explicit color and loading-button callback guards through real Qt interfaces.
+Its eight virtual window/output pairs are implementation evidence; physical
+animation timing, actual readers and complete image equivalence remain pending.

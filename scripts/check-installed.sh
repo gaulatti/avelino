@@ -17,4 +17,5 @@ QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software consumer-build/InstalledCons
 QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software consumer-build/InstalledConsumer --pagination-integers
 QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software consumer-build/InstalledConsumer --accordion
 QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software consumer-build/InstalledConsumer --presentation-states
+QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software consumer-build/InstalledConsumer --spinner
 bash check-installed-catalog.sh

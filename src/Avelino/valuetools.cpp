@@ -1,4 +1,10 @@
 #include "valuetools.h"
+
+int BleeckerValueTools::spinnerEdge(const QString &size) const {
+    if (size==QStringLiteral("sm")) return 16;
+    if (size==QStringLiteral("md") || size==QStringLiteral("lg")) return 32;
+    qFatal("Unknown Bleecker loading-spinner size");
+}
 #include <QVariant>
 #include <QJSValue>
 #include <algorithm>

@@ -5521,6 +5521,16 @@
               "evidence/development/pagination/candidate.json"
             ],
             "notes": "Existing text name remains the default; icon wrappers explicitly forward the caller name to the real Qt template input."
+          },
+          {
+            "id": "native-spinner-presentation",
+            "status": "pending",
+            "evidence": [
+              "evidence/development/spinner/candidate.json",
+              "evidence/reference-investigations/spinner-20261015/investigation.json",
+              "docs/spinner.md"
+            ],
+            "notes": "Measured native 16/32/32 sizes, 24-frame 800ms model, owned capsules, loading-button guards and virtual installed sessions; exact raster, native DPR 1, physical phase/motion and actual readers remain pending."
           }
         ],
         "tests": [
@@ -5533,7 +5543,10 @@
           "tests/components/tst_pagination.qml",
           "tests/consumer/paginationchecks.h",
           "tests/components/tst_presentationstates.qml",
-          "tests/components/check-invalid-presentation.py"
+          "tests/components/check-invalid-presentation.py",
+          "tests/components/tst_spinner.qml",
+          "tests/consumer/spinnerchecks.h",
+          "scripts/verify-spinner-source.py"
         ],
         "captures": [
           "reference/captures/desktop/buttons/captures.json",
@@ -5591,7 +5604,10 @@
             "notes": "0/112 source cases pass zero-tolerance comparison; four small-link color-error regressions remain visible"
           },
           "evidence/development/isolated-desktop/comparison/comparison.json",
-          "evidence/development/panel-sizing/comparison/comparison.json"
+          "evidence/development/panel-sizing/comparison/comparison.json",
+          "evidence/development/spinner/regressions.json",
+          "evidence/development/spinner/comparison/desktop-after/comparison.json",
+          "evidence/development/spinner/comparison/presentation-states-after/comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -5603,7 +5619,8 @@
               "https://github.com/gaulatti/avelino/actions/runs/38263908908",
               "evidence/checkpoints/efb2a90/checkpoint.json",
               "evidence/development/isolated-desktop/candidate.json",
-              "evidence/development/panel-sizing/candidate.json"
+              "evidence/development/panel-sizing/candidate.json",
+              "evidence/development/spinner/candidate.json"
             ],
             "notes": "Deterministic capture generation only; visual comparison remains failed"
           },
@@ -5614,7 +5631,8 @@
               "scripts/check-display-sessions.sh",
               "https://github.com/gaulatti/avelino/actions/runs/38199378037",
               "https://github.com/gaulatti/avelino/actions/runs/38263908908",
-              "evidence/checkpoints/efb2a90/checkpoint.json"
+              "evidence/checkpoints/efb2a90/checkpoint.json",
+              "evidence/development/spinner/candidate.json"
             ],
             "notes": "Initial installed consumer virtual-session checks only. Full component cases, real input delivery, accessibility, overlays, and visual parity remain pending."
           },
@@ -5625,7 +5643,8 @@
               "scripts/check-display-sessions.sh",
               "https://github.com/gaulatti/avelino/actions/runs/38199378037",
               "https://github.com/gaulatti/avelino/actions/runs/38263908908",
-              "evidence/checkpoints/efb2a90/checkpoint.json"
+              "evidence/checkpoints/efb2a90/checkpoint.json",
+              "evidence/development/spinner/candidate.json"
             ],
             "notes": "Initial installed consumer virtual-session checks only. Full component cases, real input delivery, accessibility, overlays, and visual parity remain pending."
           },
@@ -5636,7 +5655,8 @@
               "scripts/check-display-sessions.sh",
               "https://github.com/gaulatti/avelino/actions/runs/38199378037",
               "https://github.com/gaulatti/avelino/actions/runs/38263908908",
-              "evidence/checkpoints/efb2a90/checkpoint.json"
+              "evidence/checkpoints/efb2a90/checkpoint.json",
+              "evidence/development/spinner/candidate.json"
             ],
             "notes": "Initial installed consumer virtual-session checks only. Full component cases, real input delivery, accessibility, overlays, and visual parity remain pending."
           },
@@ -5646,7 +5666,8 @@
               "evidence/checkpoints/68a5dfb/checkpoint.json",
               "scripts/check-display-sessions.sh",
               "https://github.com/gaulatti/avelino/actions/runs/38199378037",
-              "https://github.com/gaulatti/avelino/actions/runs/38263908908"
+              "https://github.com/gaulatti/avelino/actions/runs/38263908908",
+              "evidence/development/spinner/candidate.json"
             ],
             "notes": "Initial installed consumer virtual-session checks only. Full component cases, real input delivery, accessibility, overlays, and visual parity remain pending."
           },
@@ -5657,7 +5678,8 @@
               "scripts/check-display-sessions.sh",
               "https://github.com/gaulatti/avelino/actions/runs/38199378037",
               "https://github.com/gaulatti/avelino/actions/runs/38263908908",
-              "evidence/checkpoints/efb2a90/checkpoint.json"
+              "evidence/checkpoints/efb2a90/checkpoint.json",
+              "evidence/development/spinner/candidate.json"
             ],
             "notes": "Fractional button font requests are exercised by the component suite and installed consumer. Source-image parity, fractional text-field typography, real input delivery, accessibility, and full scaling coverage remain pending."
           },
@@ -5668,7 +5690,8 @@
               "evidence/checkpoints/68a5dfb/checkpoint.json",
               "https://github.com/gaulatti/avelino/actions/runs/38263908908",
               "evidence/checkpoints/efb2a90/checkpoint.json",
-              "evidence/development/catalog-runtime/candidate.json"
+              "evidence/development/catalog-runtime/candidate.json",
+              "evidence/development/spinner/candidate.json"
             ],
             "notes": "Current action/editing APIs only; open overlays and future internals remain required"
           }
@@ -22618,6 +22641,16 @@
             "referenceCandidate": "evidence/reference-proposals/presentation-states-20261015-v2/loading-rtl-dark-text1.5-hosting-dpr2.0.png",
             "evidence": "evidence/development/presentation-states/captures/loading-rtl-dark-text1.5-hosting-dpr2.0.png",
             "notes": "Actual hosted native progress at DPR 2; native DPR 1 and animation phase acceptance remain pending."
+          },
+          {
+            "id": "native-spinner-presentation",
+            "status": "pending",
+            "evidence": [
+              "evidence/development/spinner/candidate.json",
+              "evidence/reference-investigations/spinner-20261015/investigation.json",
+              "docs/spinner.md"
+            ],
+            "notes": "Measured native 16/32/32 sizes, 24-frame 800ms model, owned capsules, loading-button guards and virtual installed sessions; exact raster, native DPR 1, physical phase/motion and actual readers remain pending."
           }
         ],
         "tests": [
@@ -22627,7 +22660,10 @@
           "tests/consumer/PresentationStates.qml",
           "tests/consumer/presentationchecks.h",
           "tests/contracts/test_proposals.py",
-          "tests/contracts/test_comparison.py"
+          "tests/contracts/test_comparison.py",
+          "tests/components/tst_spinner.qml",
+          "tests/consumer/spinnerchecks.h",
+          "scripts/verify-spinner-source.py"
         ],
         "captures": [
           "samples/AvelinoCatalog/PresentationStatesFixture.qml",
@@ -22635,7 +22671,10 @@
           "evidence/development/presentation-states/candidate.json"
         ],
         "comparisonResults": [
-          "evidence/development/presentation-states/comparison/comparison.json"
+          "evidence/development/presentation-states/comparison/comparison.json",
+          "evidence/development/spinner/regressions.json",
+          "evidence/development/spinner/comparison/desktop-after/comparison.json",
+          "evidence/development/spinner/comparison/presentation-states-after/comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -22644,7 +22683,8 @@
             "evidence": [
               "docs/presentation-states.md",
               "evidence/development/presentation-states/candidate.json",
-              "tests/consumer/presentationchecks.h"
+              "tests/consumer/presentationchecks.h",
+              "evidence/development/spinner/candidate.json"
             ],
             "notes": "Candidate evidence only; exact symbols/pixels, source keyboard/focus/modal/motion/safe-area, physical input/display, readers and broader composition remain pending."
           },
@@ -22654,7 +22694,8 @@
               "docs/presentation-states.md",
               "evidence/development/presentation-states/candidate.json",
               "tests/consumer/presentationchecks.h",
-              "evidence/development/presentation-states/sessions"
+              "evidence/development/presentation-states/sessions",
+              "evidence/development/spinner/candidate.json"
             ],
             "notes": "Candidate evidence only; exact symbols/pixels, source keyboard/focus/modal/motion/safe-area, physical input/display, readers and broader composition remain pending."
           },
@@ -22664,7 +22705,8 @@
               "docs/presentation-states.md",
               "evidence/development/presentation-states/candidate.json",
               "tests/consumer/presentationchecks.h",
-              "evidence/development/presentation-states/sessions"
+              "evidence/development/presentation-states/sessions",
+              "evidence/development/spinner/candidate.json"
             ],
             "notes": "Candidate evidence only; exact symbols/pixels, source keyboard/focus/modal/motion/safe-area, physical input/display, readers and broader composition remain pending."
           },
@@ -22673,7 +22715,8 @@
             "evidence": [
               "docs/presentation-states.md",
               "evidence/development/presentation-states/candidate.json",
-              "tests/consumer/presentationchecks.h"
+              "tests/consumer/presentationchecks.h",
+              "evidence/development/spinner/candidate.json"
             ],
             "notes": "Candidate evidence only; exact symbols/pixels, source keyboard/focus/modal/motion/safe-area, physical input/display, readers and broader composition remain pending."
           },
@@ -22682,7 +22725,8 @@
             "evidence": [
               "docs/presentation-states.md",
               "evidence/development/presentation-states/candidate.json",
-              "tests/consumer/presentationchecks.h"
+              "tests/consumer/presentationchecks.h",
+              "evidence/development/spinner/candidate.json"
             ],
             "notes": "Candidate evidence only; exact symbols/pixels, source keyboard/focus/modal/motion/safe-area, physical input/display, readers and broader composition remain pending."
           },
@@ -22691,7 +22735,8 @@
             "evidence": [
               "docs/presentation-states.md",
               "evidence/development/presentation-states/candidate.json",
-              "tests/consumer/presentationchecks.h"
+              "tests/consumer/presentationchecks.h",
+              "evidence/development/spinner/candidate.json"
             ],
             "notes": "Candidate evidence only; exact symbols/pixels, source keyboard/focus/modal/motion/safe-area, physical input/display, readers and broader composition remain pending."
           },
@@ -22700,7 +22745,8 @@
             "evidence": [
               "docs/presentation-states.md",
               "evidence/development/presentation-states/candidate.json",
-              "tests/consumer/presentationchecks.h"
+              "tests/consumer/presentationchecks.h",
+              "evidence/development/spinner/candidate.json"
             ],
             "notes": "Candidate evidence only; exact symbols/pixels, source keyboard/focus/modal/motion/safe-area, physical input/display, readers and broader composition remain pending."
           }
@@ -22724,18 +22770,35 @@
           "line": 50
         },
         "implementation": [
-          "src/Avelino/BleeckerLoadingSpinner.qml"
+          "src/Avelino/BleeckerLoadingSpinner.qml",
+          "src/Avelino/spinnerpresentation.js",
+          "assets/spinner-presentation.json"
         ],
-        "caseDiscovery": "pending",
+        "caseDiscovery": "partial; 74 hosted native contexts and 144 controlled model frames; physical/source-reader gates remain pending",
         "cases": [
           {
             "id": "initial-presentation",
             "status": "pending",
             "evidence": [],
             "notes": "Runtime and reference comparisons pending; matrix expansion required"
+          },
+          {
+            "id": "native-spinner-presentation",
+            "status": "pending",
+            "evidence": [
+              "evidence/development/spinner/candidate.json",
+              "evidence/reference-investigations/spinner-20261015/investigation.json",
+              "docs/spinner.md"
+            ],
+            "notes": "Measured native 16/32/32 sizes, 24-frame 800ms model, owned capsules, loading-button guards and virtual installed sessions; exact raster, native DPR 1, physical phase/motion and actual readers remain pending."
           }
         ],
-        "tests": [],
+        "tests": [
+          "tests/components/tst_spinner.qml",
+          "tests/components/check-invalid-presentation.py",
+          "tests/consumer/spinnerchecks.h",
+          "scripts/verify-spinner-source.py"
+        ],
         "captures": [
           "evidence/development/isolated-desktop/captures/spinner-sm-light-text1.0-hosting-dpr2.0.png",
           "evidence/development/isolated-desktop/captures/spinner-sm-light-text1.5-hosting-dpr2.0.png",
@@ -22760,11 +22823,26 @@
           "evidence/development/panel-sizing/captures/spinner-lg-light-text1.0-hosting-dpr2.0.png",
           "evidence/development/panel-sizing/captures/spinner-lg-light-text1.5-hosting-dpr2.0.png",
           "evidence/development/panel-sizing/captures/spinner-lg-dark-text1.0-hosting-dpr2.0.png",
-          "evidence/development/panel-sizing/captures/spinner-lg-dark-text1.5-hosting-dpr2.0.png"
+          "evidence/development/panel-sizing/captures/spinner-lg-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/spinner/captures/desktop/spinner-sm-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/spinner/captures/desktop/spinner-sm-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/spinner/captures/desktop/spinner-sm-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/spinner/captures/desktop/spinner-sm-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/spinner/captures/desktop/spinner-md-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/spinner/captures/desktop/spinner-md-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/spinner/captures/desktop/spinner-md-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/spinner/captures/desktop/spinner-md-dark-text1.5-hosting-dpr2.0.png",
+          "evidence/development/spinner/captures/desktop/spinner-lg-light-text1.0-hosting-dpr2.0.png",
+          "evidence/development/spinner/captures/desktop/spinner-lg-light-text1.5-hosting-dpr2.0.png",
+          "evidence/development/spinner/captures/desktop/spinner-lg-dark-text1.0-hosting-dpr2.0.png",
+          "evidence/development/spinner/captures/desktop/spinner-lg-dark-text1.5-hosting-dpr2.0.png"
         ],
         "comparisonResults": [
           "evidence/development/isolated-desktop/comparison/comparison.json",
-          "evidence/development/panel-sizing/comparison/comparison.json"
+          "evidence/development/panel-sizing/comparison/comparison.json",
+          "evidence/development/spinner/regressions.json",
+          "evidence/development/spinner/comparison/desktop-after/comparison.json",
+          "evidence/development/spinner/comparison/presentation-states-after/comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -22772,7 +22850,8 @@
             "status": "pending",
             "evidence": [
               "evidence/development/isolated-desktop/candidate.json",
-              "evidence/development/panel-sizing/candidate.json"
+              "evidence/development/panel-sizing/candidate.json",
+              "evidence/development/spinner/candidate.json"
             ]
           },
           "x11": {
@@ -22780,7 +22859,8 @@
             "evidence": [
               "evidence/checkpoints/68a5dfb/checkpoint.json",
               "scripts/check-display-sessions.sh",
-              "https://github.com/gaulatti/avelino/actions/runs/38199378037"
+              "https://github.com/gaulatti/avelino/actions/runs/38199378037",
+              "evidence/development/spinner/candidate.json"
             ],
             "notes": "Initial installed consumer virtual-session checks only. Full component cases, real input delivery, accessibility, overlays, and visual parity remain pending."
           },
@@ -22789,7 +22869,8 @@
             "evidence": [
               "evidence/checkpoints/68a5dfb/checkpoint.json",
               "scripts/check-display-sessions.sh",
-              "https://github.com/gaulatti/avelino/actions/runs/38199378037"
+              "https://github.com/gaulatti/avelino/actions/runs/38199378037",
+              "evidence/development/spinner/candidate.json"
             ],
             "notes": "Initial installed consumer virtual-session checks only. Full component cases, real input delivery, accessibility, overlays, and visual parity remain pending."
           },
@@ -22798,7 +22879,8 @@
             "evidence": [
               "evidence/checkpoints/68a5dfb/checkpoint.json",
               "scripts/check-display-sessions.sh",
-              "https://github.com/gaulatti/avelino/actions/runs/38199378037"
+              "https://github.com/gaulatti/avelino/actions/runs/38199378037",
+              "evidence/development/spinner/candidate.json"
             ],
             "notes": "Initial installed consumer virtual-session checks only. Full component cases, real input delivery, accessibility, overlays, and visual parity remain pending."
           },
@@ -22807,7 +22889,8 @@
             "evidence": [
               "evidence/checkpoints/68a5dfb/checkpoint.json",
               "scripts/check-display-sessions.sh",
-              "https://github.com/gaulatti/avelino/actions/runs/38199378037"
+              "https://github.com/gaulatti/avelino/actions/runs/38199378037",
+              "evidence/development/spinner/candidate.json"
             ],
             "notes": "Initial installed consumer virtual-session checks only. Full component cases, real input delivery, accessibility, overlays, and visual parity remain pending."
           },
@@ -22816,14 +22899,16 @@
             "evidence": [
               "evidence/checkpoints/68a5dfb/checkpoint.json",
               "scripts/check-display-sessions.sh",
-              "https://github.com/gaulatti/avelino/actions/runs/38199378037"
+              "https://github.com/gaulatti/avelino/actions/runs/38199378037",
+              "evidence/development/spinner/candidate.json"
             ],
             "notes": "Initial installed consumer virtual-session checks only. Full component cases, real input delivery, accessibility, overlays, and visual parity remain pending."
           },
           "installedConsumer": {
             "status": "pending",
             "evidence": [
-              "evidence/development/catalog-runtime/candidate.json"
+              "evidence/development/catalog-runtime/candidate.json",
+              "evidence/development/spinner/candidate.json"
             ]
           }
         },

@@ -49,6 +49,11 @@ public slots:
         for (const auto &entry : hostedCases) validPresentation.append(entry);
         engine->rootContext()->setContextProperty("nativePresentationCaptures", validPresentation.toVariantList());
         engine->rootContext()->setContextProperty("nativePresentationBehavior", centeredData.value("behavior").toArray().toVariantList());
+        QFile spinner(QStringLiteral(NATIVE_SPINNER_FILE));
+        if(!spinner.open(QIODevice::ReadOnly))qFatal("Native spinner evidence is missing");
+        const auto spinnerData=QJsonDocument::fromJson(spinner.readAll()).object();
+        if(spinnerData.value("reference").toString()!="fe8a1d462fbd793d883fb92086a16aa2947e32c9" || spinnerData.value("captures").toArray().size()!=186)qFatal("Native spinner evidence differs");
+        engine->rootContext()->setContextProperty("nativeSpinnerContexts",spinnerData.value("captures").toArray().toVariantList());
     }
 };
 QUICK_TEST_MAIN_WITH_SETUP(avelino, FixtureSetup)
