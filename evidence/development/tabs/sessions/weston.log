@@ -1,0 +1,37 @@
+Date: 2026-10-15 UTC
+[00:13:12.638] weston 13.0.0
+               https://wayland.freedesktop.org
+               Bug reports to: https://gitlab.freedesktop.org/wayland/weston/issues/
+               Build: 13.0.0
+[00:13:12.639] Command line: weston --backend=x11 --renderer=pixman --width=1760 --height=1280 --socket=avelino-wayland --idle-time=0 --config=/tmp/tmp.LjKdGsIwWI/weston.ini --log=/evidence-root/sessions/weston.log
+[00:13:12.639] OS: Linux, 6.8.0-117-generic, #117-Ubuntu SMP PREEMPT_DYNAMIC Thu May  7 17:26:37 UTC 2026, aarch64
+[00:13:12.639] Flight recorder: enabled
+[00:13:12.639] Using config file '/tmp/tmp.LjKdGsIwWI/weston.ini'
+[00:13:12.640] Output repaint window is 7 ms maximum.
+[00:13:12.640] Loading module '/usr/lib/aarch64-linux-gnu/libweston-13/x11-backend.so'
+[00:13:12.647] Using Pixman renderer
+[00:13:12.649] Registered plugin API 'weston_windowed_output_api_v2' of size 16
+[00:13:12.649] Color manager: no-op
+[00:13:12.649] Output 'screen0' attempts EOTF mode: SDR
+[00:13:12.650] Output 'screen0' using color profile: stock sRGB color profile
+[00:13:12.650] Found visual, bits per value: 8, red_mask: 00ff0000, green_mask: 0000ff00, blue_mask: 000000ff
+[00:13:12.650] Visual depth is 24
+[00:13:12.650] Found format for depth 24, bpp: 32
+[00:13:12.650] Will use x8r8g8b8 format for SHM surfaces
+[00:13:12.651] x11 output 1760x1280, window id 2097157
+[00:13:12.651] Output 'screen0' enabled with head(s) screen0
+[00:13:12.651] Compositor capabilities:
+               arbitrary surface rotation: yes
+               screen capture uses y-flip: no
+               cursor planes: no
+               arbitrary resolutions: no
+               view mask clipping: yes
+               explicit sync: no
+               color operations: no
+               presentation clock: CLOCK_MONOTONIC_RAW, id 4
+               presentation clock resolution: 0.000000001 s
+[00:13:12.651] Loading module '/usr/lib/aarch64-linux-gnu/weston/desktop-shell.so'
+[00:13:12.652] launching '/usr/libexec/weston-keyboard'
+[00:13:12.652] launching '/usr/libexec/weston-desktop-shell'
+[00:16:01.503] caught signal 15
+[00:16:01.504] BUG: finalizing a layer with views still on it.

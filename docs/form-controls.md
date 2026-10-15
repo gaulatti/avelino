@@ -72,3 +72,5 @@ Pinned reference: `Sources/Sabella/Controls.swift` and `Buttons.swift` at
 `fe8a1d462fbd793d883fb92086a16aa2947e32c9`; per-case links are in
 [the inventory](parity-inventory.json). Native platform APIs are implementation
 details rather than Linux API requirements.
+
+The [Tabs and segmented selection checkpoint](tabs.md) adds an `activated(value)` caller boundary that preserves `selection` bindings after input. It also covers disabled-label opacity, constrained wrapping and explicit Qt button accessibility interfaces. Earlier evidence remains historical; the new candidate records changed segmented captures separately.

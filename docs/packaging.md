@@ -26,12 +26,12 @@ Weston Wayland compositor nested on it. It saves whole-output and window capture
 for software/OpenGL rendering at two display/text scales. Source and build trees
 remain absent. Metadata explicitly identifies virtual displays, Mesa software
 rendering, synthetic input, and the still-pending overlay/accessibility checks.
-The harness runs nine independent windows in each configuration: the base library
+The harness runs ten independent windows in each configuration: the base library
 fixture, `InstalledConsumer --controls`, `InstalledConsumer --composition` and
 `InstalledConsumer --selection`, `InstalledConsumer --checkbox` and
 `InstalledConsumer --secure-field`, `InstalledConsumer --search-field` and
-`InstalledConsumer --collection-filters` and `InstalledConsumer --slider`.
-Their seventy-two capture pairs keep
+`InstalledConsumer --collection-filters`, `InstalledConsumer --slider` and `InstalledConsumer --tabs`.
+Their eighty capture pairs keep
 form editing, scrolling, switch/toggle actions, disabled segmented options and
 focus restoration separate from the base composition checks. The controls fixture
 exercises the multiline editor's owned scrollbar. The selector fixture exercises
@@ -75,3 +75,5 @@ The slider fixture checks retained caller bindings through pointer/drag, Qt
 keyboard and actual value/action interfaces; disabled writes, partial/decimal
 intervals, dense ticks and continued editing are included. Native source keyboard,
 inactive presentation and real screen-reader acceptance remain separate.
+
+The Tabs fixture verifies shared caller bindings across both wrappers after pointer, keyboard and Qt accessibility actions; disabled options/groups, numeric IDs, RTL, wrapping and continued editing are exercised. Screen-reader output and source keyboard equivalence remain pending.

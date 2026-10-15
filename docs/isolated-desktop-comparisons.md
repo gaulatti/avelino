@@ -202,3 +202,12 @@ keyboard cases remain unverified because the helper did not obtain focus. All
 1,694 earlier offscreen PNG/full metadata pairs remain unchanged. Coverage is
 39/80 desktop APIs started, with none accepted. Remaining source contexts, exact
 appearance, physical input/display and actual screen readers stay open.
+
+The [Tabs/segmented proposal](../evidence/reference-proposals/tabs-20261014/proposal.json)
+and [Linux candidate](../evidence/development/tabs/candidate.json) add 240 comparisons:
+236/240 matching root bounds and 0/240 exact images. Final selection and activation counts match; four multiline natural
+width measurements still differ by 0.5 logical pixels. Native static DPR 1/2 and
+local own-window pointer DPR 2 captures remain separate. The helper replayed all
+241 files exactly. The comparator checks actual caller state after activation,
+reselection, disabled rejection and a later external update. Strict appearance,
+source keyboard/focus, physical input/display and screen-reader gates stay open.

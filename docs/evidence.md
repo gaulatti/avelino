@@ -493,3 +493,34 @@ or TV behavior changes. For preceding `aed193d`,
 [Linux CI](https://github.com/gaulatti/avelino/actions/runs/38649754666) passed both
 architecture build/runtime/package jobs while all sixteen strict visual jobs
 failed. Those results remain separate from this checkpoint's local checks and CI.
+
+## Tabs and retained selection bindings
+
+The [Tabs checkpoint](../evidence/development/tabs/candidate.json) adds the source's
+segmented-control wrapper and repairs the existing control's detached caller
+binding. A native QVariant property update preserves the binding; the activation
+signal updates the caller model and a sibling control. Pointer, keyboard and real
+Qt accessibility press actions are followed by another external update in the
+installed consumer. Disabled input, typed IDs, reorder/empty options, RTL and
+constrained labels are covered. Explicit Qt button interfaces now expose labels
+and selected descriptions. Exact screen-reader behavior remains pending.
+
+The native matrix has 236/240 matching root bounds and 0/240 exact images; all final selections and callback counts match.
+All 241 helper output files replayed byte-for-byte. Four multiline width
+measurements differ by 0.5 units. Layout allocation and presentation retain exact
+natural gaps and fractional widths; disabled labels dim without fading selected
+backgrounds. Accepted references and tolerances remain unchanged.
+
+All 2,954 Qt checks, 52 contracts, three invalid-startup cases, ten
+installed offscreen modes and 80 package-only virtual-session pairs pass.
+1,770 earlier PNG/full metadata pairs
+are unchanged; 20 intentional segmented/gallery
+changes retain before/after evidence. All host-style gallery PNGs match. Coverage
+is 40/80 desktop APIs started, zero accepted; TV's 46 entries remain pending.
+
+The public wiki is unavailable, so this checkpoint updates in-repository docs.
+No backend, metrics, configuration or TV behavior changes. Previous `a090ab2`
+[Linux CI](https://github.com/gaulatti/avelino/actions/runs/38655571611) passed both
+architecture build/runtime/package jobs while all strict visual jobs failed;
+[References CI](https://github.com/gaulatti/avelino/actions/runs/38655571956) passed.
+Those remote results are separate from this checkpoint's local evidence.

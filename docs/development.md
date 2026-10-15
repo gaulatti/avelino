@@ -44,10 +44,10 @@ focus; the whole-output capture preserves it as session evidence.
 [Weston's backend documentation](https://wayland.pages.freedesktop.org/weston/toc/running-weston.html)
 describes how its X11 backend composites Wayland surfaces into the parent output.
 Each configuration runs the base fixture, `--controls`, `--composition`,
-`--selection`, `--checkbox`, `--secure-field`, `--search-field`, `--collection-filters` and `--slider` independently; seventy-two
+`--selection`, `--checkbox`, `--secure-field`, `--search-field`, `--collection-filters`, `--slider` and `--tabs` independently; eighty
 window/full-output pairs cover them.
 The catalog galleries are `--fixture foundations`, `surfaces`, `data-display`,
-`controls`, `composition`, `selection`, `checkbox`, `secure-field`, `search-field`, `collection-filters` and `slider`; their native
+`controls`, `composition`, `selection`, `checkbox`, `secure-field`, `search-field`, `collection-filters`, `slider` and `tabs`; their native
 comparisons remain pending.
 
 The selector's open `Popup.Item` and scrollbars remain
@@ -149,3 +149,5 @@ Official framework references:
 The [slider contract](slider.md) adds retained numeric bindings, native template
 input/value interfaces, partial intervals, decimal endpoints and bounded dense
 ticks. Source keyboard equivalence remains explicitly pending.
+
+The [Tabs fixture](tabs.md) checks shared caller selection, later external updates, disabled traversal and typed IDs. `--fixture tabs` renders the gallery; `InstalledConsumer --tabs` exercises the installed module. Proposed source captures remain separate from accepted references.

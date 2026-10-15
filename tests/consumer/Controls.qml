@@ -2,6 +2,8 @@ import QtQuick
 import Avelino
 
 Window {
+    id: window
+    property string selectedView: "a"
     property int toggleInvocations: 0
     width: 680; height: 448; visible: true
     title: "Avelino installed controls"
@@ -31,7 +33,8 @@ Window {
         BleeckerSegmentedControl {
             objectName: "segments"
             options: [{value:"a",label:"One"},{value:"b",label:"Skip",disabled:true},{value:"c",label:"Three"}]
-            selection: "a"
+            selection: window.selectedView
+            onActivated: value => window.selectedView=value
         }
         BleeckerField {
             width: parent.width; label: "Required title"; error: "Enter a title"

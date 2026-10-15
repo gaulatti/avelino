@@ -114,7 +114,7 @@ Item {
             mouseClick(c,c.width/2,c.height/2); compare(item.selection,"c"); verify(c.selected); verify(!a.selected)
             a.forceActiveFocus(); keyClick(Qt.Key_Space); compare(item.selection,"a")
             keyClick(Qt.Key_Tab); verify(c.activeFocus); keyClick(Qt.Key_Space); compare(item.selection,"c")
-            compare(item.height,40); item.options = []; tryCompare(item,"width",8); compare(item.height,8)
+            compare(item.height,40); item.options = []; tryCompare(item,"width",8); tryCompare(item,"height",8)
         }
         function test_text_area_edit_selection_wrapping_scroll_and_readonly() {
             const item = createTemporaryObject(areaFactory,root)

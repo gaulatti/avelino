@@ -25,7 +25,8 @@ SCOPED_APIS = {"desktop-composition": COMPOSITION_APIS,
     "desktop-secure-field": {"BleeckerButton", "BleeckerSecureField"},
     "desktop-search-field": {"BleeckerButton", "BleeckerTextField", "BleeckerSearchField"},
     "desktop-collection-filters": {"BleeckerButton", "BleeckerFilterChip", "BleeckerCollectionFilters"},
-    "desktop-slider": {"BleeckerButton", "BleeckerSlider"}}
+    "desktop-slider": {"BleeckerButton", "BleeckerSlider"},
+    "desktop-tabs": {"BleeckerButton", "BleeckerSegmentedControl", "BleeckerTabs"}}
 
 SCOPED_CONTRACT_AXES = {"desktop-checkbox": {"BleeckerCheckbox": {"size": "BleeckerControlSize"}}}
 
@@ -55,7 +56,7 @@ def verify(directory):
         assert scoped in SCOPED_APIS and manifest.get("scope") == scoped
         message = {"desktop-composition": "Missing composition API", "desktop-selectors": "Missing selector API",
             "desktop-checkbox": "Missing checkbox API", "desktop-secure-field": "Missing secure-field API",
-            "desktop-search-field": "Missing search-field API", "desktop-collection-filters": "Missing collection-filter API", "desktop-slider": "Missing slider API"}[scoped]
+            "desktop-search-field": "Missing search-field API", "desktop-collection-filters": "Missing collection-filter API", "desktop-slider": "Missing slider API", "desktop-tabs": "Missing tabs API"}[scoped]
         assert {case["api"] for case in captures} == SCOPED_APIS[scoped], message
     keys = set()
     for case in captures:
@@ -142,6 +143,17 @@ def verify(directory):
             if variant != "dragged":
                 assert case.get("sourceUserEdits") == int(updated), "Invalid source slider callback count"
             assert case.get("sourceControlActiveState") == "active", "Missing explicit native slider active context"
+    if scoped == "desktop-tabs":
+        required = {"normal", "selected", "selected-disabled", "unmatched", "empty", "disabled", "all-disabled", "long", "multiline", "narrow", "wide", "rtl", "activated", "reselected", "disabled-click", "disabled-group-action", "external"}
+        for api in ["BleeckerSegmentedControl", "BleeckerTabs"]:
+            assert required <= {f["variant"] for f in fixtures if f["api"] == api}, "Missing tabs state combinations"
+        for case in captures:
+            if case["api"] == "BleeckerButton": continue
+            variant = case["variant"]
+            expected = {"activated":"c", "reselected":"c", "external":"a"}.get(variant, case["text"])
+            assert case.get("sourceSelectionAfterAction") == expected, "Invalid source tab selection"
+            assert case.get("sourceActivations") == int(variant in {"activated", "reselected", "external"}), "Invalid source tab activation count"
+            assert case["resolvedLabelFonts"]["segmentExpression"]["postScriptName"] == "EncodeSans-Md", "Invalid source tab font"
     discovery = json.loads((ROOT / "reference/api-discovery.json").read_text())["desktop"]
     declarations = {d["name"]: d for d in discovery["declarations"]}
     for api, axes in {**CONTRACT_AXES, **SCOPED_CONTRACT_AXES.get(scoped, {})}.items():

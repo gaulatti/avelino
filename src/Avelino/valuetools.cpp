@@ -24,3 +24,9 @@ qreal BleeckerValueTools::sliderIntervals(qreal from, qreal to, qreal step) cons
     const auto quotient = (to-from)/step;
     return std::floor(std::nextafter(quotient, std::numeric_limits<qreal>::infinity()));
 }
+
+void BleeckerValueTools::select(QObject *control, const QVariant &value) const {
+    if (!control || !control->setProperty("selection", value)
+        || !QMetaObject::invokeMethod(control, "activated", Q_ARG(QVariant, value)))
+        qFatal("Selection adapter requires a selection property and activated signal");
+}

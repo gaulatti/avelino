@@ -12,6 +12,8 @@ Window {
     property int collectionRemovals: 0
     property real sliderValue: definition.api === "BleeckerSlider" ? Number(definition.text) : 0
     property int sliderEdits: 0
+    property var boundSelection: definition.text
+    property int boundActivations: 0
     readonly property real fixtureTextScale: BleeckerTheme.textScale
     width: definition.width; height: definition.height; visible: true
     color: BleeckerTheme.palette.background
@@ -43,8 +45,9 @@ Window {
                 "BleeckerSectionHeader": sectionHeader, "BleeckerDashboardSection": dashboardSection,
                 "BleeckerDashboardGrid": dashboardGrid, "BleeckerAppShell": appShell,
                 "BleeckerFooter": footer, "BleeckerFeedItem": feed, "BleeckerProgressStack": progressStack,
-                "BleeckerSelect": select, "BleeckerCheckbox": checkbox, "BleeckerSecureField": secureField, "BleeckerSearchField": searchField, "BleeckerFilterChip": filterChip, "BleeckerCollectionFilters": collectionFilters, "BleeckerSlider": slider
+                "BleeckerSelect": select, "BleeckerCheckbox": checkbox, "BleeckerSecureField": secureField, "BleeckerSearchField": searchField, "BleeckerFilterChip": filterChip, "BleeckerCollectionFilters": collectionFilters, "BleeckerSlider": slider, "BleeckerTabs": boundSelectionFrame
             }
+            if (definition.fixture.startsWith("segments-bound-")) return boundSelectionFrame
             if (definition.api === "BleeckerTextField" && definition.fixture.startsWith("search-text-")) return searchField
             if (!components[definition.api]) throw new Error("Unimplemented reference API: " + definition.api)
             return components[definition.api]
@@ -92,6 +95,47 @@ Window {
                 return steps[definition.size]
             }
             onMoved: { window.sliderValue=value;window.sliderEdits++ }
+        }
+    }
+    function boundOptions() {
+        if (definition.variant === "empty") return []
+        const labels=["long","narrow"].includes(definition.variant) ? ["Morning edition","Evening edition","Weekend edition"]
+            : definition.variant === "multiline" ? ["First\nline","Disabled","Last\nline"] : ["Alpha","Disabled","Gamma"]
+        return [{value:"a",label:labels[0],disabled:definition.variant === "all-disabled"},{value:"b",label:labels[1],disabled:true},{value:"c",label:labels[2],disabled:definition.variant === "all-disabled"}]
+    }
+    Component {
+        id: boundSelectionFrame
+        Item {
+            id: frame
+            enabled: !definition.flag
+            implicitWidth: definition.value > 0 ? definition.value : body.item ? body.item.implicitWidth : 0
+            implicitHeight: body.item ? body.item.implicitHeight : 0
+            LayoutMirroring.enabled: definition.variant === "rtl"
+            LayoutMirroring.childrenInherit: true
+            Item {
+                width: body.width; height: body.height
+                anchors.centerIn: parent; anchors.alignWhenCentered: false
+                Loader {
+                    id: body
+                    width: item ? Math.min(frame.width,item.implicitWidth) : 0
+                    sourceComponent: definition.api === "BleeckerTabs" ? tabsBody : segmentsBody
+                    onLoaded: item.objectName="bleeckerBoundSelectionBody"
+                }
+            }
+        }
+    }
+    Component {
+        id: tabsBody
+        BleeckerTabs {
+            selection: window.boundSelection; options: window.boundOptions()
+            onActivated: value => { window.boundSelection=value;window.boundActivations++ }
+        }
+    }
+    Component {
+        id: segmentsBody
+        BleeckerSegmentedControl {
+            selection: window.boundSelection; options: window.boundOptions()
+            onActivated: value => { window.boundSelection=value;window.boundActivations++ }
         }
     }
     Component { id: button; BleeckerButton { text: "Publish" } }

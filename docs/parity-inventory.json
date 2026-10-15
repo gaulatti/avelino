@@ -16111,9 +16111,10 @@
           "line": 146
         },
         "implementation": [
-          "src/Avelino/BleeckerSegmentedControl.qml"
+          "src/Avelino/BleeckerSegmentedControl.qml",
+          "src/Avelino/valuetools.cpp"
         ],
-        "caseDiscovery": "pending",
+        "caseDiscovery": "Shared source implementation; normal/selected/disabled/unmatched/empty, constrained/long/multiline/wide/RTL, pointer/reselection/external caller state; source keyboard and physical/accessibility acceptance pending",
         "cases": [
           {
             "id": "BleeckerSegmentedControl-order",
@@ -16214,13 +16215,1525 @@
               "docs/form-controls.md"
             ],
             "notes": "Candidate contract/fixture coverage only; native captures, comparisons and complete behavior/runtime acceptance pending."
+          },
+          {
+            "id": "segments-bound-normal-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-normal-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-normal-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-normal-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-normal-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-normal-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-normal-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-normal-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-normal-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-normal-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-normal-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-normal-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-normal-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-normal-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-normal-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-normal-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-selected-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-selected-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-selected-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-selected-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-selected-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-selected-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-selected-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-selected-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-selected-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-selected-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-selected-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-selected-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-selected-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-selected-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-selected-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-selected-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-selected-disabled-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-selected-disabled-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-selected-disabled-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-selected-disabled-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-selected-disabled-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-selected-disabled-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-selected-disabled-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-selected-disabled-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-selected-disabled-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-selected-disabled-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-selected-disabled-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-selected-disabled-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-selected-disabled-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-selected-disabled-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-selected-disabled-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-selected-disabled-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-unmatched-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-unmatched-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-unmatched-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-unmatched-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-unmatched-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-unmatched-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-unmatched-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-unmatched-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-unmatched-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-unmatched-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-unmatched-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-unmatched-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-unmatched-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-unmatched-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-unmatched-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-unmatched-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-empty-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-empty-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-empty-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-empty-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-empty-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-empty-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-empty-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-empty-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-empty-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-empty-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-empty-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-empty-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-empty-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-empty-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-empty-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-empty-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-disabled-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-disabled-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-disabled-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-disabled-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-disabled-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-disabled-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-disabled-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-disabled-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-disabled-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-disabled-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-disabled-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-disabled-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-disabled-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-disabled-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-disabled-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-disabled-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-all-disabled-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-all-disabled-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-all-disabled-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-all-disabled-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-all-disabled-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-all-disabled-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-all-disabled-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-all-disabled-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-all-disabled-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-all-disabled-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-all-disabled-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-all-disabled-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-all-disabled-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-all-disabled-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-all-disabled-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-all-disabled-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-long-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-long-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-long-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-long-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-long-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-long-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-long-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-long-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-long-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-long-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-long-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-long-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-long-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-long-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-long-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-long-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-multiline-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-multiline-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-multiline-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-multiline-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-multiline-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-multiline-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-multiline-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-multiline-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-multiline-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-multiline-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-multiline-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-multiline-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-multiline-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-multiline-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-multiline-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-multiline-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-narrow-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-narrow-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-narrow-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-narrow-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-narrow-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-narrow-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-narrow-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-narrow-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-narrow-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-narrow-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-narrow-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-narrow-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-narrow-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-narrow-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-narrow-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-narrow-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-wide-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-wide-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-wide-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-wide-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-wide-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-wide-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-wide-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-wide-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-wide-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-wide-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-wide-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-wide-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-wide-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-wide-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-wide-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-wide-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-rtl-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-rtl-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-rtl-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-rtl-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-rtl-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-rtl-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-rtl-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-rtl-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-rtl-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-rtl-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-rtl-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-rtl-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-rtl-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-rtl-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-rtl-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-rtl-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-activated-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-activated-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-activated-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-activated-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-activated-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-activated-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-activated-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-activated-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-reselected-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-reselected-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-reselected-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-reselected-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-reselected-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-reselected-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-reselected-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-reselected-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-disabled-click-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-disabled-click-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-disabled-click-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-disabled-click-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-disabled-click-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-disabled-click-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-disabled-click-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-disabled-click-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-disabled-group-action-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-disabled-group-action-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-disabled-group-action-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-disabled-group-action-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-disabled-group-action-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-disabled-group-action-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-disabled-group-action-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-disabled-group-action-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-external-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-external-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-external-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-external-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-external-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-external-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "segments-bound-external-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/segments-bound-external-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
           }
         ],
         "tests": [
           "tests/components/tst_form_controls.qml",
           "tests/consumer/main.cpp",
           "tests/components/tst_native_typography.qml",
-          "tests/components/tst_typography.qml"
+          "tests/components/tst_typography.qml",
+          "tests/components/tst_tabs.qml",
+          "tests/consumer/Tabs.qml",
+          "tests/consumer/tabschecks.h",
+          "tests/contracts/test_proposals.py"
         ],
         "captures": [
           "samples/AvelinoCatalog/ControlsFixture.qml",
@@ -16257,11 +17770,15 @@
           "evidence/development/panel-sizing/captures/segments-c-dark-text1.0-offscreen-dpr1.0.png",
           "evidence/development/panel-sizing/captures/segments-c-dark-text1.0-offscreen-dpr2.0.png",
           "evidence/development/panel-sizing/captures/segments-c-dark-text1.5-offscreen-dpr1.0.png",
-          "evidence/development/panel-sizing/captures/segments-c-dark-text1.5-offscreen-dpr2.0.png"
+          "evidence/development/panel-sizing/captures/segments-c-dark-text1.5-offscreen-dpr2.0.png",
+          "samples/AvelinoCatalog/TabsFixture.qml",
+          "evidence/reference-proposals/tabs-20261014/proposal.json",
+          "evidence/development/tabs/candidate.json"
         ],
         "comparisonResults": [
           "evidence/development/isolated-desktop/comparison/comparison.json",
-          "evidence/development/panel-sizing/comparison/comparison.json"
+          "evidence/development/panel-sizing/comparison/comparison.json",
+          "evidence/development/tabs/comparison/comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -16274,9 +17791,13 @@
               "scripts/check-display-sessions.sh",
               "evidence/development/form-controls/candidate.json",
               "evidence/development/isolated-desktop/candidate.json",
-              "evidence/development/panel-sizing/candidate.json"
+              "evidence/development/panel-sizing/candidate.json",
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
             ],
-            "notes": "Candidate input/session checks do not close complete parity, native presentation, accessibility or overlay gates."
+            "notes": "Offscreen and virtual-session candidate checks are separate from native source, exact pixels, physical input and actual screen-reader acceptance."
           },
           "x11": {
             "status": "pending",
@@ -16285,9 +17806,14 @@
               "tests/components/tst_form_controls.qml",
               "tests/consumer/main.cpp",
               "scripts/check-display-sessions.sh",
-              "evidence/development/form-controls/candidate.json"
+              "evidence/development/form-controls/candidate.json",
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json",
+              "evidence/development/tabs/sessions"
             ],
-            "notes": "Candidate input/session checks do not close complete parity, native presentation, accessibility or overlay gates."
+            "notes": "Offscreen and virtual-session candidate checks are separate from native source, exact pixels, physical input and actual screen-reader acceptance."
           },
           "wayland": {
             "status": "pending",
@@ -16296,9 +17822,14 @@
               "tests/components/tst_form_controls.qml",
               "tests/consumer/main.cpp",
               "scripts/check-display-sessions.sh",
-              "evidence/development/form-controls/candidate.json"
+              "evidence/development/form-controls/candidate.json",
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json",
+              "evidence/development/tabs/sessions"
             ],
-            "notes": "Candidate input/session checks do not close complete parity, native presentation, accessibility or overlay gates."
+            "notes": "Offscreen and virtual-session candidate checks are separate from native source, exact pixels, physical input and actual screen-reader acceptance."
           },
           "keyboardPointer": {
             "status": "pending",
@@ -16307,9 +17838,13 @@
               "tests/components/tst_form_controls.qml",
               "tests/consumer/main.cpp",
               "scripts/check-display-sessions.sh",
-              "evidence/development/form-controls/candidate.json"
+              "evidence/development/form-controls/candidate.json",
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
             ],
-            "notes": "Candidate input/session checks do not close complete parity, native presentation, accessibility or overlay gates."
+            "notes": "Offscreen and virtual-session candidate checks are separate from native source, exact pixels, physical input and actual screen-reader acceptance."
           },
           "focusAccessibility": {
             "status": "pending",
@@ -16318,9 +17853,13 @@
               "tests/components/tst_form_controls.qml",
               "tests/consumer/main.cpp",
               "scripts/check-display-sessions.sh",
-              "evidence/development/form-controls/candidate.json"
+              "evidence/development/form-controls/candidate.json",
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
             ],
-            "notes": "Candidate input/session checks do not close complete parity, native presentation, accessibility or overlay gates."
+            "notes": "Offscreen and virtual-session candidate checks are separate from native source, exact pixels, physical input and actual screen-reader acceptance."
           },
           "displayTextScaling": {
             "status": "pending",
@@ -16329,9 +17868,13 @@
               "tests/components/tst_form_controls.qml",
               "tests/consumer/main.cpp",
               "scripts/check-display-sessions.sh",
-              "evidence/development/form-controls/candidate.json"
+              "evidence/development/form-controls/candidate.json",
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
             ],
-            "notes": "Candidate input/session checks do not close complete parity, native presentation, accessibility or overlay gates."
+            "notes": "Offscreen and virtual-session candidate checks are separate from native source, exact pixels, physical input and actual screen-reader acceptance."
           },
           "installedConsumer": {
             "status": "pending",
@@ -16340,9 +17883,14 @@
               "tests/components/tst_form_controls.qml",
               "tests/consumer/main.cpp",
               "scripts/check-display-sessions.sh",
-              "evidence/development/form-controls/candidate.json"
+              "evidence/development/form-controls/candidate.json",
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json",
+              "evidence/development/tabs/sessions"
             ],
-            "notes": "Candidate input/session checks do not close complete parity, native presentation, accessibility or overlay gates."
+            "notes": "Offscreen and virtual-session candidate checks are separate from native source, exact pixels, physical input and actual screen-reader acceptance."
           }
         },
         "referenceCandidates": [
@@ -20152,47 +21700,1616 @@
       },
       {
         "id": "BleeckerTabs",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Navigation.swift",
           "line": 176
         },
-        "implementation": [],
-        "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
-        "captures": [],
-        "comparisonResults": [],
+        "implementation": [
+          "src/Avelino/BleeckerSegmentedControl.qml",
+          "src/Avelino/valuetools.cpp",
+          "src/Avelino/BleeckerTabs.qml"
+        ],
+        "caseDiscovery": "Shared source implementation; normal/selected/disabled/unmatched/empty, constrained/long/multiline/wide/RTL, pointer/reselection/external caller state; source keyboard and physical/accessibility acceptance pending",
+        "cases": [
+          {
+            "id": "tabs-normal-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-normal-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-normal-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-normal-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-normal-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-normal-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-normal-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-normal-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-normal-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-normal-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-normal-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-normal-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-normal-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-normal-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-normal-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-normal-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-selected-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-selected-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-selected-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-selected-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-selected-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-selected-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-selected-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-selected-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-selected-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-selected-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-selected-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-selected-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-selected-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-selected-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-selected-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-selected-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-selected-disabled-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-selected-disabled-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-selected-disabled-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-selected-disabled-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-selected-disabled-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-selected-disabled-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-selected-disabled-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-selected-disabled-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-selected-disabled-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-selected-disabled-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-selected-disabled-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-selected-disabled-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-selected-disabled-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-selected-disabled-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-selected-disabled-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-selected-disabled-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-unmatched-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-unmatched-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-unmatched-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-unmatched-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-unmatched-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-unmatched-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-unmatched-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-unmatched-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-unmatched-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-unmatched-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-unmatched-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-unmatched-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-unmatched-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-unmatched-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-unmatched-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-unmatched-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-empty-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-empty-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-empty-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-empty-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-empty-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-empty-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-empty-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-empty-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-empty-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-empty-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-empty-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-empty-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-empty-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-empty-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-empty-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-empty-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-disabled-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-disabled-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-disabled-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-disabled-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-disabled-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-disabled-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-disabled-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-disabled-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-disabled-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-disabled-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-disabled-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-disabled-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-disabled-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-disabled-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-disabled-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-disabled-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-all-disabled-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-all-disabled-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-all-disabled-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-all-disabled-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-all-disabled-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-all-disabled-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-all-disabled-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-all-disabled-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-all-disabled-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-all-disabled-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-all-disabled-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-all-disabled-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-all-disabled-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-all-disabled-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-all-disabled-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-all-disabled-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-long-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-long-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-long-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-long-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-long-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-long-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-long-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-long-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-long-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-long-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-long-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-long-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-long-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-long-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-long-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-long-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-multiline-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-multiline-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-multiline-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-multiline-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-multiline-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-multiline-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-multiline-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-multiline-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-multiline-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-multiline-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-multiline-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-multiline-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-multiline-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-multiline-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-multiline-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-multiline-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-narrow-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-narrow-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-narrow-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-narrow-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-narrow-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-narrow-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-narrow-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-narrow-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-narrow-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-narrow-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-narrow-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-narrow-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-narrow-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-narrow-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-narrow-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-narrow-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-wide-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-wide-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-wide-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-wide-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-wide-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-wide-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-wide-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-wide-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-wide-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-wide-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-wide-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-wide-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-wide-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-wide-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-wide-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-wide-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-rtl-light-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-rtl-light-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-rtl-light-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-rtl-light-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-rtl-light-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-rtl-light-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-rtl-light-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-rtl-light-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-rtl-dark-text1.0-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-rtl-dark-text1.0-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-rtl-dark-text1.0-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-rtl-dark-text1.0-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-rtl-dark-text1.5-offscreen-dpr1.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-rtl-dark-text1.5-offscreen-dpr1.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-rtl-dark-text1.5-offscreen-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-rtl-dark-text1.5-offscreen-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-activated-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-activated-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-activated-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-activated-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-activated-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-activated-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-activated-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-activated-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-reselected-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-reselected-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-reselected-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-reselected-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-reselected-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-reselected-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-reselected-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-reselected-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-disabled-click-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-disabled-click-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-disabled-click-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-disabled-click-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-disabled-click-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-disabled-click-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-disabled-click-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-disabled-click-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-disabled-group-action-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-disabled-group-action-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-disabled-group-action-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-disabled-group-action-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-disabled-group-action-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-disabled-group-action-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-disabled-group-action-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-disabled-group-action-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-external-light-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-external-light-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-external-light-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-external-light-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-external-dark-text1.0-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-external-dark-text1.0-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          },
+          {
+            "id": "tabs-external-dark-text1.5-hosting-dpr2.0",
+            "status": "pending",
+            "referenceCapture": null,
+            "proposedReferenceCapture": "evidence/reference-proposals/tabs-20261014/tabs-external-dark-text1.5-hosting-dpr2.0.png",
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Candidate source state and bounds compared separately; exact appearance, keyboard source equivalence, physical input and reader acceptance remain open."
+          }
+        ],
+        "tests": [
+          "tests/components/tst_tabs.qml",
+          "tests/consumer/Tabs.qml",
+          "tests/consumer/tabschecks.h",
+          "tests/contracts/test_proposals.py"
+        ],
+        "captures": [
+          "samples/AvelinoCatalog/TabsFixture.qml",
+          "evidence/reference-proposals/tabs-20261014/proposal.json",
+          "evidence/development/tabs/candidate.json"
+        ],
+        "comparisonResults": [
+          "evidence/development/tabs/comparison/comparison.json"
+        ],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Offscreen and virtual-session candidate checks are separate from native source, exact pixels, physical input and actual screen-reader acceptance."
           },
           "x11": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json",
+              "evidence/development/tabs/sessions"
+            ],
+            "notes": "Offscreen and virtual-session candidate checks are separate from native source, exact pixels, physical input and actual screen-reader acceptance."
           },
           "wayland": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json",
+              "evidence/development/tabs/sessions"
+            ],
+            "notes": "Offscreen and virtual-session candidate checks are separate from native source, exact pixels, physical input and actual screen-reader acceptance."
           },
           "keyboardPointer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Offscreen and virtual-session candidate checks are separate from native source, exact pixels, physical input and actual screen-reader acceptance."
           },
           "focusAccessibility": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Offscreen and virtual-session candidate checks are separate from native source, exact pixels, physical input and actual screen-reader acceptance."
           },
           "displayTextScaling": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json"
+            ],
+            "notes": "Offscreen and virtual-session candidate checks are separate from native source, exact pixels, physical input and actual screen-reader acceptance."
           },
           "installedConsumer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/tabs.md",
+              "tests/components/tst_tabs.qml",
+              "tests/consumer/tabschecks.h",
+              "evidence/development/tabs/candidate.json",
+              "evidence/development/tabs/sessions"
+            ],
+            "notes": "Offscreen and virtual-session candidate checks are separate from native source, exact pixels, physical input and actual screen-reader acceptance."
           }
         }
       },

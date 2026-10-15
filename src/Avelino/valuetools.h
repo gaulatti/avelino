@@ -1,5 +1,6 @@
 #pragma once
 #include <QObject>
+#include <QVariant>
 #include <QtQml/qqmlregistration.h>
 
 class BleeckerValueTools final : public QObject {
@@ -9,6 +10,7 @@ class BleeckerValueTools final : public QObject {
 public:
     using QObject::QObject;
     Q_INVOKABLE qreal sliderIntervals(qreal from, qreal to, qreal step) const;
+    Q_INVOKABLE void select(QObject *control, const QVariant &value) const;
     Q_INVOKABLE void setValue(QObject *control, qreal value) const;
     Q_INVOKABLE void moveSlider(QObject *control, qreal value) const;
 };

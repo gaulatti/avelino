@@ -283,3 +283,33 @@ class SliderProposalIntegrity(unittest.TestCase):
         self.change_manifest(lambda m: m.update(sourceKeyboardStatus='passed'))
         with self.assertRaisesRegex(AssertionError, 'Source keyboard gate cannot be self-approved'):
             verifier.verify(self.directory)
+
+
+class TabsProposalIntegrity(unittest.TestCase):
+    remove_cases_with_updated_checksums = CheckboxProposalIntegrity.remove_cases_with_updated_checksums
+    change_manifest = SliderProposalIntegrity.change_manifest
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.directory = Path(self.temp.name) / 'proposal'
+        shutil.copytree(ROOT / 'evidence/reference-proposals/tabs-20261014', self.directory)
+
+    def test_source_pointer_case_cannot_be_omitted(self):
+        self.remove_cases_with_updated_checksums(lambda c: c['variant'] == 'external')
+        with self.assertRaisesRegex(AssertionError, 'Missing tabs state combinations'):
+            verifier.verify(self.directory)
+
+    def test_external_binding_state_cannot_be_falsified(self):
+        self.change_manifest(lambda m: next(c for c in m['captures'] if c['variant'] == 'external').update(sourceSelectionAfterAction='c'))
+        with self.assertRaisesRegex(AssertionError, 'Invalid source tab selection'):
+            verifier.verify(self.directory)
+
+    def test_disabled_callback_count_cannot_be_falsified(self):
+        self.change_manifest(lambda m: next(c for c in m['captures'] if c['variant'] == 'disabled-click').update(sourceActivations=1))
+        with self.assertRaisesRegex(AssertionError, 'Invalid source tab activation count'):
+            verifier.verify(self.directory)
+
+    def test_scope_cannot_drop_tabs(self):
+        self.remove_cases_with_updated_checksums(lambda c: c['api'] == 'BleeckerTabs')
+        with self.assertRaisesRegex(AssertionError, 'Missing tabs API'):
+            verifier.verify(self.directory)

@@ -50,7 +50,7 @@ INI
   fi
   for backend in software opengl; do
     for configuration in standard scaled; do
-    for fixture in base controls composition selection checkbox secure-field search-field collection-filters slider; do
+    for fixture in base controls composition selection checkbox secure-field search-field collection-filters slider tabs; do
       prefix="$evidence/$protocol-$backend-$configuration"
       if [[ "$fixture" == controls ]]; then prefix="$evidence/controls-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == composition ]]; then prefix="$evidence/composition-$protocol-$backend-$configuration"; fi
@@ -60,6 +60,7 @@ INI
       if [[ "$fixture" == selection ]]; then prefix="$evidence/selection-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == collection-filters ]]; then prefix="$evidence/collection-filters-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == slider ]]; then prefix="$evidence/slider-$protocol-$backend-$configuration"; fi
+      if [[ "$fixture" == tabs ]]; then prefix="$evidence/tabs-$protocol-$backend-$configuration"; fi
       args=(--evidence "$prefix")
       if [[ "$fixture" == controls ]]; then args+=(--controls); fi
       if [[ "$fixture" == composition ]]; then args+=(--composition); fi
@@ -69,6 +70,7 @@ INI
       if [[ "$fixture" == selection ]]; then args+=(--selection); fi
       if [[ "$fixture" == collection-filters ]]; then args+=(--collection-filters); fi
       if [[ "$fixture" == slider ]]; then args+=(--slider); fi
+      if [[ "$fixture" == tabs ]]; then args+=(--tabs); fi
       export QT_SCALE_FACTOR=1
       if [[ "$configuration" == scaled ]]; then
         export QT_SCALE_FACTOR=2
@@ -140,6 +142,10 @@ elif fixture == 'secure-field':
         assert record[key] == 'passed', record
     assert record['sourceHeight'] == 40 and record['fontPointSize'] == 10.5, record
     assert record['revealed'] is True, record
+elif fixture == 'tabs':
+    for key in ['tabsChecks','callerBindingChecks','focusChecks','qtAccessibilityChecks']:
+        assert record[key] == 'passed', record
+    assert record['selectedValue'] == 'c' and record['activations'] == 4, record
 elif fixture == 'slider':
     for key in ['sliderChecks','callerBindingChecks','focusChecks','qtAccessibilityChecks']:
         assert record[key] == 'passed', record
