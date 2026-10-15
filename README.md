@@ -55,3 +55,7 @@ The public GitHub wiki remote is unavailable; documentation currently lives here
 Generic child clipping now has a [software renderer candidate](docs/content-clipping.md)
 sharing the existing continuous/circular/capsule paths; strict native acceptance
 remains pending.
+
+The [page header and breadcrumb source investigation](docs/navigation-layout.md)
+preserves measured layout, fonts and pointer/lifecycle evidence for the next
+desktop batch. Both Linux controls remain unimplemented.

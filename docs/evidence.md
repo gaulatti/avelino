@@ -732,3 +732,25 @@ generic/font/script contexts, and complete mirror acceptance remain pending.
 Coverage stays 47/80 desktop APIs started, with none fully accepted; TV is
 unchanged. See [content clipping](content-clipping.md) for the private Qt boundary,
 source hit-region policy and reproducible fixtures.
+
+## Navigation source investigation
+
+The [page header and breadcrumb contract](navigation-layout.md) now has 392
+unmodified public source captures, 392 matching root-geometry witnesses and
+392 matching reconstructed-layout witnesses. The 29 PageHeader and 19
+Breadcrumb fixtures cover appearances, text scales and DPRs independently;
+eight captures anchor the established button source. Thirty-two isolated
+native-window records measure pointer callbacks and caller-content lifecycle.
+
+The separate 104 text-layout pairs contain 82 byte-identical line witnesses
+and 22 explicitly untrusted narrow TextRenderer contexts. The original native
+images and all failed diagnostics are retained. A clean external helper replay
+verified 37 build inputs, recompiled both helpers and reproduced all 1,416 PNG
+and metadata files byte for byte. The tracked checkpoint contains no Swift
+source or Apple capture tooling.
+
+This changes source evidence and its integrity checks. The Linux controls remain
+unimplemented, the desktop started count remains 47/80, and every runtime and
+mirror gate stays open for these two APIs. Existing product behavior and its
+documentation were checked and remain unchanged. No new Linux build, package,
+display-session or deployment result is claimed by this source checkpoint.
