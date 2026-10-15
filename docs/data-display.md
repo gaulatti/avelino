@@ -1,8 +1,8 @@
 # Data display and surface candidates
 
-Four more desktop APIs have candidates. Their native images, complete comparisons,
-behavior cases and runtime acceptance remain pending. The discovered inventory
-now has 20 started entries out of 80; this is coverage, not completion.
+The initial data-display batch added four desktop candidates. Their complete
+comparisons, behavior cases and runtime acceptance remain pending. Current
+coverage is recorded in the [parity inventory](parity-inventory.json).
 
 | Reference API | Linux interface and behavior |
 | --- | --- |
@@ -58,3 +58,7 @@ gates pending. Pinned sources are `Sources/Sabella/DataDisplay.swift` and
 Mechanisms: [Qt grapheme boundaries](https://doc.qt.io/qt-6.8/qtextboundaryfinder.html),
 [ListView](https://doc.qt.io/qt-6.8/qml-qtquick-listview.html), and
 [Canvas logical coordinates](https://doc.qt.io/qt-6.8/qml-qtquick-canvas.html#canvasSize-prop).
+
+The remaining icon badge, metric, stat card and key-label APIs now have a
+[separate native source investigation](data-metrics.md). Their Qt implementations
+remain pending; native evidence does not increase candidate or accepted counts.

@@ -63,3 +63,7 @@ callbacks. Full font/symbol/raster and physical/reader acceptance remains pendin
 [Sidebar items and branding](docs/sidebar-brand.md) add caller-owned selection and
 the pinned template logo/lockup. Their full native visual and runtime acceptance
 remains pending.
+
+The [native data-display investigation](docs/data-metrics.md) preserves layout,
+fonts and locale-sensitive formatting for four remaining APIs. Their Qt
+implementations remain pending.
