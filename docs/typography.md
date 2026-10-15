@@ -96,3 +96,15 @@ independently installed consumer.
 The [alert prose matrix](alert.md) adds measured two-line wrapping boundaries
 without changing font resolution or glyph advances. The [wrapping contract](wrapping.md)
 records positive and negative controls and the required shared-renderer audit.
+
+The [navigation source matrix](navigation-layout.md) adds 104 unmodified text
+boundary cases at DPR 1/2. Positive final tracking is excluded when finding a
+wrapped line's fit, while the resulting glyph extent remains distinct from the
+proposed view width. Explicit multiline text omits positive trailing tracking
+from its bounds; negative tracking retains the measured ink extent. This fixes
+the page eyebrow's `FIRST\nSECOND` box and its narrow `WORKSPACE` boundary without
+changing the glyph spacing. Whole-component and available-font child bounds are
+checked separately from rasterization. Twenty-two source TextRenderer probes
+altered pixels; their line geometry remains untrusted and these checks use the
+original unmodified bounds instead. Japanese glyph fallback in `Éditions 東京`
+remains unresolved and has no approved substitution or width exception.

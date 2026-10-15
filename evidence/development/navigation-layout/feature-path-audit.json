@@ -1,0 +1,26 @@
+{
+  "scope": "Qt PageHeader and Breadcrumb candidates; desktop mirror acceptance remains pending",
+  "sourceAuthority": "fe8a1d462fbd793d883fb92086a16aa2947e32c9 / Sources/Sabella/Navigation.swift:122-173",
+  "pageHeader": {
+    "inputs": "required eyebrow/title/description; caller-owned default action items",
+    "transformations": "Unicode uppercase, fixed primary/secondary fonts, source colors, four-point label gaps, owned 24-point groups/Spacer and 12-point action gaps",
+    "layout": "finite physical-pixel width offers, fitted child implicit sizes, explicit fixed/flexible Qt layout metrics; source empty line boxes retained",
+    "observableResult": "caller action identity, private counter, focused field and callbacks survive producer label changes; explicit replacement/remount resets content",
+    "checks": ["tests/components/tst_navigation.qml", "tests/consumer/NavigationCase.qml", "tests/consumer/Navigation.qml", "tests/consumer/navigationchecks.h"]
+  },
+  "breadcrumb": {
+    "inputs": "ordered JavaScript arrays and native QVariantList sequences; required string titles; optional caller Component icon",
+    "validation": "malformed array/title/icon and width/layout inputs fail actual QML startup; no default item or symbol lookup is introduced",
+    "transformations": "logical indices retained through flattened owned separators and plain Qt Template buttons; source font/colors and icon/separator gaps; RTL changes visual order",
+    "observableResult": "every item including the last emits selected(index); caller replaces models; absent signal handlers, disabled presses and outside releases produce no navigation mutation",
+    "checks": ["tests/components/tst_navigation.qml", "tests/components/check-invalid-navigation.py", "tests/consumer/navigationchecks.h", "tests/contracts/test_navigation_proposal.py"]
+  },
+  "sharedTypography": {
+    "change": "positive final tracking excluded from line fitting; explicit multiline positive trailing tracking excluded from view bounds; negative tracked ink retained",
+    "sourceBoundary": "104 original unmodified text bounds; 22 modified TextRenderer line witnesses remain untrusted",
+    "regressionBoundary": "all 3522 previous canonical image/full-metadata pairs audited against the same preserved bytes"
+  },
+  "runtimeAndDelivery": ["CMake/QML registration and install exports", "isolated source proposals and catalog gallery", "Basic/Fusion whole-frame independence", "18 independently installed modes", "83 relocated installed catalog captures", "144 package-only X11/nested-Wayland/software/Mesa/scaled window/output configurations", "15 source proposal groups in full capture and CI diagnostics"],
+  "unchangedBoundaries": ["desktop/TV pins and source archives", "accepted captures and zero pixel tolerance", "approved exceptions (none)", "Bleecker/Sabella/Orchard sibling trees", "TV target and implementation", "infrastructure"],
+  "remainingGates": ["Japanese glyph fallback title width", "OS default action text fonts", "exact native glyph/symbol/raster equivalence", "broader scripts and generic composition", "native keyboard/focus correspondence", "physical display/GPU/input", "actual screen-reader output", "all complete desktop/TV acceptance"]
+}

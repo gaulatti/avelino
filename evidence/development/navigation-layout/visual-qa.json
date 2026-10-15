@@ -1,0 +1,20 @@
+{
+  "status": "candidate inspection; native visual acceptance remains pending",
+  "inspected": [
+    "artifacts/linux/navigation-light-dpr2.png",
+    "artifacts/navigation-implementation/package-only/sessions/navigation-wayland-software-scaled-session.png",
+    "evidence/development/navigation-layout/comparison/page-header-unicode-light-text1.0-offscreen-dpr2.0-pair.png"
+  ],
+  "observations": [
+    "The light catalog shows the fixed three-label hierarchy, owned action row, normal/disabled/narrow/RTL breadcrumbs and outside editor.",
+    "The scaled Wayland full output retains all restored breadcrumb items and the updated header, fresh action state and edited outside field.",
+    "Narrow breadcrumb labels wrap as the measured source does; RTL reverses the visible order while preserving logical indices.",
+    "The Weston virtual keyboard is visible as an independent compositor surface and is clipped at the scaled output boundary, as in preceding evidence. OS presentation is not accepted.",
+    "The native/candidate Unicode pair confirms that Japanese title characters currently render missing-glyph boxes on Linux; their different widths remain explicitly unaccepted."
+  ],
+  "limits": [
+    "Original chevron/house candidates have no approved source artwork equivalence.",
+    "Japanese glyph fallback and OS default action text fonts remain unresolved.",
+    "Physical desktop/input, actual readers, source keyboard/focus correspondence and strict native raster remain unaccepted."
+  ]
+}

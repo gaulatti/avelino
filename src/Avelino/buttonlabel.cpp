@@ -135,7 +135,10 @@ void ButtonLabel::relayout() {
         const volatile qreal finalAdvance = glyphs.last().advance * (pixels / units);
         // Explicit source tracking includes the final glyph's spacing. The
         // shaped positions contain only the spaces before that final glyph.
-        advance = advance + finalAdvance + tracking;
+        // Explicit multiline Text omits positive trailing tracking from its view
+        // bounds; negative tracking retains the measured ink extent.
+        const bool explicitLines=text.contains(QChar::LineSeparator) || text.contains(QChar::ParagraphSeparator);
+        advance = advance + finalAdvance + (explicitLines && tracking>0 ? 0 : tracking);
         // Natural width retains ink overhang and spaces omitted by Qt's
         // wrapped glyph runs. Both contribute to the measured source box.
         const auto missing = std::max(qreal(0), line.naturalTextWidth()
@@ -211,7 +214,7 @@ void ButtonLabel::relayout() {
         greedy.beginLayout();
         while (true) {
             auto line=greedy.createLine();if(!line.isValid())break;
-            line.setLineWidth(std::max(qreal(0.000001),m_wrapWidth/ratio));
+            line.setLineWidth(std::max(qreal(0.000001),(m_wrapWidth+std::max(qreal(0),m_tracking))/ratio));
         }
         greedy.endLayout();
         const QRegularExpression spaces(QStringLiteral("\\s+"));
@@ -253,7 +256,10 @@ void ButtonLabel::relayout() {
     for (;;) {
         auto line = layout.createLine();
         if (!line.isValid()) break;
-        const auto lineWidth=m_wrapWidth>=0 ? std::max(qreal(0.000001),m_wrapWidth/ratio):1000000;
+        // Source line fitting excludes positive final tracking. Its resulting
+        // glyph extent may reach past the proposal and is cropped by the Text
+        // view. Negative tracking is already included in Qt's measured fit.
+        const auto lineWidth=m_wrapWidth>=0 ? std::max(qreal(0.000001),(m_wrapWidth+std::max(qreal(0),m_tracking))/ratio):1000000;
         if(paragraphBreaks.contains(line.textStart()))line.setNumColumns(paragraphBreaks.value(line.textStart()),lineWidth);
         else line.setLineWidth(lineWidth);
         const qreal ascent = sourceFont ? std::round(line.ascent() * ratio) : line.ascent() * ratio;

@@ -18,6 +18,10 @@ FocusScope {
     property bool loading: false
     // A finite layout proposal for the label; -1 keeps intrinsic sizing.
     property real maximumWidth: -1
+    readonly property real effectiveMaximumWidth: BleeckerLayout.proposedWidth<0 ? maximumWidth
+        : maximumWidth<0 ? BleeckerLayout.proposedWidth:Math.min(maximumWidth,BleeckerLayout.proposedWidth)
+    BleeckerLayout.minimumWidth:leftPadding+rightPadding
+    BleeckerLayout.idealWidth:(contentItem===defaultContent ? label.unwrappedWidth+(loading ? spinner.width+BleeckerTokens.spacing.inline:0):contentItem.implicitWidth)+leftPadding+rightPadding
     readonly property var p: BleeckerTheme.palette
     readonly property int minimumHeight: size === "xs" ? 28 : size === "sm" ? 36 : size === "lg" ? 48 : 40
     readonly property int textSize: size === "xs" ? 12 : size === "sm" ? 13 : size === "lg" ? 15 : 14
@@ -34,8 +38,8 @@ FocusScope {
         }
     }
     readonly property color strokeColor: variant === "primary" ? p.primary : variant === "secondary" ? p.border : variant === "outline" ? BleeckerTheme.alpha(p.sea, 0.5) : variant === "destructive" ? p.destructive : "transparent"
-    implicitWidth: maximumWidth===-1 ? contentItem.implicitWidth+leftPadding+rightPadding
-        : Math.min(contentItem.implicitWidth+leftPadding+rightPadding,Math.max(leftPadding+rightPadding,maximumWidth))
+    implicitWidth: effectiveMaximumWidth===-1 ? contentItem.implicitWidth+leftPadding+rightPadding
+        : Math.min(contentItem.implicitWidth+leftPadding+rightPadding,Math.max(leftPadding+rightPadding,effectiveMaximumWidth))
     implicitHeight: Math.max(contentItem.implicitHeight, variant === "link" ? 0 : minimumHeight)
     readonly property real leftPadding: size === "xs" ? 10 : size === "sm" ? 14 : size === "lg" ? 24 : 18
     readonly property real rightPadding: leftPadding
@@ -60,6 +64,7 @@ FocusScope {
         Accessible.description: control.loading ? qsTr("Loading") : ""
         onClicked: control.clicked()
         contentItem: Item {
+            id:defaultContent
             implicitWidth: label.implicitWidth + (control.loading ? spinner.width + BleeckerTokens.spacing.inline : 0)
             implicitHeight: Math.max(label.height, control.loading ? spinner.height : 0)
             BleeckerLoadingSpinner {
@@ -72,7 +77,9 @@ FocusScope {
                 id: label
                 objectName: "bleeckerButtonLabel"
                 text: control.text
-                wrapWidth: BleeckerTextTools.proposedWidth(control.maximumWidth,control.leftPadding+control.rightPadding+(control.loading ? spinner.width+BleeckerTokens.spacing.inline : 0))
+                wrapWidth: BleeckerTextTools.proposedWidth(control.effectiveMaximumWidth,control.leftPadding+control.rightPadding+(control.loading ? spinner.width+BleeckerTokens.spacing.inline : 0))
+                width:control.BleeckerLayout.proposedWidth<0 ? implicitWidth:Math.min(implicitWidth,Math.max(0,parent.width-x))
+                clip:control.BleeckerLayout.proposedWidth>=0
                 font: control.font
                 color: control.foregroundColor
                 height: Math.ceil(naturalHeight * labelAlignment.devicePixelRatio) / labelAlignment.devicePixelRatio

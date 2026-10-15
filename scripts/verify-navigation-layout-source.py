@@ -204,7 +204,7 @@ def verify(directory=DIRECTORY):
             "layoutWitnessIdentity": 392, "sourcePointerLifecycleCases": 32,
             "isolatedTextCases": 104, "trustedTextLineWitnesses": 82,
             "untrustedTextLineWitnesses": 22, "byteIdenticalReplayFiles": 1416,
-            "linuxImplementation": "pending", "accepted": False}
+            "linuxImplementationVerified": False, "accepted": False}
 
 
 if __name__ == "__main__":

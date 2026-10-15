@@ -9,6 +9,8 @@ target_compile_definitions(AvelinoComponentTests PRIVATE
     NATIVE_PROSE_BOUNDARIES_FILE="${PROJECT_SOURCE_DIR}/evidence/geometry/native-prose-boundaries.json"
     NATIVE_ALERT_TEXT_FILE="${PROJECT_SOURCE_DIR}/evidence/geometry/native-alert-text-layout.json"
     NATIVE_ALERT_FILE="${PROJECT_SOURCE_DIR}/evidence/geometry/native-alert.json"
+    NATIVE_NAVIGATION_FILE="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/navigation-layout-20261015/captures.json"
+    NATIVE_NAVIGATION_TEXT_FILE="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/navigation-layout-20261015/text-layout/measurements.json"
     NATIVE_SPINNER_FILE="${PROJECT_SOURCE_DIR}/evidence/geometry/native-spinner.json"
     NATIVE_TYPOGRAPHY_FILE="${PROJECT_SOURCE_DIR}/evidence/geometry/native-typography.json")
 add_test(NAME components COMMAND AvelinoComponentTests -import ${CMAKE_BINARY_DIR}/qml)
@@ -22,4 +24,7 @@ add_test(NAME pagination-invalid-config COMMAND python3 ${CMAKE_CURRENT_SOURCE_D
     $<TARGET_FILE:AvelinoComponentTests> ${CMAKE_BINARY_DIR}/qml)
 
 add_test(NAME presentation-invalid-config COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/check-invalid-presentation.py
+    $<TARGET_FILE:AvelinoComponentTests> ${CMAKE_BINARY_DIR}/qml)
+
+add_test(NAME navigation-invalid-config COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/check-invalid-navigation.py
     $<TARGET_FILE:AvelinoComponentTests> ${CMAKE_BINARY_DIR}/qml)

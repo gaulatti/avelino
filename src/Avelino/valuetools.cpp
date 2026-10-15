@@ -1,4 +1,22 @@
 #include "valuetools.h"
+#include <QQmlComponent>
+
+QJSValue BleeckerValueTools::breadcrumbItems(const QJSValue &items) const {
+    // C++ producers expose QVariantList as a native QML sequence rather than
+    // a JavaScript Array; both carry the same ordered item contract.
+    if(!items.isArray() && items.toVariant().metaType()!=QMetaType::fromType<QVariantList>())
+        qFatal("Breadcrumb items must be an array");
+    const auto count=items.property(QStringLiteral("length")).toUInt();
+    for(quint32 index=0;index<count;++index) {
+        const auto item=items.property(index);
+        if(!item.isObject()||!item.property(QStringLiteral("title")).isString())
+            qFatal("Breadcrumb items require string titles");
+        const auto icon=item.property(QStringLiteral("icon"));
+        if(!icon.isNull()&&!icon.isUndefined()&&!qobject_cast<QQmlComponent*>(icon.toQObject()))
+            qFatal("Breadcrumb item icons must be Components or null");
+    }
+    return items;
+}
 
 int BleeckerValueTools::spinnerEdge(const QString &size) const {
     if (size==QStringLiteral("sm")) return 16;

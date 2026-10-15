@@ -193,3 +193,12 @@ cases remain separate from exact raster, physical motion and reader acceptance.
 The [alert fixture](alert.md) exercises its fitted presentation and generic content
 factory. The source matrix and inherited-font prose cases remain distinct from
 exact symbol/raster, software rounded-overflow and physical/reader acceptance.
+
+The [navigation gallery](navigation-layout.md) is shared with the installed
+consumer: `AvelinoCatalog --fixture navigation` and
+`InstalledConsumer --navigation`. It exercises PageHeader caller actions and
+Breadcrumb's logical-index requests through native Qt Templates. The proposal
+pipeline captures all 392 isolated source contexts and CI compares the alert and
+navigation groups alongside the preceding groups. Geometry/input checks remain
+separate from exact pixels, unresolved Japanese glyph fallback, physical input
+and actual reader output.

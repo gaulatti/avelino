@@ -3,6 +3,7 @@
 #include <QVariant>
 #include <QVariantMap>
 #include <QLocale>
+#include <QJSValue>
 #include <QtQml/qqmlregistration.h>
 
 class BleeckerValueTools final : public QObject {
@@ -12,6 +13,7 @@ class BleeckerValueTools final : public QObject {
 public:
     using QObject::QObject;
     Q_INVOKABLE qreal sliderIntervals(qreal from, qreal to, qreal step) const;
+    Q_INVOKABLE QJSValue breadcrumbItems(const QJSValue &items) const;
     Q_INVOKABLE int alertTypeIndex(const QString &type) const;
     Q_INVOKABLE int spinnerEdge(const QString &size) const;
     Q_INVOKABLE QVariantMap pagination(const QVariant &page, const QVariant &pageCount, const QLocale &locale) const;

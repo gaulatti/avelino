@@ -10,6 +10,16 @@ class FixtureSetup : public QObject {
     Q_OBJECT
 public slots:
     void qmlEngineAvailable(QQmlEngine *engine) {
+        QFile navigation(QStringLiteral(NATIVE_NAVIGATION_FILE));
+        if(!navigation.open(QIODevice::ReadOnly))qFatal("Native navigation source evidence missing");
+        const auto navigationData=QJsonDocument::fromJson(navigation.readAll()).object();
+        if(navigationData.value("reference").toString()!="fe8a1d462fbd793d883fb92086a16aa2947e32c9" || navigationData.value("captures").toArray().size()!=392)qFatal("Native navigation source evidence invalid");
+        engine->rootContext()->setContextProperty("nativeNavigationCaptures",navigationData.value("captures").toArray().toVariantList());
+        QFile navigationText(QStringLiteral(NATIVE_NAVIGATION_TEXT_FILE));
+        if(!navigationText.open(QIODevice::ReadOnly))qFatal("Native navigation text evidence missing");
+        const auto navigationTextData=QJsonDocument::fromJson(navigationText.readAll()).array();
+        if(navigationTextData.size()!=104)qFatal("Native navigation text evidence invalid");
+        engine->rootContext()->setContextProperty("nativeNavigationText",navigationTextData.toVariantList());
         QFile proseBoundaries(QStringLiteral(NATIVE_PROSE_BOUNDARIES_FILE));
         if(!proseBoundaries.open(QIODevice::ReadOnly))qFatal("Native prose boundaries missing");
         const auto proseData=QJsonDocument::fromJson(proseBoundaries.readAll()).object();

@@ -56,6 +56,7 @@ cmake --build "$stage/build" --parallel 2
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --spinner)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --alert)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --clipping)
+(cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --navigation)
 cp scripts/check-installed-catalog.sh "$stage/check-installed-catalog.sh"
 (cd "$stage" && bash check-installed-catalog.sh "$stage/catalog-evidence")
 mkdir -p artifacts
@@ -73,7 +74,7 @@ cp artifacts/linux/environment.json artifacts/package/environment.json
 mkdir -p artifacts/linux
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --capture artifacts/linux/actions-light.png
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --dark --capture artifacts/linux/actions-dark.png
-for fixture in foundations surfaces data-display controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping; do
+for fixture in foundations surfaces data-display controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation; do
 for appearance in light dark; do
   for dpr in 1 2; do
     args=(--fixture "$fixture")
@@ -189,3 +190,10 @@ QML_IMPORT_PATH="$PWD/build/linux/qml" python3 scripts/capture-proposals.py \
   --output "$stage/alert-proposals"
 if [[ -e artifacts/linux/alert-proposals ]]; then mv artifacts/linux/alert-proposals "$stage/previous-alert-proposals"; fi
 mv "$stage/alert-proposals" artifacts/linux/alert-proposals
+
+QML_IMPORT_PATH="$PWD/build/linux/qml" python3 scripts/capture-proposals.py \
+  --catalog build/linux/samples/AvelinoCatalog/AvelinoCatalog \
+  --reference evidence/reference-proposals/navigation-layout-20261015 \
+  --output "$stage/navigation-proposals"
+if [[ -e artifacts/linux/navigation-proposals ]]; then mv artifacts/linux/navigation-proposals "$stage/previous-navigation-proposals"; fi
+mv "$stage/navigation-proposals" artifacts/linux/navigation-proposals

@@ -733,7 +733,7 @@ Coverage stays 47/80 desktop APIs started, with none fully accepted; TV is
 unchanged. See [content clipping](content-clipping.md) for the private Qt boundary,
 source hit-region policy and reproducible fixtures.
 
-## Navigation source investigation
+## Navigation source investigation at `91f92434`
 
 The [page header and breadcrumb contract](navigation-layout.md) now has 392
 unmodified public source captures, 392 matching root-geometry witnesses and
@@ -749,8 +749,39 @@ verified 37 build inputs, recompiled both helpers and reproduced all 1,416 PNG
 and metadata files byte for byte. The tracked checkpoint contains no Swift
 source or Apple capture tooling.
 
-This changes source evidence and its integrity checks. The Linux controls remain
-unimplemented, the desktop started count remains 47/80, and every runtime and
-mirror gate stays open for these two APIs. Existing product behavior and its
-documentation were checked and remain unchanged. No new Linux build, package,
-display-session or deployment result is claimed by this source checkpoint.
+That source-only checkpoint changed evidence and its integrity checks. The Linux
+controls were then unimplemented, the desktop started count remained 47/80, and
+every runtime and mirror gate stayed open for these two APIs. It changed no
+product behavior and claimed no new Linux build, package, display-session or
+deployment result.
+
+## Qt navigation candidates
+
+[PageHeader and Breadcrumb](navigation-layout.md) now have Linux candidates,
+bringing started desktop coverage to 49/80. No API has passed its complete mirror
+gate. The [candidate record](../evidence/development/navigation-layout/candidate.json)
+seals the final 257-input source snapshot and its validation evidence.
+
+Local checks pass 5,106 Qt checks, 93 contract tests and 25 invalid-startup
+refusals. All 18 installed consumer modes, 83 relocated catalog captures and
+144 independent X11/nested-Wayland/software/Mesa/scaled window/output pairs pass.
+The eight navigation configurations check actual narrow/RTL geometry, input,
+focused editing, caller identity/private state, factory replacement/remounting,
+C++ item-array replacement and real Qt accessibility roles/actions. Restored
+models remain visible in the final captures. Basic/Fusion/default gallery PNGs
+match byte for byte.
+
+All 3,522 preceding image/full-metadata pairs are byte-identical. The new source
+matrix has 392 matching whole-component bounds and 24 exact images, all empty
+presentations. The other images remain strict failures. Of 1,320 recorded child
+width/height checks, eight Japanese title widths fail; the characters currently
+render missing-glyph boxes. This is explicit unaccepted font work, with no
+substitution or width exception approved. Whole-component bounds do not hide
+those child failures.
+
+The immutable source images, pins, tolerances and approved-exception list are
+unchanged. Broader scripts/composition, OS default action fonts, native symbols
+and raster, source keyboard/focus, physical desktop/input/GPU, actual readers
+and all TV acceptance remain pending. The scaled Weston keyboard remains clipped
+at the compositor boundary. These are source/package candidate checks, with no
+physical installation or deployment claim.

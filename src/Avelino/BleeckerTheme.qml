@@ -17,6 +17,7 @@ QtObject {
     readonly property color nativeSpinnerForeground: dark ? "#ffffff" : "#000000"
     readonly property int nativeSpinnerDuration: 800
     // Opaque Color.red samples from the pinned macOS source at both schemes.
+    readonly property color nativeBlue: dark ? "#0091ff" : "#0088ff"
     readonly property color nativeRed: dark ? "#ff4245" : "#ff383c"
     // Owned Linux presentation of the pinned source slider's system surfaces.
     readonly property color nativeSliderFill: dark ? "#60a5f5" : "#2b5580"

@@ -31,7 +31,8 @@ SCOPED_APIS = {"desktop-composition": COMPOSITION_APIS,
     "desktop-pagination-integers": {"BleeckerButton", "BleeckerPagination"},
     "desktop-accordion": {"BleeckerButton", "BleeckerAccordion"},
     "desktop-presentation-states": {"BleeckerButton", "BleeckerEmptyState", "BleeckerErrorState", "BleeckerLoadingOverlay"},
-    "desktop-alert":{"BleeckerButton","BleeckerAlert"}}
+    "desktop-alert":{"BleeckerButton","BleeckerAlert"},
+    "desktop-navigation-layout":{"BleeckerButton","BleeckerPageHeader","BleeckerBreadcrumb"}}
 
 SCOPED_CONTRACT_AXES = {"desktop-alert":{"BleeckerAlert":{"alertType":"BleeckerAlertType"}},"desktop-pagination": {"BleeckerIconButton": {"size":"BleeckerIconButtonSize", "variant":"BleeckerIconButtonVariant"}}, "desktop-checkbox": {"BleeckerCheckbox": {"size": "BleeckerControlSize"}}}
 
@@ -61,7 +62,7 @@ def verify(directory):
         assert scoped in SCOPED_APIS and manifest.get("scope") == scoped
         message = {"desktop-composition": "Missing composition API", "desktop-selectors": "Missing selector API",
             "desktop-checkbox": "Missing checkbox API", "desktop-secure-field": "Missing secure-field API",
-            "desktop-search-field": "Missing search-field API", "desktop-collection-filters": "Missing collection-filter API", "desktop-slider": "Missing slider API", "desktop-tabs": "Missing tabs API", "desktop-pagination": "Missing pagination API", "desktop-pagination-integers": "Missing exact pagination API", "desktop-accordion": "Missing accordion API", "desktop-presentation-states": "Missing presentation-state API", "desktop-alert":"Missing alert API"}[scoped]
+            "desktop-search-field": "Missing search-field API", "desktop-collection-filters": "Missing collection-filter API", "desktop-slider": "Missing slider API", "desktop-tabs": "Missing tabs API", "desktop-pagination": "Missing pagination API", "desktop-pagination-integers": "Missing exact pagination API", "desktop-accordion": "Missing accordion API", "desktop-presentation-states": "Missing presentation-state API", "desktop-alert":"Missing alert API", "desktop-navigation-layout":"Missing navigation layout API"}[scoped]
         assert {case["api"] for case in captures} == SCOPED_APIS[scoped], message
     keys = set()
     for case in captures:
@@ -78,8 +79,12 @@ def verify(directory):
         assert struct.unpack(">II", data[16:24]) == (case["width"] * case["dpr"], case["height"] * case["dpr"])
         assert hashlib.sha256(data).hexdigest() == case["sha256"]
         if case.get("expectedEmpty", False):
-            assert scoped == "desktop-composition" and case["api"] == "BleeckerDashboardGrid" and case["variant"] == "empty", "Invalid empty fixture"
-            assert case["componentSize"]["width"] > 0 and case["componentSize"]["height"] == 0, "Invalid empty fixture geometry"
+            if scoped=="desktop-navigation-layout":
+                assert (case["api"],case["variant"]) in {("BleeckerPageHeader","empty-labels"),("BleeckerBreadcrumb","empty"),("BleeckerBreadcrumb","single-empty")}, "Invalid navigation empty fixture"
+                assert case["componentSize"]==({"width":0,"height":0} if case["variant"]=="empty" else {"width":0,"height":14} if case["variant"]=="single-empty" else {"width":560,"height":50}), "Invalid navigation empty geometry"
+            else:
+                assert scoped == "desktop-composition" and case["api"] == "BleeckerDashboardGrid" and case["variant"] == "empty", "Invalid empty fixture"
+                assert case["componentSize"]["width"] > 0 and case["componentSize"]["height"] == 0, "Invalid empty fixture geometry"
         else:
             assert case["componentSize"]["width"] > 0 and case["componentSize"]["height"] > 0
     for fixture in definitions:
@@ -255,6 +260,15 @@ def verify(directory):
             assert all(c.get(k)==v for k,v in expected[c["path"]].items()),"Alert source metadata differs from sealed investigation"
             assert c["sha256"]==sealedFiles[c["path"]],"Alert source pixels differ from sealed investigation"
         assert manifest["behavior"]==sealed["behavior"] and manifest["sourceSymbols"]==sealed["sourceSymbols"],"Alert source state/symbol witnesses differ"
+    if scoped=="desktop-navigation-layout":
+        source=ROOT/"evidence/reference-investigations/navigation-layout-20261015"
+        sealed=json.loads((source/"captures.json").read_text());sealed_files=json.loads((source/"investigation.json").read_text())["files"]
+        expected={c["path"]:c for c in sealed["captures"]}
+        assert set(expected)=={c["path"] for c in captures}, "Missing sealed navigation capture"
+        for case in captures:
+            assert all(case.get(k)==v for k,v in expected[case["path"]].items()), "Navigation source metadata differs from sealed investigation"
+            assert case["sha256"]==sealed_files[case["path"]], "Navigation source pixels differ from sealed investigation"
+        assert manifest["behavior"]==sealed["behavior"] and manifest["expressions"]==sealed["expressions"], "Navigation source witnesses differ"
     discovery = json.loads((ROOT / "reference/api-discovery.json").read_text())["desktop"]
     declarations = {d["name"]: d for d in discovery["declarations"]}
     for api, axes in {**CONTRACT_AXES, **SCOPED_CONTRACT_AXES.get(scoped, {})}.items():

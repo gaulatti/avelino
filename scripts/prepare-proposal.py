@@ -42,7 +42,8 @@ def prepare(source, tooling, output, scope=None):
     "desktop-pagination-integers": {"BleeckerButton", "BleeckerPagination"},
     "desktop-accordion": {"BleeckerButton", "BleeckerAccordion"},
             "desktop-presentation-states": {"BleeckerButton", "BleeckerEmptyState", "BleeckerErrorState", "BleeckerLoadingOverlay"},
-            "desktop-alert":{"BleeckerButton","BleeckerAlert"}}
+            "desktop-alert":{"BleeckerButton","BleeckerAlert"},
+            "desktop-navigation-layout":{"BleeckerButton","BleeckerPageHeader","BleeckerBreadcrumb"}}
         assert scope in allowed, "Unknown reference proposal scope"
         assert {c["api"] for c in manifest["captures"]} == allowed[scope]
         manifest["scope"] = scope
@@ -74,13 +75,18 @@ def prepare(source, tooling, output, scope=None):
         assert case["environmentDisplayScale"] == case["dpr"]
         empty = case.get("expectedEmpty", False)
         if empty:
-            assert scope == "desktop-composition" and case["api"] == "BleeckerDashboardGrid" and case["variant"] == "empty"
-            assert case["componentSize"]["width"] > 0 and case["componentSize"]["height"] == 0
+            if scope == "desktop-navigation-layout":
+                geometry = case["componentSize"]
+                assert (case["api"], case["variant"]) in {("BleeckerPageHeader","empty-labels"),("BleeckerBreadcrumb","empty"),("BleeckerBreadcrumb","single-empty")}
+                assert geometry == ({"width":0,"height":0} if case["variant"]=="empty" else {"width":0,"height":14} if case["variant"]=="single-empty" else {"width":560,"height":50})
+            else:
+                assert scope == "desktop-composition" and case["api"] == "BleeckerDashboardGrid" and case["variant"] == "empty"
+                assert case["componentSize"]["width"] > 0 and case["componentSize"]["height"] == 0
             intentional_empty.add(case["fixture"])
         else:
             assert case["componentSize"]["width"] > 0 and case["componentSize"]["height"] > 0
         uniform = ImageChops.difference(image, Image.new("RGBA", image.size, image.getpixel((0, 0)))).getbbox(alpha_only=False) is None
-        assert not empty or uniform, "An expected-empty grid must render only its background"
+        assert not empty or uniform, "An expected-empty source case must render only its background"
         if uniform and not empty:
             blanks.append(case["fixture"])
         case["sha256"] = sha(file)
@@ -89,6 +95,8 @@ def prepare(source, tooling, output, scope=None):
         if file != output / name: shutil.copyfile(file, output / name)
         fixtures[case["fixture"]] = {key: case[key] for key in ["fixture", "api", "width", "height", "variant", "size", "value", "flag", "text"]}
         if "expectedEmpty" in case: fixtures[case["fixture"]]["expectedEmpty"] = empty
+        if scope == "desktop-navigation-layout":
+            fixtures[case["fixture"]].update({key:case[key] for key in ["eyebrow","title","actionMode","titles","icons","rtl","intrinsic"]})
         if scope == "desktop-alert":
             fixtures[case["fixture"]].update({key:case[key] for key in ["title","alertType","contentMode"]})
         if scope == "desktop-presentation-states":
@@ -149,6 +157,6 @@ if __name__ == "__main__":
     parser.add_argument("--captures", required=True)
     parser.add_argument("--tooling", required=True)
     parser.add_argument("--output", required=True)
-    parser.add_argument("--scope", choices=["desktop-composition", "desktop-selectors", "desktop-checkbox", "desktop-secure-field", "desktop-search-field", "desktop-collection-filters", "desktop-slider", "desktop-tabs", "desktop-pagination", "desktop-pagination-integers", "desktop-accordion", "desktop-presentation-states", "desktop-alert"])
+    parser.add_argument("--scope", choices=["desktop-composition", "desktop-selectors", "desktop-checkbox", "desktop-secure-field", "desktop-search-field", "desktop-collection-filters", "desktop-slider", "desktop-tabs", "desktop-pagination", "desktop-pagination-integers", "desktop-accordion", "desktop-presentation-states", "desktop-alert", "desktop-navigation-layout"])
     args = parser.parse_args()
     print(f"Prepared {prepare(args.captures, args.tooling, args.output, args.scope)} review candidates; expected images unchanged")

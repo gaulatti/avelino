@@ -1,9 +1,8 @@
-# Page header and breadcrumb source contract
+# Page header and breadcrumb
 
-This is a source investigation for the next desktop implementation batch.
-`BleeckerPageHeader` and `BleeckerBreadcrumb` remain unimplemented and pending in
-the parity inventory. The checkpoint adds no Linux public control or accepted
-reference image.
+`BleeckerPageHeader` and `BleeckerBreadcrumb` now have Linux candidates based on
+the preserved source investigation. Both remain verification-pending. Source
+images, input/runtime evidence and complete mirror acceptance are separate.
 
 The authority is the preserved desktop revision
 `fe8a1d462fbd793d883fb92086a16aa2947e32c9`,
@@ -13,6 +12,10 @@ preserves 392 public source captures: 232 page headers, 152 breadcrumbs and eigh
 button anchors. Each fixture covers both appearances, text scales 1/1.5 and
 ImageRenderer DPRs 1/2. These are source rendering contexts; the separate 32
 pointer/lifecycle records use isolated inactive native windows at backing DPR 2.
+
+The proposal's shared wrapper description describes the default context. Explicit
+`parent-font20` cases apply the recorded 20-point parent override. Per-case
+`value`, `intrinsic`, `rtl`, geometry and source metadata establish those contexts.
 
 ## Page header
 
@@ -117,16 +120,90 @@ python3 scripts/verify-navigation-layout-source.py
 python3 -m unittest discover -s tests/contracts -v
 ```
 
-Local validation passes the native integrity check, all 91 contract tests,
+The earlier source-only checkpoint passed the native integrity check, 91 contract tests,
 immutable-reference and existing-proposal verification, API/inventory
 reconciliation and the staged Linux-only boundary check. These checks validate
 source evidence and its trust boundaries; they do not exercise new Linux controls.
 
-The next implementation must carry caller content and index requests through
-Qt-owned layout, native Qt Templates input, isolated catalog fixtures and the
-independently installed consumer. It must compare these source cases and record
-offscreen, X11, Wayland, scaling, focus/accessibility and package evidence
-separately. Additional inherited empty-text contexts, broader scripts and caller
+## Qt API and layout adapter
+
+```qml
+BleeckerPageHeader {
+    width: 560
+    eyebrow: "Workspace"
+    title: "Editions"
+    description: "Prepare the next edition."
+    BleeckerButton { text: "Create"; onClicked: controller.createEdition() }
+    BleeckerButton { text: "Import"; variant: "secondary" }
+}
+
+BleeckerBreadcrumb {
+    maximumWidth: 140
+    items: [{ title: "Home" }, { title: "Workspace" }, { title: "Editions" }]
+    onSelected: index => controller.navigateTo(index)
+}
+```
+
+PageHeader's default `actions` property retains caller items in its owned
+12-point action row. `width` supplies the header's layout proposal; its natural
+implicit width includes the label column, Spacer and both 24-point gaps.
+Breadcrumb uses `maximumWidth` (`-1` means intrinsic) and exposes its fitted row
+through `presentationItem`. An explicitly sized outer Item remains distinct
+from that fitted presentation.
+
+Breadcrumb accepts ordered JavaScript arrays or C++ `QVariantList` sequences.
+Each item requires a string `title` and may provide an `icon` Component. The
+loaded icon can read its parent slot's `foregroundColor` and `font`. The caller
+owns navigation; the control emits `selected(index)` and changes no route or
+item model itself. All items, including the final one, use native Qt Template
+buttons. An absent signal handler is valid. Empty arrays and empty strings
+retain the measured source distinctions. Invalid models, nonstring titles,
+non-Component icons and invalid width proposals fail startup explicitly.
+
+`BleeckerLayout` is the Qt content-layout adapter. Fixed children can use their
+implicit size. Flexible children publish `minimumWidth` and `idealWidth`, consume
+the readonly `proposedWidth`, and report their fitted implicit size. The row owns
+child width, height and position. BleeckerButton supplies these metrics directly;
+its caller's `maximumWidth` remains an additional constraint. Factory Loaders
+forward the child's metrics and the proposal explicitly, as shown in
+[`NavigationCase.qml`](../tests/consumer/NavigationCase.qml). The row allocates
+less-flexible content first, rounds offers to physical pixels and retains
+zero-size children and their gaps. Removal/replacement uses normal Qt object
+lifecycle. Invisible children keep layout space; use a conditional Loader to
+remove their content.
+
+The separator uses Avelino's original chevron candidate in the measured source
+frame. Optional icons use caller Components; there is no SF Symbol lookup.
+[`BreadcrumbHouse.qml`](../tests/consumer/BreadcrumbHouse.qml) is original,
+fixture-only artwork. Neither symbol artwork nor OS default action-text fonts
+have approved native equivalence.
+
+The `Éditions 東京` fixture exposes unresolved Japanese glyph fallback: the
+Linux characters currently render missing-glyph boxes, and the title's width
+differs from the source. Its immutable image comparison and
+actual metadata remain in the diagnostics. Component-bound checks still run;
+the title's glyph-dependent child geometry is explicitly outside the available
+font assertions. No font substitution or visual exception is approved.
+
+Run the gallery with `AvelinoCatalog --fixture navigation` and the independently
+installed consumer with `InstalledConsumer --navigation`. Source-derived tests
+also run the isolated fixtures, model/index updates, canceled/disabled presses,
+fixed header fonts and caller state preservation. Package and display-session
+checks exercise pointer/keyboard input, actual Qt accessibility roles/actions,
+focused text editing, producer changes, factory replacement and remounting.
+
+Additional inherited empty-text contexts, broader scripts and caller
 compositions, exact font/symbol pixels, native keyboard/focus, physical sessions,
 actual readers and all TV gates remain pending. No source pin, expected capture,
 tolerance or exception changed.
+
+## Candidate verification
+
+The [sealed candidate](../evidence/development/navigation-layout/candidate.json)
+records 5,106 Qt checks, 93 contract tests, 25 invalid-startup refusals, 18 installed
+modes, 83 relocated catalog captures and 144 independent virtual window/output
+pairs. All 3,522 preceding image/full-metadata pairs are byte-identical. The
+new 392-case comparison matches whole-component bounds in every case, with 24
+exact empty presentations. It remains failed overall. The separate child-bound
+audit records eight unresolved Japanese title widths among 1,320 checks; its
+source/candidate images retain the missing-glyph failure.

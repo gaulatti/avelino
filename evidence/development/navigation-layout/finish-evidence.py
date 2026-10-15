@@ -1,0 +1,12 @@
+from pathlib import Path
+import hashlib,json,shutil
+root=Path('evidence/development/navigation-layout');work=Path('artifacts/navigation-implementation')
+summary=json.loads((root/'verification-summary.json').read_text());regressions=json.loads((root/'regressions.json').read_text())
+for name in ['preserve.py','finish-evidence.py','stage-audit.py']:shutil.copy2(work/name,root/name)
+for name in ['navigation-tests.log','navigation-tests2.log','navigation-tests3.log','navigation-tests4.log','navigation-tests5.log','navigation-tests6.log','consumer-navigation2.log','tracked-measure.log','tracked-measure2.log']:
+ shutil.copy2(work/name,root/('investigation-'+name))
+value={'schemaVersion':1,'status':'Qt navigation candidates verified; full native mirror acceptance remains pending','referenceRevision':'fe8a1d462fbd793d883fb92086a16aa2947e32c9','sourcePreparationRevision':'91f92434b13a44e703bf86662c7e6f81bb115ea7',**summary,'desktopApisStarted':49,'desktopApisAccepted':0,'tvApisPending':46,'approvedExceptions':[],
+ 'limits':['Component bounds and available-font child geometry are distinct from exact glyph/symbol/raster acceptance.','Eight Japanese title child-width comparisons remain unaccepted and are recorded explicitly; no font substitution or geometry exception is approved.','OS default action text fonts, broader scripts/generic composition, native keyboard/focus, physical sessions/GPU/input and actual readers remain pending.','22 native TextRenderer line probes remain untrusted; the text-bound tests use the independently unmodified source bounds.','Virtual X11/nested-Wayland and Mesa software rendering are candidate evidence, not physical acceptance.','The scaled Weston virtual keyboard remains clipped at the output boundary; OS presentation is unaccepted.','The first full pass was stopped deliberately to add narrow/RTL assertions and restore models before screenshots; final source was frozen again and rerun.','Build/capture provenance records preceding main plus the exact 257-input source snapshot, verified against the staged commit.','No source pin, accepted capture, tolerance, exception, sibling, infrastructure or TV change.'],
+ 'files':{str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(root.rglob('*')) if p.is_file() and p.name!='candidate.json'}}
+(root/'candidate.json').write_text(json.dumps(value,indent=2,sort_keys=True)+'\n')
+print('Sealed',len(value['files']),'candidate files;',json.dumps({k:v for k,v in summary.items()}))

@@ -45,7 +45,7 @@ Window {
         sourceComponent: {
             const components = {
                 "BleeckerButton": button, "BleeckerLoadingSpinner": spinner,
-                "BleeckerAlert":alert,"BleeckerEmptyState":emptyState,"BleeckerErrorState":errorState,"BleeckerLoadingOverlay":loadingOverlay,
+                "BleeckerPageHeader":navigationCase,"BleeckerBreadcrumb":navigationCase,"BleeckerAlert":alert,"BleeckerEmptyState":emptyState,"BleeckerErrorState":errorState,"BleeckerLoadingOverlay":loadingOverlay,
                 "BleeckerTextField": textField, "BleeckerTextArea": textArea,
                 "BleeckerField": field, "BleeckerSwitchStyle": switchControl,
                 "BleeckerToggleStyle": toggle, "BleeckerSegmentedControl": segments,
@@ -71,6 +71,7 @@ Window {
         }
         onLoaded: item.objectName = "referenceCaseComponent"
     }
+    Component {id:navigationCase;NavigationCase {definition:window.definition}}
     Component {
         id:alert
         BleeckerAlert {

@@ -5,6 +5,7 @@
 | Shared tokens and neutral contracts | Pinned Bleecker source; controlled Linux representation | Implementation pending |
 | SwiftUI visual presentation | Compare pinned rendered fixtures; implement in Qt templates | Verification pending |
 | Encode Sans / Libre Franklin | Licensed static assets from exact Sabella references | Files and licenses verified; component typography acceptance pending |
+| Japanese glyph fallback in page headers | The supplied title reaches Qt unchanged; current Linux fallback does not match the source glyph widths | `Éditions 東京` title width remains verification-pending; no replacement font, tolerance or exception approved |
 | System monospace | Source-expression probes resolve `.AppleSystemUIFontMonospaced` faces; no Apple font redistribution | Actual affected components, Linux candidate assets and comparisons pending; no substitution approved |
 | SF Symbols / platform assets | Inventory literal/dynamic inputs; distributable original/equivalent assets with provenance | Unresolved; no substitution approved |
 | Menus, tooltips, file/date dialogs | Avelino owns presentation, Qt supplies semantic mechanisms | Adapter fixtures and open-window comparisons pending |

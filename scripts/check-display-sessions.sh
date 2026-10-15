@@ -50,7 +50,7 @@ INI
   fi
   for backend in software opengl; do
     for configuration in standard scaled; do
-    for fixture in base controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping; do
+    for fixture in base controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation; do
       prefix="$evidence/$protocol-$backend-$configuration"
       if [[ "$fixture" == controls ]]; then prefix="$evidence/controls-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == composition ]]; then prefix="$evidence/composition-$protocol-$backend-$configuration"; fi
@@ -63,6 +63,7 @@ INI
       if [[ "$fixture" == tabs ]]; then prefix="$evidence/tabs-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == pagination ]]; then prefix="$evidence/pagination-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == pagination-integers ]]; then prefix="$evidence/pagination-integers-$protocol-$backend-$configuration"; fi
+      if [[ "$fixture" == navigation ]]; then prefix="$evidence/navigation-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == clipping ]]; then prefix="$evidence/clipping-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == alert ]]; then prefix="$evidence/alert-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == spinner ]]; then prefix="$evidence/spinner-$protocol-$backend-$configuration"; fi
@@ -80,6 +81,7 @@ INI
       if [[ "$fixture" == tabs ]]; then args+=(--tabs); fi
       if [[ "$fixture" == pagination ]]; then args+=(--pagination); fi
       if [[ "$fixture" == pagination-integers ]]; then args+=(--pagination-integers); fi
+      if [[ "$fixture" == navigation ]]; then args+=(--navigation); fi
       if [[ "$fixture" == clipping ]]; then args+=(--clipping); fi
       if [[ "$fixture" == alert ]]; then args+=(--alert); fi
       if [[ "$fixture" == spinner ]]; then args+=(--spinner); fi
@@ -156,6 +158,12 @@ elif fixture == 'secure-field':
         assert record[key] == 'passed', record
     assert record['sourceHeight'] == 40 and record['fontPointSize'] == 10.5, record
     assert record['revealed'] is True, record
+elif fixture == 'navigation':
+    for key in ['navigationChecks','focusChecks','qtAccessibilityChecks']:
+        assert record[key]=='passed',record
+    assert (record['mounts'],record['unmounts'])==(3,2) and record['requests']==[2,2,2,0],record
+    assert record['narrowHeight']==60 and record['narrowWidth']==(140 if record['dpr']<2 else 138.5),record
+    assert record['rtlVisualOrder']=='logical first at right' and record['modelRestoredForCapture'] is True,record
 elif fixture == 'clipping':
     for key in ['clippingChecks','layerLifecycleChecks','focusChecks','qtAccessibilityChecks']:
         assert record[key]=='passed',record

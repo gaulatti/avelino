@@ -48,7 +48,7 @@ The [empty/error/loading source investigation](docs/presentation-states.md)
 now has [Linux presentation-state candidates](docs/presentation-states.md); complete mirror acceptance remains pending.
 The [alert candidate](docs/alert.md) adds typed feedback with caller-owned content
 and native prose-layout evidence.
-Forty-seven of the 80 discovered desktop
+Forty-nine of the 80 discovered desktop
 entries have started; no component has passed its complete mirror gate.
 The public GitHub wiki remote is unavailable; documentation currently lives here.
 
@@ -56,6 +56,6 @@ Generic child clipping now has a [software renderer candidate](docs/content-clip
 sharing the existing continuous/circular/capsule paths; strict native acceptance
 remains pending.
 
-The [page header and breadcrumb source investigation](docs/navigation-layout.md)
-preserves measured layout, fonts and pointer/lifecycle evidence for the next
-desktop batch. Both Linux controls remain unimplemented.
+The [page header and breadcrumb candidates](docs/navigation-layout.md) use measured
+source layout, fixed typography, caller action content and logical-index
+callbacks. Full font/symbol/raster and physical/reader acceptance remains pending.

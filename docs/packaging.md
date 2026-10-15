@@ -26,14 +26,15 @@ Weston Wayland compositor nested on it. It saves whole-output and window capture
 for software/OpenGL rendering at two display/text scales. Source and build trees
 remain absent. Metadata explicitly identifies virtual displays, Mesa software
 rendering, synthetic input, and the still-pending overlay/accessibility checks.
-The harness runs seventeen independent windows in each configuration: the base library
+The harness runs eighteen independent windows in each configuration: the base library
 fixture, `InstalledConsumer --controls`, `InstalledConsumer --composition` and
 `InstalledConsumer --selection`, `InstalledConsumer --checkbox` and
 `InstalledConsumer --secure-field`, `InstalledConsumer --search-field` and
 `InstalledConsumer --collection-filters`, `InstalledConsumer --slider`, `InstalledConsumer --tabs`, `InstalledConsumer --pagination`, `InstalledConsumer --pagination-integers`, `InstalledConsumer --accordion`,
 `InstalledConsumer --presentation-states`, `InstalledConsumer --spinner` and
-`InstalledConsumer --alert` and `InstalledConsumer --clipping`.
-Their one hundred thirty-six capture pairs keep
+`InstalledConsumer --alert`, `InstalledConsumer --clipping` and
+`InstalledConsumer --navigation`.
+Their one hundred forty-four capture pairs keep
 form editing, scrolling, switch/toggle actions, disabled segmented options and
 focus restoration separate from the base composition checks. The controls fixture
 exercises the multiline editor's owned scrollbar. The selector fixture exercises
@@ -142,3 +143,10 @@ hide/show, and pointer/keyboard/editing/Qt accessibility actions inside the real
 masked control tree. Its software adapter uses private Qt 6.8.3 interfaces only
 inside the library; package consumers do not need private headers. See
 [generic content clipping](content-clipping.md) for the source/input boundary.
+
+The navigation mode checks action-state and focused-field preservation through
+header producer updates, disabled and canceled actions, logical breadcrumb
+indices through C++ array replacement, explicit factory replacement and header
+remounting. It invokes the real Qt button accessibility actions. Its eight
+virtual display configurations remain separate from native keyboard/focus,
+Japanese glyph fallback, exact symbols/pixels and actual screen readers.
