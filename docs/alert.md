@@ -59,9 +59,9 @@ remain unaccepted.
 The owned fill and border use separate rounded rectangles so the 9% fill remains
 under the 24% inset border, including translucent compositing. Both use the
 source circular 7-unit radius. Circular generic-content clipping uses the Qt
-curve renderer in RHI sessions. Software currently clips arbitrary child overflow
-to a rectangle; the source overflow case and complete clipping acceptance remain
-pending. This is recorded explicitly, with no visual exception or mask.
+curve renderer in RHI sessions and the [shared software adapter](content-clipping.md)
+in software sessions. Both consume the same circular path. Strict native overflow
+and complete clipping acceptance remain pending; no visual exception is approved.
 
 Run `AvelinoCatalog --fixture alert` for the four types, generic editable content,
 explicit text styling and hide/show lifecycle. The independent `--alert` consumer

@@ -1,0 +1,48 @@
+********* Start testing of avelino *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : avelino::GenericContentClipping::initTestCase()
+PASS   : avelino::GenericContentClipping::test_capsule_content_overflow()
+PASS   : avelino::GenericContentClipping::test_circular_alert_overflow()
+PASS   : avelino::GenericContentClipping::test_continuous_overflow_and_live_updates()
+PASS   : avelino::GenericContentClipping::test_fractional_and_zero_sizes()
+PASS   : avelino::GenericContentClipping::test_initially_empty_source_and_later_child_visibility()
+PASS   : avelino::GenericContentClipping::test_nested_masks_have_independent_outlines_and_updates()
+SKIP   : avelino::GenericContentClipping::test_software_interior_text_pixels(0-220-primary) Software mask pixel preservation; existing RHI texture raster acceptance remains pending
+   Loc: [/work/tests/components/tst_content_clipping.qml(174)]
+SKIP   : avelino::GenericContentClipping::test_software_interior_text_pixels(0-220-ghost) Software mask pixel preservation; existing RHI texture raster acceptance remains pending
+   Loc: [/work/tests/components/tst_content_clipping.qml(174)]
+SKIP   : avelino::GenericContentClipping::test_software_interior_text_pixels(0-220.5-primary) Software mask pixel preservation; existing RHI texture raster acceptance remains pending
+   Loc: [/work/tests/components/tst_content_clipping.qml(174)]
+SKIP   : avelino::GenericContentClipping::test_software_interior_text_pixels(0-220.5-ghost) Software mask pixel preservation; existing RHI texture raster acceptance remains pending
+   Loc: [/work/tests/components/tst_content_clipping.qml(174)]
+SKIP   : avelino::GenericContentClipping::test_software_interior_text_pixels(0.25-220-primary) Software mask pixel preservation; existing RHI texture raster acceptance remains pending
+   Loc: [/work/tests/components/tst_content_clipping.qml(174)]
+SKIP   : avelino::GenericContentClipping::test_software_interior_text_pixels(0.25-220-ghost) Software mask pixel preservation; existing RHI texture raster acceptance remains pending
+   Loc: [/work/tests/components/tst_content_clipping.qml(174)]
+SKIP   : avelino::GenericContentClipping::test_software_interior_text_pixels(0.25-220.5-primary) Software mask pixel preservation; existing RHI texture raster acceptance remains pending
+   Loc: [/work/tests/components/tst_content_clipping.qml(174)]
+SKIP   : avelino::GenericContentClipping::test_software_interior_text_pixels(0.25-220.5-ghost) Software mask pixel preservation; existing RHI texture raster acceptance remains pending
+   Loc: [/work/tests/components/tst_content_clipping.qml(174)]
+SKIP   : avelino::GenericContentClipping::test_software_interior_text_pixels(0.5-220-primary) Software mask pixel preservation; existing RHI texture raster acceptance remains pending
+   Loc: [/work/tests/components/tst_content_clipping.qml(174)]
+SKIP   : avelino::GenericContentClipping::test_software_interior_text_pixels(0.5-220-ghost) Software mask pixel preservation; existing RHI texture raster acceptance remains pending
+   Loc: [/work/tests/components/tst_content_clipping.qml(174)]
+SKIP   : avelino::GenericContentClipping::test_software_interior_text_pixels(0.5-220.5-primary) Software mask pixel preservation; existing RHI texture raster acceptance remains pending
+   Loc: [/work/tests/components/tst_content_clipping.qml(174)]
+SKIP   : avelino::GenericContentClipping::test_software_interior_text_pixels(0.5-220.5-ghost) Software mask pixel preservation; existing RHI texture raster acceptance remains pending
+   Loc: [/work/tests/components/tst_content_clipping.qml(174)]
+SKIP   : avelino::GenericContentClipping::test_software_interior_text_pixels(0.75-220-primary) Software mask pixel preservation; existing RHI texture raster acceptance remains pending
+   Loc: [/work/tests/components/tst_content_clipping.qml(174)]
+SKIP   : avelino::GenericContentClipping::test_software_interior_text_pixels(0.75-220-ghost) Software mask pixel preservation; existing RHI texture raster acceptance remains pending
+   Loc: [/work/tests/components/tst_content_clipping.qml(174)]
+SKIP   : avelino::GenericContentClipping::test_software_interior_text_pixels(0.75-220.5-primary) Software mask pixel preservation; existing RHI texture raster acceptance remains pending
+   Loc: [/work/tests/components/tst_content_clipping.qml(174)]
+SKIP   : avelino::GenericContentClipping::test_software_interior_text_pixels(0.75-220.5-ghost) Software mask pixel preservation; existing RHI texture raster acceptance remains pending
+   Loc: [/work/tests/components/tst_content_clipping.qml(174)]
+PASS   : avelino::GenericContentClipping::test_sparse_opaque_content_keeps_empty_regions_transparent()
+PASS   : avelino::GenericContentClipping::test_translucent_content_and_parent_opacity()
+PASS   : avelino::GenericContentClipping::test_unchanged_islands_survive_other_content_updates()
+PASS   : avelino::GenericContentClipping::test_visual_mask_preserves_existing_rectangular_pointer_delivery()
+PASS   : avelino::GenericContentClipping::cleanupTestCase()
+Totals: 12 passed, 0 failed, 16 skipped, 0 blacklisted, 1128ms
+********* Finished testing of avelino *********

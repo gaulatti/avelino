@@ -1,0 +1,24 @@
+{
+  "status": "visual smoke inspection only; strict mirror acceptance pending",
+  "inspected": [
+    "catalog/clipping-dark-dpr2.png",
+    "sessions/clipping-xcb-opengl-scaled-session.png",
+    "qt-alpha-probe/dpr1-before.png",
+    "changed-captures/desktop/attention-0-light-text1.0-offscreen-dpr1.0.png",
+    "sessions/clipping-wayland-opengl-scaled-session.png",
+    "sessions/clipping-wayland-software-scaled.png"
+  ],
+  "observations": [
+    "Continuous, circular and capsule bounds visibly crop opaque overflow while preserving patterned backgrounds.",
+    "Nested half-opacity red/blue rectangles preserve the background stripes.",
+    "The scaled X11 OpenGL complete-output capture shows the editable native field and blue updated source with its unchanged yellow island.",
+    "The native Qt-only probe exposes the unaccepted black alpha holes; the final attention candidate preserves its original light background around the sparse opaque content.",
+    "The scaled Wayland software window and OpenGL full-output capture preserve clipped contours, nested transparency, edited field and unchanged yellow island.",
+    "Final phase-aligned source version re-inspected in the dark DPR2 gallery and complete scaled Wayland/OpenGL output. Functional clipping, nested alpha, source update and focus remain visible; OS virtual-keyboard clipping remains unaccepted."
+  ],
+  "limits": [
+    "No screenshot inspection approves source pixels, physical display/input, actual screen readers, corner-hit equivalence or new tolerance.",
+    "Virtual display whole-output evidence and window captures remain distinct.",
+    "Weston virtual keyboard/other OS presentations remain outside native acceptance; whole-output evidence is retained without cropping."
+  ]
+}

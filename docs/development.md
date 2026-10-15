@@ -3,7 +3,10 @@
 Qt is pinned to **6.8.3**; the version must match exactly. The checked-in Dockerfile
 uses an immutable Ubuntu 24.04 base image and official Qt archives via aqt 3.3.0.
 It supports separate ARM64 and x86_64 builds. ICU is included from Qt's archive,
-since the prebuilt Qt binaries require its matching version.
+since the prebuilt Qt binaries require its matching version. The software content
+mask also builds against Qt QuickPrivate; the image provides `libxkbcommon-dev`
+for its private dependency graph. Installed consumers use public dependencies.
+See [content clipping](content-clipping.md) before changing the Qt pin.
 
 Keep the tracked tree Linux-only. `.gitignore` excludes Swift/Apple project files
 and the reference source cache. Before committing, run

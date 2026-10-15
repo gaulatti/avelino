@@ -239,3 +239,9 @@ chevron activate; the blank spacer does not. Clean native replay preserves all
 193 outputs. Earlier 2,782 PNG/full metadata pairs are unchanged. Exact artwork,
 source keyboard/focus/motion, physical/reader and broader composition contexts
 remain pending; no baseline or exception is approved.
+
+The shared [software content-mask checkpoint](content-clipping.md) now covers
+continuous/circular/capsule children with explicit alpha preservation and a
+pixel-aligned intermediate raster. Its complete prior-image audit is in
+`evidence/development/software-clipping`; strict native comparisons remain
+unaccepted, including the small opaque-outline compositing deltas.

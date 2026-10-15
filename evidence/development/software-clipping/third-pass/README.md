@@ -1,0 +1,1 @@
+The raw black-attention PNG is retained from the interrupted QPixmap-layer candidate. Its metadata environmentRecord link is redirected to the verbatim matching capture environment, preserved here. The public Qt-only alpha probe independently reproduces the defect. These diagnostic files are not accepted captures or the final candidate.

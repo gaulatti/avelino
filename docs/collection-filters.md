@@ -48,9 +48,9 @@ its measured allocation is 10. Minimum height is 28. A constrained label wraps
 and increases height; empty labels retain padding. Selected and unselected
 backgrounds use the shared palette. Disabled descendants reject input.
 
-The capsule clips through an owned CurveRenderer path when supported. The
-software renderer retains rectangular content clipping, so curved clipping is
-an explicit pending capability. Keyboard focus indicators, role/name queries
+The capsule clips through the owned CurveRenderer path in RHI sessions and the
+[shared software adapter](content-clipping.md) in software sessions. Both use the
+same capsule path; complete native clipping equivalence remains pending. Keyboard focus indicators, role/name queries
 and synthetic input checks do not establish source-to-platform accessibility
 or actual screen-reader acceptance. The removal icon is original Linux Canvas
 geometry, tracked in `assets/filter-chip-symbols.json`; Apple artwork is not

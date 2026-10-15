@@ -689,3 +689,46 @@ are unchanged. Source keyboard/focus/modal/motion/safe-area, exact symbols/spinn
 and rasterization, broader composition/scripts/scales, physical input/display and
 actual reader acceptance remain pending. Wiki access is unavailable; the contract
 and inventory remain in-repository.
+
+## Software generic clipping checkpoint
+
+[Source and evidence](../evidence/development/software-clipping/candidate.json)
+implement the existing continuous, circular and capsule paths on Qt 6.8.3's
+software renderer. The adapter keeps the real Qt child tree and uses the normal
+software node dispatcher with an explicitly alpha-capable target. A standalone
+public-Qt-only probe records the pixmap alpha defect that rejected the initial
+approach. A physical-pixel-aligned raster origin and transparent gutter preserve
+fractional-position text; initially hidden controls refresh on reveal.
+
+The final frozen source has 244 hashed inputs. Local verification
+passes 4,608 Qt checks, 84 contract tests and
+20 invalid-startup refusals. All 17
+installed modes, 79 independently relocated catalog
+captures and 136 X11/nested-Wayland window/output
+pairs pass. The eight clipping configurations check source/path/resize/empty and
+visibility updates, opaque islands and transparent holes, original input/editing
+and actual Qt accessibility actions. Source/build trees are absent from the
+independent package container. Basic/Fusion/default clipping PNGs match.
+
+Of 3,518 preceding PNG/full-metadata pairs,
+3,202 remain byte-identical and 316 changed.
+There are 132 changed PNGs and 184 metadata-only capability changes. The
+296 changed native cases retain all geometry passes
+and lose no exact-image pass; none was exact before or after. Relative to the
+same immutable native images, 63 have fewer differing pixels,
+219 have the same count and 14 have more (at most four
+additional pixels). Opaque-outline compositing remains unaccepted; no tolerance,
+expected image or exception changed. The earlier fractional-text regression and
+its rejected implementation are retained separately.
+
+Thirty-two software text-invariance rows provide 64 comparisons at fractional
+positions/widths, including movement and reveal. All transparent-text frames and
+opaque-button glyph interiors remain identical to the direct Qt rendering.
+These software-only rows are skipped on RHI; the RHI functional checks run, while
+its texture-raster equivalence remains separately pending. Weston whole-output
+captures retain the compositor's clipped virtual keyboard as an unaccepted OS
+presentation. Actual readers, physical input/display/GPU, broader transforms and
+generic/font/script contexts, and complete mirror acceptance remain pending.
+Coverage stays 47/80 desktop APIs started, with none fully accepted; TV is
+unchanged. See [content clipping](content-clipping.md) for the private Qt boundary,
+source hit-region policy and reproducible fixtures.

@@ -2095,6 +2095,15 @@
             "referenceCandidate": "evidence/reference-proposals/accordion-20261014/accordion-action-body-update-dark-text1.5-hosting-dpr2.0.png",
             "evidence": "evidence/development/accordion/captures/accordion-action-body-update-dark-text1.5-hosting-dpr2.0.png",
             "notes": "Measured source root/state/lifecycle; strict visual, keyboard/motion, physical and reader acceptance remain separate"
+          },
+          {
+            "id": "shared-software-content-mask",
+            "status": "pending",
+            "evidence": [
+              "docs/content-clipping.md",
+              "evidence/development/software-clipping/candidate.json"
+            ],
+            "notes": "Owned software masking shares the existing continuous/circular/capsule path with the CurveRenderer. Installed pixels, layer lifecycle and normal Qt input are verified independently; strict native raster, transparent-corner hit regions, physical input/display and actual readers remain pending."
           }
         ],
         "tests": [
@@ -2110,7 +2119,8 @@
           "evidence/development/accordion/candidate.json"
         ],
         "comparisonResults": [
-          "evidence/development/accordion/comparison/comparison.json"
+          "evidence/development/accordion/comparison/comparison.json",
+          "evidence/development/software-clipping/regression-comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -2298,6 +2308,15 @@
               "docs/alert.md"
             ],
             "notes": "Four types, source-sized intrinsic/fitted/narrow/multiline/empty/styled content, source pointer/lifecycle state, stable factories and independent Qt sessions. Exact artwork/raster, arbitrary composition, software rounded overflow, physical and actual reader acceptance remain pending."
+          },
+          {
+            "id": "shared-software-content-mask",
+            "status": "pending",
+            "evidence": [
+              "docs/content-clipping.md",
+              "evidence/development/software-clipping/candidate.json"
+            ],
+            "notes": "Owned software masking shares the existing continuous/circular/capsule path with the CurveRenderer. Installed pixels, layer lifecycle and normal Qt input are verified independently; strict native raster, transparent-corner hit regions, physical input/display and actual readers remain pending."
           }
         ],
         "tests": [
@@ -2558,7 +2577,8 @@
           "evidence/development/alert/captures/alert-info-symbol-font20-dark-text1.5-offscreen-dpr2.0.png"
         ],
         "comparisonResults": [
-          "evidence/development/alert/comparison/comparison.json"
+          "evidence/development/alert/comparison/comparison.json",
+          "evidence/development/software-clipping/regression-comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -3037,6 +3057,15 @@
               "docs/cards-and-badges.md"
             ],
             "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "shared-software-content-mask",
+            "status": "pending",
+            "evidence": [
+              "docs/content-clipping.md",
+              "evidence/development/software-clipping/candidate.json"
+            ],
+            "notes": "Owned software masking shares the existing continuous/circular/capsule path with the CurveRenderer. Installed pixels, layer lifecycle and normal Qt input are verified independently; strict native raster, transparent-corner hit regions, physical input/display and actual readers remain pending."
           }
         ],
         "tests": [
@@ -3096,7 +3125,8 @@
         ],
         "comparisonResults": [
           "evidence/development/isolated-desktop/comparison/comparison.json",
-          "evidence/development/panel-sizing/comparison/comparison.json"
+          "evidence/development/panel-sizing/comparison/comparison.json",
+          "evidence/development/software-clipping/regression-comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -6720,6 +6750,15 @@
               "docs/cards-and-badges.md"
             ],
             "notes": "Discovered outlined variant: card fill and border, no shadow. Native comparison and complete runtime acceptance pending."
+          },
+          {
+            "id": "shared-software-content-mask",
+            "status": "pending",
+            "evidence": [
+              "docs/content-clipping.md",
+              "evidence/development/software-clipping/candidate.json"
+            ],
+            "notes": "Owned software masking shares the existing continuous/circular/capsule path with the CurveRenderer. Installed pixels, layer lifecycle and normal Qt input are verified independently; strict native raster, transparent-corner hit regions, physical input/display and actual readers remain pending."
           }
         ],
         "tests": [
@@ -7051,7 +7090,8 @@
         ],
         "comparisonResults": [
           "evidence/development/isolated-desktop/comparison/comparison.json",
-          "evidence/development/panel-sizing/comparison/comparison.json"
+          "evidence/development/panel-sizing/comparison/comparison.json",
+          "evidence/development/software-clipping/regression-comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -10513,6 +10553,15 @@
               "evidence/development/collection-filters/candidate.json"
             ],
             "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "shared-software-content-mask",
+            "status": "pending",
+            "evidence": [
+              "docs/content-clipping.md",
+              "evidence/development/software-clipping/candidate.json"
+            ],
+            "notes": "Owned software masking shares the existing continuous/circular/capsule path with the CurveRenderer. Installed pixels, layer lifecycle and normal Qt input are verified independently; strict native raster, transparent-corner hit regions, physical input/display and actual readers remain pending."
           }
         ],
         "tests": [
@@ -10567,7 +10616,8 @@
           "evidence/development/collection-filters/captures/filters-tall-dark-text1.5-hosting-dpr2.0.png"
         ],
         "comparisonResults": [
-          "evidence/development/collection-filters/comparison/comparison.json"
+          "evidence/development/collection-filters/comparison/comparison.json",
+          "evidence/development/software-clipping/regression-comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -16586,6 +16636,15 @@
               "evidence/development/collection-filters/candidate.json"
             ],
             "notes": "Fixed chip typography and natural/wrapped capsule sizing; query/content/selected/callback state compared separately. Complete native/physical/accessibility acceptance pending."
+          },
+          {
+            "id": "shared-software-content-mask",
+            "status": "pending",
+            "evidence": [
+              "docs/content-clipping.md",
+              "evidence/development/software-clipping/candidate.json"
+            ],
+            "notes": "Owned software masking shares the existing continuous/circular/capsule path with the CurveRenderer. Installed pixels, layer lifecycle and normal Qt input are verified independently; strict native raster, transparent-corner hit regions, physical input/display and actual readers remain pending."
           }
         ],
         "tests": [
@@ -16724,7 +16783,8 @@
           "evidence/development/collection-filters/captures/chip-true-removable-narrow-dark-text1.5-offscreen-dpr2.0.png"
         ],
         "comparisonResults": [
-          "evidence/development/collection-filters/comparison/comparison.json"
+          "evidence/development/collection-filters/comparison/comparison.json",
+          "evidence/development/software-clipping/regression-comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -22945,6 +23005,15 @@
               "docs/spinner.md"
             ],
             "notes": "Measured native 16/32/32 sizes, 24-frame 800ms model, owned capsules, loading-button guards and virtual installed sessions; exact raster, native DPR 1, physical phase/motion and actual readers remain pending."
+          },
+          {
+            "id": "shared-software-content-mask",
+            "status": "pending",
+            "evidence": [
+              "docs/content-clipping.md",
+              "evidence/development/software-clipping/candidate.json"
+            ],
+            "notes": "Owned software masking shares the existing continuous/circular/capsule path with the CurveRenderer. Installed pixels, layer lifecycle and normal Qt input are verified independently; strict native raster, transparent-corner hit regions, physical input/display and actual readers remain pending."
           }
         ],
         "tests": [
@@ -22968,7 +23037,8 @@
           "evidence/development/presentation-states/comparison/comparison.json",
           "evidence/development/spinner/regressions.json",
           "evidence/development/spinner/comparison/desktop-after/comparison.json",
-          "evidence/development/spinner/comparison/presentation-states-after/comparison.json"
+          "evidence/development/spinner/comparison/presentation-states-after/comparison.json",
+          "evidence/development/software-clipping/regression-comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -28315,6 +28385,15 @@
               "docs/cards-and-badges.md"
             ],
             "notes": "Candidate contract/fixture only; native source images, comparisons and complete behavior acceptance pending."
+          },
+          {
+            "id": "shared-software-content-mask",
+            "status": "pending",
+            "evidence": [
+              "docs/content-clipping.md",
+              "evidence/development/software-clipping/candidate.json"
+            ],
+            "notes": "Owned software masking shares the existing continuous/circular/capsule path with the CurveRenderer. Installed pixels, layer lifecycle and normal Qt input are verified independently; strict native raster, transparent-corner hit regions, physical input/display and actual readers remain pending."
           }
         ],
         "tests": [
@@ -28376,7 +28455,8 @@
         ],
         "comparisonResults": [
           "evidence/development/isolated-desktop/comparison/comparison.json",
-          "evidence/development/panel-sizing/comparison/comparison.json"
+          "evidence/development/panel-sizing/comparison/comparison.json",
+          "evidence/development/software-clipping/regression-comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -41294,6 +41374,15 @@
               "docs/data-display.md"
             ],
             "notes": "Candidate contract coverage only. Native images, full comparisons and behavior/runtime acceptance remain pending."
+          },
+          {
+            "id": "shared-software-content-mask",
+            "status": "pending",
+            "evidence": [
+              "docs/content-clipping.md",
+              "evidence/development/software-clipping/candidate.json"
+            ],
+            "notes": "Owned software masking shares the existing continuous/circular/capsule path with the CurveRenderer. Installed pixels, layer lifecycle and normal Qt input are verified independently; strict native raster, transparent-corner hit regions, physical input/display and actual readers remain pending."
           }
         ],
         "tests": [
@@ -41337,7 +41426,8 @@
         ],
         "comparisonResults": [
           "evidence/development/isolated-desktop/comparison/comparison.json",
-          "evidence/development/panel-sizing/comparison/comparison.json"
+          "evidence/development/panel-sizing/comparison/comparison.json",
+          "evidence/development/software-clipping/regression-comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {

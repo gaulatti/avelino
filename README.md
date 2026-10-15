@@ -51,3 +51,7 @@ and native prose-layout evidence.
 Forty-seven of the 80 discovered desktop
 entries have started; no component has passed its complete mirror gate.
 The public GitHub wiki remote is unavailable; documentation currently lives here.
+
+Generic child clipping now has a [software renderer candidate](docs/content-clipping.md)
+sharing the existing continuous/circular/capsule paths; strict native acceptance
+remains pending.

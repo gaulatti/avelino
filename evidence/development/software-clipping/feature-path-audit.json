@@ -1,0 +1,80 @@
+{
+  "acceptance": "Implement software alpha clipping through the existing real child tree and unchanged source contours; prove live raster/layer lifecycle and preserve normal Qt input. Complete native mirror acceptance remains separate.",
+  "initialGap": "ShapePath.fillItem is unsupported on the Qt 6.8.3 software path; original children were only clipped to a rectangle.",
+  "producers": {
+    "continuous": "src/Avelino/continuouscorners.js, RoundedContent.qml",
+    "circular": "src/Avelino/CircularContent.qml",
+    "capsule": "src/Avelino/CapsuleContent.qml"
+  },
+  "transformation": [
+    "ShaderEffectSource keeps original children in a Qt-owned effect root",
+    "QQuickPath supplies the same parsed ShapePath",
+    "Qt software node dispatcher paints a borrowed effect root into an explicitly ARGB32 premultiplied image on the render thread",
+    "Qt-owned nodes stay in their tree; active painter and projection caches restored",
+    "cached antialiased alpha mask composes DestinationIn",
+    "QSGSimpleTextureNode presents the result",
+    "RHI CurveRenderer keeps preceding texture fill"
+  ],
+  "consumers": [
+    "BleeckerAccordion",
+    "BleeckerAlert",
+    "BleeckerAttentionSurface",
+    "BleeckerCard",
+    "BleeckerCollectionFilters",
+    "BleeckerFilterChip",
+    "BleeckerLoadingOverlay",
+    "BleeckerPanel",
+    "View.bleeckerSurface"
+  ],
+  "indirectUnaffected": {
+    "BleeckerSecureField": "Uses BleeckerSurface only as an empty-slot background; owned editor/eye remain in their original consumer tree. Existing installed secure-field mode is rerun.",
+    "other APIs": "Existing complete prior captures and installed modes rerun; any image or metadata changes audited."
+  },
+  "constraints": [
+    "Qt remains exactly 6.8.3",
+    "private headers stay in implementation; installed interface remains public",
+    "software-only adapter fails explicitly for unsupported visible backend/source",
+    "continuous and circular source paths remain distinct",
+    "source/outline removal cannot retain a stale raster",
+    "no inferred input hit-shape policy"
+  ],
+  "verification": [
+    "QuickTest DPR1/2",
+    "17 independent installed offscreen modes",
+    "new clipping gallery light/dark DPR1/2",
+    "17 modes x X11/Wayland x software/OpenGL x standard/scaled",
+    "independent source-free installed catalog and consumer",
+    "3518 prior PNG/full-metadata pairs and native pass-loss audit"
+  ],
+  "nativeInputBoundary": "Source has clipShape without a separate content hit shape. Qt 6.8.3 descendant pointer traversal uses clipRect. Existing rectangular descendant input remains verified and unchanged; native transparent-corner hit equivalence unverified.",
+  "frozenReferences": {
+    "desktop": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+    "tv": "f5ac479bfceaa7eab23c1716ac47420ac53dae25",
+    "expectedCaptures": "unchanged",
+    "tolerances": "unchanged",
+    "approvedExceptions": []
+  },
+  "outOfScope": [
+    "TV implementation and target selection",
+    "backend/metrics/authentication/production config",
+    "physical reader/input/display acceptance"
+  ],
+  "firstPass": "Stopped at the pre-existing collection-filter assertion that software rounded clipping must be false. Actual new pixel/lifecycle/input checks passed; assertion corrected, full run restarted with fresh source hashes.",
+  "secondPass": "The independent X11 OpenGL base window exposed synchronization of an explicitly invisible software adapter. The adapter now returns no node when hidden, preserving the RHI Shape path; unsupported visible use still fails explicitly. Focused clipping tests pass on software and OpenGL at DPR1/2. The interrupted run and all partial sessions are retained; full source/package verification is restarted.",
+  "thirdPass": "Preliminary prior-image audit revealed opaque black holes around sparse opaque content. A standalone Qt layer probe measured an RGB pixmap despite transparent background and an opaque island covering only 60x60 of 100x100. Qt 6.8.3 uses QRegion.contains(rect) overlap semantics as a full-coverage check. The adapter now uses the Qt software node dispatcher with an alpha-capable QImage from allocation through painting. Sparse-content pixel tests cover source movement and installed lifecycle. No alpha inference, opacity trick, Qt patch or node reparenting.",
+  "emptyRootLifecycle": "Effect roots are followed during render preprocessing, after synchronization. Initially empty and newly mounted children remain transparent until Qt creates their nodes; later visible children are captured in the normal window frame. Borrowed scene-graph nodes remain Qt-owned.",
+  "fullFrameRefresh": "Each ARGB image starts transparent, so the software dispatcher is explicitly marked for complete painting, preserving unchanged opaque islands when other nodes update.",
+  "focusedVerification": {
+    "softwareQuickTestCases": 56,
+    "rhiFunctionalQuickTestCases": 24,
+    "rhiSoftwareSpecificRowsSkipped": 32,
+    "softwareInvariantRows": 32,
+    "positionComparisonPairs": 64,
+    "ghostWholeFrameIdentityWitnesses": 32,
+    "installedClippingConsumers": 4,
+    "nativeAcceptance": "pending; RHI text raster equivalence separately unaccepted"
+  },
+  "fixtureTypography": "Diagnostic captions use the existing Bleecker primary font; explicit diagnostic island/background colors allow exact alpha checks. Full verification uses the final fixture source hash.",
+  "rasterPhase": "The intermediate candidate stretched fractional source extents and increased native text error. The final adapter uses an aligned physical raster origin, a transparent gutter, matching renderer-owned placement offsets and a one-to-one texture rectangle. Qt scene-graph nodes and public geometry are unchanged. Source updates/movement/reveal retain pixel-aligned text.",
+  "hiddenLifecycle": "Visibility changes explicitly invalidate the paint node. The adapter retains/releases the ShaderEffectSource effect reference like Qt texture consumers, including initially hidden components."
+}

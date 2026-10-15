@@ -23,13 +23,14 @@ tracking geometry, fallback, and cross-architecture pixels still require native
 comparisons. OwnedText now supports explicit `wrapWidth`; panel titles wrap to
 their allocated width while preserving an unwrapped intrinsic width for layout.
 
-Content clipping is deliberately reported by backend. Qt 6.8.3's software Shape
-renderer ignores texture fills. Its candidate content therefore has rectangular
-clipping, and `roundedContentClipping` is false. The CurveRenderer uses a
-ShaderEffectSource texture inside the continuous outline. GPU clipping and pointer
-containment require complete geometry and interaction comparisons. This is an
-unfinished implementation gap, not an approved platform exception. Canvas shadow
-blur and edge rasterization likewise remain uncalibrated against native captures.
+Content clipping is now implemented on both renderers. Qt 6.8.3's software
+Shape renderer ignores texture fills, so the owned software adapter masks the
+same continuous path through the existing child layer. The CurveRenderer retains
+its Shape texture fill. `roundedContentClipping` is true on both paths.
+See [generic content clipping](content-clipping.md) for the private Qt boundary,
+regression evidence and preserved input policy. Strict native/GPU/physical
+clipping equivalence remains pending. Canvas shadow blur and edge rasterization
+likewise remain uncalibrated against native captures.
 The subsequent data-display batch corrects its extra DPR transform: Canvas.Image
 already paints logical coordinates at the window's device scale.
 

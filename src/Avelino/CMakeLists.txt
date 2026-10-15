@@ -23,9 +23,10 @@ qt_add_library(Avelino SHARED)
 qt_add_qml_module(Avelino URI Avelino VERSION 0.1
     OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/qml/Avelino
     QML_FILES ${qml_files}
-    SOURCES bleeckerfonts.h bleeckerfonts.cpp pixelalignment.h pixelalignment.cpp buttonlabel.h buttonlabel.cpp texttools.h texttools.cpp valuetools.h valuetools.cpp
+    SOURCES bleeckerfonts.h bleeckerfonts.cpp pixelalignment.h pixelalignment.cpp buttonlabel.h buttonlabel.cpp texttools.h texttools.cpp valuetools.h valuetools.cpp softwarecontentmask.h softwarecontentmask.cpp
     RESOURCES ${font_resources})
 target_link_libraries(Avelino PUBLIC Qt6::Core Qt6::Gui Qt6::Qml Qt6::Quick Qt6::QuickControls2)
+target_link_libraries(Avelino PRIVATE Qt6::QuickPrivate)
 target_include_directories(Avelino PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 install(TARGETS Avelino Avelinoplugin EXPORT AvelinoTargets
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}/qml/Avelino)

@@ -5,19 +5,25 @@ Item {
     id:control
     default property alias content:contents.data
     property real radius:BleeckerTokens.radii.ui
-    readonly property bool roundedClipping:outline.rendererType===Shape.CurveRenderer
+    readonly property bool softwareClipping:GraphicsInfo.api===GraphicsInfo.Software
+    readonly property bool roundedClipping:softwareClipping || outline.rendererType===Shape.CurveRenderer
     clip:true;containmentMask:outline
     Item {id:contents;anchors.fill:parent;clip:true}
     ShaderEffectSource {
         id:texture;sourceItem:contents;sourceRect:Qt.rect(0,0,control.width,control.height)
         hideSource:control.roundedClipping;visible:false
+        textureMirroring:control.softwareClipping ? ShaderEffectSource.NoMirroring:ShaderEffectSource.MirrorVertically
+    }
+    SoftwareContentMask {
+        anchors.fill:parent;visible:control.softwareClipping;source:texture;outline:clipPath
     }
     Shape {
         id:outline;anchors.fill:parent;preferredRendererType:Shape.CurveRenderer
         containsMode:Shape.FillContains;antialiasing:true
         ShapePath {
+            id:clipPath
             fillColor:"transparent";strokeColor:"transparent";strokeWidth:-1
-            fillItem:control.roundedClipping ? texture:null
+            fillItem:outline.rendererType===Shape.CurveRenderer ? texture:null
             PathSvg {
                 path:{
                     const w=control.width,h=control.height,r=Math.min(control.radius,w/2,h/2)

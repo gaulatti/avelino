@@ -34,7 +34,7 @@ static void runAlertConsumer(QQuickWindow *window,QGuiApplication &app,const QCo
     QJsonObject record{{"fixture","alert"},{"qt",qVersion()},{"platform",QGuiApplication::platformName()},{"compiler",QString::fromUtf8(__VERSION__)},{"width",window->width()},{"height",window->height()},{"dpr",window->devicePixelRatio()},
         {"graphicsApi",int(window->rendererInterface()->graphicsApi())},{"requestedGraphicsBackend",qEnvironmentVariable("QSG_RHI_BACKEND")},{"quickBackend",qEnvironmentVariable("QT_QUICK_BACKEND")},{"appearance",parser.isSet("dark") ? "dark":"light"},{"textScale",textScale},
         {"inputMethod","QTest synthetic pointer/keyboard and actual Qt accessibility actions"},{"windowCaptureMethod","QQuickWindow::grabWindow; full output captured separately"},{"alertChecks","passed"},{"focusChecks","passed"},{"qtAccessibilityChecks","passed"},{"mounts",3},{"unmounts",2},{"actions",4},{"counter",0},{"narrowWidth",presentation->width()},{"roundedContentClipping",alert->property("roundedContentClipping").toBool()},
-        {"accessibilityAcceptance","pending; actual reader output unverified"},{"genericClippingAcceptance","pending; software rounded overflow and physical/GPU equivalence unaccepted"}};
+        {"accessibilityAcceptance","pending; actual reader output unverified"},{"genericClippingAcceptance","pending; strict native raster and physical/GPU equivalence unaccepted"}};
     QFile file(path+".json");if(!file.open(QIODevice::WriteOnly)){app.exit(202);return;}file.write(QJsonDocument(record).toJson());file.close();
     auto timer=new QTimer(&app);QObject::connect(timer,&QTimer::timeout,&app,[&app,path]{if(QFile::exists(path+".captured"))app.exit(0);});timer->start(100);QTimer::singleShot(10000,&app,[&app]{app.exit(203);});
 }

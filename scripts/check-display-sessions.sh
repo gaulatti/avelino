@@ -50,7 +50,7 @@ INI
   fi
   for backend in software opengl; do
     for configuration in standard scaled; do
-    for fixture in base controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert; do
+    for fixture in base controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping; do
       prefix="$evidence/$protocol-$backend-$configuration"
       if [[ "$fixture" == controls ]]; then prefix="$evidence/controls-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == composition ]]; then prefix="$evidence/composition-$protocol-$backend-$configuration"; fi
@@ -63,6 +63,7 @@ INI
       if [[ "$fixture" == tabs ]]; then prefix="$evidence/tabs-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == pagination ]]; then prefix="$evidence/pagination-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == pagination-integers ]]; then prefix="$evidence/pagination-integers-$protocol-$backend-$configuration"; fi
+      if [[ "$fixture" == clipping ]]; then prefix="$evidence/clipping-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == alert ]]; then prefix="$evidence/alert-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == spinner ]]; then prefix="$evidence/spinner-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == presentation-states ]]; then prefix="$evidence/presentation-states-$protocol-$backend-$configuration"; fi
@@ -79,6 +80,7 @@ INI
       if [[ "$fixture" == tabs ]]; then args+=(--tabs); fi
       if [[ "$fixture" == pagination ]]; then args+=(--pagination); fi
       if [[ "$fixture" == pagination-integers ]]; then args+=(--pagination-integers); fi
+      if [[ "$fixture" == clipping ]]; then args+=(--clipping); fi
       if [[ "$fixture" == alert ]]; then args+=(--alert); fi
       if [[ "$fixture" == spinner ]]; then args+=(--spinner); fi
       if [[ "$fixture" == presentation-states ]]; then args+=(--presentation-states); fi
@@ -137,7 +139,7 @@ if fixture == 'base':
     assert record['foundationChecks'] == 'passed' and record['groupKeyboardChecks'] == 'passed', record
     assert record['cardBadgeChecks'] == 'passed', record
     assert record['dataDisplayChecks'] == 'passed' and record['dataListInputChecks'] == 'passed', record
-    assert record['roundedContentClipping'] == (backend == 'opengl'), record
+    assert record['roundedContentClipping'] is True, record
 elif fixture == 'controls':
     assert record['controlsChecks'] == 'passed' and record['focusRestorationChecks'] == 'passed', record
     assert 0 < record['scrollbarSize'] < 1 and record['textareaContentHeight'] > 100, record
@@ -154,11 +156,15 @@ elif fixture == 'secure-field':
         assert record[key] == 'passed', record
     assert record['sourceHeight'] == 40 and record['fontPointSize'] == 10.5, record
     assert record['revealed'] is True, record
+elif fixture == 'clipping':
+    for key in ['clippingChecks','layerLifecycleChecks','focusChecks','qtAccessibilityChecks']:
+        assert record[key]=='passed',record
+    assert record['actions']==3 and record['outlineKinds']==3 and record['roundedContentClipping'] is True,record
 elif fixture == 'alert':
     for key in ['alertChecks','focusChecks','qtAccessibilityChecks']:
         assert record[key]=='passed',record
     assert (record['mounts'],record['unmounts'],record['actions'],record['counter'])==(3,2,4,0),record
-    assert record['narrowWidth']<=180 and record['roundedContentClipping']==(backend=='opengl'),record
+    assert record['narrowWidth']<=180 and record['roundedContentClipping'] is True,record
 elif fixture == 'spinner':
     for key in ['spinnerChecks','focusChecks','qtAccessibilityChecks']:
         assert record[key]=='passed',record
@@ -170,7 +176,7 @@ elif fixture == 'presentation-states':
         assert record[key] == 'passed', record
     assert record['created'] == 2 and record['destroyed'] == 1 and record['actions'] == 4, record
     assert record['underlying'] == 2 and record['outside'] == 1, record
-    assert record['roundedContentClipping'] == (backend == 'opengl'), record
+    assert record['roundedContentClipping'] is True, record
 elif fixture == 'accordion':
     for key in ['accordionChecks','focusChecks','qtAccessibilityChecks']:
         assert record[key] == 'passed', record
@@ -198,7 +204,7 @@ elif fixture == 'collection-filters':
     for key in ['collectionFilterChecks','callerBindingChecks','focusChecks','qtAccessibilityChecks']:
         assert record[key] == 'passed', record
     assert record['sourceHeight'] == 40*record['textScale'] and record['wrappedChipHeight'] == 45, record
-    assert record['roundedContentClipping'] == (backend == 'opengl'), record
+    assert record['roundedContentClipping'] is True, record
 elif fixture == 'search-field':
     for key in ['searchFieldChecks','clearBindingChecks','focusChecks','qtAccessibilityChecks']:
         assert record[key] == 'passed', record

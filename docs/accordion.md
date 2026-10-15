@@ -82,7 +82,8 @@ accepted captures, tolerances and exceptions are unchanged. Exact symbols/pixels
 source keyboard/focus/motion/touch, broader generic composition/font/script
 contexts, physical input/display and actual readers remain pending.
 
-The existing rounded-content renderer is reused. Its software path's rectangular
-clipping and the full GPU/physical clipping boundary remain pending acceptance;
+The existing rounded-content renderer is reused. Its software path now masks the
+same continuous outline through the [shared adapter](content-clipping.md).
+The full native/GPU/physical clipping boundary remains pending acceptance;
 root bounds and interior-slot cases do not close arbitrary overflow/corner cases.
 This is a native-only control; no backend, metrics, configuration or TV changes.

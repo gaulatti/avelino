@@ -44,7 +44,7 @@ static void runCollectionFiltersConsumer(QQuickWindow *window, QGuiApplication &
     const bool rounded=narrow->property("roundedContentClipping").toBool();
     qInfo("Collection final geometry: height=%g wrapped=%g rounded=%d api=%d",filters->height(),narrow->height(),rounded,int(window->rendererInterface()->graphicsApi()));
     if (!check(next->property("text").toString()=="continued" && narrow->height()==45
-        && filters->height()==40*textScale && rounded==(window->rendererInterface()->graphicsApi()!=QSGRendererInterface::Software),"wrap/scaling/renderer capability")) return;
+        && filters->height()==40*textScale && rounded,"wrap/scaling/renderer capability")) return;
     qInfo("Installed collection filters: query binding, clear, Return, independent caller actions, removal, slot resizing, disabled focus and Qt interfaces passed");
     if (!parser.isSet("evidence")) { app.exit(0); return; }
     const auto path=parser.value("evidence");
