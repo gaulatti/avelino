@@ -1,6 +1,14 @@
 #include "texttools.h"
-#include <QTextBoundaryFinder>
 #include <algorithm>
+#include <cmath>
+
+qreal BleeckerTextTools::proposedWidth(qreal maximumWidth, qreal insets) const {
+    if (!std::isfinite(maximumWidth) || (maximumWidth < 0 && maximumWidth != -1)
+        || !std::isfinite(insets) || insets < 0)
+        qFatal("Text maximum width must be nonnegative or -1, with finite nonnegative insets");
+    return maximumWidth == -1 ? -1 : std::max(qreal(0), maximumWidth-insets);
+}
+#include <QTextBoundaryFinder>
 
 QString BleeckerTextTools::avatarInitials(const QString &name) const {
     QString result;

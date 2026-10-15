@@ -50,7 +50,7 @@ INI
   fi
   for backend in software opengl; do
     for configuration in standard scaled; do
-    for fixture in base controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion; do
+    for fixture in base controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states; do
       prefix="$evidence/$protocol-$backend-$configuration"
       if [[ "$fixture" == controls ]]; then prefix="$evidence/controls-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == composition ]]; then prefix="$evidence/composition-$protocol-$backend-$configuration"; fi
@@ -63,6 +63,7 @@ INI
       if [[ "$fixture" == tabs ]]; then prefix="$evidence/tabs-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == pagination ]]; then prefix="$evidence/pagination-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == pagination-integers ]]; then prefix="$evidence/pagination-integers-$protocol-$backend-$configuration"; fi
+      if [[ "$fixture" == presentation-states ]]; then prefix="$evidence/presentation-states-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == accordion ]]; then prefix="$evidence/accordion-$protocol-$backend-$configuration"; fi
       args=(--evidence "$prefix")
       if [[ "$fixture" == controls ]]; then args+=(--controls); fi
@@ -76,6 +77,7 @@ INI
       if [[ "$fixture" == tabs ]]; then args+=(--tabs); fi
       if [[ "$fixture" == pagination ]]; then args+=(--pagination); fi
       if [[ "$fixture" == pagination-integers ]]; then args+=(--pagination-integers); fi
+      if [[ "$fixture" == presentation-states ]]; then args+=(--presentation-states); fi
       if [[ "$fixture" == accordion ]]; then args+=(--accordion); fi
       export QT_SCALE_FACTOR=1
       if [[ "$configuration" == scaled ]]; then
@@ -148,6 +150,12 @@ elif fixture == 'secure-field':
         assert record[key] == 'passed', record
     assert record['sourceHeight'] == 40 and record['fontPointSize'] == 10.5, record
     assert record['revealed'] is True, record
+elif fixture == 'presentation-states':
+    for key in ['presentationChecks','focusChecks','qtAccessibilityChecks','overlayPointerChecks']:
+        assert record[key] == 'passed', record
+    assert record['created'] == 2 and record['destroyed'] == 1 and record['actions'] == 4, record
+    assert record['underlying'] == 2 and record['outside'] == 1, record
+    assert record['roundedContentClipping'] == (backend == 'opengl'), record
 elif fixture == 'accordion':
     for key in ['accordionChecks','focusChecks','qtAccessibilityChecks']:
         assert record[key] == 'passed', record

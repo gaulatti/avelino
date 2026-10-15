@@ -2,6 +2,7 @@
 #include <QQuickPaintedItem>
 #include <QFont>
 #include <QGlyphRun>
+#include <QVariantList>
 #include <QtQml/qqmlregistration.h>
 #include "pixelalignment.h"
 
@@ -18,6 +19,8 @@ class ButtonLabel : public QQuickPaintedItem {
     Q_PROPERTY(qreal wrapWidth READ wrapWidth WRITE setWrapWidth NOTIFY wrapWidthChanged)
     Q_PROPERTY(qreal lineHeight READ lineHeight WRITE setLineHeight NOTIFY lineHeightChanged)
     Q_PROPERTY(qreal elideWidth READ elideWidth WRITE setElideWidth NOTIFY elideWidthChanged)
+    Q_PROPERTY(int horizontalAlignment READ horizontalAlignment WRITE setHorizontalAlignment NOTIFY horizontalAlignmentChanged)
+    Q_PROPERTY(QVariantList linePositions READ linePositions NOTIFY layoutChanged)
     Q_PROPERTY(qreal unwrappedWidth READ unwrappedWidth NOTIFY unwrappedWidthChanged)
     Q_PROPERTY(qreal logicalPixelSize READ logicalPixelSize NOTIFY layoutChanged)
     Q_PROPERTY(qreal resolvedPixelSize READ resolvedPixelSize NOTIFY layoutChanged)
@@ -41,6 +44,9 @@ public:
     void setLineHeight(qreal height);
     qreal elideWidth() const { return m_elideWidth; }
     void setElideWidth(qreal width);
+    int horizontalAlignment() const { return m_alignment; }
+    void setHorizontalAlignment(int alignment);
+    QVariantList linePositions() const { return m_linePositions; }
     qreal unwrappedWidth() const { return m_unwrappedWidth; }
     qreal logicalPixelSize() const { return m_pixels; }
     qreal resolvedPixelSize() const { return m_resolvedPixels; }
@@ -57,6 +63,7 @@ signals:
     void wrapWidthChanged();
     void lineHeightChanged();
     void elideWidthChanged();
+    void horizontalAlignmentChanged();
     void unwrappedWidthChanged();
     void layoutChanged();
 private:
@@ -76,6 +83,8 @@ private:
     qreal m_wrapWidth = -1, m_unwrappedWidth = 0;
     qreal m_lineHeight = 0;
     qreal m_elideWidth = -1;
+    int m_alignment = Qt::AlignLeft;
+    QVariantList m_linePositions;
     QList<Run> m_runs;
     PixelAlignment m_layoutMetrics;
 };

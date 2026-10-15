@@ -32,6 +32,8 @@ def verify(directory=DIRECTORY):
     manifest = json.loads((directory / "captures.json").read_text())
     assert manifest["reference"] == reference["revision"]
     assert manifest["sourceKeyboardStatus"].startswith("pending;"), "Source keyboard acceptance remains pending"
+    if directory.resolve() == DIRECTORY.resolve():
+        assert (ROOT / "evidence/geometry/native-presentation-states.json").read_bytes() == (directory / "captures.json").read_bytes(), "Derived Qt source fixtures differ from sealed investigation"
     captures = manifest["captures"]
     assert len(captures) == report["sourceCaptureCount"] == 304
     apis = {"BleeckerButton", "BleeckerEmptyState", "BleeckerErrorState", "BleeckerLoadingOverlay"}

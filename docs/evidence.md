@@ -662,3 +662,30 @@ expected images, tolerances, approved exceptions and TV are unchanged. The three
 APIs remain implementation-pending and coverage remains 43/80 started, none fully
 accepted. No new Linux runtime or visual pass is claimed. The public wiki remote
 remains unavailable; the contract and inventory are maintained in-repository.
+
+## Empty, error and loading Linux candidates
+
+The [presentation-state checkpoint](../evidence/development/presentation-states/candidate.json)
+connects title/message/icon/action producers, fitted text/slot geometry, stable
+factory state, normal Qt action/disabled/accessibility paths, destruction/reset
+and offered-region loading input blocking with successful positive controls.
+Visual review identified 64 unsupported ImageRenderer native-progress markers;
+these remain immutable diagnostics and are excluded from visual proposals. The
+corrected 272-case proposal uses 32 real hosted NSProgressIndicator captures.
+Native DPR 1 loading and animation/active-window acceptance remain open.
+
+All 272 root/fitted bounds and 184 applicable action bounds match; 0/272 images
+are exact. The source pointer/lifecycle dataset has 68 records, with 136 Qt checks
+across DPR 1/2. All 3,646 Qt checks, 77 contracts and fifteen startup refusals pass.
+Fourteen installed offscreen modes, 112 fresh package-only virtual-session pairs
+and 67 catalog captures pass. Host-style galleries match and all 2,978 preceding
+PNG/full metadata pairs remain unchanged. Both the full run and package matrix
+were repeated after correcting the reference bridge. All runtime package files
+were also checked for identity across that reference-only correction.
+
+Coverage is 46/80 desktop APIs started, none fully accepted. Source pins, expected
+images, tolerances, approved exceptions, backend/metrics, configuration and TV
+are unchanged. Source keyboard/focus/modal/motion/safe-area, exact symbols/spinner
+and rasterization, broader composition/scripts/scales, physical input/display and
+actual reader acceptance remain pending. Wiki access is unavailable; the contract
+and inventory remain in-repository.

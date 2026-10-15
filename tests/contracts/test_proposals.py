@@ -406,3 +406,30 @@ class AccordionProposalIntegrity(unittest.TestCase):
         self.change_manifest(lambda m: next(c for c in m['captures'] if c['variant'] == 'close').update(sourceUnmounts=0))
         with self.assertRaisesRegex(AssertionError, 'Invalid source accordion content lifecycle'):
             verifier.verify(self.directory)
+
+class PresentationProposalIntegrity(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.directory = Path(self.temp.name) / 'proposal'
+        shutil.copytree(ROOT / 'evidence/reference-proposals/presentation-states-20261015-v2', self.directory)
+
+    def change_manifest(self, change):
+        path = self.directory / 'captures.json'
+        manifest = json.loads(path.read_text())
+        change(manifest)
+        path.write_text(json.dumps(manifest))
+        proposal_path = self.directory / 'proposal.json'
+        proposal = json.loads(proposal_path.read_text())
+        proposal['files'][path.name] = hashlib.sha256(path.read_bytes()).hexdigest()
+        proposal_path.write_text(json.dumps(proposal))
+
+    def test_static_geometry_must_match_sealed_source_investigation(self):
+        self.change_manifest(lambda m: m['captures'][8]['componentSize'].update(width=999))
+        with self.assertRaisesRegex(AssertionError, 'differs from sealed investigation'):
+            verifier.verify(self.directory)
+
+    def test_pointer_results_must_match_sealed_source_investigation(self):
+        self.change_manifest(lambda m: m['behavior'][0].update(counter=99))
+        with self.assertRaisesRegex(AssertionError, 'behavior differs from sealed investigation'):
+            verifier.verify(self.directory)

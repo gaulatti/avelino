@@ -16,6 +16,8 @@ FocusScope {
     property string variant: "primary"
     property string size: "md"
     property bool loading: false
+    // A finite layout proposal for the label; -1 keeps intrinsic sizing.
+    property real maximumWidth: -1
     readonly property var p: BleeckerTheme.palette
     readonly property int minimumHeight: size === "xs" ? 28 : size === "sm" ? 36 : size === "lg" ? 48 : 40
     readonly property int textSize: size === "xs" ? 12 : size === "sm" ? 13 : size === "lg" ? 15 : 14
@@ -32,7 +34,8 @@ FocusScope {
         }
     }
     readonly property color strokeColor: variant === "primary" ? p.primary : variant === "secondary" ? p.border : variant === "outline" ? BleeckerTheme.alpha(p.sea, 0.5) : variant === "destructive" ? p.destructive : "transparent"
-    implicitWidth: contentItem.implicitWidth + leftPadding + rightPadding
+    implicitWidth: maximumWidth===-1 ? contentItem.implicitWidth+leftPadding+rightPadding
+        : Math.min(contentItem.implicitWidth+leftPadding+rightPadding,Math.max(leftPadding+rightPadding,maximumWidth))
     implicitHeight: Math.max(contentItem.implicitHeight, variant === "link" ? 0 : minimumHeight)
     readonly property real leftPadding: size === "xs" ? 10 : size === "sm" ? 14 : size === "lg" ? 24 : 18
     readonly property real rightPadding: leftPadding
@@ -69,6 +72,7 @@ FocusScope {
                 id: label
                 objectName: "bleeckerButtonLabel"
                 text: control.text
+                wrapWidth: BleeckerTextTools.proposedWidth(control.maximumWidth,control.leftPadding+control.rightPadding+(control.loading ? spinner.width+BleeckerTokens.spacing.inline : 0))
                 font: control.font
                 color: control.foregroundColor
                 height: Math.ceil(naturalHeight * labelAlignment.devicePixelRatio) / labelAlignment.devicePixelRatio

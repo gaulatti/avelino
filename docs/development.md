@@ -44,10 +44,10 @@ focus; the whole-output capture preserves it as session evidence.
 [Weston's backend documentation](https://wayland.pages.freedesktop.org/weston/toc/running-weston.html)
 describes how its X11 backend composites Wayland surfaces into the parent output.
 Each configuration runs the base fixture, `--controls`, `--composition`,
-`--selection`, `--checkbox`, `--secure-field`, `--search-field`, `--collection-filters`, `--slider`, `--tabs`, `--pagination`, `--pagination-integers` and `--accordion` independently; one hundred four
+`--selection`, `--checkbox`, `--secure-field`, `--search-field`, `--collection-filters`, `--slider`, `--tabs`, `--pagination`, `--pagination-integers` `--accordion` and `--presentation-states` independently; one hundred twelve
 window/full-output pairs cover them.
 The catalog galleries are `--fixture foundations`, `surfaces`, `data-display`,
-`controls`, `composition`, `selection`, `checkbox`, `secure-field`, `search-field`, `collection-filters`, `slider`, `tabs`, `pagination`, `pagination-integers` and `accordion`; their native
+`controls`, `composition`, `selection`, `checkbox`, `secure-field`, `search-field`, `collection-filters`, `slider`, `tabs`, `pagination`, `pagination-integers` `accordion` and `presentation-states`; their native
 comparisons remain pending.
 
 The selector's open `Popup.Item` and scrollbars remain
@@ -172,3 +172,13 @@ The [accordion contract](accordion.md) adds a conditional content factory and
 initializer-owned state. The installed consumer checks header hit regions,
 creation/destruction and reset, normal form editing/actions, Qt accessibility
 and focus restoration through repeated collapses and later producer updates.
+
+The [presentation-state contract](presentation-states.md) covers empty/error action
+factories and the loading overlay. The native evidence matrix is copied unchanged
+to `evidence/geometry/native-presentation-states.json` for component tests; its
+verifier checks exact identity with the sealed source investigation. Centered label
+origins use fitted source widths and trimmed advances, with all DPR 1/2 witnesses
+checked separately from rasterization. Button `maximumWidth` supplies a label
+layout proposal; the default `-1` retains intrinsic behavior. Invalid proposals
+and unsupported alignment fail real QML startup. All preceding captures/metadata
+must be checked for regression before publishing a checkpoint.

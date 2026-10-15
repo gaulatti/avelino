@@ -45,6 +45,7 @@ Window {
         sourceComponent: {
             const components = {
                 "BleeckerButton": button, "BleeckerLoadingSpinner": spinner,
+                "BleeckerEmptyState":emptyState,"BleeckerErrorState":errorState,"BleeckerLoadingOverlay":loadingOverlay,
                 "BleeckerTextField": textField, "BleeckerTextArea": textArea,
                 "BleeckerField": field, "BleeckerSwitchStyle": switchControl,
                 "BleeckerToggleStyle": toggle, "BleeckerSegmentedControl": segments,
@@ -69,6 +70,48 @@ Window {
             return components[definition.api]
         }
         onLoaded: item.objectName = "referenceCaseComponent"
+    }
+    Component {
+        id:emptyState
+        BleeckerEmptyState {
+            width:definition.variant==="intrinsic" ? implicitWidth : Number(definition.size)
+            title:definition.title;message:definition.text;enabled:!definition.flag
+            LayoutMirroring.enabled:definition.variant==="rtl";LayoutMirroring.childrenInherit:true
+            actions:definition.actionsMode==="empty" ? null : definition.actionsMode==="zero" ? stateZero : definition.actionsMode==="two" ? stateTwo : stateAction
+            Component.onCompleted:{if(definition.variant==="custom-icon")icon=stateArchive}
+        }
+    }
+    Component {
+        id:errorState
+        BleeckerErrorState {
+            width:definition.variant==="intrinsic" ? implicitWidth : Number(definition.size)
+            title:definition.title;message:definition.text;enabled:!definition.flag
+            LayoutMirroring.enabled:definition.variant==="rtl";LayoutMirroring.childrenInherit:true
+            actions:definition.actionsMode==="empty" ? null : definition.actionsMode==="zero" ? stateZero : definition.actionsMode==="two" ? stateTwo : stateAction
+        }
+    }
+    Component {id:stateZero;Item {implicitWidth:0;implicitHeight:0}}
+    Component {id:stateAction;BleeckerButton {text:"Create 0";maximumWidth:definition.variant==="intrinsic" ? -1 : parent.availableWidth}}
+    Component {id:stateTwo;Row {spacing:12;BleeckerButton {text:"Create"} BleeckerButton {text:"Import";variant:"secondary"}}}
+    Component {
+        id:stateArchive
+        Item {
+            PixelAlignment {id:archiveMetrics;target:parent}
+            implicitWidth:archiveMetrics.devicePixelRatio<2 ? 34 : 34.5;implicitHeight:archiveMetrics.devicePixelRatio<2 ? 30 : 30.5
+            Canvas {
+                anchors.fill:parent
+                onPaint:{const c=getContext("2d");c.reset();c.strokeStyle=BleeckerTheme.palette.sea;c.lineWidth=1.8;c.strokeRect(width*0.18,height*0.30,width*0.64,height*0.56);c.strokeRect(width*0.12,height*0.15,width*0.76,height*0.15);c.beginPath();c.moveTo(width*0.40,height*0.48);c.lineTo(width*0.60,height*0.48);c.stroke()}
+            }
+        }
+    }
+    Component {
+        id:loadingOverlay
+        BleeckerLoadingOverlay {
+            width:definition.variant==="intrinsic" ? implicitWidth : Number(definition.size)
+            height:definition.variant==="intrinsic" ? implicitHeight : 300
+            message:definition.text
+            LayoutMirroring.enabled:definition.variant==="rtl";LayoutMirroring.childrenInherit:true
+        }
     }
     Component {
         id:accordion

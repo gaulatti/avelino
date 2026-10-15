@@ -9,4 +9,5 @@ class BleeckerTextTools final : public QObject {
 public:
     using QObject::QObject;
     Q_INVOKABLE QString avatarInitials(const QString &name) const;
+    Q_INVOKABLE qreal proposedWidth(qreal maximumWidth, qreal insets) const;
 };

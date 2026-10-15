@@ -47,7 +47,7 @@ class ComparisonBoundaryTests(unittest.TestCase):
         self.check('passed')
 
     def test_collection_actions_must_match(self):
-        for key, value in [('sourceQueryAfterAction', ''), ('sourceContentAfterAction', False),
+        for key, value in [('title', 'No editions yet'), ('actionsMode', 'empty'), ('sourceQueryAfterAction', ''), ('sourceContentAfterAction', False),
                            ('sourceSelectedAfterAction', True), ('sourceActionCounts', {'activations': 1, 'removals': 0}),
                            ('sourcePageAfterActionDecimal', '9223372036854775807'), ('sourcePageCountAfterActionDecimal', '-9223372036854775808'), ('sourceRequestedPageDecimal', None),
                            ('sourceExpandedAfterAction', True), ('sourceMounts', 2), ('sourceUnmounts', 1), ('sourceCounterValue', 0),

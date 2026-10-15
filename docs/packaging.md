@@ -30,7 +30,7 @@ The harness runs thirteen independent windows in each configuration: the base li
 fixture, `InstalledConsumer --controls`, `InstalledConsumer --composition` and
 `InstalledConsumer --selection`, `InstalledConsumer --checkbox` and
 `InstalledConsumer --secure-field`, `InstalledConsumer --search-field` and
-`InstalledConsumer --collection-filters`, `InstalledConsumer --slider`, `InstalledConsumer --tabs`, `InstalledConsumer --pagination`, `InstalledConsumer --pagination-integers` and `InstalledConsumer --accordion`.
+`InstalledConsumer --collection-filters`, `InstalledConsumer --slider`, `InstalledConsumer --tabs`, `InstalledConsumer --pagination`, `InstalledConsumer --pagination-integers` `InstalledConsumer --accordion` and `InstalledConsumer --presentation-states`.
 Their one hundred four capture pairs keep
 form editing, scrolling, switch/toggle actions, disabled segmented options and
 focus restoration separate from the base composition checks. The controls fixture
@@ -95,7 +95,7 @@ using the same GNU install directories as the exported CMake package. Launch
 The source-build catalog continues to use the documented build-tree import path.
 
 `check-installed-catalog.sh` exercises all fifteen galleries at both appearances
-and DPRs, both action galleries, and the default button: 63 images with physical
+and DPRs, both action galleries, and the default button: 67 images with physical
 size/metadata checks. Both QML import environment variables are unset. A copied
 executable without its module must fail with the missing-module error. The full
 Linux check runs this against the staged install, then the package-only check
@@ -110,3 +110,12 @@ disabled input, destroys/recreates conditional forms, resets private child state
 and preserves later title/body producer bindings. Real Qt accessibility presses,
 keyboard traversal and focus restoration precede continued inside/outside editing.
 Its physical/source-reader and motion acceptance remains separate.
+
+The presentation-state consumer exercises both empty/error action factories,
+producer updates without replacing child state, destruction/recreation, actual Qt
+accessibility and disabled actions, normal keyboard input and outside editing.
+Loading input checks first activate the underlying button without the overlay,
+then prove inside blocking, outside activation and input restoration after removal.
+The installed catalog includes `presentation-states` in both appearances/DPRs.
+Source keyboard trapping, exact progress/symbol rendering, physical input and
+actual screen-reader behavior remain separate acceptance work.

@@ -29,7 +29,8 @@ SCOPED_APIS = {"desktop-composition": COMPOSITION_APIS,
     "desktop-tabs": {"BleeckerButton", "BleeckerSegmentedControl", "BleeckerTabs"},
     "desktop-pagination": {"BleeckerButton", "BleeckerIconButton", "BleeckerPagination"},
     "desktop-pagination-integers": {"BleeckerButton", "BleeckerPagination"},
-    "desktop-accordion": {"BleeckerButton", "BleeckerAccordion"}}
+    "desktop-accordion": {"BleeckerButton", "BleeckerAccordion"},
+    "desktop-presentation-states": {"BleeckerButton", "BleeckerEmptyState", "BleeckerErrorState", "BleeckerLoadingOverlay"}}
 
 SCOPED_CONTRACT_AXES = {"desktop-pagination": {"BleeckerIconButton": {"size":"BleeckerIconButtonSize", "variant":"BleeckerIconButtonVariant"}}, "desktop-checkbox": {"BleeckerCheckbox": {"size": "BleeckerControlSize"}}}
 
@@ -59,7 +60,7 @@ def verify(directory):
         assert scoped in SCOPED_APIS and manifest.get("scope") == scoped
         message = {"desktop-composition": "Missing composition API", "desktop-selectors": "Missing selector API",
             "desktop-checkbox": "Missing checkbox API", "desktop-secure-field": "Missing secure-field API",
-            "desktop-search-field": "Missing search-field API", "desktop-collection-filters": "Missing collection-filter API", "desktop-slider": "Missing slider API", "desktop-tabs": "Missing tabs API", "desktop-pagination": "Missing pagination API", "desktop-pagination-integers": "Missing exact pagination API", "desktop-accordion": "Missing accordion API"}[scoped]
+            "desktop-search-field": "Missing search-field API", "desktop-collection-filters": "Missing collection-filter API", "desktop-slider": "Missing slider API", "desktop-tabs": "Missing tabs API", "desktop-pagination": "Missing pagination API", "desktop-pagination-integers": "Missing exact pagination API", "desktop-accordion": "Missing accordion API", "desktop-presentation-states": "Missing presentation-state API"}[scoped]
         assert {case["api"] for case in captures} == SCOPED_APIS[scoped], message
     keys = set()
     for case in captures:
@@ -227,6 +228,23 @@ def verify(directory):
             assert case["sourceContentTextAfterAction"] == body, "Invalid source accordion content update"
             font=case["resolvedLabelFonts"]["title"]
             assert font["pointSize"] == 14 and font["postScriptName"] == "EncodeSans-SmBold", "Invalid source accordion title font"
+    if scoped == "desktop-presentation-states":
+        source = ROOT / "evidence/reference-investigations/presentation-states-20261014"
+        sealed = json.loads((source / "captures.json").read_text())
+        sealed_files = json.loads((source / "investigation.json").read_text())["files"]
+        hosted_directory=ROOT / "evidence/reference-investigations/loading-native-20261015"
+        hosted=json.loads((hosted_directory / "captures.json").read_text())
+        hosted_files=json.loads((hosted_directory / "investigation.json").read_text())["files"]
+        assert not any(c["api"]=="BleeckerLoadingOverlay" and not c["captureMethod"].startswith("NSHostingView.cacheDisplay") for c in captures), "ImageRenderer native progress placeholders cannot be visual references"
+        expected = {c["path"]: c for c in sealed["captures"] if c["api"]!="BleeckerLoadingOverlay"}
+        expected.update({c["path"]:c for c in hosted["captures"]})
+        sealed_files={**sealed_files,**hosted_files}
+        assert set(expected) == {c["path"] for c in captures}, "Missing sealed presentation-state capture"
+        for case in captures:
+            assert all(case.get(key) == value for key, value in expected[case["path"]].items()), "Source presentation capture differs from sealed investigation"
+            assert case["sha256"] == sealed_files[case["path"]], "Source presentation pixels differ from sealed investigation"
+        assert manifest["behavior"] == sealed["behavior"], "Source presentation behavior differs from sealed investigation"
+        assert manifest["centeredTextLines"] == sealed["centeredTextLines"] and manifest["sourceSymbols"] == sealed["sourceSymbols"], "Source presentation expression witnesses differ"
     discovery = json.loads((ROOT / "reference/api-discovery.json").read_text())["desktop"]
     declarations = {d["name"]: d for d in discovery["declarations"]}
     for api, axes in {**CONTRACT_AXES, **SCOPED_CONTRACT_AXES.get(scoped, {})}.items():
@@ -246,6 +264,12 @@ def verify(directory):
     tooling = json.loads((directory / "tooling-provenance.json").read_text())
     assert tooling["referenceArchiveSha256"] == reference["sha256"]
     assert tooling["toolArtifact"]["sha256"] == proposal["sourceToolArtifact"]
+    if scoped == "desktop-presentation-states":
+        primary=json.loads((ROOT / "evidence/reference-investigations/loading-native-20261015/investigation.json").read_text())["sourceToolArtifact"]
+        static=json.loads((ROOT / "evidence/reference-investigations/presentation-states-20261014/investigation.json").read_text())["sourceToolArtifact"]
+        assert tooling["toolArtifact"]["sha256"]==primary
+        assert [a["sha256"] for a in tooling["additionalToolArtifacts"]]==[static], "Missing static source tool provenance"
+        assert tooling["captureToolAssignments"]=={api:primary if api=="BleeckerLoadingOverlay" else static for api in SCOPED_APIS[scoped]}, "Invalid source capture tool assignments"
     for comparison in json.loads((directory / "anchor-comparison.json").read_text()):
         assert hashlib.sha256((ROOT / comparison["reference"]).read_bytes()).hexdigest() == comparison["referenceSha256"]
     return len(captures)

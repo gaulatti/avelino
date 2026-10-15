@@ -57,6 +57,13 @@ void ButtonLabel::setElideWidth(qreal width) {
     m_elideWidth = width; relayout(); emit elideWidthChanged();
 }
 
+void ButtonLabel::setHorizontalAlignment(int alignment) {
+    if (alignment != Qt::AlignLeft && alignment != Qt::AlignHCenter && alignment != Qt::AlignRight)
+        qFatal("Label horizontal alignment must be left, center or right");
+    if (m_alignment == alignment) return;
+    m_alignment = alignment; relayout(); emit horizontalAlignmentChanged();
+}
+
 void ButtonLabel::relayout() {
     m_pixels = m_font.pixelSize() > 0 ? m_font.pixelSize()
         : m_font.pointSizeF() * BleeckerFonts::logicalFontDpi() / 72;
@@ -196,7 +203,7 @@ void ButtonLabel::relayout() {
         // The pinned empty Text keeps the source's default empty line box,
         // independently of the declared custom font. Components may omit or
         // explicitly size empty content according to their own source contract.
-        m_runs.clear(); m_family = original.familyName(); m_style = original.styleName();
+        m_runs.clear(); m_linePositions.clear(); m_family = original.familyName(); m_style = original.styleName();
         m_height = 14; setImplicitWidth(0); setImplicitHeight(m_height); setBaselineOffset(11);
         update(); emit layoutChanged(); return;
     }
@@ -217,13 +224,41 @@ void ButtonLabel::relayout() {
     }
     layout.endLayout();
     m_runs.clear();
+    m_linePositions.clear();
     m_family = original.familyName(); m_style = original.styleName();
-    for (const auto &glyphRun : layout.glyphRuns()) {
+    const auto appendRun = [&](const QGlyphRun &glyphRun, qreal offset) {
         const auto raw = glyphRun.rawFont();
         Run run{raw.familyName(), raw.styleName(), raw.weight(), glyphRun.glyphIndexes(),
                 glyphRun.positions(), glyphRun.flags()};
-        for (auto &position : run.positions) position *= ratio;
+        for (auto &position : run.positions) { position *= ratio; position.rx() += offset; }
         m_runs.append(run);
+    };
+    if (m_alignment == Qt::AlignLeft) {
+        // Preserve the original aggregate shaping and run ordering exactly.
+        for (const auto &glyphRun : layout.glyphRuns()) appendRun(glyphRun, 0);
+        for (int i = 0; i < layout.lineCount(); ++i)
+            m_linePositions.append(QPointF(0, layout.lineAt(i).y() * ratio));
+    } else {
+        for (int i = 0; i < layout.lineCount(); ++i) {
+            const auto line = layout.lineAt(i);
+            auto text = layoutText.mid(line.textStart(), line.textLength());
+            while (!text.isEmpty() && text.back().isSpace()) text.chop(1);
+            QTextLayout trimmed(text, shapeFont);
+            QTextOption trimmedOption = option; trimmedOption.setWrapMode(QTextOption::NoWrap);
+            trimmed.setTextOption(trimmedOption); trimmed.beginLayout();
+            auto trimmedLine = trimmed.createLine();
+            qreal advance = 0;
+            if (trimmedLine.isValid()) {
+                trimmedLine.setLineWidth(1000000);
+                advance = sourceFont ? sourceMetrics(trimmedLine, text).advance : trimmedLine.horizontalAdvance() * ratio;
+            }
+            trimmed.endLayout();
+            const qreal offset = (viewWidth(width) - advance) / (m_alignment == Qt::AlignHCenter ? 2 : 1);
+            // Keep logical offsets outside QTextLine's design-space QFixed
+            // positions so fractional centered origins are not quantized.
+            for (const auto &glyphRun : line.glyphRuns()) appendRun(glyphRun, offset);
+            m_linePositions.append(QPointF(offset, line.y() * ratio));
+        }
     }
     m_height = height;
     setImplicitWidth(viewWidth(width)); setImplicitHeight(m_height);

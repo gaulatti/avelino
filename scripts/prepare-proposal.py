@@ -40,7 +40,8 @@ def prepare(source, tooling, output, scope=None):
     "desktop-tabs": {"BleeckerButton", "BleeckerSegmentedControl", "BleeckerTabs"},
     "desktop-pagination": {"BleeckerButton", "BleeckerIconButton", "BleeckerPagination"},
     "desktop-pagination-integers": {"BleeckerButton", "BleeckerPagination"},
-    "desktop-accordion": {"BleeckerButton", "BleeckerAccordion"}}
+    "desktop-accordion": {"BleeckerButton", "BleeckerAccordion"},
+            "desktop-presentation-states": {"BleeckerButton", "BleeckerEmptyState", "BleeckerErrorState", "BleeckerLoadingOverlay"}}
         assert scope in allowed, "Unknown reference proposal scope"
         assert {c["api"] for c in manifest["captures"]} == allowed[scope]
         manifest["scope"] = scope
@@ -87,6 +88,8 @@ def prepare(source, tooling, output, scope=None):
         if file != output / name: shutil.copyfile(file, output / name)
         fixtures[case["fixture"]] = {key: case[key] for key in ["fixture", "api", "width", "height", "variant", "size", "value", "flag", "text"]}
         if "expectedEmpty" in case: fixtures[case["fixture"]]["expectedEmpty"] = empty
+        if scope == "desktop-presentation-states":
+            fixtures[case["fixture"]].update({key:case[key] for key in ["title","actionsMode"]})
     assert not blanks, f"Blank native captures: {blanks}"
     manifest["unrenderedCases"] = blanks
     manifest["captureValidation"] = {"dimensions": "passed", "environmentDpr": "passed", "componentDimensions": "passed", "blankImages": blanks}
@@ -96,6 +99,9 @@ def prepare(source, tooling, output, scope=None):
     definitions = {"schemaVersion": 1, "status": "proposed supplemental fixture definitions; baseline approval pending",
         "fixtures": list(fixtures.values()), "sourceToolArtifact": provenance["toolArtifact"]["sha256"],
         "wrapper": "Component centered in a fixed logical frame; palette background, requested color scheme/text scale, en_US locale; no root font or foreground override. Explicit inherited-toggle and Encode Sans toggle cases are separate."}
+    if scope=="desktop-presentation-states":
+        definitions["wrapper"]="Source fitted empty/error Item before the caller's offered frame; loading uses the actual hosted native NSProgressIndicator at DPR 2. Static native progress placeholders are excluded."
+        definitions["sourceToolArtifacts"]=[provenance["toolArtifact"]["sha256"]]+[a["sha256"] for a in provenance["additionalToolArtifacts"]]
     write(output / "fixtures.json", definitions)
     comparisons = []
     for appearance in ["light", "dark"]:
@@ -140,6 +146,6 @@ if __name__ == "__main__":
     parser.add_argument("--captures", required=True)
     parser.add_argument("--tooling", required=True)
     parser.add_argument("--output", required=True)
-    parser.add_argument("--scope", choices=["desktop-composition", "desktop-selectors", "desktop-checkbox", "desktop-secure-field", "desktop-search-field", "desktop-collection-filters", "desktop-slider", "desktop-tabs", "desktop-pagination", "desktop-pagination-integers", "desktop-accordion"])
+    parser.add_argument("--scope", choices=["desktop-composition", "desktop-selectors", "desktop-checkbox", "desktop-secure-field", "desktop-search-field", "desktop-collection-filters", "desktop-slider", "desktop-tabs", "desktop-pagination", "desktop-pagination-integers", "desktop-accordion", "desktop-presentation-states"])
     args = parser.parse_args()
     print(f"Prepared {prepare(args.captures, args.tooling, args.output, args.scope)} review candidates; expected images unchanged")
