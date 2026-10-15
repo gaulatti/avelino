@@ -50,7 +50,7 @@ INI
   fi
   for backend in software opengl; do
     for configuration in standard scaled; do
-    for fixture in base controls composition selection checkbox secure-field search-field collection-filters slider tabs; do
+    for fixture in base controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination; do
       prefix="$evidence/$protocol-$backend-$configuration"
       if [[ "$fixture" == controls ]]; then prefix="$evidence/controls-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == composition ]]; then prefix="$evidence/composition-$protocol-$backend-$configuration"; fi
@@ -61,6 +61,7 @@ INI
       if [[ "$fixture" == collection-filters ]]; then prefix="$evidence/collection-filters-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == slider ]]; then prefix="$evidence/slider-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == tabs ]]; then prefix="$evidence/tabs-$protocol-$backend-$configuration"; fi
+      if [[ "$fixture" == pagination ]]; then prefix="$evidence/pagination-$protocol-$backend-$configuration"; fi
       args=(--evidence "$prefix")
       if [[ "$fixture" == controls ]]; then args+=(--controls); fi
       if [[ "$fixture" == composition ]]; then args+=(--composition); fi
@@ -71,6 +72,7 @@ INI
       if [[ "$fixture" == collection-filters ]]; then args+=(--collection-filters); fi
       if [[ "$fixture" == slider ]]; then args+=(--slider); fi
       if [[ "$fixture" == tabs ]]; then args+=(--tabs); fi
+      if [[ "$fixture" == pagination ]]; then args+=(--pagination); fi
       export QT_SCALE_FACTOR=1
       if [[ "$configuration" == scaled ]]; then
         export QT_SCALE_FACTOR=2
@@ -142,6 +144,10 @@ elif fixture == 'secure-field':
         assert record[key] == 'passed', record
     assert record['sourceHeight'] == 40 and record['fontPointSize'] == 10.5, record
     assert record['revealed'] is True, record
+elif fixture == 'pagination':
+    for key in ['paginationChecks','callerBindingChecks','focusChecks','qtAccessibilityChecks']:
+        assert record[key] == 'passed', record
+    assert record['page'] == 4 and record['requests'] == 7, record
 elif fixture == 'tabs':
     for key in ['tabsChecks','callerBindingChecks','focusChecks','qtAccessibilityChecks']:
         assert record[key] == 'passed', record

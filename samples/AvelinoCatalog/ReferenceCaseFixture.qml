@@ -12,6 +12,11 @@ Window {
     property int collectionRemovals: 0
     property real sliderValue: definition.api === "BleeckerSlider" ? Number(definition.text) : 0
     property int sliderEdits: 0
+    property int pageValue: definition.api === "BleeckerPagination" ? Number(definition.text) : 0
+    property int pageTotal: definition.value
+    property int pageRequests: 0
+    property var lastPageRequest: null
+    property int iconCalls: 0
     property var boundSelection: definition.text
     property int boundActivations: 0
     readonly property real fixtureTextScale: BleeckerTheme.textScale
@@ -45,7 +50,7 @@ Window {
                 "BleeckerSectionHeader": sectionHeader, "BleeckerDashboardSection": dashboardSection,
                 "BleeckerDashboardGrid": dashboardGrid, "BleeckerAppShell": appShell,
                 "BleeckerFooter": footer, "BleeckerFeedItem": feed, "BleeckerProgressStack": progressStack,
-                "BleeckerSelect": select, "BleeckerCheckbox": checkbox, "BleeckerSecureField": secureField, "BleeckerSearchField": searchField, "BleeckerFilterChip": filterChip, "BleeckerCollectionFilters": collectionFilters, "BleeckerSlider": slider, "BleeckerTabs": boundSelectionFrame
+                "BleeckerSelect": select, "BleeckerCheckbox": checkbox, "BleeckerSecureField": secureField, "BleeckerSearchField": searchField, "BleeckerFilterChip": filterChip, "BleeckerCollectionFilters": collectionFilters, "BleeckerSlider": slider, "BleeckerTabs": boundSelectionFrame, "BleeckerPagination": paginationFrame, "BleeckerIconButton": iconButton
             }
             if (definition.fixture.startsWith("segments-bound-")) return boundSelectionFrame
             if (definition.api === "BleeckerTextField" && definition.fixture.startsWith("search-text-")) return searchField
@@ -136,6 +141,44 @@ Window {
         BleeckerSegmentedControl {
             selection: window.boundSelection; options: window.boundOptions()
             onActivated: value => { window.boundSelection=value;window.boundActivations++ }
+        }
+    }
+    Component {
+        id: iconButton
+        BleeckerIconButton {
+            id: icon
+            size: definition.size;variant:definition.variant;enabled:!definition.flag
+            accessibilityLabel: "Continue"
+            icon: NavigationIcon {
+                direction: {
+                    if (definition.text === "chevron.left") return "left"
+                    if (definition.text === "chevron.right") return "right"
+                    throw new Error("Unknown icon fixture symbol: "+definition.text)
+                }
+                color:icon.foregroundColor;pixelSize:icon.glyphPixelSize
+            }
+            onClicked: window.iconCalls++
+        }
+    }
+    Component {
+        id: paginationFrame
+        Item {
+            id: frame
+            enabled: !definition.flag
+            implicitWidth: definition.variant === "narrow" ? 140 : definition.variant === "wide" ? 400 : pager.naturalWidth
+            implicitHeight: pager.implicitHeight
+            LayoutMirroring.enabled: definition.variant === "rtl";LayoutMirroring.childrenInherit: true
+            BleeckerPagination {
+                id: pager
+                objectName: "bleeckerPaginationBody"
+                anchors.centerIn: parent;anchors.alignWhenCentered: false
+                width: Math.min(frame.width,naturalWidth)
+                page: window.pageValue;pageCount:window.pageTotal;locale:Qt.locale("en_US")
+                onPageRequested: page => {
+                    window.pageRequests++;window.lastPageRequest=page
+                    if (definition.variant !== "no-handler") window.pageValue=page
+                }
+            }
         }
     }
     Component { id: button; BleeckerButton { text: "Publish" } }

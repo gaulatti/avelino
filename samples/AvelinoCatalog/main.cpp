@@ -13,6 +13,7 @@
 #include <QRawFont>
 #include <QQuickItem>
 #include <QMouseEvent>
+#include <QTest>
 #include <QSGRendererInterface>
 #include <cmath>
 
@@ -49,7 +50,7 @@ int main(int argc, char *argv[]) {
     parser.addHelpOption();
     parser.addOptions({QCommandLineOption("capture", "Save the displayed fixture to PNG and exit", "path"),
                        QCommandLineOption("dark", "Use dark reference appearance"),
-                       QCommandLineOption("fixture", "Render a fixture (button, foundations, surfaces, data-display, controls, composition, selection, checkbox, secure-field, search-field, collection-filters, slider, tabs or reference-case)", "name"),
+                       QCommandLineOption("fixture", "Render a fixture (button, foundations, surfaces, data-display, controls, composition, selection, checkbox, secure-field, search-field, collection-filters, slider, tabs, pagination or reference-case)", "name"),
                        QCommandLineOption("case", "Isolated reference fixture identifier", "id"),
                        QCommandLineOption("case-definitions", "JSON file containing the isolated fixture definitions", "path"),
                        QCommandLineOption("variant", "Button variant", "name", "primary"),
@@ -85,8 +86,8 @@ int main(int argc, char *argv[]) {
     engine.rootContext()->setContextProperty("captureTextScale", textScale);
     engine.rootContext()->setContextProperty("captureDefinition", definition.toVariantMap());
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreationFailed, &app, [] { QCoreApplication::exit(1); }, Qt::QueuedConnection);
-    if (parser.isSet("fixture") && fixture != "button" && fixture != "foundations" && fixture != "surfaces" && fixture != "data-display" && fixture != "controls" && fixture != "composition" && fixture != "selection" && fixture != "checkbox" && fixture != "secure-field" && fixture != "search-field" && fixture != "collection-filters" && fixture != "slider" && fixture != "tabs" && !isolated) return 4;
-    engine.loadFromModule("AvelinoCatalog", isolated ? "ReferenceCaseFixture" : fixture == "tabs" ? "TabsFixture" : fixture == "slider" ? "SliderFixture" : fixture == "collection-filters" ? "CollectionFiltersFixture" : fixture == "search-field" ? "SearchFieldFixture" : fixture == "secure-field" ? "SecureFieldFixture" : fixture == "checkbox" ? "CheckboxFixture" : fixture == "selection" ? "SelectionFixture" : fixture == "composition" ? "CompositionFixture" : fixture == "controls" ? "ControlsFixture" : fixture == "data-display" ? "DataDisplayFixture" : fixture == "surfaces" ? "SurfacesFixture" : fixture == "foundations" ? "FoundationsFixture"
+    if (parser.isSet("fixture") && fixture != "button" && fixture != "foundations" && fixture != "surfaces" && fixture != "data-display" && fixture != "controls" && fixture != "composition" && fixture != "selection" && fixture != "checkbox" && fixture != "secure-field" && fixture != "search-field" && fixture != "collection-filters" && fixture != "slider" && fixture != "tabs" && fixture != "pagination" && !isolated) return 4;
+    engine.loadFromModule("AvelinoCatalog", isolated ? "ReferenceCaseFixture" : fixture == "pagination" ? "PaginationFixture" : fixture == "tabs" ? "TabsFixture" : fixture == "slider" ? "SliderFixture" : fixture == "collection-filters" ? "CollectionFiltersFixture" : fixture == "search-field" ? "SearchFieldFixture" : fixture == "secure-field" ? "SecureFieldFixture" : fixture == "checkbox" ? "CheckboxFixture" : fixture == "selection" ? "SelectionFixture" : fixture == "composition" ? "CompositionFixture" : fixture == "controls" ? "ControlsFixture" : fixture == "data-display" ? "DataDisplayFixture" : fixture == "surfaces" ? "SurfacesFixture" : fixture == "foundations" ? "FoundationsFixture"
         : fixture == "button" ? "ButtonFixture" : "Main");
     if (parser.isSet("capture")) {
         const auto path = parser.value("capture");
@@ -99,6 +100,33 @@ int main(int argc, char *argv[]) {
                 // Native proposal captures are defocused after the action.
                 // Interactive consumers separately verify restored editing focus.
                 field->setFocus(false);
+            });
+        }
+        if (isolated && (definition.value("api").toString()=="BleeckerIconButton" || definition.value("api").toString()=="BleeckerPagination")) {
+            QTimer::singleShot(150,&app,[&engine,&app,definition] {
+                const auto window=qobject_cast<QQuickWindow *>(engine.rootObjects().value(0));
+                const auto component=window ? findVisual(window->contentItem(),"referenceCaseComponent") : nullptr;
+                if (!component) {app.exit(15);return;}
+                const auto fixture=definition.value("fixture").toString(),variant=definition.value("variant").toString();
+                QQuickItem *input=nullptr;
+                if (definition.value("api").toString()=="BleeckerIconButton" && (fixture.endsWith("-clicked") || fixture.endsWith("-disabled-click") || fixture.endsWith("-pressed")))
+                    input=component->property("inputItem").value<QQuickItem*>();
+                if (definition.value("api").toString()=="BleeckerPagination" && fixture.startsWith("pagination-action-")) {
+                    const bool previous=QStringList{"previous","lower-bound","above-last-prev"}.contains(variant);
+                    const auto button=findVisual(component,previous ? "bleeckerPreviousPage" : "bleeckerNextPage");
+                    input=button ? button->property("inputItem").value<QQuickItem*>() : nullptr;
+                    if (!input) {app.exit(15);return;}
+                }
+                if (input) {
+                    if (fixture.endsWith("-pressed")) {
+                        const auto point=input->mapToScene(QPointF(input->width()/2,input->height()/2));
+                        QTest::mousePress(window,Qt::LeftButton,Qt::NoModifier,point.toPoint());
+                        if (!input->property("down").toBool()) {app.exit(15);return;}
+                    } else if (!QMetaObject::invokeMethod(input,"click")) {app.exit(15);return;}
+                    if (variant=="external") window->setProperty("pageValue",7);
+                    if (variant=="shrink-count") window->setProperty("pageTotal",3);
+                    if (!fixture.endsWith("-pressed")) input->setFocus(false);
+                }
             });
         }
         if (isolated && (definition.value("api").toString()=="BleeckerTabs" || definition.value("fixture").toString().startsWith("segments-bound-"))) {
@@ -268,6 +296,26 @@ int main(int argc, char *argv[]) {
                 }
                 if (definition.value("fixture").toString().startsWith("search-"))
                     meta.insert("sourceValueAfterAction",component->property("text").toString());
+                if (definition.value("api").toString()=="BleeckerIconButton" || definition.value("api").toString()=="BleeckerPagination") {
+                    const auto fixture=definition.value("fixture").toString();
+                    const bool icon=definition.value("api").toString()=="BleeckerIconButton";
+                    const auto action=icon ? fixture.endsWith("-disabled-click") ? QStringLiteral("disabled-click") : fixture.endsWith("-clicked") ? QStringLiteral("clicked") : fixture.endsWith("-pressed") ? QStringLiteral("pressed") : QStringLiteral("none")
+                        : fixture.startsWith("pagination-action-") ? definition.value("variant").toString() : QStringLiteral("none");
+                    meta.insert("sourceAction",action);
+                    meta.insert("sourceActivations",window->property(icon ? "iconCalls" : "pageRequests").toInt());
+                    if (!icon) {
+                        meta.insert("sourcePageAfterAction",window->property("pageValue").toInt());
+                        meta.insert("sourcePageCountAfterAction",window->property("pageTotal").toInt());
+                        meta.insert("sourceRequestedPage",QJsonValue::fromVariant(window->property("lastPageRequest")));
+                        const auto row=findVisual(component,"bleeckerPaginationContent");
+                        if (!row) {app.exit(15);return;}
+                        meta.insert("bodySize",QJsonObject{{"width",row->width()},{"height",row->height()}});
+                    } else {
+                        const bool down=component->property("down").toBool();
+                        meta.insert("linuxPressedAtCapture",down);
+                        if (action=="pressed" && !down) {app.exit(15);return;}
+                    }
+                }
                 if (definition.value("api").toString()=="BleeckerTabs" || definition.value("fixture").toString().startsWith("segments-bound-")) {
                     const auto body=findVisual(component,"bleeckerBoundSelectionBody");
                     if (!body) {app.exit(14);return;}
@@ -300,6 +348,15 @@ int main(int argc, char *argv[]) {
                 meta.insert("labels", labels);
                 meta.insert("dynamicStateTiming", "700 ms settlement; reduced motion; no matched native animation phase");
                 meta.insert("referenceAcceptance", "proposed reference; diagnostic comparison only");
+            }
+            if (isolated && definition.value("api").toString()=="BleeckerIconButton" && definition.value("fixture").toString().endsWith("-pressed")) {
+                const auto component=findVisual(window->contentItem(),"referenceCaseComponent");
+                const auto input=component ? component->property("inputItem").value<QQuickItem*>() : nullptr;
+                if (!input) {app.exit(15);return;}
+                QTest::mouseRelease(window,Qt::LeftButton,Qt::NoModifier,input->mapToScene(QPointF(input->width()/2,input->height()/2)).toPoint());
+                const auto calls=window->property("iconCalls").toInt();
+                meta.insert("linuxReleaseActivations",calls);
+                if (calls!=1) {app.exit(15);return;}
             }
             QFile file(path + ".json");
             if (!file.open(QIODevice::WriteOnly)) { app.exit(3); return; }

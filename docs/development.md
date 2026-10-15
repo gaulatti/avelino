@@ -44,10 +44,10 @@ focus; the whole-output capture preserves it as session evidence.
 [Weston's backend documentation](https://wayland.pages.freedesktop.org/weston/toc/running-weston.html)
 describes how its X11 backend composites Wayland surfaces into the parent output.
 Each configuration runs the base fixture, `--controls`, `--composition`,
-`--selection`, `--checkbox`, `--secure-field`, `--search-field`, `--collection-filters`, `--slider` and `--tabs` independently; eighty
+`--selection`, `--checkbox`, `--secure-field`, `--search-field`, `--collection-filters`, `--slider`, `--tabs` and `--pagination` independently; eighty-eight
 window/full-output pairs cover them.
 The catalog galleries are `--fixture foundations`, `surfaces`, `data-display`,
-`controls`, `composition`, `selection`, `checkbox`, `secure-field`, `search-field`, `collection-filters`, `slider` and `tabs`; their native
+`controls`, `composition`, `selection`, `checkbox`, `secure-field`, `search-field`, `collection-filters`, `slider`, `tabs` and `pagination`; their native
 comparisons remain pending.
 
 The selector's open `Popup.Item` and scrollbars remain
@@ -151,3 +151,9 @@ input/value interfaces, partial intervals, decimal endpoints and bounded dense
 ticks. Source keyboard equivalence remains explicitly pending.
 
 The [Tabs fixture](tabs.md) checks shared caller selection, later external updates, disabled traversal and typed IDs. `--fixture tabs` renders the gallery; `InstalledConsumer --tabs` exercises the installed module. Proposed source captures remain separate from accepted references.
+
+The [pagination and icon-button contract](pagination.md) adds `--fixture pagination` and an independent `--pagination` consumer. It preserves caller requests, external page/count updates and localized integer grouping. The source's inherited primary color is measured; symbols remain original pending equivalents.
+
+The catalog links Qt 6.8.3 Test for held pointer captures. It verifies the pressed
+state before capture and one activation after release. This is a catalog/tooling
+dependency; the Avelino library does not link Qt Test.

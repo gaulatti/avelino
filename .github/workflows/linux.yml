@@ -102,7 +102,7 @@ jobs:
       fail-fast: false
       matrix:
         source-runner: [ubuntu-24.04, ubuntu-24.04-arm]
-        reference-group: [desktop, composition, selectors, checkbox, secure-field, search-field, collection-filters, slider, tabs]
+        reference-group: [desktop, composition, selectors, checkbox, secure-field, search-field, collection-filters, slider, tabs, pagination]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -131,7 +131,8 @@ jobs:
                          'search-field': ('search-field-proposals', 'search-field-20261014'),
                          'collection-filters': ('collection-filters-proposals', 'collection-filters-20261014'),
                          'slider': ('slider-proposals', 'slider-20261014-v2'),
-                         'tabs': ('tabs-proposals', 'tabs-20261014')}
+                         'tabs': ('tabs-proposals', 'tabs-20261014'),
+                         'pagination': ('pagination-proposals', 'pagination-20261014')}
           capture_directory, reference_directory = directories[group]
           captures = Path('artifacts/candidate') / capture_directory
           reference = Path('evidence/reference-proposals') / reference_directory

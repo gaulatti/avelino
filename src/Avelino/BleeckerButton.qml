@@ -4,6 +4,8 @@ import QtQuick.Templates as T
 FocusScope {
     id: control
     property alias text: nativeButton.text
+    property string accessibleName: text
+    readonly property Item inputItem: nativeButton
     property alias font: nativeButton.font
     property alias background: nativeButton.background
     property alias contentItem: nativeButton.contentItem
@@ -51,7 +53,7 @@ FocusScope {
         font.weight: Font.Medium
         leftPadding: control.leftPadding
         rightPadding: control.rightPadding
-        Accessible.name: text
+        Accessible.name: control.accessibleName
         Accessible.description: control.loading ? qsTr("Loading") : ""
         onClicked: control.clicked()
         contentItem: Item {

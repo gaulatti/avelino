@@ -38,3 +38,5 @@ implementation/comparison work still pending:
 
 Neither proposal is approved or applied to an accepted fixture. Affected entries
 remain pending while work continues on components using distributable source assets.
+
+[Icon buttons and pagination](pagination.md) use a required caller Component icon slot in place of SF Symbol lookup. Pagination owns original left/right chevron candidates. This is a documented API adapter, with no approved symbol exception; dynamic SF Symbol coverage, exact artwork, source keyboard/focus and larger source integer values remain pending.

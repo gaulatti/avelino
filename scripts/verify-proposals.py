@@ -26,9 +26,10 @@ SCOPED_APIS = {"desktop-composition": COMPOSITION_APIS,
     "desktop-search-field": {"BleeckerButton", "BleeckerTextField", "BleeckerSearchField"},
     "desktop-collection-filters": {"BleeckerButton", "BleeckerFilterChip", "BleeckerCollectionFilters"},
     "desktop-slider": {"BleeckerButton", "BleeckerSlider"},
-    "desktop-tabs": {"BleeckerButton", "BleeckerSegmentedControl", "BleeckerTabs"}}
+    "desktop-tabs": {"BleeckerButton", "BleeckerSegmentedControl", "BleeckerTabs"},
+    "desktop-pagination": {"BleeckerButton", "BleeckerIconButton", "BleeckerPagination"}}
 
-SCOPED_CONTRACT_AXES = {"desktop-checkbox": {"BleeckerCheckbox": {"size": "BleeckerControlSize"}}}
+SCOPED_CONTRACT_AXES = {"desktop-pagination": {"BleeckerIconButton": {"size":"BleeckerIconButtonSize", "variant":"BleeckerIconButtonVariant"}}, "desktop-checkbox": {"BleeckerCheckbox": {"size": "BleeckerControlSize"}}}
 
 
 def verify(directory):
@@ -56,7 +57,7 @@ def verify(directory):
         assert scoped in SCOPED_APIS and manifest.get("scope") == scoped
         message = {"desktop-composition": "Missing composition API", "desktop-selectors": "Missing selector API",
             "desktop-checkbox": "Missing checkbox API", "desktop-secure-field": "Missing secure-field API",
-            "desktop-search-field": "Missing search-field API", "desktop-collection-filters": "Missing collection-filter API", "desktop-slider": "Missing slider API", "desktop-tabs": "Missing tabs API"}[scoped]
+            "desktop-search-field": "Missing search-field API", "desktop-collection-filters": "Missing collection-filter API", "desktop-slider": "Missing slider API", "desktop-tabs": "Missing tabs API", "desktop-pagination": "Missing pagination API"}[scoped]
         assert {case["api"] for case in captures} == SCOPED_APIS[scoped], message
     keys = set()
     for case in captures:
@@ -154,6 +155,35 @@ def verify(directory):
             assert case.get("sourceSelectionAfterAction") == expected, "Invalid source tab selection"
             assert case.get("sourceActivations") == int(variant in {"activated", "reselected", "external"}), "Invalid source tab activation count"
             assert case["resolvedLabelFonts"]["segmentExpression"]["postScriptName"] == "EncodeSans-Md", "Invalid source tab font"
+    if scoped == "desktop-pagination":
+        assert manifest.get("sourceKeyboardStatus", "").startswith("pending;"), "Source pagination keyboard gate cannot be self-approved"
+        icons = [c for c in captures if c["api"] == "BleeckerIconButton"]
+        for size, variant in itertools.product(["sm", "md", "lg"], ["default", "subtle", "ghost"]):
+            rows = [c for c in icons if c["size"] == size and c["variant"] == variant]
+            assert {(symbol, flag) for symbol in ["chevron.left", "chevron.right"] for flag in [False, True]} <= {(c["text"], c["flag"]) for c in rows if c["sourceAction"] == "none"}, "Missing icon state combinations"
+            assert {"clicked", "disabled-click", "pressed"} <= {c["sourceAction"] for c in rows}, "Missing icon action cases"
+        required = {"first", "middle", "last", "single", "zero-count", "negative-count", "below-first", "above-last", "empty-count", "long", "narrow", "wide", "rtl", "disabled", "previous", "next", "lower-bound", "upper-bound", "disabled-action", "no-handler", "external", "shrink-count", "below-first-next", "above-last-prev"}
+        assert required <= {f["variant"] for f in fixtures if f["api"] == "BleeckerPagination"}, "Missing pagination state combinations"
+        for case in captures:
+            if case["api"] == "BleeckerButton": continue
+            action = case["sourceAction"]
+            if case["api"] == "BleeckerIconButton":
+                assert action in {"none", "clicked", "disabled-click", "pressed"}, "Unknown icon action"
+                assert case["sourceActivations"] == int(action == "clicked"), "Invalid source icon callback count"
+                assert case["flag"] is (action == "disabled-click") or action == "none", "Invalid disabled icon action"
+                width,height = {"sm":(32,28),"md":(44,36),"lg":(56,40)}[case["size"]]
+                assert case["componentSize"] == {"width":width,"height":height}, "Invalid source icon bounds"
+                continue
+            page,count = int(case["text"]),int(case["value"])
+            rejected = action in {"none", "lower-bound", "upper-bound", "disabled-action"}
+            previous = action in {"previous", "lower-bound", "above-last-prev"}
+            request = None if rejected else max(1,page-1) if previous else min(count,page+1)
+            expected = 7 if action == "external" else page if rejected or action == "no-handler" else request
+            assert case.get("sourceActivations") == int(not rejected), "Invalid source page callback count"
+            assert case.get("sourceRequestedPage") == request, "Invalid source requested page"
+            assert case.get("sourcePageAfterAction") == expected, "Invalid source caller page"
+            assert case.get("sourcePageCountAfterAction") == (3 if action == "shrink-count" else count), "Invalid source page count"
+            assert case["resolvedLabelFonts"]["sourceExpression"]["pointSize"] == 12, "Invalid source pagination label font"
     discovery = json.loads((ROOT / "reference/api-discovery.json").read_text())["desktop"]
     declarations = {d["name"]: d for d in discovery["declarations"]}
     for api, axes in {**CONTRACT_AXES, **SCOPED_CONTRACT_AXES.get(scoped, {})}.items():

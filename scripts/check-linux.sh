@@ -32,6 +32,7 @@ cmake --install build/linux --prefix "$stage/install"
 cmp assets/secure-field-symbols.json "$stage/install/share/avelino/secure-field-symbols.json"
 cmp assets/search-field-symbols.json "$stage/install/share/avelino/search-field-symbols.json"
 cmp assets/filter-chip-symbols.json "$stage/install/share/avelino/filter-chip-symbols.json"
+cmp assets/navigation-symbols.json "$stage/install/share/avelino/navigation-symbols.json"
 cp -R tests/consumer "$stage/consumer"
 cmake -S "$stage/consumer" -B "$stage/build" -G Ninja -DCMAKE_PREFIX_PATH="$stage/install;/opt/qt"
 cmake --build "$stage/build" --parallel 2
@@ -45,6 +46,7 @@ cmake --build "$stage/build" --parallel 2
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --collection-filters)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --slider)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --tabs)
+(cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --pagination)
 mkdir -p artifacts
 # Always publish the already-verified fresh stage. Repeated cp into an existing
 # directory nests the consumer and leaves obsolete source/install files behind.
@@ -57,7 +59,7 @@ cp artifacts/linux/environment.json artifacts/package/environment.json
 mkdir -p artifacts/linux
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --capture artifacts/linux/actions-light.png
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --dark --capture artifacts/linux/actions-dark.png
-for fixture in foundations surfaces data-display controls composition selection checkbox secure-field search-field collection-filters slider tabs; do
+for fixture in foundations surfaces data-display controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination; do
 for appearance in light dark; do
   for dpr in 1 2; do
     args=(--fixture "$fixture")
@@ -138,3 +140,10 @@ QML_IMPORT_PATH="$PWD/build/linux/qml" python3 scripts/capture-proposals.py \
   --output "$stage/tabs-proposals"
 if [[ -e artifacts/linux/tabs-proposals ]]; then mv artifacts/linux/tabs-proposals "$stage/previous-tabs-proposals"; fi
 mv "$stage/tabs-proposals" artifacts/linux/tabs-proposals
+
+QML_IMPORT_PATH="$PWD/build/linux/qml" python3 scripts/capture-proposals.py \
+  --catalog build/linux/samples/AvelinoCatalog/AvelinoCatalog \
+  --reference evidence/reference-proposals/pagination-20261014 \
+  --output "$stage/pagination-proposals"
+if [[ -e artifacts/linux/pagination-proposals ]]; then mv artifacts/linux/pagination-proposals "$stage/previous-pagination-proposals"; fi
+mv "$stage/pagination-proposals" artifacts/linux/pagination-proposals

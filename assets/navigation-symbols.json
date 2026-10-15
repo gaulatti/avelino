@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "status": "original geometric candidates; source equivalence and distribution acceptance pending",
+  "implementation": "src/Avelino/NavigationGlyph.qml",
+  "origin": "original Canvas chevron paths authored for Avelino; no Apple artwork or font bytes",
+  "repositoryLicense": "not yet declared",
+  "referenceRevision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+  "symbols": [
+    {
+      "sourceSymbol": "chevron.left",
+      "sourceRole": "BleeckerPagination previous-page icon; medium button font in a 16-unit frame",
+      "candidate": "left",
+      "comparison": null,
+      "exception": null
+    },
+    {
+      "sourceSymbol": "chevron.right",
+      "sourceRole": "BleeckerPagination next-page icon; medium button font in a 16-unit frame",
+      "candidate": "right",
+      "comparison": null,
+      "exception": null
+    }
+  ],
+  "dynamicInputs": {
+    "BleeckerIconButton.systemImage": "Linux accepts a required caller-owned Component slot; SF Symbol lookup is not provided. Source dynamic-symbol equivalence remains pending."
+  },
+  "fixtureImplementation": "tests/consumer/NavigationIcon.qml",
+  "geometryRationale": "Original normalized chevron paths sized from the pinned enabled ghost icon bounds and coverage; exact symbol shape/rasterization remains pending."
+}

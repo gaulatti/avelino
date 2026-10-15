@@ -524,3 +524,33 @@ No backend, metrics, configuration or TV behavior changes. Previous `a090ab2`
 architecture build/runtime/package jobs while all strict visual jobs failed;
 [References CI](https://github.com/gaulatti/avelino/actions/runs/38655571956) passed.
 Those remote results are separate from this checkpoint's local evidence.
+
+## Icon buttons and caller-owned pagination
+
+The [pagination checkpoint](../evidence/development/pagination/candidate.json)
+adds the source's three icon sizes/variants and previous/next page controls.
+Icon frames map to the existing owned button style; accessibility names reach
+the actual Qt template inputs. Pagination emits requests and leaves page state
+to the caller. Source boundary formulas, zero/negative counts, out-of-range pages,
+external updates, localized integer grouping, constrained/wide and RTL layouts
+are exercised. The inherited primary color is measured separately from the
+Bleecker palette. The page label exposes a real Qt static-text interface.
+
+The native matrix has 556/556 matching root bounds, all 152 matching child body measurements, and 0/556 exact images.
+All final page/count/request/callback states match. The source helper replayed
+557 files exactly. Held pointer events retain down state through all 36 snapshots
+and produce one callback after release; source keyboard/focus remains pending.
+Original chevrons have independent bounds/coverage diagnostics, with no approved
+substitution. Qt int's narrower range remains an explicit incomplete source gate.
+
+All 3,056 Qt checks, 56 contracts, three invalid-startup cases, eleven
+installed offscreen modes and 88 package-only virtual-session pairs pass. All
+2,034 earlier PNG/full metadata pairs and host-style gallery PNGs are unchanged.
+Coverage is 42/80 desktop APIs started, none accepted; all 46 TV entries stay
+pending. No backend, metrics, configuration or TV behavior changes.
+
+The public wiki is unavailable; this checkpoint updates in-repository docs.
+Previous `c50af93` [Linux CI](https://github.com/gaulatti/avelino/actions/runs/38659598871)
+passed x64/ARM build/runtime/package jobs and failed all twenty strict visual
+jobs; [References CI](https://github.com/gaulatti/avelino/actions/runs/38659598840)
+passed. Those results remain separate from this checkpoint's local evidence.

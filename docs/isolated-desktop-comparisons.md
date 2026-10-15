@@ -211,3 +211,13 @@ local own-window pointer DPR 2 captures remain separate. The helper replayed all
 241 files exactly. The comparator checks actual caller state after activation,
 reselection, disabled rejection and a later external update. Strict appearance,
 source keyboard/focus, physical input/display and screen-reader gates stay open.
+
+The [pagination/icon proposal](../evidence/reference-proposals/pagination-20261014/proposal.json)
+and [candidate](../evidence/development/pagination/candidate.json) add 556 comparisons:
+556/556 matching root bounds and 0/556 exact images. Actual final caller page/count, request and callback counts match.
+The page remains caller-owned, including ignored requests and external updates.
+Long labels retain source `en_US` integer grouping. All 557 native output files
+replayed byte-for-byte. Thirty-six held-press cases check down state at capture
+and one callback after release. The 48 enabled ghost-symbol measurements and
+152 matching child body measurements remain diagnostic; root bounds cannot
+close those gates. No glyph substitution, expected image or tolerance is approved.

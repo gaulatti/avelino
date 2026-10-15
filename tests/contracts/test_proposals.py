@@ -313,3 +313,34 @@ class TabsProposalIntegrity(unittest.TestCase):
         self.remove_cases_with_updated_checksums(lambda c: c['api'] == 'BleeckerTabs')
         with self.assertRaisesRegex(AssertionError, 'Missing tabs API'):
             verifier.verify(self.directory)
+
+
+class PaginationProposalIntegrity(unittest.TestCase):
+    remove_cases_with_updated_checksums = CheckboxProposalIntegrity.remove_cases_with_updated_checksums
+    change_manifest = SliderProposalIntegrity.change_manifest
+
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.directory = Path(self.temp.name) / 'proposal'
+        shutil.copytree(ROOT / 'evidence/reference-proposals/pagination-20261014', self.directory)
+
+    def test_scope_cannot_drop_icon_button(self):
+        self.remove_cases_with_updated_checksums(lambda c: c['api'] == 'BleeckerIconButton')
+        with self.assertRaisesRegex(AssertionError, 'Missing pagination API'):
+            verifier.verify(self.directory)
+
+    def test_pressed_icons_cannot_be_omitted(self):
+        self.remove_cases_with_updated_checksums(lambda c: c.get('sourceAction') == 'pressed')
+        with self.assertRaisesRegex(AssertionError, 'Missing icon action cases'):
+            verifier.verify(self.directory)
+
+    def test_caller_ownership_cannot_be_falsified(self):
+        self.change_manifest(lambda m: next(c for c in m['captures'] if c.get('sourceAction') == 'no-handler').update(sourcePageAfterAction=5))
+        with self.assertRaisesRegex(AssertionError, 'Invalid source caller page'):
+            verifier.verify(self.directory)
+
+    def test_zero_count_cannot_be_silently_repaired(self):
+        self.change_manifest(lambda m: next(c for c in m['captures'] if c['variant'] == 'zero-count').update(sourcePageCountAfterAction=1))
+        with self.assertRaisesRegex(AssertionError, 'Invalid source page count'):
+            verifier.verify(self.directory)

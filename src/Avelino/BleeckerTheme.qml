@@ -8,8 +8,10 @@ QtObject {
     readonly property var palette: dark ? BleeckerTokens.colors.dark : BleeckerTokens.colors.light
     readonly property string primaryFont: BleeckerFonts.primary
     readonly property string secondaryFont: BleeckerFonts.secondary
+    // Resolved source Color.primary; native editors use the same text color.
+    readonly property color nativeTextPrimary: Qt.rgba(dark ? 1 : 0, dark ? 1 : 0, dark ? 1 : 0, 216/255)
     // Resolved native editor colors from the pinned secure-field fixture.
-    readonly property color nativeEditorText: Qt.rgba(dark ? 1 : 0, dark ? 1 : 0, dark ? 1 : 0, 216/255)
+    readonly property color nativeEditorText: nativeTextPrimary
     readonly property color nativeEditorPlaceholder: Qt.rgba(dark ? 1 : 0, dark ? 1 : 0, dark ? 1 : 0, (dark ? 140 : 127)/255)
     readonly property color nativeEditorDisabledText: Qt.rgba(dark ? 1 : 0, dark ? 1 : 0, dark ? 1 : 0, 63/255)
     // Owned Linux presentation of the pinned source slider's system surfaces.

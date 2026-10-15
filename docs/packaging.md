@@ -26,12 +26,12 @@ Weston Wayland compositor nested on it. It saves whole-output and window capture
 for software/OpenGL rendering at two display/text scales. Source and build trees
 remain absent. Metadata explicitly identifies virtual displays, Mesa software
 rendering, synthetic input, and the still-pending overlay/accessibility checks.
-The harness runs ten independent windows in each configuration: the base library
+The harness runs eleven independent windows in each configuration: the base library
 fixture, `InstalledConsumer --controls`, `InstalledConsumer --composition` and
 `InstalledConsumer --selection`, `InstalledConsumer --checkbox` and
 `InstalledConsumer --secure-field`, `InstalledConsumer --search-field` and
-`InstalledConsumer --collection-filters`, `InstalledConsumer --slider` and `InstalledConsumer --tabs`.
-Their eighty capture pairs keep
+`InstalledConsumer --collection-filters`, `InstalledConsumer --slider`, `InstalledConsumer --tabs` and `InstalledConsumer --pagination`.
+Their eighty-eight capture pairs keep
 form editing, scrolling, switch/toggle actions, disabled segmented options and
 focus restoration separate from the base composition checks. The controls fixture
 exercises the multiline editor's owned scrollbar. The selector fixture exercises
@@ -77,3 +77,14 @@ intervals, dense ticks and continued editing are included. Native source keyboar
 inactive presentation and real screen-reader acceptance remain separate.
 
 The Tabs fixture verifies shared caller bindings across both wrappers after pointer, keyboard and Qt accessibility actions; disabled options/groups, numeric IDs, RTL, wrapping and continued editing are exercised. Screen-reader output and source keyboard equivalence remain pending.
+
+The pagination window checks real Qt names/actions for both navigation buttons, disabled rejection, caller-owned requests, external updates, locale grouping, narrow/RTL layout and continued editing. Icon slots remain caller-owned; the package installs `navigation-symbols.json` with the original-chevron provenance.
+
+The independent library consumer and the installed catalog have separate startup
+boundaries. A package-only `install/bin/AvelinoCatalog --fixture pagination`
+probe currently fails with `module "Avelino" is not installed`: the executable
+does not add its installed QML import directory. Catalog relocation/startup
+remains an open packaging gate despite the passing library consumer. The
+[pagination evidence](../evidence/development/pagination/candidate.json) retains
+that failed probe; the next packaging change must verify source/build trees and
+`QML_IMPORT_PATH` are absent while launching the installed catalog.
