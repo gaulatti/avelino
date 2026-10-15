@@ -1,0 +1,2355 @@
+{
+  "schemaVersion": 1,
+  "referenceRevision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+  "status": "measured source wrapping; exact rasterization and complete component acceptance remain pending",
+  "provenance": {
+    "referenceRevision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+    "referenceArchiveSha256": "d22df4c84f32dc52562476c0c938cee0a473ea68e4cd8f07fd26e724850605c5",
+    "compiledReferenceOrigin": "5945fc3f70a9046bc14779e9870b4a654b0c144644a36ce59cb2c1a268d0217a",
+    "environment": {
+      "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0\nBuildVersion:\t\t26A428",
+      "xcode": "Xcode 27.0\nBuild version 27A266a",
+      "compiler": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0",
+      "sdk": "27.0",
+      "referenceRevision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+      "sourceArchiveSha256": "d22df4c84f32dc52562476c0c938cee0a473ea68e4cd8f07fd26e724850605c5",
+      "capturePreparationRevision": "bcf8d4bcc476aa06cec79300bc5325b97df74ee8",
+      "buildMethod": "Helper recompilation against preserved Sabella.o/module from prior source-verified pinned build; no new full source compilation",
+      "compiledReferenceOrigin": "5945fc3f70a9046bc14779e9870b4a654b0c144644a36ce59cb2c1a268d0217a"
+    },
+    "toolArtifact": {
+      "locator": "../avelino-reference-vault/candidates/wrapping-probe-20261014-bcf8d4bc/native-wrapping-replay.tar.gz",
+      "sha256": "a58c288f9348d64ef391fef2727c05aad51b650a3be9fd8983311549abbf39a4",
+      "files": {
+        "cached-reference/Sabella.o": "c9802e76f7138180958e07841d23bacae7c6b8e386290547b821c8a370f38282",
+        "cached-reference/Sabella.swiftmodule/Project/arm64-apple-macos.swiftsourceinfo": "99c502425de2ef5b78fb582114d39fbb8acf5beab83d8ce3cf56acd7b9815550",
+        "cached-reference/Sabella.swiftmodule/arm64-apple-macos.abi.json": "4277ac6b49f8511196028a5ac20f5b1b1dfa754c24615d34068089f0b1739728",
+        "cached-reference/Sabella.swiftmodule/arm64-apple-macos.swiftdoc": "ce222ca8bb15e8ff0e1984aef0e1c8f7a61fd15b2daae06e29f39122e158a355",
+        "cached-reference/Sabella.swiftmodule/arm64-apple-macos.swiftmodule": "475e75adc0cf8fa8684b78e970e7e19542c9f2ea98061559dec362bef47a28e3",
+        "cached-reference/Sabella_Sabella.bundle/Contents/Info.plist": "bb271a2bb9f209500e8eaf030e4f7f00196d49b53cf3e7287a4e51927314cd37",
+        "cached-reference/Sabella_Sabella.bundle/Contents/Resources/Assets.car": "c41dacfa396221c99807f4e187858eabceb66ec6053260208927a5553243ed2f",
+        "cached-reference/Sabella_Sabella.bundle/Contents/Resources/Fonts/EncodeSans-Black.ttf": "eb0d5153cadc5d71f6563da7e6b32757e1a1062fc508c981cd8b9aa97073ebc0",
+        "cached-reference/Sabella_Sabella.bundle/Contents/Resources/Fonts/EncodeSans-Bold.ttf": "b6f0d04888140d10006fbeeebc194d33f28fdb50ece52ff16f6e4f952d2ccc85",
+        "cached-reference/Sabella_Sabella.bundle/Contents/Resources/Fonts/EncodeSans-ExtraBold.ttf": "5165a64478506a1939f1aecc907406012418524d9b16e178e43c7e3343078924",
+        "cached-reference/Sabella_Sabella.bundle/Contents/Resources/Fonts/EncodeSans-ExtraLight.ttf": "9f56c1767e8619572c60a6b4eda16fcc727a83586c794fe58b4c58f3b698a38d",
+        "cached-reference/Sabella_Sabella.bundle/Contents/Resources/Fonts/EncodeSans-Light.ttf": "3f1992cfbff24c8d928c38c603af7b26c544ae328201a25bce5f56b1cd1d2cbd",
+        "cached-reference/Sabella_Sabella.bundle/Contents/Resources/Fonts/EncodeSans-Medium.ttf": "40a222af6b6dcd6940866415df454f2e27e798f5dc16539d72c67449c0eeca98",
+        "cached-reference/Sabella_Sabella.bundle/Contents/Resources/Fonts/EncodeSans-Regular.ttf": "756006a45004ac1fe39ed907c7d71d1c721524d4b1c87ed0a479cb913aeba182",
+        "cached-reference/Sabella_Sabella.bundle/Contents/Resources/Fonts/EncodeSans-SemiBold.ttf": "9972f69621823bdd3c67738c02c813c8a52067871e92e467880cb2fa0a47ced5",
+        "cached-reference/Sabella_Sabella.bundle/Contents/Resources/Fonts/EncodeSans-Thin.ttf": "b152696686ef5a05df7ad975ab044b2632bfd12a20265533d94cf79ed1fa9ffa",
+        "cached-reference/Sabella_Sabella.bundle/Contents/Resources/Fonts/LibreFranklin-Black.ttf": "ed426c38ba0c58ad27e70d59bef4239a2fe6149f79cc62afd6b28f9e6eec1101",
+        "cached-reference/Sabella_Sabella.bundle/Contents/Resources/Fonts/LibreFranklin-Bold.ttf": "3134a143a2a801a0e80198ea03cd7cc99066bcaeeaaecda758e852725c225303",
+        "cached-reference/Sabella_Sabella.bundle/Contents/Resources/Fonts/LibreFranklin-ExtraBold.ttf": "e14e48d8c0ad279318b6fbbc172d0ffee57af2e66db088eb4e0e43ff66a5e2e6",
+        "cached-reference/Sabella_Sabella.bundle/Contents/Resources/Fonts/LibreFranklin-ExtraLight.ttf": "aeb60b86b0e2aca2a2ef41731c5f80ad2128beeb65235ab8fe2f8988080265f6",
+        "cached-reference/Sabella_Sabella.bundle/Contents/Resources/Fonts/LibreFranklin-Light.ttf": "07c06ab5ec2e102d4e93d8fa17d71233112a9ef9a0d8b9cd0f9dd0fa8e367e1d",
+        "cached-reference/Sabella_Sabella.bundle/Contents/Resources/Fonts/LibreFranklin-Medium.ttf": "72b6de5d4dd950a17e28b5ac3d459ec5291b9039c985c6089763facbc96d91a9",
+        "cached-reference/Sabella_Sabella.bundle/Contents/Resources/Fonts/LibreFranklin-Regular.ttf": "01e26222a56e141e3abae670ab22be77f063999fc4ef64c4a9651de19b7728a8",
+        "cached-reference/Sabella_Sabella.bundle/Contents/Resources/Fonts/LibreFranklin-SemiBold.ttf": "d9bc4e45291495f350d0653e3250cfadfe2fd2f3f166c6f6ee2d68cab7fc9692",
+        "cached-reference/Sabella_Sabella.bundle/Contents/Resources/Fonts/LibreFranklin-Thin.ttf": "6f30fb3bdd7818a387dee382183b955b1fd22e4d5fdf48763959adcb0d0c3e97",
+        "cached-reference/Sabella_Sabella.bundle/Contents/Resources/Fonts/OFL-EncodeSans.txt": "b47f4d635e8c592a37e98f751627cad0a81694c56aecc603b33819a908ea9625",
+        "cached-reference/Sabella_Sabella.bundle/Contents/Resources/Fonts/OFL-LibreFranklin.txt": "2710268527181a27b8e938617551bae29e714e6525247be6679bf897a9942a60",
+        "cached-reference/Sabella_Sabella.bundle/Contents/Resources/Fonts/README.md": "8fc3e57cc9bfe4ecd99169d08ac634a9185d1bf4e7d7013d07025bdb0ec57c03",
+        "cached-reference/Sabella_Sabella.bundle/Contents/_CodeSignature/CodeDirectory": "f8edd78225f9dc1de89cebe3344c5501c44f0dfc790622b0cb2a61aca3d5b7ba",
+        "cached-reference/Sabella_Sabella.bundle/Contents/_CodeSignature/CodeRequirements": "987920904eab650e75788c054aa0b0524e6a80bfc71aa32df8d237a61743f986",
+        "cached-reference/Sabella_Sabella.bundle/Contents/_CodeSignature/CodeResources": "8d2b44b4db545a43f4ccfcec72bd3d1849f99abfadeeba4bb641143a773ec00c",
+        "cached-reference/Sabella_Sabella.bundle/Contents/_CodeSignature/CodeSignature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "tool/Sources/NativeCapture/main.swift": "240524f842cd3b95118701634db5ea678f45f3cf1033a12c0b6ad5438d786182",
+        "tool/build-capture.py": "2d01eb433eccc239bba6ff4f5cbbd22e49dc05745902180ff90ffbc17561d3ca",
+        "toolchain.json": "ea35992de75a94def3353bb154427392c6477442f8a37d298b12a785873884cb"
+      }
+    },
+    "limitations": [
+      "Direct pinned source text/font expressions; no accepted expected capture update.",
+      "Helper recompilation uses preserved source-verified objects; not a fresh full Sabella compilation.",
+      "Offscreen text metrics do not establish physical display/input, glyph fallback, reader or exact rasterization acceptance."
+    ],
+    "replay": {
+      "filesCompared": 121,
+      "byteIdenticalFiles": 121,
+      "changedFiles": [],
+      "method": "clean extraction, input hash verification and helper recompilation against preserved pinned source objects; offscreen Text expressions only"
+    }
+  },
+  "cases": [
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 180,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 321.05400000000003,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 32,
+      "path": "text0-width32.0-dpr1.0.png",
+      "text": "Page 9,223,372,036,854,775,806 of 9,223,372,036,854,775,807",
+      "width": 31,
+      "sha256": "871fe079279698c01050759c4bce78c22a13fc0c15d24148aa9d103ff35eb60e"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 180,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 321.05400000000003,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 32,
+      "path": "text0-width32.0-dpr2.0.png",
+      "text": "Page 9,223,372,036,854,775,806 of 9,223,372,036,854,775,807",
+      "width": 30.5,
+      "sha256": "e8a32cd673f7e99d044f4bda4c6d717aaaabe43ec37838511e3a427e8774d5c3"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 75,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 321.05400000000003,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 100,
+      "path": "text0-width100.0-dpr1.0.png",
+      "text": "Page 9,223,372,036,854,775,806 of 9,223,372,036,854,775,807",
+      "width": 97,
+      "sha256": "0e2fa3725b4f3fdc63e2765fdcfc53645eb48fb58bc6abe06d8d159d75bd2f9f"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 75,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 321.05400000000003,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 100,
+      "path": "text0-width100.0-dpr2.0.png",
+      "text": "Page 9,223,372,036,854,775,806 of 9,223,372,036,854,775,807",
+      "width": 96.5,
+      "sha256": "3f831a5b151399521be29e11acbd4cbd686000ab8d8f9cd6bdcda221c530ccbc"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 75,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 321.05400000000003,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 132,
+      "path": "text0-width132.0-dpr1.0.png",
+      "text": "Page 9,223,372,036,854,775,806 of 9,223,372,036,854,775,807",
+      "width": 132,
+      "sha256": "46b84bdcf0a590bf116a6f71e24f539c52f9bb34db8caeb56dadca3e09d97c75"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 75,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 321.05400000000003,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 132,
+      "path": "text0-width132.0-dpr2.0.png",
+      "text": "Page 9,223,372,036,854,775,806 of 9,223,372,036,854,775,807",
+      "width": 131.5,
+      "sha256": "6f68e7eec7013f6587ebc5863c7af700e58a6687bd6a07d55654a91d46970dee"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 60,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 321.05400000000003,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 140,
+      "path": "text0-width140.0-dpr1.0.png",
+      "text": "Page 9,223,372,036,854,775,806 of 9,223,372,036,854,775,807",
+      "width": 140,
+      "sha256": "bc4e0b342618d0f2f7fa865d37d5cf6fe8493f61bfae8692d9b2eafcddb9bb34"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 60,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 321.05400000000003,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 140,
+      "path": "text0-width140.0-dpr2.0.png",
+      "text": "Page 9,223,372,036,854,775,806 of 9,223,372,036,854,775,807",
+      "width": 140,
+      "sha256": "a8990ae1b90aa72b6a8d01d1ca8ca04e0205d689b5f1cac4f100ac29a99e7687"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 45,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 321.05400000000003,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 152,
+      "path": "text0-width152.0-dpr1.0.png",
+      "text": "Page 9,223,372,036,854,775,806 of 9,223,372,036,854,775,807",
+      "width": 151,
+      "sha256": "23df4143b815b13f999ec22fd8de64b0db1a268f7a08231e2c93ffd233e9a505"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 45,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 321.05400000000003,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 152,
+      "path": "text0-width152.0-dpr2.0.png",
+      "text": "Page 9,223,372,036,854,775,806 of 9,223,372,036,854,775,807",
+      "width": 151,
+      "sha256": "61381164706fa2306068bc455f9b15f4a2663eee7e05b624637ee6ce34964439"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 45,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 321.05400000000003,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 153,
+      "path": "text0-width153.0-dpr1.0.png",
+      "text": "Page 9,223,372,036,854,775,806 of 9,223,372,036,854,775,807",
+      "width": 153,
+      "sha256": "a79e9b2c347902c6812a504fa848210e059c248de9dd6eb04a37a8d7a2151133"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 45,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 321.05400000000003,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 153,
+      "path": "text0-width153.0-dpr2.0.png",
+      "text": "Page 9,223,372,036,854,775,806 of 9,223,372,036,854,775,807",
+      "width": 153,
+      "sha256": "74d1ba3ff317a08157ee8a75c308c9a43d1bdd1c6de18b9b674b89305423e4bb"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 45,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 321.05400000000003,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 154,
+      "path": "text0-width154.0-dpr1.0.png",
+      "text": "Page 9,223,372,036,854,775,806 of 9,223,372,036,854,775,807",
+      "width": 154,
+      "sha256": "f4e6c5a939ca543b85144f1867e4c0dae641a6732fabad4f452f9b4cdc0e5bb6"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 45,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 321.05400000000003,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 154,
+      "path": "text0-width154.0-dpr2.0.png",
+      "text": "Page 9,223,372,036,854,775,806 of 9,223,372,036,854,775,807",
+      "width": 154,
+      "sha256": "71a771c6024d8a10eec0948ace5f8b9ae6247089f53a4ef558866e039f47118c"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 45,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 321.05400000000003,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 155,
+      "path": "text0-width155.0-dpr1.0.png",
+      "text": "Page 9,223,372,036,854,775,806 of 9,223,372,036,854,775,807",
+      "width": 155,
+      "sha256": "f4e6c5a939ca543b85144f1867e4c0dae641a6732fabad4f452f9b4cdc0e5bb6"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 45,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 321.05400000000003,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 155,
+      "path": "text0-width155.0-dpr2.0.png",
+      "text": "Page 9,223,372,036,854,775,806 of 9,223,372,036,854,775,807",
+      "width": 155,
+      "sha256": "ad62ed414934cba1882ea96e09fdf81f4ba6a7042c15c4126d0d75b0719a8306"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 45,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 321.05400000000003,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 156,
+      "path": "text0-width156.0-dpr1.0.png",
+      "text": "Page 9,223,372,036,854,775,806 of 9,223,372,036,854,775,807",
+      "width": 156,
+      "sha256": "e1013acb9831206b0a747c2c53a8eaeed0ddce9cfc9afce72586c82106e63385"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 45,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 321.05400000000003,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 156,
+      "path": "text0-width156.0-dpr2.0.png",
+      "text": "Page 9,223,372,036,854,775,806 of 9,223,372,036,854,775,807",
+      "width": 155.5,
+      "sha256": "ad62ed414934cba1882ea96e09fdf81f4ba6a7042c15c4126d0d75b0719a8306"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 45,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 321.05400000000003,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 157,
+      "path": "text0-width157.0-dpr1.0.png",
+      "text": "Page 9,223,372,036,854,775,806 of 9,223,372,036,854,775,807",
+      "width": 156,
+      "sha256": "e1013acb9831206b0a747c2c53a8eaeed0ddce9cfc9afce72586c82106e63385"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 45,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 321.05400000000003,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 157,
+      "path": "text0-width157.0-dpr2.0.png",
+      "text": "Page 9,223,372,036,854,775,806 of 9,223,372,036,854,775,807",
+      "width": 155.5,
+      "sha256": "ad62ed414934cba1882ea96e09fdf81f4ba6a7042c15c4126d0d75b0719a8306"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 45,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 321.05400000000003,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 160,
+      "path": "text0-width160.0-dpr1.0.png",
+      "text": "Page 9,223,372,036,854,775,806 of 9,223,372,036,854,775,807",
+      "width": 156,
+      "sha256": "e1013acb9831206b0a747c2c53a8eaeed0ddce9cfc9afce72586c82106e63385"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 45,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 321.05400000000003,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 160,
+      "path": "text0-width160.0-dpr2.0.png",
+      "text": "Page 9,223,372,036,854,775,806 of 9,223,372,036,854,775,807",
+      "width": 155.5,
+      "sha256": "ad62ed414934cba1882ea96e09fdf81f4ba6a7042c15c4126d0d75b0719a8306"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 321.05400000000003,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 260,
+      "path": "text0-width260.0-dpr1.0.png",
+      "text": "Page 9,223,372,036,854,775,806 of 9,223,372,036,854,775,807",
+      "width": 185,
+      "sha256": "3bdad2705ed58816ddaaf2dcda5c42a2aec32af3f2fdedf79c05764b0464bb7f"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 321.05400000000003,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 260,
+      "path": "text0-width260.0-dpr2.0.png",
+      "text": "Page 9,223,372,036,854,775,806 of 9,223,372,036,854,775,807",
+      "width": 184.5,
+      "sha256": "b13501e18c85dcf67d5b3bd348df9550e2ba03a01631c3a116d18c52b7237507"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 60.53399999999999,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 32,
+      "path": "text1-width32.0-dpr1.0.png",
+      "text": "Page 4 of 8",
+      "width": 32,
+      "sha256": "22c4a42249f581e2dfffdf13df5565de149cf8c1d09e2ad82bc1fc375e8bea8f"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 60.53399999999999,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 32,
+      "path": "text1-width32.0-dpr2.0.png",
+      "text": "Page 4 of 8",
+      "width": 31.5,
+      "sha256": "ace874f49b8b196b85fed4373fe910da1fc4293b9375e12cd4921a243c09a025"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 60.53399999999999,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 100,
+      "path": "text1-width100.0-dpr1.0.png",
+      "text": "Page 4 of 8",
+      "width": 61,
+      "sha256": "c1a0f4615c7a847c7d5b364bc7ef48d683bccb7b26bfcd33e36e342fb0d25e68"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 60.53399999999999,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 100,
+      "path": "text1-width100.0-dpr2.0.png",
+      "text": "Page 4 of 8",
+      "width": 61,
+      "sha256": "5bdc1b70e4542d977c73498cb812fa403587493740bd4b5acee3212c3aac3be4"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 60.53399999999999,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 132,
+      "path": "text1-width132.0-dpr1.0.png",
+      "text": "Page 4 of 8",
+      "width": 61,
+      "sha256": "c1a0f4615c7a847c7d5b364bc7ef48d683bccb7b26bfcd33e36e342fb0d25e68"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 60.53399999999999,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 132,
+      "path": "text1-width132.0-dpr2.0.png",
+      "text": "Page 4 of 8",
+      "width": 61,
+      "sha256": "5bdc1b70e4542d977c73498cb812fa403587493740bd4b5acee3212c3aac3be4"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 60.53399999999999,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 140,
+      "path": "text1-width140.0-dpr1.0.png",
+      "text": "Page 4 of 8",
+      "width": 61,
+      "sha256": "c1a0f4615c7a847c7d5b364bc7ef48d683bccb7b26bfcd33e36e342fb0d25e68"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 60.53399999999999,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 140,
+      "path": "text1-width140.0-dpr2.0.png",
+      "text": "Page 4 of 8",
+      "width": 61,
+      "sha256": "5bdc1b70e4542d977c73498cb812fa403587493740bd4b5acee3212c3aac3be4"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 60.53399999999999,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 152,
+      "path": "text1-width152.0-dpr1.0.png",
+      "text": "Page 4 of 8",
+      "width": 61,
+      "sha256": "c1a0f4615c7a847c7d5b364bc7ef48d683bccb7b26bfcd33e36e342fb0d25e68"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 60.53399999999999,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 152,
+      "path": "text1-width152.0-dpr2.0.png",
+      "text": "Page 4 of 8",
+      "width": 61,
+      "sha256": "5bdc1b70e4542d977c73498cb812fa403587493740bd4b5acee3212c3aac3be4"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 60.53399999999999,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 153,
+      "path": "text1-width153.0-dpr1.0.png",
+      "text": "Page 4 of 8",
+      "width": 61,
+      "sha256": "c1a0f4615c7a847c7d5b364bc7ef48d683bccb7b26bfcd33e36e342fb0d25e68"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 60.53399999999999,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 153,
+      "path": "text1-width153.0-dpr2.0.png",
+      "text": "Page 4 of 8",
+      "width": 61,
+      "sha256": "5bdc1b70e4542d977c73498cb812fa403587493740bd4b5acee3212c3aac3be4"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 60.53399999999999,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 154,
+      "path": "text1-width154.0-dpr1.0.png",
+      "text": "Page 4 of 8",
+      "width": 61,
+      "sha256": "c1a0f4615c7a847c7d5b364bc7ef48d683bccb7b26bfcd33e36e342fb0d25e68"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 60.53399999999999,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 154,
+      "path": "text1-width154.0-dpr2.0.png",
+      "text": "Page 4 of 8",
+      "width": 61,
+      "sha256": "5bdc1b70e4542d977c73498cb812fa403587493740bd4b5acee3212c3aac3be4"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 60.53399999999999,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 155,
+      "path": "text1-width155.0-dpr1.0.png",
+      "text": "Page 4 of 8",
+      "width": 61,
+      "sha256": "c1a0f4615c7a847c7d5b364bc7ef48d683bccb7b26bfcd33e36e342fb0d25e68"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 60.53399999999999,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 155,
+      "path": "text1-width155.0-dpr2.0.png",
+      "text": "Page 4 of 8",
+      "width": 61,
+      "sha256": "5bdc1b70e4542d977c73498cb812fa403587493740bd4b5acee3212c3aac3be4"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 60.53399999999999,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 156,
+      "path": "text1-width156.0-dpr1.0.png",
+      "text": "Page 4 of 8",
+      "width": 61,
+      "sha256": "c1a0f4615c7a847c7d5b364bc7ef48d683bccb7b26bfcd33e36e342fb0d25e68"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 60.53399999999999,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 156,
+      "path": "text1-width156.0-dpr2.0.png",
+      "text": "Page 4 of 8",
+      "width": 61,
+      "sha256": "5bdc1b70e4542d977c73498cb812fa403587493740bd4b5acee3212c3aac3be4"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 60.53399999999999,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 157,
+      "path": "text1-width157.0-dpr1.0.png",
+      "text": "Page 4 of 8",
+      "width": 61,
+      "sha256": "c1a0f4615c7a847c7d5b364bc7ef48d683bccb7b26bfcd33e36e342fb0d25e68"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 60.53399999999999,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 157,
+      "path": "text1-width157.0-dpr2.0.png",
+      "text": "Page 4 of 8",
+      "width": 61,
+      "sha256": "5bdc1b70e4542d977c73498cb812fa403587493740bd4b5acee3212c3aac3be4"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 60.53399999999999,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 160,
+      "path": "text1-width160.0-dpr1.0.png",
+      "text": "Page 4 of 8",
+      "width": 61,
+      "sha256": "c1a0f4615c7a847c7d5b364bc7ef48d683bccb7b26bfcd33e36e342fb0d25e68"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 60.53399999999999,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 160,
+      "path": "text1-width160.0-dpr2.0.png",
+      "text": "Page 4 of 8",
+      "width": 61,
+      "sha256": "5bdc1b70e4542d977c73498cb812fa403587493740bd4b5acee3212c3aac3be4"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 60.53399999999999,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 260,
+      "path": "text1-width260.0-dpr1.0.png",
+      "text": "Page 4 of 8",
+      "width": 61,
+      "sha256": "c1a0f4615c7a847c7d5b364bc7ef48d683bccb7b26bfcd33e36e342fb0d25e68"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 60.53399999999999,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 260,
+      "path": "text1-width260.0-dpr2.0.png",
+      "text": "Page 4 of 8",
+      "width": 61,
+      "sha256": "5bdc1b70e4542d977c73498cb812fa403587493740bd4b5acee3212c3aac3be4"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 150,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 223.248,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 32,
+      "path": "text2-width32.0-dpr1.0.png",
+      "text": "Keep selected editions available for review",
+      "width": 31,
+      "sha256": "84356ba06e08978b1a501fbd58de5b942a88f3417361bbc3cf91a412888da23e"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 150,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 223.248,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 32,
+      "path": "text2-width32.0-dpr2.0.png",
+      "text": "Keep selected editions available for review",
+      "width": 30.5,
+      "sha256": "0b20040649cb8374cc956ea8d07c50fe85cd4800dc34d7484780bd74b073b068"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 45,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 223.248,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 100,
+      "path": "text2-width100.0-dpr1.0.png",
+      "text": "Keep selected editions available for review",
+      "width": 94,
+      "sha256": "1c2356f547093374a043b0bc070741b5cbc3024ea8ff63e3fb3c8fb958af98f3"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 45,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 223.248,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 100,
+      "path": "text2-width100.0-dpr2.0.png",
+      "text": "Keep selected editions available for review",
+      "width": 94,
+      "sha256": "aa5effdb51d04d2071f21133dca43bfdde9d55dbafb9659ad850171c5cba50a7"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 223.248,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 132,
+      "path": "text2-width132.0-dpr1.0.png",
+      "text": "Keep selected editions available for review",
+      "width": 121,
+      "sha256": "2359696b5fc7b34438a76ff24c8206a45a5c1bd5d87d429551f52cebf27dc098"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 223.248,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 132,
+      "path": "text2-width132.0-dpr2.0.png",
+      "text": "Keep selected editions available for review",
+      "width": 121,
+      "sha256": "529ab0e959a7d533ee82e6f94bbaba4f7727b865588b6e951d0c2461fc1c8ad1"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 223.248,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 140,
+      "path": "text2-width140.0-dpr1.0.png",
+      "text": "Keep selected editions available for review",
+      "width": 121,
+      "sha256": "2359696b5fc7b34438a76ff24c8206a45a5c1bd5d87d429551f52cebf27dc098"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 223.248,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 140,
+      "path": "text2-width140.0-dpr2.0.png",
+      "text": "Keep selected editions available for review",
+      "width": 121,
+      "sha256": "529ab0e959a7d533ee82e6f94bbaba4f7727b865588b6e951d0c2461fc1c8ad1"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 223.248,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 152,
+      "path": "text2-width152.0-dpr1.0.png",
+      "text": "Keep selected editions available for review",
+      "width": 121,
+      "sha256": "2359696b5fc7b34438a76ff24c8206a45a5c1bd5d87d429551f52cebf27dc098"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 223.248,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 152,
+      "path": "text2-width152.0-dpr2.0.png",
+      "text": "Keep selected editions available for review",
+      "width": 121,
+      "sha256": "529ab0e959a7d533ee82e6f94bbaba4f7727b865588b6e951d0c2461fc1c8ad1"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 223.248,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 153,
+      "path": "text2-width153.0-dpr1.0.png",
+      "text": "Keep selected editions available for review",
+      "width": 121,
+      "sha256": "2359696b5fc7b34438a76ff24c8206a45a5c1bd5d87d429551f52cebf27dc098"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 223.248,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 153,
+      "path": "text2-width153.0-dpr2.0.png",
+      "text": "Keep selected editions available for review",
+      "width": 121,
+      "sha256": "529ab0e959a7d533ee82e6f94bbaba4f7727b865588b6e951d0c2461fc1c8ad1"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 223.248,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 154,
+      "path": "text2-width154.0-dpr1.0.png",
+      "text": "Keep selected editions available for review",
+      "width": 121,
+      "sha256": "2359696b5fc7b34438a76ff24c8206a45a5c1bd5d87d429551f52cebf27dc098"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 223.248,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 154,
+      "path": "text2-width154.0-dpr2.0.png",
+      "text": "Keep selected editions available for review",
+      "width": 121,
+      "sha256": "529ab0e959a7d533ee82e6f94bbaba4f7727b865588b6e951d0c2461fc1c8ad1"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 223.248,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 155,
+      "path": "text2-width155.0-dpr1.0.png",
+      "text": "Keep selected editions available for review",
+      "width": 121,
+      "sha256": "2359696b5fc7b34438a76ff24c8206a45a5c1bd5d87d429551f52cebf27dc098"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 223.248,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 155,
+      "path": "text2-width155.0-dpr2.0.png",
+      "text": "Keep selected editions available for review",
+      "width": 121,
+      "sha256": "529ab0e959a7d533ee82e6f94bbaba4f7727b865588b6e951d0c2461fc1c8ad1"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 223.248,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 156,
+      "path": "text2-width156.0-dpr1.0.png",
+      "text": "Keep selected editions available for review",
+      "width": 121,
+      "sha256": "2359696b5fc7b34438a76ff24c8206a45a5c1bd5d87d429551f52cebf27dc098"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 223.248,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 156,
+      "path": "text2-width156.0-dpr2.0.png",
+      "text": "Keep selected editions available for review",
+      "width": 121,
+      "sha256": "529ab0e959a7d533ee82e6f94bbaba4f7727b865588b6e951d0c2461fc1c8ad1"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 223.248,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 157,
+      "path": "text2-width157.0-dpr1.0.png",
+      "text": "Keep selected editions available for review",
+      "width": 121,
+      "sha256": "2359696b5fc7b34438a76ff24c8206a45a5c1bd5d87d429551f52cebf27dc098"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 223.248,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 157,
+      "path": "text2-width157.0-dpr2.0.png",
+      "text": "Keep selected editions available for review",
+      "width": 121,
+      "sha256": "529ab0e959a7d533ee82e6f94bbaba4f7727b865588b6e951d0c2461fc1c8ad1"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 223.248,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 160,
+      "path": "text2-width160.0-dpr1.0.png",
+      "text": "Keep selected editions available for review",
+      "width": 121,
+      "sha256": "2359696b5fc7b34438a76ff24c8206a45a5c1bd5d87d429551f52cebf27dc098"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 223.248,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 160,
+      "path": "text2-width160.0-dpr2.0.png",
+      "text": "Keep selected editions available for review",
+      "width": 121,
+      "sha256": "529ab0e959a7d533ee82e6f94bbaba4f7727b865588b6e951d0c2461fc1c8ad1"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 223.248,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 260,
+      "path": "text2-width260.0-dpr1.0.png",
+      "text": "Keep selected editions available for review",
+      "width": 224,
+      "sha256": "9dd379c1fed941f0f0f63b77f14abec28d8f9440c23aff35c38d5d16a018914f"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 223.248,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 260,
+      "path": "text2-width260.0-dpr2.0.png",
+      "text": "Keep selected editions available for review",
+      "width": 223.5,
+      "sha256": "28dfd9b974e3d40f24ff4ce01af5e5adfadb49ae2b2001324afbbb03a38271bc"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 90,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 155.00400000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 32,
+      "path": "text3-width32.0-dpr1.0.png",
+      "text": "9,223,372,036,854,775,806 of ",
+      "width": 31,
+      "sha256": "ad00e7a43183091b39e594dde5927f173e9283676f68e4b436b566b59c0af020"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 90,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 155.00400000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 32,
+      "path": "text3-width32.0-dpr2.0.png",
+      "text": "9,223,372,036,854,775,806 of ",
+      "width": 30.5,
+      "sha256": "b1c13e913e00c7f0b95717aadfc533b19e02e45219d7b316be42c4bb4103da26"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 155.00400000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 100,
+      "path": "text3-width100.0-dpr1.0.png",
+      "text": "9,223,372,036,854,775,806 of ",
+      "width": 97,
+      "sha256": "499a3e4adc5d0c99bdada01c75318d73cbbb5cf7e623d0b726295f20d0330224"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 155.00400000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 100,
+      "path": "text3-width100.0-dpr2.0.png",
+      "text": "9,223,372,036,854,775,806 of ",
+      "width": 96.5,
+      "sha256": "25950dc7a5ec09142f9247f7bbf8976e56582841cee04b220d2c387366f52e56"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 155.00400000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 132,
+      "path": "text3-width132.0-dpr1.0.png",
+      "text": "9,223,372,036,854,775,806 of ",
+      "width": 132,
+      "sha256": "57c3bf35ceb0cf1fff1b1b59e580c88bb83c198067c8e31818c253b79f342dcf"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 155.00400000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 132,
+      "path": "text3-width132.0-dpr2.0.png",
+      "text": "9,223,372,036,854,775,806 of ",
+      "width": 131.5,
+      "sha256": "57028ed93ab36b34e232b313e85ee3e3acb2051e513d523f5cc247aa9d76d4b4"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 155.00400000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 140,
+      "path": "text3-width140.0-dpr1.0.png",
+      "text": "9,223,372,036,854,775,806 of ",
+      "width": 140,
+      "sha256": "26f39b968b83b3e63c5448bdf35e2ae5a72e374f5bb2f41747eb8a4b9d75a2b2"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 155.00400000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 140,
+      "path": "text3-width140.0-dpr2.0.png",
+      "text": "9,223,372,036,854,775,806 of ",
+      "width": 140,
+      "sha256": "9009739d17f8149f821422c54d88ca610be9927357f255c5862e8ffb9c52a02b"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 155.00400000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 152,
+      "path": "text3-width152.0-dpr1.0.png",
+      "text": "9,223,372,036,854,775,806 of ",
+      "width": 142,
+      "sha256": "eb6c73840526048214c529a5d5df8fc6b83889c34378626186e4bb95cc646e5a"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 155.00400000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 152,
+      "path": "text3-width152.0-dpr2.0.png",
+      "text": "9,223,372,036,854,775,806 of ",
+      "width": 141.5,
+      "sha256": "7713ff4c59b5d4182c505f7ae19945ff19ee53f3388863a8fab99a791c6dd3d6"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 155.00400000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 153,
+      "path": "text3-width153.0-dpr1.0.png",
+      "text": "9,223,372,036,854,775,806 of ",
+      "width": 153,
+      "sha256": "276598048856cca10cfd98856bff6aefd5af41b8bc65e710c00cfe37e94d1bf9"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 155.00400000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 153,
+      "path": "text3-width153.0-dpr2.0.png",
+      "text": "9,223,372,036,854,775,806 of ",
+      "width": 153,
+      "sha256": "1509a88396445b8eeca5da9caf65ea5de63626a4f7a9766661acf6db4ed2eff8"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 155.00400000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 154,
+      "path": "text3-width154.0-dpr1.0.png",
+      "text": "9,223,372,036,854,775,806 of ",
+      "width": 154,
+      "sha256": "4457debb2e65724ccf19761f09a6f3eaa83ce8326302d7db0b36097c94392acc"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 155.00400000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 154,
+      "path": "text3-width154.0-dpr2.0.png",
+      "text": "9,223,372,036,854,775,806 of ",
+      "width": 154,
+      "sha256": "6bbc9c8fd1a27ca6a40d93a83c822495d90c8e3de74dc5823c6b74b84a57e1e1"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 155.00400000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 155,
+      "path": "text3-width155.0-dpr1.0.png",
+      "text": "9,223,372,036,854,775,806 of ",
+      "width": 155,
+      "sha256": "4457debb2e65724ccf19761f09a6f3eaa83ce8326302d7db0b36097c94392acc"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 155.00400000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 155,
+      "path": "text3-width155.0-dpr2.0.png",
+      "text": "9,223,372,036,854,775,806 of ",
+      "width": 155,
+      "sha256": "6bfaba756bacbdd8f877f659e72ce845fd75327f9392da2bc1f4e71b904b91c7"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 155.00400000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 156,
+      "path": "text3-width156.0-dpr1.0.png",
+      "text": "9,223,372,036,854,775,806 of ",
+      "width": 156,
+      "sha256": "41990cf2388aabf48fef782d7723948470179df887e2ee48347ed1d69814561c"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 155.00400000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 156,
+      "path": "text3-width156.0-dpr2.0.png",
+      "text": "9,223,372,036,854,775,806 of ",
+      "width": 155.5,
+      "sha256": "6bfaba756bacbdd8f877f659e72ce845fd75327f9392da2bc1f4e71b904b91c7"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 155.00400000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 157,
+      "path": "text3-width157.0-dpr1.0.png",
+      "text": "9,223,372,036,854,775,806 of ",
+      "width": 156,
+      "sha256": "41990cf2388aabf48fef782d7723948470179df887e2ee48347ed1d69814561c"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 155.00400000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 157,
+      "path": "text3-width157.0-dpr2.0.png",
+      "text": "9,223,372,036,854,775,806 of ",
+      "width": 155.5,
+      "sha256": "6bfaba756bacbdd8f877f659e72ce845fd75327f9392da2bc1f4e71b904b91c7"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 155.00400000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 160,
+      "path": "text3-width160.0-dpr1.0.png",
+      "text": "9,223,372,036,854,775,806 of ",
+      "width": 156,
+      "sha256": "41990cf2388aabf48fef782d7723948470179df887e2ee48347ed1d69814561c"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 155.00400000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 160,
+      "path": "text3-width160.0-dpr2.0.png",
+      "text": "9,223,372,036,854,775,806 of ",
+      "width": 155.5,
+      "sha256": "6bfaba756bacbdd8f877f659e72ce845fd75327f9392da2bc1f4e71b904b91c7"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 155.00400000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 260,
+      "path": "text3-width260.0-dpr1.0.png",
+      "text": "9,223,372,036,854,775,806 of ",
+      "width": 156,
+      "sha256": "41990cf2388aabf48fef782d7723948470179df887e2ee48347ed1d69814561c"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 15,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 155.00400000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 260,
+      "path": "text3-width260.0-dpr2.0.png",
+      "text": "9,223,372,036,854,775,806 of ",
+      "width": 155.5,
+      "sha256": "6bfaba756bacbdd8f877f659e72ce845fd75327f9392da2bc1f4e71b904b91c7"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 60,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 104.77200000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 32,
+      "path": "text4-width32.0-dpr1.0.png",
+      "text": "First line\nSecond line",
+      "width": 32,
+      "sha256": "92acaf19d357bb2550884f0386a8f3a5ecc4c0938364d702c379b518af70c06f"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 60,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 104.77200000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 32,
+      "path": "text4-width32.0-dpr2.0.png",
+      "text": "First line\nSecond line",
+      "width": 31.5,
+      "sha256": "1eaf3e8b0798c4233109b2092e7fd601e0da44df8e2ee6a58df7d270f9070c5f"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 104.77200000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 100,
+      "path": "text4-width100.0-dpr1.0.png",
+      "text": "First line\nSecond line",
+      "width": 60,
+      "sha256": "9a26f583f848012b1103bab030095f8ccbe64e9c8204ab30375b86352574fb60"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 104.77200000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 100,
+      "path": "text4-width100.0-dpr2.0.png",
+      "text": "First line\nSecond line",
+      "width": 60,
+      "sha256": "a2877fbd7013b972af43359c8a91e654cc80ad0e45a25d0e2075d8ecd1062bca"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 104.77200000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 132,
+      "path": "text4-width132.0-dpr1.0.png",
+      "text": "First line\nSecond line",
+      "width": 60,
+      "sha256": "9a26f583f848012b1103bab030095f8ccbe64e9c8204ab30375b86352574fb60"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 104.77200000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 132,
+      "path": "text4-width132.0-dpr2.0.png",
+      "text": "First line\nSecond line",
+      "width": 60,
+      "sha256": "a2877fbd7013b972af43359c8a91e654cc80ad0e45a25d0e2075d8ecd1062bca"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 104.77200000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 140,
+      "path": "text4-width140.0-dpr1.0.png",
+      "text": "First line\nSecond line",
+      "width": 60,
+      "sha256": "9a26f583f848012b1103bab030095f8ccbe64e9c8204ab30375b86352574fb60"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 104.77200000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 140,
+      "path": "text4-width140.0-dpr2.0.png",
+      "text": "First line\nSecond line",
+      "width": 60,
+      "sha256": "a2877fbd7013b972af43359c8a91e654cc80ad0e45a25d0e2075d8ecd1062bca"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 104.77200000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 152,
+      "path": "text4-width152.0-dpr1.0.png",
+      "text": "First line\nSecond line",
+      "width": 60,
+      "sha256": "9a26f583f848012b1103bab030095f8ccbe64e9c8204ab30375b86352574fb60"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 104.77200000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 152,
+      "path": "text4-width152.0-dpr2.0.png",
+      "text": "First line\nSecond line",
+      "width": 60,
+      "sha256": "a2877fbd7013b972af43359c8a91e654cc80ad0e45a25d0e2075d8ecd1062bca"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 104.77200000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 153,
+      "path": "text4-width153.0-dpr1.0.png",
+      "text": "First line\nSecond line",
+      "width": 60,
+      "sha256": "9a26f583f848012b1103bab030095f8ccbe64e9c8204ab30375b86352574fb60"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 104.77200000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 153,
+      "path": "text4-width153.0-dpr2.0.png",
+      "text": "First line\nSecond line",
+      "width": 60,
+      "sha256": "a2877fbd7013b972af43359c8a91e654cc80ad0e45a25d0e2075d8ecd1062bca"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 104.77200000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 154,
+      "path": "text4-width154.0-dpr1.0.png",
+      "text": "First line\nSecond line",
+      "width": 60,
+      "sha256": "9a26f583f848012b1103bab030095f8ccbe64e9c8204ab30375b86352574fb60"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 104.77200000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 154,
+      "path": "text4-width154.0-dpr2.0.png",
+      "text": "First line\nSecond line",
+      "width": 60,
+      "sha256": "a2877fbd7013b972af43359c8a91e654cc80ad0e45a25d0e2075d8ecd1062bca"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 104.77200000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 155,
+      "path": "text4-width155.0-dpr1.0.png",
+      "text": "First line\nSecond line",
+      "width": 60,
+      "sha256": "9a26f583f848012b1103bab030095f8ccbe64e9c8204ab30375b86352574fb60"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 104.77200000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 155,
+      "path": "text4-width155.0-dpr2.0.png",
+      "text": "First line\nSecond line",
+      "width": 60,
+      "sha256": "a2877fbd7013b972af43359c8a91e654cc80ad0e45a25d0e2075d8ecd1062bca"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 104.77200000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 156,
+      "path": "text4-width156.0-dpr1.0.png",
+      "text": "First line\nSecond line",
+      "width": 60,
+      "sha256": "9a26f583f848012b1103bab030095f8ccbe64e9c8204ab30375b86352574fb60"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 104.77200000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 156,
+      "path": "text4-width156.0-dpr2.0.png",
+      "text": "First line\nSecond line",
+      "width": 60,
+      "sha256": "a2877fbd7013b972af43359c8a91e654cc80ad0e45a25d0e2075d8ecd1062bca"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 104.77200000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 157,
+      "path": "text4-width157.0-dpr1.0.png",
+      "text": "First line\nSecond line",
+      "width": 60,
+      "sha256": "9a26f583f848012b1103bab030095f8ccbe64e9c8204ab30375b86352574fb60"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 104.77200000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 157,
+      "path": "text4-width157.0-dpr2.0.png",
+      "text": "First line\nSecond line",
+      "width": 60,
+      "sha256": "a2877fbd7013b972af43359c8a91e654cc80ad0e45a25d0e2075d8ecd1062bca"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 104.77200000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 160,
+      "path": "text4-width160.0-dpr1.0.png",
+      "text": "First line\nSecond line",
+      "width": 60,
+      "sha256": "9a26f583f848012b1103bab030095f8ccbe64e9c8204ab30375b86352574fb60"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 104.77200000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 160,
+      "path": "text4-width160.0-dpr2.0.png",
+      "text": "First line\nSecond line",
+      "width": 60,
+      "sha256": "a2877fbd7013b972af43359c8a91e654cc80ad0e45a25d0e2075d8ecd1062bca"
+    },
+    {
+      "baseline": 12,
+      "dpr": 1,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 104.77200000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 260,
+      "path": "text4-width260.0-dpr1.0.png",
+      "text": "First line\nSecond line",
+      "width": 60,
+      "sha256": "9a26f583f848012b1103bab030095f8ccbe64e9c8204ab30375b86352574fb60"
+    },
+    {
+      "baseline": 12,
+      "dpr": 2,
+      "height": 30,
+      "metrics": {
+        "ascent": 12.3599853515625,
+        "coreTextAdvance": 104.77200000000002,
+        "ctPointSize": 12,
+        "descent": 2.6400146484375,
+        "leading": 0,
+        "postScriptName": "EncodeSans-Regular",
+        "resolvedPointSize": 12
+      },
+      "offeredWidth": 260,
+      "path": "text4-width260.0-dpr2.0.png",
+      "text": "First line\nSecond line",
+      "width": 60,
+      "sha256": "a2877fbd7013b972af43359c8a91e654cc80ad0e45a25d0e2075d8ecd1062bca"
+    }
+  ]
+}

@@ -15,6 +15,6 @@ Window {
         BleeckerPagination {page:"-9223372036854775808";pageCount:"9223372036854775807";locale:Qt.locale("en_US")}
         BleeckerPagination {page:"9007199254740993";pageCount:"9007199254740995";locale:Qt.locale("en_US")}
         BleeckerPagination {page:"2";pageCount:"-9223372036854775808";locale:Qt.locale("en_US")}
-        BleeckerPagination {width:260;page:"9223372036854775806";pageCount:"9223372036854775807";locale:Qt.locale("en_US")}
+        BleeckerPagination {objectName:"narrowExactGalleryPager";width:260;page:window.page;pageCount:"9223372036854775807";locale:Qt.locale("en_US");onPageRequested:page => window.page=page}
     }
 }

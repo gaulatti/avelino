@@ -5,6 +5,7 @@ import Avelino
 Item {
     id: root
     width: 1000; height: 240
+    PixelAlignment {id:metrics;target:root}
     property var page: "9223372036854775806"
     property var count: "9223372036854775807"
     property string requested: ""
@@ -45,6 +46,15 @@ Item {
             root.page="9223372036854775807";verify(!next.enabled);mouseClick(next);compare(root.calls,1)
             root.page="2";root.count="-9223372036854775808";compare(label.text,"Page 2 of 1");mouseClick(previous);compare(root.requested,"1")
             root.page="-9223372036854775808";verify(!next.enabled);verify(!previous.enabled)
+        }
+        function test_source_wrapped_body_through_resize() {
+            root.page="9223372036854775806";root.count="9223372036854775807"
+            const item=createTemporaryObject(factory,root,{width:260})
+            const nativeWidth=metrics.devicePixelRatio===1 ? 260 : 259.5
+            tryCompare(item,"contentSize",Qt.size(nativeWidth,45))
+            item.width=257;tryCompare(item,"contentSize",Qt.size(257,45))
+            item.width=264;tryCompare(item,"contentSize",Qt.size(nativeWidth,45))
+            root.page="4";root.count="8";tryCompare(item,"contentSize",Qt.size(165,36))
         }
         function test_safe_numeric_inputs_and_locale() {
             root.page=9007199254740991;root.count="9223372036854775807"

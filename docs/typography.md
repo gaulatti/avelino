@@ -82,3 +82,13 @@ component proposals are recaptured and compared at unchanged tolerances. The
 retains raw pixel improvements and regressions; no prior geometry or exact-image
 pass is lost. Strict image comparisons and complete component acceptance remain
 pending.
+
+The [wrapping probe](wrapping.md) additionally measures actual Text bounds before
+an external frame. Wrapped trailing spaces contribute up to the offered width;
+negative glyph bearings also enlarge the source box. Qt's wrapped glyph runs omit
+those spaces, while `QTextLine::naturalTextWidth()` retains their advance and ink
+overhang. The renderer preserves that measured extent independently of pure glyph
+advance, applies the source whitespace bound, then rounds to the physical pixel
+grid. It does not add component-specific padding. The full-range pagination label
+is the user-visible regression, including repeated caller resizing/updates in the
+independently installed consumer.

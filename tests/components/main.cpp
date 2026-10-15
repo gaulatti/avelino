@@ -23,6 +23,13 @@ public slots:
         const auto fontCases = data.value("cases").toArray();
         if (fontCases.size() != 2160) qFatal("Native typography evidence is incomplete");
         engine->rootContext()->setContextProperty("nativeTypography", fontCases.toVariantList());
+        QFile wrapping(QStringLiteral(NATIVE_WRAPPING_FILE));
+        if (!wrapping.open(QIODevice::ReadOnly)) qFatal("Native wrapping evidence is missing");
+        const auto wrapData = QJsonDocument::fromJson(wrapping.readAll()).object();
+        if (wrapData.value("referenceRevision").toString() != "fe8a1d462fbd793d883fb92086a16aa2947e32c9") qFatal("Native wrapping reference revision differs");
+        const auto wrapCases = wrapData.value("cases").toArray();
+        if (wrapCases.size() != 120) qFatal("Native wrapping evidence is incomplete");
+        engine->rootContext()->setContextProperty("nativeWrapping", wrapCases.toVariantList());
     }
 };
 QUICK_TEST_MAIN_WITH_SETUP(avelino, FixtureSetup)

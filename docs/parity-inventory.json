@@ -22551,6 +22551,12 @@
               "evidence/development/pagination-integers/candidate.json"
             ],
             "notes": "Native source Int64 behavior compared via exact decimal string metadata; complete visual, keyboard/source-focus, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerPagination-wrapped-whitespace-ink-bounds",
+            "status": "verification-pending",
+            "evidence": "evidence/development/text-wrapping/candidate.json",
+            "notes": "120 measured source Text/font cases; source whitespace proposal and comma overhang bounds; complete font/script/visual/physical acceptance remains pending"
           }
         ],
         "tests": [
@@ -22562,7 +22568,8 @@
           "tests/components/tst_pagination_integers.qml",
           "tests/components/check-invalid-pagination.py",
           "tests/consumer/PaginationIntegers.qml",
-          "tests/consumer/paginationintegerchecks.h"
+          "tests/consumer/paginationintegerchecks.h",
+          "tests/components/tst_native_wrapping.qml"
         ],
         "captures": [
           "samples/AvelinoCatalog/PaginationFixture.qml",
@@ -22570,7 +22577,9 @@
           "evidence/development/pagination/candidate.json",
           "samples/AvelinoCatalog/PaginationIntegerFixture.qml",
           "evidence/reference-proposals/pagination-integers-20261014/proposal.json",
-          "evidence/development/pagination-integers/candidate.json"
+          "evidence/development/pagination-integers/candidate.json",
+          "evidence/geometry/native-wrapping.json",
+          "evidence/development/text-wrapping/candidate.json"
         ],
         "comparisonResults": [
           "evidence/development/pagination/comparison/comparison.json",
@@ -35571,9 +35580,21 @@
         },
         "implementation": [],
         "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
-        "captures": [],
+        "cases": [
+          {
+            "id": "View.bleeckerFont-wrapped-whitespace-ink-bounds",
+            "status": "verification-pending",
+            "evidence": "evidence/development/text-wrapping/candidate.json",
+            "notes": "120 measured source Text/font cases; source whitespace proposal and comma overhang bounds; complete font/script/visual/physical acceptance remains pending"
+          }
+        ],
+        "tests": [
+          "tests/components/tst_native_wrapping.qml"
+        ],
+        "captures": [
+          "evidence/geometry/native-wrapping.json",
+          "evidence/development/text-wrapping/candidate.json"
+        ],
         "comparisonResults": [],
         "exceptions": [
           "FONT-MONO-001"

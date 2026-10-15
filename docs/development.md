@@ -163,3 +163,7 @@ import override. `scripts/check-installed-catalog.sh` is copied into each fresh
 package and verifies all gallery startup paths and missing-module refusal.
 
 The [exact pagination integer contract](pagination-integers.md) uses native arithmetic over the complete signed 64-bit range. Large inputs and all requests use decimal strings; `pageRequested` now has a string signature. The `pagination-integers` gallery and consumer cover the precision and overflow boundaries.
+
+The [source wrapping contract](wrapping.md) adds 120 measured text cases and
+full-range pagination resize checks. Source ink bounds and trailing whitespace
+remain distinct from shaped advances and exact pixel acceptance.

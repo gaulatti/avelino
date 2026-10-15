@@ -90,7 +90,17 @@ void ButtonLabel::relayout() {
     const auto viewWidth = [sourceFont, dpr](qreal advance) {
         return sourceFont ? std::ceil(advance * dpr) / dpr : advance;
     };
-    const auto sourceAdvance = [units, pixels = m_resolvedPixels, tracking = m_tracking](const QTextLine &line) {
+    QFont shapeFont = m_font;
+    shapeFont.setPixelSize(units);
+    if (shapeFont.letterSpacingType() == QFont::AbsoluteSpacing)
+        shapeFont.setLetterSpacing(QFont::AbsoluteSpacing, shapeFont.letterSpacing() / ratio);
+    // Apply explicit logical tracking at design-unit scale. QFont otherwise
+    // quantizes a 1.15 px request to 1.140625 before shaping starts.
+    if (m_tracking != 0)
+        shapeFont.setLetterSpacing(QFont::AbsoluteSpacing, m_tracking / ratio);
+    shapeFont.setWordSpacing(shapeFont.wordSpacing() / ratio);
+    struct SourceTextMetrics { qreal advance; qreal width; };
+    const auto sourceMetrics = [units, pixels = m_resolvedPixels, tracking = m_tracking, finalSpacing = m_tracking != 0 ? shapeFont.letterSpacing() : 0](const QTextLine &line, QStringView text, qreal offeredWidth = -1) -> SourceTextMetrics {
         // Source measures scaled glyph advances and positioning separately.
         // Summing a design-space total first loses floating-point boundary
         // behavior before the source's physical-pixel ceil. Keep each operation
@@ -103,7 +113,7 @@ void ButtonLabel::relayout() {
             for (qsizetype i = 0; i < positions.size(); ++i)
                 glyphs.append({positions[i].x(), advances[i].x()});
         }
-        if (glyphs.isEmpty()) return qreal(0);
+        if (glyphs.isEmpty()) return {0, 0};
         std::stable_sort(glyphs.begin(), glyphs.end(), [](const Glyph &a, const Glyph &b) { return a.x < b.x; });
         qreal advance = glyphs.first().x / units * pixels;
         for (qsizetype i = 0; i + 1 < glyphs.size(); ++i) {
@@ -116,17 +126,21 @@ void ButtonLabel::relayout() {
         const volatile qreal finalAdvance = glyphs.last().advance * (pixels / units);
         // Explicit source tracking includes the final glyph's spacing. The
         // shaped positions contain only the spaces before that final glyph.
-        return advance + finalAdvance + tracking;
+        advance = advance + finalAdvance + tracking;
+        // Natural width retains ink overhang and spaces omitted by Qt's
+        // wrapped glyph runs. Both contribute to the measured source box.
+        const auto missing = std::max(qreal(0), line.naturalTextWidth()
+            - glyphs.last().x - glyphs.last().advance - finalSpacing) * (pixels / units);
+        qreal width = advance + missing;
+        const auto end = line.textStart() + line.textLength();
+        if (end > 0 && text.at(end - 1).isSpace()
+            && text.at(end - 1) != QChar::LineSeparator && text.at(end - 1) != QChar::ParagraphSeparator) {
+            advance += missing;
+            // Source Text counts trailing whitespace up to its proposal.
+            if (offeredWidth >= 0) width = std::min(width, offeredWidth);
+        }
+        return {advance, width};
     };
-    QFont shapeFont = m_font;
-    shapeFont.setPixelSize(units);
-    if (shapeFont.letterSpacingType() == QFont::AbsoluteSpacing)
-        shapeFont.setLetterSpacing(QFont::AbsoluteSpacing, shapeFont.letterSpacing() / ratio);
-    // Apply explicit logical tracking at design-unit scale. QFont otherwise
-    // quantizes a 1.15 px request to 1.140625 before shaping starts.
-    if (m_tracking != 0)
-        shapeFont.setLetterSpacing(QFont::AbsoluteSpacing, m_tracking / ratio);
-    shapeFont.setWordSpacing(shapeFont.wordSpacing() / ratio);
     QString layoutText = m_text;
     layoutText.replace(QChar('\n'), QChar::LineSeparator);
     QTextOption option;
@@ -135,17 +149,20 @@ void ButtonLabel::relayout() {
     option.setFlags(QTextOption::IncludeTrailingSpaces);
     QTextLayout intrinsic(layoutText, shapeFont);
     intrinsic.setTextOption(option);
-    qreal intrinsicWidth = 0;
+    qreal intrinsicWidth = 0, intrinsicAdvance = 0;
     intrinsic.beginLayout();
     for (;;) {
         auto line = intrinsic.createLine();
         if (!line.isValid()) break;
         line.setLineWidth(1000000);
-        intrinsicWidth = std::max(intrinsicWidth, sourceFont ? sourceAdvance(line) : line.naturalTextWidth() * ratio);
+        const auto metrics = sourceFont ? sourceMetrics(line, layoutText)
+            : SourceTextMetrics{line.naturalTextWidth() * ratio, line.naturalTextWidth() * ratio};
+        intrinsicAdvance = std::max(intrinsicAdvance, metrics.advance);
+        intrinsicWidth = std::max(intrinsicWidth, metrics.width);
     }
     intrinsic.endLayout();
-    m_glyphAdvance = intrinsicWidth;
-    const qreal unwrappedWidth = viewWidth(m_glyphAdvance);
+    m_glyphAdvance = intrinsicAdvance;
+    const qreal unwrappedWidth = viewWidth(intrinsicWidth);
     if (m_unwrappedWidth != unwrappedWidth) {
         m_unwrappedWidth = unwrappedWidth;
         emit unwrappedWidthChanged();
@@ -192,7 +209,7 @@ void ButtonLabel::relayout() {
         const qreal descent = sourceFont ? std::round(line.descent() * ratio) : line.descent() * ratio;
         line.setPosition(QPointF(0, (height + ascent) / ratio - line.ascent()));
         if (height == 0) baseline = ascent;
-        width = std::max(width, sourceFont ? sourceAdvance(line) : line.naturalTextWidth() * ratio);
+        width = std::max(width, sourceFont ? sourceMetrics(line, layoutText, m_wrapWidth).width : line.naturalTextWidth() * ratio);
         // Keep the measured logical line box in logical units. A round trip
         // through design units turns an exact 16 into 15.999999999999998.
         height += m_lineHeight > 0 ? m_lineHeight

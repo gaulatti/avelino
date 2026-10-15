@@ -69,3 +69,9 @@ coverage remains 42/80 desktop APIs started, with none fully accepted.
 The eight remaining body-size mismatches are all narrow cases: Linux is three
 logical pixels narrower, while the 45-pixel body height matches. This remains an
 open layout/typography difference and is not an accepted exception.
+
+The subsequent [shared wrapping repair](wrapping.md) closes the eight narrow
+body-width differences above using measured trailing-whitespace and ink extents.
+All 176 pagination body comparisons now match. Exact appearance and the remaining
+source-input/physical/reader gates stay pending; the integer/string contract is
+unchanged.

@@ -5,6 +5,14 @@ static void runPaginationIntegerConsumer(QQuickWindow *window,QGuiApplication &a
     auto pager=item("exactPager"),minimum=item("minimumPager"),safe=item("safePager"),narrow=item("narrowExactPager"),field=item("exactNextField");
     auto check=[&app](bool ok,const char *message){if (!ok){qCritical("Installed exact pagination: %s",message);app.exit(160);}return ok;};
     if (!check(pager && minimum && safe && narrow && field,"missing fixture")) return;
+    const qreal nativeNarrowWidth=window->devicePixelRatio()==1 ? 260 : 259.5;
+    for (const qreal offered : {257.,260.,264.}) {
+        narrow->setWidth(offered);QTest::qWait(20);
+        const auto body=narrow->property("contentSize").toSizeF();
+        if (!check(body.width()==(offered==257 ? 257 : nativeNarrowWidth) && body.height()==45,
+            "source wrapped body width/height through resize")) return;
+    }
+    narrow->setWidth(260);
     auto button=[](QQuickItem *pager,bool next){return findVisualItem(pager,next ? "bleeckerNextPage":"bleeckerPreviousPage");};
     auto input=[](QQuickItem *button){return button->property("inputItem").value<QQuickItem*>();};
     auto click=[window](QQuickItem *button){QTest::mouseClick(window,Qt::LeftButton,Qt::NoModifier,button->mapToScene(QPointF(button->width()/2,button->height()/2)).toPoint());QTest::qWait(30);};
@@ -37,6 +45,7 @@ static void runPaginationIntegerConsumer(QQuickWindow *window,QGuiApplication &a
         {"quickBackend",qEnvironmentVariable("QT_QUICK_BACKEND")},{"appearance",parser.isSet("dark") ? "dark":"light"},{"textScale",textScale},
         {"inputMethod","QTest synthetic pointer/keyboard and actual Qt accessibility actions"},{"windowCaptureMethod","QQuickWindow::grabWindow; full session captured separately"},
         {"paginationIntegerChecks","passed"},{"callerBindingChecks","passed"},{"focusChecks","passed"},{"qtAccessibilityChecks","passed"},
+        {"wrappedBodyWidth",narrow->property("contentSize").toSizeF().width()},{"wrappedBodyHeight",narrow->property("contentSize").toSizeF().height()},
         {"exactPage",window->property("page").toString()},{"requests",window->property("requests").toInt()},
         {"sourceKeyboardAcceptance","pending; source keyboard equivalence unverified"},{"accessibilityAcceptance","pending; actual screen-reader output unverified"}};
     QFile file(path+".json");if (!file.open(QIODevice::WriteOnly)){app.exit(162);return;}file.write(QJsonDocument(record).toJson());file.close();

@@ -150,6 +150,7 @@ elif fixture == 'pagination-integers':
     for key in ['paginationIntegerChecks','callerBindingChecks','focusChecks','qtAccessibilityChecks']:
         assert record[key] == 'passed', record
     assert record['exactPage'] == '9223372036854775806' and record['requests'] == 4, record
+    assert record['wrappedBodyWidth'] == (260 if record['dpr'] == 1 else 259.5) and record['wrappedBodyHeight'] == 45, record
 elif fixture == 'pagination':
     for key in ['paginationChecks','callerBindingChecks','focusChecks','qtAccessibilityChecks']:
         assert record[key] == 'passed', record

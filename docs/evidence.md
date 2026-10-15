@@ -600,3 +600,24 @@ behavior gap is closed, while exact appearance, source keyboard/focus, physical
 input/display and screen readers remain pending. No backend, metrics,
 configuration, TV, source-pin, expected-image or tolerance changes. Public wiki
 access remains unavailable; the in-repository contract/inventory is updated.
+
+## Wrapped text bounds
+
+The [shared wrapping checkpoint](../evidence/development/text-wrapping/candidate.json)
+uses 120 direct pinned source Text/font-expression cases and a byte-identical
+121-file clean native replay. Source-proposed whitespace and ink overhang are
+preserved independently of glyph advance and final tracking. The original
+narrow full-range pagination body's three-pixel gap is closed: all 176 body
+measurements match, including DPR 1/2 and source pointer cases. The installed
+consumer checks narrow-body dimensions through 257/260/264 width changes and
+continues its pointer, keyboard, accessibility and external caller-update path.
+
+All 3,198 Qt checks, 59 contracts, eight pagination and three slider invalid-startup cases, twelve installed offscreen modes, 96 package-only virtual-session pairs and 59 installed-catalog captures pass. The 2,782 preceding PNG/full metadata pairs were checked;
+2,770 pairs are unchanged. Fresh strict raw
+comparisons cover every changed pair. Existing strict statistics are reused only
+after both current files and the original source image are byte-identical to
+preserved evidence. The [audit](../evidence/development/text-wrapping/before-after.json)
+records every gain/loss and raw pixel-count change; no root/exact or measured pagination-body pass is lost. Exact visual acceptance remains open. No backend/metrics, configuration,
+TV, source-pin, expected-image or tolerance changes. The public wiki is still
+unavailable; in-repository typography, development and inventory documentation
+are updated.
