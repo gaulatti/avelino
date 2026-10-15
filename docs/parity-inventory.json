@@ -3962,94 +3962,458 @@
       },
       {
         "id": "BleeckerBrandLockup",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Navigation.swift",
           "line": 18
         },
-        "implementation": [],
-        "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
-        "captures": [],
-        "comparisonResults": [],
+        "implementation": [
+          "src/Avelino/BleeckerBrandLockup.qml",
+          "src/Avelino/valuetools.cpp",
+          "src/Avelino/brandimage.h",
+          "src/Avelino/brandimage.cpp",
+          "assets/brand/BleeckerLogo.png",
+          "assets/brand-presentation.json"
+        ],
+        "caseDiscovery": "Partial; source-derived fitted/intrinsic/narrow/RTL layout, fixed fonts, caller-owned state/actions and pinned template asset implemented. Exact symbol/font/tint/interpolation/raster, source keyboard/focus, broader scripts/composition, physical sessions and actual readers remain pending.",
+        "cases": [
+          {
+            "id": "native-sidebar-brand",
+            "status": "pending",
+            "evidence": [
+              "evidence/reference-proposals/sidebar-brand-20261015/proposal.json",
+              "evidence/development/sidebar-brand/candidate.json",
+              "docs/sidebar-brand.md"
+            ],
+            "notes": "Source component/child bounds and Qt input/asset behavior checked separately from exact native pixels and full acceptance."
+          },
+          {
+            "id": "caller-state-and-installed-input",
+            "status": "pending",
+            "evidence": [
+              "tests/components/tst_sidebar_brand.qml",
+              "tests/consumer/sidebarbrandchecks.h",
+              "evidence/development/sidebar-brand/sessions/environment.json"
+            ],
+            "notes": "Candidate pointer/keyboard/Qt accessibility, source rectangular sidebar hits, caller selection/title/name/size updates and disabled/canceled actions. Actual readers and native focus correspondence remain unverified."
+          }
+        ],
+        "tests": [
+          "tests/components/tst_sidebar_brand.qml",
+          "tests/components/check-invalid-sidebar-brand.py",
+          "tests/consumer/sidebarbrandchecks.h",
+          "scripts/verify-sidebar-brand-source.py",
+          "tests/contracts/test_sidebar_brand_source.py"
+        ],
+        "captures": [
+          "evidence/development/sidebar-brand/captures/brand-lockup-normal-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-normal-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-normal-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-normal-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-normal-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-normal-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-normal-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-normal-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-intrinsic-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-intrinsic-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-intrinsic-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-intrinsic-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-intrinsic-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-intrinsic-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-intrinsic-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-intrinsic-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-narrow-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-narrow-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-narrow-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-narrow-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-narrow-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-narrow-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-narrow-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-narrow-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-very-narrow-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-very-narrow-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-very-narrow-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-very-narrow-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-very-narrow-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-very-narrow-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-very-narrow-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-very-narrow-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-empty-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-empty-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-empty-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-empty-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-empty-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-empty-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-empty-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-empty-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-long-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-long-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-long-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-long-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-long-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-long-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-long-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-long-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-multiline-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-multiline-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-multiline-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-multiline-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-multiline-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-multiline-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-multiline-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-multiline-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-rtl-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-rtl-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-rtl-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-rtl-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-rtl-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-rtl-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-rtl-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-rtl-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-disabled-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-disabled-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-disabled-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-disabled-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-disabled-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-disabled-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-disabled-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-disabled-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-parent-font30-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-parent-font30-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-parent-font30-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-parent-font30-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-parent-font30-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-parent-font30-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-parent-font30-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-lockup-parent-font30-dark-text1.5-offscreen-dpr2.0.png"
+        ],
+        "comparisonResults": [
+          "evidence/development/sidebar-brand/comparison/comparison.json",
+          "evidence/development/sidebar-brand/native-child-bounds.json",
+          "evidence/development/sidebar-brand/regressions.json"
+        ],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/sidebar-brand/candidate.json",
+              "tests/consumer/sidebarbrandchecks.h",
+              "docs/sidebar-brand.md"
+            ],
+            "notes": "Virtual Qt candidate evidence remains distinct from native pixels, source keyboard/focus, physical display/input and actual reader acceptance."
           },
           "x11": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/sidebar-brand/candidate.json",
+              "tests/consumer/sidebarbrandchecks.h",
+              "docs/sidebar-brand.md"
+            ],
+            "notes": "Virtual Qt candidate evidence remains distinct from native pixels, source keyboard/focus, physical display/input and actual reader acceptance."
           },
           "wayland": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/sidebar-brand/candidate.json",
+              "tests/consumer/sidebarbrandchecks.h",
+              "docs/sidebar-brand.md"
+            ],
+            "notes": "Virtual Qt candidate evidence remains distinct from native pixels, source keyboard/focus, physical display/input and actual reader acceptance."
           },
           "keyboardPointer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/sidebar-brand/candidate.json",
+              "tests/consumer/sidebarbrandchecks.h",
+              "docs/sidebar-brand.md"
+            ],
+            "notes": "Virtual Qt candidate evidence remains distinct from native pixels, source keyboard/focus, physical display/input and actual reader acceptance."
           },
           "focusAccessibility": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/sidebar-brand/candidate.json",
+              "tests/consumer/sidebarbrandchecks.h",
+              "docs/sidebar-brand.md"
+            ],
+            "notes": "Virtual Qt candidate evidence remains distinct from native pixels, source keyboard/focus, physical display/input and actual reader acceptance."
           },
           "displayTextScaling": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/sidebar-brand/candidate.json",
+              "tests/consumer/sidebarbrandchecks.h",
+              "docs/sidebar-brand.md"
+            ],
+            "notes": "Virtual Qt candidate evidence remains distinct from native pixels, source keyboard/focus, physical display/input and actual reader acceptance."
           },
           "installedConsumer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/sidebar-brand/candidate.json",
+              "tests/consumer/sidebarbrandchecks.h",
+              "docs/sidebar-brand.md"
+            ],
+            "notes": "Virtual Qt candidate evidence remains distinct from native pixels, source keyboard/focus, physical display/input and actual reader acceptance."
           }
+        },
+        "sourceInvestigation": {
+          "status": "sealed public source evidence; Qt candidate verification recorded separately",
+          "evidence": "evidence/reference-investigations/sidebar-brand-20261015/investigation.json",
+          "captures": 80,
+          "nativePointerCases": 0,
+          "integrityCheck": "scripts/verify-sidebar-brand-source.py",
+          "contract": "docs/sidebar-brand.md"
         }
       },
       {
         "id": "BleeckerBrandMark",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Navigation.swift",
           "line": 3
         },
-        "implementation": [],
-        "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
-        "captures": [],
-        "comparisonResults": [],
+        "implementation": [
+          "src/Avelino/BleeckerBrandMark.qml",
+          "src/Avelino/valuetools.cpp",
+          "src/Avelino/brandimage.h",
+          "src/Avelino/brandimage.cpp",
+          "assets/brand/BleeckerLogo.png",
+          "assets/brand-presentation.json"
+        ],
+        "caseDiscovery": "Partial; source-derived fitted/intrinsic/narrow/RTL layout, fixed fonts, caller-owned state/actions and pinned template asset implemented. Exact symbol/font/tint/interpolation/raster, source keyboard/focus, broader scripts/composition, physical sessions and actual readers remain pending.",
+        "cases": [
+          {
+            "id": "native-sidebar-brand",
+            "status": "pending",
+            "evidence": [
+              "evidence/reference-proposals/sidebar-brand-20261015/proposal.json",
+              "evidence/development/sidebar-brand/candidate.json",
+              "docs/sidebar-brand.md"
+            ],
+            "notes": "Source component/child bounds and Qt input/asset behavior checked separately from exact native pixels and full acceptance."
+          },
+          {
+            "id": "caller-state-and-installed-input",
+            "status": "pending",
+            "evidence": [
+              "tests/components/tst_sidebar_brand.qml",
+              "tests/consumer/sidebarbrandchecks.h",
+              "evidence/development/sidebar-brand/sessions/environment.json"
+            ],
+            "notes": "Candidate pointer/keyboard/Qt accessibility, source rectangular sidebar hits, caller selection/title/name/size updates and disabled/canceled actions. Actual readers and native focus correspondence remain unverified."
+          }
+        ],
+        "tests": [
+          "tests/components/tst_sidebar_brand.qml",
+          "tests/components/check-invalid-sidebar-brand.py",
+          "tests/consumer/sidebarbrandchecks.h",
+          "scripts/verify-sidebar-brand-source.py",
+          "tests/contracts/test_sidebar_brand_source.py"
+        ],
+        "captures": [
+          "evidence/development/sidebar-brand/captures/brand-mark-size0.0-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size0.0-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size0.0-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size0.0-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size0.0-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size0.0-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size0.0-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size0.0-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size1.0-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size1.0-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size1.0-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size1.0-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size1.0-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size1.0-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size1.0-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size1.0-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size13.0-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size13.0-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size13.0-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size13.0-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size13.0-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size13.0-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size13.0-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size13.0-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size25.0-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size25.0-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size25.0-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size25.0-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size25.0-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size25.0-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size25.0-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size25.0-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size32.0-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size32.0-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size32.0-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size32.0-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size32.0-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size32.0-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size32.0-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size32.0-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size64.0-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size64.0-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size64.0-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size64.0-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size64.0-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size64.0-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size64.0-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size64.0-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-default-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-default-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-default-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-default-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-default-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-default-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-default-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-default-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-wide-frame-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-wide-frame-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-wide-frame-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-wide-frame-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-wide-frame-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-wide-frame-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-wide-frame-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-wide-frame-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-narrow-frame-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-narrow-frame-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-narrow-frame-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-narrow-frame-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-narrow-frame-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-narrow-frame-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-narrow-frame-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-narrow-frame-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-disabled-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-disabled-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-disabled-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-disabled-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-disabled-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-disabled-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-disabled-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-disabled-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-rtl-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-rtl-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-rtl-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-rtl-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-rtl-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-rtl-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-rtl-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-rtl-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-parent-font20-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-parent-font20-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-parent-font20-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-parent-font20-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-parent-font20-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-parent-font20-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-parent-font20-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-parent-font20-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size64.5-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size64.5-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size64.5-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size64.5-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size64.5-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size64.5-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size64.5-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size64.5-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size120.0-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size120.0-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size120.0-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size120.0-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size120.0-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size120.0-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size120.0-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size120.0-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size256.0-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size256.0-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size256.0-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size256.0-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size256.0-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size256.0-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size256.0-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/brand-mark-size256.0-dark-text1.5-offscreen-dpr2.0.png"
+        ],
+        "comparisonResults": [
+          "evidence/development/sidebar-brand/comparison/comparison.json",
+          "evidence/development/sidebar-brand/native-child-bounds.json",
+          "evidence/development/sidebar-brand/regressions.json"
+        ],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/sidebar-brand/candidate.json",
+              "tests/consumer/sidebarbrandchecks.h",
+              "docs/sidebar-brand.md"
+            ],
+            "notes": "Virtual Qt candidate evidence remains distinct from native pixels, source keyboard/focus, physical display/input and actual reader acceptance."
           },
           "x11": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/sidebar-brand/candidate.json",
+              "tests/consumer/sidebarbrandchecks.h",
+              "docs/sidebar-brand.md"
+            ],
+            "notes": "Virtual Qt candidate evidence remains distinct from native pixels, source keyboard/focus, physical display/input and actual reader acceptance."
           },
           "wayland": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/sidebar-brand/candidate.json",
+              "tests/consumer/sidebarbrandchecks.h",
+              "docs/sidebar-brand.md"
+            ],
+            "notes": "Virtual Qt candidate evidence remains distinct from native pixels, source keyboard/focus, physical display/input and actual reader acceptance."
           },
           "keyboardPointer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/sidebar-brand/candidate.json",
+              "tests/consumer/sidebarbrandchecks.h",
+              "docs/sidebar-brand.md"
+            ],
+            "notes": "Virtual Qt candidate evidence remains distinct from native pixels, source keyboard/focus, physical display/input and actual reader acceptance."
           },
           "focusAccessibility": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/sidebar-brand/candidate.json",
+              "tests/consumer/sidebarbrandchecks.h",
+              "docs/sidebar-brand.md"
+            ],
+            "notes": "Virtual Qt candidate evidence remains distinct from native pixels, source keyboard/focus, physical display/input and actual reader acceptance."
           },
           "displayTextScaling": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/sidebar-brand/candidate.json",
+              "tests/consumer/sidebarbrandchecks.h",
+              "docs/sidebar-brand.md"
+            ],
+            "notes": "Virtual Qt candidate evidence remains distinct from native pixels, source keyboard/focus, physical display/input and actual reader acceptance."
           },
           "installedConsumer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/sidebar-brand/candidate.json",
+              "tests/consumer/sidebarbrandchecks.h",
+              "docs/sidebar-brand.md"
+            ],
+            "notes": "Virtual Qt candidate evidence remains distinct from native pixels, source keyboard/focus, physical display/input and actual reader acceptance."
           }
+        },
+        "sourceInvestigation": {
+          "status": "sealed public source evidence; Qt candidate verification recorded separately",
+          "evidence": "evidence/reference-investigations/sidebar-brand-20261015/investigation.json",
+          "captures": 120,
+          "nativePointerCases": 0,
+          "integrityCheck": "scripts/verify-sidebar-brand-source.py",
+          "contract": "docs/sidebar-brand.md"
         }
       },
       {
@@ -34948,48 +35312,336 @@
       },
       {
         "id": "BleeckerSidebarItem",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Navigation.swift",
           "line": 55
         },
-        "implementation": [],
-        "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
-        "captures": [],
-        "comparisonResults": [],
+        "implementation": [
+          "src/Avelino/BleeckerSidebarItem.qml",
+          "src/Avelino/valuetools.cpp",
+          "src/Avelino/proposalrow.cpp",
+          "assets/sidebar-symbols.json"
+        ],
+        "caseDiscovery": "Partial; source-derived fitted/intrinsic/narrow/RTL layout, fixed fonts, caller-owned state/actions and pinned template asset implemented. Exact symbol/font/tint/interpolation/raster, source keyboard/focus, broader scripts/composition, physical sessions and actual readers remain pending.",
+        "cases": [
+          {
+            "id": "native-sidebar-brand",
+            "status": "pending",
+            "evidence": [
+              "evidence/reference-proposals/sidebar-brand-20261015/proposal.json",
+              "evidence/development/sidebar-brand/candidate.json",
+              "docs/sidebar-brand.md"
+            ],
+            "notes": "Source component/child bounds and Qt input/asset behavior checked separately from exact native pixels and full acceptance."
+          },
+          {
+            "id": "caller-state-and-installed-input",
+            "status": "pending",
+            "evidence": [
+              "tests/components/tst_sidebar_brand.qml",
+              "tests/consumer/sidebarbrandchecks.h",
+              "evidence/development/sidebar-brand/sessions/environment.json"
+            ],
+            "notes": "Candidate pointer/keyboard/Qt accessibility, source rectangular sidebar hits, caller selection/title/name/size updates and disabled/canceled actions. Actual readers and native focus correspondence remain unverified."
+          }
+        ],
+        "tests": [
+          "tests/components/tst_sidebar_brand.qml",
+          "tests/components/check-invalid-sidebar-brand.py",
+          "tests/consumer/sidebarbrandchecks.h",
+          "scripts/verify-sidebar-brand-source.py",
+          "tests/contracts/test_sidebar_brand_source.py"
+        ],
+        "captures": [
+          "evidence/development/sidebar-brand/captures/sidebar-normal-normal-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-normal-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-normal-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-normal-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-normal-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-normal-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-normal-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-normal-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-intrinsic-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-intrinsic-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-intrinsic-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-intrinsic-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-intrinsic-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-intrinsic-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-intrinsic-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-intrinsic-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-narrow-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-narrow-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-narrow-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-narrow-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-narrow-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-narrow-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-narrow-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-narrow-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-very-narrow-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-very-narrow-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-very-narrow-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-very-narrow-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-very-narrow-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-very-narrow-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-very-narrow-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-very-narrow-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-empty-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-empty-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-empty-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-empty-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-empty-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-empty-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-empty-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-empty-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-long-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-long-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-long-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-long-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-long-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-long-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-long-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-long-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-multiline-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-multiline-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-multiline-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-multiline-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-multiline-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-multiline-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-multiline-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-multiline-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-rtl-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-rtl-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-rtl-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-rtl-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-rtl-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-rtl-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-rtl-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-rtl-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-disabled-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-disabled-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-disabled-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-disabled-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-disabled-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-disabled-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-disabled-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-disabled-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-labelled-init-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-labelled-init-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-labelled-init-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-labelled-init-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-labelled-init-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-labelled-init-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-labelled-init-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-labelled-init-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-symbol-wide-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-symbol-wide-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-symbol-wide-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-symbol-wide-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-symbol-wide-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-symbol-wide-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-symbol-wide-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-symbol-wide-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-symbol-short-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-symbol-short-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-symbol-short-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-symbol-short-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-symbol-short-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-symbol-short-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-symbol-short-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-symbol-short-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-parent-font20-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-parent-font20-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-parent-font20-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-parent-font20-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-parent-font20-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-parent-font20-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-parent-font20-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-normal-parent-font20-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-normal-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-normal-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-normal-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-normal-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-normal-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-normal-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-normal-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-normal-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-intrinsic-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-intrinsic-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-intrinsic-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-intrinsic-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-intrinsic-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-intrinsic-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-intrinsic-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-intrinsic-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-narrow-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-narrow-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-narrow-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-narrow-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-narrow-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-narrow-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-narrow-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-narrow-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-very-narrow-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-very-narrow-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-very-narrow-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-very-narrow-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-very-narrow-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-very-narrow-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-very-narrow-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-very-narrow-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-empty-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-empty-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-empty-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-empty-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-empty-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-empty-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-empty-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-empty-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-long-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-long-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-long-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-long-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-long-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-long-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-long-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-long-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-multiline-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-multiline-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-multiline-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-multiline-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-multiline-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-multiline-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-multiline-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-multiline-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-rtl-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-rtl-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-rtl-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-rtl-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-rtl-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-rtl-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-rtl-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-rtl-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-disabled-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-disabled-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-disabled-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-disabled-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-disabled-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-disabled-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-disabled-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-disabled-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-labelled-init-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-labelled-init-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-labelled-init-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-labelled-init-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-labelled-init-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-labelled-init-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-labelled-init-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-labelled-init-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-symbol-wide-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-symbol-wide-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-symbol-wide-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-symbol-wide-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-symbol-wide-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-symbol-wide-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-symbol-wide-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-symbol-wide-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-symbol-short-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-symbol-short-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-symbol-short-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-symbol-short-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-symbol-short-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-symbol-short-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-symbol-short-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-symbol-short-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-parent-font20-light-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-parent-font20-light-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-parent-font20-light-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-parent-font20-light-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-parent-font20-dark-text1.0-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-parent-font20-dark-text1.0-offscreen-dpr2.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-parent-font20-dark-text1.5-offscreen-dpr1.0.png",
+          "evidence/development/sidebar-brand/captures/sidebar-selected-parent-font20-dark-text1.5-offscreen-dpr2.0.png"
+        ],
+        "comparisonResults": [
+          "evidence/development/sidebar-brand/comparison/comparison.json",
+          "evidence/development/sidebar-brand/native-child-bounds.json",
+          "evidence/development/sidebar-brand/regressions.json"
+        ],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/sidebar-brand/candidate.json",
+              "tests/consumer/sidebarbrandchecks.h",
+              "docs/sidebar-brand.md"
+            ],
+            "notes": "Virtual Qt candidate evidence remains distinct from native pixels, source keyboard/focus, physical display/input and actual reader acceptance."
           },
           "x11": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/sidebar-brand/candidate.json",
+              "tests/consumer/sidebarbrandchecks.h",
+              "docs/sidebar-brand.md"
+            ],
+            "notes": "Virtual Qt candidate evidence remains distinct from native pixels, source keyboard/focus, physical display/input and actual reader acceptance."
           },
           "wayland": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/sidebar-brand/candidate.json",
+              "tests/consumer/sidebarbrandchecks.h",
+              "docs/sidebar-brand.md"
+            ],
+            "notes": "Virtual Qt candidate evidence remains distinct from native pixels, source keyboard/focus, physical display/input and actual reader acceptance."
           },
           "keyboardPointer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/sidebar-brand/candidate.json",
+              "tests/consumer/sidebarbrandchecks.h",
+              "docs/sidebar-brand.md"
+            ],
+            "notes": "Virtual Qt candidate evidence remains distinct from native pixels, source keyboard/focus, physical display/input and actual reader acceptance."
           },
           "focusAccessibility": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/sidebar-brand/candidate.json",
+              "tests/consumer/sidebarbrandchecks.h",
+              "docs/sidebar-brand.md"
+            ],
+            "notes": "Virtual Qt candidate evidence remains distinct from native pixels, source keyboard/focus, physical display/input and actual reader acceptance."
           },
           "displayTextScaling": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/sidebar-brand/candidate.json",
+              "tests/consumer/sidebarbrandchecks.h",
+              "docs/sidebar-brand.md"
+            ],
+            "notes": "Virtual Qt candidate evidence remains distinct from native pixels, source keyboard/focus, physical display/input and actual reader acceptance."
           },
           "installedConsumer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/sidebar-brand/candidate.json",
+              "tests/consumer/sidebarbrandchecks.h",
+              "docs/sidebar-brand.md"
+            ],
+            "notes": "Virtual Qt candidate evidence remains distinct from native pixels, source keyboard/focus, physical display/input and actual reader acceptance."
           }
+        },
+        "sourceInvestigation": {
+          "status": "sealed public source evidence; Qt candidate verification recorded separately",
+          "evidence": "evidence/reference-investigations/sidebar-brand-20261015/investigation.json",
+          "captures": 208,
+          "nativePointerCases": 36,
+          "integrityCheck": "scripts/verify-sidebar-brand-source.py",
+          "contract": "docs/sidebar-brand.md"
         }
       },
       {

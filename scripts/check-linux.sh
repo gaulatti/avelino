@@ -36,6 +36,9 @@ cmp assets/navigation-symbols.json "$stage/install/share/avelino/navigation-symb
 cmp assets/presentation-symbols.json "$stage/install/share/avelino/presentation-symbols.json"
 cmp assets/spinner-presentation.json "$stage/install/share/avelino/spinner-presentation.json"
 cmp assets/alert-symbols.json "$stage/install/share/avelino/alert-symbols.json"
+cmp assets/brand-presentation.json "$stage/install/share/avelino/brand-presentation.json"
+cmp assets/sidebar-symbols.json "$stage/install/share/avelino/sidebar-symbols.json"
+cmp assets/brand/BleeckerLogo.png "$stage/install/share/avelino/brand/BleeckerLogo.png"
 cp -R tests/consumer "$stage/consumer"
 cmake -S "$stage/consumer" -B "$stage/build" -G Ninja -DCMAKE_PREFIX_PATH="$stage/install;/opt/qt"
 cmake --build "$stage/build" --parallel 2
@@ -57,6 +60,7 @@ cmake --build "$stage/build" --parallel 2
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --alert)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --clipping)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --navigation)
+(cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --sidebar-brand)
 cp scripts/check-installed-catalog.sh "$stage/check-installed-catalog.sh"
 (cd "$stage" && bash check-installed-catalog.sh "$stage/catalog-evidence")
 mkdir -p artifacts
@@ -74,7 +78,7 @@ cp artifacts/linux/environment.json artifacts/package/environment.json
 mkdir -p artifacts/linux
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --capture artifacts/linux/actions-light.png
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --dark --capture artifacts/linux/actions-dark.png
-for fixture in foundations surfaces data-display controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation; do
+for fixture in foundations surfaces data-display controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand; do
 for appearance in light dark; do
   for dpr in 1 2; do
     args=(--fixture "$fixture")
@@ -197,3 +201,10 @@ QML_IMPORT_PATH="$PWD/build/linux/qml" python3 scripts/capture-proposals.py \
   --output "$stage/navigation-proposals"
 if [[ -e artifacts/linux/navigation-proposals ]]; then mv artifacts/linux/navigation-proposals "$stage/previous-navigation-proposals"; fi
 mv "$stage/navigation-proposals" artifacts/linux/navigation-proposals
+
+QML_IMPORT_PATH="$PWD/build/linux/qml" python3 scripts/capture-proposals.py \
+  --catalog build/linux/samples/AvelinoCatalog/AvelinoCatalog \
+  --reference evidence/reference-proposals/sidebar-brand-20261015 \
+  --output "$stage/sidebar-brand-proposals"
+if [[ -e artifacts/linux/sidebar-brand-proposals ]]; then mv artifacts/linux/sidebar-brand-proposals "$stage/previous-sidebar-brand-proposals"; fi
+mv "$stage/sidebar-brand-proposals" artifacts/linux/sidebar-brand-proposals

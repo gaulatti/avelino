@@ -202,3 +202,10 @@ pipeline captures all 392 isolated source contexts and CI compares the alert and
 navigation groups alongside the preceding groups. Geometry/input checks remain
 separate from exact pixels, unresolved Japanese glyph fallback, physical input
 and actual reader output.
+
+The [sidebar/branding gallery](sidebar-brand.md) shares its real fixture with the
+installed `--sidebar-brand` consumer. The three source APIs cover selected and
+disabled input, empty/wrapped/narrow/RTL titles, tiny/fractional logo sizes,
+template tint and caller updates. The fixed source mask bytes ship embedded and
+as an installed provenance asset. The 416-case strict native comparison remains
+separate from input, package and virtual display checks.

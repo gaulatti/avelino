@@ -43,7 +43,8 @@ def prepare(source, tooling, output, scope=None):
     "desktop-accordion": {"BleeckerButton", "BleeckerAccordion"},
             "desktop-presentation-states": {"BleeckerButton", "BleeckerEmptyState", "BleeckerErrorState", "BleeckerLoadingOverlay"},
             "desktop-alert":{"BleeckerButton","BleeckerAlert"},
-            "desktop-navigation-layout":{"BleeckerButton","BleeckerPageHeader","BleeckerBreadcrumb"}}
+            "desktop-navigation-layout":{"BleeckerButton","BleeckerPageHeader","BleeckerBreadcrumb"},
+            "desktop-sidebar-brand":{"BleeckerButton","BleeckerSidebarItem","BleeckerBrandMark","BleeckerBrandLockup"}}
         assert scope in allowed, "Unknown reference proposal scope"
         assert {c["api"] for c in manifest["captures"]} == allowed[scope]
         manifest["scope"] = scope
@@ -75,7 +76,11 @@ def prepare(source, tooling, output, scope=None):
         assert case["environmentDisplayScale"] == case["dpr"]
         empty = case.get("expectedEmpty", False)
         if empty:
-            if scope == "desktop-navigation-layout":
+            if scope == "desktop-sidebar-brand":
+                edge=float(case["size"])
+                assert case["api"]=="BleeckerBrandMark" and edge in {0,1}
+                assert case["componentSize"]=={"width":edge,"height":edge}
+            elif scope == "desktop-navigation-layout":
                 geometry = case["componentSize"]
                 assert (case["api"], case["variant"]) in {("BleeckerPageHeader","empty-labels"),("BleeckerBreadcrumb","empty"),("BleeckerBreadcrumb","single-empty")}
                 assert geometry == ({"width":0,"height":0} if case["variant"]=="empty" else {"width":0,"height":14} if case["variant"]=="single-empty" else {"width":560,"height":50})
@@ -95,6 +100,8 @@ def prepare(source, tooling, output, scope=None):
         if file != output / name: shutil.copyfile(file, output / name)
         fixtures[case["fixture"]] = {key: case[key] for key in ["fixture", "api", "width", "height", "variant", "size", "value", "flag", "text"]}
         if "expectedEmpty" in case: fixtures[case["fixture"]]["expectedEmpty"] = empty
+        if scope == "desktop-sidebar-brand":
+            fixtures[case["fixture"]].update({key:case[key] for key in ["disabled","symbol","parentFont","rtl","intrinsic","expectedEmptyReason"]})
         if scope == "desktop-navigation-layout":
             fixtures[case["fixture"]].update({key:case[key] for key in ["eyebrow","title","actionMode","titles","icons","rtl","intrinsic"]})
         if scope == "desktop-alert":
@@ -110,6 +117,8 @@ def prepare(source, tooling, output, scope=None):
     definitions = {"schemaVersion": 1, "status": "proposed supplemental fixture definitions; baseline approval pending",
         "fixtures": list(fixtures.values()), "sourceToolArtifact": provenance["toolArtifact"]["sha256"],
         "wrapper": "Component centered in a fixed logical frame; palette background, requested color scheme/text scale, en_US locale; no root font or foreground override. Explicit inherited-toggle and Encode Sans toggle cases are separate."}
+    if scope=="desktop-sidebar-brand":
+        definitions["wrapper"]="Public source centered in 720 by 1000 logical points; source frames and intrinsic sizing, explicit parent font only in parent-font cases, requested appearance/text scale/DPR, en_US locale. Button anchors retain 240 by 96."
     if scope=="desktop-presentation-states":
         definitions["wrapper"]="Source fitted empty/error Item before the caller's offered frame; loading uses the actual hosted native NSProgressIndicator at DPR 2. Static native progress placeholders are excluded."
         definitions["sourceToolArtifacts"]=[provenance["toolArtifact"]["sha256"]]+[a["sha256"] for a in provenance["additionalToolArtifacts"]]
@@ -157,6 +166,6 @@ if __name__ == "__main__":
     parser.add_argument("--captures", required=True)
     parser.add_argument("--tooling", required=True)
     parser.add_argument("--output", required=True)
-    parser.add_argument("--scope", choices=["desktop-composition", "desktop-selectors", "desktop-checkbox", "desktop-secure-field", "desktop-search-field", "desktop-collection-filters", "desktop-slider", "desktop-tabs", "desktop-pagination", "desktop-pagination-integers", "desktop-accordion", "desktop-presentation-states", "desktop-alert", "desktop-navigation-layout"])
+    parser.add_argument("--scope", choices=["desktop-composition", "desktop-selectors", "desktop-checkbox", "desktop-secure-field", "desktop-search-field", "desktop-collection-filters", "desktop-slider", "desktop-tabs", "desktop-pagination", "desktop-pagination-integers", "desktop-accordion", "desktop-presentation-states", "desktop-alert", "desktop-navigation-layout", "desktop-sidebar-brand"])
     args = parser.parse_args()
     print(f"Prepared {prepare(args.captures, args.tooling, args.output, args.scope)} review candidates; expected images unchanged")

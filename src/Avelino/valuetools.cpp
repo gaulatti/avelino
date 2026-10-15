@@ -29,6 +29,11 @@ int BleeckerValueTools::spinnerEdge(const QString &size) const {
 #include <cmath>
 #include <limits>
 
+qreal BleeckerValueTools::brandSize(qreal value) const {
+    if(!std::isfinite(value)||value<0)qFatal("Brand size must be finite and nonnegative");
+    return value;
+}
+
 void BleeckerValueTools::setValue(QObject *control, qreal value) const {
     // Native writes retain QML bindings; JavaScript assignments remove them.
     if (!control || !control->setProperty("value", value))

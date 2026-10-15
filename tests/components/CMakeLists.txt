@@ -11,6 +11,7 @@ target_compile_definitions(AvelinoComponentTests PRIVATE
     NATIVE_ALERT_FILE="${PROJECT_SOURCE_DIR}/evidence/geometry/native-alert.json"
     NATIVE_NAVIGATION_FILE="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/navigation-layout-20261015/captures.json"
     NATIVE_NAVIGATION_TEXT_FILE="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/navigation-layout-20261015/text-layout/measurements.json"
+    NATIVE_SIDEBAR_BRAND_FILE="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/sidebar-brand-20261015/captures.json"
     NATIVE_SPINNER_FILE="${PROJECT_SOURCE_DIR}/evidence/geometry/native-spinner.json"
     NATIVE_TYPOGRAPHY_FILE="${PROJECT_SOURCE_DIR}/evidence/geometry/native-typography.json")
 add_test(NAME components COMMAND AvelinoComponentTests -import ${CMAKE_BINARY_DIR}/qml)
@@ -27,4 +28,7 @@ add_test(NAME presentation-invalid-config COMMAND python3 ${CMAKE_CURRENT_SOURCE
     $<TARGET_FILE:AvelinoComponentTests> ${CMAKE_BINARY_DIR}/qml)
 
 add_test(NAME navigation-invalid-config COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/check-invalid-navigation.py
+    $<TARGET_FILE:AvelinoComponentTests> ${CMAKE_BINARY_DIR}/qml)
+
+add_test(NAME sidebar-brand-invalid-config COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/check-invalid-sidebar-brand.py
     $<TARGET_FILE:AvelinoComponentTests> ${CMAKE_BINARY_DIR}/qml)

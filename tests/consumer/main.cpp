@@ -11,6 +11,7 @@
 #include <QJsonObject>
 #include <QJsonArray>
 #include <QJSValue>
+#include <QCryptographicHash>
 #include <QQmlContext>
 #include <QSGRendererInterface>
 #include <QColor>
@@ -35,6 +36,7 @@ static QQuickItem *findVisualItem(QQuickItem *item, const QString &name) {
 #include "alertchecks.h"
 #include "clippingchecks.h"
 #include "navigationchecks.h"
+#include "sidebarbrandchecks.h"
 static void runCheckboxConsumer(QQuickWindow *window, QGuiApplication &app,
                                 const QCommandLineParser &parser, double textScale) {
     auto item=[window](const QString &name) { return findVisualItem(window->contentItem(),name); };
@@ -309,6 +311,7 @@ int main(int argc, char **argv) {
     parser.addOption(QCommandLineOption("composition", "Exercise the composition fixture."));
     parser.addOption(QCommandLineOption("selection", "Exercise the selector and open popup fixture."));
     parser.addOption(QCommandLineOption("checkbox", "Exercise checkbox states, input and Qt accessibility."));
+    parser.addOption(QCommandLineOption("sidebar-brand", "Exercise sidebar input and pinned brand presentation."));
     parser.addOption(QCommandLineOption("navigation", "Exercise page-header actions and breadcrumb callbacks."));
     parser.addOption(QCommandLineOption("clipping", "Exercise generic rounded content masks and live layers."));
     parser.addOption(QCommandLineOption("alert", "Exercise fitted alerts, generic state and input."));
@@ -335,10 +338,11 @@ int main(int argc, char **argv) {
     engine.rootContext()->setContextProperty("captureTextScale", textScale);
     engine.addImportPath(QStringLiteral(AVELINO_INSTALLED_IMPORT_PATH));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreationFailed, &app, [] { QCoreApplication::exit(1); }, Qt::QueuedConnection);
-    engine.loadFromModule("InstalledConsumer", parser.isSet("navigation") ? "Navigation" : parser.isSet("clipping") ? "Clipping" : parser.isSet("alert") ? "Alert" : parser.isSet("spinner") ? "Spinner" : parser.isSet("presentation-states") ? "PresentationStates" : parser.isSet("accordion") ? "Accordion" : parser.isSet("pagination-integers") ? "PaginationIntegers" : parser.isSet("pagination") ? "Pagination" : parser.isSet("tabs") ? "Tabs" : parser.isSet("slider") ? "Slider" : parser.isSet("collection-filters") ? "CollectionFilters" : parser.isSet("search-field") ? "SearchField" : parser.isSet("secure-field") ? "SecureField" : parser.isSet("checkbox") ? "Checkbox" : parser.isSet("selection") ? "Selection" : parser.isSet("composition") ? "Composition" : parser.isSet("controls") ? "Controls" : "Main");
+    engine.loadFromModule("InstalledConsumer", parser.isSet("sidebar-brand") ? "SidebarBrand" : parser.isSet("navigation") ? "Navigation" : parser.isSet("clipping") ? "Clipping" : parser.isSet("alert") ? "Alert" : parser.isSet("spinner") ? "Spinner" : parser.isSet("presentation-states") ? "PresentationStates" : parser.isSet("accordion") ? "Accordion" : parser.isSet("pagination-integers") ? "PaginationIntegers" : parser.isSet("pagination") ? "Pagination" : parser.isSet("tabs") ? "Tabs" : parser.isSet("slider") ? "Slider" : parser.isSet("collection-filters") ? "CollectionFilters" : parser.isSet("search-field") ? "SearchField" : parser.isSet("secure-field") ? "SecureField" : parser.isSet("checkbox") ? "Checkbox" : parser.isSet("selection") ? "Selection" : parser.isSet("composition") ? "Composition" : parser.isSet("controls") ? "Controls" : "Main");
     QTimer::singleShot(500, &app, [&engine, &app, &parser, textScale] {
         auto window = qobject_cast<QQuickWindow *>(engine.rootObjects().value(0));
         if (!window) { app.exit(2); return; }
+        if (parser.isSet("sidebar-brand")) {runSidebarBrandConsumer(window,app,parser,textScale);return;}
         if (parser.isSet("navigation")) {runNavigationConsumer(window,app,parser,textScale);return;}
         if (parser.isSet("clipping")) {runClippingConsumer(window,app,parser,textScale);return;}
         if (parser.isSet("alert")) {runAlertConsumer(window,app,parser,textScale);return;}

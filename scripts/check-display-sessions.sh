@@ -50,7 +50,7 @@ INI
   fi
   for backend in software opengl; do
     for configuration in standard scaled; do
-    for fixture in base controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation; do
+    for fixture in base controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand; do
       prefix="$evidence/$protocol-$backend-$configuration"
       if [[ "$fixture" == controls ]]; then prefix="$evidence/controls-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == composition ]]; then prefix="$evidence/composition-$protocol-$backend-$configuration"; fi
@@ -63,6 +63,7 @@ INI
       if [[ "$fixture" == tabs ]]; then prefix="$evidence/tabs-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == pagination ]]; then prefix="$evidence/pagination-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == pagination-integers ]]; then prefix="$evidence/pagination-integers-$protocol-$backend-$configuration"; fi
+      if [[ "$fixture" == sidebar-brand ]]; then prefix="$evidence/sidebar-brand-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == navigation ]]; then prefix="$evidence/navigation-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == clipping ]]; then prefix="$evidence/clipping-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == alert ]]; then prefix="$evidence/alert-$protocol-$backend-$configuration"; fi
@@ -81,6 +82,7 @@ INI
       if [[ "$fixture" == tabs ]]; then args+=(--tabs); fi
       if [[ "$fixture" == pagination ]]; then args+=(--pagination); fi
       if [[ "$fixture" == pagination-integers ]]; then args+=(--pagination-integers); fi
+      if [[ "$fixture" == sidebar-brand ]]; then args+=(--sidebar-brand); fi
       if [[ "$fixture" == navigation ]]; then args+=(--navigation); fi
       if [[ "$fixture" == clipping ]]; then args+=(--clipping); fi
       if [[ "$fixture" == alert ]]; then args+=(--alert); fi
@@ -158,6 +160,11 @@ elif fixture == 'secure-field':
         assert record[key] == 'passed', record
     assert record['sourceHeight'] == 40 and record['fontPointSize'] == 10.5, record
     assert record['revealed'] is True, record
+elif fixture == 'sidebar-brand':
+    for key in ['sidebarBrandChecks','focusChecks','qtAccessibilityChecks']:
+        assert record[key]=='passed',record
+    assert record['requests']==4 and record['callerSelection']=='editions' and record['logoSize']==64.5,record
+    assert record['pinnedAssetSha256']=='3eadafd84a1f3b37261bad85b8a8e5512ed7aa9b3baae38aa8321cc3a6cbb9c2',record
 elif fixture == 'navigation':
     for key in ['navigationChecks','focusChecks','qtAccessibilityChecks']:
         assert record[key]=='passed',record

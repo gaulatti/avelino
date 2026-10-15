@@ -32,7 +32,8 @@ SCOPED_APIS = {"desktop-composition": COMPOSITION_APIS,
     "desktop-accordion": {"BleeckerButton", "BleeckerAccordion"},
     "desktop-presentation-states": {"BleeckerButton", "BleeckerEmptyState", "BleeckerErrorState", "BleeckerLoadingOverlay"},
     "desktop-alert":{"BleeckerButton","BleeckerAlert"},
-    "desktop-navigation-layout":{"BleeckerButton","BleeckerPageHeader","BleeckerBreadcrumb"}}
+    "desktop-navigation-layout":{"BleeckerButton","BleeckerPageHeader","BleeckerBreadcrumb"},
+    "desktop-sidebar-brand":{"BleeckerButton","BleeckerSidebarItem","BleeckerBrandMark","BleeckerBrandLockup"}}
 
 SCOPED_CONTRACT_AXES = {"desktop-alert":{"BleeckerAlert":{"alertType":"BleeckerAlertType"}},"desktop-pagination": {"BleeckerIconButton": {"size":"BleeckerIconButtonSize", "variant":"BleeckerIconButtonVariant"}}, "desktop-checkbox": {"BleeckerCheckbox": {"size": "BleeckerControlSize"}}}
 
@@ -62,7 +63,7 @@ def verify(directory):
         assert scoped in SCOPED_APIS and manifest.get("scope") == scoped
         message = {"desktop-composition": "Missing composition API", "desktop-selectors": "Missing selector API",
             "desktop-checkbox": "Missing checkbox API", "desktop-secure-field": "Missing secure-field API",
-            "desktop-search-field": "Missing search-field API", "desktop-collection-filters": "Missing collection-filter API", "desktop-slider": "Missing slider API", "desktop-tabs": "Missing tabs API", "desktop-pagination": "Missing pagination API", "desktop-pagination-integers": "Missing exact pagination API", "desktop-accordion": "Missing accordion API", "desktop-presentation-states": "Missing presentation-state API", "desktop-alert":"Missing alert API", "desktop-navigation-layout":"Missing navigation layout API"}[scoped]
+            "desktop-search-field": "Missing search-field API", "desktop-collection-filters": "Missing collection-filter API", "desktop-slider": "Missing slider API", "desktop-tabs": "Missing tabs API", "desktop-pagination": "Missing pagination API", "desktop-pagination-integers": "Missing exact pagination API", "desktop-accordion": "Missing accordion API", "desktop-presentation-states": "Missing presentation-state API", "desktop-alert":"Missing alert API", "desktop-navigation-layout":"Missing navigation layout API", "desktop-sidebar-brand":"Missing sidebar/brand API"}[scoped]
         assert {case["api"] for case in captures} == SCOPED_APIS[scoped], message
     keys = set()
     for case in captures:
@@ -79,7 +80,11 @@ def verify(directory):
         assert struct.unpack(">II", data[16:24]) == (case["width"] * case["dpr"], case["height"] * case["dpr"])
         assert hashlib.sha256(data).hexdigest() == case["sha256"]
         if case.get("expectedEmpty", False):
-            if scoped=="desktop-navigation-layout":
+            if scoped=="desktop-sidebar-brand":
+                edge=float(case["size"])
+                assert case["api"]=="BleeckerBrandMark" and edge in {0,1}, "Invalid uniform brand case"
+                assert case["componentSize"]=={"width":edge,"height":edge}, "Invalid uniform brand geometry"
+            elif scoped=="desktop-navigation-layout":
                 assert (case["api"],case["variant"]) in {("BleeckerPageHeader","empty-labels"),("BleeckerBreadcrumb","empty"),("BleeckerBreadcrumb","single-empty")}, "Invalid navigation empty fixture"
                 assert case["componentSize"]==({"width":0,"height":0} if case["variant"]=="empty" else {"width":0,"height":14} if case["variant"]=="single-empty" else {"width":560,"height":50}), "Invalid navigation empty geometry"
             else:
@@ -269,6 +274,15 @@ def verify(directory):
             assert all(case.get(k)==v for k,v in expected[case["path"]].items()), "Navigation source metadata differs from sealed investigation"
             assert case["sha256"]==sealed_files[case["path"]], "Navigation source pixels differ from sealed investigation"
         assert manifest["behavior"]==sealed["behavior"] and manifest["expressions"]==sealed["expressions"], "Navigation source witnesses differ"
+    if scoped=="desktop-sidebar-brand":
+        source=ROOT/"evidence/reference-investigations/sidebar-brand-20261015"
+        sealed=json.loads((source/"captures.json").read_text());checksums=json.loads((source/"investigation.json").read_text())["files"]
+        expected={c["path"]:c for c in sealed["captures"]}
+        assert set(expected)=={c["path"] for c in captures}, "Missing sealed sidebar/brand capture"
+        for case in captures:
+            assert all(case.get(k)==v for k,v in expected[case["path"]].items()), "Sidebar/brand source metadata differs"
+            assert case["sha256"]==checksums[case["path"]], "Sidebar/brand source pixels differ"
+        assert manifest["behavior"]==sealed["behavior"], "Sidebar/brand source actions differ"
     discovery = json.loads((ROOT / "reference/api-discovery.json").read_text())["desktop"]
     declarations = {d["name"]: d for d in discovery["declarations"]}
     for api, axes in {**CONTRACT_AXES, **SCOPED_CONTRACT_AXES.get(scoped, {})}.items():

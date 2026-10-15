@@ -10,6 +10,12 @@ class FixtureSetup : public QObject {
     Q_OBJECT
 public slots:
     void qmlEngineAvailable(QQmlEngine *engine) {
+        QFile sidebarBrand(QStringLiteral(NATIVE_SIDEBAR_BRAND_FILE));
+        if(!sidebarBrand.open(QIODevice::ReadOnly))qFatal("Native sidebar/brand evidence missing");
+        const auto sidebarData=QJsonDocument::fromJson(sidebarBrand.readAll()).object();
+        if(sidebarData.value("reference").toString()!="fe8a1d462fbd793d883fb92086a16aa2947e32c9" || sidebarData.value("captures").toArray().size()!=416)qFatal("Native sidebar/brand evidence invalid");
+        engine->rootContext()->setContextProperty("nativeSidebarBrandCaptures",sidebarData.value("captures").toArray().toVariantList());
+        engine->rootContext()->setContextProperty("nativeSidebarBrandBehavior",sidebarData.value("behavior").toArray().toVariantList());
         QFile navigation(QStringLiteral(NATIVE_NAVIGATION_FILE));
         if(!navigation.open(QIODevice::ReadOnly))qFatal("Native navigation source evidence missing");
         const auto navigationData=QJsonDocument::fromJson(navigation.readAll()).object();

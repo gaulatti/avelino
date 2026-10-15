@@ -1,0 +1,23 @@
+{
+  "status": "candidate inspection; complete native visual acceptance pending",
+  "inspected": [
+    "artifacts/sidebar-brand/host-styles/Basic-light.png",
+    "artifacts/sidebar-brand/package-only/sessions/sidebar-brand-xcb-software-standard-session.png",
+    "artifacts/sidebar-brand/package-only/sessions/sidebar-brand-wayland-software-scaled-session.png",
+    "evidence/development/sidebar-brand/comparison/sidebar-normal-normal-light-text1.0-offscreen-dpr2.0-pair.png"
+  ],
+  "observations": [
+    "The gallery shows the brand lockup, caller-selected Home and RTL items, unselected Editions, disabled state, a narrow wrapped title, the centered original logo and outside editor.",
+    "The RTL selection bar sits on the physical right; normal and disabled bars remain on the left.",
+    "The narrow label wraps within the source-measured title slot while the icon retains width20.",
+    "Whole PNG bytes agree across Basic/Fusion styles in light/dark.",
+    "The independent X11 full-output capture shows caller-selected Updated editions, the updated Editorial workspace name, centered fractional logo and retained xy editor text; sidebar title changes leave other controls intact.",
+    "The scaled dark nested-Wayland output retains caller-updated labels and fractional logo, right-side RTL bar, and xy editing. Weston virtual keyboard is an independent clipped compositor surface; OS presentation remains unaccepted.",
+    "The native/candidate sidebar pair preserves the overall title/icon slot layout; the original fixture house artwork and glyph raster still differ visibly. No native artwork equivalence is claimed."
+  ],
+  "limits": [
+    "Original fixture symbol paths have no approved SF artwork equivalence.",
+    "Exact fonts, tint, interpolation and native raster remain unaccepted.",
+    "physical input/display and actual readers remain pending."
+  ]
+}

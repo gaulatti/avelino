@@ -26,15 +26,15 @@ Weston Wayland compositor nested on it. It saves whole-output and window capture
 for software/OpenGL rendering at two display/text scales. Source and build trees
 remain absent. Metadata explicitly identifies virtual displays, Mesa software
 rendering, synthetic input, and the still-pending overlay/accessibility checks.
-The harness runs eighteen independent windows in each configuration: the base library
+The harness runs nineteen independent windows in each configuration: the base library
 fixture, `InstalledConsumer --controls`, `InstalledConsumer --composition` and
 `InstalledConsumer --selection`, `InstalledConsumer --checkbox` and
 `InstalledConsumer --secure-field`, `InstalledConsumer --search-field` and
 `InstalledConsumer --collection-filters`, `InstalledConsumer --slider`, `InstalledConsumer --tabs`, `InstalledConsumer --pagination`, `InstalledConsumer --pagination-integers`, `InstalledConsumer --accordion`,
 `InstalledConsumer --presentation-states`, `InstalledConsumer --spinner` and
 `InstalledConsumer --alert`, `InstalledConsumer --clipping` and
-`InstalledConsumer --navigation`.
-Their one hundred forty-four capture pairs keep
+`InstalledConsumer --navigation` and `InstalledConsumer --sidebar-brand`.
+Their one hundred fifty-two capture pairs keep
 form editing, scrolling, switch/toggle actions, disabled segmented options and
 focus restoration separate from the base composition checks. The controls fixture
 exercises the multiline editor's owned scrollbar. The selector fixture exercises
@@ -150,3 +150,11 @@ indices through C++ array replacement, explicit factory replacement and header
 remounting. It invokes the real Qt button accessibility actions. Its eight
 virtual display configurations remain separate from native keyboard/focus,
 Japanese glyph fallback, exact symbols/pixels and actual screen readers.
+
+The sidebar/branding mode verifies the embedded pinned mask checksum, updates
+the mark through one-point and fractional sizes inside an explicit caller frame,
+and retains the lockup's fixed font through text-scale changes. Sidebar requests
+do not overwrite caller selection; producer changes preserve editing/focus and
+update actual Qt accessibility metadata. The installed package also includes
+the unchanged source PNG and brand/symbol provenance. These checks do not approve
+native icon artwork, interpolation/tint/raster or actual reader output.

@@ -13,6 +13,7 @@ class BleeckerValueTools final : public QObject {
 public:
     using QObject::QObject;
     Q_INVOKABLE qreal sliderIntervals(qreal from, qreal to, qreal step) const;
+    Q_INVOKABLE qreal brandSize(qreal value) const;
     Q_INVOKABLE QJSValue breadcrumbItems(const QJSValue &items) const;
     Q_INVOKABLE int alertTypeIndex(const QString &type) const;
     Q_INVOKABLE int spinnerEdge(const QString &size) const;
