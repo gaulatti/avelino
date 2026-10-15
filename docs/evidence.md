@@ -554,3 +554,25 @@ Previous `c50af93` [Linux CI](https://github.com/gaulatti/avelino/actions/runs/3
 passed x64/ARM build/runtime/package jobs and failed all twenty strict visual
 jobs; [References CI](https://github.com/gaulatti/avelino/actions/runs/38659598840)
 passed. Those results remain separate from this checkpoint's local evidence.
+
+## Installed catalog relocation
+
+The [catalog runtime checkpoint](../evidence/development/catalog-runtime/candidate.json)
+closes the installed QML import failure recorded at `eed9aac`. CMake supplies the
+relative executable-to-QML directory from its install layout; the catalog adds
+that module path before loading a fixture. No new environment variable or source
+path is required.
+
+A fresh read-only container mounts only the package, copies it to a different
+prefix and unsets both QML import overrides. All 55 catalog captures pass, with
+PNG and complete metadata byte-identical to the preceding renders. The import
+trace loads the relocated `Avelino/qmldir`. An executable copied without its
+module refuses startup with the expected missing-module error. The normal
+source-build catalog also remains byte-identical. All 3,056 Qt checks, 56
+contracts and eleven installed library-consumer modes pass. The library binary
+is unchanged. CI now retains both staged and package-only catalog captures.
+
+This verifies offscreen startup and relocation. It does not turn the preceding
+88 library virtual sessions into catalog sessions or close physical, compositor,
+screen-reader, exact visual or remaining desktop/TV gates. Reference pins,
+expected captures, tolerances and exceptions are unchanged.

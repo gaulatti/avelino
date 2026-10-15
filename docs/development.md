@@ -157,3 +157,7 @@ The [pagination and icon-button contract](pagination.md) adds `--fixture paginat
 The catalog links Qt 6.8.3 Test for held pointer captures. It verifies the pressed
 state before capture and one activation after release. This is a catalog/tooling
 dependency; the Avelino library does not link Qt Test.
+
+The installed catalog discovers its packaged QML module without a build-tree
+import override. `scripts/check-installed-catalog.sh` is copied into each fresh
+package and verifies all gallery startup paths and missing-module refusal.

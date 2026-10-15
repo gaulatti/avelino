@@ -8,6 +8,7 @@
 #include <QJsonObject>
 #include <QJsonArray>
 #include <QFile>
+#include <QDir>
 #include <QSysInfo>
 #include <QFont>
 #include <QRawFont>
@@ -79,6 +80,8 @@ int main(int argc, char *argv[]) {
         if (matches != 1 || definition.value("width").toDouble() <= 0 || definition.value("height").toDouble() <= 0) return 6;
     } else if (parser.isSet("case") || parser.isSet("case-definitions")) return 6;
     QQmlApplicationEngine engine;
+    engine.addImportPath(QDir(QCoreApplication::applicationDirPath()).filePath(
+        QStringLiteral(AVELINO_QML_IMPORT_FROM_BIN)));
     engine.rootContext()->setContextProperty("captureDark", parser.isSet("dark"));
     engine.rootContext()->setContextProperty("captureVariant", parser.value("variant"));
     engine.rootContext()->setContextProperty("captureSize", parser.value("size"));

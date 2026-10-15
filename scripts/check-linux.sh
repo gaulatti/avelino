@@ -47,6 +47,8 @@ cmake --build "$stage/build" --parallel 2
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --slider)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --tabs)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --pagination)
+cp scripts/check-installed-catalog.sh "$stage/check-installed-catalog.sh"
+(cd "$stage" && bash check-installed-catalog.sh "$stage/catalog-evidence")
 mkdir -p artifacts
 # Always publish the already-verified fresh stage. Repeated cp into an existing
 # directory nests the consumer and leaves obsolete source/install files behind.
@@ -54,6 +56,9 @@ if [[ -e artifacts/package ]]; then mv artifacts/package "$stage/previous-packag
 mkdir artifacts/package
 cp -R "$stage/install" "$stage/consumer" artifacts/package/
 cp scripts/check-installed.sh artifacts/package/check-installed.sh
+cp scripts/check-installed-catalog.sh artifacts/package/check-installed-catalog.sh
+if [[ -e artifacts/linux/catalog-installed ]]; then mv artifacts/linux/catalog-installed "$stage/previous-catalog-installed"; fi
+cp -R "$stage/catalog-evidence" artifacts/linux/catalog-installed
 cp scripts/check-display-sessions.sh artifacts/package/check-display-sessions.sh
 cp artifacts/linux/environment.json artifacts/package/environment.json
 mkdir -p artifacts/linux

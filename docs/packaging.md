@@ -82,9 +82,23 @@ The pagination window checks real Qt names/actions for both navigation buttons, 
 
 The independent library consumer and the installed catalog have separate startup
 boundaries. A package-only `install/bin/AvelinoCatalog --fixture pagination`
-probe currently fails with `module "Avelino" is not installed`: the executable
-does not add its installed QML import directory. Catalog relocation/startup
-remains an open packaging gate despite the passing library consumer. The
+probe at `eed9aac` failed with `module "Avelino" is not installed`: the executable
+does not add its installed QML import directory. That checkpoint left catalog relocation/startup open despite the passing library consumer. The
 [pagination evidence](../evidence/development/pagination/candidate.json) retains
-that failed probe; the next packaging change must verify source/build trees and
+that failed probe; the relocation regression checks verify source/build trees and
 `QML_IMPORT_PATH` are absent while launching the installed catalog.
+
+The catalog now derives its QML import directory relative to the executable,
+using the same GNU install directories as the exported CMake package. Launch
+`install/bin/AvelinoCatalog` directly from a relocated installation; no
+`QML_IMPORT_PATH` override is required. The Qt 6.8.3 runtime remains a prerequisite.
+The source-build catalog continues to use the documented build-tree import path.
+
+`check-installed-catalog.sh` exercises all thirteen galleries at both appearances
+and DPRs, both action galleries, and the default button: 55 images with physical
+size/metadata checks. Both QML import environment variables are unset. A copied
+executable without its module must fail with the missing-module error. The full
+Linux check runs this against the staged install, then the package-only check
+repeats it after relocation. CI preserves both capture sets. `catalog-evidence`
+refuses existing output; rerun against a fresh package copy. These startup checks
+do not close compositor, physical input, screen-reader or strict visual gates.

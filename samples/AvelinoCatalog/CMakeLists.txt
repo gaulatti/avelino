@@ -11,3 +11,9 @@ qt_add_resources(AvelinoCatalog "catalog_fixture_assets" PREFIX "/avelino/fixtur
     BASE "${PROJECT_SOURCE_DIR}/tests/consumer" FILES "${PROJECT_SOURCE_DIR}/tests/consumer/avatar-wide.ppm")
 target_link_libraries(AvelinoCatalog PRIVATE Avelino Qt6::Quick Qt6::Test)
 install(TARGETS AvelinoCatalog RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+
+# Match the exported package's QML directory while keeping the executable relocatable.
+file(RELATIVE_PATH avelino_catalog_qml_from_bin
+    "${CMAKE_INSTALL_FULL_BINDIR}" "${CMAKE_INSTALL_FULL_LIBDIR}/qml")
+target_compile_definitions(AvelinoCatalog PRIVATE
+    AVELINO_QML_IMPORT_FROM_BIN="${avelino_catalog_qml_from_bin}")

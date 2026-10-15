@@ -55,6 +55,6 @@ range, further source keyboard/focus, locale/text-scale/motion/touch contexts,
 exact artwork/rendering, physical input/display and actual screen-reader gates
 remain open. No source pin, accepted capture, tolerance or exception changed.
 
-A separate package-only catalog probe fails to locate the installed Avelino QML
-module. This remains an open catalog startup gate; the independent library
-consumer passes separately. See [packaging](packaging.md).
+A separate package-only catalog probe at `eed9aac` failed to locate the installed Avelino QML
+module. The subsequent catalog relocation fix and its regression checks are
+documented separately; independent library consumption remains a separate check. See [packaging](packaging.md).
