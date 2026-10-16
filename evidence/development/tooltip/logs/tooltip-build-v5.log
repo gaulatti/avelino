@@ -1,0 +1,20 @@
+Preset CMake variables:
+
+  BUILD_TESTING="ON"
+  CMAKE_BUILD_TYPE="RelWithDebInfo"
+
+-- Could NOT find WrapVulkanHeaders (missing: Vulkan_INCLUDE_DIR) 
+-- Could NOT find WrapVulkanHeaders (missing: Vulkan_INCLUDE_DIR) 
+-- Found the following ICU libraries:
+--   i18n (required): /usr/lib/aarch64-linux-gnu/libicui18n.so.74
+--   uc (required): /usr/lib/aarch64-linux-gnu/libicuuc.so.74
+CMake Error at /opt/qt/lib/cmake/Qt6Qml/Qt6QmlMacros.cmake:3296 (message):
+  TooltipHost.qml is marked as both internal and as a singleton, but
+  singletons cannot be internal!
+Call Stack (most recent call first):
+  /opt/qt/lib/cmake/Qt6Qml/Qt6QmlMacros.cmake:916 (qt6_target_qml_sources)
+  /opt/qt/lib/cmake/Qt6Qml/Qt6QmlMacros.cmake:1254 (qt6_add_qml_module)
+  src/Avelino/CMakeLists.txt:40 (qt_add_qml_module)
+
+
+-- Configuring incomplete, errors occurred!

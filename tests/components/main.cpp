@@ -14,10 +14,23 @@
 #include <QMouseEvent>
 #include <QTemporaryDir>
 #include <QDir>
+#include <QAccessible>
 
 class FixtureSetup : public QObject {
     Q_OBJECT
 public slots:
+    void setAccessibilityActive(bool active) {QAccessible::setActive(active);}
+    bool accessibleAvailable(QQuickItem *item) {return item && QAccessible::queryAccessibleInterface(item);}
+    QString accessibleDescription(QQuickItem *item) {
+        const auto interface=QAccessible::queryAccessibleInterface(item);
+        if(!interface)qFatal("Tooltip reader check requires an actual Qt accessibility interface");
+        return interface->text(QAccessible::Description);
+    }
+    QString accessibleName(QQuickItem *item) {
+        const auto interface=QAccessible::queryAccessibleInterface(item);
+        if(!interface)qFatal("Tooltip reader check requires an actual Qt accessibility interface");
+        return interface->text(QAccessible::Name);
+    }
     void clickModalPoint(QQuickItem *item,qreal x,qreal y) {
         if(!item || !item->window() || !item->window()->isVisible())qFatal("Modal pointer test requires a visible owned window");
         auto window=item->window();const auto point=item->mapToScene(QPointF(x,y));

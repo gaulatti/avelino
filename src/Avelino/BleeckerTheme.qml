@@ -16,6 +16,9 @@ QtObject {
     readonly property color nativeEditorDisabledText: Qt.rgba(dark ? 1 : 0, dark ? 1 : 0, dark ? 1 : 0, 63/255)
     readonly property color nativeSeparator: Qt.rgba(dark ? 1 : 0, dark ? 1 : 0, dark ? 1 : 0, 25/255)
     readonly property color nativeSpinnerForeground: dark ? "#ffffff" : "#000000"
+    // Observed native light Tooltip body. Dark/vibrancy remain unmeasured.
+    readonly property color nativeTooltipBackground:"#e4e4e4"
+    readonly property color nativeTooltipForeground:"#454545"
     readonly property int nativeSpinnerDuration: 800
     // Opaque Color.red samples from the pinned macOS source at both schemes.
     readonly property color nativeBlue: dark ? "#0091ff" : "#0088ff"

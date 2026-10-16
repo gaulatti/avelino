@@ -1,0 +1,30 @@
+[0/2] Re-checking globbed directories...
+[1/283] Automatic MOC and UIC for target Avelino
+[2/282] Running AUTOMOC file extraction for target Avelino
+[3/282] Running moc --collect-json for target Avelino
+[4/12] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/tooltipaccess.cpp.o
+[5/12] Linking CXX shared library src/Avelino/libAvelino.so
+[6/12] Linking CXX shared module qml/Avelino/libAvelinoplugin.so
+[7/12] Automatic MOC and UIC for target AvelinoComponentTests
+[8/11] Linking CXX executable samples/AvelinoCatalog/AvelinoCatalog
+[9/11] Linking CXX executable tests/components/AvelinoOTPSemanticsTests
+[10/11] Building CXX object tests/components/CMakeFiles/AvelinoComponentTests.dir/main.cpp.o
+[11/11] Linking CXX executable tests/components/AvelinoComponentTests
+********* Start testing of avelino *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : avelino::Tooltip::initTestCase()
+PASS   : avelino::Tooltip::test_accessible_description_updates_and_restores_binding()
+FAIL!  : avelino::Tooltip::test_action_replacement_preserves_name_and_description() Compared values are not the same
+   Actual   (): 
+   Expected (): Second action
+   Loc: [/work/tests/components/tst_tooltip.qml(115)]
+PASS   : avelino::Tooltip::test_adapter_preserves_caller_geometry_and_state()
+PASS   : avelino::Tooltip::test_empty_hint_has_no_popup()
+PASS   : avelino::Tooltip::test_hint_reaches_actual_button_input()
+PASS   : avelino::Tooltip::test_hover_popup_latches_text_without_focus_grab()
+PASS   : avelino::Tooltip::test_native_action_proxy_and_shared_action_keep_updating()
+PASS   : avelino::Tooltip::test_same_hint_value_remains_an_explicit_caller_description()
+PASS   : avelino::Tooltip::test_target_removal_and_retargeting()
+PASS   : avelino::Tooltip::cleanupTestCase()
+Totals: 10 passed, 1 failed, 0 skipped, 0 blacklisted, 316ms
+********* Finished testing of avelino *********

@@ -1,0 +1,115 @@
+#0 building with "colima-centinela" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 183B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/avelino-toolchain:data-metrics-qt6.8.3
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/2] FROM docker.io/library/avelino-toolchain:data-metrics-qt6.8.3@sha256:48d88f958d93310bf887e4318b27713b7ecbb8b9f6a7d276087e599c9b6383d8
+#4 resolve docker.io/library/avelino-toolchain:data-metrics-qt6.8.3@sha256:48d88f958d93310bf887e4318b27713b7ecbb8b9f6a7d276087e599c9b6383d8 done
+#4 CACHED
+
+#5 [2/2] RUN apt-get update && apt-get install -y --no-install-recommends gdb && rm -rf /var/lib/apt/lists/*
+#5 0.486 Get:1 http://ports.ubuntu.com/ubuntu-ports noble InRelease [256 kB]
+#5 1.061 Get:2 http://ports.ubuntu.com/ubuntu-ports noble-updates InRelease [126 kB]
+#5 1.204 Get:3 http://ports.ubuntu.com/ubuntu-ports noble-backports InRelease [126 kB]
+#5 1.347 Get:4 http://ports.ubuntu.com/ubuntu-ports noble-security InRelease [126 kB]
+#5 1.491 Get:5 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 Packages [1776 kB]
+#5 1.828 Get:6 http://ports.ubuntu.com/ubuntu-ports noble/restricted arm64 Packages [113 kB]
+#5 1.831 Get:7 http://ports.ubuntu.com/ubuntu-ports noble/multiverse arm64 Packages [274 kB]
+#5 1.849 Get:8 http://ports.ubuntu.com/ubuntu-ports noble/universe arm64 Packages [19.0 MB]
+#5 2.388 Get:9 http://ports.ubuntu.com/ubuntu-ports noble-updates/universe arm64 Packages [2214 kB]
+#5 2.454 Get:10 http://ports.ubuntu.com/ubuntu-ports noble-updates/restricted arm64 Packages [3251 kB]
+#5 2.526 Get:11 http://ports.ubuntu.com/ubuntu-ports noble-updates/multiverse arm64 Packages [104 kB]
+#5 2.529 Get:12 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 Packages [1786 kB]
+#5 2.580 Get:13 http://ports.ubuntu.com/ubuntu-ports noble-backports/universe arm64 Packages [36.3 kB]
+#5 2.580 Get:14 http://ports.ubuntu.com/ubuntu-ports noble-backports/main arm64 Packages [49.0 kB]
+#5 2.582 Get:15 http://ports.ubuntu.com/ubuntu-ports noble-backports/multiverse arm64 Packages [669 B]
+#5 2.583 Get:16 http://ports.ubuntu.com/ubuntu-ports noble-security/restricted arm64 Packages [3129 kB]
+#5 2.661 Get:17 http://ports.ubuntu.com/ubuntu-ports noble-security/main arm64 Packages [1475 kB]
+#5 2.698 Get:18 http://ports.ubuntu.com/ubuntu-ports noble-security/multiverse arm64 Packages [99.1 kB]
+#5 2.700 Get:19 http://ports.ubuntu.com/ubuntu-ports noble-security/universe arm64 Packages [1638 kB]
+#5 3.442 Fetched 35.6 MB in 3s (10.9 MB/s)
+#5 3.442 Reading package lists...
+#5 4.228 Reading package lists...
+#5 5.001 Building dependency tree...
+#5 5.251 Reading state information...
+#5 5.615 The following additional packages will be installed:
+#5 5.619   libbabeltrace1 libdebuginfod-common libdebuginfod1t64 libpython3.12t64
+#5 5.619   libsource-highlight-common libsource-highlight4t64 ucf
+#5 5.620 Suggested packages:
+#5 5.620   gdb-doc gdbserver
+#5 5.620 Recommended packages:
+#5 5.620   libc-dbg
+#5 5.663 The following NEW packages will be installed:
+#5 5.664   gdb libbabeltrace1 libdebuginfod-common libdebuginfod1t64 libpython3.12t64
+#5 5.664   libsource-highlight-common libsource-highlight4t64 ucf
+#5 5.909 0 upgraded, 8 newly installed, 0 to remove and 4 not upgraded.
+#5 5.909 Need to get 7356 kB of archives.
+#5 5.909 After this operation, 24.3 MB of additional disk space will be used.
+#5 5.909 Get:1 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 ucf all 3.0043+nmu1 [56.5 kB]
+#5 6.200 Get:2 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 libdebuginfod-common all 0.190-1.1ubuntu0.1 [14.6 kB]
+#5 6.214 Get:3 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libbabeltrace1 arm64 1.5.11-3build3 [159 kB]
+#5 6.380 Get:4 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 libdebuginfod1t64 arm64 0.190-1.1ubuntu0.1 [16.2 kB]
+#5 6.389 Get:5 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 libpython3.12t64 arm64 3.12.3-1ubuntu0.17 [2280 kB]
+#5 6.701 Get:6 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libsource-highlight-common all 3.1.9-4.3build1 [64.2 kB]
+#5 6.706 Get:7 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libsource-highlight4t64 arm64 3.1.9-4.3build1 [243 kB]
+#5 6.717 Get:8 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 gdb arm64 15.1-1ubuntu1~24.04.1 [4523 kB]
+#5 7.004 debconf: delaying package configuration, since apt-utils is not installed
+#5 7.043 Fetched 7356 kB in 1s (6326 kB/s)
+#5 7.065 Selecting previously unselected package ucf.
+#5 7.065 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 23309 files and directories currently installed.)
+#5 7.141 Preparing to unpack .../0-ucf_3.0043+nmu1_all.deb ...
+#5 7.144 Moving old data out of the way
+#5 7.145 Unpacking ucf (3.0043+nmu1) ...
+#5 7.175 Selecting previously unselected package libdebuginfod-common.
+#5 7.175 Preparing to unpack .../1-libdebuginfod-common_0.190-1.1ubuntu0.1_all.deb ...
+#5 7.176 Unpacking libdebuginfod-common (0.190-1.1ubuntu0.1) ...
+#5 7.196 Selecting previously unselected package libbabeltrace1:arm64.
+#5 7.200 Preparing to unpack .../2-libbabeltrace1_1.5.11-3build3_arm64.deb ...
+#5 7.204 Unpacking libbabeltrace1:arm64 (1.5.11-3build3) ...
+#5 7.242 Selecting previously unselected package libdebuginfod1t64:arm64.
+#5 7.246 Preparing to unpack .../3-libdebuginfod1t64_0.190-1.1ubuntu0.1_arm64.deb ...
+#5 7.248 Unpacking libdebuginfod1t64:arm64 (0.190-1.1ubuntu0.1) ...
+#5 7.271 Selecting previously unselected package libpython3.12t64:arm64.
+#5 7.273 Preparing to unpack .../4-libpython3.12t64_3.12.3-1ubuntu0.17_arm64.deb ...
+#5 7.275 Unpacking libpython3.12t64:arm64 (3.12.3-1ubuntu0.17) ...
+#5 7.342 Selecting previously unselected package libsource-highlight-common.
+#5 7.343 Preparing to unpack .../5-libsource-highlight-common_3.1.9-4.3build1_all.deb ...
+#5 7.347 Unpacking libsource-highlight-common (3.1.9-4.3build1) ...
+#5 7.390 Selecting previously unselected package libsource-highlight4t64:arm64.
+#5 7.390 Preparing to unpack .../6-libsource-highlight4t64_3.1.9-4.3build1_arm64.deb ...
+#5 7.392 Unpacking libsource-highlight4t64:arm64 (3.1.9-4.3build1) ...
+#5 7.421 Selecting previously unselected package gdb.
+#5 7.422 Preparing to unpack .../7-gdb_15.1-1ubuntu1~24.04.1_arm64.deb ...
+#5 7.424 Unpacking gdb (15.1-1ubuntu1~24.04.1) ...
+#5 7.529 Setting up libsource-highlight-common (3.1.9-4.3build1) ...
+#5 7.533 Setting up libpython3.12t64:arm64 (3.12.3-1ubuntu0.17) ...
+#5 7.537 Setting up ucf (3.0043+nmu1) ...
+#5 7.610 Setting up libbabeltrace1:arm64 (1.5.11-3build3) ...
+#5 7.613 Setting up libdebuginfod-common (0.190-1.1ubuntu0.1) ...
+#5 7.665 Setting up libsource-highlight4t64:arm64 (3.1.9-4.3build1) ...
+#5 7.668 Setting up libdebuginfod1t64:arm64 (0.190-1.1ubuntu0.1) ...
+#5 7.670 Setting up gdb (15.1-1ubuntu1~24.04.1) ...
+#5 7.674 Processing triggers for man-db (2.12.0-4build2) ...
+#5 7.757 Processing triggers for libc-bin (2.39-0ubuntu8.9) ...
+#5 DONE 8.0s
+
+#6 exporting to image
+#6 exporting layers
+#6 exporting layers 0.9s done
+#6 exporting manifest sha256:d66f7dcafe23d1b6dd3b3c950e0dc8941d6d1059c5f55e745965620767e1b132
+#6 exporting manifest sha256:d66f7dcafe23d1b6dd3b3c950e0dc8941d6d1059c5f55e745965620767e1b132 done
+#6 exporting config sha256:5de77cead813632a0a56bcd0a7b0e1e02c3f1cef2b51ae7f9926dcd4389dc06c done
+#6 exporting attestation manifest sha256:8ffc0d3cc7bd40e83731d9f4bfe95e3e6fadbe18fc767e611db5168fc4a612fa done
+#6 exporting manifest list sha256:f359e05e4b70f7704ae2cd42f5134a8ab114ba4efff0600cc72ea4a812c53c56 done
+#6 naming to docker.io/library/avelino-toolchain:tooltip-debug-qt6.8.3 done
+#6 unpacking to docker.io/library/avelino-toolchain:tooltip-debug-qt6.8.3
+#6 unpacking to docker.io/library/avelino-toolchain:tooltip-debug-qt6.8.3 0.2s done
+#6 DONE 1.1s

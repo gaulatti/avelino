@@ -1,0 +1,35 @@
+[0/2] Re-checking globbed directories...
+[1/283] Copying Avelino qml sources into build dir
+[2/283] Automatic MOC and UIC for target Avelino
+[3/282] Running AUTOMOC file extraction for target Avelino
+[4/282] Running moc --collect-json for target Avelino
+[5/14] Generating .rcc/qmlcache/Avelino_BleeckerTooltip_qml.cpp, .rcc/qmlcache/Avelino_BleeckerTooltip_qml.cpp.aotstats
+[6/14] Running rcc for resource Avelino_raw_qml_0
+[7/14] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerTooltip_qml.cpp.o
+[8/14] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.qt/rcc/qrc_Avelino_raw_qml_0.cpp.o
+[9/14] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/tooltipaccess.cpp.o
+[10/14] Linking CXX shared library src/Avelino/libAvelino.so
+[11/14] Linking CXX shared module qml/Avelino/libAvelinoplugin.so
+[12/14] Linking CXX executable tests/components/AvelinoComponentTests
+[13/14] Linking CXX executable samples/AvelinoCatalog/AvelinoCatalog
+[14/14] Linking CXX executable tests/components/AvelinoOTPSemanticsTests
+********* Start testing of avelino *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : avelino::Tooltip::initTestCase()
+PASS   : avelino::Tooltip::test_accessible_description_updates_and_restores_binding()
+PASS   : avelino::Tooltip::test_action_replacement_preserves_name_and_description()
+PASS   : avelino::Tooltip::test_adapter_preserves_caller_geometry_and_state()
+PASS   : avelino::Tooltip::test_empty_hint_has_no_popup()
+PASS   : avelino::Tooltip::test_framework_name_matches_the_unhinted_control()
+PASS   : avelino::Tooltip::test_hint_reaches_actual_button_input()
+PASS   : avelino::Tooltip::test_hover_popup_latches_text_without_focus_grab()
+PASS   : avelino::Tooltip::test_native_action_proxy_and_shared_action_keep_updating()
+FAIL!  : avelino::Tooltip::test_owner_window_hide_releases_the_popup() property visible
+   Actual   (): true
+   Expected (): false
+   Loc: [/work/tests/components/tst_tooltip.qml(159)]
+PASS   : avelino::Tooltip::test_same_hint_value_remains_an_explicit_caller_description()
+PASS   : avelino::Tooltip::test_target_removal_and_retargeting()
+PASS   : avelino::Tooltip::cleanupTestCase()
+Totals: 12 passed, 1 failed, 0 skipped, 0 blacklisted, 5521ms
+********* Finished testing of avelino *********

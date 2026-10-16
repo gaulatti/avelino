@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.24)
+project(TooltipProxyDiagnostic LANGUAGES CXX)
+find_package(Qt6 6.8.3 EXACT REQUIRED COMPONENTS Gui Qml Quick Test)
+add_executable(TooltipProxyDiagnostic main.cpp)
+target_link_libraries(TooltipProxyDiagnostic PRIVATE Qt6::Gui Qt6::Qml Qt6::Quick Qt6::Test)

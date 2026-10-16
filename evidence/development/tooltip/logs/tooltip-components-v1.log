@@ -1,0 +1,9 @@
+********* Start testing of avelino *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : avelino::Tooltip::initTestCase()
+FAIL!  : avelino::Tooltip::test_accessible_description_updates_and_restores_binding() Received a warning that resulted in a failure:
+qrc:/qt/qml/Avelino/TooltipHost.qml:9:46: QML ToolTip: Binding loop detected for property "implicitHeight":
+qrc:/qt/qml/Avelino/TooltipHost.qml:15:9
+   Loc: [qrc:/qt/qml/Avelino/TooltipHost.qml(9)]
+Received signal 11 (SIGSEGV), code 2, for address 0x0000e33986ac1b40
+         Tooltip::test_accessible_description_updates_and_restores_binding function time: 23ms, total time: 23ms

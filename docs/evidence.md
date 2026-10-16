@@ -946,3 +946,23 @@ panel's pixels remain unchanged. Full active popup coverage, dismissal/timing,
 compositor appearance and readers remain pending. Inactive and failed harness
 attempts are explicitly excluded and preserved. Linux Tooltip implementation
 remains pending; desktop coverage stays 61/80 candidates and zero accepted.
+
+## Tooltip candidate
+
+The [Tooltip candidate](../evidence/development/tooltip/candidate.json) attaches
+help to caller items and owns a separate Qt tooltip window. Its read-only
+accessibility overlay preserves native description producers, Action proxies,
+bindings and Behaviors. The complete 21-target CTest suite and all 291 host/Linux
+contracts pass. A fresh package passes 26 consumer modes and 115 catalog captures;
+all 111 preceding gallery images and full metadata are byte-identical. All eight
+Tooltip virtual X11/Wayland software/OpenGL standard/scaled profiles pass.
+
+Every one of the 168 closed attached/bare PNG pairs is byte-identical. Strict
+native comparison matches 40 closed bodies, 144 caller-frame sets and all 168
+initial states. The original-size default popup comparison remains failed:
+native 342-by-42 versus Qt 314-by-42 physical pixels at DPR two. It refuses
+resizing. Native system fonts, full shown-popup profiles, timing/dismissal,
+dark/vibrancy, compositor shadows, physical input and screen readers remain
+unaccepted. Failed accessibility, hover-parent and palette-animation attempts
+are retained alongside final evidence. Desktop coverage is now 62/80 candidates,
+18 pending and zero accepted; all 46 TV entries remain pending.

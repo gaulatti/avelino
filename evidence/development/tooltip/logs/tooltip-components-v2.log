@@ -1,0 +1,23 @@
+[0/2] Re-checking globbed directories...
+[1/16] Copying AvelinoCatalog qml sources into build dir
+[2/16] Copying Avelino qml sources into build dir
+[3/16] Running qmlimportscanner for AvelinoCatalog
+[4/16] Generating .rcc/qmlcache/Avelino_TooltipHost_qml.cpp, .rcc/qmlcache/Avelino_TooltipHost_qml.cpp.aotstats
+[5/16] Running rcc for resource Avelino_raw_qml_0
+[6/16] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_TooltipHost_qml.cpp.o
+[7/16] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.qt/rcc/qrc_Avelino_raw_qml_0.cpp.o
+[8/16] Linking CXX shared library src/Avelino/libAvelino.so
+[9/16] Generating .rcc/qmlcache/tests/consumer/TooltipCase_qml.cpp, .rcc/qmlcache/tests/consumer/TooltipCase_qml.cpp.aotstats
+[10/16] Running rcc for resource AvelinoCatalog_raw_qml_0
+[11/16] Linking CXX shared module qml/Avelino/libAvelinoplugin.so
+[12/16] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.qt/rcc/qrc_AvelinoCatalog_raw_qml_0.cpp.o
+[13/16] Linking CXX executable tests/components/AvelinoComponentTests
+[14/16] Linking CXX executable tests/components/AvelinoOTPSemanticsTests
+[15/16] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/TooltipCase_qml.cpp.o
+[16/16] Linking CXX executable samples/AvelinoCatalog/AvelinoCatalog
+********* Start testing of avelino *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : avelino::Tooltip::initTestCase()
+Received signal 11 (SIGSEGV), code 2, for address 0x0000ee2f50db1b40
+         Tooltip::test_accessible_description_updates_and_restores_binding function time: 13ms, total time: 13ms
+Segmentation fault

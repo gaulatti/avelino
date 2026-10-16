@@ -1,0 +1,68 @@
+warning: Error disabling address space randomization: Operation not permitted
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/aarch64-linux-gnu/libthread_db.so.1".
+[New Thread 0xf4065418efe0 (LWP 14)]
+********* Start testing of avelino *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : avelino::Tooltip::initTestCase()
+
+Thread 1 "AvelinoComponen" received signal SIGSEGV, Segmentation fault.
+0x0000f40658721b40 in typeinfo for QAbstractMetaCallEvent () from /opt/qt/lib/libQt6Core.so.6
+#0  0x0000f40658721b40 in typeinfo for QAbstractMetaCallEvent () from /opt/qt/lib/libQt6Core.so.6
+#1  0x0000f40659a50cc4 in QQuickPointerHandler::setParentItem(QQuickItem*) () from /opt/qt/lib/libQt6Quick.so.6
+#2  0x0000f40658a39e4c in ?? () from /opt/qt/lib/libQt6Qml.so.6
+#3  0x0000f40658a36a2c in QQmlBinding::doUpdate(QQmlJavaScriptExpression::DeleteWatcher const&, QFlags<QQmlPropertyData::WriteFlag>, QV4::Scope&) () from /opt/qt/lib/libQt6Qml.so.6
+#4  0x0000f40658a39a48 in QQmlBinding::update(QFlags<QQmlPropertyData::WriteFlag>) () from /opt/qt/lib/libQt6Qml.so.6
+#5  0x0000f40658acf5f0 in QQmlObjectCreator::finalize(QQmlInstantiationInterrupt&) () from /opt/qt/lib/libQt6Qml.so.6
+#6  0x0000f40658a5465c in QQmlComponentPrivate::complete(QQmlEnginePrivate*, QQmlComponentPrivate::ConstructionState*) () from /opt/qt/lib/libQt6Qml.so.6
+#7  0x0000f40658a5abec in QQmlComponentPrivate::completeCreate() () from /opt/qt/lib/libQt6Qml.so.6
+#8  0x0000f40658a5b760 in QQmlComponentPrivate::createWithProperties(QObject*, QMap<QString, QVariant> const&, QQmlContext*, QQmlComponentPrivate::CreateBehavior, bool) () from /opt/qt/lib/libQt6Qml.so.6
+#9  0x0000f40658a5b9dc in QQmlComponent::createObject(QObject*, QMap<QString, QVariant> const&) () from /opt/qt/lib/libQt6Qml.so.6
+#10 0x0000f40658a5c794 in ?? () from /opt/qt/lib/libQt6Qml.so.6
+#11 0x0000f40658a5cb98 in QQmlComponent::qt_metacall(QMetaObject::Call, int, void**) () from /opt/qt/lib/libQt6Qml.so.6
+#12 0x0000f40658ae26a0 in ?? () from /opt/qt/lib/libQt6Qml.so.6
+#13 0x0000f40658996e00 in QV4::QObjectMethod::callPrecise(QQmlObjectOrGadget const&, QQmlPropertyData const&, QV4::ExecutionEngine*, QV4::CallData*, QMetaObject::Call) () from /opt/qt/lib/libQt6Qml.so.6
+#14 0x0000f406589983a4 in QV4::QObjectMethod::callInternal(QV4::Value const*, QV4::Value const*, int) const () from /opt/qt/lib/libQt6Qml.so.6
+#15 0x0000f406589fb66c in ?? () from /opt/qt/lib/libQt6Qml.so.6
+#16 0x0000f406589feb50 in ?? () from /opt/qt/lib/libQt6Qml.so.6
+#17 0x0000f40658943208 in ?? () from /opt/qt/lib/libQt6Qml.so.6
+#18 0x0000f406589b46dc in QV4::Runtime::CallQmlContextPropertyLookup::call(QV4::ExecutionEngine*, unsigned int, QV4::Value*, int) () from /opt/qt/lib/libQt6Qml.so.6
+#19 0x0000f406589f9008 in ?? () from /opt/qt/lib/libQt6Qml.so.6
+#20 0x0000f406589feb50 in ?? () from /opt/qt/lib/libQt6Qml.so.6
+#21 0x0000f40658943208 in ?? () from /opt/qt/lib/libQt6Qml.so.6
+#22 0x0000f406589b46dc in QV4::Runtime::CallQmlContextPropertyLookup::call(QV4::ExecutionEngine*, unsigned int, QV4::Value*, int) () from /opt/qt/lib/libQt6Qml.so.6
+#23 0x0000f406589f9008 in ?? () from /opt/qt/lib/libQt6Qml.so.6
+#24 0x0000f406589feb50 in ?? () from /opt/qt/lib/libQt6Qml.so.6
+#25 0x0000f40658943208 in ?? () from /opt/qt/lib/libQt6Qml.so.6
+#26 0x0000f406589fb168 in ?? () from /opt/qt/lib/libQt6Qml.so.6
+#27 0x0000f406589feb50 in ?? () from /opt/qt/lib/libQt6Qml.so.6
+#28 0x0000f40658943208 in ?? () from /opt/qt/lib/libQt6Qml.so.6
+#29 0x0000f406589b46dc in QV4::Runtime::CallQmlContextPropertyLookup::call(QV4::ExecutionEngine*, unsigned int, QV4::Value*, int) () from /opt/qt/lib/libQt6Qml.so.6
+#30 0x0000f406589f9008 in ?? () from /opt/qt/lib/libQt6Qml.so.6
+#31 0x0000f406589feb50 in ?? () from /opt/qt/lib/libQt6Qml.so.6
+#32 0x0000f40658943208 in ?? () from /opt/qt/lib/libQt6Qml.so.6
+#33 0x0000f406589b46dc in QV4::Runtime::CallQmlContextPropertyLookup::call(QV4::ExecutionEngine*, unsigned int, QV4::Value*, int) () from /opt/qt/lib/libQt6Qml.so.6
+#34 0x0000f406589f9008 in ?? () from /opt/qt/lib/libQt6Qml.so.6
+#35 0x0000f406589feb50 in ?? () from /opt/qt/lib/libQt6Qml.so.6
+#36 0x0000f40658943208 in ?? () from /opt/qt/lib/libQt6Qml.so.6
+#37 0x0000f406589fb66c in ?? () from /opt/qt/lib/libQt6Qml.so.6
+#38 0x0000f406589feb50 in ?? () from /opt/qt/lib/libQt6Qml.so.6
+#39 0x0000f4065893eab0 in ?? () from /opt/qt/lib/libQt6Qml.so.6
+#40 0x0000f4065893f740 in QV4::Function::call(QObject*, void**, QMetaType const*, int, QV4::ExecutionContext*) () from /opt/qt/lib/libQt6Qml.so.6
+#41 0x0000f40658aa25d0 in QQmlJavaScriptExpression::evaluate(void**, QMetaType const*, int) () from /opt/qt/lib/libQt6Qml.so.6
+#42 0x0000f40658a42f9c in QQmlBoundSignalExpression::evaluate(void**) () from /opt/qt/lib/libQt6Qml.so.6
+#43 0x0000f40658a4383c in ?? () from /opt/qt/lib/libQt6Qml.so.6
+#44 0x0000f40658accdc8 in QQmlNotifier::emitNotify(QQmlNotifierEndpoint*, void**) () from /opt/qt/lib/libQt6Qml.so.6
+#45 0x0000f40658249964 in ?? () from /opt/qt/lib/libQt6Core.so.6
+#46 0x0000f40657baff00 in QQmlTimer::ticked() () from /opt/qt/lib/libQt6QmlMeta.so.6
+#47 0x0000f40657bb01c8 in QQmlTimer::event(QEvent*) () from /opt/qt/lib/libQt6QmlMeta.so.6
+#48 0x0000f406581ea25c in QCoreApplication::notifyInternal2(QObject*, QEvent*) () from /opt/qt/lib/libQt6Core.so.6
+#49 0x0000f406581edd60 in QCoreApplicationPrivate::sendPostedEvents(QObject*, int, QThreadData*) () from /opt/qt/lib/libQt6Core.so.6
+#50 0x0000f406584bdd38 in ?? () from /opt/qt/lib/libQt6Core.so.6
+#51 0x0000f406573af90c in ?? () from /lib/aarch64-linux-gnu/libglib-2.0.so.0
+#52 0x0000f40657411c38 [PAC] in ?? () from /lib/aarch64-linux-gnu/libglib-2.0.so.0
+#53 0x0000f406573aebc8 [PAC] in g_main_context_iteration () from /lib/aarch64-linux-gnu/libglib-2.0.so.0
+#54 0x0000f406584bd4b4 [PAC] in QEventDispatcherGlib::processEvents(QFlags<QEventLoop::ProcessEventsFlag>) () from /opt/qt/lib/libQt6Core.so.6
+#55 0x0000f406581f6b94 in QEventLoop::exec(QFlags<QEventLoop::ProcessEventsFlag>) () from /opt/qt/lib/libQt6Core.so.6
+#56 0x0000f4065a0b6118 in quick_test_main_with_setup(int, char**, char const*, char const*, QObject*) () from /opt/qt/lib/libQt6QuickTest.so.6
+#57 0x0000b633ce433d40 in main (argc=<optimized out>, argv=0xffffc8a2ea38) at /work/tests/components/main.cpp:232

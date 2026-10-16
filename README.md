@@ -48,8 +48,8 @@ The [empty/error/loading source investigation](docs/presentation-states.md)
 now has [Linux presentation-state candidates](docs/presentation-states.md); complete mirror acceptance remains pending.
 The [alert candidate](docs/alert.md) adds typed feedback with caller-owned content
 and native prose-layout evidence.
-Sixty of the 80 discovered desktop
-entries have started; no component has passed its complete mirror gate.
+Sixty-two of the 80 discovered desktop entries have Linux candidates;
+no component has passed its complete mirror gate.
 The public GitHub wiki remote is unavailable; documentation currently lives here.
 
 The [Stepper source investigation](docs/stepper.md) preserves hosted native
@@ -86,8 +86,10 @@ physical presentations and reader acceptance remain pending.
 
 The [Tooltip source investigation](docs/tooltip.md) preserves 168 closed wrapper
 cases, a byte-identical source-only replay, accessibility hint updates and an
-actual native help panel. Linux implementation, shown-popup coverage and full
-mirror acceptance remain pending.
+actual native help panel. The Linux candidate attaches to caller items, retains
+their layout/input/state, supplies Qt accessibility hints and owns a separate
+tooltip window. Native font, popup appearance/timing, physical input and reader
+acceptance remain pending.
 
 The [page header and breadcrumb candidates](docs/navigation-layout.md) use measured
 source layout, fixed typography, caller action content and logical-index
