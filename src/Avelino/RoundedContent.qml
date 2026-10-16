@@ -6,12 +6,13 @@ Item {
     id: control
     default property alias content: contents.data
     property real radius: BleeckerTokens.radii.card
+    property bool clipsInput: true
     readonly property int rendererType: outline.rendererType
     readonly property bool softwareClipping: GraphicsInfo.api === GraphicsInfo.Software
     readonly property bool roundedClipping: softwareClipping || outline.rendererType === Shape.CurveRenderer
-    clip: true
-    containmentMask: outline
-    Item { id: contents; anchors.fill: parent; clip: true }
+    clip: clipsInput
+    containmentMask: clipsInput ? outline : null
+    Item { id: contents; anchors.fill: parent; clip: control.clipsInput }
     ShaderEffectSource {
         id: texture
         sourceItem: contents
@@ -26,6 +27,7 @@ Item {
     Shape {
         id: outline
         anchors.fill: parent
+        asynchronous: true
         preferredRendererType: Shape.CurveRenderer
         containsMode: Shape.FillContains
         antialiasing: true

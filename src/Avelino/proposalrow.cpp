@@ -1,4 +1,5 @@
 #include "proposalrow.h"
+#include "proposalcolumn.h"
 #include <QtQml/qqml.h>
 #include <QQuickWindow>
 #include <QPointer>
@@ -70,6 +71,7 @@ void ProposalRow::layout() {
     qreal ideal=0,minimum=0;
     for(auto child:layoutItems()) {
         if(auto row=qobject_cast<ProposalRow*>(child))row->layout();
+        if(auto column=qobject_cast<ProposalColumn*>(child))column->layout();
         auto hint=qobject_cast<BleeckerLayout*>(qmlAttachedPropertiesObject<BleeckerLayout>(child,true));
         const auto natural=hint->idealWidth>=0 ? hint->idealWidth:child->implicitWidth()>0 ? child->implicitWidth():child->width();
         const auto lower=hint->minimumWidth>=0 ? hint->minimumWidth:natural;
@@ -92,15 +94,20 @@ void ProposalRow::layout() {
         const auto offered=m_maximum<0 ? c.ideal:std::clamp(remaining/(order.size()-at),c.minimum,c.ideal);
         c.hint->propose(m_maximum<0 ? -1:offered);
         if(auto row=qobject_cast<ProposalRow*>(c.item))row->layout();
+        if(auto column=qobject_cast<ProposalColumn*>(c.item))column->layout();
         c.width=c.minimum==c.ideal ? c.ideal:std::clamp(c.item->implicitWidth(),c.minimum,c.ideal);
-        c.item->setWidth(c.width);remaining-=c.width;
+        c.item->setWidth(c.width);
+        if(auto column=qobject_cast<ProposalColumn*>(c.item))column->layout();
+        remaining-=c.width;
     }
     qreal total=gaps,height=0;
     for(auto &c:cells) {
         if(c.hint->fillsWidth)c.width+=std::max(qreal(0),remaining)/fills;
         const bool measured=c.hint->idealWidth>=0 || c.hint->minimumWidth>=0;
+        c.item->setWidth(c.width);
+        if(auto column=qobject_cast<ProposalColumn*>(c.item))column->layout();
         c.height=measured || c.item->implicitHeight()>0 ? c.item->implicitHeight():c.item->height();
-        c.item->setWidth(c.width);c.item->setHeight(c.height);total+=c.width;height=std::max(height,c.height);
+        c.item->setHeight(c.height);total+=c.width;height=std::max(height,c.height);
     }
     qreal x=m_mirrored ? total:0;
     for(auto &c:cells) {

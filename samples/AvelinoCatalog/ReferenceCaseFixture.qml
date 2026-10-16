@@ -44,7 +44,7 @@ Window {
         anchors.alignWhenCentered: false
         sourceComponent: {
             const components = {
-                "BleeckerTooltip":tooltipCase,"BleeckerModal":modalCase,"BleeckerActivityItem":activityCase, "BleeckerButton": button, "BleeckerOTPInput":otpCase, "BleeckerRadioGroup":radioCase, "BleeckerStepper":stepperCase, "BleeckerLoadingSpinner": spinner,
+                "BleeckerButtonStyle":buttonStyleCase,"BleeckerTooltip":tooltipCase,"BleeckerModal":modalCase,"BleeckerActivityItem":activityCase, "BleeckerButton": button, "BleeckerOTPInput":otpCase, "BleeckerRadioGroup":radioCase, "BleeckerStepper":stepperCase, "BleeckerLoadingSpinner": spinner,
                 "BleeckerSidebarItem":sidebarBrandCase, "BleeckerMetric":dataMetricsCase, "BleeckerStatCard":dataMetricsCase, "BleeckerKbd":dataMetricsCase, "BleeckerIconBadge":dataMetricsCase,"BleeckerBrandMark":sidebarBrandCase,"BleeckerBrandLockup":sidebarBrandCase,"BleeckerPageHeader":navigationCase,"BleeckerBreadcrumb":navigationCase,"BleeckerAlert":alert,"BleeckerEmptyState":emptyState,"BleeckerErrorState":errorState,"BleeckerLoadingOverlay":loadingOverlay,
                 "BleeckerTextField": textField, "BleeckerTextArea": textArea,
                 "BleeckerField": field, "BleeckerSwitchStyle": switchControl,
@@ -74,6 +74,7 @@ Window {
     }
     Component {id:radioCase;RadioGroupCase {definition:window.definition}}
     Component {id:activityCase;ActivityItemCase {definition:window.definition}}
+    Component {id:buttonStyleCase;ButtonStyleCase {definition:window.definition}}
     Component {id:tooltipCase;TooltipCase {definition:window.definition}}
     Component {id:modalCase;ModalCase {definition:window.definition}}
     Component {id:activityBadge;BleeckerIconBadge {size:"md";variant:"subtle";icon:ActivityCaseGlyph {symbol:"clock";pixelSize:parent.pixelSize;color:parent.foregroundColor}}}

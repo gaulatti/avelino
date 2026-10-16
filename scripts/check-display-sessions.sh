@@ -51,7 +51,7 @@ INI
   fi
   for backend in software opengl; do
     for configuration in standard scaled; do
-    for fixture in base controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper radio-group otp-input activity-item modal tooltip; do
+    for fixture in base controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper radio-group otp-input activity-item modal tooltip button-style; do
       prefix="$evidence/$protocol-$backend-$configuration"
       if [[ "$fixture" == controls ]]; then prefix="$evidence/controls-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == composition ]]; then prefix="$evidence/composition-$protocol-$backend-$configuration"; fi
@@ -66,6 +66,7 @@ INI
       if [[ "$fixture" == pagination-integers ]]; then prefix="$evidence/pagination-integers-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == modal ]]; then prefix="$evidence/modal-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == tooltip ]]; then prefix="$evidence/tooltip-$protocol-$backend-$configuration"; fi
+      if [[ "$fixture" == button-style ]]; then prefix="$evidence/button-style-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == activity-item ]]; then prefix="$evidence/activity-item-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == otp-input ]]; then prefix="$evidence/otp-input-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == radio-group ]]; then prefix="$evidence/radio-group-$protocol-$backend-$configuration"; fi
@@ -92,6 +93,7 @@ INI
       if [[ "$fixture" == pagination-integers ]]; then args+=(--pagination-integers); fi
       if [[ "$fixture" == modal ]]; then args+=(--modal); fi
       if [[ "$fixture" == tooltip ]]; then args+=(--tooltip); fi
+      if [[ "$fixture" == button-style ]]; then args+=(--button-style); fi
       if [[ "$fixture" == activity-item ]]; then args+=(--activity-item); fi
       if [[ "$fixture" == otp-input ]]; then args+=(--otp-input); fi
       if [[ "$fixture" == radio-group ]]; then args+=(--radio-group); fi
@@ -181,6 +183,13 @@ elif fixture == 'secure-field':
         assert record[key] == 'passed', record
     assert record['sourceHeight'] == 40 and record['fontPointSize'] == 10.5, record
     assert record['revealed'] is True, record
+elif fixture == 'button-style':
+    for key in ['buttonStyleChecks','callerStateChecks','focusChecks','qtAccessibilityChecks']:assert record[key]=='passed',record
+    assert record['liveCurvePaintChecks']=='passed',record
+    assert record['closedContextCount']==88 and len(record['closedContexts'])==88,record
+    assert record['exactFrameSets']==85 and len(record['unresolvedSourceContexts'])==3,record
+    assert record['pointerPhases']==13 and len(record['nativeTraces'])==2,record
+    assert record['sharedHeldPixelsIdentical'] and record['accepted'] is False,record
 elif fixture == 'tooltip':
     for key in ['tooltipChecks','focusChecks','qtAccessibilityChecks']:assert record[key]=='passed',record
     assert record['closedBodyIdentical'] and record['shownHintPixelsIdentical'],record

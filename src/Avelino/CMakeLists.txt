@@ -13,7 +13,7 @@ cmake_pop_check_state()
 if(NOT AVELINO_ICU_ABI_COHERENT)
     message(FATAL_ERROR "ICU74 headers and libraries must resolve to the same system installation")
 endif()
-set(qml_files BleeckerTooltip.qml TooltipHost.qml BleeckerModalDialog.qml BleeckerModal.qml ModalCloseGlyph.qml BleeckerActivityItem.qml ActivityGlyph.qml BleeckerMetric.qml BleeckerStatCard.qml BleeckerIconBadge.qml BleeckerKbd.qml BleeckerTokens.qml BleeckerTheme.qml BleeckerButton.qml
+set(qml_files BleeckerButtonStyle.qml ButtonStylePart.qml BleeckerTooltip.qml TooltipHost.qml BleeckerModalDialog.qml BleeckerModal.qml ModalCloseGlyph.qml BleeckerActivityItem.qml ActivityGlyph.qml BleeckerMetric.qml BleeckerStatCard.qml BleeckerIconBadge.qml BleeckerKbd.qml BleeckerTokens.qml BleeckerTheme.qml BleeckerButton.qml
     BleeckerOTPInput.qml BleeckerRadioGroup.qml RadioGlyph.qml BleeckerLoadingSpinner.qml BleeckerStepper.qml StepperGlyph.qml BleeckerAlert.qml AlertGlyph.qml CircularContent.qml BleeckerEmptyState.qml BleeckerErrorState.qml BleeckerLoadingOverlay.qml StateGlyph.qml BleeckerTextField.qml BleeckerSeparator.qml
     BleeckerSkeleton.qml BleeckerBauhausBackground.qml BleeckerProgress.qml
     BleeckerButtonGroup.qml BleeckerHeader.qml BleeckerPanelLayout.qml
@@ -28,7 +28,7 @@ set(qml_files BleeckerTooltip.qml TooltipHost.qml BleeckerModalDialog.qml Bleeck
     OwnedText.qml RoundedContent.qml SurfaceShadow.qml attentioncolors.js
     ContinuousSurface.qml continuouscorners.js spinnerpresentation.js)
 set_source_files_properties(BleeckerTokens.qml BleeckerTheme.qml TooltipHost.qml PROPERTIES QT_QML_SINGLETON_TYPE TRUE)
-set_source_files_properties(ModalCloseGlyph.qml ActivityGlyph.qml ContinuousSurface.qml OwnedText.qml RoundedContent.qml SurfaceShadow.qml SelectionGlyph.qml CheckboxGlyph.qml SecureEyeGlyph.qml InputGlyph.qml CapsuleContent.qml NavigationGlyph.qml StateGlyph.qml CircularContent.qml StepperGlyph.qml RadioGlyph.qml PROPERTIES QT_QML_INTERNAL_TYPE TRUE)
+set_source_files_properties(ButtonStylePart.qml ModalCloseGlyph.qml ActivityGlyph.qml ContinuousSurface.qml OwnedText.qml RoundedContent.qml SurfaceShadow.qml SelectionGlyph.qml CheckboxGlyph.qml SecureEyeGlyph.qml InputGlyph.qml CapsuleContent.qml NavigationGlyph.qml StateGlyph.qml CircularContent.qml StepperGlyph.qml RadioGlyph.qml PROPERTIES QT_QML_INTERNAL_TYPE TRUE)
 file(GLOB font_resources CONFIGURE_DEPENDS "${PROJECT_SOURCE_DIR}/assets/fonts/*.ttf")
 foreach(font_file IN LISTS font_resources)
     get_filename_component(font_name "${font_file}" NAME)

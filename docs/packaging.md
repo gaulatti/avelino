@@ -30,7 +30,7 @@ Weston Wayland compositor nested on it. It saves whole-output and window capture
 for software/OpenGL rendering at two display/text scales. Source and build trees
 remain absent. Metadata explicitly identifies virtual displays, Mesa software
 rendering, synthetic input, and the still-pending overlay/accessibility checks.
-The harness runs twenty-six independent fixtures in each configuration: the base library
+The harness runs twenty-seven independent fixtures in each configuration: the base library
 fixture, `InstalledConsumer --controls`, `InstalledConsumer --composition` and
 `InstalledConsumer --selection`, `InstalledConsumer --checkbox` and
 `InstalledConsumer --secure-field`, `InstalledConsumer --search-field` and
@@ -41,8 +41,8 @@ fixture, `InstalledConsumer --controls`, `InstalledConsumer --composition` and
 `InstalledConsumer --data-metrics`, `InstalledConsumer --stepper`,
 `InstalledConsumer --radio-group`, `InstalledConsumer --otp-input` and
 `InstalledConsumer --activity-item`, `InstalledConsumer --modal` and
-`InstalledConsumer --tooltip`.
-Their configured 208 capture pairs keep
+`InstalledConsumer --tooltip` and `InstalledConsumer --button-style`.
+Their configured 216 capture pairs keep
 form editing, scrolling, switch/toggle actions, disabled segmented options and
 focus restoration separate from the base composition checks. The controls fixture
 exercises the multiline editor's owned scrollbar. The selector fixture exercises
@@ -128,8 +128,8 @@ using the same GNU install directories as the exported CMake package. Launch
 `QML_IMPORT_PATH` override is required. The Qt 6.8.3 runtime remains a prerequisite.
 The source-build catalog continues to use the documented build-tree import path.
 
-`check-installed-catalog.sh` exercises all twenty-eight galleries at both appearances
-and DPRs, both action galleries, and the default button: 115 images with physical
+`check-installed-catalog.sh` exercises all twenty-nine galleries at both appearances
+and DPRs, both action galleries, and the default button: 119 images with physical
 size/metadata checks. Both QML import environment variables are unset. A copied
 executable without its module must fail with the missing-module error. The full
 Linux check runs this against the staged install, then the package-only check
@@ -211,3 +211,12 @@ installed files are byte-identical to its separate 552-case capture package.
 The [candidate evidence](../evidence/development/activity/candidate.json) keeps
 the first failed display attempt, diagnostics, exact comparisons and remaining
 font/symbol/RTL/raster, physical and reader gates separate.
+
+
+The [ButtonStyle package candidate](button-style.md#candidate-evidence) runs 27
+modes and 119 gallery captures from a 121-file install. Its compiled consumer
+passes eight virtual profiles with consumer sources and the producer build
+absent. Every profile includes live curve-paint growth/shrink checks. All 115
+previous gallery images and their full metadata remain byte-identical; all
+installed files and five Qt private-integration files match. Native font/raster,
+focused keyboard/timing, physical input and readers remain pending.

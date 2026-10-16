@@ -57,13 +57,14 @@ static void recordLabels(QQuickItem *root, QJsonArray &labels) {
     for (auto child : root->childItems()) recordLabels(child, labels);
 }
 
+#include "../../tests/consumer/buttonstyleframes.h"
 int main(int argc, char *argv[]) {
     QGuiApplication app(argc, argv);
     QCommandLineParser parser;
     parser.addHelpOption();
     parser.addOptions({QCommandLineOption("capture", "Save the displayed fixture to PNG and exit", "path"),
                        QCommandLineOption("dark", "Use dark reference appearance"),
-                       QCommandLineOption("fixture", "Render a fixture (button, foundations, surfaces, data-display, controls, composition, selection, checkbox, secure-field, search-field, collection-filters, slider, tabs, pagination, pagination-integers, accordion, presentation-states, spinner, alert, clipping, navigation, sidebar-brand, data-metrics, stepper, radio-group, otp-input, activity-item, modal, tooltip or reference-case)", "name"),
+                       QCommandLineOption("fixture", "Render a fixture (button, foundations, surfaces, data-display, controls, composition, selection, checkbox, secure-field, search-field, collection-filters, slider, tabs, pagination, pagination-integers, accordion, presentation-states, spinner, alert, clipping, navigation, sidebar-brand, data-metrics, stepper, radio-group, otp-input, activity-item, modal, tooltip, button-style or reference-case)", "name"),
                        QCommandLineOption("case", "Isolated reference fixture identifier", "id"),
                        QCommandLineOption("case-definitions", "JSON file containing the isolated fixture definitions", "path"),
                        QCommandLineOption("variant", "Button variant", "name", "primary"),
@@ -90,6 +91,21 @@ int main(int argc, char *argv[]) {
             if (entry.value("fixture").toString() == parser.value("case")) { definition = entry; ++matches; }
         }
         if (matches != 1 || definition.value("width").toDouble() <= 0 || definition.value("height").toDouble() <= 0) return 6;
+        if(definition.value("api").toString()=="BleeckerButtonStyle") {
+            const auto nonnegative=[](QJsonValue value){return value.isDouble() && std::isfinite(value.toDouble()) && value.toDouble()>=0;};
+            const auto offer=definition.value("offer");
+            if(!offer.isNull() && !nonnegative(offer))return 6;
+            if(!QStringList{"primary","secondary","outline","subtle","ghost","link","destructive"}.contains(definition.value("variant").toString())
+                || !QStringList{"xs","sm","md","lg"}.contains(definition.value("size").toString())
+                || !QStringList{"text","counter","rectangle","zero","empty","hidden","wide","own-font","system-font","own-red","multi","vstack","hstack","overflow"}.contains(definition.value("content").toString())
+                || !QStringList{"zstack","hstack","vstack"}.contains(definition.value("parentLayout").toString())
+                || !definition.value("text").isString() || !nonnegative(definition.value("parentFont"))
+                || !definition.value("disabled").isBool() || !definition.value("rtl").isBool()
+                || !definition.value("parentRed").isBool() || !definition.value("destructiveRole").isBool()
+                || !definition.value("expectedEmpty").isBool()
+                || definition.value("expectedEmpty").toBool()!=(definition.value("content").toString()=="empty")
+                || definition.value("width").toInt()!=640 || definition.value("height").toInt()!=400)return 6;
+        }
         if(definition.value("api").toString()=="BleeckerTooltip") {
             const auto font=definition.value("parentFont");
             const auto content=definition.value("content").toString();
@@ -117,12 +133,12 @@ int main(int argc, char *argv[]) {
     engine.rootContext()->setContextProperty("captureSize", parser.value("size"));
     engine.rootContext()->setContextProperty("captureDisabled", parser.isSet("disabled"));
     engine.rootContext()->setContextProperty("captureTextScale", textScale);
-    if(fixture=="stepper" || fixture=="data-metrics")QLocale::setDefault(QLocale("en_US"));
+    if(fixture=="button-style" || fixture=="stepper" || fixture=="data-metrics")QLocale::setDefault(QLocale("en_US"));
     if(isolated && definition.contains("processLocale"))QLocale::setDefault(QLocale(definition.value("processLocale").toString()));
     engine.rootContext()->setContextProperty("captureDefinition", definition.toVariantMap());
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreationFailed, &app, [] { QCoreApplication::exit(1); }, Qt::QueuedConnection);
-    if (parser.isSet("fixture") && fixture != "button" && fixture != "foundations" && fixture != "surfaces" && fixture != "data-display" && fixture != "controls" && fixture != "composition" && fixture != "selection" && fixture != "checkbox" && fixture != "secure-field" && fixture != "search-field" && fixture != "collection-filters" && fixture != "slider" && fixture != "tabs" && fixture != "pagination" && fixture != "pagination-integers" && fixture != "accordion" && fixture != "presentation-states" && fixture != "spinner" && fixture != "alert" && fixture != "clipping" && fixture != "navigation" && fixture != "sidebar-brand" && fixture != "data-metrics" && fixture != "stepper" && fixture != "radio-group" && fixture != "otp-input" && fixture != "activity-item" && fixture != "modal" && fixture != "tooltip" && !isolated) return 4;
-    engine.loadFromModule("AvelinoCatalog", isolated ? "ReferenceCaseFixture" : fixture == "tooltip" ? "Tooltip" : fixture == "modal" ? "Modal" : fixture == "activity-item" ? "ActivityItem" : fixture == "otp-input" ? "OTPInput" : fixture == "radio-group" ? "RadioGroup" : fixture == "stepper" ? "Stepper" : fixture == "data-metrics" ? "DataMetrics" : fixture == "sidebar-brand" ? "SidebarBrand" : fixture == "navigation" ? "Navigation" : fixture == "clipping" ? "Clipping" : fixture == "alert" ? "AlertFixture" : fixture == "spinner" ? "SpinnerFixture" : fixture == "presentation-states" ? "PresentationStatesFixture" : fixture == "accordion" ? "AccordionFixture" : fixture == "pagination-integers" ? "PaginationIntegerFixture" : fixture == "pagination" ? "PaginationFixture" : fixture == "tabs" ? "TabsFixture" : fixture == "slider" ? "SliderFixture" : fixture == "collection-filters" ? "CollectionFiltersFixture" : fixture == "search-field" ? "SearchFieldFixture" : fixture == "secure-field" ? "SecureFieldFixture" : fixture == "checkbox" ? "CheckboxFixture" : fixture == "selection" ? "SelectionFixture" : fixture == "composition" ? "CompositionFixture" : fixture == "controls" ? "ControlsFixture" : fixture == "data-display" ? "DataDisplayFixture" : fixture == "surfaces" ? "SurfacesFixture" : fixture == "foundations" ? "FoundationsFixture"
+    if (parser.isSet("fixture") && fixture != "button" && fixture != "foundations" && fixture != "surfaces" && fixture != "data-display" && fixture != "controls" && fixture != "composition" && fixture != "selection" && fixture != "checkbox" && fixture != "secure-field" && fixture != "search-field" && fixture != "collection-filters" && fixture != "slider" && fixture != "tabs" && fixture != "pagination" && fixture != "pagination-integers" && fixture != "accordion" && fixture != "presentation-states" && fixture != "spinner" && fixture != "alert" && fixture != "clipping" && fixture != "navigation" && fixture != "sidebar-brand" && fixture != "data-metrics" && fixture != "stepper" && fixture != "radio-group" && fixture != "otp-input" && fixture != "activity-item" && fixture != "modal" && fixture != "tooltip" && fixture != "button-style" && !isolated) return 4;
+    engine.loadFromModule("AvelinoCatalog", isolated ? "ReferenceCaseFixture" : fixture == "button-style" ? "ButtonStyle" : fixture == "tooltip" ? "Tooltip" : fixture == "modal" ? "Modal" : fixture == "activity-item" ? "ActivityItem" : fixture == "otp-input" ? "OTPInput" : fixture == "radio-group" ? "RadioGroup" : fixture == "stepper" ? "Stepper" : fixture == "data-metrics" ? "DataMetrics" : fixture == "sidebar-brand" ? "SidebarBrand" : fixture == "navigation" ? "Navigation" : fixture == "clipping" ? "Clipping" : fixture == "alert" ? "AlertFixture" : fixture == "spinner" ? "SpinnerFixture" : fixture == "presentation-states" ? "PresentationStatesFixture" : fixture == "accordion" ? "AccordionFixture" : fixture == "pagination-integers" ? "PaginationIntegerFixture" : fixture == "pagination" ? "PaginationFixture" : fixture == "tabs" ? "TabsFixture" : fixture == "slider" ? "SliderFixture" : fixture == "collection-filters" ? "CollectionFiltersFixture" : fixture == "search-field" ? "SearchFieldFixture" : fixture == "secure-field" ? "SecureFieldFixture" : fixture == "checkbox" ? "CheckboxFixture" : fixture == "selection" ? "SelectionFixture" : fixture == "composition" ? "CompositionFixture" : fixture == "controls" ? "ControlsFixture" : fixture == "data-display" ? "DataDisplayFixture" : fixture == "surfaces" ? "SurfacesFixture" : fixture == "foundations" ? "FoundationsFixture"
         : fixture == "button" ? "ButtonFixture" : "Main");
     if (parser.isSet("capture")) {
         const auto path = parser.value("capture");
@@ -294,11 +310,12 @@ int main(int argc, char *argv[]) {
             const bool gridEmpty=expectedEmpty && api=="BleeckerDashboardGrid" && variant=="empty";
             const bool modalEmpty=expectedEmpty && api=="BleeckerModal" && definition.value("modalWidth").toDouble()==0;
             const bool tooltipEmpty=expectedEmpty && api=="BleeckerTooltip" && QStringList{"empty","zero","hidden"}.contains(definition.value("content").toString());
+            const bool buttonStyleEmpty=expectedEmpty && api=="BleeckerButtonStyle" && definition.value("content").toString()=="empty";
             const auto geometryItem=api=="BleeckerTooltip" && component ? component->property("control").value<QQuickItem*>():(api=="BleeckerModal" || api=="BleeckerOTPInput" || api=="BleeckerActivityItem") && component ? component->property("presentationItem").value<QQuickItem*>():component;
             if (isolated && (!component || !geometryItem || component->width()<0 || component->height()<0
                 || geometryItem->width()<0 || geometryItem->height()<0
                 || ((geometryItem->width()==0 || geometryItem->height()==0) && !expectedEmpty)
-                || (expectedEmpty && !navigationEmpty && !gridEmpty && !brandEmpty && !radioEmpty && !modalEmpty && !tooltipEmpty)
+                || (expectedEmpty && !navigationEmpty && !gridEmpty && !brandEmpty && !radioEmpty && !modalEmpty && !tooltipEmpty && !buttonStyleEmpty)
                 || (modalEmpty && (geometryItem->width()!=0 || geometryItem->height()<=0))
                 || (gridEmpty && component->height()!=0)
                 || (radioEmpty && (component->width()!=0 || component->height()!=0)))) {qCritical("Invalid isolated geometry or expected-empty contract");app.exit(6);return;}
@@ -451,6 +468,37 @@ int main(int argc, char *argv[]) {
                 }
                 for (auto it = definition.begin(); it != definition.end(); ++it) meta.insert(it.key(), it.value());
                 meta.insert("caseDefinitions", parser.value("case-definitions"));
+                if(api=="BleeckerButtonStyle") {
+                    const auto control=component->property("control").value<QQuickItem*>();
+                    if(!control){app.exit(18);return;}
+                    const int count=control->property("partCount").toInt();
+                    const auto kind=definition.value("content").toString();
+                    if(count!=(kind=="empty" ? 0:kind=="multi" ? 2:1)){app.exit(18);return;}
+                    meta.insert("renderedVariant",control->property("variant").toString());
+                    meta.insert("renderedSize",control->property("size").toString());
+                    meta.insert("renderedDisabled",!control->isEnabled());
+                    meta.insert("renderedRtl",control->property("mirrored").toBool());
+                    meta.insert("renderedWidthOffer",control->property("widthOffer").toDouble());
+                    meta.insert("renderedMaximumWidth",control->property("maximumWidth").toDouble());
+                    meta.insert("buttonStylePartInstances",buttonStyleFrames(component));
+                    meta.insert("buttonStyleState",QJsonObject{{"count",component->property("localValue").toInt()},
+                        {"calls",buttonStyleList(component->property("calls"))},{"mountValues",buttonStyleList(component->property("mountValues"))}});
+                    meta.insert("qtDestroyedCount",component->property("destroyedCount").toInt());
+                    QJsonArray labels;
+                    for(int index=0;index<count;++index){
+                        const auto label=buttonStylePart(control,index)->property("labelItem").value<QQuickItem*>();
+                        if(!label){app.exit(18);return;}
+                        QJsonObject row{{"objectName",label->objectName()},{"visible",label->isVisible()}};
+                        if(label->property("text").isValid())row.insert("text",label->property("text").toString());
+                        if(label->property("font").isValid()){
+                            const auto font=label->property("font").value<QFont>();
+                            row.insert("font",QJsonObject{{"family",font.family()},{"pointSize",font.pointSizeF()},{"weight",int(font.weight())}});
+                        }
+                        labels.append(row);
+                    }
+                    meta.insert("renderedLabelObjects",labels);
+                    meta.insert("sourceCaptureMethodScope","Closed body and live per-part frames; input, raster and reader acceptance remain separate");
+                }
                 if(api=="BleeckerTooltip") {
                     const auto caller=component->property("control").value<QQuickItem*>();
                     const auto help=component->property("help").value<QObject*>();

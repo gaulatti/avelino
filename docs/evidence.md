@@ -1008,6 +1008,31 @@ delivered input intervals and active/key scope, with negative contracts in CI.
 The [validation receipt](../evidence/development/button-style-source-20261016/result.json)
 preserves passing 310-contract host and Linux transcripts. Immutable references,
 API discovery, proposed captures and the staged Linux-only boundary also pass.
-Linux ButtonStyle implementation, native fonts/raster, caller lifecycle, focused
-keyboard, physical input and readers remain pending. Desktop counts stay 62/80
-candidates, 18 pending and zero accepted; all 46 TV entries remain pending.
+At this source-only checkpoint, Linux implementation remained pending and
+coverage was 62/80 candidates, 18 pending and zero accepted. Native fonts/raster,
+caller lifecycle, focused keyboard, physical input and readers remain pending;
+all 46 TV entries remain pending.
+
+
+## ButtonStyle candidate
+
+The [ButtonStyle candidate](../evidence/development/button-style/candidate.json)
+adds caller-owned labels, separate flat layout/input parts and shared
+action/press. Its 704 captures match 680 per-part frame sets,
+704 produced initial states and 16
+complete pixel/frame cases. All other native differences remain open.
+
+All 23 CTest targets and 328 host/328 Linux contracts pass. The independent
+package passes 27 modes and 119 gallery captures; all previous 115 PNGs and their
+full metadata remain byte-identical. Eight virtual profiles check 88 states,
+85 frame sets, 13 native pointer phases, caller identity, Qt keyboard/accessibility
+and live growth/shrink paint each. Runtime consumption excludes consumer sources
+and the producer build; 121 installed files and five Qt integration files match.
+
+An identical compiled consumer rejects stale OpenGL curve paint from the original
+library and passes with both curves processed asynchronously. Pre-fix captures,
+all failed attempts and corrected mount/resource diagnostics remain sealed.
+Pins, expected captures, tolerances and exceptions are unchanged. Native
+font/raster, focused keyboard, exact timing/lifecycle, physical input and readers
+remain pending. Coverage is 63/80 desktop candidates, 17 pending, zero accepted;
+all 46 TV entries remain pending.

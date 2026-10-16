@@ -48,7 +48,7 @@ The [empty/error/loading source investigation](docs/presentation-states.md)
 now has [Linux presentation-state candidates](docs/presentation-states.md); complete mirror acceptance remains pending.
 The [alert candidate](docs/alert.md) adds typed feedback with caller-owned content
 and native prose-layout evidence.
-Sixty-two of the 80 discovered desktop entries have Linux candidates;
+Sixty-three of the 80 discovered desktop entries have Linux candidates;
 no component has passed its complete mirror gate.
 The public GitHub wiki remote is unavailable; documentation currently lives here.
 
@@ -95,7 +95,10 @@ The [ButtonStyle source investigation](docs/button-style.md) preserves 704 close
 groups and an exact source-only replay. Flat label parts participate separately
 in parent layout while sharing pressed visuals. CUA checks in an active/key
 window confirm distinct targets, cross-target cancellation and rectangular input
-beyond rounded paint. Linux implementation and complete acceptance remain pending.
+beyond rounded paint. The Linux candidate preserves separate label parts, shared
+action/press and caller identity, with catalog, independent package and eight
+virtual profiles. Exact native pixels, focused keyboard/timing, physical input
+and readers remain pending.
 
 The [page header and breadcrumb candidates](docs/navigation-layout.md) use measured
 source layout, fixed typography, caller action content and logical-index

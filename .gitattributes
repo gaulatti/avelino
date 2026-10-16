@@ -53,3 +53,9 @@ evidence/development/display-readiness-20261016/**/capture-tool-version.txt -tex
 # Preserve exact ButtonStyle source build and diagnostic transcripts.
 evidence/reference-investigations/button-style-20261016/**/*.log -text -whitespace
 evidence/development/button-style-source-20261016/*.log -text -whitespace
+evidence/development/button-style/**/*.log -text -whitespace
+evidence/development/button-style/**/capture-tool-version.txt -text -whitespace
+# Keep generated diagnostic module descriptors byte-exact.
+evidence/development/button-style/diagnostics/curve-resize/**/qmldir -text -whitespace
+evidence/development/button-style/platform-colors/colors.json -text -whitespace
+evidence/development/button-style/platform-colors/replay-colors.json -text -whitespace

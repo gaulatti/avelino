@@ -64,6 +64,11 @@ public slots:
     void setProcessLocale(const QString &name) {QLocale::setDefault(QLocale(name));QEvent event(QEvent::LocaleChange);QCoreApplication::sendEvent(qApp,&event);}
     void qmlEngineAvailable(QQmlEngine *engine) {
         engine->rootContext()->setContextProperty("fixtureSetup",this);
+        QFile buttonStyle(QStringLiteral(NATIVE_BUTTON_STYLE_DIRECTORY)+"/captures/captures.json");
+        if(!buttonStyle.open(QIODevice::ReadOnly))qFatal("Native ButtonStyle evidence missing");
+        const auto buttonStyleData=QJsonDocument::fromJson(buttonStyle.readAll()).object();
+        if(buttonStyleData.value("reference").toString()!="fe8a1d462fbd793d883fb92086a16aa2947e32c9")qFatal("Native ButtonStyle reference invalid");
+        engine->rootContext()->setContextProperty("nativeButtonStyleCaptures",buttonStyleData.value("captures").toArray().toVariantList());
         const auto alignmentDirectory=QStringLiteral(NATIVE_ACTIVITY_ALIGNMENT_DIRECTORY);
         QFile directions(alignmentDirectory+"/directions/text-directions.json");
         if(!directions.open(QIODevice::ReadOnly))qFatal("Native text direction evidence missing");

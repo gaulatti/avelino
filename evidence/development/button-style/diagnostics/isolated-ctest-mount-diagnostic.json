@@ -1,0 +1,7 @@
+{
+  "firstComponentTarget": "failed with 3165 passed and one fatal output-directory error",
+  "failure": "Read-only /work mount blocked creation of fresh artifacts/otp-editor-traces/attempt-* report",
+  "correction": "Keep source/build inputs read-only; mount an independent writable /work/artifacts directory and an independent build/linux/Testing directory",
+  "cancelReason": "Actual first-target setup failure proves mount cannot support complete suite; stop redundant remainder before correction",
+  "observationTimeout": false
+}

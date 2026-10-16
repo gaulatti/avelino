@@ -52,9 +52,13 @@ set(tooltip_fixture "${PROJECT_SOURCE_DIR}/tests/consumer/Tooltip.qml")
 set_source_files_properties("${tooltip_fixture}" PROPERTIES QT_RESOURCE_ALIAS "Tooltip.qml")
 set(tooltip_case "${PROJECT_SOURCE_DIR}/tests/consumer/TooltipCase.qml")
 set_source_files_properties("${tooltip_case}" PROPERTIES QT_RESOURCE_ALIAS "TooltipCase.qml")
+set(button_style_fixture "${PROJECT_SOURCE_DIR}/tests/consumer/ButtonStyle.qml")
+set_source_files_properties("${button_style_fixture}" PROPERTIES QT_RESOURCE_ALIAS "ButtonStyle.qml")
+set(button_style_case "${PROJECT_SOURCE_DIR}/tests/consumer/ButtonStyleCase.qml")
+set_source_files_properties("${button_style_case}" PROPERTIES QT_RESOURCE_ALIAS "ButtonStyleCase.qml")
 qt_add_qml_module(AvelinoCatalog URI AvelinoCatalog VERSION 0.1
     OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/qml/AvelinoCatalog
-    QML_FILES ${tooltip_fixture} ${tooltip_case} ${modal_fixture} ${modal_case} ${activity_fixture} ${activity_case} ${activity_glyph} ${otp_fixture} ${otp_case} ${radio_fixture} ${radio_case} ${stepper_fixture} ${stepper_case} ${data_fixture} ${data_case} ${data_glyph} Main.qml ButtonFixture.qml FoundationsFixture.qml SurfacesFixture.qml DataDisplayFixture.qml ControlsFixture.qml ReferenceCaseFixture.qml CompositionFixture.qml SelectionFixture.qml CheckboxFixture.qml SecureFieldFixture.qml SearchFieldFixture.qml CollectionFiltersFixture.qml SliderFixture.qml TabsFixture.qml PaginationFixture.qml PaginationIntegerFixture.qml AccordionFixture.qml PresentationStatesFixture.qml SpinnerFixture.qml AlertFixture.qml ${sidebar_fixture} ${sidebar_case} ${sidebar_glyph} ${navigation_fixture} ${navigation_case} ${breadcrumb_house} ${clipping_fixture} ${accordion_text} ${navigation_icon} ${search_glyph})
+    QML_FILES ${button_style_fixture} ${button_style_case} ${tooltip_fixture} ${tooltip_case} ${modal_fixture} ${modal_case} ${activity_fixture} ${activity_case} ${activity_glyph} ${otp_fixture} ${otp_case} ${radio_fixture} ${radio_case} ${stepper_fixture} ${stepper_case} ${data_fixture} ${data_case} ${data_glyph} Main.qml ButtonFixture.qml FoundationsFixture.qml SurfacesFixture.qml DataDisplayFixture.qml ControlsFixture.qml ReferenceCaseFixture.qml CompositionFixture.qml SelectionFixture.qml CheckboxFixture.qml SecureFieldFixture.qml SearchFieldFixture.qml CollectionFiltersFixture.qml SliderFixture.qml TabsFixture.qml PaginationFixture.qml PaginationIntegerFixture.qml AccordionFixture.qml PresentationStatesFixture.qml SpinnerFixture.qml AlertFixture.qml ${sidebar_fixture} ${sidebar_case} ${sidebar_glyph} ${navigation_fixture} ${navigation_case} ${breadcrumb_house} ${clipping_fixture} ${accordion_text} ${navigation_icon} ${search_glyph})
 qt_add_resources(AvelinoCatalog "catalog_fixture_assets" PREFIX "/avelino/fixtures"
     BASE "${PROJECT_SOURCE_DIR}/tests/consumer" FILES "${PROJECT_SOURCE_DIR}/tests/consumer/avatar-wide.ppm")
 target_link_libraries(AvelinoCatalog PRIVATE Avelino Qt6::Quick Qt6::Test)

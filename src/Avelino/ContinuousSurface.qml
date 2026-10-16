@@ -4,6 +4,9 @@ import "continuouscorners.js" as Corners
 
 Shape {
     id: surface
+    // Qt 6.8.3 restarts a curve computation with queued path edits only in
+    // asynchronous mode. Label/layout changes can arrive before the first sync.
+    asynchronous: true
     property color color: "transparent"
     property color borderColor: "transparent"
     property real borderWidth: 1

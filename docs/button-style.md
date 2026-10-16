@@ -6,8 +6,9 @@ records 88 fixtures across eight profiles: 704 groups whose public, geometry-pro
 and independent source-expression witness images match byte for byte. A fresh
 source-only extraction rebuilds all 89 unchanged Sabella source files and
 reproduces all 2113 output files exactly. Separate CUA runs exercise the unprobed
-public style in inactive and active/key windows. Linux implementation remains
-pending; this checkpoint changes no candidate or acceptance count.
+public style in inactive and active/key windows. The Linux adapter adds catalog,
+independent package and eight virtual profiles, with unresolved native pixel and
+font/frame differences. Complete acceptance remains pending.
 
 `Sources/Sabella/Buttons.swift:3` exposes primary, secondary, outline, subtle,
 ghost, link and destructive variants. It reads color scheme, enabled state and
@@ -133,6 +134,120 @@ records all 310 host and 310 Linux contracts passing, including 19 new negative
 and corpus checks. References CI runs the verifier and contracts. Native
 system fonts, symbols, raster, full framework contexts, focused keyboard, caller
 lifecycle, physical input and readers remain open. Reference pins, expected
-captures, tolerances and approved exceptions are unchanged; desktop coverage
-remains 62/80 candidates, 18 pending and zero accepted, with all 46 TV entries
-pending.
+captures, tolerances and approved exceptions are unchanged. That source-only
+checkpoint retained 62/80 candidates, 18 pending and zero accepted; the candidate
+below advances coverage without accepting any component.
+
+## Linux adapter
+
+The `BleeckerButtonStyle` adapter accepts live caller items through
+its default `labels` property. Each item gets an independently sized Qt template
+button. All parts invoke the style's `clicked` signal and share pressed visuals.
+An explicit caller stack remains one label; direct sibling labels remain separate
+parts. `ProposalRow` and `ProposalColumn` preserve their separate participation.
+An empty label list creates no input; a zero-size item retains padding and the
+minimum height.
+
+```qml
+import QtQuick
+import QtQuick.Templates as T
+import Avelino
+
+ProposalRow {
+    maximumWidth: 320
+    BleeckerButtonStyle {
+        variant: "outline"
+        onClicked: edition.publish()
+        T.Label { text: "Publish"; color: palette.windowText }
+    }
+}
+```
+
+`maximumWidth` supplies a containing layout's available width. `widthOffer`
+models a fixed outer allocation and can be zero while the decorated body and
+its rectangular input remain wider. Both default to minus one for an absent
+proposal. Labels retain their objects through variant, size, theme and enabled
+updates. Qt font/palette inheritance supplies defaults, and explicit inner
+typography and foreground take precedence. Rounded clipping affects paint;
+the native input rectangle remains separate from the pressed transform.
+
+The focused core runs match 680 native frame contexts across requested DPR one
+and two, with ten additional behavior/layout checks per DPR. The system-font,
+Unicode and bidi fixtures remain outside those frame assertions. The checks also
+cover Qt Space activation, actual accessibility names, caller identity, disabled
+input, cross-part cancellation, corner clicks and synchronous nested-column
+measurement. These focused runs use the software renderer. Complete suites, catalog,
+independent package and virtual profiles are recorded below. Exact native
+pixels, focused keyboard/timing, physical input and readers remain pending.
+
+The caller fixture's green/orange decorations use explicit platform sRGB values.
+Its [color record](../evidence/development/button-style/platform-colors/result.json)
+matches 64 original PNG samples and a fresh source-only color-helper replay.
+That helper resolves platform colors without instantiating Sabella or performing
+UI input. The helper and source archive stay external. No reference image,
+reference pin, tolerance, exception or acceptance count changes.
+
+## Candidate evidence
+
+The [sealed candidate](../evidence/development/button-style/candidate.json)
+preserves 704 original-size installed-catalog captures and actual label objects,
+per-part rectangles and caller state. Strict comparison matches
+680 frame contexts, 704 initial states and
+16 complete pixel/frame cases. The remaining
+688 pixel differences stay visible in the
+comparison report. System-font, Unicode and bidi frames remain unresolved in
+24 contexts. No resizing, ignored regions, tolerance
+changes or approved exceptions are used.
+
+Both full component suites and all 23 CTest targets pass. All 328 host and 328
+Linux contracts pass, including ten adapter checks and a complete pixel/frame
+comparison invocation. The fresh independent package passes 27 modes and 119
+gallery captures. All 115 previous gallery PNGs and their full metadata remain
+byte-identical. The 121 installed files and five Qt private-integration files
+match across package and runtime boundaries.
+
+In each of eight virtual X11/Wayland, software/OpenGL, standard/scaled profiles,
+the compiled consumer checks 88 original states, 85 exact frame sets, caller
+identity, actual Qt keyboard/accessibility and all 13 native pointer phases.
+Holding either target produces identical shared pressed pixels; cross-target
+release cancels, and the rounded transparent corner remains clickable. Native
+hold durations are replay targets, not accepted timing. The native input profile
+and current Qt display profile are recorded separately. Runtime containers have
+neither consumer sources nor the producer build.
+
+The new pixel check covers the primary preview's right padding and the gap
+outside it during text-scale growth and shrink. The same compiled consumer
+rejects the original library and passes with the rebuilt package. Both the
+continuous background and clipping shapes use asynchronous curve processing.
+In the pinned [Qt 6.8.3 curve renderer](https://github.com/qt/qtdeclarative/blob/v6.8.3/src/quickshapes/qquickshapecurverenderer.cpp),
+queued path edits restart through the asynchronous runner. Paired captures
+reproduce the earlier painted width and verify the corrected result; the
+offscreen metadata/input checks alone had missed it.
+
+All pre-fix evidence remains in the checksummed diagnostic archive, including
+the four-profile capture-acknowledgment deadline failure, incompatible mount
+cache, comparison adapter failure and six original Qt attempts. Later shared-VM
+frame/configuration timeouts and the first isolated CTest mount failure are
+preserved too. The final pipeline uses an isolated six-GiB VM and the same pinned
+images. Source/build inputs are read-only during CTest, with separate writable
+trace and Testing directories. The original VM and active Docker context remain
+intact. The capture observer acknowledges completion explicitly; the runner owns
+cancellation and deadlines.
+
+Per-body paint aligns to the DPR grid while logical outer/label frames retain
+fractional positions. Nested columns refresh before row measurement and after
+allocation. Logical label bounds remain separate from glyph ink, including
+zero-width overflow. Explicit fractional `font.pointSize` properties preserve
+sizes that Qt 6.8.3 rounds down when supplied through a `Qt.font()` map.
+
+Press motion uses a 190 ms OutCubic approximation. Exact native ease-out timing,
+focused keyboard, complete caller lifecycle, system fonts/raster, physical input
+and readers remain pending. Virtual software/OpenGL does not establish hardware
+acceleration or physical acceptance. Coverage is 63/80 desktop candidates,
+17 pending and zero accepted; all 46 TV entries remain pending.
+
+Run `python3 scripts/verify-button-style-candidate.py` to audit sealed captures,
+measured frame/state outcomes, the eight virtual profiles, package identity,
+pre-fix archive and negative/positive paint regression. CI captures all 704 cases
+on x64 and ARM64 and publishes strict diagnostics separately from build/runtime
+success.

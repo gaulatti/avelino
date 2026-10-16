@@ -76,6 +76,7 @@ cmake --build "$stage/build" --parallel 2
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --activity-item)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --modal)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --tooltip)
+(cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --button-style)
 format_report="$PWD/artifacts/linux/number-formatting.json"
 set +e
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --data-metrics --format-diagnostics "$format_report")
@@ -99,7 +100,7 @@ cp artifacts/linux/environment.json artifacts/package/environment.json
 mkdir -p artifacts/linux
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --capture artifacts/linux/actions-light.png
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --dark --capture artifacts/linux/actions-dark.png
-for fixture in foundations surfaces data-display controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper radio-group otp-input activity-item modal tooltip; do
+for fixture in foundations surfaces data-display controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper radio-group otp-input activity-item modal tooltip button-style; do
 for appearance in light dark; do
   for dpr in 1 2; do
     args=(--fixture "$fixture")
@@ -280,3 +281,10 @@ python3 scripts/capture-tooltip-cases.py \
 if [[ -e artifacts/linux/tooltip-source-candidates ]]; then mv artifacts/linux/tooltip-source-candidates "$stage/previous-tooltip-candidates"; fi
 mv "$tooltip_attempt/captures" artifacts/linux/tooltip-source-candidates
 rmdir "$tooltip_attempt"
+
+button_style_attempt="$(mktemp -d "$PWD/artifacts/linux/button-style-attempt.XXXXXX")"
+python3 scripts/capture-button-style-cases.py \
+  "$stage/install/bin/AvelinoCatalog" "$button_style_attempt/captures"
+if [[ -e artifacts/linux/button-style-source-candidates ]]; then mv artifacts/linux/button-style-source-candidates "$stage/previous-button-style-candidates"; fi
+mv "$button_style_attempt/captures" artifacts/linux/button-style-source-candidates
+rmdir "$button_style_attempt"
