@@ -74,6 +74,8 @@ transformation, not a Linux editor or complete component acceptance.
 The [transformation checkpoint](../evidence/development/otp-transformation/candidate.json)
 also records the invalid-QML-input checks, source-free installed-consumer run
 and byte identity of all 99 prior gallery images and their metadata.
+Its input-byte audit reads the immutable `b676c55e` Git objects; subsequent
+editor work can evolve the implementation without rewriting that evidence.
 
 A specialized numeric transformation can use the pinned numeric, joining and
 prepend properties directly. All 2,023 numeric scalars have grapheme class

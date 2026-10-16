@@ -2,10 +2,12 @@ import importlib.util
 import hashlib
 import json
 from pathlib import Path
+import subprocess
 import unittest
 from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[2]
+CHECKPOINT = 'b676c55ef966350287dd6ee7be10c80d115560c5'
 spec = importlib.util.spec_from_file_location('otp_unicode', ROOT / 'scripts/generate-otp-unicode.py')
 generator = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(generator)
@@ -20,7 +22,10 @@ class OTPUnicodeProjection(unittest.TestCase):
         self.assertEqual(record['counts']['nativeTransitions'], 13137306)
         self.assertEqual(record['counts']['nativeResultFNV1a64'], '3d551fb50bf22f59')
         for name, expected in record['sourceInputs'].items():
-            self.assertEqual(hashlib.sha256((ROOT / name).read_bytes()).hexdigest(), expected, name)
+            # Audit the actual measured checkpoint while later editor work can
+            # evolve these files. References CI checks out the full Git history.
+            raw = subprocess.check_output(['git', 'show', f'{CHECKPOINT}:{name}'], cwd=ROOT)
+            self.assertEqual(hashlib.sha256(raw).hexdigest(), expected, name)
         for name, expected in record['files'].items():
             self.assertEqual(hashlib.sha256((folder / name).read_bytes()).hexdigest(), expected, name)
         rows = json.loads((folder / 'gallery-byte-comparison.json').read_text())
