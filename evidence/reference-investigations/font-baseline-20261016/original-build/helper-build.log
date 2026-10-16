@@ -1,0 +1,9 @@
+/Users/gaulatti/.codex/tmp/avelino-font-baseline-source-20261016-v1/tool/Common.swift:109:82: warning: '+' was deprecated in macOS 26.0: Use string interpolation on `Text` instead: `Text("Hello \(name)")` [#DeprecatedDeclaration]
+107 |         case "bold": Text(model.fixture.text).bold().modifier(probe("label"))
+108 |         case "italic": Text(model.fixture.text).italic().modifier(probe("label"))
+109 |         case "attributed": (Text("Keep ").font(.system(size: 20, weight: .bold)) + Text("edition")).modifier(probe("label"))
+    |                                                                                  `- warning: '+' was deprecated in macOS 26.0: Use string interpolation on `Text` instead: `Text("Hello \(name)")` [#DeprecatedDeclaration]
+110 |         case "nested-font": Text(model.fixture.text).modifier(probe("label")).bleeckerFont(.secondary, size: 19, weight: .bold)
+111 |         case "inner-scale": Text(model.fixture.text).modifier(probe("label")).environment(\.bleeckerTextScale, 2)
+
+[#DeprecatedDeclaration]: <https://docs.swift.org/compiler/documentation/diagnostics/deprecated-declaration>

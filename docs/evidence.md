@@ -1038,6 +1038,30 @@ Linux implementation pending and coverage at 63/80 desktop candidates, 17 pendin
 and zero accepted; all 46 TV entries remain pending. Pins, expected images,
 tolerances and approved exceptions are unchanged.
 
+## Font modifier first-baseline source supplement
+
+The [baseline-parent source record](font-modifier.md#first-baseline-parent-supplement)
+adds 720 groups across ninety fixtures and eight requested profiles. Every
+geometry/baseline probe is pixel-transparent to the public modifier. All
+source-expression witness frame/baseline sets match; 717 witness images match
+and three reproducible strict raster differences remain open. No failed case is
+removed from the matrix. A fresh full build from a clean source-only extraction
+reproduces all 2,161 raw outputs byte for byte, including those differences.
+
+The [validation receipt](../evidence/development/font-baseline-source-20261016/result.json)
+records 356 host and 356 Linux contracts passing, with fourteen new baseline
+and negative checks. Its strict witness comparison separately exits one for
+the three pixel failures. All 2,175 staged source-evidence blobs match their
+recorded hashes; the Linux-only boundary, API/inventory reconciliation and
+staged whitespace checks pass. The source observations retain explicit fonts,
+empty Text, EmptyView, native first-baseline parent allocation and ambient-font
+limits. ImageRenderer does not establish a hosted window or physical display.
+
+Linux implementation and full mirror acceptance remain pending. Candidate
+coverage stays 63/80 desktop entries, with 17 pending and zero accepted; all
+46 TV entries remain pending. Pins, expected images, tolerances and approved
+exceptions are unchanged.
+
 
 ## ButtonStyle candidate
 

@@ -162,3 +162,10 @@ The environment probe is explicitly distinct from actual fonts in attributed or
 explicitly styled Text. Centered layouts yield no first-baseline measurements.
 Linux implementation, complete font/framework contexts, physical/reader
 acceptance and independent-machine archive availability remain pending.
+
+The [font baseline supplement](font-modifier.md#first-baseline-parent-supplement)
+adds an actual first-baseline parent to 720 public/probed/witness groups. Every
+public probe is pixel-transparent and every witness frame/baseline set matches;
+three witness raster differences remain open. A clean source-only rebuild
+reproduces all 2,161 files exactly, including those failures. These ImageRenderer
+measurements do not establish hosted-window, physical or Linux acceptance.

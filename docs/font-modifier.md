@@ -90,3 +90,44 @@ source input hashes, untouched library build, transparent probe/witness pixels,
 font environment, flat layout, font precedence, caller retention and clean
 replay. References CI runs the verifier and its negative contracts. Reference
 pins, expected images, tolerances and exceptions are unchanged.
+
+## First-baseline parent supplement
+
+The separate [baseline source record](../evidence/reference-investigations/font-baseline-20261016/investigation.json)
+places the public modifier in an HStack that requests first-text-baseline
+alignment. A three-by-30 rectangle supplies a reference baseline at 30. Ninety
+fixtures cover all three families, all nine weights, the fifteen size boundaries,
+explicit fonts, nil font, nested/scaled fonts, attributed runs, explicit stacks,
+empty/zero/rectangle content and selected multiline/Unicode/bidi text. The same
+eight requested appearance/scale/DPR profiles produce 720 groups.
+
+All 720 probed images match their unprobed public images byte for byte. The
+independent source-expression witness matches all measured frames and baselines,
+but only 717 public images. Three strict raster failures remain: primary and
+secondary ultraLight at light appearance, text scale one and requested DPR one;
+and primary size 48 at light appearance, text scale 1.5 and requested DPR two.
+Every original/probed/witness image remains in the matrix. The differences are
+reproducible; no tolerance, excluded region or exception is added.
+
+Primary regular 14 `Keep edition` has first baseline 14 within its 77-by-17 view.
+Its parent measures 91 by 33, with both children reaching the same absolute
+baseline. Fixed secondary bold 13 has baseline 13; explicit system bold 32 has
+baseline 31. The background font probe still observes primary 14 for that system
+Text, so ambient metrics cannot replace the actual Text baseline. Empty Text
+retains a zero-by-14 view and baseline 11, while EmptyView emits no label or extra
+spacing. Explicit stack baselines and child positions remain separately recorded.
+
+The ImageRenderer run and a fresh source-only extraction both compile all 89
+unchanged source files. All 2,161 raw outputs, including the three witness
+differences and complete metadata, replay byte for byte. The external archive
+SHA-256 is
+`a1838774f37f3ec4b7d825d20ec3242293dd997761bf66e785c6754abf6739ab`.
+Source-only inputs and toolchain provenance remain separate from hosted-window
+and physical-display evidence. This supplement supplies first-baseline source
+measurements without accepting Linux fonts, rasterization, native accessibility,
+physical input, readers or complete framework contexts.
+
+Run `python3 scripts/verify-font-baseline-source.py` to audit transparent public
+probes, baseline propagation into the actual parent, complete contexts, preserved
+strict witness failures and fresh source replay. References CI runs this verifier
+and its negative contracts too. The centered corpus above remains unchanged.

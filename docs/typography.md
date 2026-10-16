@@ -10,6 +10,9 @@ public modifier's default-font precedence, all nine weights, three families,
 flat caller layout and retained property updates. Its centered layouts supply
 no first-baseline measurements; the narrower baseline probes below retain their
 original scope.
+The separate first-baseline parent supplement measures 720 modifier contexts
+with transparent public probes. All frame/baseline witness sets match, while
+three expression-witness raster differences remain preserved and unresolved.
 
 The [ActivityItem investigation](activity-item.md#proposal-and-measurement-history-evidence)
 also establishes that source Text fitting depends on its resize history. The

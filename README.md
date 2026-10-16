@@ -105,6 +105,9 @@ public/probed/witness groups and 24 retained update histories. All 2,761 outputs
 replay byte for byte after a fresh unchanged-source build. Inner font precedence,
 flat layout and caller retention are measured; Linux implementation, baseline,
 dynamic type, monospaced font mapping and physical/reader acceptance remain pending.
+Its separate first-baseline parent supplement measures 720 contexts with
+transparent public probes and an exact 2,161-file fresh-source replay; three
+source-expression witness raster differences remain open.
 
 The [page header and breadcrumb candidates](docs/navigation-layout.md) use measured
 source layout, fixed typography, caller action content and logical-index
