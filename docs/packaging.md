@@ -30,7 +30,7 @@ Weston Wayland compositor nested on it. It saves whole-output and window capture
 for software/OpenGL rendering at two display/text scales. Source and build trees
 remain absent. Metadata explicitly identifies virtual displays, Mesa software
 rendering, synthetic input, and the still-pending overlay/accessibility checks.
-The harness runs twenty-five independent fixtures in each configuration: the base library
+The harness runs twenty-six independent fixtures in each configuration: the base library
 fixture, `InstalledConsumer --controls`, `InstalledConsumer --composition` and
 `InstalledConsumer --selection`, `InstalledConsumer --checkbox` and
 `InstalledConsumer --secure-field`, `InstalledConsumer --search-field` and
@@ -40,8 +40,9 @@ fixture, `InstalledConsumer --controls`, `InstalledConsumer --composition` and
 `InstalledConsumer --navigation`, `InstalledConsumer --sidebar-brand` and
 `InstalledConsumer --data-metrics`, `InstalledConsumer --stepper`,
 `InstalledConsumer --radio-group`, `InstalledConsumer --otp-input` and
-`InstalledConsumer --activity-item` and `InstalledConsumer --modal`.
-Their configured 200 capture pairs keep
+`InstalledConsumer --activity-item`, `InstalledConsumer --modal` and
+`InstalledConsumer --tooltip`.
+Their configured 208 capture pairs keep
 form editing, scrolling, switch/toggle actions, disabled segmented options and
 focus restoration separate from the base composition checks. The controls fixture
 exercises the multiline editor's owned scrollbar. The selector fixture exercises
@@ -60,8 +61,8 @@ chips and actual Qt grouping/editor/button interfaces. Its curved content clip
 is implemented through both the CurveRenderer and the shared software adapter;
 strict native clipping acceptance remains pending.
 Screen-reader output remains a separate unaccepted gate.
-Context menus and separate-window overlays
-remain unimplemented and cannot pass their gate through these captures.
+Context menus remain unimplemented. Modal and Tooltip candidates preserve their
+separate windows independently; full native presentation acceptance stays open.
 The composition fixture checks ordered adaptive-grid reflow and focus through
 window resizing, plus section/action, shell, footer, feed and progress slots.
 These runtime checks do not close their native visual comparisons.
@@ -84,6 +85,16 @@ The harness checks that each complete scaled client fits with room for decoratio
 the composition fixture's 1680 × 1120 client must not be cropped by the compositor.
 If a consumer exits before producing capture metadata, the harness reports its
 actual exit status and log rather than only a missing process.
+It waits while the producer is alive and reports that state every 30 seconds.
+A fixed observation interval does not terminate the consumer. Existing consumer
+frame/input assertions, the runner's job deadline and explicit cancellation
+remain in effect. Missing metadata after producer exit still fails immediately.
+
+The [Tooltip package candidate](tooltip.md#candidate-evidence) runs 26 modes and
+115 catalog captures, with 119 installed files checked against the producer.
+Its eight focused profiles retain the parent, separate tooltip and whole output,
+plus default/updated-hint bodies. Actual Qt accessibility descriptions and typed
+caller bindings are checked without accepting native fonts, timing or readers.
 
 The installed fixture places its controls at fractional parent coordinates. It
 checks the button's owned surface and the label baseline after loading changes
@@ -117,8 +128,8 @@ using the same GNU install directories as the exported CMake package. Launch
 `QML_IMPORT_PATH` override is required. The Qt 6.8.3 runtime remains a prerequisite.
 The source-build catalog continues to use the documented build-tree import path.
 
-`check-installed-catalog.sh` exercises all twenty-six galleries at both appearances
-and DPRs, both action galleries, and the default button: 107 images with physical
+`check-installed-catalog.sh` exercises all twenty-eight galleries at both appearances
+and DPRs, both action galleries, and the default button: 115 images with physical
 size/metadata checks. Both QML import environment variables are unset. A copied
 executable without its module must fail with the missing-module error. The full
 Linux check runs this against the staged install, then the package-only check

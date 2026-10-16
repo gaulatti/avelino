@@ -966,3 +966,19 @@ dark/vibrancy, compositor shadows, physical input and screen readers remain
 unaccepted. Failed accessibility, hover-parent and palette-animation attempts
 are retained alongside final evidence. Desktop coverage is now 62/80 candidates,
 18 pending and zero accepted; all 46 TV entries remain pending.
+
+## Session evidence readiness
+
+The [observer regression record](../evidence/development/display-readiness-20261016/result.json)
+preserves an earlier x64 Modal run whose fixed readiness polling ended before
+the live producer supplied metadata. The harness now waits for metadata or
+producer exit and reports liveness every 30 seconds. Existing input/frame
+assertions, the runner deadline and explicit cancellation remain in effect.
+
+A real installed Tooltip consumer passes after a deliberate 12-second startup
+delay, beyond the old 10-second cutoff. A real Modal Wayland/software/scaled
+consumer passes after a 65-second startup delay, producing evidence 123 seconds
+after launch with its existing 80 state, 170 clipping and 142 glyph checks intact.
+A deliberate producer exit still fails and reports status 23. These are observer
+regressions; the original x64 producer's underlying progress was not established,
+and complete new CI, physical-session and native mirror gates remain separate.

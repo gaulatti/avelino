@@ -52,10 +52,14 @@ describes how its X11 backend composites Wayland surfaces into the parent output
 Each configuration runs the base fixture, `--controls`, `--composition`,
 `--selection`, `--checkbox`, `--secure-field`, `--search-field`, `--collection-filters`, `--slider`, `--tabs`, `--pagination`, `--pagination-integers`, `--accordion`, `--presentation-states`, `--spinner`, `--alert`, `--clipping`, `--navigation`, `--sidebar-brand` and
 `--data-metrics`, `--stepper`, `--radio-group`, `--otp-input`, `--activity-item`
-and `--modal` independently. The configured matrix has 200 parent-window/full-output
-pairs; Modal also records its separate popup window in each configuration.
+`--modal` and `--tooltip` independently. The configured matrix has 208
+parent-window/full-output pairs; Modal and Tooltip also record their separate
+popup windows in each configuration. The harness reports live producers every
+30 seconds while waiting for their evidence; it does not kill them after a fixed
+poll count. Producer exit without metadata still reports the actual exit status
+and fails. Consumer assertions and the CI runner's job deadline remain in effect.
 The catalog galleries are `--fixture foundations`, `surfaces`, `data-display`,
-`controls`, `composition`, `selection`, `checkbox`, `secure-field`, `search-field`, `collection-filters`, `slider`, `tabs`, `pagination`, `pagination-integers`, `accordion`, `presentation-states`, `spinner`, `alert`, `clipping`, `navigation`, `sidebar-brand`, `data-metrics`, `stepper`, `radio-group`, `otp-input`, `activity-item` and `modal`; their native
+`controls`, `composition`, `selection`, `checkbox`, `secure-field`, `search-field`, `collection-filters`, `slider`, `tabs`, `pagination`, `pagination-integers`, `accordion`, `presentation-states`, `spinner`, `alert`, `clipping`, `navigation`, `sidebar-brand`, `data-metrics`, `stepper`, `radio-group`, `otp-input`, `activity-item`, `modal` and `tooltip`; their native
 comparisons remain pending.
 
 The [ActivityItem fixture](activity-item.md#linux-candidate) checks caller-owned

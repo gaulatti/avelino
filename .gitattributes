@@ -45,3 +45,7 @@ evidence/reference-investigations/tooltip-20261016/*.log -text -whitespace
 # Preserve exact Tooltip candidate builds, failures and session transcripts.
 evidence/development/tooltip/**/*.log -text -whitespace
 evidence/development/tooltip/**/capture-tool-version.txt -text -whitespace
+
+# Preserve exact delayed-producer and failed-session diagnostics.
+evidence/development/display-readiness-20261016/**/*.log -text -whitespace
+evidence/development/display-readiness-20261016/**/capture-tool-version.txt -text -whitespace

@@ -118,10 +118,11 @@ INI
       fi
       QT_QPA_PLATFORM="$protocol" consumer-build/InstalledConsumer "${args[@]}" >"$prefix.log" 2>&1 &
       client=$!
-      readiness_attempts=100
-      if [[ "$fixture" == modal ]]; then readiness_attempts=600; fi
-      for ((i=0;i<readiness_attempts;i++)); do
-        if [[ -f "$prefix.json" ]]; then break; fi
+      # Each consumer owns its bounded runtime assertions. Observing it for a
+      # fixed number of polls must not terminate a still-running replay.
+      readiness_started=$SECONDS
+      readiness_notice=$((SECONDS+30))
+      while [[ ! -f "$prefix.json" ]]; do
         if ! kill -0 "$client" 2>/dev/null; then
           result=0
           wait "$client" || result=$?
@@ -130,9 +131,12 @@ INI
           echo "Installed consumer exited with status $result before producing session evidence: $prefix" >&2
           exit 1
         fi
+        if ((SECONDS>=readiness_notice)); then
+          echo "Waiting for session evidence after $((SECONDS-readiness_started))s: $prefix (live consumer $client)" >&2
+          readiness_notice=$((SECONDS+30))
+        fi
         sleep 0.1
       done
-      [[ -f "$prefix.json" ]]
       # Capture the entire displayed output, including independent surfaces.
       # Wayland surfaces are composited by Weston into this X11 output.
       import -window root "$prefix-session.png"
