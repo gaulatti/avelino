@@ -95,6 +95,10 @@ void ButtonLabel::relayout() {
     const int units = qFromBigEndian<quint16>(reinterpret_cast<const uchar *>(head.constData() + 18));
     if (units <= 0) qFatal("Button label font has invalid design units");
     const qreal ratio = m_resolvedPixels / units;
+    const auto os2 = original.fontTable("OS/2");
+    m_capHeight = sourceFont && os2.size() >= 90
+        ? qFromBigEndian<qint16>(reinterpret_cast<const uchar *>(os2.constData() + 88)) * ratio
+        : original.capHeight();
     const qreal dpr = m_layoutMetrics.devicePixelRatio();
     const auto viewWidth = [sourceFont, dpr](qreal advance) {
         return sourceFont ? std::ceil(advance * dpr) / dpr : advance;

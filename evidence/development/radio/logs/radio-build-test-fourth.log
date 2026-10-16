@@ -1,0 +1,41 @@
+-- Could NOT find WrapVulkanHeaders (missing: Vulkan_INCLUDE_DIR) 
+-- Could NOT find WrapVulkanHeaders (missing: Vulkan_INCLUDE_DIR) 
+-- Found the following ICU libraries:
+--   i18n (required): /usr/lib/aarch64-linux-gnu/libicui18n.so.74
+--   uc (required): /usr/lib/aarch64-linux-gnu/libicuuc.so.74
+-- Configuring done (0.6s)
+-- Generating done (0.1s)
+-- Build files have been written to: /work/build/linux
+[0/2] Re-checking globbed directories...
+[1/98] Copying AvelinoCatalog qml sources into build dir
+[2/98] Copying Avelino qml sources into build dir
+[3/98] Running qmlimportscanner for AvelinoCatalog
+[4/98] Generating .rcc/qmlcache/Avelino_BleeckerRadioGroup_qml.cpp, .rcc/qmlcache/Avelino_BleeckerRadioGroup_qml.cpp.aotstats
+[5/98] Running rcc for resource Avelino_raw_qml_0
+[6/98] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerRadioGroup_qml.cpp.o
+[7/98] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.qt/rcc/qrc_Avelino_raw_qml_0.cpp.o
+[8/98] Linking CXX shared library src/Avelino/libAvelino.so
+[9/98] Automatic MOC and UIC for target AvelinoCatalog
+[10/97] Running rcc for resource AvelinoCatalog_raw_qml_0
+[11/97] Running AUTOMOC file extraction for target AvelinoCatalog
+[12/20] Generating .rcc/qmlcache/tests/consumer/RadioGroup_qml.cpp, .rcc/qmlcache/tests/consumer/RadioGroup_qml.cpp.aotstats
+[13/20] Linking CXX shared module qml/Avelino/libAvelinoplugin.so
+[14/20] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/RadioGroup_qml.cpp.o
+[15/20] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.qt/rcc/qrc_AvelinoCatalog_raw_qml_0.cpp.o
+[16/20] Automatic MOC and UIC for target AvelinoComponentTests
+[17/19] Linking CXX executable tests/components/AvelinoComponentTests
+[18/19] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/main.cpp.o
+[19/19] Linking CXX executable samples/AvelinoCatalog/AvelinoCatalog
+********* Start testing of avelino *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : avelino::RadioGroup::initTestCase()
+PASS   : avelino::RadioGroup::test_controlledSelectionAndTargets()
+PASS   : avelino::RadioGroup::test_inheritedFontAndPalette()
+PASS   : avelino::RadioGroup::test_layoutBoundaries()
+PASS   : avelino::RadioGroup::test_mutationDuringPress()
+PASS   : avelino::RadioGroup::test_sourceStringIdentity()
+PASS   : avelino::RadioGroup::test_stableModelAndParentUpdates()
+PASS   : avelino::RadioGroup::test_unicodeAndTypedValues()
+PASS   : avelino::RadioGroup::cleanupTestCase()
+Totals: 9 passed, 0 failed, 0 skipped, 0 blacklisted, 1833ms
+********* Finished testing of avelino *********

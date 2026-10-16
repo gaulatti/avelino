@@ -1,0 +1,19 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/aarch64-linux-gnu/libthread_db.so.1".
+
+Thread 1 "AvelinoCatalog" received signal SIGSEGV, Segmentation fault.
+0x0000e176bc050270 in QRawFont::familyName() const () from /opt/qt/lib/libQt6Gui.so.6
+#0  0x0000e176bc050270 in QRawFont::familyName() const () from /opt/qt/lib/libQt6Gui.so.6
+#1  0x0000c09c238cfd64 in recordLabels (root=0xc09c53f41b00, labels=...) at /work/samples/AvelinoCatalog/main.cpp:36
+#2  0x0000c09c238cfb7c in recordLabels (root=<optimized out>, labels=...) at /work/samples/AvelinoCatalog/main.cpp:47
+#3  0x0000c09c238cfb7c in recordLabels (root=<optimized out>, labels=...) at /work/samples/AvelinoCatalog/main.cpp:47
+#4  0x0000c09c238cfb7c in recordLabels (root=<optimized out>, labels=...) at /work/samples/AvelinoCatalog/main.cpp:47
+#5  0x0000c09c238cfb7c in recordLabels (root=root@entry=0xc09c53e27be0, labels=...) at /work/samples/AvelinoCatalog/main.cpp:47
+#6  0x0000c09c238d65cc in operator() (__closure=0xc09c53ddd790) at /work/samples/AvelinoCatalog/main.cpp:473
+#7  0x0000e176bafd9c74 in ?? () from /opt/qt/lib/libQt6Core.so.6
+#8  0x0000e176bafe820c in ?? () from /opt/qt/lib/libQt6Core.so.6
+#9  0x0000e176bafcd050 in QObject::event(QEvent*) () from /opt/qt/lib/libQt6Core.so.6
+#10 0x0000e176baf7a25c in QCoreApplication::notifyInternal2(QObject*, QEvent*) () from /opt/qt/lib/libQt6Core.so.6
+#11 0x0000e176bb123834 in QTimerInfoList::activateTimers() () from /opt/qt/lib/libQt6Core.so.6
+#12 0x0000e176bb24d2fc in ?? () from /opt/qt/lib/libQt6Core.so.6
+#13 0x0000e176ba13f90c in ?? () from /lib/aarch64-linux-gnu/libglib-2.0.so.0

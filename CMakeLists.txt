@@ -26,3 +26,6 @@ install(FILES assets/provenance.json assets/selection-symbols.json assets/checkb
 
 install(FILES assets/brand/BleeckerLogo.png DESTINATION ${CMAKE_INSTALL_DATADIR}/avelino/brand)
 install(FILES assets/stepper-presentation.json DESTINATION ${CMAKE_INSTALL_DATADIR}/avelino)
+
+install(FILES assets/radio-presentation.json DESTINATION ${CMAKE_INSTALL_DATADIR}/avelino)
+install(FILES assets/unicode/LICENSE.txt assets/unicode/provenance.json DESTINATION ${CMAKE_INSTALL_DATADIR}/avelino/unicode)

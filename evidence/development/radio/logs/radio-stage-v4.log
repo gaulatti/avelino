@@ -1,0 +1,32 @@
+-- Could NOT find WrapVulkanHeaders (missing: Vulkan_INCLUDE_DIR) 
+-- Could NOT find WrapVulkanHeaders (missing: Vulkan_INCLUDE_DIR) 
+-- Found the following ICU libraries:
+--   i18n (required): /usr/lib/aarch64-linux-gnu/libicui18n.so.74
+--   uc (required): /usr/lib/aarch64-linux-gnu/libicuuc.so.74
+-- Configuring done (0.6s)
+-- Generating done (0.1s)
+-- Build files have been written to: /work/build/linux
+[0/2] Re-checking globbed directories...
+[1/87] Automatic MOC and UIC for target AvelinoCatalog
+[2/86] Automatic MOC and UIC for target AvelinoComponentTests
+[3/84] Running AUTOMOC file extraction for target AvelinoCatalog
+[4/5] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/main.cpp.o
+[5/5] Linking CXX executable samples/AvelinoCatalog/AvelinoCatalog
+Internal ctest changing into directory: /work/build/linux
+Test project /work/build/linux
+    Start 11: radio-catalog-metadata
+1/1 Test #11: radio-catalog-metadata ...........***Failed    4.06 sec
+Traceback (most recent call last):
+  File "/work/tests/components/check-radio-catalog.py", line 28, in <module>
+    assert result.returncode == 0, (fixture, dpr, result.returncode, result.stdout + result.stderr)
+           ^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('primary-font-0.3', 1, -11, b'')
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   4.08 sec
+
+The following tests FAILED:
+	 11 - radio-catalog-metadata (Failed)
+Errors while running CTest

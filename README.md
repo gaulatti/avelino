@@ -48,7 +48,7 @@ The [empty/error/loading source investigation](docs/presentation-states.md)
 now has [Linux presentation-state candidates](docs/presentation-states.md); complete mirror acceptance remains pending.
 The [alert candidate](docs/alert.md) adds typed feedback with caller-owned content
 and native prose-layout evidence.
-Fifty-seven of the 80 discovered desktop
+Fifty-eight of the 80 discovered desktop
 entries have started; no component has passed its complete mirror gate.
 The public GitHub wiki remote is unavailable; documentation currently lives here.
 
@@ -59,7 +59,8 @@ font, symbol, frame, raster, physical and reader acceptance remains pending.
 
 The [RadioGroup source investigation](docs/radio-group.md) preserves inherited
 layout, controlled selection, precise pointer behavior and native Unicode identity.
-Its Linux implementation and complete acceptance remain pending.
+Its Linux candidate adds catalog and independent package coverage; complete
+font, symbol, frame, raster, keyboard and reader acceptance remain pending.
 
 Generic child clipping now has a [software renderer candidate](docs/content-clipping.md)
 sharing the existing continuous/circular/capsule paths; strict native acceptance

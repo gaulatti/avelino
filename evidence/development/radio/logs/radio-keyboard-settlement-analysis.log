@@ -1,0 +1,74 @@
+{
+  "scope": "Original full output; no resize or mask. Delays are nominal sleeps plus capture time. This is a virtual compositor timing diagnostic, not strict mirror acceptance.",
+  "captures": [
+    {
+      "path": "radio-group-wayland-opengl-scaled-initial-session.png",
+      "sha256": "7731eec52c8ead35758e6fe5571e7641035fd867288b07237727a07e602d818e",
+      "physicalPixels": [
+        1920,
+        1400
+      ]
+    },
+    {
+      "path": "radio-group-wayland-opengl-scaled-after-500ms-session.png",
+      "sha256": "81ff20a64dd35c75d2c84c5be0c76d723583f439010469a3dbd6c6e4cdcbdcac",
+      "physicalPixels": [
+        1920,
+        1400
+      ]
+    },
+    {
+      "path": "radio-group-wayland-opengl-scaled-after-1000ms-session.png",
+      "sha256": "da01f6207e435faab2398551b1f6ff4ebd1c632ba29d971c0c43c00246cc1280",
+      "physicalPixels": [
+        1920,
+        1400
+      ]
+    },
+    {
+      "path": "radio-group-wayland-opengl-scaled-session.png",
+      "sha256": "81ff20a64dd35c75d2c84c5be0c76d723583f439010469a3dbd6c6e4cdcbdcac",
+      "physicalPixels": [
+        1920,
+        1400
+      ]
+    }
+  ],
+  "differences": [
+    {
+      "before": "radio-group-wayland-opengl-scaled-initial-session.png",
+      "after": "radio-group-wayland-opengl-scaled-after-500ms-session.png",
+      "fullOutputChangedPixels": 48812,
+      "fullOutputDifferenceBounds": [
+        171,
+        1080,
+        1240,
+        1280
+      ]
+    },
+    {
+      "before": "radio-group-wayland-opengl-scaled-after-500ms-session.png",
+      "after": "radio-group-wayland-opengl-scaled-after-1000ms-session.png",
+      "fullOutputChangedPixels": 108,
+      "fullOutputDifferenceBounds": [
+        171,
+        1147,
+        173,
+        1201
+      ]
+    },
+    {
+      "before": "radio-group-wayland-opengl-scaled-after-1000ms-session.png",
+      "after": "radio-group-wayland-opengl-scaled-session.png",
+      "fullOutputChangedPixels": 108,
+      "fullOutputDifferenceBounds": [
+        171,
+        1147,
+        173,
+        1201
+      ]
+    }
+  ],
+  "500msAnd2000msFilesByteIdentical": true,
+  "visualInspection": "All four keyboard rows and their bottom borders are visible in the settled 500ms/2000ms output. Initial cropping is consistent with the entrance transition; a persistent layout defect is not established. Native keyboard, physical sessions and actual readers remain pending."
+}

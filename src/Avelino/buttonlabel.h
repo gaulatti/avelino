@@ -26,6 +26,7 @@ class ButtonLabel : public QQuickPaintedItem {
     Q_PROPERTY(qreal resolvedPixelSize READ resolvedPixelSize NOTIFY layoutChanged)
     Q_PROPERTY(qreal glyphAdvance READ glyphAdvance NOTIFY layoutChanged)
     Q_PROPERTY(qreal naturalHeight READ naturalHeight NOTIFY layoutChanged)
+    Q_PROPERTY(qreal capHeight READ capHeight NOTIFY layoutChanged)
     Q_PROPERTY(QString resolvedFamily READ resolvedFamily NOTIFY layoutChanged)
     Q_PROPERTY(QString resolvedStyle READ resolvedStyle NOTIFY layoutChanged)
 public:
@@ -52,6 +53,7 @@ public:
     qreal resolvedPixelSize() const { return m_resolvedPixels; }
     qreal glyphAdvance() const { return m_glyphAdvance; }
     qreal naturalHeight() const { return m_height; }
+    qreal capHeight() const { return m_capHeight; }
     QString resolvedFamily() const { return m_family; }
     QString resolvedStyle() const { return m_style; }
     void paint(QPainter *painter) override;
@@ -79,7 +81,7 @@ private:
     QFont m_font;
     QColor m_color = Qt::black;
     qreal m_pixels = 14, m_resolvedPixels = 14, m_height = 0, m_glyphAdvance = 0;
-    qreal m_tracking = 0;
+    qreal m_tracking = 0, m_capHeight = 0;
     qreal m_wrapWidth = -1, m_unwrappedWidth = 0;
     qreal m_lineHeight = 0;
     qreal m_elideWidth = -1;

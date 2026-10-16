@@ -1,0 +1,19 @@
+********* Start testing of avelino *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : avelino::RadioGroup::initTestCase()
+PASS   : avelino::RadioGroup::test_controlledSelectionAndTargets()
+PASS   : avelino::RadioGroup::test_inheritedFontAndPalette()
+PASS   : avelino::RadioGroup::test_layoutBoundaries()
+PASS   : avelino::RadioGroup::test_mutationDuringPress()
+PASS   : avelino::RadioGroup::test_renameDuringPressKeepsButton()
+FAIL!  : avelino::RadioGroup::test_rtlLeadingAlignment() Compared values are not the same with delta(0.000001)
+   Actual   (): 0
+   Expected (): 20
+   Loc: [/work/tests/components/tst_radiogroup.qml(80)]
+PASS   : avelino::RadioGroup::test_selectionChangeDuringPress()
+PASS   : avelino::RadioGroup::test_sourceStringIdentity()
+PASS   : avelino::RadioGroup::test_stableModelAndParentUpdates()
+PASS   : avelino::RadioGroup::test_unicodeAndTypedValues()
+PASS   : avelino::RadioGroup::cleanupTestCase()
+Totals: 11 passed, 1 failed, 0 skipped, 0 blacklisted, 1880ms
+********* Finished testing of avelino *********

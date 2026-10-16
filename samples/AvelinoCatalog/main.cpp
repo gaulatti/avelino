@@ -31,12 +31,22 @@ static void recordLabels(QQuickItem *root, QJsonArray &labels) {
     if (root->isVisible() && fontProperty.isValid() && root->property("text").isValid()) {
         const auto font = fontProperty.value<QFont>();
         const auto raw = QRawFont::fromFont(font);
+        // Qt 6.8.3 can return a nominally valid placeholder with pixelSize -1
+        // for a subpixel request; familyName() then dereferences an empty list.
+        const bool validRawFont=raw.isValid() && raw.pixelSize()>0;
+        const bool rendererReportsFont=root->property("resolvedFamily").isValid();
+        const QJsonValue family=validRawFont ? QJsonValue(raw.familyName()):rendererReportsFont ? QJsonValue(root->property("resolvedFamily").toString()):QJsonValue(QJsonValue::Null);
+        const QJsonValue style=validRawFont ? QJsonValue(raw.styleName()):rendererReportsFont ? QJsonValue(root->property("resolvedStyle").toString()):QJsonValue(QJsonValue::Null);
         const auto position = root->mapToScene(QPointF(0, 0));
         QJsonObject record{{"role", root->objectName()}, {"text", root->property("text").toString()},
-            {"family", raw.familyName()}, {"style", raw.styleName()}, {"weight", int(font.weight())},
+            {"family", family}, {"style", style}, {"weight", int(font.weight())},
             {"requestedPointSize", font.pointSizeF()}, {"requestedPixelSize", font.pixelSize()},
             {"width", root->width()}, {"height", root->height()}, {"x", position.x()}, {"y", position.y()},
             {"sceneBaseline", root->mapToScene(QPointF(0, root->baselineOffset())).y()}};
+        if(!validRawFont) {
+            record.insert("fontResolutionStatus",rendererReportsFont ? "renderer-reported":"unavailable; template does not render its text");
+            record.insert("requestedFontFamily",font.family());
+        }
         if (root->property("resolvedPixelSize").isValid()) {
             record.insert("requestedLogicalPixelSize",root->property("logicalPixelSize").toDouble());
             record.insert("resolvedGlyphPixelSize",root->property("resolvedPixelSize").toDouble());
@@ -53,7 +63,7 @@ int main(int argc, char *argv[]) {
     parser.addHelpOption();
     parser.addOptions({QCommandLineOption("capture", "Save the displayed fixture to PNG and exit", "path"),
                        QCommandLineOption("dark", "Use dark reference appearance"),
-                       QCommandLineOption("fixture", "Render a fixture (button, foundations, surfaces, data-display, controls, composition, selection, checkbox, secure-field, search-field, collection-filters, slider, tabs, pagination, pagination-integers, accordion, presentation-states, spinner, alert, clipping, navigation, sidebar-brand, data-metrics, stepper or reference-case)", "name"),
+                       QCommandLineOption("fixture", "Render a fixture (button, foundations, surfaces, data-display, controls, composition, selection, checkbox, secure-field, search-field, collection-filters, slider, tabs, pagination, pagination-integers, accordion, presentation-states, spinner, alert, clipping, navigation, sidebar-brand, data-metrics, stepper, radio-group or reference-case)", "name"),
                        QCommandLineOption("case", "Isolated reference fixture identifier", "id"),
                        QCommandLineOption("case-definitions", "JSON file containing the isolated fixture definitions", "path"),
                        QCommandLineOption("variant", "Button variant", "name", "primary"),
@@ -93,8 +103,8 @@ int main(int argc, char *argv[]) {
     if(isolated && definition.contains("processLocale"))QLocale::setDefault(QLocale(definition.value("processLocale").toString()));
     engine.rootContext()->setContextProperty("captureDefinition", definition.toVariantMap());
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreationFailed, &app, [] { QCoreApplication::exit(1); }, Qt::QueuedConnection);
-    if (parser.isSet("fixture") && fixture != "button" && fixture != "foundations" && fixture != "surfaces" && fixture != "data-display" && fixture != "controls" && fixture != "composition" && fixture != "selection" && fixture != "checkbox" && fixture != "secure-field" && fixture != "search-field" && fixture != "collection-filters" && fixture != "slider" && fixture != "tabs" && fixture != "pagination" && fixture != "pagination-integers" && fixture != "accordion" && fixture != "presentation-states" && fixture != "spinner" && fixture != "alert" && fixture != "clipping" && fixture != "navigation" && fixture != "sidebar-brand" && fixture != "data-metrics" && fixture != "stepper" && !isolated) return 4;
-    engine.loadFromModule("AvelinoCatalog", isolated ? "ReferenceCaseFixture" : fixture == "stepper" ? "Stepper" : fixture == "data-metrics" ? "DataMetrics" : fixture == "sidebar-brand" ? "SidebarBrand" : fixture == "navigation" ? "Navigation" : fixture == "clipping" ? "Clipping" : fixture == "alert" ? "AlertFixture" : fixture == "spinner" ? "SpinnerFixture" : fixture == "presentation-states" ? "PresentationStatesFixture" : fixture == "accordion" ? "AccordionFixture" : fixture == "pagination-integers" ? "PaginationIntegerFixture" : fixture == "pagination" ? "PaginationFixture" : fixture == "tabs" ? "TabsFixture" : fixture == "slider" ? "SliderFixture" : fixture == "collection-filters" ? "CollectionFiltersFixture" : fixture == "search-field" ? "SearchFieldFixture" : fixture == "secure-field" ? "SecureFieldFixture" : fixture == "checkbox" ? "CheckboxFixture" : fixture == "selection" ? "SelectionFixture" : fixture == "composition" ? "CompositionFixture" : fixture == "controls" ? "ControlsFixture" : fixture == "data-display" ? "DataDisplayFixture" : fixture == "surfaces" ? "SurfacesFixture" : fixture == "foundations" ? "FoundationsFixture"
+    if (parser.isSet("fixture") && fixture != "button" && fixture != "foundations" && fixture != "surfaces" && fixture != "data-display" && fixture != "controls" && fixture != "composition" && fixture != "selection" && fixture != "checkbox" && fixture != "secure-field" && fixture != "search-field" && fixture != "collection-filters" && fixture != "slider" && fixture != "tabs" && fixture != "pagination" && fixture != "pagination-integers" && fixture != "accordion" && fixture != "presentation-states" && fixture != "spinner" && fixture != "alert" && fixture != "clipping" && fixture != "navigation" && fixture != "sidebar-brand" && fixture != "data-metrics" && fixture != "stepper" && fixture != "radio-group" && !isolated) return 4;
+    engine.loadFromModule("AvelinoCatalog", isolated ? "ReferenceCaseFixture" : fixture == "radio-group" ? "RadioGroup" : fixture == "stepper" ? "Stepper" : fixture == "data-metrics" ? "DataMetrics" : fixture == "sidebar-brand" ? "SidebarBrand" : fixture == "navigation" ? "Navigation" : fixture == "clipping" ? "Clipping" : fixture == "alert" ? "AlertFixture" : fixture == "spinner" ? "SpinnerFixture" : fixture == "presentation-states" ? "PresentationStatesFixture" : fixture == "accordion" ? "AccordionFixture" : fixture == "pagination-integers" ? "PaginationIntegerFixture" : fixture == "pagination" ? "PaginationFixture" : fixture == "tabs" ? "TabsFixture" : fixture == "slider" ? "SliderFixture" : fixture == "collection-filters" ? "CollectionFiltersFixture" : fixture == "search-field" ? "SearchFieldFixture" : fixture == "secure-field" ? "SecureFieldFixture" : fixture == "checkbox" ? "CheckboxFixture" : fixture == "selection" ? "SelectionFixture" : fixture == "composition" ? "CompositionFixture" : fixture == "controls" ? "ControlsFixture" : fixture == "data-display" ? "DataDisplayFixture" : fixture == "surfaces" ? "SurfacesFixture" : fixture == "foundations" ? "FoundationsFixture"
         : fixture == "button" ? "ButtonFixture" : "Main");
     if (parser.isSet("capture")) {
         const auto path = parser.value("capture");
@@ -262,11 +272,13 @@ int main(int argc, char *argv[]) {
             const auto api=definition.value("api").toString(),variant=definition.value("variant").toString();
             const bool brandEmpty=expectedEmpty && api=="BleeckerBrandMark" && (definition.value("size").toString().toDouble()==0 || definition.value("size").toString().toDouble()==1);
             const bool navigationEmpty=expectedEmpty && ((api=="BleeckerBreadcrumb" && (variant=="empty" || variant=="single-empty")) || (api=="BleeckerPageHeader" && variant=="empty-labels"));
+            const bool radioEmpty=expectedEmpty && api=="BleeckerRadioGroup" && definition.value("options").isArray() && definition.value("options").toArray().isEmpty();
             const bool gridEmpty=expectedEmpty && api=="BleeckerDashboardGrid" && variant=="empty";
             if (isolated && (!component || component->width()<0 || component->height()<0
                 || ((component->width()==0 || component->height()==0) && !expectedEmpty)
-                || (expectedEmpty && !navigationEmpty && !gridEmpty && !brandEmpty)
-                || (gridEmpty && component->height()!=0))) {app.exit(6);return;}
+                || (expectedEmpty && !navigationEmpty && !gridEmpty && !brandEmpty && !radioEmpty)
+                || (gridEmpty && component->height()!=0)
+                || (radioEmpty && (component->width()!=0 || component->height()!=0)))) {qCritical("Invalid isolated geometry or expected-empty contract");app.exit(6);return;}
             if (!window->grabWindow().save(path)) { app.exit(2); return; }
             QJsonObject meta{{"qt", qVersion()}, {"os", QSysInfo::prettyProductName()},
                 {"compiler", QString::fromUtf8(__VERSION__)}, {"environmentRecord", "environment.json"},
@@ -416,6 +428,27 @@ int main(int argc, char *argv[]) {
                 }
                 for (auto it = definition.begin(); it != definition.end(); ++it) meta.insert(it.key(), it.value());
                 meta.insert("caseDefinitions", parser.value("case-definitions"));
+                if(api=="BleeckerRadioGroup") {
+                    const auto control=component->property("control").value<QQuickItem*>();
+                    if(!control){app.exit(18);return;}
+                    auto selection=control->property("selection");if(selection.metaType()==QMetaType::fromType<QJSValue>())selection=selection.value<QJSValue>().toVariant();
+                    meta.insert("selection",QJsonValue::fromVariant(selection));
+                    meta.insert("renderedOrientation",control->property("orientation").toInt()==Qt::Horizontal ? "horizontal":"vertical");
+                    meta.insert("renderedDisabled",!control->isEnabled());
+                    QJsonArray options;QJsonObject parts;
+                    const int count=control->property("count").toInt();
+                    for(int i=0;i<count;++i) {
+                        const auto button=findVisual(control,"bleeckerRadioOption"+QString::number(i));
+                        if(!button){app.exit(18);return;}
+                        auto value=button->property("optionValue");if(value.metaType()==QMetaType::fromType<QJSValue>())value=value.value<QJSValue>().toVariant();
+                        options.append(QJsonObject{{"value",QJsonValue::fromVariant(value)},{"label",button->property("text").toString()},{"disabled",button->property("optionDisabled").toBool()},{"enabled",button->isEnabled()},{"selected",button->property("selected").toBool()}});
+                        auto record=[&parts,i](const QString &part,QQuickItem *item){if(!item)qFatal("RadioGroup witness Item missing");const auto p=item->mapToScene(QPointF());parts.insert("option-"+QString::number(i)+"-"+part,QJsonObject{{"x",p.x()},{"y",p.y()},{"width",item->width()},{"height",item->height()}});};
+                        record("button",button);record("label",button->property("contentItem").value<QQuickItem*>());
+                        record("title",button->property("titleItem").value<QQuickItem*>());record("icon",button->property("iconItem").value<QQuickItem*>());
+                    }
+                    meta.insert("renderedOptions",options);meta.insert("layoutWitnessRects",parts);
+                    meta.insert("fontSymbolAcceptance","pending; default font and original circle geometry are unapproved candidates");
+                }
                 if(api=="BleeckerStepper") {
                     const auto control=component->property("control").value<QQuickItem*>();
                     const auto minus=findVisual(component,"bleeckerStepperDecrement"),plus=findVisual(component,"bleeckerStepperIncrement"),label=findVisual(component,"bleeckerStepperLabel"),value=findVisual(component,"bleeckerStepperValue");
@@ -437,7 +470,7 @@ int main(int argc, char *argv[]) {
                     meta.insert("sourceCaptureMethodScope","Hosted native source investigation compared with Qt single-window capture; no equivalence to old ImageRenderer baseline or physical-session acceptance");
                 }
                 auto measuredComponent=component;
-                if (api=="BleeckerStepper" || api=="BleeckerMetric" || api=="BleeckerStatCard" || api=="BleeckerKbd" || api=="BleeckerIconBadge" || api=="BleeckerSidebarItem" || api=="BleeckerBrandMark" || api=="BleeckerBrandLockup" || api=="BleeckerPageHeader" || api=="BleeckerBreadcrumb" || definition.value("api").toString()=="BleeckerAlert" || definition.value("api").toString()=="BleeckerEmptyState" || definition.value("api").toString()=="BleeckerErrorState") {
+                if (api=="BleeckerRadioGroup" || api=="BleeckerStepper" || api=="BleeckerMetric" || api=="BleeckerStatCard" || api=="BleeckerKbd" || api=="BleeckerIconBadge" || api=="BleeckerSidebarItem" || api=="BleeckerBrandMark" || api=="BleeckerBrandLockup" || api=="BleeckerPageHeader" || api=="BleeckerBreadcrumb" || definition.value("api").toString()=="BleeckerAlert" || definition.value("api").toString()=="BleeckerEmptyState" || definition.value("api").toString()=="BleeckerErrorState") {
                     measuredComponent=component->property("presentationItem").value<QQuickItem*>();
                     if(!measuredComponent){app.exit(18);return;}
                     meta.insert("offeredFrameSize",QJsonObject{{"width",component->width()},{"height",component->height()}});

@@ -227,3 +227,8 @@ as exit 124 with partial stdout/stderr and a failed manifest; the failed attempt
 is copied under `artifacts/linux/capture-failures/` before temporary staging is
 removed. CI still fails that capture. There is no automatic retry or deadline
 extension.
+
+RadioGroup uses the pinned Qt 6.8.3 `QuickTemplates2Private` font adapter in the
+library build. Consumers use the installed QML module and shared library. Run
+`python3 scripts/generate-radio-witnesses.py --check` to audit generated Unicode
+facts and the independent consumer witnesses against the preserved source.

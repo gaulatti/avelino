@@ -16,6 +16,7 @@ target_compile_definitions(AvelinoComponentTests PRIVATE
     NATIVE_DATA_METRICS_INPUT_FILE="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/data-metrics-inputs-20261015/fixture-inputs.json"
     NATIVE_SIDEBAR_BRAND_FILE="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/sidebar-brand-20261015/captures.json"
     NATIVE_SPINNER_FILE="${PROJECT_SOURCE_DIR}/evidence/geometry/native-spinner.json"
+    NATIVE_RADIO_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/radio-20261016"
     NATIVE_STEPPER_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/stepper-20261016"
     NATIVE_TYPOGRAPHY_FILE="${PROJECT_SOURCE_DIR}/evidence/geometry/native-typography.json")
 add_test(NAME components COMMAND AvelinoComponentTests -import ${CMAKE_BINARY_DIR}/qml)
@@ -42,3 +43,9 @@ add_test(NAME data-metrics-invalid-config COMMAND python3 ${CMAKE_CURRENT_SOURCE
 
 add_test(NAME stepper-invalid-config COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/check-invalid-stepper.py
     $<TARGET_FILE:AvelinoComponentTests> ${CMAKE_BINARY_DIR}/qml)
+
+add_test(NAME radio-invalid-config COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/check-invalid-radio.py
+    $<TARGET_FILE:AvelinoComponentTests> ${CMAKE_BINARY_DIR}/qml)
+
+add_test(NAME radio-catalog-metadata COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/check-radio-catalog.py
+    $<TARGET_FILE:AvelinoCatalog> ${CMAKE_BINARY_DIR}/qml ${PROJECT_SOURCE_DIR})

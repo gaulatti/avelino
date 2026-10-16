@@ -1,2 +1,7 @@
 # Preserve the checksummed CMake transcript, including emitted trailing spaces.
 evidence/reference-investigations/radio-20261016/qt-identity-build.log -text -whitespace
+
+# Preserve raw candidate build/test transcripts, including emitted spaces.
+evidence/development/radio/logs/*.log -text -whitespace
+evidence/development/radio/sessions/capture-tool-version.txt -text -whitespace
+evidence/development/radio/keyboard-settlement/capture-tool-version.txt -text -whitespace

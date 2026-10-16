@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/work/scripts/capture-radio-cases.py", line 84, in <module>
+    capture(args.catalog, args.output)
+  File "/work/scripts/capture-radio-cases.py", line 66, in capture
+    assert result.returncode == 0, f'Capture failed; raw attempt retained at {output / (name + ".log")}'
+           ^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Capture failed; raw attempt retained at /capture-attempt/captures/primary-font-0.3-light-text1.0-hosted-dpr1.0.png.log

@@ -1,0 +1,11 @@
+********* Start testing of avelino *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : avelino::RadioGroup::initTestCase()
+QDEBUG : avelino::RadioGroup::test_fractionalPresentationCenter() qml: CENTER 0.3 333.5 227.5 0 0 0 0 334 228 QPointF(333.5, 227.5) QPointF(333.5, 227.5) QPointF(333.5, 227.5) 0.5 0.5
+FAIL!  : avelino::RadioGroup::test_fractionalPresentationCenter() Compared values are not the same with delta(0.000001)
+   Actual   (): 334
+   Expected (): 333.5
+   Loc: [/work/tests/components/tst_radiogroup.qml(88)]
+PASS   : avelino::RadioGroup::cleanupTestCase()
+Totals: 2 passed, 1 failed, 0 skipped, 0 blacklisted, 69ms
+********* Finished testing of avelino *********

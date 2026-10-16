@@ -15,6 +15,15 @@ public slots:
     void setProcessLocale(const QString &name) {QLocale::setDefault(QLocale(name));QEvent event(QEvent::LocaleChange);QCoreApplication::sendEvent(qApp,&event);}
     void qmlEngineAvailable(QQmlEngine *engine) {
         engine->rootContext()->setContextProperty("fixtureSetup",this);
+        const auto radioDirectory=QStringLiteral(NATIVE_RADIO_DIRECTORY);
+        for(const auto &name:QStringList{"captures/captures.json","behavior/behavior.json","native-string-identity.json"}) {
+            QFile file(radioDirectory+"/"+name);if(!file.open(QIODevice::ReadOnly))qFatal("Native RadioGroup evidence missing");
+            const auto data=QJsonDocument::fromJson(file.readAll()).object();
+            if(data.value("reference").toString()!="fe8a1d462fbd793d883fb92086a16aa2947e32c9")qFatal("Native RadioGroup reference invalid");
+            if(name.startsWith("captures/"))engine->rootContext()->setContextProperty("nativeRadioCaptures",data.value("captures").toArray().toVariantList());
+            else if(name.startsWith("behavior/")){engine->rootContext()->setContextProperty("nativeRadioBehavior",data.value("traces").toArray().toVariantList());engine->rootContext()->setContextProperty("nativeRadioPointerPhases",data.value("pointerPhases").toArray().toVariantList());}
+            else engine->rootContext()->setContextProperty("nativeRadioStringPairs",data.value("results").toArray().toVariantList());
+        }
         const auto stepperDirectory=QStringLiteral(NATIVE_STEPPER_DIRECTORY);
         QFile stepperBehavior(stepperDirectory+"/behavior/behavior.json");
         if(!stepperBehavior.open(QIODevice::ReadOnly))qFatal("Native stepper behavior missing");

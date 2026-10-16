@@ -14,7 +14,7 @@ if(NOT AVELINO_ICU_ABI_COHERENT)
     message(FATAL_ERROR "ICU74 headers and libraries must resolve to the same system installation")
 endif()
 set(qml_files BleeckerMetric.qml BleeckerStatCard.qml BleeckerIconBadge.qml BleeckerKbd.qml BleeckerTokens.qml BleeckerTheme.qml BleeckerButton.qml
-    BleeckerLoadingSpinner.qml BleeckerStepper.qml StepperGlyph.qml BleeckerAlert.qml AlertGlyph.qml CircularContent.qml BleeckerEmptyState.qml BleeckerErrorState.qml BleeckerLoadingOverlay.qml StateGlyph.qml BleeckerTextField.qml BleeckerSeparator.qml
+    BleeckerRadioGroup.qml RadioGlyph.qml BleeckerLoadingSpinner.qml BleeckerStepper.qml StepperGlyph.qml BleeckerAlert.qml AlertGlyph.qml CircularContent.qml BleeckerEmptyState.qml BleeckerErrorState.qml BleeckerLoadingOverlay.qml StateGlyph.qml BleeckerTextField.qml BleeckerSeparator.qml
     BleeckerSkeleton.qml BleeckerBauhausBackground.qml BleeckerProgress.qml
     BleeckerButtonGroup.qml BleeckerHeader.qml BleeckerPanelLayout.qml
     BleeckerCard.qml BleeckerPanel.qml BleeckerAttentionSurface.qml
@@ -28,7 +28,7 @@ set(qml_files BleeckerMetric.qml BleeckerStatCard.qml BleeckerIconBadge.qml Blee
     OwnedText.qml RoundedContent.qml SurfaceShadow.qml attentioncolors.js
     ContinuousSurface.qml continuouscorners.js spinnerpresentation.js)
 set_source_files_properties(BleeckerTokens.qml BleeckerTheme.qml PROPERTIES QT_QML_SINGLETON_TYPE TRUE)
-set_source_files_properties(ContinuousSurface.qml OwnedText.qml RoundedContent.qml SurfaceShadow.qml SelectionGlyph.qml CheckboxGlyph.qml SecureEyeGlyph.qml InputGlyph.qml CapsuleContent.qml NavigationGlyph.qml StateGlyph.qml CircularContent.qml StepperGlyph.qml PROPERTIES QT_QML_INTERNAL_TYPE TRUE)
+set_source_files_properties(ContinuousSurface.qml OwnedText.qml RoundedContent.qml SurfaceShadow.qml SelectionGlyph.qml CheckboxGlyph.qml SecureEyeGlyph.qml InputGlyph.qml CapsuleContent.qml NavigationGlyph.qml StateGlyph.qml CircularContent.qml StepperGlyph.qml RadioGlyph.qml PROPERTIES QT_QML_INTERNAL_TYPE TRUE)
 file(GLOB font_resources CONFIGURE_DEPENDS "${PROJECT_SOURCE_DIR}/assets/fonts/*.ttf")
 foreach(font_file IN LISTS font_resources)
     get_filename_component(font_name "${font_file}" NAME)
@@ -40,10 +40,10 @@ qt_add_library(Avelino SHARED)
 qt_add_qml_module(Avelino URI Avelino VERSION 0.1
     OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/qml/Avelino
     QML_FILES ${qml_files}
-    SOURCES bleeckerfonts.h bleeckerfonts.cpp pixelalignment.h pixelalignment.cpp buttonlabel.h buttonlabel.cpp texttools.h texttools.cpp valuetools.h valuetools.cpp softwarecontentmask.h softwarecontentmask.cpp proposalrow.h proposalrow.cpp brandimage.h brandimage.cpp numbertools.h numbertools.cpp
-    RESOURCES ${font_resources} ${brand_logo})
+    SOURCES selectionidentity.h selectionidentity.cpp radiooptions.h radiooptions.cpp radiogroupbase.h radiogroupbase.cpp bleeckerfonts.h bleeckerfonts.cpp pixelalignment.h pixelalignment.cpp buttonlabel.h buttonlabel.cpp texttools.h texttools.cpp valuetools.h valuetools.cpp softwarecontentmask.h softwarecontentmask.cpp proposalrow.h proposalrow.cpp brandimage.h brandimage.cpp numbertools.h numbertools.cpp
+    RESOURCES ${font_resources} ${brand_logo} unicode-normalization-17.json)
 target_link_libraries(Avelino PUBLIC Qt6::Core Qt6::Gui Qt6::Qml Qt6::Quick Qt6::QuickControls2)
-target_link_libraries(Avelino PRIVATE Qt6::QuickPrivate ICU::i18n ICU::uc)
+target_link_libraries(Avelino PRIVATE Qt6::QuickPrivate Qt6::QuickTemplates2Private ICU::i18n ICU::uc)
 target_include_directories(Avelino PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 install(TARGETS Avelino Avelinoplugin EXPORT AvelinoTargets
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}/qml/Avelino)

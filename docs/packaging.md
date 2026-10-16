@@ -103,8 +103,8 @@ using the same GNU install directories as the exported CMake package. Launch
 `QML_IMPORT_PATH` override is required. The Qt 6.8.3 runtime remains a prerequisite.
 The source-build catalog continues to use the documented build-tree import path.
 
-`check-installed-catalog.sh` exercises all twenty-two galleries at both appearances
-and DPRs, both action galleries, and the default button: 95 images with physical
+`check-installed-catalog.sh` exercises all twenty-four galleries at both appearances
+and DPRs, both action galleries, and the default button: 99 images with physical
 size/metadata checks. Both QML import environment variables are unset. A copied
 executable without its module must fail with the missing-module error. The full
 Linux check runs this against the staged install, then the package-only check
@@ -171,3 +171,7 @@ Its actual Qt static-text interfaces must reflect updated number/key strings.
 The separate formatter diagnostic embeds all 1,330 sealed source witnesses in the
 independent consumer, so it needs no source checkout at runtime. Complete native
 font/symbol/locale/raster/motion and physical/reader acceptance stays pending.
+
+The `radio-group` installed mode adds the source-derived selection and Unicode
+identity witnesses. Its virtual-session checks use the same software/OpenGL and
+standard/scaled profiles; native keyboard and actual-reader acceptance stay open.
