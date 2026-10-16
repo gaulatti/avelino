@@ -140,3 +140,9 @@ runs reproduce the 1,048-case data-display evidence and seven locale checks:
 3,160 files are byte-identical per run. This closes the cached-object limitation
 for that helper on the recorded host. Other helpers and independent-machine
 input download remain pending; no expected image or Linux acceptance changes.
+
+The [RadioGroup investigation](radio-group.md) preserves 440 hosted public/witness
+captures, controlled binding and pointer traces, native String identity and a fresh
+source-only replay of 1,358 output files. The tracked Qt normalization diagnostic
+retains 17 disagreements. Its source images and Unicode facts do not establish
+Linux implementation, visual or reader acceptance. Native tooling remains external.

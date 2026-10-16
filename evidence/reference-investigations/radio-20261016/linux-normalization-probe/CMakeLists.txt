@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.21)
+project(RadioStringIdentity LANGUAGES CXX)
+find_package(Qt6 6.8.3 EXACT REQUIRED COMPONENTS Core)
+add_executable(qt-string-identity qt-string-identity.cpp)
+target_link_libraries(qt-string-identity PRIVATE Qt6::Core)

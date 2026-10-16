@@ -1,0 +1,88 @@
+{
+  "referenceRevision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+  "referenceTree": "db61113381a51fc3c7b3d12786609cd9e76627c8",
+  "capturePreparationRevision": "80973a1ad7ed1d57139b54c9f54930a0cb4abc56",
+  "method": "Fresh pinned Sabella library and source helpers; public NSHostingView caching with byte-identical geometry/LabelStyle witnesses; own-window synthetic NSEvent traces; native ICU and Swift String identity; isolated NSAccessibilityProtocol diagnostic",
+  "target": "arm64-apple-macosx26.0",
+  "buildTarget": "Sabella",
+  "automaticResolution": false,
+  "compiledInputs": [],
+  "sourceIdentity": "evidence/reference-investigations/native-source-rebuild-20261016/source-identity.json",
+  "environment": {
+    "compiler": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0",
+    "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0\nBuildVersion:\t\t26A428",
+    "xcode": "Xcode 27.0\nBuild version 27A266a",
+    "sdk": "27.0"
+  },
+  "toolArtifact": {
+    "locator": "/Users/gaulatti/source/gaulatti/avelino-reference-vault/candidates/radio-source-20261016-80973a1a/native-radio-source-replay.tar.gz",
+    "sha256": "99924f3161fe21b7883bbf01c5a95e1b425081881ac2cd9440af682b7453635a",
+    "files": {
+      "reference-source.tar": "4fd5cf743fd13c12f375c65a4a711d7210e6fb9d4639225737b391eb498f784c",
+      "replay.py": "f7c7d0dcacc66f37948a53db96aeb58e18f5ecce6b359b1180522f470a1eac00",
+      "tool/accessibility.swift": "f736018b293cd444d1d275bec40e38a10dee33935a661fd5fda16420bb76ad09",
+      "tool/behavior.swift": "dbe70e0a849854d8e8656a39b502ef3c98f62f6fa33033bebd299474b737d472",
+      "tool/main.swift": "155ea090f6599225f5ea6b03ca3e2602efa03be044ea0fbd839f62861c54a112",
+      "tool/read-normalization.py": "80be56f142e8ea1d163145bb221d9040bbfc65de36103076efd752311546f979",
+      "tool/string-identity.swift": "fd2cced1b392c5b53178955d970fc08cc1e5115a527413af3e598782b4ee493b",
+      "inputs.json": "16a7ef16c990d9f4a972c84da98addfc04ec211d0c72315efa3561461d125f0e"
+    }
+  },
+  "freshSabellaProducts": {
+    "Sabella.o": "ed871a8c9ef43f0dab0df06c34f01adda9f3c032da6c4c3d37bcff65f345383f",
+    "Sabella.swiftmodule/Project/arm64-apple-macos.swiftsourceinfo": "08493963e358a3ba91b0f29cbe061caba53f7f070962abdc29f9807a40a723c1",
+    "Sabella.swiftmodule/arm64-apple-macos.abi.json": "4277ac6b49f8511196028a5ac20f5b1b1dfa754c24615d34068089f0b1739728",
+    "Sabella.swiftmodule/arm64-apple-macos.swiftdoc": "ce222ca8bb15e8ff0e1984aef0e1c8f7a61fd15b2daae06e29f39122e158a355",
+    "Sabella.swiftmodule/arm64-apple-macos.swiftmodule": "90b0f6b27fb53bba2ba932305bbb824511dd540693fb353278ed26fdb45a7e8a",
+    "Sabella_Sabella.bundle/Contents/Info.plist": "bb271a2bb9f209500e8eaf030e4f7f00196d49b53cf3e7287a4e51927314cd37",
+    "Sabella_Sabella.bundle/Contents/Resources/Assets.car": "c41dacfa396221c99807f4e187858eabceb66ec6053260208927a5553243ed2f",
+    "Sabella_Sabella.bundle/Contents/Resources/Fonts/EncodeSans-Black.ttf": "eb0d5153cadc5d71f6563da7e6b32757e1a1062fc508c981cd8b9aa97073ebc0",
+    "Sabella_Sabella.bundle/Contents/Resources/Fonts/EncodeSans-Bold.ttf": "b6f0d04888140d10006fbeeebc194d33f28fdb50ece52ff16f6e4f952d2ccc85",
+    "Sabella_Sabella.bundle/Contents/Resources/Fonts/EncodeSans-ExtraBold.ttf": "5165a64478506a1939f1aecc907406012418524d9b16e178e43c7e3343078924",
+    "Sabella_Sabella.bundle/Contents/Resources/Fonts/EncodeSans-ExtraLight.ttf": "9f56c1767e8619572c60a6b4eda16fcc727a83586c794fe58b4c58f3b698a38d",
+    "Sabella_Sabella.bundle/Contents/Resources/Fonts/EncodeSans-Light.ttf": "3f1992cfbff24c8d928c38c603af7b26c544ae328201a25bce5f56b1cd1d2cbd",
+    "Sabella_Sabella.bundle/Contents/Resources/Fonts/EncodeSans-Medium.ttf": "40a222af6b6dcd6940866415df454f2e27e798f5dc16539d72c67449c0eeca98",
+    "Sabella_Sabella.bundle/Contents/Resources/Fonts/EncodeSans-Regular.ttf": "756006a45004ac1fe39ed907c7d71d1c721524d4b1c87ed0a479cb913aeba182",
+    "Sabella_Sabella.bundle/Contents/Resources/Fonts/EncodeSans-SemiBold.ttf": "9972f69621823bdd3c67738c02c813c8a52067871e92e467880cb2fa0a47ced5",
+    "Sabella_Sabella.bundle/Contents/Resources/Fonts/EncodeSans-Thin.ttf": "b152696686ef5a05df7ad975ab044b2632bfd12a20265533d94cf79ed1fa9ffa",
+    "Sabella_Sabella.bundle/Contents/Resources/Fonts/LibreFranklin-Black.ttf": "ed426c38ba0c58ad27e70d59bef4239a2fe6149f79cc62afd6b28f9e6eec1101",
+    "Sabella_Sabella.bundle/Contents/Resources/Fonts/LibreFranklin-Bold.ttf": "3134a143a2a801a0e80198ea03cd7cc99066bcaeeaaecda758e852725c225303",
+    "Sabella_Sabella.bundle/Contents/Resources/Fonts/LibreFranklin-ExtraBold.ttf": "e14e48d8c0ad279318b6fbbc172d0ffee57af2e66db088eb4e0e43ff66a5e2e6",
+    "Sabella_Sabella.bundle/Contents/Resources/Fonts/LibreFranklin-ExtraLight.ttf": "aeb60b86b0e2aca2a2ef41731c5f80ad2128beeb65235ab8fe2f8988080265f6",
+    "Sabella_Sabella.bundle/Contents/Resources/Fonts/LibreFranklin-Light.ttf": "07c06ab5ec2e102d4e93d8fa17d71233112a9ef9a0d8b9cd0f9dd0fa8e367e1d",
+    "Sabella_Sabella.bundle/Contents/Resources/Fonts/LibreFranklin-Medium.ttf": "72b6de5d4dd950a17e28b5ac3d459ec5291b9039c985c6089763facbc96d91a9",
+    "Sabella_Sabella.bundle/Contents/Resources/Fonts/LibreFranklin-Regular.ttf": "01e26222a56e141e3abae670ab22be77f063999fc4ef64c4a9651de19b7728a8",
+    "Sabella_Sabella.bundle/Contents/Resources/Fonts/LibreFranklin-SemiBold.ttf": "d9bc4e45291495f350d0653e3250cfadfe2fd2f3f166c6f6ee2d68cab7fc9692",
+    "Sabella_Sabella.bundle/Contents/Resources/Fonts/LibreFranklin-Thin.ttf": "6f30fb3bdd7818a387dee382183b955b1fd22e4d5fdf48763959adcb0d0c3e97",
+    "Sabella_Sabella.bundle/Contents/Resources/Fonts/OFL-EncodeSans.txt": "b47f4d635e8c592a37e98f751627cad0a81694c56aecc603b33819a908ea9625",
+    "Sabella_Sabella.bundle/Contents/Resources/Fonts/OFL-LibreFranklin.txt": "2710268527181a27b8e938617551bae29e714e6525247be6679bf897a9942a60",
+    "Sabella_Sabella.bundle/Contents/Resources/Fonts/README.md": "8fc3e57cc9bfe4ecd99169d08ac634a9185d1bf4e7d7013d07025bdb0ec57c03",
+    "Sabella_Sabella.bundle/Contents/_CodeSignature/CodeDirectory": "f8edd78225f9dc1de89cebe3344c5501c44f0dfc790622b0cb2a61aca3d5b7ba",
+    "Sabella_Sabella.bundle/Contents/_CodeSignature/CodeRequirements": "987920904eab650e75788c054aa0b0524e6a80bfc71aa32df8d237a61743f986",
+    "Sabella_Sabella.bundle/Contents/_CodeSignature/CodeResources": "8d2b44b4db545a43f4ccfcec72bd3d1849f99abfadeeba4bb641143a773ec00c",
+    "Sabella_Sabella.bundle/Contents/_CodeSignature/CodeSignature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "linuxNormalizationProbe": {
+    "image": "avelino-toolchain:data-metrics-qt6.8.3",
+    "imageId": "sha256:48d88f958d93310bf887e4318b27713b7ecbb8b9f6a7d276087e599c9b6383d8",
+    "architecture": "arm64",
+    "qtVersion": "6.8.3",
+    "qcharUnicodeVersion": "16.0",
+    "buildInputPaths": [
+      "linux-normalization-probe/CMakeLists.txt",
+      "linux-normalization-probe/qt-string-identity.cpp"
+    ],
+    "rawResult": "qt-string-identity.json",
+    "mismatches": 17,
+    "accepted": false
+  },
+  "limits": [
+    "The source-only native helper archive has a machine-local locator; independent-machine download remains pending.",
+    "Captured windows were inactive, non-key, non-main with actual backing DPR 2; requested displayScale/bitmap DPR 1 and 2 do not establish physical DPR 1.",
+    "Synthetic events and finite hit grids do not establish unsampled target edges, physical input, actual keyboard/focus or screen-reader behavior.",
+    "NSAccessibilityProtocol exposed only the hosting AXGroup and no control children in six contexts; actual control accessibility semantics remain unverified.",
+    "Native String and ICU facts reflect the recorded macOS 27 / Unicode 17 runtime. Qt 6.8.3 Unicode 16 normalization has 17 disagreements in the measured pairs; no production identity adapter is implemented here.",
+    "Full Linux font, symbol, paint, frame, session and package equivalence remains pending. No source image or native symbol is installed as a Linux product asset.",
+    "Earlier prototype and baseline-alignment probes remain in the external work area; the alignmentGuide baseline closures were never queried, so cap-center relations are inferred from frames and Core Text metrics rather than direct baseline measurement."
+  ]
+}

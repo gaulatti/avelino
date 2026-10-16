@@ -57,6 +57,10 @@ captures, exact integer/binding behavior and a fresh source-only replay. The Qt
 candidate adds catalog and independent installed-consumer coverage; complete
 font, symbol, frame, raster, physical and reader acceptance remains pending.
 
+The [RadioGroup source investigation](docs/radio-group.md) preserves inherited
+layout, controlled selection, precise pointer behavior and native Unicode identity.
+Its Linux implementation and complete acceptance remain pending.
+
 Generic child clipping now has a [software renderer candidate](docs/content-clipping.md)
 sharing the existing continuous/circular/capsule paths; strict native acceptance
 remains pending.
