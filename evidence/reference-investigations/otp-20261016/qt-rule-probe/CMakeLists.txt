@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.21)
+project(OTPFilterProbe LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 20)
+find_package(Qt6 6.8.3 EXACT REQUIRED COMPONENTS Core)
+add_executable(OTPFilterProbe main.cpp)
+target_link_libraries(OTPFilterProbe PRIVATE Qt6::Core)

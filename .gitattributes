@@ -5,3 +5,9 @@ evidence/reference-investigations/radio-20261016/qt-identity-build.log -text -wh
 evidence/development/radio/logs/*.log -text -whitespace
 evidence/development/radio/sessions/capture-tool-version.txt -text -whitespace
 evidence/development/radio/keyboard-settlement/capture-tool-version.txt -text -whitespace
+
+# Preserve raw source-investigation build transcripts.
+evidence/reference-investigations/otp-20261016/logs/*.log -text -whitespace
+# Preserve the exact upstream Unicode data bytes and their checksums.
+evidence/reference-investigations/otp-20261016/unicode17/GraphemeBreakTest.txt -text -whitespace
+evidence/reference-investigations/otp-20261016/unicode17/emoji-data.txt -text -whitespace

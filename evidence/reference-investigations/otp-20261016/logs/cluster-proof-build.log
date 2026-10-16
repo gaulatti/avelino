@@ -1,0 +1,88 @@
+/Users/gaulatti/.codex/tmp/avelino-otp-source-20261016/tool/cluster-proof.swift:7:26: error: main actor-isolated var 'hash' can not be mutated from a nonisolated context
+ 4 | let semantics=try read("native-otp-semantics.json"),properties=try read("numeric-cluster-properties.json"),numbers=semantics["singleScalarNumbers"] as! [UInt32],joining=properties["joiningScalars"] as! [UInt32],prepend=properties["prependScalars"] as! [UInt32]
+ 5 | let numberSet=Set(numbers),joinSet=Set(joining),prependSet=Set(prepend),bases:[UInt32]=[0x31,0x661,0x2163,0x4e00,0x1d7d9,0x1f100,0xf33]
+ 6 | var total=0,mismatches=0,examples:[[String:Any]]=[],hash:UInt64=14695981039346656037
+   |                                                     `- note: mutation of this var is only permitted within the actor
+ 7 | func mix(_ value:UInt32){hash=(hash^UInt64(value))&*1099511628211}
+   |      |                   `- error: main actor-isolated var 'hash' can not be mutated from a nonisolated context
+   |      `- note: add '@MainActor' to make global function 'mix' part of global actor 'MainActor'
+ 8 | func test(_ base:UInt32,_ middle:UInt32,_ scope:String){
+ 9 |  let values:[UInt32]=[base,middle,0x32],text=String(String.UnicodeScalarView(values.map{Unicode.Scalar($0)!})),filtered=text.filter(\.isNumber),actual=filtered.unicodeScalars.map(\.value),actualPrefix=String(filtered.prefix(1)).unicodeScalars.map(\.value)
+
+/Users/gaulatti/.codex/tmp/avelino-otp-source-20261016/tool/cluster-proof.swift:7:32: error: main actor-isolated var 'hash' can not be referenced from a nonisolated context
+ 4 | let semantics=try read("native-otp-semantics.json"),properties=try read("numeric-cluster-properties.json"),numbers=semantics["singleScalarNumbers"] as! [UInt32],joining=properties["joiningScalars"] as! [UInt32],prepend=properties["prependScalars"] as! [UInt32]
+ 5 | let numberSet=Set(numbers),joinSet=Set(joining),prependSet=Set(prepend),bases:[UInt32]=[0x31,0x661,0x2163,0x4e00,0x1d7d9,0x1f100,0xf33]
+ 6 | var total=0,mismatches=0,examples:[[String:Any]]=[],hash:UInt64=14695981039346656037
+   |                                                     `- note: var declared here
+ 7 | func mix(_ value:UInt32){hash=(hash^UInt64(value))&*1099511628211}
+   |      |                         `- error: main actor-isolated var 'hash' can not be referenced from a nonisolated context
+   |      `- note: add '@MainActor' to make global function 'mix' part of global actor 'MainActor'
+ 8 | func test(_ base:UInt32,_ middle:UInt32,_ scope:String){
+ 9 |  let values:[UInt32]=[base,middle,0x32],text=String(String.UnicodeScalarView(values.map{Unicode.Scalar($0)!})),filtered=text.filter(\.isNumber),actual=filtered.unicodeScalars.map(\.value),actualPrefix=String(filtered.prefix(1)).unicodeScalars.map(\.value)
+
+/Users/gaulatti/.codex/tmp/avelino-otp-source-20261016/tool/cluster-proof.swift:12:2: error: main actor-isolated var 'total' can not be mutated from a nonisolated context
+ 4 | let semantics=try read("native-otp-semantics.json"),properties=try read("numeric-cluster-properties.json"),numbers=semantics["singleScalarNumbers"] as! [UInt32],joining=properties["joiningScalars"] as! [UInt32],prepend=properties["prependScalars"] as! [UInt32]
+ 5 | let numberSet=Set(numbers),joinSet=Set(joining),prependSet=Set(prepend),bases:[UInt32]=[0x31,0x661,0x2163,0x4e00,0x1d7d9,0x1f100,0xf33]
+ 6 | var total=0,mismatches=0,examples:[[String:Any]]=[],hash:UInt64=14695981039346656037
+   |     `- note: mutation of this var is only permitted within the actor
+ 7 | func mix(_ value:UInt32){hash=(hash^UInt64(value))&*1099511628211}
+ 8 | func test(_ base:UInt32,_ middle:UInt32,_ scope:String){
+   |      `- note: add '@MainActor' to make global function 'test' part of global actor 'MainActor'
+ 9 |  let values:[UInt32]=[base,middle,0x32],text=String(String.UnicodeScalarView(values.map{Unicode.Scalar($0)!})),filtered=text.filter(\.isNumber),actual=filtered.unicodeScalars.map(\.value),actualPrefix=String(filtered.prefix(1)).unicodeScalars.map(\.value)
+10 |  let expected:[UInt32]=joinSet.contains(middle) ? values:prependSet.contains(middle) ? [base]:numberSet.contains(middle) ? values:[base,0x32]
+11 |  let expectedPrefix:[UInt32]=joinSet.contains(middle) ? [base,middle]:[base]
+12 |  total+=1;mix(0x110000);mix(base);mix(middle);for cp in actual{mix(cp)};mix(0x110001);for cp in actualPrefix{mix(cp)}
+   |  `- error: main actor-isolated var 'total' can not be mutated from a nonisolated context
+13 |  if actual != expected || actualPrefix != expectedPrefix{mismatches+=1;if examples.count<1000{examples.append(["scope":scope,"base":base,"middle":middle,"actual":actual,"expected":expected,"actualPrefix":actualPrefix,"expectedPrefix":expectedPrefix])}}
+14 | }
+
+/Users/gaulatti/.codex/tmp/avelino-otp-source-20261016/tool/cluster-proof.swift:13:58: error: main actor-isolated var 'mismatches' can not be mutated from a nonisolated context
+ 4 | let semantics=try read("native-otp-semantics.json"),properties=try read("numeric-cluster-properties.json"),numbers=semantics["singleScalarNumbers"] as! [UInt32],joining=properties["joiningScalars"] as! [UInt32],prepend=properties["prependScalars"] as! [UInt32]
+ 5 | let numberSet=Set(numbers),joinSet=Set(joining),prependSet=Set(prepend),bases:[UInt32]=[0x31,0x661,0x2163,0x4e00,0x1d7d9,0x1f100,0xf33]
+ 6 | var total=0,mismatches=0,examples:[[String:Any]]=[],hash:UInt64=14695981039346656037
+   |             `- note: mutation of this var is only permitted within the actor
+ 7 | func mix(_ value:UInt32){hash=(hash^UInt64(value))&*1099511628211}
+ 8 | func test(_ base:UInt32,_ middle:UInt32,_ scope:String){
+   |      `- note: add '@MainActor' to make global function 'test' part of global actor 'MainActor'
+ 9 |  let values:[UInt32]=[base,middle,0x32],text=String(String.UnicodeScalarView(values.map{Unicode.Scalar($0)!})),filtered=text.filter(\.isNumber),actual=filtered.unicodeScalars.map(\.value),actualPrefix=String(filtered.prefix(1)).unicodeScalars.map(\.value)
+10 |  let expected:[UInt32]=joinSet.contains(middle) ? values:prependSet.contains(middle) ? [base]:numberSet.contains(middle) ? values:[base,0x32]
+11 |  let expectedPrefix:[UInt32]=joinSet.contains(middle) ? [base,middle]:[base]
+12 |  total+=1;mix(0x110000);mix(base);mix(middle);for cp in actual{mix(cp)};mix(0x110001);for cp in actualPrefix{mix(cp)}
+13 |  if actual != expected || actualPrefix != expectedPrefix{mismatches+=1;if examples.count<1000{examples.append(["scope":scope,"base":base,"middle":middle,"actual":actual,"expected":expected,"actualPrefix":actualPrefix,"expectedPrefix":expectedPrefix])}}
+   |                                                          `- error: main actor-isolated var 'mismatches' can not be mutated from a nonisolated context
+14 | }
+15 | for base in numbers{for tail in joining{test(base,tail,"every-number-and-joining-scalar")}}
+
+/Users/gaulatti/.codex/tmp/avelino-otp-source-20261016/tool/cluster-proof.swift:13:75: error: main actor-isolated var 'examples' can not be referenced from a nonisolated context
+ 4 | let semantics=try read("native-otp-semantics.json"),properties=try read("numeric-cluster-properties.json"),numbers=semantics["singleScalarNumbers"] as! [UInt32],joining=properties["joiningScalars"] as! [UInt32],prepend=properties["prependScalars"] as! [UInt32]
+ 5 | let numberSet=Set(numbers),joinSet=Set(joining),prependSet=Set(prepend),bases:[UInt32]=[0x31,0x661,0x2163,0x4e00,0x1d7d9,0x1f100,0xf33]
+ 6 | var total=0,mismatches=0,examples:[[String:Any]]=[],hash:UInt64=14695981039346656037
+   |                          `- note: var declared here
+ 7 | func mix(_ value:UInt32){hash=(hash^UInt64(value))&*1099511628211}
+ 8 | func test(_ base:UInt32,_ middle:UInt32,_ scope:String){
+   |      `- note: add '@MainActor' to make global function 'test' part of global actor 'MainActor'
+ 9 |  let values:[UInt32]=[base,middle,0x32],text=String(String.UnicodeScalarView(values.map{Unicode.Scalar($0)!})),filtered=text.filter(\.isNumber),actual=filtered.unicodeScalars.map(\.value),actualPrefix=String(filtered.prefix(1)).unicodeScalars.map(\.value)
+10 |  let expected:[UInt32]=joinSet.contains(middle) ? values:prependSet.contains(middle) ? [base]:numberSet.contains(middle) ? values:[base,0x32]
+11 |  let expectedPrefix:[UInt32]=joinSet.contains(middle) ? [base,middle]:[base]
+12 |  total+=1;mix(0x110000);mix(base);mix(middle);for cp in actual{mix(cp)};mix(0x110001);for cp in actualPrefix{mix(cp)}
+13 |  if actual != expected || actualPrefix != expectedPrefix{mismatches+=1;if examples.count<1000{examples.append(["scope":scope,"base":base,"middle":middle,"actual":actual,"expected":expected,"actualPrefix":actualPrefix,"expectedPrefix":expectedPrefix])}}
+   |                                                                           `- error: main actor-isolated var 'examples' can not be referenced from a nonisolated context
+14 | }
+15 | for base in numbers{for tail in joining{test(base,tail,"every-number-and-joining-scalar")}}
+
+/Users/gaulatti/.codex/tmp/avelino-otp-source-20261016/tool/cluster-proof.swift:13:95: error: main actor-isolated var 'examples' can not be mutated from a nonisolated context
+ 4 | let semantics=try read("native-otp-semantics.json"),properties=try read("numeric-cluster-properties.json"),numbers=semantics["singleScalarNumbers"] as! [UInt32],joining=properties["joiningScalars"] as! [UInt32],prepend=properties["prependScalars"] as! [UInt32]
+ 5 | let numberSet=Set(numbers),joinSet=Set(joining),prependSet=Set(prepend),bases:[UInt32]=[0x31,0x661,0x2163,0x4e00,0x1d7d9,0x1f100,0xf33]
+ 6 | var total=0,mismatches=0,examples:[[String:Any]]=[],hash:UInt64=14695981039346656037
+   |                          `- note: mutation of this var is only permitted within the actor
+ 7 | func mix(_ value:UInt32){hash=(hash^UInt64(value))&*1099511628211}
+ 8 | func test(_ base:UInt32,_ middle:UInt32,_ scope:String){
+   |      `- note: add '@MainActor' to make global function 'test' part of global actor 'MainActor'
+ 9 |  let values:[UInt32]=[base,middle,0x32],text=String(String.UnicodeScalarView(values.map{Unicode.Scalar($0)!})),filtered=text.filter(\.isNumber),actual=filtered.unicodeScalars.map(\.value),actualPrefix=String(filtered.prefix(1)).unicodeScalars.map(\.value)
+10 |  let expected:[UInt32]=joinSet.contains(middle) ? values:prependSet.contains(middle) ? [base]:numberSet.contains(middle) ? values:[base,0x32]
+11 |  let expectedPrefix:[UInt32]=joinSet.contains(middle) ? [base,middle]:[base]
+12 |  total+=1;mix(0x110000);mix(base);mix(middle);for cp in actual{mix(cp)};mix(0x110001);for cp in actualPrefix{mix(cp)}
+13 |  if actual != expected || actualPrefix != expectedPrefix{mismatches+=1;if examples.count<1000{examples.append(["scope":scope,"base":base,"middle":middle,"actual":actual,"expected":expected,"actualPrefix":actualPrefix,"expectedPrefix":expectedPrefix])}}
+   |                                                                                               `- error: main actor-isolated var 'examples' can not be mutated from a nonisolated context
+14 | }
+15 | for base in numbers{for tail in joining{test(base,tail,"every-number-and-joining-scalar")}}

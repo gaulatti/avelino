@@ -1,0 +1,52 @@
+/Users/gaulatti/.codex/tmp/avelino-otp-source-20261016/tool/prototype.swift:20:21: warning: call to main actor-isolated instance method 'layoutSubtreeIfNeeded()' in a synchronous nonisolated context [#ActorIsolatedCall]
+18 |  let state=State(),records=Records(),host=NSHostingView(rootView:Root(state:state,records:records))
+19 |  let window=NSWindow(contentRect:NSRect(x:-10000,y:-10000,width:600,height:200),styleMask:[.borderless],backing:.buffered,defer:false);window.isReleasedWhenClosed=false;window.contentView=host;window.orderFrontRegardless();host.frame=NSRect(x:0,y:0,width:600,height:200)
+20 |  func settle(){host.layoutSubtreeIfNeeded();RunLoop.main.run(until:Date().addingTimeInterval(0.1));host.layoutSubtreeIfNeeded();host.displayIfNeeded()}
+   |                     `- warning: call to main actor-isolated instance method 'layoutSubtreeIfNeeded()' in a synchronous nonisolated context [#ActorIsolatedCall]
+21 |  settle();var rows:[String:Any]=["beforeTree":describe(host),"modelBefore":state.code,"rootRect":records.rect.map{NSStringFromRect($0)} as Any? ?? NSNull(),"key":window.isKeyWindow,"backing":window.backingScaleFactor]
+22 |  if let text=field(host){
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSView.h:265:1: note: calls to instance method 'layoutSubtreeIfNeeded()' from outside of its actor context are implicitly asynchronous
+263 | @property BOOL canDrawSubviewsIntoLayer API_AVAILABLE(macos(10.9));
+264 | 
+265 | - (void)layoutSubtreeIfNeeded API_AVAILABLE(macos(10.7));
+    | |- note: calls to instance method 'layoutSubtreeIfNeeded()' from outside of its actor context are implicitly asynchronous
+    | `- note: main actor isolation inferred from inheritance from class 'NSResponder'
+266 | - (void)layout API_AVAILABLE(macos(10.7));
+267 | @property BOOL needsLayout API_AVAILABLE(macos(10.7));
+
+/Users/gaulatti/.codex/tmp/avelino-otp-source-20261016/tool/prototype.swift:20:105: warning: call to main actor-isolated instance method 'layoutSubtreeIfNeeded()' in a synchronous nonisolated context [#ActorIsolatedCall]
+18 |  let state=State(),records=Records(),host=NSHostingView(rootView:Root(state:state,records:records))
+19 |  let window=NSWindow(contentRect:NSRect(x:-10000,y:-10000,width:600,height:200),styleMask:[.borderless],backing:.buffered,defer:false);window.isReleasedWhenClosed=false;window.contentView=host;window.orderFrontRegardless();host.frame=NSRect(x:0,y:0,width:600,height:200)
+20 |  func settle(){host.layoutSubtreeIfNeeded();RunLoop.main.run(until:Date().addingTimeInterval(0.1));host.layoutSubtreeIfNeeded();host.displayIfNeeded()}
+   |                                                                                                         `- warning: call to main actor-isolated instance method 'layoutSubtreeIfNeeded()' in a synchronous nonisolated context [#ActorIsolatedCall]
+21 |  settle();var rows:[String:Any]=["beforeTree":describe(host),"modelBefore":state.code,"rootRect":records.rect.map{NSStringFromRect($0)} as Any? ?? NSNull(),"key":window.isKeyWindow,"backing":window.backingScaleFactor]
+22 |  if let text=field(host){
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSView.h:265:1: note: calls to instance method 'layoutSubtreeIfNeeded()' from outside of its actor context are implicitly asynchronous
+263 | @property BOOL canDrawSubviewsIntoLayer API_AVAILABLE(macos(10.9));
+264 | 
+265 | - (void)layoutSubtreeIfNeeded API_AVAILABLE(macos(10.7));
+    | |- note: calls to instance method 'layoutSubtreeIfNeeded()' from outside of its actor context are implicitly asynchronous
+    | `- note: main actor isolation inferred from inheritance from class 'NSResponder'
+266 | - (void)layout API_AVAILABLE(macos(10.7));
+267 | @property BOOL needsLayout API_AVAILABLE(macos(10.7));
+
+/Users/gaulatti/.codex/tmp/avelino-otp-source-20261016/tool/prototype.swift:20:134: warning: call to main actor-isolated instance method 'displayIfNeeded()' in a synchronous nonisolated context [#ActorIsolatedCall]
+18 |  let state=State(),records=Records(),host=NSHostingView(rootView:Root(state:state,records:records))
+19 |  let window=NSWindow(contentRect:NSRect(x:-10000,y:-10000,width:600,height:200),styleMask:[.borderless],backing:.buffered,defer:false);window.isReleasedWhenClosed=false;window.contentView=host;window.orderFrontRegardless();host.frame=NSRect(x:0,y:0,width:600,height:200)
+20 |  func settle(){host.layoutSubtreeIfNeeded();RunLoop.main.run(until:Date().addingTimeInterval(0.1));host.layoutSubtreeIfNeeded();host.displayIfNeeded()}
+   |                                                                                                                                      `- warning: call to main actor-isolated instance method 'displayIfNeeded()' in a synchronous nonisolated context [#ActorIsolatedCall]
+21 |  settle();var rows:[String:Any]=["beforeTree":describe(host),"modelBefore":state.code,"rootRect":records.rect.map{NSStringFromRect($0)} as Any? ?? NSNull(),"key":window.isKeyWindow,"backing":window.backingScaleFactor]
+22 |  if let text=field(host){
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSView.h:200:1: note: calls to instance method 'displayIfNeeded()' from outside of its actor context are implicitly asynchronous
+198 | 
+199 | - (void)display;
+200 | - (void)displayIfNeeded;
+    | |- note: calls to instance method 'displayIfNeeded()' from outside of its actor context are implicitly asynchronous
+    | `- note: main actor isolation inferred from inheritance from class 'NSResponder'
+201 | - (void)displayIfNeededIgnoringOpacity;
+202 | - (void)displayRect:(NSRect)rect;
+
+[#ActorIsolatedCall]: <https://docs.swift.org/compiler/documentation/diagnostics/actor-isolated-call>

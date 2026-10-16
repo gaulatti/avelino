@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.21)
+project(OTPGraphemeProbe LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 20)
+find_package(Qt6 6.8.3 EXACT REQUIRED COMPONENTS Core)
+add_executable(OTPGraphemeProbe main.cpp)
+target_link_libraries(OTPGraphemeProbe PRIVATE Qt6::Core)

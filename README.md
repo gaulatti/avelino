@@ -62,6 +62,10 @@ layout, controlled selection, precise pointer behavior and native Unicode identi
 Its Linux candidate adds catalog and independent package coverage; complete
 font, symbol, frame, raster, keyboard and reader acceptance remain pending.
 
+The [OTP source investigation](docs/otp-input.md) records numeric-character
+filtering, raw editing versus caller state, composition and large input. Its
+Linux component and complete acceptance remain pending.
+
 Generic child clipping now has a [software renderer candidate](docs/content-clipping.md)
 sharing the existing continuous/circular/capsule paths; strict native acceptance
 remains pending.
