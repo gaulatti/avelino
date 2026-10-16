@@ -36,6 +36,14 @@ saved in `native-pointer.txt` and identified in each capture's metadata. Otherwi
 mapping a tooltip beneath the idle native cursor can inject a genuine Wayland
 Leave while the consumer's synthetic Qt pointer is still over its caller.
 This separates the synthetic-input run from the physical-input acceptance gate.
+The base consumer also waits for asynchronous Shape processing and two displayed
+frames with unchanged ready path/geometry observations after changing loading
+content. Its metadata records `asyncShapeFrameChecks`, which the display harness
+requires. A [delayed-worker regression](../evidence/development/surface-border-20261016/README.md#async-shape-readiness)
+shows that the former fixed 50 ms wait could capture an earlier button width
+while its live properties already described the new width. The current barrier
+reaches Shape Ready before capture under the same delay. Existing assertions and
+strict comparison tolerances remain intact.
 The [pointer-isolation checkpoint](../evidence/development/tooltip-pointer-isolation-20261016/README.md)
 passes the complete 224-session matrix, eight executable-only Tooltip profiles,
 and 30 repeated processes using the original failed CI installation. Failed

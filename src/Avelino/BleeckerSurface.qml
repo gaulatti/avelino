@@ -13,14 +13,23 @@ Item {
         shadowColor: BleeckerTheme.alpha(BleeckerTheme.palette.deepSea,BleeckerTheme.dark ? 0 : 0.055)
         fillColor: BleeckerTheme.palette.card
     }
-    ContinuousSurface {
-        objectName: "bleeckerSurfaceBackground"
-        anchors.fill: parent; radius: control.radius
-        color: BleeckerTheme.palette.card; borderColor: BleeckerTheme.palette.border
-    }
     RoundedContent {
         id: body
         anchors.fill: parent; radius: control.radius
+        Item {
+            id:background;objectName:"bleeckerSurfaceBackground"
+            anchors.fill:parent
+            readonly property real radius:control.radius
+            readonly property color color:BleeckerTheme.palette.card
+            Accessible.ignored:true
+            Rectangle {anchors.fill:parent;color:background.color}
+        }
         Item { id: host; objectName: "bleeckerSurfaceContent"; anchors.fill: parent }
+    }
+    ContinuousSurface {
+        objectName: "bleeckerSurfaceBorder"
+        anchors.fill: parent; radius: control.radius
+        borderColor: BleeckerTheme.palette.border
+        Accessible.ignored: true
     }
 }

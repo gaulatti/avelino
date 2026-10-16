@@ -75,3 +75,9 @@ evidence/development/font-modifier/implementation-inputs/scripts/capture-font-mo
 # Preserve raw tooltip pointer diagnostics and capture-tool transcripts.
 evidence/development/tooltip-pointer-isolation-20261016/**/*.log -text -whitespace
 evidence/development/tooltip-pointer-isolation-20261016/**/capture-tool-version.txt -text -whitespace
+
+# Preserve exact native surface source-build, API and replay diagnostics.
+evidence/reference-investigations/surface-modifier-20261016/**/*.log -text -whitespace
+
+# Preserve complete surface paint and async-frame verification transcripts.
+evidence/development/surface-border-20261016/**/*.log -text -whitespace

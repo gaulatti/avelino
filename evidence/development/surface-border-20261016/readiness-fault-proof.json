@@ -1,0 +1,91 @@
+{
+  "accepted": false,
+  "workerOccupancyMilliseconds": 250,
+  "rows": {
+    "original": {
+      "traces": [
+        {
+          "buttonWidth": 224,
+          "phase": "before original wait",
+          "processing": 0,
+          "surfaceStatus": 1,
+          "surfaceWidth": 224
+        },
+        {
+          "buttonWidth": 224,
+          "phase": "after original wait",
+          "processing": 1,
+          "surfaceStatus": 2,
+          "surfaceWidth": 224
+        },
+        {
+          "buttonWidth": 224,
+          "phase": "before original capture",
+          "processing": 1,
+          "surfaceStatus": 2,
+          "surfaceWidth": 224
+        },
+        {
+          "buttonWidth": 224,
+          "phase": "after original capture",
+          "processing": 1,
+          "surfaceStatus": 2,
+          "surfaceWidth": 224
+        }
+      ],
+      "sampleCoordinate": [
+        490,
+        100
+      ],
+      "rgba": [
+        24,
+        37,
+        51,
+        255
+      ]
+    },
+    "fixed": {
+      "traces": [
+        {
+          "buttonWidth": 224,
+          "phase": "before original wait",
+          "processing": 0,
+          "surfaceStatus": 1,
+          "surfaceWidth": 224
+        },
+        {
+          "buttonWidth": 224,
+          "phase": "after frame barrier",
+          "processing": 0,
+          "surfaceStatus": 1,
+          "surfaceWidth": 224
+        },
+        {
+          "buttonWidth": 224,
+          "phase": "before current capture",
+          "processing": 0,
+          "surfaceStatus": 1,
+          "surfaceWidth": 224
+        },
+        {
+          "buttonWidth": 224,
+          "phase": "after current capture",
+          "processing": 0,
+          "surfaceStatus": 1,
+          "surfaceWidth": 224
+        }
+      ],
+      "sampleCoordinate": [
+        490,
+        100
+      ],
+      "rgba": [
+        54,
+        93,
+        138,
+        255
+      ]
+    }
+  },
+  "scope": "Same current module and same original assertions; original fixed-delay capture vs actual Shape-ready displayed-frame barrier. No native pixel acceptance."
+}

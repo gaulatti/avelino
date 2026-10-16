@@ -1,0 +1,56 @@
+{
+  "accepted": false,
+  "reference": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+  "sourceArchiveSha256": "4fd5cf743fd13c12f375c65a4a711d7210e6fb9d4639225737b391eb498f784c",
+  "moduleOrigin": "Unchanged-source capture replay build",
+  "cases": {
+    "public-type": {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-typecheck",
+        "-swift-version",
+        "6",
+        "-target",
+        "arm64-apple-macosx26.0",
+        "-I",
+        "/Users/gaulatti/.codex/tmp/avelino-surface-source-20261016-v2/build/out/Products/Debug",
+        "/Users/gaulatti/.codex/tmp/avelino-surface-api-fresh-v2-20261016/output/public-type.swift"
+      ],
+      "exitCode": 0,
+      "sourceSha256": "10caad195ffe6a5d7010353c4fe580ce9a083c1ca522d37366e71f5c7cf9c847"
+    },
+    "public-view-extension": {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-typecheck",
+        "-swift-version",
+        "6",
+        "-target",
+        "arm64-apple-macosx26.0",
+        "-I",
+        "/Users/gaulatti/.codex/tmp/avelino-surface-source-20261016-v2/build/out/Products/Debug",
+        "/Users/gaulatti/.codex/tmp/avelino-surface-api-fresh-v2-20261016/output/public-view-extension.swift"
+      ],
+      "exitCode": 0,
+      "sourceSha256": "3d9dfcf790ade5f5c2a93ed7f3f3882d77219222830ecabf85d02dc40dee3395"
+    },
+    "direct-initializer": {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-typecheck",
+        "-swift-version",
+        "6",
+        "-target",
+        "arm64-apple-macosx26.0",
+        "-I",
+        "/Users/gaulatti/.codex/tmp/avelino-surface-source-20261016-v2/build/out/Products/Debug",
+        "/Users/gaulatti/.codex/tmp/avelino-surface-api-fresh-v2-20261016/output/direct-initializer.swift"
+      ],
+      "exitCode": 1,
+      "sourceSha256": "b015795c085b2105c59e38c33eedc1be5cea4ea9f8f4190fec6cf0126048ce42"
+    }
+  }
+}

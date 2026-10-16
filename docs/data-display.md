@@ -11,6 +11,13 @@ coverage is recorded in the [parity inventory](parity-inventory.json).
 | `BleeckerTimelineItem` | Required `title` and `date`, `last`, default content slot; dot 9, connector 1, horizontal gap 12, body gap 4, bottom padding 18 except final item; title Encode Sans 14 semibold, date Libre Franklin 11, inherited content Libre Franklin 13 |
 | `View.bleeckerSurface` | `BleeckerSurface` wraps a content slot without padding; continuous radius defaults to 12, configurable `radius`, card background/border, light-only deep-sea shadow opacity 0.055/radius 14/offset 5 |
 
+The [surface-modifier investigation](surface-modifier.md) now records the full
+native paint order and separate flat caller bounds. `BleeckerSurface` paints its
+border once above the clipped content so an opaque slot cannot cover it. Its
+single allocated surface does not yet implement the generic modifier's separate
+flat children. Native raster/shadow, full layout, physical and reader acceptance
+remain pending.
+
 The Linux composition interface uses QML components and slots. Timeline content
 implemented with Qt control templates such as `QtQuick.Templates.Label` inherits
 its font and palette. Raw QtQuick Text requires explicit font/color bindings.

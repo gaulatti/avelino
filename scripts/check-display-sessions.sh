@@ -169,6 +169,7 @@ if fixture == 'base':
     assert record['buttonSurfaceRendererType'] == (3 if backend == 'software' else 4), record
     assert record['buttonSurfaceRadius'] == 7 and record['buttonSurfaceOuterPath'], record
     assert record['paintPlacementChecks'] == 'passed', record
+    assert record['asyncShapeFrameChecks'] == 'passed', record
     for key in ['buttonSurfaceX', 'buttonSurfaceY', 'buttonLabelBaselineX', 'buttonLabelBaselineY']:
         physical = record[key] * record['dpr']
         assert math.isfinite(physical) and abs(physical - round(physical)) <= 0.00001, (key, physical)

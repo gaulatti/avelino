@@ -182,3 +182,10 @@ It retains 76 exact pixel/frame cases, 1,168 frame matches, 1,440 baseline maps
 and all matching produced states. The separate source-expression witness failures
 remain preserved. Linux runtime/package/operator evidence does not approve fonts,
 expected images, tolerances, physical displays or readers.
+
+The [surface-modifier investigation](surface-modifier.md) adds 416 native
+public/probe/body-witness groups, matching bare caller frames and 30 retained
+radius/appearance/scale histories. The corrected source-only replay reproduces
+1,845 outputs exactly; the original conditional-helper lifecycle defect remains
+diagnostic evidence. Flat caller decoration, actual first-baseline layouts,
+native input, full raster/shadow and physical/reader acceptance remain pending.

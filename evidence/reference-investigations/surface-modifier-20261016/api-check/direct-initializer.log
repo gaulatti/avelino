@@ -1,0 +1,12 @@
+/Users/gaulatti/.codex/tmp/avelino-surface-api-fresh-v2-20261016/output/direct-initializer.swift:3:63: error: 'BleeckerSurfaceModifier' initializer is inaccessible due to 'internal' protection level
+1 | import SwiftUI
+2 | import Sabella
+3 | @MainActor func witness() -> some View { Rectangle().modifier(BleeckerSurfaceModifier(radius: 12)) }
+  |                                                               `- error: 'BleeckerSurfaceModifier' initializer is inaccessible due to 'internal' protection level
+4 | 
+
+Sabella.BleeckerSurfaceModifier.init:2:10: note: 'init(radius:)' declared here
+1 | struct BleeckerSurfaceModifier {
+2 | internal init(radius: CGFloat)}
+  |          `- note: 'init(radius:)' declared here
+3 | 

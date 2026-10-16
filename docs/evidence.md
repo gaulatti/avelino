@@ -1144,3 +1144,30 @@ started. The repair removes only that byte-identical duplicate, leaving all
 12 intended jobs and strict comparisons intact. Official actionlint 1.7.7,
 verified against its release checksums, validates both workflow files. No library,
 reference, capture, tolerance or acceptance record changes.
+
+## Surface source, paint and displayed-frame checkpoint
+
+The [source investigation](surface-modifier.md) preserves 416 native
+public/probe/literal-body groups, matching bare caller frames and 30 retained
+radius/theme/scale histories. Its clean unchanged-source rebuild reproduces all
+1,845 outputs exactly. Centered layouts supply empty baseline maps; first-baseline
+contexts, native input and physical/reader acceptance remain pending. The initial
+helper's conditional-branch recreation is preserved as diagnostic evidence, with
+all 1,664 closed PNGs unchanged in the corrected helper.
+
+The [Linux validation](../evidence/development/surface-border-20261016/validation.json)
+records joint background/caller clipping and one overlaid border, all 25 Qt
+targets passing (5,184 checks at DPR one and 5,412 at DPR two), 396 host contracts,
+28 independent consumer modes, 123 galleries and eight executable-only virtual
+profiles. Only four Data Display PNGs change; all other 119 PNGs and all metadata
+remain byte-identical. Failed setup/input snapshots and actual exits are archived.
+
+A delayed-worker capture proves that the base consumer's former 50 ms delay
+could snapshot an old loading-button path while the Shape was Processing. The
+current consumer requires displayed frames with unchanged ready path/geometry
+observations; the same fault reaches Ready before capture. Tiny OpenGL text-pixel
+variation reproduced in unchanged old processes remains unaccepted. Raw images
+are retained without masks, resized comparisons or tolerance changes.
+
+Generic flat-caller surface decoration is still pending. Desktop coverage remains
+64/80 candidates, with 16 pending and zero accepted; TV remains separate.

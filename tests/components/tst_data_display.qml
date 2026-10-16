@@ -11,6 +11,14 @@ Item {
     Component { id: timelineFactory; BleeckerTimelineItem { title: "Published"; date: "12 Oct"; T.Label { objectName: "contentLabel"; text: "Bulletin ready"; color: palette.windowText } } }
     Component { id: surfaceFactory; BleeckerSurface { Rectangle { objectName: "surfaceSlot"; width: 80; height: 30; color: "red" } } }
     Component {
+        id: surfaceBorderFactory
+        BleeckerSurface {
+            width:80;height:60
+            property alias bodyColor:body.color
+            Rectangle {id:body;anchors.fill:parent;color:"red"}
+        }
+    }
+    Component {
         id: rowSlot
         Item { implicitHeight: row.height; property string label: row.label }
     }
@@ -143,6 +151,35 @@ Item {
             compare(bg.radius,data.radius); compare(bg.color.toString(),BleeckerTheme.palette.card.toString())
             verify(Math.abs(shadow.shadowColor.a-(data.dark ? 0 : 0.055))<=1/65535)
             compare(shadow.blurRadius,14); compare(shadow.offsetY,5)
+        }
+        function test_surface_border_above_content_data() {
+            const rows=[]
+            for(const dark of [false,true])for(const radius of [0,12])for(const opaque of [false,true])
+                rows.push({tag:dark+"-"+radius+"-"+opaque,dark:dark,radius:radius,opaque:opaque})
+            return rows
+        }
+        function test_surface_border_above_content(data) {
+            BleeckerTheme.dark=data.dark
+            const item=createTemporaryObject(surfaceBorderFactory,root,{radius:data.radius,bodyColor:data.opaque ? "red":"transparent"})
+            verify(waitForRendering(item))
+            const image=grabImage(item),middle=Math.floor(image.width/2)
+            const inner=Math.floor(image.height/2)
+            if(data.opaque){
+                compare(image.red(middle,inner),255);compare(image.green(middle,inner),0);compare(image.blue(middle,inner),0)
+                // The source overlays its one-point border after clipping the
+                // caller, so an opaque caller cannot paint over this edge.
+                compare(image.red(middle,0),data.dark ? 255:235)
+                compare(image.green(middle,0),data.dark ? 20:0)
+                compare(image.blue(middle,0),data.dark ? 20:0)
+            }else if(!data.dark){
+                // Moving the border above the caller must not paint it twice.
+                compare(image.red(middle,0),235);compare(image.green(middle,0),235);compare(image.blue(middle,0),235)
+                compare(image.red(middle,inner),255)
+            }else{
+                verify(image.red(middle,0)>image.red(middle,inner))
+                verify(image.green(middle,0)>image.green(middle,inner))
+                verify(image.blue(middle,0)>image.blue(middle,inner))
+            }
         }
     }
 }

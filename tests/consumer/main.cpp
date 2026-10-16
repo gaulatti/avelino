@@ -39,6 +39,7 @@ static QQuickItem *findVisualItem(QQuickItem *item, const QString &name) {
 #include "activitychecks.h"
 #include "modalchecks.h"
 #include "tooltipchecks.h"
+#include "renderframe.h"
 #include "buttonstylechecks.h"
 #include "fontmodifierchecks.h"
 #include "paginationintegerchecks.h"
@@ -482,9 +483,12 @@ int main(int argc, char **argv) {
             || !contentLabel || contentLabel->property("font").value<QFont>().family() != "Libre Franklin"
             || !timelineConnector || timelineConnector->isVisible()
             || !surfaceModifier || surfaceModifier->property("radius").toDouble() != 18) { app.exit(28); return; }
-        // Loading changes the composition and label origin. Wait for its frame,
-        // then inspect painted coordinates inside the installed component.
-        QTest::qWait(50);
+        // Loading changes geometry and queues async curve work. A fixed delay
+        // can capture an earlier path even though the live properties updated.
+        if(!waitForShapeFrame(window)) {
+            qCritical("Installed consumer: async shape geometry did not reach a displayed ready frame");
+            app.exit(96);return;
+        }
         auto label = button->findChild<QQuickItem *>("bleeckerButtonLabel");
         if (!label) { app.exit(17); return; }
         const auto fractional = window->findChild<QQuickItem *>("fractionalButton");
@@ -529,6 +533,7 @@ int main(int argc, char **argv) {
                 {"buttonSurfaceX", surfaceOrigin.x()}, {"buttonSurfaceY", surfaceOrigin.y()},
                 {"buttonLabelBaselineX", labelBaseline.x()}, {"buttonLabelBaselineY", labelBaseline.y()},
                 {"paintPlacementChecks", "passed"},
+                {"asyncShapeFrameChecks", "passed"},
                 {"fractionalButtonGlyphPixels", fractionalLabel->property("logicalPixelSize").toDouble()},
                 {"resolvedFractionalFontPixels", fractionalLabel->property("resolvedPixelSize").toDouble()},
                 {"fractionalFontLineHeight", fractionalLabel->property("naturalHeight").toDouble()},
