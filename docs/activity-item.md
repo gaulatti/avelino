@@ -108,3 +108,38 @@ record. The separate source-only archive SHA-256 is
 `e6918deff925728e5e6dcedb0b6a49d46d9721852da83e3ff9c51e01ea79a782`.
 Its helper/source hashes and machine-local external locator are in that record's
 tooling provenance; independent-machine availability remains pending.
+
+## Proposal and measurement-history evidence
+
+The [layout mechanics record](../evidence/reference-investigations/activity-layout-mechanics-20261016/investigation.json)
+adds transparent action-proposal probes and explicit text resize histories. All
+16 bare/probed public ActivityItem image pairs match byte for byte; four bare
+images also match the original public multi-action captures. At width 240, text
+scale 1.5 and requested DPR one, the native row first offers Review `148/3`
+points, which fits to 46 by 125. It then offers Archive 51 points, which fits to
+50 by 100. Rounding the proposal before the child fits changes the result.
+Fitted view frames and incoming proposals have separate rounding behavior.
+
+Forty-eight public Text histories preserve 120 snapshots and original PNGs. A
+fresh `Review` at width ten and requested DPR one is 80 points high. Growing it
+from 9.5 to ten preserves its 96-point height and identical image bytes. Starting
+at ten, shrinking to 9.5 and returning to ten produces heights 80, 96 and 80.
+Requested DPR two has different interval boundaries. Consequently, a fresh view
+does not reproduce the original dense tool's persistent increasing-width input
+sequence. The original measurements remain unchanged.
+
+The record independently reproduces all 3,374 original public Text frames and
+adds 5,400 AppKit paragraph-strategy probes. AppKit `pushOut`/`standard` match
+3,370 public heights and 3,360 widths in this corpus; they are diagnostic proxies
+with preserved disagreements. Their font fields describe the comparison fonts,
+not actual fallback glyph runs in the public Text view.
+
+A fresh unchanged 89-file source rebuild reproduces all 156 image and metadata
+outputs byte for byte. Run `python3 scripts/verify-activity-layout-source.py` to
+audit the complete corpus, proposal values, resize histories, image identities,
+proxy limitations and clean replay. Native helpers remain external. The
+source-only archive SHA-256 is
+`c50f37c948e96d6164c3bd8674c71993d91d50a9b8edd0b0627b8bc6310a0909`;
+the external locator and input hashes are in that record's tooling provenance.
+This evidence does not approve a Linux implementation, expected-image update,
+font/symbol substitution or physical/session/reader gate.
