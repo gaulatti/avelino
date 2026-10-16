@@ -1,0 +1,79 @@
+#0 building with "colima-centinela" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 186B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/avelino-toolchain:clipping-qt6.8.3
+#2 DONE 0.1s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 32B
+#3 transferring context: 60B done
+#3 DONE 0.0s
+
+#4 [1/2] FROM docker.io/library/avelino-toolchain:clipping-qt6.8.3@sha256:7aeb42dabe57ff3e38392d95b92f7f54c43faef5723e90da088c9023bfcf2802
+#4 resolve docker.io/library/avelino-toolchain:clipping-qt6.8.3@sha256:7aeb42dabe57ff3e38392d95b92f7f54c43faef5723e90da088c9023bfcf2802 0.0s done
+#4 DONE 0.0s
+
+#5 [2/2] RUN apt-get update && apt-get install -y --no-install-recommends libicu-dev && rm -rf /var/lib/apt/lists/*
+#5 0.273 Get:1 http://ports.ubuntu.com/ubuntu-ports noble InRelease [256 kB]
+#5 0.320 Get:2 http://ports.ubuntu.com/ubuntu-ports noble-updates InRelease [126 kB]
+#5 0.332 Get:3 http://ports.ubuntu.com/ubuntu-ports noble-backports InRelease [126 kB]
+#5 0.345 Get:4 http://ports.ubuntu.com/ubuntu-ports noble-security InRelease [126 kB]
+#5 0.362 Get:5 http://ports.ubuntu.com/ubuntu-ports noble/universe arm64 Packages [19.0 MB]
+#5 0.611 Get:6 http://ports.ubuntu.com/ubuntu-ports noble/restricted arm64 Packages [113 kB]
+#5 0.612 Get:7 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 Packages [1776 kB]
+#5 0.639 Get:8 http://ports.ubuntu.com/ubuntu-ports noble/multiverse arm64 Packages [274 kB]
+#5 0.640 Get:9 http://ports.ubuntu.com/ubuntu-ports noble-updates/restricted arm64 Packages [3251 kB]
+#5 0.675 Get:10 http://ports.ubuntu.com/ubuntu-ports noble-updates/universe arm64 Packages [2212 kB]
+#5 0.704 Get:11 http://ports.ubuntu.com/ubuntu-ports noble-updates/multiverse arm64 Packages [104 kB]
+#5 0.705 Get:12 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 Packages [1786 kB]
+#5 0.722 Get:13 http://ports.ubuntu.com/ubuntu-ports noble-backports/main arm64 Packages [49.0 kB]
+#5 0.722 Get:14 http://ports.ubuntu.com/ubuntu-ports noble-backports/multiverse arm64 Packages [669 B]
+#5 0.722 Get:15 http://ports.ubuntu.com/ubuntu-ports noble-backports/universe arm64 Packages [36.3 kB]
+#5 0.723 Get:16 http://ports.ubuntu.com/ubuntu-ports noble-security/main arm64 Packages [1475 kB]
+#5 0.730 Get:17 http://ports.ubuntu.com/ubuntu-ports noble-security/multiverse arm64 Packages [99.1 kB]
+#5 0.731 Get:18 http://ports.ubuntu.com/ubuntu-ports noble-security/universe arm64 Packages [1636 kB]
+#5 0.749 Get:19 http://ports.ubuntu.com/ubuntu-ports noble-security/restricted arm64 Packages [3129 kB]
+#5 1.652 Fetched 35.6 MB in 1s (24.0 MB/s)
+#5 1.652 Reading package lists...
+#5 2.432 Reading package lists...
+#5 3.135 Building dependency tree...
+#5 3.312 Reading state information...
+#5 3.548 The following additional packages will be installed:
+#5 3.548   icu-devtools
+#5 3.548 Suggested packages:
+#5 3.548   icu-doc
+#5 3.568 The following NEW packages will be installed:
+#5 3.569   icu-devtools libicu-dev
+#5 3.800 0 upgraded, 2 newly installed, 0 to remove and 4 not upgraded.
+#5 3.800 Need to get 12.1 MB of archives.
+#5 3.800 After this operation, 50.7 MB of additional disk space will be used.
+#5 3.800 Get:1 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 icu-devtools arm64 74.2-1ubuntu3.1 [209 kB]
+#5 4.313 Get:2 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 libicu-dev arm64 74.2-1ubuntu3.1 [11.9 MB]
+#5 5.170 debconf: delaying package configuration, since apt-utils is not installed
+#5 5.202 Fetched 12.1 MB in 1s (8344 kB/s)
+#5 5.217 Selecting previously unselected package icu-devtools.
+#5 5.217 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 23045 files and directories currently installed.)
+#5 5.291 Preparing to unpack .../icu-devtools_74.2-1ubuntu3.1_arm64.deb ...
+#5 5.292 Unpacking icu-devtools (74.2-1ubuntu3.1) ...
+#5 5.322 Selecting previously unselected package libicu-dev:arm64.
+#5 5.323 Preparing to unpack .../libicu-dev_74.2-1ubuntu3.1_arm64.deb ...
+#5 5.325 Unpacking libicu-dev:arm64 (74.2-1ubuntu3.1) ...
+#5 5.660 Setting up icu-devtools (74.2-1ubuntu3.1) ...
+#5 5.663 Setting up libicu-dev:arm64 (74.2-1ubuntu3.1) ...
+#5 5.665 Processing triggers for man-db (2.12.0-4build2) ...
+#5 DONE 5.8s
+
+#6 exporting to image
+#6 exporting layers
+#6 exporting layers 1.4s done
+#6 exporting manifest sha256:4b4b2c71e619ac1d789db715ce9e1e3ecbef35822f17a8c14146aaca1ec8b5ae done
+#6 exporting config sha256:89482fd02b4e053b6ffe211008b3b56053edba2aa2f094d3ecde17f5a7ccc78e done
+#6 exporting attestation manifest sha256:af8c0adab2a0e976bc492df073b7c9aa2b9df378e1ef709b2e951826c2c3bef0 done
+#6 exporting manifest list sha256:48d88f958d93310bf887e4318b27713b7ecbb8b9f6a7d276087e599c9b6383d8 done
+#6 naming to docker.io/library/avelino-toolchain:data-metrics-qt6.8.3 done
+#6 unpacking to docker.io/library/avelino-toolchain:data-metrics-qt6.8.3
+#6 unpacking to docker.io/library/avelino-toolchain:data-metrics-qt6.8.3 0.2s done
+#6 DONE 1.6s

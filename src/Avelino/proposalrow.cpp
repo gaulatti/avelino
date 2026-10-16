@@ -19,6 +19,10 @@ void ProposalRow::setMaximumWidth(qreal value) {
 void ProposalRow::setMirrored(bool value) {
     if(value==m_mirrored)return;m_mirrored=value;emit configurationChanged();polish();
 }
+void ProposalRow::setVerticalAlignment(Qt::Alignment value) {
+    if(value!=Qt::AlignTop && value!=Qt::AlignVCenter && value!=Qt::AlignBottom)qFatal("Row vertical alignment must be top, center or bottom");
+    if(value==m_verticalAlignment)return;m_verticalAlignment=value;emit configurationChanged();polish();
+}
 void ProposalRow::componentComplete() {QQuickItem::componentComplete();childrenUpdated();layout();}
 void ProposalRow::childrenUpdated() {
     for(const auto &c:m_connections)disconnect(c);m_connections.clear();
@@ -79,7 +83,7 @@ void ProposalRow::layout() {
     qreal x=m_mirrored ? total:0;
     for(auto &c:cells) {
         if(m_mirrored)x-=c.width;
-        c.item->setPosition(QPointF(x,(height-c.height)/2));
+        c.item->setPosition(QPointF(x,m_verticalAlignment==Qt::AlignTop ? 0:m_verticalAlignment==Qt::AlignBottom ? height-c.height:(height-c.height)/2));
         x+=m_mirrored ? -m_spacing:c.width+m_spacing;
     }
     setImplicitSize(total,height);

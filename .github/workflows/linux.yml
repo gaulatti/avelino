@@ -103,7 +103,7 @@ jobs:
       fail-fast: false
       matrix:
         source-runner: [ubuntu-24.04, ubuntu-24.04-arm]
-        reference-group: [desktop, composition, selectors, checkbox, secure-field, search-field, collection-filters, slider, tabs, pagination, pagination-integers, accordion, presentation-states, alert, navigation, sidebar-brand]
+        reference-group: [desktop, composition, selectors, checkbox, secure-field, search-field, collection-filters, slider, tabs, pagination, pagination-integers, accordion, presentation-states, alert, navigation, sidebar-brand, data-metrics]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -139,7 +139,8 @@ jobs:
                          'presentation-states': ('presentation-state-proposals', 'presentation-states-20261015-v2'),
                          'alert': ('alert-proposals', 'alert-20261015'),
                          'navigation': ('navigation-proposals', 'navigation-layout-20261015'),
-                         'sidebar-brand': ('sidebar-brand-proposals', 'sidebar-brand-20261015')}
+                         'sidebar-brand': ('sidebar-brand-proposals', 'sidebar-brand-20261015'),
+                         'data-metrics': ('data-metrics-proposals', 'data-metrics-20261015')}
           capture_directory, reference_directory = directories[group]
           captures = Path('artifacts/candidate') / capture_directory
           reference = Path('evidence/reference-proposals') / reference_directory
@@ -170,3 +171,26 @@ jobs:
           name: ${{ matrix.reference-group }}-proposal-comparison-${{ matrix.source-runner }}
           path: artifacts/proposal-comparison
           if-no-files-found: error
+  number-formatting-diagnostics:
+    needs: build-runtime-package
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        source-runner: [ubuntu-24.04, ubuntu-24.04-arm]
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: desktop-button-candidates-${{ matrix.source-runner }}
+          path: artifacts/candidate
+      - name: Strict native formatter comparison
+        run: |
+          python3 - <<'PY'
+          import json,os
+          from pathlib import Path
+          report=json.loads(Path('artifacts/candidate/number-formatting.json').read_text())
+          assert report['cases']==len(report['results'])==1330 and len(report['sourceFiles'])==7
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as out:
+              out.write(f"Native formatter strings: {report['matches']}/1330 exact; {report['mismatches']} unaccepted differences.\n")
+          assert all(r['status']=='passed' for r in report['results']), 'Native formatter differences remain unaccepted'
+          PY

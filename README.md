@@ -48,7 +48,7 @@ The [empty/error/loading source investigation](docs/presentation-states.md)
 now has [Linux presentation-state candidates](docs/presentation-states.md); complete mirror acceptance remains pending.
 The [alert candidate](docs/alert.md) adds typed feedback with caller-owned content
 and native prose-layout evidence.
-Fifty-two of the 80 discovered desktop
+Fifty-six of the 80 discovered desktop
 entries have started; no component has passed its complete mirror gate.
 The public GitHub wiki remote is unavailable; documentation currently lives here.
 
@@ -64,6 +64,6 @@ callbacks. Full font/symbol/raster and physical/reader acceptance remains pendin
 the pinned template logo/lockup. Their full native visual and runtime acceptance
 remains pending.
 
-The [native data-display investigation](docs/data-metrics.md) preserves layout,
-fonts and locale-sensitive formatting for four remaining APIs. Their Qt
-implementations remain pending.
+The [data-display candidates](docs/data-metrics.md) add icon badges, metrics,
+stat cards and key labels with native layout/locale evidence. Complete mirror
+acceptance remains pending.

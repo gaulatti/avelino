@@ -1,10 +1,9 @@
-# Native data-display investigation
+# Data-display candidates and native evidence
 
 The remaining `BleeckerIconBadge`, `BleeckerMetric`, `BleeckerStatCard` and
-`BleeckerKbd` desktop APIs now have sealed native source evidence. Their Qt
-implementations and complete mirror acceptance are pending. This investigation
-does not increase the 52 started desktop candidates or accept a font, symbol,
-pixel tolerance or exception.
+`BleeckerKbd` desktop APIs have Qt candidates backed by sealed native source evidence.
+Complete mirror acceptance remains pending. No font, symbol, pixel tolerance or
+exception is approved.
 
 The authority is desktop revision
 `fe8a1d462fbd793d883fb92086a16aa2947e32c9`,
@@ -34,8 +33,8 @@ The badge retains a fixed square of 36 or 48 points even when its outer width
 proposal is 12. Its symbol uses a medium system font at edge × 0.4. Primary uses
 `primaryForeground` over `primary`; subtle/outlined use `sea` over `muted`.
 The circular seven-point outline clips content. Outlined adds a sea border at
-opacity 0.4. Caller-supplied Linux icon artwork remains an implementation and
-comparison task; no SF artwork or native font is redistributed.
+opacity 0.4. Native correspondence for caller-supplied Linux icon artwork remains unaccepted;
+no SF artwork or native font is redistributed.
 
 The key label uses the native `.AppleSystemUIFontMonospaced-Medium` face at
 10 points, six points of horizontal padding and a minimum height of 22. Its
@@ -43,8 +42,8 @@ background is `muted`, its border is `border`, and its circular radius is four.
 The source does not set its foreground color. At DPR 2, `⌘K` is 24.5 × 22 and an
 empty key is 12 × 22. A 30-point outer proposal for `Control` yields 24.5 × 52;
 a 12-point proposal yields 12 × 91 with a zero-width text rectangle. The source
-monospaced face remains unresolved for Linux; these bounds do not authorize a
-font substitution or a width override.
+monospaced face remains unresolved for Linux; these bounds do not establish an
+accepted replacement face or justify forcing its width.
 
 ## Metrics, stat cards and layout
 
@@ -104,8 +103,8 @@ and skeletons `.######`, `percent scale/100 .######`, `compact-short` and
 133 concern the invalid currency input, 19 concern Japanese JPY symbol width and
 nine concern Arabic locale strings. The [full result](../evidence/development/data-metrics-source/icu-comparison.json)
 retains every failure. The existing Qt package bundles ICU 73.2; the prototype
-uses the separate system ICU 74 library. No product dependency or formatter is
-added, and neither runtime is approved for parity by this probe.
+uses the separate system ICU 74 library. That initial probe changed no product dependency or formatter. The Qt candidate
+described below now uses system ICU74.2; complete parity remains unaccepted.
 
 The inspected mechanisms are the pinned major/minor
 [Qt 6.8 locale API](https://doc.qt.io/qt-6.8/qlocale.html),
@@ -128,7 +127,95 @@ Run `python3 scripts/verify-data-metrics-source.py` and the contract suite. Test
 reject false witness identity, shrunken fixed badges, changed currency precision,
 merged locale ownership and substitution of the observed native mono face.
 
-Qt implementation, independent package consumption, offscreen/X11/Wayland,
-software/GPU/scaling, input/focus/accessibility, actual readers, numeric animation,
-broader composition and strict native pixels remain pending for these four APIs.
+Full native font/symbol/locale/raster, numeric animation, broader composition,
+physical sessions/input and actual readers remain pending. Qt candidate runtime
+and package evidence are separate from these complete mirror gates.
 Desktop source evidence does not close any TV target or playback gate.
+
+
+## Qt interfaces and verification
+
+```qml
+BleeckerMetric { label: "Readers"; value: 12345.6789; format: "compact" }
+BleeckerStatCard {
+    label: "Readers"
+    value: 12345.6789
+    delta: 0.12
+    maximumWidth: 320
+    locale: Qt.locale("de_DE")
+    icon: Component { MyChartIcon { color: parent.foregroundColor } }
+}
+BleeckerIconBadge { variant: "outlined"; size: "lg"; icon: myIcon }
+BleeckerKbd { key: "Ctrl + K"; maximumWidth: 120 }
+```
+
+Metric `label`/`value`, stat-card `label`/`value`/`icon`, badge `icon` and key-label
+`key` are required. Metric format defaults to `number`, currency to `USD`; badge
+size defaults to `md` and variant to `primary`. Stat-card delta defaults to null;
+zero remains present. Both metric/card and key-label `maximumWidth` use `-1` for
+intrinsic layout. Their fitted presentation is exposed as `presentationItem`,
+centered independently of an explicitly sized outer frame. Stat card retains
+its fixed badge even when the row must overflow a narrow width proposal.
+
+The icon slot's parent supplies `foregroundColor`, `pixelSize` and a medium font
+context. Linux callers own the Component; the source's default SF chart lookup
+has no implicit replacement. The gallery paths are original fixture artwork with
+unaccepted native correspondence. The key label uses the platform's
+`QFontDatabase::FixedFont` candidate. Its native mono geometry/glyphs remain
+unaccepted; no Apple font is redistributed. Callers can set its normal Qt font
+and palette. The owned default foreground uses the measured native-primary token.
+
+`BleeckerNumberTools` uses the Qt process-default locale for metric formatting.
+A Qt application locale-change event refreshes existing metric strings. Stat-card
+deltas use the inherited Qt Control `locale`. The consumer proves that changing
+only the delta locale leaves the metric's US currency string intact. The
+invalid-currency path preserves the recorded raw Double description. Unknown
+format strings and ICU construction/format errors fail visibly; there is no
+alternate formatting engine or silent locale repair.
+
+System ICU 74.2 is an explicit private dependency for number, currency, percent
+and localized compact notation. The build selects its versioned libraries and
+links a versioned-namespace probe before configuring successfully. Qt's bundled
+ICU73 stays separate. The source-free consumer checks runtime availability
+without ICU development headers. Static source captures disable animation;
+numeric-transition frame equivalence remains unimplemented and unaccepted.
+
+The separate [width-input dump](../evidence/reference-investigations/data-metrics-inputs-20261015/provenance.json)
+executes the original archived fixture construction and records all 131 width
+proposals. A clean helper rebuild verifies 35 inputs and reproduces that output.
+It adds no rendering branch and changes none of the original 1,048 source PNGs.
+
+[Forty additional numeric-text probes](../evidence/geometry/native-numeric-text.json)
+compare plain/numeric-transition static Text bounds with CoreText line advances
+at two DPRs and widths. Their independent clean replay verifies 35 inputs.
+Untracked emergency breaks retain pair positioning from the full string;
+ordinary final ink overhang does not enlarge the source view. Shared text sizing
+now handles that boundary. Existing explicit tracking contracts remain distinct
+and retain their prior source tests.
+
+The full prior-candidate audit found twelve related corrections, retained in
+[the source action record](../evidence/development/data-metrics/source-action-corrections.json).
+Eight empty/error captures change label metadata; four PageHeader captures also
+change pixels. Their wrapped `Create 0` label now measures 50 × 54 at both DPRs,
+matching a separate 128-case native Text probe and its clean build/replay. The
+PageHeader action now matches the sealed native 86 × 54 rectangle; the earlier
+Linux candidate was 86.5 or 87 points wide. All twelve current action rectangles
+match their existing source records. The audit retains 4,326 unchanged image and
+complete-metadata pairs, all twelve differences, and the old/new captures.
+Strict equality against those earlier candidates still fails for these cases;
+this is source geometry evidence, with no baseline or pixel-tolerance approval.
+
+Run `AvelinoCatalog --fixture data-metrics` and
+`InstalledConsumer --data-metrics`. The gallery and installed consumer share the
+same QML fixture. Normal Qt actions update caller-owned labels, values, formats,
+delta presence and key text. Tests cover preserved objects/focused editing,
+actual static-text interfaces, fixed badge dimensions, narrow and RTL layout,
+source numeric geometry and all 190 US formatter witnesses. The separate strict
+`--format-diagnostics PATH` comparison covers all seven process locales and
+keeps remaining source string differences visible.
+
+Installed delta-removal checks wait for the exact hidden-label and fitted-height
+state, with a two-second bound. A traced Wayland/Mesa run showed the label hidden
+at 20 ms while the card still had its old height; the expected height appeared
+by 520 ms. The check retains the source height assertion and does not add
+an application animation or delay.

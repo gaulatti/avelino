@@ -4,7 +4,11 @@ The core ships a shared library, QML plugin, qmldir/type metadata, QML source,
 embedded static font resources, font license notices, and asset provenance.
 `find_package(Avelino 0.1 REQUIRED)` exposes `Avelino::Avelino` and
 `Avelino_QML_IMPORT_PATH`. Set the engine's import path to that installed directory.
-Desktop has no media-decoder dependency.
+Desktop has no media-decoder dependency. Metric formatting requires Ubuntu
+`libicu74` (74.2); its development headers are required only for library builds.
+The formatter links versioned system ICU libraries independently from Qt's ICU73.
+Installed consumers need public Qt development files and the runtime library;
+Avelino's private ICU and Qt QuickPrivate headers are not exported.
 
 The independent consumer is copied outside the repository and built against a
 temporary installation. Its public import comes from the installed package;
@@ -26,15 +30,16 @@ Weston Wayland compositor nested on it. It saves whole-output and window capture
 for software/OpenGL rendering at two display/text scales. Source and build trees
 remain absent. Metadata explicitly identifies virtual displays, Mesa software
 rendering, synthetic input, and the still-pending overlay/accessibility checks.
-The harness runs nineteen independent windows in each configuration: the base library
+The harness runs twenty independent windows in each configuration: the base library
 fixture, `InstalledConsumer --controls`, `InstalledConsumer --composition` and
 `InstalledConsumer --selection`, `InstalledConsumer --checkbox` and
 `InstalledConsumer --secure-field`, `InstalledConsumer --search-field` and
 `InstalledConsumer --collection-filters`, `InstalledConsumer --slider`, `InstalledConsumer --tabs`, `InstalledConsumer --pagination`, `InstalledConsumer --pagination-integers`, `InstalledConsumer --accordion`,
 `InstalledConsumer --presentation-states`, `InstalledConsumer --spinner` and
 `InstalledConsumer --alert`, `InstalledConsumer --clipping` and
-`InstalledConsumer --navigation` and `InstalledConsumer --sidebar-brand`.
-Their one hundred fifty-two capture pairs keep
+`InstalledConsumer --navigation`, `InstalledConsumer --sidebar-brand` and
+`InstalledConsumer --data-metrics`.
+Their one hundred sixty capture pairs keep
 form editing, scrolling, switch/toggle actions, disabled segmented options and
 focus restoration separate from the base composition checks. The controls fixture
 exercises the multiline editor's owned scrollbar. The selector fixture exercises
@@ -98,8 +103,8 @@ using the same GNU install directories as the exported CMake package. Launch
 `QML_IMPORT_PATH` override is required. The Qt 6.8.3 runtime remains a prerequisite.
 The source-build catalog continues to use the documented build-tree import path.
 
-`check-installed-catalog.sh` exercises all eighteen galleries at both appearances
-and DPRs, both action galleries, and the default button: 75 images with physical
+`check-installed-catalog.sh` exercises all twenty-two galleries at both appearances
+and DPRs, both action galleries, and the default button: 91 images with physical
 size/metadata checks. Both QML import environment variables are unset. A copied
 executable without its module must fail with the missing-module error. The full
 Linux check runs this against the staged install, then the package-only check
@@ -158,3 +163,11 @@ do not overwrite caller selection; producer changes preserve editing/focus and
 update actual Qt accessibility metadata. The installed package also includes
 the unchanged source PNG and brand/symbol provenance. These checks do not approve
 native icon artwork, interpolation/tint/raster or actual reader output.
+
+The data-metrics workflow checks caller updates without remounting labels,
+process/control locale ownership, absent/zero/signed deltas, fixed badge frames,
+RTL rows, key-label updates, normal button actions and continued outside editing.
+Its actual Qt static-text interfaces must reflect updated number/key strings.
+The separate formatter diagnostic embeds all 1,330 sealed source witnesses in the
+independent consumer, so it needs no source checkout at runtime. Complete native
+font/symbol/locale/raster/motion and physical/reader acceptance stays pending.

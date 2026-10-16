@@ -34,6 +34,7 @@ class ProposalRow : public QQuickItem {
     QML_ELEMENT
     Q_PROPERTY(qreal spacing READ spacing WRITE setSpacing NOTIFY configurationChanged)
     Q_PROPERTY(qreal maximumWidth READ maximumWidth WRITE setMaximumWidth NOTIFY configurationChanged)
+    Q_PROPERTY(Qt::Alignment verticalAlignment READ verticalAlignment WRITE setVerticalAlignment NOTIFY configurationChanged)
     Q_PROPERTY(bool mirrored READ mirrored WRITE setMirrored NOTIFY configurationChanged)
     Q_PROPERTY(qreal naturalWidth READ naturalWidth NOTIFY metricsChanged)
     Q_PROPERTY(qreal minimumWidth READ minimumWidth NOTIFY metricsChanged)
@@ -47,6 +48,8 @@ public:
     void setSpacing(qreal value);
     void setMaximumWidth(qreal value);
     void setMirrored(bool value);
+    Qt::Alignment verticalAlignment() const {return m_verticalAlignment;}
+    void setVerticalAlignment(Qt::Alignment value);
     Q_INVOKABLE void layout();
 signals:
     void configurationChanged();
@@ -59,5 +62,6 @@ private:
     QList<QMetaObject::Connection> m_connections;
     qreal m_spacing=0,m_maximum=-1,m_natural=0,m_minimum=0;
     bool m_mirrored=false,m_layingOut=false;
+    Qt::Alignment m_verticalAlignment=Qt::AlignVCenter;
     PixelAlignment m_metrics;
 };

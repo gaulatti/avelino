@@ -5,11 +5,27 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonArray>
+#include <QLocale>
+#include <QCoreApplication>
+#include <QEvent>
 
 class FixtureSetup : public QObject {
     Q_OBJECT
 public slots:
+    void setProcessLocale(const QString &name) {QLocale::setDefault(QLocale(name));QEvent event(QEvent::LocaleChange);QCoreApplication::sendEvent(qApp,&event);}
     void qmlEngineAvailable(QQmlEngine *engine) {
+        engine->rootContext()->setContextProperty("fixtureSetup",this);
+        QFile numericText(QStringLiteral(NATIVE_NUMERIC_TEXT_FILE));if(!numericText.open(QIODevice::ReadOnly))qFatal("Numeric text witnesses missing");
+        const auto numericData=QJsonDocument::fromJson(numericText.readAll()).object();if(numericData.value("cases").toArray().size()!=40)qFatal("Numeric text witnesses invalid");
+        engine->rootContext()->setContextProperty("nativeNumericText",numericData.value("cases").toArray().toVariantList());
+        QFile metric(QStringLiteral(NATIVE_DATA_METRICS_FILE)),inputs(QStringLiteral(NATIVE_DATA_METRICS_INPUT_FILE));
+        if(!metric.open(QIODevice::ReadOnly)||!inputs.open(QIODevice::ReadOnly))qFatal("Native metric source/input evidence missing");
+        auto dataMetric=QJsonDocument::fromJson(metric.readAll()).object();const auto inputRows=QJsonDocument::fromJson(inputs.readAll()).object().value("fixtures").toArray();
+        QHash<QString,double> widths;for(const auto &v:inputRows){auto row=v.toObject();widths.insert(row.value("fixture").toString(),row.value("proposalWidth").toDouble());}
+        QJsonArray dataCases;for(const auto &v:dataMetric.value("captures").toArray()){auto row=v.toObject();if(!widths.contains(row.value("fixture").toString()))qFatal("Missing native metric width proposal");row.insert("proposalWidth",widths.value(row.value("fixture").toString()));dataCases.append(row);}
+        if(dataCases.size()!=1048)qFatal("Native metric source matrix invalid");
+        engine->rootContext()->setContextProperty("nativeDataMetricsCaptures",dataCases.toVariantList());
+        engine->rootContext()->setContextProperty("nativeMetricFormatting",dataMetric.value("formatting").toArray().toVariantList());
         QFile sidebarBrand(QStringLiteral(NATIVE_SIDEBAR_BRAND_FILE));
         if(!sidebarBrand.open(QIODevice::ReadOnly))qFatal("Native sidebar/brand evidence missing");
         const auto sidebarData=QJsonDocument::fromJson(sidebarBrand.readAll()).object();

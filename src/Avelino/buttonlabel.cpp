@@ -108,8 +108,9 @@ void ButtonLabel::relayout() {
     if (m_tracking != 0)
         shapeFont.setLetterSpacing(QFont::AbsoluteSpacing, m_tracking / ratio);
     shapeFont.setWordSpacing(shapeFont.wordSpacing() / ratio);
+    QMap<int,qreal> contextualEndPositioning;
     struct SourceTextMetrics { qreal advance; qreal width; };
-    const auto sourceMetrics = [units, pixels = m_resolvedPixels, tracking = m_tracking, finalSpacing = m_tracking != 0 ? shapeFont.letterSpacing() : 0](const QTextLine &line, QStringView text, qreal offeredWidth = -1) -> SourceTextMetrics {
+    const auto sourceMetrics = [units, pixels = m_resolvedPixels, tracking = m_tracking, finalSpacing = m_tracking != 0 ? shapeFont.letterSpacing() : 0, &contextualEndPositioning](const QTextLine &line, QStringView text, qreal offeredWidth = -1) -> SourceTextMetrics {
         // Source measures scaled glyph advances and positioning separately.
         // Summing a design-space total first loses floating-point boundary
         // behavior before the source's physical-pixel ceil. Keep each operation
@@ -141,10 +142,20 @@ void ButtonLabel::relayout() {
         advance = advance + finalAdvance + (explicitLines && tracking>0 ? 0 : tracking);
         // Natural width retains ink overhang and spaces omitted by Qt's
         // wrapped glyph runs. Both contribute to the measured source box.
-        const auto missing = std::max(qreal(0), line.naturalTextWidth()
-            - glyphs.last().x - glyphs.last().advance - finalSpacing) * (pixels / units);
-        qreal width = advance + missing;
         const auto end = line.textStart() + line.textLength();
+        const bool trailingSpace=end>0 && text.at(end-1).isSpace();
+        // Untracked CoreText retains pair positioning across an emergency soft break.
+        // Qt reshapes that final glyph without its next glyph's pair adjustment.
+        if(tracking==0 && offeredWidth>=0 && end<text.size() && end>0 && !trailingSpace && !text.at(end).isSpace()) {
+            const volatile qreal terminalPositioning=contextualEndPositioning.value(end,0)*(pixels/units);
+            advance+=terminalPositioning;
+        }
+        // Source view bounds use advances, not a positive final ink overhang.
+        // Retain the separately measured negative-tracking and trailing-space
+        // extents; those are different source contracts.
+        const auto missing = trailingSpace || tracking!=0 ? std::max(qreal(0), line.naturalTextWidth()
+            - glyphs.last().x - glyphs.last().advance - finalSpacing) * (pixels / units):0;
+        qreal width = advance + missing;
         if (end > 0 && text.at(end - 1).isSpace()
             && text.at(end - 1) != QChar::LineSeparator && text.at(end - 1) != QChar::ParagraphSeparator) {
             advance += missing;
@@ -173,6 +184,19 @@ void ButtonLabel::relayout() {
         intrinsicWidth = std::max(intrinsicWidth, metrics.width);
     }
     intrinsic.endLayout();
+    struct ContextGlyph {int index;qreal x,advance;};
+    QList<ContextGlyph> contextGlyphs;
+    for(const auto &run:intrinsic.glyphRuns(0,-1,QTextLayout::RetrieveGlyphIndexes|QTextLayout::RetrieveGlyphPositions|QTextLayout::RetrieveStringIndexes)) {
+        if(run.isRightToLeft())continue;
+        const auto indexes=run.stringIndexes();const auto positions=run.positions();
+        const auto advances=run.rawFont().advancesForGlyphIndexes(run.glyphIndexes());
+        for(qsizetype i=0;i<indexes.size();++i)contextGlyphs.append({int(indexes[i]),positions[i].x(),advances[i].x()});
+    }
+    std::stable_sort(contextGlyphs.begin(),contextGlyphs.end(),[](const auto &a,const auto &b){return a.index<b.index;});
+    for(qsizetype i=1;i<contextGlyphs.size();++i) {
+        const auto &previous=contextGlyphs[i-1],&current=contextGlyphs[i];
+        if(current.index>previous.index)contextualEndPositioning.insert(current.index,current.x-previous.x-previous.advance-(m_tracking!=0 ? shapeFont.letterSpacing():0));
+    }
     m_glyphAdvance = intrinsicAdvance;
     const qreal unwrappedWidth = viewWidth(intrinsicWidth);
     if (m_unwrappedWidth != unwrappedWidth) {

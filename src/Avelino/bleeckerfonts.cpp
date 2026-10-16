@@ -27,3 +27,5 @@ qreal BleeckerFonts::logicalFontDpi() {
 qreal BleeckerFonts::pointSizeForPixels(qreal pixels) const {
     return pixels * 72 / logicalFontDpi();
 }
+
+QString BleeckerFonts::monospace() const {return QFontDatabase::systemFont(QFontDatabase::FixedFont).family();}

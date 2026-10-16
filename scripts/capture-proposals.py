@@ -6,6 +6,7 @@ import hashlib
 import importlib.util
 import json
 import os
+import shutil
 from pathlib import Path
 import subprocess
 import tempfile
@@ -31,6 +32,8 @@ def capture(catalog, reference, output, apis=None, jobs=4):
     selected = set(apis) if apis else available
     assert selected and selected <= available, "Requested API has no implemented fixture"
     cases = [c for c in manifest["captures"] if c["api"] in selected]
+    failure_root=ROOT/"artifacts/linux/capture-failures"
+    assert not failure_root.is_relative_to(output), "Capture output cannot contain its failure archive"
     output.mkdir(parents=True, exist_ok=False)
 
     def command(*args):
@@ -61,13 +64,18 @@ def capture(catalog, reference, output, apis=None, jobs=4):
         with tempfile.TemporaryDirectory(prefix="avelino-capture-") as runtime:
             env = dict(os.environ, QT_QPA_PLATFORM="offscreen", QT_QUICK_BACKEND="software",
                 QT_SCALE_FACTOR=str(case["dpr"]), XDG_RUNTIME_DIR=runtime, LANG="C.UTF-8")
-            result = subprocess.run(args, cwd=ROOT, env=env, capture_output=True, timeout=30)
+            timed_out=False
+            try:
+                result = subprocess.run(args, cwd=ROOT, env=env, capture_output=True, timeout=30)
+            except subprocess.TimeoutExpired as error:
+                timed_out=True
+                result=subprocess.CompletedProcess(args,124,error.stdout or b"",(error.stderr or b"")+b"\nCapture exceeded the unchanged 30-second deadline\n")
         (output / (str(name) + ".stderr.txt")).write_bytes(result.stdout + result.stderr)
         row = {"path": str(name), "api": case["api"], "fixture": case["fixture"], "exitCode": result.returncode,
-            "referenceSha256": case["sha256"], "referenceStatus": "proposed; no baseline approval"}
+            "referenceSha256": case["sha256"], "referenceStatus": "proposed; no baseline approval", "timedOut":timed_out}
         diagnostics = (result.stdout + result.stderr).decode(errors="replace")
         row["runtimeErrors"] = [line for line in diagnostics.splitlines()
-            if any(marker in line for marker in ["Binding loop detected", "ReferenceError:", "TypeError:"])]
+            if any(marker in line for marker in ["Binding loop detected", "ReferenceError:", "TypeError:", "Capture exceeded the unchanged 30-second deadline"])]
         if result.returncode == 0:
             row["sha256"] = digest(output / name)
             row["metadataSha256"] = digest(output / (str(name) + ".json"))
@@ -81,7 +89,15 @@ def capture(catalog, reference, output, apis=None, jobs=4):
         "excludedApis": [{"api": "MonospaceProbe", "reason": "Unresolved Linux font candidate; no asset substitution approved"}],
         "status": "captured" if all(row["exitCode"] == 0 and not row["runtimeErrors"] for row in results) else "failed",
         "limitations": ["Offscreen diagnostic capture only", "No matched native animation phase", "Reference baseline approval pending"]}
+    failure=None
+    if report["status"]!="captured":
+        failure_root.mkdir(parents=True,exist_ok=True)
+        failure=Path(tempfile.mkdtemp(prefix=output.name+"-",dir=failure_root))
+        report["failureArtifact"]=str(failure/"captures")
     (output / "capture-results.json").write_text(json.dumps(report, indent=2) + "\n")
+    if failure is not None:
+        shutil.copytree(output,failure/"captures")
+        print(f"Failed capture attempt preserved at {failure/'captures'}")
     print(f"{report['status']}: {len(results)} cases across {len(selected)} APIs")
     return 0 if report["status"] == "captured" else 1
 

@@ -3,7 +3,10 @@
 Qt is pinned to **6.8.3**; the version must match exactly. The checked-in Dockerfile
 uses an immutable Ubuntu 24.04 base image and official Qt archives via aqt 3.3.0.
 It supports separate ARM64 and x86_64 builds. ICU is included from Qt's archive,
-since the prebuilt Qt binaries require its matching version. The software content
+since the prebuilt Qt binaries require its matching version. Metric formatting
+also uses Ubuntu system ICU **74.2** (`libicu-dev` to build, `libicu74` at runtime).
+Versioned library lookup and a configure-time ABI link probe prevent mixing its
+headers with Qt's separate ICU73 libraries. The software content
 mask also builds against Qt QuickPrivate; the image provides `libxkbcommon-dev`
 for its private dependency graph. Installed consumers use public dependencies.
 See [content clipping](content-clipping.md) before changing the Qt pin.
@@ -47,10 +50,11 @@ focus; the whole-output capture preserves it as session evidence.
 [Weston's backend documentation](https://wayland.pages.freedesktop.org/weston/toc/running-weston.html)
 describes how its X11 backend composites Wayland surfaces into the parent output.
 Each configuration runs the base fixture, `--controls`, `--composition`,
-`--selection`, `--checkbox`, `--secure-field`, `--search-field`, `--collection-filters`, `--slider`, `--tabs`, `--pagination`, `--pagination-integers`, `--accordion`, `--presentation-states`, `--spinner` and `--alert` independently; one hundred twenty-eight
-window/full-output pairs cover them.
+`--selection`, `--checkbox`, `--secure-field`, `--search-field`, `--collection-filters`, `--slider`, `--tabs`, `--pagination`, `--pagination-integers`, `--accordion`, `--presentation-states`, `--spinner`, `--alert`, `--clipping`, `--navigation`, `--sidebar-brand` and
+`--data-metrics` independently; one hundred sixty window/full-output pairs cover
+them.
 The catalog galleries are `--fixture foundations`, `surfaces`, `data-display`,
-`controls`, `composition`, `selection`, `checkbox`, `secure-field`, `search-field`, `collection-filters`, `slider`, `tabs`, `pagination`, `pagination-integers`, `accordion`, `presentation-states`, `spinner` and `alert`; their native
+`controls`, `composition`, `selection`, `checkbox`, `secure-field`, `search-field`, `collection-filters`, `slider`, `tabs`, `pagination`, `pagination-integers`, `accordion`, `presentation-states`, `spinner`, `alert`, `clipping`, `navigation`, `sidebar-brand` and `data-metrics`; their native
 comparisons remain pending.
 
 The selector's open `Popup.Item` and scrollbars remain
@@ -209,3 +213,17 @@ disabled input, empty/wrapped/narrow/RTL titles, tiny/fractional logo sizes,
 template tint and caller updates. The fixed source mask bytes ship embedded and
 as an installed provenance asset. The 416-case strict native comparison remains
 separate from input, package and virtual display checks.
+
+The [data metrics gallery](data-metrics.md) shares its real fixture with the
+installed `--data-metrics` workflow. Process-locale metric strings and inherited
+control-locale deltas are checked separately. `--format-diagnostics PATH` writes
+the strict 1,330-case native string report and exits 244 when differences remain;
+other nonzero results are runtime failures. CI keeps this comparison as a separate
+failing gate. The normal runtime/package checks do not imply string or pixel
+acceptance.
+
+Capture subprocesses retain the existing 30-second deadline. A timeout is recorded
+as exit 124 with partial stdout/stderr and a failed manifest; the failed attempt
+is copied under `artifacts/linux/capture-failures/` before temporary staging is
+removed. CI still fails that capture. There is no automatic retry or deadline
+extension.

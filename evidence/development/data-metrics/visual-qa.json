@@ -1,0 +1,25 @@
+{
+  "status": "candidate inspection; no native visual acceptance",
+  "inspected": [
+    "artifacts/data-metrics-implementation/first-pass/host-styles/Basic-light.png",
+    "artifacts/data-metrics-implementation/first-pass/package-only/sessions/data-metrics-xcb-software-scaled-session.png",
+    "artifacts/data-metrics-implementation/package-only/sessions/data-metrics-wayland-software-scaled-session.png",
+    "artifacts/data-metrics-implementation/host-styles/Basic-light.png",
+    "artifacts/data-metrics-implementation/package-only/sessions/data-metrics-xcb-software-standard-session.png",
+    "artifacts/data-metrics-implementation/package-only/sessions/data-metrics-xcb-opengl-scaled-session.png"
+  ],
+  "observations": [
+    "The gallery shows the fixed metric label/value hierarchy, an 80-point wrapped metric, normal and RTL stat cards, optional signed deltas, key label and two fixed badge variants.",
+    "The RTL card reverses icon/metric order and leading text alignment while the negative delta keeps the source light-palette destructive color.",
+    "Outside editing and the real Update metrics action are visible in the same fixture used by installed checks.",
+    "The scaled dark X11 output shows caller-updated percentage values, German-locale negative delta, updated Enter key, fixed badge sizes and xy text retained in the focused outside editor.",
+    "The first scaled Wayland fixture exceeded the retained 60-physical-pixel decoration reserve; the final gallery height is 600 instead of 620 points. Final package session captures are checked separately.",
+    "The final 600-point scaled Wayland window passes the unchanged decoration reserve, keeps both caller-updated metrics/cards and the Enter key visible, and preserves focused xy editing. The independent Weston keyboard remains visible and clipped by its output, as in preceding evidence.",
+    "The final 840 by 600 light gallery retains every control, fixed metric hierarchy, wrapped value, normal/RTL cards, original icon slots and the bottom editor/action.",
+    "The final standard X11 output shows both caller-updated percent values, German-locale negative delta, Enter key and continued focused xy editing after actual Qt actions."
+  ],
+  "limits": [
+    "Original fixture artwork and platform monospace have no approved native equivalents.",
+    "Card shadows, fonts/glyphs, remaining locale data, source animation, physical sessions and actual reader output remain pending."
+  ]
+}

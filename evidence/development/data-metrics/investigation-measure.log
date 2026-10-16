@@ -1,0 +1,17 @@
+********* Start testing of avelino *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : avelino::MetricTextProbe::initTestCase()
+QDEBUG : avelino::MetricTextProbe::test_measure() qml: {"text":"12K","width":39,"advance":37.632,"precise":"37.631999999999998"}
+QDEBUG : avelino::MetricTextProbe::test_measure() qml: {"text":"12K","width":39,"height":30,"advance":37.632,"linePositions":[{"x":0,"y":0.2799375}]}
+QDEBUG : avelino::MetricTextProbe::test_measure() qml: {"text":"12,345.6789","width":131,"advance":130.36800000000002,"precise":"130.36800000000002"}
+QDEBUG : avelino::MetricTextProbe::test_measure() qml: {"text":"12,345.6789","width":76,"height":60,"advance":130.36800000000002,"linePositions":[{"x":0,"y":0.2799375},{"x":0,"y":30.2799375}]}
+QDEBUG : avelino::MetricTextProbe::test_measure() qml: {"text":"$12,345.68","width":119,"advance":118.512,"precise":"118.51200000000000"}
+QDEBUG : avelino::MetricTextProbe::test_measure() qml: {"text":"$12,345.68","width":71,"height":60,"advance":118.512,"linePositions":[{"x":0,"y":0.2799375},{"x":0,"y":30.2799375}]}
+QDEBUG : avelino::MetricTextProbe::test_measure() qml: {"text":"12,345.","width":76,"advance":75.384,"precise":"75.384000000000000"}
+QDEBUG : avelino::MetricTextProbe::test_measure() qml: {"text":"12,345.","width":76,"height":30,"advance":75.384,"linePositions":[{"x":0,"y":0.2799375}]}
+QDEBUG : avelino::MetricTextProbe::test_measure() qml: {"text":"6789","width":56,"advance":55.788,"precise":"55.787999999999997"}
+QDEBUG : avelino::MetricTextProbe::test_measure() qml: {"text":"6789","width":56,"height":30,"advance":55.788,"linePositions":[{"x":0,"y":0.2799375}]}
+PASS   : avelino::MetricTextProbe::test_measure()
+PASS   : avelino::MetricTextProbe::cleanupTestCase()
+Totals: 3 passed, 0 failed, 0 skipped, 0 blacklisted, 166ms
+********* Finished testing of avelino *********

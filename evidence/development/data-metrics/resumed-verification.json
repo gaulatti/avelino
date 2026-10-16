@@ -1,0 +1,22 @@
+{
+  "sourceRevision": "535567e6d9e60849db46f9b0fdcb839476c583c6",
+  "sourceInputsMatchFrozen": 293,
+  "qtCtest": {
+    "command": "cmake --preset linux; cmake --build --preset linux --parallel 2; QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software ctest --preset linux --output-on-failure",
+    "exitCode": 0,
+    "targetsPassed": 8,
+    "log": "qt-tests.log"
+  },
+  "pythonContracts": {
+    "command": "/private/tmp/avelino-resume-visuals-20261015/bin/python -m unittest discover -s tests/contracts",
+    "pillow": "12.1.1",
+    "exitCode": 0,
+    "testsPassed": 107
+  },
+  "referenceIntegrity": "passed",
+  "referenceDiscovery": "passed",
+  "proposedCaptureIntegrity": "passed",
+  "numericSourceInputReplayIntegrity": "passed",
+  "linuxBoundary": "passed",
+  "goalStatus": "active; complete mirror acceptance remains pending"
+}

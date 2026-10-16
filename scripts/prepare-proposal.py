@@ -44,12 +44,18 @@ def prepare(source, tooling, output, scope=None):
             "desktop-presentation-states": {"BleeckerButton", "BleeckerEmptyState", "BleeckerErrorState", "BleeckerLoadingOverlay"},
             "desktop-alert":{"BleeckerButton","BleeckerAlert"},
             "desktop-navigation-layout":{"BleeckerButton","BleeckerPageHeader","BleeckerBreadcrumb"},
-            "desktop-sidebar-brand":{"BleeckerButton","BleeckerSidebarItem","BleeckerBrandMark","BleeckerBrandLockup"}}
+            "desktop-sidebar-brand":{"BleeckerButton","BleeckerSidebarItem","BleeckerBrandMark","BleeckerBrandLockup"},
+            "desktop-data-metrics":{"BleeckerButton","BleeckerIconBadge","BleeckerMetric","BleeckerStatCard","BleeckerKbd"}}
         assert scope in allowed, "Unknown reference proposal scope"
         assert {c["api"] for c in manifest["captures"]} == allowed[scope]
         manifest["scope"] = scope
+    if scope=="desktop-data-metrics":
+        native_inputs=json.loads((ROOT/"evidence/reference-investigations/data-metrics-inputs-20261015/fixture-inputs.json").read_text())
+        proposals={r["fixture"]:r["proposalWidth"] for r in native_inputs["fixtures"]}
     blanks, fixtures, intentional_empty = [], {}, set()
     for case in manifest["captures"]:
+        if scope=="desktop-data-metrics":
+            case.update(status="proposed reference candidate; no baseline approval",flag=False,proposalWidth=proposals[case["fixture"]])
         name = Path(case["path"])
         assert name.name == str(name) and name.suffix == ".png", "Only named PNG captures can be copied"
         file = source / name
@@ -100,6 +106,8 @@ def prepare(source, tooling, output, scope=None):
         if file != output / name: shutil.copyfile(file, output / name)
         fixtures[case["fixture"]] = {key: case[key] for key in ["fixture", "api", "width", "height", "variant", "size", "value", "flag", "text"]}
         if "expectedEmpty" in case: fixtures[case["fixture"]]["expectedEmpty"] = empty
+        if scope=="desktop-data-metrics":
+            fixtures[case["fixture"]].update({key:case[key] for key in ["symbol","disabled","rtl","intrinsic","parentFont","environmentLocale","processLocale","format","currencyCode","delta","proposalWidth"]})
         if scope == "desktop-sidebar-brand":
             fixtures[case["fixture"]].update({key:case[key] for key in ["disabled","symbol","parentFont","rtl","intrinsic","expectedEmptyReason"]})
         if scope == "desktop-navigation-layout":
@@ -117,6 +125,8 @@ def prepare(source, tooling, output, scope=None):
     definitions = {"schemaVersion": 1, "status": "proposed supplemental fixture definitions; baseline approval pending",
         "fixtures": list(fixtures.values()), "sourceToolArtifact": provenance["toolArtifact"]["sha256"],
         "wrapper": "Component centered in a fixed logical frame; palette background, requested color scheme/text scale, en_US locale; no root font or foreground override. Explicit inherited-toggle and Encode Sans toggle cases are separate."}
+    if scope=="desktop-data-metrics":
+        definitions["wrapper"]="Public source centered in the fixed logical frame; explicit archived width proposal, process and environment locale kept separate; source font/style fixed; no numeric transition animation in static reference."
     if scope=="desktop-sidebar-brand":
         definitions["wrapper"]="Public source centered in 720 by 1000 logical points; source frames and intrinsic sizing, explicit parent font only in parent-font cases, requested appearance/text scale/DPR, en_US locale. Button anchors retain 240 by 96."
     if scope=="desktop-presentation-states":
@@ -166,6 +176,6 @@ if __name__ == "__main__":
     parser.add_argument("--captures", required=True)
     parser.add_argument("--tooling", required=True)
     parser.add_argument("--output", required=True)
-    parser.add_argument("--scope", choices=["desktop-composition", "desktop-selectors", "desktop-checkbox", "desktop-secure-field", "desktop-search-field", "desktop-collection-filters", "desktop-slider", "desktop-tabs", "desktop-pagination", "desktop-pagination-integers", "desktop-accordion", "desktop-presentation-states", "desktop-alert", "desktop-navigation-layout", "desktop-sidebar-brand"])
+    parser.add_argument("--scope", choices=["desktop-composition", "desktop-selectors", "desktop-checkbox", "desktop-secure-field", "desktop-search-field", "desktop-collection-filters", "desktop-slider", "desktop-tabs", "desktop-pagination", "desktop-pagination-integers", "desktop-accordion", "desktop-presentation-states", "desktop-alert", "desktop-navigation-layout", "desktop-sidebar-brand", "desktop-data-metrics"])
     args = parser.parse_args()
     print(f"Prepared {prepare(args.captures, args.tooling, args.output, args.scope)} review candidates; expected images unchanged")

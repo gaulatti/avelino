@@ -37,6 +37,7 @@ cmp assets/presentation-symbols.json "$stage/install/share/avelino/presentation-
 cmp assets/spinner-presentation.json "$stage/install/share/avelino/spinner-presentation.json"
 cmp assets/alert-symbols.json "$stage/install/share/avelino/alert-symbols.json"
 cmp assets/brand-presentation.json "$stage/install/share/avelino/brand-presentation.json"
+cmp assets/data-metrics-presentation.json "$stage/install/share/avelino/data-metrics-presentation.json"
 cmp assets/sidebar-symbols.json "$stage/install/share/avelino/sidebar-symbols.json"
 cmp assets/brand/BleeckerLogo.png "$stage/install/share/avelino/brand/BleeckerLogo.png"
 cp -R tests/consumer "$stage/consumer"
@@ -61,6 +62,13 @@ cmake --build "$stage/build" --parallel 2
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --clipping)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --navigation)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --sidebar-brand)
+(cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --data-metrics)
+format_report="$PWD/artifacts/linux/number-formatting.json"
+set +e
+(cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --data-metrics --format-diagnostics "$format_report")
+format_result=$?
+set -e
+if [[ "$format_result" != 0 && "$format_result" != 244 ]]; then exit "$format_result"; fi
 cp scripts/check-installed-catalog.sh "$stage/check-installed-catalog.sh"
 (cd "$stage" && bash check-installed-catalog.sh "$stage/catalog-evidence")
 mkdir -p artifacts
@@ -78,7 +86,7 @@ cp artifacts/linux/environment.json artifacts/package/environment.json
 mkdir -p artifacts/linux
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --capture artifacts/linux/actions-light.png
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --dark --capture artifacts/linux/actions-dark.png
-for fixture in foundations surfaces data-display controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand; do
+for fixture in foundations surfaces data-display controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics; do
 for appearance in light dark; do
   for dpr in 1 2; do
     args=(--fixture "$fixture")
@@ -208,3 +216,10 @@ QML_IMPORT_PATH="$PWD/build/linux/qml" python3 scripts/capture-proposals.py \
   --output "$stage/sidebar-brand-proposals"
 if [[ -e artifacts/linux/sidebar-brand-proposals ]]; then mv artifacts/linux/sidebar-brand-proposals "$stage/previous-sidebar-brand-proposals"; fi
 mv "$stage/sidebar-brand-proposals" artifacts/linux/sidebar-brand-proposals
+
+QML_IMPORT_PATH="$PWD/build/linux/qml" python3 scripts/capture-proposals.py \
+  --catalog build/linux/samples/AvelinoCatalog/AvelinoCatalog \
+  --reference evidence/reference-proposals/data-metrics-20261015 \
+  --output "$stage/data-metrics-proposals"
+if [[ -e artifacts/linux/data-metrics-proposals ]]; then mv artifacts/linux/data-metrics-proposals "$stage/previous-data-metrics-proposals"; fi
+mv "$stage/data-metrics-proposals" artifacts/linux/data-metrics-proposals

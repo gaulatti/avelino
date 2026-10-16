@@ -108,3 +108,16 @@ checked separately from rasterization. Twenty-two source TextRenderer probes
 altered pixels; their line geometry remains untrusted and these checks use the
 original unmodified bounds instead. Japanese glyph fallback in `Éditions 東京`
 remains unresolved and has no approved substitution or width exception.
+
+The [data-display numeric text probes](data-metrics.md) add a clean-replayed
+40-case boundary for untracked numeric strings. Native line bounds retain pair
+positioning across emergency soft breaks and omit a positive final ink overhang.
+The shared adapter preserves the full-string boundary adjustment for untracked
+text; explicit positive/negative tracking keeps its separately measured contract.
+No expected capture, font asset, tolerance or exception changes.
+
+A separate 128-case native Medium-21 probe checks wrapped action labels and
+replays after a clean build. `Create 0` at a 50-point offer measures 50 × 54 at
+both DPRs. The [data-display audit](data-metrics.md) preserves twelve earlier
+candidate differences caused by this correction, including four PageHeader
+images whose action width now matches the existing native rectangle.
