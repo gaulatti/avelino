@@ -169,3 +169,8 @@ public probe is pixel-transparent and every witness frame/baseline set matches;
 three witness raster differences remain open. A clean source-only rebuild
 reproduces all 2,161 files exactly, including those failures. These ImageRenderer
 measurements do not establish hosted-window, physical or Linux acceptance.
+
+The [finite-negative font supplement](font-modifier.md#finite-negative-size-supplement)
+adds 72 groups whose 216 images exactly match the original zero-size cases.
+All 217 outputs replay after a clean source-only full build. This regular-weight
+measurement leaves other weights, nonfinite Text layout and Linux acceptance open.

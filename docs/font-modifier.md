@@ -81,7 +81,7 @@ The centered layouts never request the first-baseline alignment guide, so all
 baseline maps are empty and untrusted. The separate
 [typography probes](typography.md) retain their narrower baseline evidence;
 this corpus does not extend it. First-baseline participation, dynamic type,
-legibility settings, negative/nonfinite sizes, native accessibility, screen
+legibility settings, nonfinite Text layout, native accessibility, screen
 readers and physical display/input remain pending. Monospaced Linux font mapping
 and exact glyph/raster equivalence remain pending without an approved exception.
 
@@ -131,3 +131,20 @@ Run `python3 scripts/verify-font-baseline-source.py` to audit transparent public
 probes, baseline propagation into the actual parent, complete contexts, preserved
 strict witness failures and fresh source replay. References CI runs this verifier
 and its negative contracts too. The centered corpus above remains unchanged.
+
+## Finite negative-size supplement
+
+The [finite-negative source record](../evidence/reference-investigations/font-edges-20261016/investigation.json)
+measures sizes -14, -0.5 and -0.11 in each family at regular weight across all
+eight appearance/scale/DPR profiles. All 72 public/probed/witness groups match
+the corresponding unchanged zero-size case: each resolves to 12 points while
+retaining its family. All 216 PNGs are byte-identical to those original zero-size
+images. A fresh source-only extraction and full 89-file library rebuild reproduce
+all 217 outputs exactly. The external replay archive SHA-256 is
+`e6c15e72d08a9cb5193b83ff9e0d0200d3c10bfc8f57b814ba37b9b7811fa8f2`.
+
+Run `python3 scripts/verify-font-edges-source.py` to verify this bounded result.
+Other weight combinations, nonfinite Text layout, hosted/physical behavior,
+readers and Linux acceptance remain pending. Centered baseline maps remain empty;
+this supplement adds no baseline claim. Pins, expected images and tolerances are
+unchanged. Linux catalog and independent-consumer integration remain pending.

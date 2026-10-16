@@ -1,0 +1,23 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--rm",
+    "--init",
+    "--name",
+    "avelino-font-edges-contracts-v1",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino:/work:ro",
+    "-w",
+    "/work",
+    "avelino-toolchain:data-metrics-qt6.8.3",
+    "bash",
+    "-lc",
+    "python3 -m venv /tmp/font-edges-contracts && /tmp/font-edges-contracts/bin/pip install -r tools/visual-requirements.txt && /tmp/font-edges-contracts/bin/python -m unittest discover -s tests/contracts -v"
+  ],
+  "started": "2026-10-16T21:27:56.086146+00:00",
+  "seconds": 272.73052858305164,
+  "exitCode": 0
+}

@@ -1085,3 +1085,16 @@ Pins, expected captures, tolerances and exceptions are unchanged. Native
 font/raster, focused keyboard, exact timing/lifecycle, physical input and readers
 remain pending. Coverage is 63/80 desktop candidates, 17 pending, zero accepted;
 all 46 TV entries remain pending.
+
+
+## Finite negative font source sizes
+
+The [source supplement](../evidence/reference-investigations/font-edges-20261016/investigation.json)
+records 72 regular-weight contexts. Their 216 public/probed/witness PNGs exactly
+match the original zero-size cases. A fresh source-only full build reproduces
+all 217 outputs. The [validation receipt](../evidence/development/font-edges-source-20261016/result.json)
+records 368 host and 368 Linux contracts passing and an exact audit of all 231
+staged source files. Linux implementation is excluded from this source-only
+checkpoint. Other weights, nonfinite Text layout, full Linux/physical/reader
+acceptance remain pending. Coverage remains 63/80 candidates and zero accepted;
+all 46 TV entries remain pending. Pins, expected images and tolerances are unchanged.
