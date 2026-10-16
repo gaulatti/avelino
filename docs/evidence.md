@@ -933,3 +933,16 @@ Unicode/bidi, shadow/symbol/raster, full native presentation, active native
 keyboard/IME, physical input and readers remain pending. Failed attempts and
 resource/focus diagnostics remain preserved. Desktop coverage is now 61/80
 candidates, zero accepted; television remains 46 pending entries.
+
+## Tooltip source investigation
+
+The [Tooltip source record](tooltip.md) adds 168 closed groups whose public,
+probed, direct-witness and unwrapped caller images are byte-identical. A fresh
+unchanged-source build reproduces all 673 closed output files. Separate active
+helpers also rebuild from source. An actual native `NSToolTipPanel` is captured
+at 171 by 21 points, backing DPR two. Updating the hint preserves caller state
+and closed pixels; its accessibility Help changes while the existing native
+panel's pixels remain unchanged. Full active popup coverage, dismissal/timing,
+compositor appearance and readers remain pending. Inactive and failed harness
+attempts are explicitly excluded and preserved. Linux Tooltip implementation
+remains pending; desktop coverage stays 61/80 candidates and zero accepted.

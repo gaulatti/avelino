@@ -1,0 +1,10 @@
+/Users/gaulatti/.codex/tmp/avelino-tooltip-popup-source-20261016-v3/tool/Probe.swift:199:21: warning: unstructured throwing task created by 'init(name:priority:operation:)' is not used, which may accidentally ignore errors thrown inside the task [#NoUseUnstructuredThrowingTask]
+197 |                     let pointer = NSEvent.mouseLocation
+198 |                     window.setFrameOrigin(NSPoint(x: pointer.x - 320, y: pointer.y - 200))
+199 |                     Task { @MainActor in
+    |                     |- warning: unstructured throwing task created by 'init(name:priority:operation:)' is not used, which may accidentally ignore errors thrown inside the task [#NoUseUnstructuredThrowingTask]
+    |                     `- note: to silence this warning, handle the error inside the task, or store/discard the task value explicitly
+200 |                         try await Task.sleep(for: .milliseconds(500))
+201 |                         self.window.makeKeyAndOrderFront(nil)
+
+[#NoUseUnstructuredThrowingTask]: <https://docs.swift.org/compiler/documentation/diagnostics/no-use-throwing-unstructured-task>

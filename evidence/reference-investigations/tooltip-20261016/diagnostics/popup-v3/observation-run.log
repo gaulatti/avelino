@@ -1,0 +1,15 @@
+initial {'id': 'initial', 'visible': False, 'panelFrames': [], 'captureSequence': 0}
+live-hint-update {'id': 'live-hint-update', 'visible': False, 'panelFrames': [], 'captureSequence': 2}
+Traceback (most recent call last):
+  File "/Users/gaulatti/.codex/tmp/avelino-tooltip-popup-source-20261016-v3/observe.py", line 34, in <module>
+    reenter('updated-hint-reentry')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gaulatti/.codex/tmp/avelino-tooltip-popup-source-20261016-v3/observe.py", line 31, in reenter
+    command('reenter');observe(name,wait=8 if visible else 4,desired=visible)
+                       ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gaulatti/.codex/tmp/avelino-tooltip-popup-source-20261016-v3/observe.py", line 26, in observe
+    cmd=command('capture');time.sleep(.4);s=state()
+  File "/Users/gaulatti/.codex/tmp/avelino-tooltip-popup-source-20261016-v3/observe.py", line 16, in command
+    assert time.monotonic()<deadline,('command not consumed',x)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('command not consumed', {'sequence': 4, 'action': 'capture'})

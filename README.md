@@ -84,6 +84,11 @@ Its Linux candidate adds caller content, separate-window presentation, catalog
 captures and an independent consumer. Exact pixels, native focused input,
 physical presentations and reader acceptance remain pending.
 
+The [Tooltip source investigation](docs/tooltip.md) preserves 168 closed wrapper
+cases, a byte-identical source-only replay, accessibility hint updates and an
+actual native help panel. Linux implementation, shown-popup coverage and full
+mirror acceptance remain pending.
+
 The [page header and breadcrumb candidates](docs/navigation-layout.md) use measured
 source layout, fixed typography, caller action content and logical-index
 callbacks. Full font/symbol/raster and physical/reader acceptance remains pending.

@@ -1,0 +1,10 @@
+/Users/gaulatti/.codex/tmp/avelino-tooltip-source-20261016-v1/Probe.swift:189:9: warning: unstructured throwing task created by 'init(name:priority:operation:)' is not used, which may accidentally ignore errors thrown inside the task [#NoUseUnstructuredThrowingTask]
+187 |         NSApp.finishLaunching()
+188 |         let controller = try Controller(output: URL(fileURLWithPath: CommandLine.arguments[1]), mode: CommandLine.arguments[2])
+189 |         Task { @MainActor in
+    |         |- warning: unstructured throwing task created by 'init(name:priority:operation:)' is not used, which may accidentally ignore errors thrown inside the task [#NoUseUnstructuredThrowingTask]
+    |         `- note: to silence this warning, handle the error inside the task, or store/discard the task value explicitly
+190 |             while true { try controller.process(); try await Task.sleep(for: .milliseconds(250)) }
+191 |         }
+
+[#NoUseUnstructuredThrowingTask]: <https://docs.swift.org/compiler/documentation/diagnostics/no-use-throwing-unstructured-task>

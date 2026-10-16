@@ -37,3 +37,7 @@ evidence/development/text-alignment/sessions/capture-tool-version.txt -text -whi
 # Preserve exact Modal build, input, failed-attempt and compositor transcripts.
 evidence/development/modal/**/*.log -text -whitespace
 evidence/development/modal/**/capture-tool-version.txt -text -whitespace
+
+# Preserve native Tooltip builds and incomplete popup-harness transcripts.
+evidence/reference-investigations/tooltip-20261016/**/*.log -text -whitespace
+evidence/reference-investigations/tooltip-20261016/*.log -text -whitespace
