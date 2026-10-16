@@ -51,3 +51,7 @@ remains Linux-only. Other native helpers, native test/catalog execution, physica
 sessions and all TV checks retain their separate gates. Exact Linux fonts,
 symbols, locales, geometry, rasterization, animation, input and reader acceptance
 are unaffected. Desktop coverage remains 56/80 started and zero fully accepted.
+
+The subsequent [Stepper investigation](stepper.md) builds four additional native
+helpers from fresh source, preserves hosted control behavior, and records a
+successful catalog product build with catalog UI verification still open.

@@ -26,6 +26,7 @@ jobs:
       - run: python3 scripts/verify-data-metrics-source.py
       - run: python3 scripts/verify-native-source-rebuild.py
       - run: python3 scripts/verify-number-locales-source.py
+      - run: python3 scripts/verify-stepper-source.py
       - run: python3 scripts/generate-number-format-witnesses.py --check
       - run: python3 scripts/verify-data-metrics-inputs.py
       - run: python3 -m unittest discover -s tests/contracts -v

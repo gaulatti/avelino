@@ -1,0 +1,106 @@
+{
+  "status": "Expected native source fail-fast behavior; core files disabled per child",
+  "rawLogs": "Full stderr is retained; ASLR addresses are not expected to replay byte-identically",
+  "cases": [
+    {
+      "case": "display-overflow",
+      "returnCode": -5,
+      "trapped": true,
+      "phases": [
+        "setup:display-overflow"
+      ],
+      "stdoutSha256": "c47821064b6a98e1907fb9a4b93b6501670c84d91f20138ed5e0c4cdbffcd9b0",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "case": "display-underflow",
+      "returnCode": -5,
+      "trapped": true,
+      "phases": [
+        "setup:display-underflow"
+      ],
+      "stdoutSha256": "41e1b8536109eec0efdf888d618ec51c69ca8a4484438b677742d43596a5098c",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "case": "decrement-overflow",
+      "returnCode": -5,
+      "trapped": true,
+      "phases": [
+        "setup:decrement-overflow",
+        "constructed:decrement-overflow"
+      ],
+      "stdoutSha256": "0da057957961080e8ac9a70f9c58485c20aa14d705ba0e0b7df5f396969b2ca6",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "case": "increment-overflow",
+      "returnCode": -5,
+      "trapped": true,
+      "phases": [
+        "setup:increment-overflow",
+        "constructed:increment-overflow"
+      ],
+      "stdoutSha256": "e492c8272796d289d25bf2f53c190adc565de7e364d7ee895972a07b95130519",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "case": "negative-step-decrement-overflow",
+      "returnCode": -5,
+      "trapped": true,
+      "phases": [
+        "setup:negative-step-decrement-overflow",
+        "constructed:negative-step-decrement-overflow"
+      ],
+      "stdoutSha256": "eff97439b50b0d940e57aa5f5762c62add06f3774113efadc7cdb4b8d1d3a5cd",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "case": "negative-step-increment-underflow",
+      "returnCode": -5,
+      "trapped": true,
+      "phases": [
+        "setup:negative-step-increment-underflow",
+        "constructed:negative-step-increment-underflow"
+      ],
+      "stdoutSha256": "2733aa1ce02150639169ef1298a5a15e5310ddb2b3b4a31a543fe8ecf258d690",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "case": "display-after-increment",
+      "returnCode": -5,
+      "trapped": true,
+      "phases": [
+        "setup:display-after-increment",
+        "constructed:display-after-increment",
+        "binding-request:9223372036854775807",
+        "binding-write:9223372036854775807"
+      ],
+      "stdoutSha256": "2fdb55968169bc2f7c675b07dfc4a3e3383cb2366090db6f3400b4f0a8c74bb0",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "case": "display-after-decrement",
+      "returnCode": -5,
+      "trapped": true,
+      "phases": [
+        "setup:display-after-decrement",
+        "constructed:display-after-decrement",
+        "binding-request:-9223372036854775808",
+        "binding-write:-9223372036854775808"
+      ],
+      "stdoutSha256": "f3245c84e3b49ab9687899f1f64007955505f3dab78f512f1b58d62df6944e0b",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "case": "invalid-range",
+      "returnCode": -5,
+      "trapped": true,
+      "phases": [
+        "setup:invalid-range"
+      ],
+      "stdoutSha256": "957f5609bfc29b291296987c2413ec8c99394a8a4df2acb4ebb7fb9013ac41e9",
+      "stderrSha256": "9d3469e29485c889977d3dc51b77ee9689e5fa4cab4e012745fb418d37bcec05"
+    }
+  ]
+}

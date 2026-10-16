@@ -52,6 +52,10 @@ Fifty-six of the 80 discovered desktop
 entries have started; no component has passed its complete mirror gate.
 The public GitHub wiki remote is unavailable; documentation currently lives here.
 
+The [Stepper source investigation](docs/stepper.md) preserves hosted native
+captures, exact integer/binding behavior and a fresh source-only replay. Its Qt
+implementation and complete acceptance remain pending.
+
 Generic child clipping now has a [software renderer candidate](docs/content-clipping.md)
 sharing the existing continuous/circular/capsule paths; strict native acceptance
 remains pending.
