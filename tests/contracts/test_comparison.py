@@ -79,6 +79,53 @@ class ComparisonBoundaryTests(unittest.TestCase):
         self.assertEqual(result['changedPixels'], 0)
         self.assertIsNotNone(result['alphaDifferenceBounds'])
 
+    def test_multichannel_errors_count_each_pixel_once(self):
+        image = Image.open(self.candidate / self.name)
+        image.putpixel((0, 0), (254, 253, 255, 255))
+        image.putpixel((1, 0), (250, 255, 251, 255))
+        image.save(self.candidate / self.name)
+        result = self.check('failed')
+        self.assertEqual(result['changedPixels'], 2)
+        self.assertEqual(result['maximumChannelError'], 5)
+        self.assertEqual(result['differenceBounds'], [0, 0, 2, 1])
+        self.assertIsNone(result['alphaDifferenceBounds'])
+
+    def test_all_rgb_byte_values_are_counted_without_a_threshold(self):
+        expected = Image.new('RGBA', (256, 3), (0, 0, 0, 255))
+        actual = expected.copy()
+        for channel in range(3):
+            for value in range(256):
+                pixel = [0, 0, 0, 255]
+                pixel[channel] = value
+                actual.putpixel((value, channel), tuple(pixel))
+        expected.save(self.reference / self.name)
+        actual.save(self.candidate / self.name)
+        self.fixture.update(width=256, height=3,
+                            sha256=comparison.digest(self.reference / self.name))
+        (self.reference / 'captures.json').write_text(json.dumps({'captures': [self.fixture]}))
+        self.metadata = dict(self.fixture)
+        self.write_metadata()
+        result = self.check('failed')
+        self.assertEqual(result['changedPixels'], 765)
+        self.assertEqual(result['maximumChannelError'], 255)
+        self.assertEqual(result['differenceBounds'], [1, 0, 256, 3])
+        self.assertIsNone(result['alphaDifferenceBounds'])
+
+    def test_transparent_rgb_errors_still_count(self):
+        expected = Image.new('RGBA', (2, 2), (20, 30, 40, 0))
+        actual = expected.copy()
+        actual.putpixel((0, 0), (21, 30, 40, 0))
+        expected.save(self.reference / self.name)
+        actual.save(self.candidate / self.name)
+        self.fixture['sha256'] = comparison.digest(self.reference / self.name)
+        (self.reference / 'captures.json').write_text(json.dumps({'captures': [self.fixture]}))
+        self.metadata = dict(self.fixture)
+        self.write_metadata()
+        result = self.check('failed')
+        self.assertEqual(result['changedPixels'], 1)
+        self.assertEqual(result['maximumChannelError'], 1)
+        self.assertIsNone(result['alphaDifferenceBounds'])
+
     def test_incompatible_scale_and_case_metadata_fail_even_with_identical_pixels(self):
         for key, value in [('dpr', 2), ('textScale', 1.25), ('state', 'disabled'), ('fixture', 'field')]:
             with self.subTest(key=key):

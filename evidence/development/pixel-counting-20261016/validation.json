@@ -1,0 +1,27 @@
+{
+  "sourceCommitBeforeChange": "f7cd68961c9f0a59c6b9c912727ac977533c57da",
+  "comparatorSha256": "09194cc497b6034f12faafe6b61dedcbba40cf1198c36740bf4c985fc02597ad",
+  "hostContracts": {
+    "tests": 110,
+    "exitCode": 0,
+    "python": "3.14",
+    "pillow": "12.1.1"
+  },
+  "linuxContracts": {
+    "tests": 110,
+    "exitCode": 0,
+    "python": "3.12",
+    "pillow": "12.1.1",
+    "platform": "Linux-6.8.0-117-generic-aarch64-with-glibc2.39"
+  },
+  "fullRunEquality": {
+    "fixtures": 1048,
+    "byteIdenticalFiles": 3146
+  },
+  "newBoundaryCoverage": [
+    "every RGB byte value",
+    "multiple changed channels in one pixel",
+    "RGB differences under zero alpha"
+  ],
+  "nativeBaselineOrToleranceChanged": false
+}

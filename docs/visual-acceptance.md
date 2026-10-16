@@ -58,6 +58,14 @@ tool refuses to strip profiles or quietly reinterpret them. Initial tolerance is
 zero. A later calibrated glyph-edge rule must preserve layout and asset failures;
 it cannot be inferred from a favorable whole-screen percentage.
 
+RGB diagnostic counts use a histogram of each pixel's maximum channel difference.
+Any nonzero channel counts that pixel once; the maximum retains the largest
+channel error. Alpha still has its separate comparison. The
+[equivalence record](../evidence/development/pixel-counting-20261016/README.md)
+preserves a full 1,048-case run whose JSON, HTML and 3,144 diagnostic images are
+byte-identical to the earlier counting method. All source, metadata, dimension,
+color, geometry and zero-difference gates remain in force.
+
 The Linux workflow runs `button-mirror-comparison` independently for x86_64 and
 ARM64 candidates after the build/runtime/package checks. It uses preserved Git
 references and publishes the JSON report, image pairs, overlays, and raw diffs.

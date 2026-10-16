@@ -68,9 +68,12 @@ def compare(reference, candidate, output, apis=None):
         # RGB avoids Pillow's RGBA alpha-only bbox rule; alpha is compared separately.
         delta = ImageChops.difference(expected.convert("RGB"), actual.convert("RGB"))
         alpha_delta = ImageChops.difference(expected.convert("RGBA").getchannel("A"), actual.convert("RGBA").getchannel("A"))
-        pixels = list(delta.get_flattened_data())
-        result.update(changedPixels=sum(any(channel != 0 for channel in pixel) for pixel in pixels),
-                      maximumChannelError=max(max(pixel) for pixel in pixels),
+        red, green, blue = delta.split()
+        channel_maximum = ImageChops.lighter(ImageChops.lighter(red, green), blue)
+        changed_pixels = delta.width * delta.height - channel_maximum.histogram()[0]
+        maximum_error = channel_maximum.getextrema()[1]
+        result.update(changedPixels=changed_pixels,
+                      maximumChannelError=maximum_error,
                       differenceBounds=delta.getbbox(), alphaDifferenceBounds=alpha_delta.getbbox())
         result["status"] = "passed" if not delta.getbbox() and not alpha_delta.getbbox() and result.get("geometryStatus", "passed") == "passed" else "failed"
         stem = Path(name).stem
