@@ -7,6 +7,7 @@ T.TextField {
     property bool error: false
     property Component leading
     property Component trailing
+    property int placeholderElide:Text.ElideRight
     readonly property var p: BleeckerTheme.palette
     readonly property real horizontalPadding: size === "sm" ? 12 : size === "lg" ? 16 : 14
     implicitWidth: 240
@@ -47,7 +48,7 @@ T.TextField {
         height: Math.max(0,control.height-control.topPadding-control.bottomPadding)
         text: control.placeholderText; font: control.font; color: control.placeholderTextColor
         horizontalAlignment: control.horizontalAlignment; verticalAlignment: control.verticalAlignment
-        elide: Text.ElideRight; renderType: control.renderType
+        elide: control.placeholderElide; renderType: control.renderType
         visible: !control.length && !control.preeditText && (!control.activeFocus || control.horizontalAlignment !== Qt.AlignHCenter)
         Accessible.ignored: true
     }

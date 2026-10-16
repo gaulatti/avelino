@@ -35,6 +35,7 @@ static QQuickItem *findVisualItem(QQuickItem *item, const QString &name) {
 #include "paginationchecks.h"
 #include "stepperchecks.h"
 #include "radiochecks.h"
+#include "otpchecks.h"
 #include "paginationintegerchecks.h"
 #include "accordionchecks.h"
 #include "presentationchecks.h"
@@ -320,6 +321,7 @@ int main(int argc, char **argv) {
     parser.addOption(QCommandLineOption("checkbox", "Exercise checkbox states, input and Qt accessibility."));
     parser.addOption(QCommandLineOption("data-metrics", "Exercise data metrics, locale and badge/key presentation."));
     parser.addOption(QCommandLineOption("radio-group", "Exercise native RadioGroup binding and canonical String witnesses."));
+    parser.addOption(QCommandLineOption("otp-input", "Exercise native OTP model/editor witnesses and Qt input."));
     parser.addOption(QCommandLineOption("stepper", "Exercise exact native integer/binding traces and owned stepper input."));
     parser.addOption(QCommandLineOption("format-diagnostics", "Compare every preserved native formatter witness strictly.", "path"));
     parser.addOption(QCommandLineOption("sidebar-brand", "Exercise sidebar input and pinned brand presentation."));
@@ -338,7 +340,7 @@ int main(int argc, char **argv) {
     parser.addOption(QCommandLineOption("secure-field", "Exercise secure editing, reveal and Qt accessibility."));
     parser.addOption(QCommandLineOption("text-scale", "Exercise text scaling.", "factor", "1"));
     parser.process(app);
-    if (int(parser.isSet("radio-group"))+int(parser.isSet("stepper"))+int(parser.isSet("data-metrics"))+int(parser.isSet("navigation"))+int(parser.isSet("sidebar-brand"))+int(parser.isSet("controls"))+int(parser.isSet("composition"))+int(parser.isSet("selection"))+int(parser.isSet("checkbox"))+int(parser.isSet("secure-field"))+int(parser.isSet("search-field"))+int(parser.isSet("collection-filters"))+int(parser.isSet("slider"))+int(parser.isSet("tabs"))+int(parser.isSet("pagination"))+int(parser.isSet("pagination-integers"))+int(parser.isSet("accordion"))+int(parser.isSet("presentation-states"))+int(parser.isSet("spinner"))+int(parser.isSet("alert"))+int(parser.isSet("clipping"))>1) return 58;
+    if (int(parser.isSet("otp-input"))+int(parser.isSet("radio-group"))+int(parser.isSet("stepper"))+int(parser.isSet("data-metrics"))+int(parser.isSet("navigation"))+int(parser.isSet("sidebar-brand"))+int(parser.isSet("controls"))+int(parser.isSet("composition"))+int(parser.isSet("selection"))+int(parser.isSet("checkbox"))+int(parser.isSet("secure-field"))+int(parser.isSet("search-field"))+int(parser.isSet("collection-filters"))+int(parser.isSet("slider"))+int(parser.isSet("tabs"))+int(parser.isSet("pagination"))+int(parser.isSet("pagination-integers"))+int(parser.isSet("accordion"))+int(parser.isSet("presentation-states"))+int(parser.isSet("spinner"))+int(parser.isSet("alert"))+int(parser.isSet("clipping"))>1) return 58;
     bool validScale = false;
     const double textScale = parser.value("text-scale").toDouble(&validScale);
     if (!validScale || !std::isfinite(textScale) || textScale <= 0) return 12;
@@ -350,10 +352,11 @@ int main(int argc, char **argv) {
     engine.rootContext()->setContextProperty("captureTextScale", textScale);
     engine.addImportPath(QStringLiteral(AVELINO_INSTALLED_IMPORT_PATH));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreationFailed, &app, [] { QCoreApplication::exit(1); }, Qt::QueuedConnection);
-    engine.loadFromModule("InstalledConsumer", parser.isSet("radio-group") ? "RadioGroup" : parser.isSet("stepper") ? "Stepper" : parser.isSet("data-metrics") ? "DataMetrics" : parser.isSet("sidebar-brand") ? "SidebarBrand" : parser.isSet("navigation") ? "Navigation" : parser.isSet("clipping") ? "Clipping" : parser.isSet("alert") ? "Alert" : parser.isSet("spinner") ? "Spinner" : parser.isSet("presentation-states") ? "PresentationStates" : parser.isSet("accordion") ? "Accordion" : parser.isSet("pagination-integers") ? "PaginationIntegers" : parser.isSet("pagination") ? "Pagination" : parser.isSet("tabs") ? "Tabs" : parser.isSet("slider") ? "Slider" : parser.isSet("collection-filters") ? "CollectionFilters" : parser.isSet("search-field") ? "SearchField" : parser.isSet("secure-field") ? "SecureField" : parser.isSet("checkbox") ? "Checkbox" : parser.isSet("selection") ? "Selection" : parser.isSet("composition") ? "Composition" : parser.isSet("controls") ? "Controls" : "Main");
+    engine.loadFromModule("InstalledConsumer", parser.isSet("otp-input") ? "OTPInput" : parser.isSet("radio-group") ? "RadioGroup" : parser.isSet("stepper") ? "Stepper" : parser.isSet("data-metrics") ? "DataMetrics" : parser.isSet("sidebar-brand") ? "SidebarBrand" : parser.isSet("navigation") ? "Navigation" : parser.isSet("clipping") ? "Clipping" : parser.isSet("alert") ? "Alert" : parser.isSet("spinner") ? "Spinner" : parser.isSet("presentation-states") ? "PresentationStates" : parser.isSet("accordion") ? "Accordion" : parser.isSet("pagination-integers") ? "PaginationIntegers" : parser.isSet("pagination") ? "Pagination" : parser.isSet("tabs") ? "Tabs" : parser.isSet("slider") ? "Slider" : parser.isSet("collection-filters") ? "CollectionFilters" : parser.isSet("search-field") ? "SearchField" : parser.isSet("secure-field") ? "SecureField" : parser.isSet("checkbox") ? "Checkbox" : parser.isSet("selection") ? "Selection" : parser.isSet("composition") ? "Composition" : parser.isSet("controls") ? "Controls" : "Main");
     QTimer::singleShot(500, &app, [&engine, &app, &parser, textScale] {
         auto window = qobject_cast<QQuickWindow *>(engine.rootObjects().value(0));
         if (!window) { app.exit(2); return; }
+        if (parser.isSet("otp-input")) {runOTPConsumer(window,app,parser,textScale);return;}
         if (parser.isSet("radio-group")) {runRadioConsumer(window,app,parser,textScale);return;}
         if (parser.isSet("stepper")) {runStepperConsumer(window,app,parser,textScale);return;}
         if (parser.isSet("data-metrics")) {runDataMetricsConsumer(window,app,parser,textScale,engine);return;}

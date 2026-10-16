@@ -34,9 +34,13 @@ set(radio_fixture "${PROJECT_SOURCE_DIR}/tests/consumer/RadioGroup.qml")
 set_source_files_properties("${radio_fixture}" PROPERTIES QT_RESOURCE_ALIAS "RadioGroup.qml")
 set(radio_case "${PROJECT_SOURCE_DIR}/tests/consumer/RadioGroupCase.qml")
 set_source_files_properties("${radio_case}" PROPERTIES QT_RESOURCE_ALIAS "RadioGroupCase.qml")
+set(otp_fixture "${PROJECT_SOURCE_DIR}/tests/consumer/OTPInput.qml")
+set_source_files_properties("${otp_fixture}" PROPERTIES QT_RESOURCE_ALIAS "OTPInput.qml")
+set(otp_case "${PROJECT_SOURCE_DIR}/tests/consumer/OTPInputCase.qml")
+set_source_files_properties("${otp_case}" PROPERTIES QT_RESOURCE_ALIAS "OTPInputCase.qml")
 qt_add_qml_module(AvelinoCatalog URI AvelinoCatalog VERSION 0.1
     OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/qml/AvelinoCatalog
-    QML_FILES ${radio_fixture} ${radio_case} ${stepper_fixture} ${stepper_case} ${data_fixture} ${data_case} ${data_glyph} Main.qml ButtonFixture.qml FoundationsFixture.qml SurfacesFixture.qml DataDisplayFixture.qml ControlsFixture.qml ReferenceCaseFixture.qml CompositionFixture.qml SelectionFixture.qml CheckboxFixture.qml SecureFieldFixture.qml SearchFieldFixture.qml CollectionFiltersFixture.qml SliderFixture.qml TabsFixture.qml PaginationFixture.qml PaginationIntegerFixture.qml AccordionFixture.qml PresentationStatesFixture.qml SpinnerFixture.qml AlertFixture.qml ${sidebar_fixture} ${sidebar_case} ${sidebar_glyph} ${navigation_fixture} ${navigation_case} ${breadcrumb_house} ${clipping_fixture} ${accordion_text} ${navigation_icon} ${search_glyph})
+    QML_FILES ${otp_fixture} ${otp_case} ${radio_fixture} ${radio_case} ${stepper_fixture} ${stepper_case} ${data_fixture} ${data_case} ${data_glyph} Main.qml ButtonFixture.qml FoundationsFixture.qml SurfacesFixture.qml DataDisplayFixture.qml ControlsFixture.qml ReferenceCaseFixture.qml CompositionFixture.qml SelectionFixture.qml CheckboxFixture.qml SecureFieldFixture.qml SearchFieldFixture.qml CollectionFiltersFixture.qml SliderFixture.qml TabsFixture.qml PaginationFixture.qml PaginationIntegerFixture.qml AccordionFixture.qml PresentationStatesFixture.qml SpinnerFixture.qml AlertFixture.qml ${sidebar_fixture} ${sidebar_case} ${sidebar_glyph} ${navigation_fixture} ${navigation_case} ${breadcrumb_house} ${clipping_fixture} ${accordion_text} ${navigation_icon} ${search_glyph})
 qt_add_resources(AvelinoCatalog "catalog_fixture_assets" PREFIX "/avelino/fixtures"
     BASE "${PROJECT_SOURCE_DIR}/tests/consumer" FILES "${PROJECT_SOURCE_DIR}/tests/consumer/avatar-wide.ppm")
 target_link_libraries(AvelinoCatalog PRIVATE Avelino Qt6::Quick Qt6::Test)

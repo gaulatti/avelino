@@ -7,8 +7,9 @@ binding traces, two input edge traces and native Unicode measurements. All 344
 public images are byte-identical to a reconstruction of the source body. The
 eight button anchors also match the existing RadioGroup anchors exactly. A fresh
 source-only build of all 89 unchanged pinned files reproduces all 897 images and
-metadata files byte for byte. The Linux component remains unimplemented; desktop
-coverage remains 58/80 started and zero fully accepted.
+metadata files byte for byte. A Linux candidate now implements the controlled
+editor and has catalog and independent-consumer fixtures. Complete acceptance
+remains pending.
 
 `Sources/Sabella/Extended.swift:56` accepts a caller-owned string binding and a
 length defaulting to six. It passes a repeated bullet placeholder, an explicit
@@ -130,3 +131,71 @@ source-only replay, primitive results, observed editor/model separation and the
 original Qt failures. Negative contracts prevent replacing those diagnostics or
 claiming Linux parity. The checksummed native source/helpers remain in the
 external reference vault; independent-machine availability remains pending.
+
+## Linux candidate
+
+`BleeckerOTPInput` takes caller-owned `code`, a `length` defaulting to six, and
+emits `codeRequested(requestedCode)`. The caller applies or rejects each request:
+
+```qml
+BleeckerOTPInput {
+    code: page.verificationCode
+    length: 6
+    onCodeRequested: value => { page.verificationCode = value }
+}
+```
+
+The getter is displayed without filtering at construction or configuration
+refresh. User edits retain their raw text in the Qt template editor and request
+the pinned numeric-character prefix. Return and blur refresh the displayed
+getter. `editor`, `presentationItem`, `displayText`, `editing` and `placeholder`
+expose the candidate's input/presentation state. A 28-unit minimum body can
+overflow a smaller caller offer; the field height follows the theme text scale
+while its explicit monospace semibold font remains 20 logical units. The Linux
+system fixed font and its glyph fallback remain unapproved native font matches.
+Visual inspection of the Han case shows missing-glyph boxes in this Linux font
+profile where the native source renders all seven characters. Glyph coverage
+and raster acceptance fail for that profile.
+
+The value binding above represents projected state. An observable owner that
+publishes an accepted write even when the string is unchanged calls
+`notifyCodeWrite()` after applying that write. The explicit notification forwards
+an owner publication that a QML string property's equality check would otherwise
+lose. It preserves the measured distinction between native observed-object and
+projected-state traces. Rejected writes do not send that notification. Raw text
+can remain stale after unacknowledged/unchanged writes until configuration or
+commit refreshes it, as recorded by the native projected-state trace.
+
+The Qt editor accepts the measured 40,001-character paste and keeps marked text
+out of the model until commit. It uses the template's native editing and
+accessibility machinery, centered alignment and `Verification code` label.
+Its editor supplies one Tab stop; forward and backward traversal leave the
+composite, while programmatic focus on the wrapper forwards to that editor.
+`BleeckerTextField.placeholderElide` selects placeholder rendering, with default
+`Text.ElideRight`; OTP selects `Text.ElideNone` and clips its editor.
+
+The component tests and source-free independent consumer each replay 19 native
+traces and match all 200 model/editor snapshots. Deferred owners replay the
+observed order of acknowledgements by flushing queued actual requests, rather
+than relying on the native helpers' 50/100ms timer races. Native elapsed-time
+equivalence remains pending. Only 36 of 143 comparable native callback snapshots
+and 123 of 150 native selection snapshots match. Those differences remain
+recorded; the component has no complete behavior acceptance.
+
+`--fixture otp-input` opens the catalog gallery. The independent consumer uses
+`--otp-input`; the shared `OTPInputCase.qml` adapts every hosted source case,
+including unfiltered initial values and zero-width offers. The comparison tools
+retain original pixels and compare public body bounds and initial getter/editor
+state strictly. Underlying AppKit field frames and Qt template frames are
+reported separately: the former excludes the SwiftUI padding/background and the
+latter includes its own padding/background, so their raw frames do not yet
+establish a matching child-layout boundary. Physical input, actual reader,
+native font/raster and complete session acceptance remain pending.
+
+The [sealed Linux checkpoint](../evidence/development/otp/candidate.json) contains
+344 original-size captures: all public body bounds match and all 328 OTP initial
+states match, with zero exact pixel matches. It records 15 passing CTest targets,
+179 Python contracts, 23 source-free consumer modes, 103 installed gallery images
+and eight focused virtual profiles. All 99 previous gallery pairs and all 344
+PNG/full-metadata pairs from before the focus fix are byte-identical. Desktop
+coverage is 59/80 started and zero accepted; all 46 TV entries remain pending.

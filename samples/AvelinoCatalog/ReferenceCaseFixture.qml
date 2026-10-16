@@ -44,7 +44,7 @@ Window {
         anchors.alignWhenCentered: false
         sourceComponent: {
             const components = {
-                "BleeckerButton": button, "BleeckerRadioGroup":radioCase, "BleeckerStepper":stepperCase, "BleeckerLoadingSpinner": spinner,
+                "BleeckerButton": button, "BleeckerOTPInput":otpCase, "BleeckerRadioGroup":radioCase, "BleeckerStepper":stepperCase, "BleeckerLoadingSpinner": spinner,
                 "BleeckerSidebarItem":sidebarBrandCase, "BleeckerMetric":dataMetricsCase, "BleeckerStatCard":dataMetricsCase, "BleeckerKbd":dataMetricsCase, "BleeckerIconBadge":dataMetricsCase,"BleeckerBrandMark":sidebarBrandCase,"BleeckerBrandLockup":sidebarBrandCase,"BleeckerPageHeader":navigationCase,"BleeckerBreadcrumb":navigationCase,"BleeckerAlert":alert,"BleeckerEmptyState":emptyState,"BleeckerErrorState":errorState,"BleeckerLoadingOverlay":loadingOverlay,
                 "BleeckerTextField": textField, "BleeckerTextArea": textArea,
                 "BleeckerField": field, "BleeckerSwitchStyle": switchControl,
@@ -72,6 +72,7 @@ Window {
         onLoaded: item.objectName = "referenceCaseComponent"
     }
     Component {id:radioCase;RadioGroupCase {definition:window.definition}}
+    Component {id:otpCase;OTPInputCase {definition:window.definition}}
     Component {id:stepperCase;StepperCase {definition:window.definition}}
     Component {id:dataMetricsCase;DataMetricsCase {definition:window.definition}}
     Component {id:sidebarBrandCase;SidebarBrandCase {definition:window.definition}}
@@ -435,7 +436,7 @@ Window {
     Component {
         id: textField
         BleeckerTextField {
-            width: 240; placeholderText: "Title"; text: definition.text
+            width: 240; placeholderText: definition.placeholder!==undefined ? definition.placeholder:"Title"; text: definition.text
             size: definition.size; error: definition.flag
             enabled: definition.variant !== "disabled"
         }

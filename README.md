@@ -64,7 +64,9 @@ font, symbol, frame, raster, keyboard and reader acceptance remain pending.
 
 The [OTP source investigation](docs/otp-input.md) records numeric-character
 filtering, raw editing versus caller state, composition and large input. Its
-Linux component and complete acceptance remain pending.
+Linux candidate adds controlled editing, catalog and independent package
+fixtures; native lifecycle, font, raster, physical and reader acceptance remain
+pending.
 
 Generic child clipping now has a [software renderer candidate](docs/content-clipping.md)
 sharing the existing continuous/circular/capsule paths; strict native acceptance

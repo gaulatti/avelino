@@ -1,0 +1,46 @@
+Test project /work/build/linux
+      Start  1: components
+ 1/15 Test  #1: components .......................   Passed   50.86 sec
+      Start  2: components-dpr2
+ 2/15 Test  #2: components-dpr2 ..................   Passed   51.48 sec
+      Start  3: slider-invalid-config
+ 3/15 Test  #3: slider-invalid-config ............   Passed    1.36 sec
+      Start  4: pagination-invalid-config
+ 4/15 Test  #4: pagination-invalid-config ........   Passed    3.43 sec
+      Start  5: presentation-invalid-config
+ 5/15 Test  #5: presentation-invalid-config ......   Passed    2.06 sec
+      Start  6: navigation-invalid-config
+ 6/15 Test  #6: navigation-invalid-config ........   Passed    1.33 sec
+      Start  7: sidebar-brand-invalid-config
+ 7/15 Test  #7: sidebar-brand-invalid-config .....   Passed    1.34 sec
+      Start  8: data-metrics-invalid-config
+ 8/15 Test  #8: data-metrics-invalid-config ......   Passed    1.88 sec
+      Start  9: stepper-invalid-config
+ 9/15 Test  #9: stepper-invalid-config ...........   Passed    5.87 sec
+      Start 10: radio-invalid-config
+10/15 Test #10: radio-invalid-config .............   Passed    3.65 sec
+      Start 11: radio-catalog-metadata
+11/15 Test #11: radio-catalog-metadata ...........   Passed    7.44 sec
+      Start 12: otp-native-transformation
+12/15 Test #12: otp-native-transformation ........   Passed    4.03 sec
+      Start 13: otp-invalid-transformation
+13/15 Test #13: otp-invalid-transformation .......   Passed    4.11 sec
+      Start 14: otp-invalid-input
+14/15 Test #14: otp-invalid-input ................   Passed    1.91 sec
+      Start 15: otp-catalog-metadata
+15/15 Test #15: otp-catalog-metadata .............***Failed    3.99 sec
+Traceback (most recent call last):
+  File "/work/tests/components/check-otp-catalog.py", line 26, in <module>
+    subprocess.run([str(catalog), '--fixture', 'reference-case', '--case', name, '--case-definitions', str(inputs), '--capture', str(image)],
+  File "/usr/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/work/build/linux/samples/AvelinoCatalog/AvelinoCatalog', '--fixture', 'reference-case', '--case', 'width-0', '--case-definitions', '/tmp/avelino-otp-catalog-uh3jfnoq/fixtures.json', '--capture', '/tmp/avelino-otp-catalog-uh3jfnoq/4.png']' returned non-zero exit status 6.
+
+
+93% tests passed, 1 tests failed out of 15
+
+Total Test time (real) = 144.87 sec
+
+The following tests FAILED:
+	 15 - otp-catalog-metadata (Failed)
+Errors while running CTest

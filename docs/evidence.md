@@ -832,3 +832,36 @@ are byte-identical. Earlier strict native pixel and child-geometry failures are
 unchanged; no baseline, tolerance or approved exception changed. The scaled
 Weston virtual keyboard remains clipped at the output boundary and unaccepted.
 This checkpoint adds no accepted desktop API and changes no TV implementation.
+
+## OTP input candidate
+
+The [OTP candidate](otp-input.md) adds a caller-owned code binding, raw Qt
+editing, the pinned Unicode numeric-character filter, marked-text commits and
+large-input support. Its source-free independent consumer and shared catalog
+adapter cover unfiltered getters, zero-length codes, narrow offers, disabled
+inputs, explicit font sizing and both binding-owner publication patterns.
+
+Validation records 7,406 component test results across display factors one/two,
+six production-transform test results including the 13,137,306-case native hash,
+15 passing CTest targets, 179 Python contracts, 23 installed consumer modes,
+103 installed catalog images and eight focused virtual display configurations.
+All 99 prior gallery PNG/full-metadata pairs are byte-identical. Forward and
+backward Tab traversal and programmatic wrapper focus have component and
+independent-consumer regressions; the original failing backward-Tab probe is
+retained with the corrected result.
+
+The component and consumer match all 200 recorded model/editor observations in
+19 native traces. Deferred owners acknowledge queued actual requests in the
+observed order; native elapsed-time behavior remains pending. Callback snapshots
+match 36/143 comparable observations and selection matches 123/150. The original
+counts and differences remain visible. The Linux fixed-font profile renders
+missing-glyph boxes for the Han fixture, while the source renders its seven
+characters. Native font, glyph, raster, complete lifecycle, physical input and
+actual reader gates remain open. The full 184-configuration display checker is
+wired for CI; the local focused run covers eight OTP configurations.
+
+The [sealed comparison](../evidence/development/otp/comparison/comparison.json)
+retains 344 matching public body bounds and 328 matching OTP initial states,
+with zero exact pixel matches. Coverage is 59/80 desktop APIs started, zero
+accepted; all 46 TV entries remain pending. No expected image, source pin,
+tolerance or approved exception changed.

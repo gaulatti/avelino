@@ -14,3 +14,7 @@ evidence/reference-investigations/otp-20261016/unicode17/emoji-data.txt -text -w
 
 # Preserve raw Linux OTP transformation validation transcripts.
 evidence/development/otp-transformation/*.log -text -whitespace
+
+# Preserve the exact candidate test, capture and virtual-session transcripts.
+evidence/development/otp/**/*.log -text -whitespace
+evidence/development/otp/sessions/capture-tool-version.txt -text -whitespace

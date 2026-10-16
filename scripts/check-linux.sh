@@ -69,6 +69,7 @@ cmake --build "$stage/build" --parallel 2
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --data-metrics)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --stepper)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --radio-group)
+(cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --otp-input)
 format_report="$PWD/artifacts/linux/number-formatting.json"
 set +e
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --data-metrics --format-diagnostics "$format_report")
@@ -92,7 +93,7 @@ cp artifacts/linux/environment.json artifacts/package/environment.json
 mkdir -p artifacts/linux
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --capture artifacts/linux/actions-light.png
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --dark --capture artifacts/linux/actions-dark.png
-for fixture in foundations surfaces data-display controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper radio-group; do
+for fixture in foundations surfaces data-display controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper radio-group otp-input; do
 for appearance in light dark; do
   for dpr in 1 2; do
     args=(--fixture "$fixture")
@@ -245,3 +246,10 @@ python3 scripts/capture-radio-cases.py \
 if [[ -e artifacts/linux/radio-source-candidates ]]; then mv artifacts/linux/radio-source-candidates "$stage/previous-radio-candidates"; fi
 mv "$radio_attempt/captures" artifacts/linux/radio-source-candidates
 rmdir "$radio_attempt"
+
+otp_attempt="$(mktemp -d "$PWD/artifacts/linux/otp-attempt.XXXXXX")"
+python3 scripts/capture-otp-cases.py \
+  "$stage/install/bin/AvelinoCatalog" "$otp_attempt/captures"
+if [[ -e artifacts/linux/otp-source-candidates ]]; then mv artifacts/linux/otp-source-candidates "$stage/previous-otp-candidates"; fi
+mv "$otp_attempt/captures" artifacts/linux/otp-source-candidates
+rmdir "$otp_attempt"

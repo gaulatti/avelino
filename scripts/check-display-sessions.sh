@@ -50,7 +50,7 @@ INI
   fi
   for backend in software opengl; do
     for configuration in standard scaled; do
-    for fixture in base controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper radio-group; do
+    for fixture in base controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper radio-group otp-input; do
       prefix="$evidence/$protocol-$backend-$configuration"
       if [[ "$fixture" == controls ]]; then prefix="$evidence/controls-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == composition ]]; then prefix="$evidence/composition-$protocol-$backend-$configuration"; fi
@@ -63,6 +63,7 @@ INI
       if [[ "$fixture" == tabs ]]; then prefix="$evidence/tabs-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == pagination ]]; then prefix="$evidence/pagination-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == pagination-integers ]]; then prefix="$evidence/pagination-integers-$protocol-$backend-$configuration"; fi
+      if [[ "$fixture" == otp-input ]]; then prefix="$evidence/otp-input-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == radio-group ]]; then prefix="$evidence/radio-group-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == stepper ]]; then prefix="$evidence/stepper-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == data-metrics ]]; then prefix="$evidence/data-metrics-$protocol-$backend-$configuration"; fi
@@ -85,6 +86,7 @@ INI
       if [[ "$fixture" == tabs ]]; then args+=(--tabs); fi
       if [[ "$fixture" == pagination ]]; then args+=(--pagination); fi
       if [[ "$fixture" == pagination-integers ]]; then args+=(--pagination-integers); fi
+      if [[ "$fixture" == otp-input ]]; then args+=(--otp-input); fi
       if [[ "$fixture" == radio-group ]]; then args+=(--radio-group); fi
       if [[ "$fixture" == stepper ]]; then args+=(--stepper); fi
       if [[ "$fixture" == data-metrics ]]; then args+=(--data-metrics); fi
@@ -166,6 +168,9 @@ elif fixture == 'secure-field':
         assert record[key] == 'passed', record
     assert record['sourceHeight'] == 40 and record['fontPointSize'] == 10.5, record
     assert record['revealed'] is True, record
+elif fixture == 'otp-input':
+    for key in ['otpChecks','callerBindingChecks','focusChecks','qtAccessibilityChecks']:assert record[key]=='passed',record
+    assert record['nativeModelEditorSnapshots']==200 and len(record['nativeTraces'])==19 and record['accepted'] is False,record
 elif fixture == 'radio-group':
     for key in ['radioChecks','callerBindingChecks','focusChecks','qtAccessibilityChecks']:assert record[key]=='passed',record
     assert len(record['nativeBehaviorTraces'])==24 and len(record['nativePointerPhaseTraces'])==11 and record['matchingNativeStringPairs']==13762,record

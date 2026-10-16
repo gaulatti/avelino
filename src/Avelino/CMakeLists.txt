@@ -14,7 +14,7 @@ if(NOT AVELINO_ICU_ABI_COHERENT)
     message(FATAL_ERROR "ICU74 headers and libraries must resolve to the same system installation")
 endif()
 set(qml_files BleeckerMetric.qml BleeckerStatCard.qml BleeckerIconBadge.qml BleeckerKbd.qml BleeckerTokens.qml BleeckerTheme.qml BleeckerButton.qml
-    BleeckerRadioGroup.qml RadioGlyph.qml BleeckerLoadingSpinner.qml BleeckerStepper.qml StepperGlyph.qml BleeckerAlert.qml AlertGlyph.qml CircularContent.qml BleeckerEmptyState.qml BleeckerErrorState.qml BleeckerLoadingOverlay.qml StateGlyph.qml BleeckerTextField.qml BleeckerSeparator.qml
+    BleeckerOTPInput.qml BleeckerRadioGroup.qml RadioGlyph.qml BleeckerLoadingSpinner.qml BleeckerStepper.qml StepperGlyph.qml BleeckerAlert.qml AlertGlyph.qml CircularContent.qml BleeckerEmptyState.qml BleeckerErrorState.qml BleeckerLoadingOverlay.qml StateGlyph.qml BleeckerTextField.qml BleeckerSeparator.qml
     BleeckerSkeleton.qml BleeckerBauhausBackground.qml BleeckerProgress.qml
     BleeckerButtonGroup.qml BleeckerHeader.qml BleeckerPanelLayout.qml
     BleeckerCard.qml BleeckerPanel.qml BleeckerAttentionSurface.qml

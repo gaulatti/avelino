@@ -17,6 +17,8 @@ target_compile_definitions(AvelinoComponentTests PRIVATE
     NATIVE_SIDEBAR_BRAND_FILE="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/sidebar-brand-20261015/captures.json"
     NATIVE_SPINNER_FILE="${PROJECT_SOURCE_DIR}/evidence/geometry/native-spinner.json"
     NATIVE_RADIO_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/radio-20261016"
+    NATIVE_OTP_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/otp-20261016"
+    OTP_TRACE_OUTPUT_DIRECTORY="${PROJECT_SOURCE_DIR}/artifacts/otp-editor-traces"
     NATIVE_STEPPER_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/stepper-20261016"
     NATIVE_TYPOGRAPHY_FILE="${PROJECT_SOURCE_DIR}/evidence/geometry/native-typography.json")
 add_test(NAME components COMMAND AvelinoComponentTests -import ${CMAKE_BINARY_DIR}/qml)
@@ -58,3 +60,7 @@ target_compile_definitions(AvelinoOTPSemanticsTests PRIVATE
 add_test(NAME otp-native-transformation COMMAND AvelinoOTPSemanticsTests)
 add_test(NAME otp-invalid-transformation COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/check-invalid-otp.py
     $<TARGET_FILE:AvelinoComponentTests> ${CMAKE_BINARY_DIR}/qml)
+add_test(NAME otp-invalid-input COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/check-invalid-otp-input.py
+    $<TARGET_FILE:AvelinoComponentTests> ${CMAKE_BINARY_DIR}/qml)
+add_test(NAME otp-catalog-metadata COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/check-otp-catalog.py
+    $<TARGET_FILE:AvelinoCatalog> ${CMAKE_BINARY_DIR}/qml ${PROJECT_SOURCE_DIR})

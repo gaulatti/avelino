@@ -8,13 +8,48 @@
 #include <QLocale>
 #include <QCoreApplication>
 #include <QEvent>
+#include <QInputMethodEvent>
+#include <QQuickItem>
+#include <QTemporaryDir>
+#include <QDir>
 
 class FixtureSetup : public QObject {
     Q_OBJECT
 public slots:
+    QString saveOTPTraceReport(const QVariantList &traces) {
+        const auto root=QStringLiteral(OTP_TRACE_OUTPUT_DIRECTORY);
+        if(!QDir().mkpath(root))qFatal("Cannot create OTP trace output root");
+        QTemporaryDir attempt(root+"/attempt-XXXXXX");
+        if(!attempt.isValid())qFatal("Cannot create fresh OTP trace output directory");
+        attempt.setAutoRemove(false);
+        const auto path=attempt.path()+"/traces.json";
+        QFile file(path);if(!file.open(QIODevice::WriteOnly))qFatal("Cannot write OTP trace report");
+        const QJsonObject report{{"accepted",false},{"qt",qVersion()},
+            {"scope","QInputMethodEvent and QtTest replay with explicit queued-owner acknowledgement order; delayed-owner clock, source callback/selection, physical input and reader acceptance pending"},
+            {"traces",QJsonArray::fromVariantList(traces)}};
+        file.write(QJsonDocument(report).toJson());return path;
+    }
+    void commitText(QQuickItem *item,const QString &text) {
+        QInputMethodEvent event;event.setCommitString(text);QCoreApplication::sendEvent(item,&event);
+    }
+    void preeditText(QQuickItem *item,const QString &text) {
+        QInputMethodEvent event(text,{});QCoreApplication::sendEvent(item,&event);
+    }
     void setProcessLocale(const QString &name) {QLocale::setDefault(QLocale(name));QEvent event(QEvent::LocaleChange);QCoreApplication::sendEvent(qApp,&event);}
     void qmlEngineAvailable(QQmlEngine *engine) {
         engine->rootContext()->setContextProperty("fixtureSetup",this);
+        QJsonArray otpTraces;
+        for(const auto &name:QStringList{"behavior-final/behavior.json","state-bindings/state-bindings.json","edges/edges.json"}) {
+            QFile file(QStringLiteral(NATIVE_OTP_DIRECTORY)+"/"+name);
+            if(!file.open(QIODevice::ReadOnly))qFatal("Native OTP editor evidence missing");
+            const auto data=QJsonDocument::fromJson(file.readAll()).object();
+            if(data.value("reference").toString()!="fe8a1d462fbd793d883fb92086a16aa2947e32c9")qFatal("Native OTP editor reference invalid");
+            for(const auto &value:data.value("traces").toArray()) {
+                auto trace=value.toObject();trace.insert("sourceFile",name);otpTraces.append(trace);
+            }
+        }
+        if(otpTraces.size()!=19)qFatal("Native OTP editor coverage invalid");
+        engine->rootContext()->setContextProperty("nativeOTPTraces",otpTraces.toVariantList());
         const auto radioDirectory=QStringLiteral(NATIVE_RADIO_DIRECTORY);
         for(const auto &name:QStringList{"captures/captures.json","behavior/behavior.json","native-string-identity.json"}) {
             QFile file(radioDirectory+"/"+name);if(!file.open(QIODevice::ReadOnly))qFatal("Native RadioGroup evidence missing");
