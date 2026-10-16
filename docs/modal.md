@@ -109,3 +109,56 @@ Negative contracts run in References CI. This source checkpoint does not start
 another Linux API or alter expected images, reference pins, tolerances or approved
 exceptions. Exact typography, symbols, shadow/raster, real keyboard/IME, physical
 displays/input, complete presentation integration and screen readers stay open.
+
+## Clipped input and reopening
+
+An additive [input investigation](../evidence/reference-investigations/modal-input-20261016/investigation.json)
+records 170 clipping queries, 568 precise Close hit queries and three reopening
+traces with 20 snapshots. A fresh source-only rebuild repeats every input result
+and lifecycle/binding metadata file. It reproduces 65 of 67 output files byte for
+byte. Two public TextField reopening images differ within the field body. Both
+originals and replay images remain preserved and explicitly quarantined from
+pixel acceptance; neither becomes a replacement expected image.
+
+The rounded visual clip does not restrict caller input. An enabled fixed-width
+828-by-80 caller button still activates beyond the visible 480-point body. A
+disabled caller button does not activate. The clipped zero-width Modal can also
+retain an active Close symbol outside its empty visual body. The 44-by-36 Close
+layout rectangle includes padding that does not activate its ghost button.
+These measurements require separate visual clipping and input containment.
+
+The four measured Close profiles use resolved symbol fonts 13 and 20, each at
+requested DPR one/two. Their 142 samples per profile include four boundary searches
+and an 81-point grid. All 568 results fit a pixel-aligned square: ceil 0.8 times
+the resolved symbol size at the requested DPR, centered with a local pixel round
+inside the fixed 16-point frame, then rounded again at its window position. The
+measured squares are 11 points at font 13/DPR one, 10.5 at font 13/DPR two, and
+16 at font 20. Window position explains the asymmetric half-point offsets.
+This is input geometry evidence, not permission to redistribute native symbol
+artwork or a claim about unmeasured symbol sizes or physical pointing devices.
+
+Reopening the retained hosting window preserves the caller counter: its next
+activation reports two. Reopening the caller's sheet starts the counter at zero,
+and its next activation reports one. A caller-owned edition binding survives sheet
+reopening and later producer updates. The native sheet counter reports three
+appearances and zero disappear callbacks in this inactive harness. Qt object
+destruction is a different framework event and must not be reported as an equal
+native disappear callback. Focused presentation/lifecycle acceptance remains open.
+
+The TextField's full reconstructed sheet witness changes body pixels. Clearing
+native first responders does not make it transparent; the cause is unisolated.
+Its first 154 physical header rows remain byte-identical. Only that verified
+header supplies the Close target. No TextField body frame from this witness is
+used as a regression expectation. The two reopening replay disagreements also
+leave that header unchanged. Full field pixels, focus, native typing/IME and
+screen readers remain pending.
+
+The five-input source-only archive has SHA-256
+`7ecf2f03510770e212135de0c6e33642a4d56785a2bd25049b031820f35c92c7`.
+Its [provenance](../evidence/reference-investigations/modal-input-20261016/tooling-provenance.json)
+retains the external locator and unchanged 89-source build. All failed helper
+attempts, incomplete data, mismatched witnesses and replay differences remain in
+the investigation. Run `python3 scripts/verify-modal-input-source.py` to audit the
+facts, original capture anchors, precise hit model, source-only input hashes and
+explicit exclusions. These observations leave Linux implementation and all
+complete mirror gates pending.
