@@ -78,6 +78,11 @@ Generic child clipping now has a [software renderer candidate](docs/content-clip
 sharing the existing continuous/circular/capsule paths; strict native acceptance
 remains pending.
 
+The [Modal source investigation](docs/modal.md) records fixed-width layout,
+per-child padding and contextual sheet dismissal, with a clean source-only replay.
+Its Linux implementation and complete visual, input and reader acceptance remain
+pending.
+
 The [page header and breadcrumb candidates](docs/navigation-layout.md) use measured
 source layout, fixed typography, caller action content and logical-index
 callbacks. Full font/symbol/raster and physical/reader acceptance remains pending.

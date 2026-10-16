@@ -146,3 +146,10 @@ captures, controlled binding and pointer traces, native String identity and a fr
 source-only replay of 1,358 output files. The tracked Qt normalization diagnostic
 retains 17 disagreements. Its source images and Unicode facts do not establish
 Linux implementation, visual or reader acceptance. Native tooling remains external.
+
+The [Modal investigation](modal.md) preserves 288 public/probed/witness capture
+triples, three sheet triples and 14 behavior traces. A fresh unchanged-source
+rebuild reproduces all 977 raw capture/behavior outputs. It separates embedded
+dismissal of the hosting window from the caller's sheet context and preserves
+inactive accessibility and post-dismissal input diagnostics. Linux implementation
+and acceptance remain pending.

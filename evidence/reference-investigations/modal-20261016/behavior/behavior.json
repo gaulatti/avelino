@@ -1,0 +1,3696 @@
+{
+  "reference" : "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+  "scope" : "Unmodified public Modal; own-process direct NSWindow events. Embedded targets measured with byte-validated source witness; sheet targets measured with a separately presented byte-validated source witness; inactive AX child publication is unavailable. Physical input, IME and screen reader acceptance remain pending.",
+  "traces" : [
+    {
+      "events" : [
+        {
+          "action" : "initial",
+          "path" : "counter-lifecycle-initial.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 1,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "counter",
+              "disabled" : false,
+              "fixture" : "counter-lifecycle",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+              0
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          }
+        },
+        {
+          "action" : "increment",
+          "nativePoint" : {
+            "x" : 480,
+            "y" : 411.5
+          },
+          "path" : "counter-lifecycle-increment.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 1,
+            "applicationActive" : false,
+            "calls" : [
+              "counter:1"
+            ],
+            "configuration" : {
+              "content" : "counter",
+              "disabled" : false,
+              "fixture" : "counter-lifecycle",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+              0
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          },
+          "targetKey" : "content-counter"
+        },
+        {
+          "action" : "producer-update",
+          "path" : "counter-lifecycle-producer-update.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 1,
+            "applicationActive" : false,
+            "calls" : [
+              "counter:1"
+            ],
+            "configuration" : {
+              "content" : "counter",
+              "disabled" : false,
+              "fixture" : "counter-lifecycle",
+              "height" : 900,
+              "modalWidth" : 160,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "A newly revised edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+              0
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          }
+        },
+        {
+          "action" : "increment-after-update",
+          "nativePoint" : {
+            "x" : 480,
+            "y" : 383.5
+          },
+          "path" : "counter-lifecycle-increment-after-update.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 1,
+            "applicationActive" : false,
+            "calls" : [
+              "counter:1",
+              "counter:2"
+            ],
+            "configuration" : {
+              "content" : "counter",
+              "disabled" : false,
+              "fixture" : "counter-lifecycle",
+              "height" : 900,
+              "modalWidth" : 160,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "A newly revised edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+              0
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          },
+          "targetKey" : "content-counter"
+        },
+        {
+          "action" : "disabled-counter",
+          "nativePoint" : {
+            "x" : 480,
+            "y" : 383.5
+          },
+          "path" : "counter-lifecycle-disabled-counter.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 1,
+            "applicationActive" : false,
+            "calls" : [
+              "counter:1",
+              "counter:2"
+            ],
+            "configuration" : {
+              "content" : "counter",
+              "disabled" : true,
+              "fixture" : "counter-lifecycle",
+              "height" : 900,
+              "modalWidth" : 160,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "A newly revised edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+              0
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          },
+          "targetKey" : "content-counter"
+        },
+        {
+          "action" : "enabled-counter",
+          "nativePoint" : {
+            "x" : 480,
+            "y" : 383.5
+          },
+          "path" : "counter-lifecycle-enabled-counter.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 1,
+            "applicationActive" : false,
+            "calls" : [
+              "counter:1",
+              "counter:2",
+              "counter:3"
+            ],
+            "configuration" : {
+              "content" : "counter",
+              "disabled" : false,
+              "fixture" : "counter-lifecycle",
+              "height" : 900,
+              "modalWidth" : 160,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "A newly revised edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+              0
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          },
+          "targetKey" : "content-counter"
+        },
+        {
+          "action" : "remove-content",
+          "path" : "counter-lifecycle-remove-content.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 1,
+            "applicationActive" : false,
+            "calls" : [
+              "counter:1",
+              "counter:2",
+              "counter:3"
+            ],
+            "configuration" : {
+              "content" : "empty",
+              "disabled" : false,
+              "fixture" : "counter-lifecycle",
+              "height" : 900,
+              "modalWidth" : 160,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "A newly revised edition",
+              "width" : 960
+            },
+            "disappears" : 1,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+              0
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          }
+        },
+        {
+          "action" : "restore-content",
+          "path" : "counter-lifecycle-restore-content.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 2,
+            "applicationActive" : false,
+            "calls" : [
+              "counter:1",
+              "counter:2",
+              "counter:3"
+            ],
+            "configuration" : {
+              "content" : "counter",
+              "disabled" : false,
+              "fixture" : "counter-lifecycle",
+              "height" : 900,
+              "modalWidth" : 160,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "A newly revised edition",
+              "width" : 960
+            },
+            "disappears" : 1,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+              0,
+              0
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          }
+        },
+        {
+          "action" : "increment-remounted",
+          "nativePoint" : {
+            "x" : 480,
+            "y" : 383.5
+          },
+          "path" : "counter-lifecycle-increment-remounted.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 2,
+            "applicationActive" : false,
+            "calls" : [
+              "counter:1",
+              "counter:2",
+              "counter:3",
+              "counter:1"
+            ],
+            "configuration" : {
+              "content" : "counter",
+              "disabled" : false,
+              "fixture" : "counter-lifecycle",
+              "height" : 900,
+              "modalWidth" : 160,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "A newly revised edition",
+              "width" : 960
+            },
+            "disappears" : 1,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+              0,
+              0
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          },
+          "targetKey" : "content-counter"
+        },
+        {
+          "action" : "unmount-modal",
+          "path" : "counter-lifecycle-unmount-modal.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 2,
+            "applicationActive" : false,
+            "calls" : [
+              "counter:1",
+              "counter:2",
+              "counter:3",
+              "counter:1"
+            ],
+            "configuration" : {
+              "content" : "counter",
+              "disabled" : false,
+              "fixture" : "counter-lifecycle",
+              "height" : 900,
+              "modalWidth" : 160,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "A newly revised edition",
+              "width" : 960
+            },
+            "disappears" : 2,
+            "key" : false,
+            "main" : false,
+            "mounted" : false,
+            "mountValues" : [
+              0,
+              0
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          }
+        },
+        {
+          "action" : "remount-modal",
+          "path" : "counter-lifecycle-remount-modal.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 3,
+            "applicationActive" : false,
+            "calls" : [
+              "counter:1",
+              "counter:2",
+              "counter:3",
+              "counter:1"
+            ],
+            "configuration" : {
+              "content" : "counter",
+              "disabled" : false,
+              "fixture" : "counter-lifecycle",
+              "height" : 900,
+              "modalWidth" : 160,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "A newly revised edition",
+              "width" : 960
+            },
+            "disappears" : 2,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+              0,
+              0,
+              0
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          }
+        },
+        {
+          "action" : "increment-after-modal-remount",
+          "nativePoint" : {
+            "x" : 480,
+            "y" : 383.5
+          },
+          "path" : "counter-lifecycle-increment-after-modal-remount.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 3,
+            "applicationActive" : false,
+            "calls" : [
+              "counter:1",
+              "counter:2",
+              "counter:3",
+              "counter:1",
+              "counter:1"
+            ],
+            "configuration" : {
+              "content" : "counter",
+              "disabled" : false,
+              "fixture" : "counter-lifecycle",
+              "height" : 900,
+              "modalWidth" : 160,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "A newly revised edition",
+              "width" : 960
+            },
+            "disappears" : 2,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+              0,
+              0,
+              0
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          },
+          "targetKey" : "content-counter"
+        },
+        {
+          "action" : "embedded-close",
+          "nativePoint" : {
+            "x" : 518,
+            "y" : 488.5
+          },
+          "path" : "counter-lifecycle-embedded-close.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 3,
+            "applicationActive" : false,
+            "calls" : [
+              "counter:1",
+              "counter:2",
+              "counter:3",
+              "counter:1",
+              "counter:1"
+            ],
+            "configuration" : {
+              "content" : "counter",
+              "disabled" : false,
+              "fixture" : "counter-lifecycle",
+              "height" : 900,
+              "modalWidth" : 160,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "A newly revised edition",
+              "width" : 960
+            },
+            "disappears" : 2,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+              0,
+              0,
+              0
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : false
+          },
+          "targetKey" : "close"
+        }
+      ],
+      "id" : "counter-lifecycle",
+      "initialConfiguration" : {
+        "content" : "counter",
+        "disabled" : false,
+        "fixture" : "counter-lifecycle",
+        "height" : 900,
+        "modalWidth" : 480,
+        "outerOffer" : null,
+        "parentFont" : 0,
+        "parentRed" : false,
+        "rtl" : false,
+        "title" : "Edit edition",
+        "width" : 960
+      },
+      "kind" : "lifecycle",
+      "presentation" : "embedded",
+      "targetProofs" : [
+        {
+          "configuration" : {
+            "content" : "counter",
+            "disabled" : false,
+            "fixture" : "counter-lifecycle",
+            "height" : 900,
+            "modalWidth" : 480,
+            "outerOffer" : null,
+            "parentFont" : 0,
+            "parentRed" : false,
+            "rtl" : false,
+            "title" : "Edit edition",
+            "width" : 960
+          },
+          "frame" : {
+            "height" : 36,
+            "width" : 74.5,
+            "x" : 442.75,
+            "y" : 470.5
+          },
+          "identical" : true,
+          "key" : "content-counter",
+          "publicPath" : "counter-lifecycle-target-0-public.png",
+          "witnessPath" : "counter-lifecycle-target-0-witness.png"
+        },
+        {
+          "configuration" : {
+            "content" : "counter",
+            "disabled" : false,
+            "fixture" : "counter-lifecycle",
+            "height" : 900,
+            "modalWidth" : 160,
+            "outerOffer" : null,
+            "parentFont" : 0,
+            "parentRed" : false,
+            "rtl" : false,
+            "title" : "A newly revised edition",
+            "width" : 960
+          },
+          "frame" : {
+            "height" : 36,
+            "width" : 74.5,
+            "x" : 442.75,
+            "y" : 498.5
+          },
+          "identical" : true,
+          "key" : "content-counter",
+          "publicPath" : "counter-lifecycle-target-1-public.png",
+          "witnessPath" : "counter-lifecycle-target-1-witness.png"
+        },
+        {
+          "configuration" : {
+            "content" : "counter",
+            "disabled" : true,
+            "fixture" : "counter-lifecycle",
+            "height" : 900,
+            "modalWidth" : 160,
+            "outerOffer" : null,
+            "parentFont" : 0,
+            "parentRed" : false,
+            "rtl" : false,
+            "title" : "A newly revised edition",
+            "width" : 960
+          },
+          "frame" : {
+            "height" : 36,
+            "width" : 74.5,
+            "x" : 442.75,
+            "y" : 498.5
+          },
+          "identical" : true,
+          "key" : "content-counter",
+          "publicPath" : "counter-lifecycle-target-2-public.png",
+          "witnessPath" : "counter-lifecycle-target-2-witness.png"
+        },
+        {
+          "configuration" : {
+            "content" : "counter",
+            "disabled" : false,
+            "fixture" : "counter-lifecycle",
+            "height" : 900,
+            "modalWidth" : 160,
+            "outerOffer" : null,
+            "parentFont" : 0,
+            "parentRed" : false,
+            "rtl" : false,
+            "title" : "A newly revised edition",
+            "width" : 960
+          },
+          "frame" : {
+            "height" : 36,
+            "width" : 74.5,
+            "x" : 442.75,
+            "y" : 498.5
+          },
+          "identical" : true,
+          "key" : "content-counter",
+          "publicPath" : "counter-lifecycle-target-3-public.png",
+          "witnessPath" : "counter-lifecycle-target-3-witness.png"
+        },
+        {
+          "configuration" : {
+            "content" : "counter",
+            "disabled" : false,
+            "fixture" : "counter-lifecycle",
+            "height" : 900,
+            "modalWidth" : 160,
+            "outerOffer" : null,
+            "parentFont" : 0,
+            "parentRed" : false,
+            "rtl" : false,
+            "title" : "A newly revised edition",
+            "width" : 960
+          },
+          "frame" : {
+            "height" : 36,
+            "width" : 74.5,
+            "x" : 442.75,
+            "y" : 498.5
+          },
+          "identical" : true,
+          "key" : "content-counter",
+          "publicPath" : "counter-lifecycle-target-4-public.png",
+          "witnessPath" : "counter-lifecycle-target-4-witness.png"
+        },
+        {
+          "configuration" : {
+            "content" : "counter",
+            "disabled" : false,
+            "fixture" : "counter-lifecycle",
+            "height" : 900,
+            "modalWidth" : 160,
+            "outerOffer" : null,
+            "parentFont" : 0,
+            "parentRed" : false,
+            "rtl" : false,
+            "title" : "A newly revised edition",
+            "width" : 960
+          },
+          "frame" : {
+            "height" : 36,
+            "width" : 74.5,
+            "x" : 442.75,
+            "y" : 498.5
+          },
+          "identical" : true,
+          "key" : "content-counter",
+          "publicPath" : "counter-lifecycle-target-5-public.png",
+          "witnessPath" : "counter-lifecycle-target-5-witness.png"
+        },
+        {
+          "configuration" : {
+            "content" : "counter",
+            "disabled" : false,
+            "fixture" : "counter-lifecycle",
+            "height" : 900,
+            "modalWidth" : 160,
+            "outerOffer" : null,
+            "parentFont" : 0,
+            "parentRed" : false,
+            "rtl" : false,
+            "title" : "A newly revised edition",
+            "width" : 960
+          },
+          "frame" : {
+            "height" : 36,
+            "width" : 44,
+            "x" : 496,
+            "y" : 393.5
+          },
+          "identical" : true,
+          "key" : "close",
+          "publicPath" : "counter-lifecycle-target-6-public.png",
+          "witnessPath" : "counter-lifecycle-target-6-witness.png"
+        }
+      ]
+    },
+    {
+      "events" : [
+        {
+          "action" : "initial",
+          "path" : "editor-binding-initial.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 0,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "editor",
+              "disabled" : false,
+              "fixture" : "editor-binding",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          }
+        },
+        {
+          "action" : "producer-text",
+          "path" : "editor-binding-producer-text.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 0,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "editor",
+              "disabled" : false,
+              "fixture" : "editor-binding",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+
+            ],
+            "text" : "Producer renamed edition",
+            "windowVisible" : true
+          }
+        },
+        {
+          "action" : "producer-layout",
+          "path" : "editor-binding-producer-layout.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 0,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "editor",
+              "disabled" : false,
+              "fixture" : "editor-binding",
+              "height" : 900,
+              "modalWidth" : 240,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "Review edited edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+
+            ],
+            "text" : "Producer renamed edition",
+            "windowVisible" : true
+          }
+        },
+        {
+          "action" : "embedded-close",
+          "nativePoint" : {
+            "x" : 558,
+            "y" : 490.5
+          },
+          "path" : "editor-binding-embedded-close.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 0,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "editor",
+              "disabled" : false,
+              "fixture" : "editor-binding",
+              "height" : 900,
+              "modalWidth" : 240,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "Review edited edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+
+            ],
+            "text" : "Producer renamed edition",
+            "windowVisible" : false
+          },
+          "targetKey" : "close"
+        }
+      ],
+      "id" : "editor-binding",
+      "initialConfiguration" : {
+        "content" : "editor",
+        "disabled" : false,
+        "fixture" : "editor-binding",
+        "height" : 900,
+        "modalWidth" : 480,
+        "outerOffer" : null,
+        "parentFont" : 0,
+        "parentRed" : false,
+        "rtl" : false,
+        "title" : "Edit edition",
+        "width" : 960
+      },
+      "kind" : "editor",
+      "presentation" : "embedded",
+      "targetProofs" : [
+        {
+          "configuration" : {
+            "content" : "editor",
+            "disabled" : false,
+            "fixture" : "editor-binding",
+            "height" : 900,
+            "modalWidth" : 240,
+            "outerOffer" : null,
+            "parentFont" : 0,
+            "parentRed" : false,
+            "rtl" : false,
+            "title" : "Review edited edition",
+            "width" : 960
+          },
+          "frame" : {
+            "height" : 36,
+            "width" : 44,
+            "x" : 536,
+            "y" : 391.5
+          },
+          "identical" : true,
+          "key" : "close",
+          "publicPath" : "editor-binding-target-0-public.png",
+          "witnessPath" : "editor-binding-target-0-witness.png"
+        }
+      ]
+    },
+    {
+      "events" : [
+        {
+          "action" : "initial",
+          "path" : "ordinary-initial.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 0,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "rectangle",
+              "disabled" : false,
+              "fixture" : "ordinary",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          }
+        },
+        {
+          "action" : "click-title",
+          "nativePoint" : {
+            "x" : 308.25,
+            "y" : 510.5
+          },
+          "path" : "ordinary-click-title.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 0,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "rectangle",
+              "disabled" : false,
+              "fixture" : "ordinary",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          },
+          "targetKey" : "title"
+        },
+        {
+          "action" : "click-outside",
+          "path" : "ordinary-click-outside.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 0,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "rectangle",
+              "disabled" : false,
+              "fixture" : "ordinary",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          }
+        },
+        {
+          "action" : "escape",
+          "path" : "ordinary-escape.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 0,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "rectangle",
+              "disabled" : false,
+              "fixture" : "ordinary",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          }
+        },
+        {
+          "action" : "embedded-close",
+          "nativePoint" : {
+            "x" : 678,
+            "y" : 510.5
+          },
+          "path" : "ordinary-embedded-close.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 0,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "rectangle",
+              "disabled" : false,
+              "fixture" : "ordinary",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : false
+          },
+          "targetKey" : "close"
+        }
+      ],
+      "id" : "ordinary",
+      "initialConfiguration" : {
+        "content" : "rectangle",
+        "disabled" : false,
+        "fixture" : "ordinary",
+        "height" : 900,
+        "modalWidth" : 480,
+        "outerOffer" : null,
+        "parentFont" : 0,
+        "parentRed" : false,
+        "rtl" : false,
+        "title" : "Edit edition",
+        "width" : 960
+      },
+      "kind" : "ordinary",
+      "presentation" : "embedded",
+      "targetProofs" : [
+        {
+          "configuration" : {
+            "content" : "rectangle",
+            "disabled" : false,
+            "fixture" : "ordinary",
+            "height" : 900,
+            "modalWidth" : 480,
+            "outerOffer" : null,
+            "parentFont" : 0,
+            "parentRed" : false,
+            "rtl" : false,
+            "title" : "Edit edition",
+            "width" : 960
+          },
+          "frame" : {
+            "height" : 23,
+            "width" : 96.5,
+            "x" : 260,
+            "y" : 378
+          },
+          "identical" : true,
+          "key" : "title",
+          "publicPath" : "ordinary-target-0-public.png",
+          "witnessPath" : "ordinary-target-0-witness.png"
+        },
+        {
+          "configuration" : {
+            "content" : "rectangle",
+            "disabled" : false,
+            "fixture" : "ordinary",
+            "height" : 900,
+            "modalWidth" : 480,
+            "outerOffer" : null,
+            "parentFont" : 0,
+            "parentRed" : false,
+            "rtl" : false,
+            "title" : "Edit edition",
+            "width" : 960
+          },
+          "frame" : {
+            "height" : 36,
+            "width" : 44,
+            "x" : 656,
+            "y" : 371.5
+          },
+          "identical" : true,
+          "key" : "close",
+          "publicPath" : "ordinary-target-1-public.png",
+          "witnessPath" : "ordinary-target-1-witness.png"
+        }
+      ]
+    },
+    {
+      "events" : [
+        {
+          "action" : "initial",
+          "path" : "disabled-initial.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 0,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "rectangle",
+              "disabled" : true,
+              "fixture" : "disabled",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          }
+        },
+        {
+          "action" : "click-title",
+          "nativePoint" : {
+            "x" : 308.25,
+            "y" : 510.5
+          },
+          "path" : "disabled-click-title.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 0,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "rectangle",
+              "disabled" : true,
+              "fixture" : "disabled",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          },
+          "targetKey" : "title"
+        },
+        {
+          "action" : "click-outside",
+          "path" : "disabled-click-outside.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 0,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "rectangle",
+              "disabled" : true,
+              "fixture" : "disabled",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          }
+        },
+        {
+          "action" : "escape",
+          "path" : "disabled-escape.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 0,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "rectangle",
+              "disabled" : true,
+              "fixture" : "disabled",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          }
+        },
+        {
+          "action" : "embedded-close",
+          "nativePoint" : {
+            "x" : 678,
+            "y" : 510.5
+          },
+          "path" : "disabled-embedded-close.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 0,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "rectangle",
+              "disabled" : true,
+              "fixture" : "disabled",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          },
+          "targetKey" : "close"
+        }
+      ],
+      "id" : "disabled",
+      "initialConfiguration" : {
+        "content" : "rectangle",
+        "disabled" : true,
+        "fixture" : "disabled",
+        "height" : 900,
+        "modalWidth" : 480,
+        "outerOffer" : null,
+        "parentFont" : 0,
+        "parentRed" : false,
+        "rtl" : false,
+        "title" : "Edit edition",
+        "width" : 960
+      },
+      "kind" : "ordinary",
+      "presentation" : "embedded",
+      "targetProofs" : [
+        {
+          "configuration" : {
+            "content" : "rectangle",
+            "disabled" : true,
+            "fixture" : "disabled",
+            "height" : 900,
+            "modalWidth" : 480,
+            "outerOffer" : null,
+            "parentFont" : 0,
+            "parentRed" : false,
+            "rtl" : false,
+            "title" : "Edit edition",
+            "width" : 960
+          },
+          "frame" : {
+            "height" : 23,
+            "width" : 96.5,
+            "x" : 260,
+            "y" : 378
+          },
+          "identical" : true,
+          "key" : "title",
+          "publicPath" : "disabled-target-0-public.png",
+          "witnessPath" : "disabled-target-0-witness.png"
+        },
+        {
+          "configuration" : {
+            "content" : "rectangle",
+            "disabled" : true,
+            "fixture" : "disabled",
+            "height" : 900,
+            "modalWidth" : 480,
+            "outerOffer" : null,
+            "parentFont" : 0,
+            "parentRed" : false,
+            "rtl" : false,
+            "title" : "Edit edition",
+            "width" : 960
+          },
+          "frame" : {
+            "height" : 36,
+            "width" : 44,
+            "x" : 656,
+            "y" : 371.5
+          },
+          "identical" : true,
+          "key" : "close",
+          "publicPath" : "disabled-target-1-public.png",
+          "witnessPath" : "disabled-target-1-witness.png"
+        }
+      ]
+    },
+    {
+      "events" : [
+        {
+          "action" : "initial",
+          "path" : "rtl-initial.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 0,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "rectangle",
+              "disabled" : false,
+              "fixture" : "rtl",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : true,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          }
+        },
+        {
+          "action" : "click-title",
+          "nativePoint" : {
+            "x" : 651.75,
+            "y" : 510.5
+          },
+          "path" : "rtl-click-title.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 0,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "rectangle",
+              "disabled" : false,
+              "fixture" : "rtl",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : true,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          },
+          "targetKey" : "title"
+        },
+        {
+          "action" : "click-outside",
+          "path" : "rtl-click-outside.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 0,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "rectangle",
+              "disabled" : false,
+              "fixture" : "rtl",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : true,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          }
+        },
+        {
+          "action" : "escape",
+          "path" : "rtl-escape.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 0,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "rectangle",
+              "disabled" : false,
+              "fixture" : "rtl",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : true,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          }
+        },
+        {
+          "action" : "embedded-close",
+          "nativePoint" : {
+            "x" : 282,
+            "y" : 510.5
+          },
+          "path" : "rtl-embedded-close.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 0,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "rectangle",
+              "disabled" : false,
+              "fixture" : "rtl",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : true,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : false
+          },
+          "targetKey" : "close"
+        }
+      ],
+      "id" : "rtl",
+      "initialConfiguration" : {
+        "content" : "rectangle",
+        "disabled" : false,
+        "fixture" : "rtl",
+        "height" : 900,
+        "modalWidth" : 480,
+        "outerOffer" : null,
+        "parentFont" : 0,
+        "parentRed" : false,
+        "rtl" : true,
+        "title" : "Edit edition",
+        "width" : 960
+      },
+      "kind" : "ordinary",
+      "presentation" : "embedded",
+      "targetProofs" : [
+        {
+          "configuration" : {
+            "content" : "rectangle",
+            "disabled" : false,
+            "fixture" : "rtl",
+            "height" : 900,
+            "modalWidth" : 480,
+            "outerOffer" : null,
+            "parentFont" : 0,
+            "parentRed" : false,
+            "rtl" : true,
+            "title" : "Edit edition",
+            "width" : 960
+          },
+          "frame" : {
+            "height" : 23,
+            "width" : 96.5,
+            "x" : 603.5,
+            "y" : 378
+          },
+          "identical" : true,
+          "key" : "title",
+          "publicPath" : "rtl-target-0-public.png",
+          "witnessPath" : "rtl-target-0-witness.png"
+        },
+        {
+          "configuration" : {
+            "content" : "rectangle",
+            "disabled" : false,
+            "fixture" : "rtl",
+            "height" : 900,
+            "modalWidth" : 480,
+            "outerOffer" : null,
+            "parentFont" : 0,
+            "parentRed" : false,
+            "rtl" : true,
+            "title" : "Edit edition",
+            "width" : 960
+          },
+          "frame" : {
+            "height" : 36,
+            "width" : 44,
+            "x" : 260,
+            "y" : 371.5
+          },
+          "identical" : true,
+          "key" : "close",
+          "publicPath" : "rtl-target-1-public.png",
+          "witnessPath" : "rtl-target-1-witness.png"
+        }
+      ]
+    },
+    {
+      "events" : [
+        {
+          "action" : "initial",
+          "path" : "during-down-hold-initial.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 1,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "counter",
+              "disabled" : false,
+              "fixture" : "during-down-hold",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+              0
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          }
+        },
+        {
+          "action" : "down",
+          "path" : "during-down-hold-down.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 1,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "counter",
+              "disabled" : false,
+              "fixture" : "during-down-hold",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+              0
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          }
+        },
+        {
+          "action" : "hold-or-update",
+          "path" : "during-down-hold-hold-or-update.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 1,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "counter",
+              "disabled" : false,
+              "fixture" : "during-down-hold",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+              0
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          }
+        },
+        {
+          "action" : "up",
+          "path" : "during-down-hold-up.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 1,
+            "applicationActive" : false,
+            "calls" : [
+              "counter:1"
+            ],
+            "configuration" : {
+              "content" : "counter",
+              "disabled" : false,
+              "fixture" : "during-down-hold",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+              0
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          }
+        }
+      ],
+      "id" : "during-down-hold",
+      "initialConfiguration" : {
+        "content" : "counter",
+        "disabled" : false,
+        "fixture" : "during-down-hold",
+        "height" : 900,
+        "modalWidth" : 480,
+        "outerOffer" : null,
+        "parentFont" : 0,
+        "parentRed" : false,
+        "rtl" : false,
+        "title" : "Edit edition",
+        "width" : 960
+      },
+      "kind" : "hold",
+      "presentation" : "embedded",
+      "targetProofs" : [
+        {
+          "configuration" : {
+            "content" : "counter",
+            "disabled" : false,
+            "fixture" : "during-down-hold",
+            "height" : 900,
+            "modalWidth" : 480,
+            "outerOffer" : null,
+            "parentFont" : 0,
+            "parentRed" : false,
+            "rtl" : false,
+            "title" : "Edit edition",
+            "width" : 960
+          },
+          "frame" : {
+            "height" : 36,
+            "width" : 74.5,
+            "x" : 442.75,
+            "y" : 470.5
+          },
+          "identical" : true,
+          "key" : "content-counter",
+          "publicPath" : "during-down-hold-target-0-public.png",
+          "witnessPath" : "during-down-hold-target-0-witness.png"
+        }
+      ]
+    },
+    {
+      "events" : [
+        {
+          "action" : "initial",
+          "path" : "during-down-disable-initial.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 1,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "counter",
+              "disabled" : false,
+              "fixture" : "during-down-disable",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+              0
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          }
+        },
+        {
+          "action" : "down",
+          "path" : "during-down-disable-down.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 1,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "counter",
+              "disabled" : false,
+              "fixture" : "during-down-disable",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+              0
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          }
+        },
+        {
+          "action" : "hold-or-update",
+          "path" : "during-down-disable-hold-or-update.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 1,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "counter",
+              "disabled" : true,
+              "fixture" : "during-down-disable",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+              0
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          }
+        },
+        {
+          "action" : "up",
+          "path" : "during-down-disable-up.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 1,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "counter",
+              "disabled" : true,
+              "fixture" : "during-down-disable",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+              0
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          }
+        }
+      ],
+      "id" : "during-down-disable",
+      "initialConfiguration" : {
+        "content" : "counter",
+        "disabled" : false,
+        "fixture" : "during-down-disable",
+        "height" : 900,
+        "modalWidth" : 480,
+        "outerOffer" : null,
+        "parentFont" : 0,
+        "parentRed" : false,
+        "rtl" : false,
+        "title" : "Edit edition",
+        "width" : 960
+      },
+      "kind" : "disable",
+      "presentation" : "embedded",
+      "targetProofs" : [
+        {
+          "configuration" : {
+            "content" : "counter",
+            "disabled" : false,
+            "fixture" : "during-down-disable",
+            "height" : 900,
+            "modalWidth" : 480,
+            "outerOffer" : null,
+            "parentFont" : 0,
+            "parentRed" : false,
+            "rtl" : false,
+            "title" : "Edit edition",
+            "width" : 960
+          },
+          "frame" : {
+            "height" : 36,
+            "width" : 74.5,
+            "x" : 442.75,
+            "y" : 470.5
+          },
+          "identical" : true,
+          "key" : "content-counter",
+          "publicPath" : "during-down-disable-target-0-public.png",
+          "witnessPath" : "during-down-disable-target-0-witness.png"
+        }
+      ]
+    },
+    {
+      "events" : [
+        {
+          "action" : "initial",
+          "path" : "during-down-remove-initial.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 1,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "counter",
+              "disabled" : false,
+              "fixture" : "during-down-remove",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+              0
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          }
+        },
+        {
+          "action" : "down",
+          "path" : "during-down-remove-down.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 1,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "counter",
+              "disabled" : false,
+              "fixture" : "during-down-remove",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+              0
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          }
+        },
+        {
+          "action" : "hold-or-update",
+          "path" : "during-down-remove-hold-or-update.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 1,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "empty",
+              "disabled" : false,
+              "fixture" : "during-down-remove",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 1,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+              0
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          }
+        },
+        {
+          "action" : "up",
+          "path" : "during-down-remove-up.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 1,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "empty",
+              "disabled" : false,
+              "fixture" : "during-down-remove",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 1,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+              0
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          }
+        }
+      ],
+      "id" : "during-down-remove",
+      "initialConfiguration" : {
+        "content" : "counter",
+        "disabled" : false,
+        "fixture" : "during-down-remove",
+        "height" : 900,
+        "modalWidth" : 480,
+        "outerOffer" : null,
+        "parentFont" : 0,
+        "parentRed" : false,
+        "rtl" : false,
+        "title" : "Edit edition",
+        "width" : 960
+      },
+      "kind" : "remove",
+      "presentation" : "embedded",
+      "targetProofs" : [
+        {
+          "configuration" : {
+            "content" : "counter",
+            "disabled" : false,
+            "fixture" : "during-down-remove",
+            "height" : 900,
+            "modalWidth" : 480,
+            "outerOffer" : null,
+            "parentFont" : 0,
+            "parentRed" : false,
+            "rtl" : false,
+            "title" : "Edit edition",
+            "width" : 960
+          },
+          "frame" : {
+            "height" : 36,
+            "width" : 74.5,
+            "x" : 442.75,
+            "y" : 470.5
+          },
+          "identical" : true,
+          "key" : "content-counter",
+          "publicPath" : "during-down-remove-target-0-public.png",
+          "witnessPath" : "during-down-remove-target-0-witness.png"
+        }
+      ]
+    },
+    {
+      "events" : [
+        {
+          "action" : "initial",
+          "path" : "during-down-width-initial.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 1,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "counter",
+              "disabled" : false,
+              "fixture" : "during-down-width",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+              0
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          }
+        },
+        {
+          "action" : "down",
+          "path" : "during-down-width-down.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 1,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "counter",
+              "disabled" : false,
+              "fixture" : "during-down-width",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+              0
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          }
+        },
+        {
+          "action" : "hold-or-update",
+          "path" : "during-down-width-hold-or-update.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 1,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "counter",
+              "disabled" : false,
+              "fixture" : "during-down-width",
+              "height" : 900,
+              "modalWidth" : 160,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+              0
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          }
+        },
+        {
+          "action" : "up",
+          "path" : "during-down-width-up.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 1,
+            "applicationActive" : false,
+            "calls" : [
+              "counter:1"
+            ],
+            "configuration" : {
+              "content" : "counter",
+              "disabled" : false,
+              "fixture" : "during-down-width",
+              "height" : 900,
+              "modalWidth" : 160,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+              0
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          }
+        }
+      ],
+      "id" : "during-down-width",
+      "initialConfiguration" : {
+        "content" : "counter",
+        "disabled" : false,
+        "fixture" : "during-down-width",
+        "height" : 900,
+        "modalWidth" : 480,
+        "outerOffer" : null,
+        "parentFont" : 0,
+        "parentRed" : false,
+        "rtl" : false,
+        "title" : "Edit edition",
+        "width" : 960
+      },
+      "kind" : "width",
+      "presentation" : "embedded",
+      "targetProofs" : [
+        {
+          "configuration" : {
+            "content" : "counter",
+            "disabled" : false,
+            "fixture" : "during-down-width",
+            "height" : 900,
+            "modalWidth" : 480,
+            "outerOffer" : null,
+            "parentFont" : 0,
+            "parentRed" : false,
+            "rtl" : false,
+            "title" : "Edit edition",
+            "width" : 960
+          },
+          "frame" : {
+            "height" : 36,
+            "width" : 74.5,
+            "x" : 442.75,
+            "y" : 470.5
+          },
+          "identical" : true,
+          "key" : "content-counter",
+          "publicPath" : "during-down-width-target-0-public.png",
+          "witnessPath" : "during-down-width-target-0-witness.png"
+        }
+      ]
+    },
+    {
+      "events" : [
+        {
+          "action" : "initial",
+          "path" : "during-down-title-initial.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 1,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "counter",
+              "disabled" : false,
+              "fixture" : "during-down-title",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+              0
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          }
+        },
+        {
+          "action" : "down",
+          "path" : "during-down-title-down.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 1,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "counter",
+              "disabled" : false,
+              "fixture" : "during-down-title",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "Edit edition",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+              0
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          }
+        },
+        {
+          "action" : "hold-or-update",
+          "path" : "during-down-title-hold-or-update.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 1,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "configuration" : {
+              "content" : "counter",
+              "disabled" : false,
+              "fixture" : "during-down-title",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "A newly revised edition awaiting review",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+              0
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          }
+        },
+        {
+          "action" : "up",
+          "path" : "during-down-title-up.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 900,
+                  "width" : 960,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 1,
+            "applicationActive" : false,
+            "calls" : [
+              "counter:1"
+            ],
+            "configuration" : {
+              "content" : "counter",
+              "disabled" : false,
+              "fixture" : "during-down-title",
+              "height" : 900,
+              "modalWidth" : 480,
+              "outerOffer" : null,
+              "parentFont" : 0,
+              "parentRed" : false,
+              "rtl" : false,
+              "title" : "A newly revised edition awaiting review",
+              "width" : 960
+            },
+            "disappears" : 0,
+            "key" : false,
+            "main" : false,
+            "mounted" : true,
+            "mountValues" : [
+              0
+            ],
+            "text" : "Draft edition",
+            "windowVisible" : true
+          }
+        }
+      ],
+      "id" : "during-down-title",
+      "initialConfiguration" : {
+        "content" : "counter",
+        "disabled" : false,
+        "fixture" : "during-down-title",
+        "height" : 900,
+        "modalWidth" : 480,
+        "outerOffer" : null,
+        "parentFont" : 0,
+        "parentRed" : false,
+        "rtl" : false,
+        "title" : "Edit edition",
+        "width" : 960
+      },
+      "kind" : "title",
+      "presentation" : "embedded",
+      "targetProofs" : [
+        {
+          "configuration" : {
+            "content" : "counter",
+            "disabled" : false,
+            "fixture" : "during-down-title",
+            "height" : 900,
+            "modalWidth" : 480,
+            "outerOffer" : null,
+            "parentFont" : 0,
+            "parentRed" : false,
+            "rtl" : false,
+            "title" : "Edit edition",
+            "width" : 960
+          },
+          "frame" : {
+            "height" : 36,
+            "width" : 74.5,
+            "x" : 442.75,
+            "y" : 470.5
+          },
+          "identical" : true,
+          "key" : "content-counter",
+          "publicPath" : "during-down-title-target-0-public.png",
+          "witnessPath" : "during-down-title-target-0-witness.png"
+        }
+      ]
+    },
+    {
+      "events" : [
+        {
+          "action" : "initial",
+          "height" : 153,
+          "path" : "sheet-close-initial.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 153,
+                  "width" : 480,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 1,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "disappears" : 0,
+            "mountValues" : [
+              0
+            ],
+            "parentVisible" : true,
+            "parts" : {
+
+            },
+            "presented" : true,
+            "sheetCount" : 1,
+            "sheetDismissCount" : 0
+          },
+          "width" : 480
+        },
+        {
+          "action" : "close-click",
+          "state" : {
+            "accessibility" : [
+
+            ],
+            "appears" : 1,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "disappears" : 0,
+            "mountValues" : [
+              0
+            ],
+            "parentVisible" : true,
+            "parts" : {
+
+            },
+            "presented" : false,
+            "sheetCount" : 0,
+            "sheetDismissCount" : 1
+          },
+          "targetFrame" : {
+            "height" : 36,
+            "width" : 44,
+            "x" : 416,
+            "y" : 20
+          },
+          "targetPNGIdentical" : true,
+          "targetPublicPath" : "sheet-close-target-public.png",
+          "targetWitnessPath" : "sheet-close-target-witness.png"
+        }
+      ],
+      "id" : "sheet-close",
+      "initialConfiguration" : {
+        "content" : "counter",
+        "disabled" : false,
+        "fixture" : "sheet-close",
+        "height" : 900,
+        "modalWidth" : 480,
+        "outerOffer" : null,
+        "parentFont" : 0,
+        "parentRed" : false,
+        "rtl" : false,
+        "title" : "Edit edition",
+        "width" : 960
+      },
+      "kind" : "close",
+      "presentation" : "SwiftUI.sheet"
+    },
+    {
+      "events" : [
+        {
+          "action" : "initial",
+          "height" : 153,
+          "path" : "sheet-disabled-close-initial.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 153,
+                  "width" : 480,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 1,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "disappears" : 0,
+            "mountValues" : [
+              0
+            ],
+            "parentVisible" : true,
+            "parts" : {
+
+            },
+            "presented" : true,
+            "sheetCount" : 1,
+            "sheetDismissCount" : 0
+          },
+          "width" : 480
+        },
+        {
+          "action" : "close-click",
+          "height" : 153,
+          "path" : "sheet-disabled-close-close-click.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 153,
+                  "width" : 480,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 1,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "disappears" : 0,
+            "mountValues" : [
+              0
+            ],
+            "parentVisible" : true,
+            "parts" : {
+
+            },
+            "presented" : true,
+            "sheetCount" : 1,
+            "sheetDismissCount" : 0
+          },
+          "targetFrame" : {
+            "height" : 36,
+            "width" : 44,
+            "x" : 416,
+            "y" : 20
+          },
+          "targetPNGIdentical" : true,
+          "targetPublicPath" : "sheet-disabled-close-target-public.png",
+          "targetWitnessPath" : "sheet-disabled-close-target-witness.png",
+          "width" : 480
+        }
+      ],
+      "id" : "sheet-disabled-close",
+      "initialConfiguration" : {
+        "content" : "counter",
+        "disabled" : true,
+        "fixture" : "sheet-disabled-close",
+        "height" : 900,
+        "modalWidth" : 480,
+        "outerOffer" : null,
+        "parentFont" : 0,
+        "parentRed" : false,
+        "rtl" : false,
+        "title" : "Edit edition",
+        "width" : 960
+      },
+      "kind" : "disabled-close",
+      "presentation" : "SwiftUI.sheet"
+    },
+    {
+      "events" : [
+        {
+          "action" : "initial",
+          "height" : 153,
+          "path" : "sheet-escape-initial.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 153,
+                  "width" : 480,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 1,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "disappears" : 0,
+            "mountValues" : [
+              0
+            ],
+            "parentVisible" : true,
+            "parts" : {
+
+            },
+            "presented" : true,
+            "sheetCount" : 1,
+            "sheetDismissCount" : 0
+          },
+          "width" : 480
+        },
+        {
+          "action" : "escape",
+          "height" : 153,
+          "path" : "sheet-escape-escape.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 153,
+                  "width" : 480,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 1,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "disappears" : 0,
+            "mountValues" : [
+              0
+            ],
+            "parentVisible" : true,
+            "parts" : {
+
+            },
+            "presented" : true,
+            "sheetCount" : 1,
+            "sheetDismissCount" : 0
+          },
+          "width" : 480
+        }
+      ],
+      "id" : "sheet-escape",
+      "initialConfiguration" : {
+        "content" : "counter",
+        "disabled" : false,
+        "fixture" : "sheet-escape",
+        "height" : 900,
+        "modalWidth" : 480,
+        "outerOffer" : null,
+        "parentFont" : 0,
+        "parentRed" : false,
+        "rtl" : false,
+        "title" : "Edit edition",
+        "width" : 960
+      },
+      "kind" : "escape",
+      "presentation" : "SwiftUI.sheet"
+    },
+    {
+      "events" : [
+        {
+          "action" : "initial",
+          "height" : 153,
+          "path" : "sheet-outside-initial.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 153,
+                  "width" : 480,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 1,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "disappears" : 0,
+            "mountValues" : [
+              0
+            ],
+            "parentVisible" : true,
+            "parts" : {
+
+            },
+            "presented" : true,
+            "sheetCount" : 1,
+            "sheetDismissCount" : 0
+          },
+          "width" : 480
+        },
+        {
+          "action" : "click-parent",
+          "height" : 153,
+          "path" : "sheet-outside-click-parent.png",
+          "state" : {
+            "accessibility" : [
+              {
+                "depth" : 0,
+                "enabled" : false,
+                "frame" : {
+                  "height" : 153,
+                  "width" : 480,
+                  "x" : 0,
+                  "y" : 0
+                },
+                "label" : "",
+                "role" : "AXGroup",
+                "value" : ""
+              }
+            ],
+            "appears" : 1,
+            "applicationActive" : false,
+            "calls" : [
+
+            ],
+            "disappears" : 0,
+            "mountValues" : [
+              0
+            ],
+            "parentVisible" : true,
+            "parts" : {
+
+            },
+            "presented" : true,
+            "sheetCount" : 1,
+            "sheetDismissCount" : 0
+          },
+          "width" : 480
+        }
+      ],
+      "id" : "sheet-outside",
+      "initialConfiguration" : {
+        "content" : "counter",
+        "disabled" : false,
+        "fixture" : "sheet-outside",
+        "height" : 900,
+        "modalWidth" : 480,
+        "outerOffer" : null,
+        "parentFont" : 0,
+        "parentRed" : false,
+        "rtl" : false,
+        "title" : "Edit edition",
+        "width" : 960
+      },
+      "kind" : "outside",
+      "presentation" : "SwiftUI.sheet"
+    }
+  ]
+}

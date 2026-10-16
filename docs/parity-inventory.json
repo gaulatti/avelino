@@ -32661,7 +32661,7 @@
           "line": 3
         },
         "implementation": [],
-        "caseDiscovery": "pending",
+        "caseDiscovery": "Native source matrix sealed: 36 hosted fixture groups across eight profiles, three presented-sheet triples, 14 behavior traces and per-child padding/fixed-width measurements. Linux implementation, fixtures and complete visual/input/presentation/reader acceptance remain pending.",
         "cases": [],
         "tests": [],
         "captures": [],
@@ -32696,6 +32696,19 @@
             "status": "pending",
             "evidence": []
           }
+        },
+        "sourceInvestigation": {
+          "status": "sealed native source investigation; Linux implementation pending",
+          "evidence": "evidence/reference-investigations/modal-20261016/investigation.json",
+          "captures": 288,
+          "sheetCaptureTriples": 3,
+          "behaviorTraces": 14,
+          "behaviorSnapshots": 60,
+          "cleanSourceReplayIdenticalFiles": 977,
+          "integrityCheck": "scripts/verify-modal-source.py",
+          "contractTests": "tests/contracts/test_modal_source.py",
+          "contract": "docs/modal.md",
+          "limits": "Sheet content captures exclude outer window chrome/shadow. Inactive AX children are unavailable. Earlier input after hosting-window dismissal is diagnostic only. Focused keyboard, IME, physical input and readers remain unaccepted."
         }
       },
       {
