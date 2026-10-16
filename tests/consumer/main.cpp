@@ -375,6 +375,9 @@ int main(int argc, char **argv) {
         if (parser.isSet("selection")) { runSelectionConsumer(window,app,parser,textScale); return; }
         if (parser.isSet("composition")) { runCompositionConsumer(window,app,parser,textScale); return; }
         if (parser.isSet("controls")) { runControlsConsumer(window,app,parser,textScale); return; }
+        QVariant otpTransformation;
+        if(!QMetaObject::invokeMethod(window,"checkOTPTransformation",Q_RETURN_ARG(QVariant,otpTransformation))
+            || !otpTransformation.toBool()){qCritical("Installed OTP transformation failed");app.exit(91);return;}
         auto button = window->findChild<QQuickItem *>("button");
         auto field = window->findChild<QQuickItem *>("field");
         if (!button || !field) { app.exit(3); return; }
@@ -519,6 +522,7 @@ int main(int argc, char **argv) {
                 {"roundedContentClipping", card->property("roundedContentClipping").toBool()},
                 {"roundedClippingAcceptance", "pending; both renderer masks require strict native comparison"},
                 {"labelRenderer", "QQuickPaintedItem/QPainter glyph runs at resolved source font size; requested size retained"},
+                {"otpTransformationChecks", "passed; native transformation only, editor pending"},
                 {"behaviorChecks", "passed"}};
             QFile file(path + ".json");
             if (!file.open(QIODevice::WriteOnly)) { app.exit(14); return; }

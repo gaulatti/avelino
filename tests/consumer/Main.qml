@@ -5,6 +5,14 @@ Window {
     property int invocations: 0
     property int groupedInvocations: 0
     property int dataInvocations: 0
+    function checkOTPTransformation() {
+        const getter = "A123456789"
+        BleeckerOTPTools.validate(getter, 0)
+        return getter === "A123456789"
+            && BleeckerOTPTools.filter("a𝟙1️⃣一b٢", 3) === "𝟙1️⃣一"
+            && BleeckerOTPTools.filter("1\u0900\u06002", 6) === "1\u0900"
+            && BleeckerOTPTools.filter("a".repeat(40000) + "1", 6) === "1"
+    }
     width: 680; height: 448; visible: true
     title: "Avelino installed consumer"
     color: BleeckerTheme.palette.background

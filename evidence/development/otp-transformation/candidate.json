@@ -1,0 +1,55 @@
+{
+  "accepted": false,
+  "status": "Native OTP transformation implemented; Linux OTP editor/component and complete parity pending",
+  "sourceRevision": "a8e715d4a95a55c34ee643a15a77275b2bfb3fa0",
+  "reference": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+  "qt": "6.8.3",
+  "environment": "Linux ARM64 Colima; Qt software offscreen; source-free installed consumer without network or ICU development headers",
+  "counts": {
+    "nativeExamples": 204,
+    "markContexts": 17801,
+    "filteredGraphemeVectors": 766,
+    "nativeTransitions": 13137306,
+    "nativeResultFNV1a64": "3d551fb50bf22f59",
+    "ctestTargetsPassed": 13,
+    "pythonContractsPassed": 172,
+    "invalidQMLInputsRefused": 18,
+    "installedConsumerModesPassed": 22,
+    "unchangedGalleryPNGs": 99,
+    "unchangedGalleryMetadata": 99,
+    "unchangedGallerySummary": 1,
+    "additionalCheckpointContractTestsPassed": 1
+  },
+  "sourceInputs": {
+    "src/Avelino/otptools.h": "b4040e52b6d99093695ee1b04050687f76a1c2a2ee3d1a96d635e0427bb97459",
+    "src/Avelino/otptools.cpp": "2b3c83c990c5831da2684278dad78a89cdc8310d092140e6bb534475569ed458",
+    "src/Avelino/otpunicode.h": "d2f7293c47bb0d542f68f0832062a5493e9bff4f061655edc7202b2d2cd80249",
+    "src/Avelino/CMakeLists.txt": "5dcf59377a9ddc84147e84a54f0cbc508ccdab0b504e13231c683f7ef8aa6c6e",
+    "scripts/generate-otp-unicode.py": "316e3df7d15ab17fa5e06ba35ea4b524c02503ded4cf8e55362c171c34721181",
+    "tests/components/otptools.cpp": "b5c59bacf8d1536117b70562ee457e20718a7fd03561fa5c870fc475298626e6",
+    "tests/components/check-invalid-otp.py": "b958a4ec27218aecb7b667881a9ddb71e324e9e016fc824dec2dad2f78165066",
+    "tests/components/CMakeLists.txt": "ab5a9ff543dcfe548a326cb3e13838034d1eb443280282de8808d0513a3b2b7b",
+    "tests/contracts/test_otp_unicode.py": "178583aa9c9040d42340791af34c6859633efd94daab6cc1d2dc49ee203ebdf7",
+    "tests/consumer/Main.qml": "d813f9bed4924014f4631490a25479408b1ce6c272e537c2af0bf7d181dc8722",
+    "tests/consumer/main.cpp": "01ffcce4a131f3adc31582f7f054f503f129bf50d1225bf071b785689b739c96",
+    "assets/unicode/LICENSE.txt": "e7a93b009565cfce55919a381437ac4db883e9da2126fa28b91d12732bc53d96",
+    "evidence/reference-investigations/otp-20261016/native-otp-semantics.json": "1756160a526d3707215e3e227c2b8a21ac621aaac6297fc2d0bf62771ec33e05",
+    "evidence/reference-investigations/otp-20261016/numeric-cluster-properties.json": "768b497358b4101acb5264ddfa72939551d9e7a1ef9819c816a3920d4f2971ed",
+    "evidence/reference-investigations/otp-20261016/native-otp-graphemes.json": "4f0baa9ffe5ed7ae8fd735c264aab511fe66d126311d632ee63f934af1797c86",
+    "evidence/reference-investigations/otp-20261016/native-otp-cluster-proof.json": "60863fdb40814e91e4d8caac3ca99386a53f2f14578376609c66633e039914f8"
+  },
+  "files": {
+    "contracts.log": "b2c9923247376ac24e9fdfca95d0a3eba4f9579a88add0313d2c38cffcd29e6c",
+    "package-check.log": "e99d493fe73ea6b08108245d40caa67b14d4c700b05f53d7ebbe8eb0274ed487",
+    "ctest.log": "59bb24be3c2c478e689db2e7bc87383fb60e9371825fad16b78767b7faa6bd8a",
+    "native-transformation.txt": "3417caa272d34a94fd3252c653c9e8f0adcdde4430d39a2ae89f8e78454d2bd2",
+    "gallery-byte-comparison.json": "a37ee8c826e7c226b9e86ef5dbc4ebd48b0be497131d5a3c38661450e2f0f20f"
+  },
+  "pending": [
+    "Linux OTP editor and catalog/independent consumer integration",
+    "Exact native editor/model/request/selection trace comparison",
+    "Native keyboard/IME and reader acceptance",
+    "Native font/glyph/frame/raster acceptance",
+    "Full session and physical display gates"
+  ]
+}

@@ -40,7 +40,7 @@ qt_add_library(Avelino SHARED)
 qt_add_qml_module(Avelino URI Avelino VERSION 0.1
     OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/qml/Avelino
     QML_FILES ${qml_files}
-    SOURCES selectionidentity.h selectionidentity.cpp radiooptions.h radiooptions.cpp radiogroupbase.h radiogroupbase.cpp bleeckerfonts.h bleeckerfonts.cpp pixelalignment.h pixelalignment.cpp buttonlabel.h buttonlabel.cpp texttools.h texttools.cpp valuetools.h valuetools.cpp softwarecontentmask.h softwarecontentmask.cpp proposalrow.h proposalrow.cpp brandimage.h brandimage.cpp numbertools.h numbertools.cpp
+    SOURCES otptools.h otptools.cpp otpunicode.h selectionidentity.h selectionidentity.cpp radiooptions.h radiooptions.cpp radiogroupbase.h radiogroupbase.cpp bleeckerfonts.h bleeckerfonts.cpp pixelalignment.h pixelalignment.cpp buttonlabel.h buttonlabel.cpp texttools.h texttools.cpp valuetools.h valuetools.cpp softwarecontentmask.h softwarecontentmask.cpp proposalrow.h proposalrow.cpp brandimage.h brandimage.cpp numbertools.h numbertools.cpp
     RESOURCES ${font_resources} ${brand_logo} unicode-normalization-17.json)
 target_link_libraries(Avelino PUBLIC Qt6::Core Qt6::Gui Qt6::Qml Qt6::Quick Qt6::QuickControls2)
 target_link_libraries(Avelino PRIVATE Qt6::QuickPrivate Qt6::QuickTemplates2Private ICU::i18n ICU::uc)

@@ -56,6 +56,25 @@ table alone still matches only 13,782 of those mark-filter results. The selected
 204 ordinary examples all pass that variant, illustrating why those examples
 alone are insufficient.
 
+The Linux library now exposes `BleeckerOTPTools.filter(text, length)` for the
+source setter transformation. `validate(text, length)` checks a caller getter
+without transforming it. The adapter accepts nonnegative, exactly represented
+JavaScript integer lengths; malformed UTF-16 and invalid lengths fail explicitly,
+including malformed text after the retained prefix. It does not normalize or
+convert digits. Compact production ranges are generated from the immutable
+native measurements by `scripts/generate-otp-unicode.py --check`; generation
+refuses changed input hashes or weakened property invariants. Unicode data use
+the existing `assets/unicode/LICENSE.txt` license.
+
+`otp-native-transformation` compares this production function with all native
+examples, mark contexts and filtered grapheme vectors. It also replays all
+13,137,306 transition inputs and compares the complete scalar-result/prefix hash
+with the measured native hash `3d551fb50bf22f59`. These checks cover the
+transformation, not a Linux editor or complete component acceptance.
+The [transformation checkpoint](../evidence/development/otp-transformation/candidate.json)
+also records the invalid-QML-input checks, source-free installed-consumer run
+and byte identity of all 99 prior gallery images and their metadata.
+
 A specialized numeric transformation can use the pinned numeric, joining and
 prepend properties directly. All 2,023 numeric scalars have grapheme class
 `Other`; neither they nor the joining scalars overlap extended pictographs or

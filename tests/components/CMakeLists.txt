@@ -49,3 +49,12 @@ add_test(NAME radio-invalid-config COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/c
 
 add_test(NAME radio-catalog-metadata COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/check-radio-catalog.py
     $<TARGET_FILE:AvelinoCatalog> ${CMAKE_BINARY_DIR}/qml ${PROJECT_SOURCE_DIR})
+
+qt_add_executable(AvelinoOTPSemanticsTests otptools.cpp)
+target_link_libraries(AvelinoOTPSemanticsTests PRIVATE Qt6::Test Avelino)
+target_include_directories(AvelinoOTPSemanticsTests PRIVATE ${PROJECT_SOURCE_DIR}/src/Avelino)
+target_compile_definitions(AvelinoOTPSemanticsTests PRIVATE
+    NATIVE_OTP_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/otp-20261016")
+add_test(NAME otp-native-transformation COMMAND AvelinoOTPSemanticsTests)
+add_test(NAME otp-invalid-transformation COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/check-invalid-otp.py
+    $<TARGET_FILE:AvelinoComponentTests> ${CMAKE_BINARY_DIR}/qml)
