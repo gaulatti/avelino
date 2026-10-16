@@ -27,10 +27,21 @@ outputs are temporary and are removed by the check script.
 
 The package-only consumer's display harness starts an Xvfb X11 server and a
 Weston Wayland compositor nested on it. It saves whole-output and window captures
-for software/OpenGL rendering at two display/text scales. Source and build trees
-remain absent. Metadata explicitly identifies virtual displays, Mesa software
+for software/OpenGL rendering at two display/text scales. The producer's source
+and build trees remain absent. Metadata explicitly identifies virtual displays, Mesa software
 rendering, synthetic input, and the still-pending overlay/accessibility checks.
-The harness runs twenty-seven independent fixtures in each configuration: the base library
+Xvfb retains its state between clients, and the native cursor is parked at
+2559,1919, outside all clients and the nested compositor. The checked position is
+saved in `native-pointer.txt` and identified in each capture's metadata. Otherwise,
+mapping a tooltip beneath the idle native cursor can inject a genuine Wayland
+Leave while the consumer's synthetic Qt pointer is still over its caller.
+This separates the synthetic-input run from the physical-input acceptance gate.
+The [pointer-isolation checkpoint](../evidence/development/tooltip-pointer-isolation-20261016/README.md)
+passes the complete 224-session matrix, eight executable-only Tooltip profiles,
+and 30 repeated processes using the original failed CI installation. Failed
+attempts, the native Wayland event trace and the startup position guard remain
+preserved. These checks leave strict native and physical acceptance pending.
+The harness runs twenty-eight independent fixtures in each configuration: the base library
 fixture, `InstalledConsumer --controls`, `InstalledConsumer --composition` and
 `InstalledConsumer --selection`, `InstalledConsumer --checkbox` and
 `InstalledConsumer --secure-field`, `InstalledConsumer --search-field` and
@@ -41,8 +52,9 @@ fixture, `InstalledConsumer --controls`, `InstalledConsumer --composition` and
 `InstalledConsumer --data-metrics`, `InstalledConsumer --stepper`,
 `InstalledConsumer --radio-group`, `InstalledConsumer --otp-input` and
 `InstalledConsumer --activity-item`, `InstalledConsumer --modal` and
-`InstalledConsumer --tooltip` and `InstalledConsumer --button-style`.
-Their configured 216 capture pairs keep
+`InstalledConsumer --tooltip`, `InstalledConsumer --button-style` and
+`InstalledConsumer --font-modifier`.
+Their configured 224 capture pairs keep
 form editing, scrolling, switch/toggle actions, disabled segmented options and
 focus restoration separate from the base composition checks. The controls fixture
 exercises the multiline editor's owned scrollbar. The selector fixture exercises

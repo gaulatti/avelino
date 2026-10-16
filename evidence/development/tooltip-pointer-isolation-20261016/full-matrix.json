@@ -1,0 +1,1656 @@
+{
+  "accepted": false,
+  "status": "passed",
+  "sessionCount": 224,
+  "fixtureCount": 28,
+  "profiles": [
+    {
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 1,
+      "sessions": 28
+    },
+    {
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 2,
+      "sessions": 28
+    },
+    {
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 1,
+      "sessions": 28
+    },
+    {
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 2,
+      "sessions": 28
+    },
+    {
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 1,
+      "sessions": 28
+    },
+    {
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 2,
+      "sessions": 28
+    },
+    {
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 1,
+      "sessions": 28
+    },
+    {
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 2,
+      "sessions": 28
+    }
+  ],
+  "receipt": {
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--init",
+      "--ulimit",
+      "core=0",
+      "--name",
+      "avelino-display-native-pointer-v11",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/display-native-pointer-v11:/package:rw",
+      "-w",
+      "/package",
+      "avelino-toolchain:clipping-qt6.8.3",
+      "bash",
+      "check-display-sessions.sh"
+    ],
+    "exitCode": 0,
+    "seconds": 991.6721862920094,
+    "expectedSessions": 224
+  },
+  "archive": "full-matrix.tar.gz",
+  "archiveSha256": "9e7ae4a317a3271e18452adac279ce4c05bbae19f8af4062f702130bba4bee98",
+  "archivedFiles": 1167,
+  "expandedBytes": 33230543,
+  "consumerSourcesByteIdentical": 82,
+  "boundary": "Producer checkout/build and canonical consumer checkout absent; generated consumer build files present. Original input scope error is retained with boundary-audit.json. Separate runtime-only/ has just the executable and installation.",
+  "sessions": [
+    {
+      "file": "accordion-wayland-opengl-scaled.json",
+      "fixture": "accordion",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "accordion-wayland-opengl-standard.json",
+      "fixture": "accordion",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "accordion-wayland-software-scaled.json",
+      "fixture": "accordion",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "accordion-wayland-software-standard.json",
+      "fixture": "accordion",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "accordion-xcb-opengl-scaled.json",
+      "fixture": "accordion",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "accordion-xcb-opengl-standard.json",
+      "fixture": "accordion",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "accordion-xcb-software-scaled.json",
+      "fixture": "accordion",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "accordion-xcb-software-standard.json",
+      "fixture": "accordion",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "activity-item-wayland-opengl-scaled.json",
+      "fixture": "activity-item",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "activity-item-wayland-opengl-standard.json",
+      "fixture": "activity-item",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "activity-item-wayland-software-scaled.json",
+      "fixture": "activity-item",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "activity-item-wayland-software-standard.json",
+      "fixture": "activity-item",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "activity-item-xcb-opengl-scaled.json",
+      "fixture": "activity-item",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "activity-item-xcb-opengl-standard.json",
+      "fixture": "activity-item",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "activity-item-xcb-software-scaled.json",
+      "fixture": "activity-item",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "activity-item-xcb-software-standard.json",
+      "fixture": "activity-item",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "alert-wayland-opengl-scaled.json",
+      "fixture": "alert",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "alert-wayland-opengl-standard.json",
+      "fixture": "alert",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "alert-wayland-software-scaled.json",
+      "fixture": "alert",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "alert-wayland-software-standard.json",
+      "fixture": "alert",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "alert-xcb-opengl-scaled.json",
+      "fixture": "alert",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "alert-xcb-opengl-standard.json",
+      "fixture": "alert",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "alert-xcb-software-scaled.json",
+      "fixture": "alert",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "alert-xcb-software-standard.json",
+      "fixture": "alert",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "button-style-wayland-opengl-scaled.json",
+      "fixture": "button-style",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "button-style-wayland-opengl-standard.json",
+      "fixture": "button-style",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "button-style-wayland-software-scaled.json",
+      "fixture": "button-style",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "button-style-wayland-software-standard.json",
+      "fixture": "button-style",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "button-style-xcb-opengl-scaled.json",
+      "fixture": "button-style",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "button-style-xcb-opengl-standard.json",
+      "fixture": "button-style",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "button-style-xcb-software-scaled.json",
+      "fixture": "button-style",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "button-style-xcb-software-standard.json",
+      "fixture": "button-style",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "checkbox-wayland-opengl-scaled.json",
+      "fixture": "checkbox",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "checkbox-wayland-opengl-standard.json",
+      "fixture": "checkbox",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "checkbox-wayland-software-scaled.json",
+      "fixture": "checkbox",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "checkbox-wayland-software-standard.json",
+      "fixture": "checkbox",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "checkbox-xcb-opengl-scaled.json",
+      "fixture": "checkbox",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "checkbox-xcb-opengl-standard.json",
+      "fixture": "checkbox",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "checkbox-xcb-software-scaled.json",
+      "fixture": "checkbox",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "checkbox-xcb-software-standard.json",
+      "fixture": "checkbox",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "clipping-wayland-opengl-scaled.json",
+      "fixture": "clipping",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "clipping-wayland-opengl-standard.json",
+      "fixture": "clipping",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "clipping-wayland-software-scaled.json",
+      "fixture": "clipping",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "clipping-wayland-software-standard.json",
+      "fixture": "clipping",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "clipping-xcb-opengl-scaled.json",
+      "fixture": "clipping",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "clipping-xcb-opengl-standard.json",
+      "fixture": "clipping",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "clipping-xcb-software-scaled.json",
+      "fixture": "clipping",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "clipping-xcb-software-standard.json",
+      "fixture": "clipping",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "collection-filters-wayland-opengl-scaled.json",
+      "fixture": "collection-filters",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "collection-filters-wayland-opengl-standard.json",
+      "fixture": "collection-filters",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "collection-filters-wayland-software-scaled.json",
+      "fixture": "collection-filters",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "collection-filters-wayland-software-standard.json",
+      "fixture": "collection-filters",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "collection-filters-xcb-opengl-scaled.json",
+      "fixture": "collection-filters",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "collection-filters-xcb-opengl-standard.json",
+      "fixture": "collection-filters",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "collection-filters-xcb-software-scaled.json",
+      "fixture": "collection-filters",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "collection-filters-xcb-software-standard.json",
+      "fixture": "collection-filters",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "composition-wayland-opengl-scaled.json",
+      "fixture": "composition",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "composition-wayland-opengl-standard.json",
+      "fixture": "composition",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "composition-wayland-software-scaled.json",
+      "fixture": "composition",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "composition-wayland-software-standard.json",
+      "fixture": "composition",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "composition-xcb-opengl-scaled.json",
+      "fixture": "composition",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "composition-xcb-opengl-standard.json",
+      "fixture": "composition",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "composition-xcb-software-scaled.json",
+      "fixture": "composition",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "composition-xcb-software-standard.json",
+      "fixture": "composition",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "controls-wayland-opengl-scaled.json",
+      "fixture": "controls",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "controls-wayland-opengl-standard.json",
+      "fixture": "controls",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "controls-wayland-software-scaled.json",
+      "fixture": "controls",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "controls-wayland-software-standard.json",
+      "fixture": "controls",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "controls-xcb-opengl-scaled.json",
+      "fixture": "controls",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "controls-xcb-opengl-standard.json",
+      "fixture": "controls",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "controls-xcb-software-scaled.json",
+      "fixture": "controls",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "controls-xcb-software-standard.json",
+      "fixture": "controls",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "data-metrics-wayland-opengl-scaled.json",
+      "fixture": "data-metrics",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "data-metrics-wayland-opengl-standard.json",
+      "fixture": "data-metrics",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "data-metrics-wayland-software-scaled.json",
+      "fixture": "data-metrics",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "data-metrics-wayland-software-standard.json",
+      "fixture": "data-metrics",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "data-metrics-xcb-opengl-scaled.json",
+      "fixture": "data-metrics",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "data-metrics-xcb-opengl-standard.json",
+      "fixture": "data-metrics",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "data-metrics-xcb-software-scaled.json",
+      "fixture": "data-metrics",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "data-metrics-xcb-software-standard.json",
+      "fixture": "data-metrics",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "font-modifier-wayland-opengl-scaled.json",
+      "fixture": "font-modifier",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "font-modifier-wayland-opengl-standard.json",
+      "fixture": "font-modifier",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "font-modifier-wayland-software-scaled.json",
+      "fixture": "font-modifier",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "font-modifier-wayland-software-standard.json",
+      "fixture": "font-modifier",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "font-modifier-xcb-opengl-scaled.json",
+      "fixture": "font-modifier",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "font-modifier-xcb-opengl-standard.json",
+      "fixture": "font-modifier",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "font-modifier-xcb-software-scaled.json",
+      "fixture": "font-modifier",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "font-modifier-xcb-software-standard.json",
+      "fixture": "font-modifier",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "modal-wayland-opengl-scaled.json",
+      "fixture": "modal",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "modal-wayland-opengl-standard.json",
+      "fixture": "modal",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "modal-wayland-software-scaled.json",
+      "fixture": "modal",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "modal-wayland-software-standard.json",
+      "fixture": "modal",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "modal-xcb-opengl-scaled.json",
+      "fixture": "modal",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "modal-xcb-opengl-standard.json",
+      "fixture": "modal",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "modal-xcb-software-scaled.json",
+      "fixture": "modal",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "modal-xcb-software-standard.json",
+      "fixture": "modal",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "navigation-wayland-opengl-scaled.json",
+      "fixture": "navigation",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "navigation-wayland-opengl-standard.json",
+      "fixture": "navigation",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "navigation-wayland-software-scaled.json",
+      "fixture": "navigation",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "navigation-wayland-software-standard.json",
+      "fixture": "navigation",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "navigation-xcb-opengl-scaled.json",
+      "fixture": "navigation",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "navigation-xcb-opengl-standard.json",
+      "fixture": "navigation",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "navigation-xcb-software-scaled.json",
+      "fixture": "navigation",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "navigation-xcb-software-standard.json",
+      "fixture": "navigation",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "otp-input-wayland-opengl-scaled.json",
+      "fixture": "otp-input",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "otp-input-wayland-opengl-standard.json",
+      "fixture": "otp-input",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "otp-input-wayland-software-scaled.json",
+      "fixture": "otp-input",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "otp-input-wayland-software-standard.json",
+      "fixture": "otp-input",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "otp-input-xcb-opengl-scaled.json",
+      "fixture": "otp-input",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "otp-input-xcb-opengl-standard.json",
+      "fixture": "otp-input",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "otp-input-xcb-software-scaled.json",
+      "fixture": "otp-input",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "otp-input-xcb-software-standard.json",
+      "fixture": "otp-input",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "pagination-integers-wayland-opengl-scaled.json",
+      "fixture": "pagination-integers",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "pagination-integers-wayland-opengl-standard.json",
+      "fixture": "pagination-integers",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "pagination-integers-wayland-software-scaled.json",
+      "fixture": "pagination-integers",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "pagination-integers-wayland-software-standard.json",
+      "fixture": "pagination-integers",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "pagination-integers-xcb-opengl-scaled.json",
+      "fixture": "pagination-integers",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "pagination-integers-xcb-opengl-standard.json",
+      "fixture": "pagination-integers",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "pagination-integers-xcb-software-scaled.json",
+      "fixture": "pagination-integers",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "pagination-integers-xcb-software-standard.json",
+      "fixture": "pagination-integers",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "pagination-wayland-opengl-scaled.json",
+      "fixture": "pagination",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "pagination-wayland-opengl-standard.json",
+      "fixture": "pagination",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "pagination-wayland-software-scaled.json",
+      "fixture": "pagination",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "pagination-wayland-software-standard.json",
+      "fixture": "pagination",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "pagination-xcb-opengl-scaled.json",
+      "fixture": "pagination",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "pagination-xcb-opengl-standard.json",
+      "fixture": "pagination",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "pagination-xcb-software-scaled.json",
+      "fixture": "pagination",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "pagination-xcb-software-standard.json",
+      "fixture": "pagination",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "presentation-states-wayland-opengl-scaled.json",
+      "fixture": "presentation-states",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "presentation-states-wayland-opengl-standard.json",
+      "fixture": "presentation-states",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "presentation-states-wayland-software-scaled.json",
+      "fixture": "presentation-states",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "presentation-states-wayland-software-standard.json",
+      "fixture": "presentation-states",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "presentation-states-xcb-opengl-scaled.json",
+      "fixture": "presentation-states",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "presentation-states-xcb-opengl-standard.json",
+      "fixture": "presentation-states",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "presentation-states-xcb-software-scaled.json",
+      "fixture": "presentation-states",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "presentation-states-xcb-software-standard.json",
+      "fixture": "presentation-states",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "radio-group-wayland-opengl-scaled.json",
+      "fixture": "radio-group",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "radio-group-wayland-opengl-standard.json",
+      "fixture": "radio-group",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "radio-group-wayland-software-scaled.json",
+      "fixture": "radio-group",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "radio-group-wayland-software-standard.json",
+      "fixture": "radio-group",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "radio-group-xcb-opengl-scaled.json",
+      "fixture": "radio-group",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "radio-group-xcb-opengl-standard.json",
+      "fixture": "radio-group",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "radio-group-xcb-software-scaled.json",
+      "fixture": "radio-group",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "radio-group-xcb-software-standard.json",
+      "fixture": "radio-group",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "search-field-wayland-opengl-scaled.json",
+      "fixture": "search-field",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "search-field-wayland-opengl-standard.json",
+      "fixture": "search-field",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "search-field-wayland-software-scaled.json",
+      "fixture": "search-field",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "search-field-wayland-software-standard.json",
+      "fixture": "search-field",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "search-field-xcb-opengl-scaled.json",
+      "fixture": "search-field",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "search-field-xcb-opengl-standard.json",
+      "fixture": "search-field",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "search-field-xcb-software-scaled.json",
+      "fixture": "search-field",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "search-field-xcb-software-standard.json",
+      "fixture": "search-field",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "secure-field-wayland-opengl-scaled.json",
+      "fixture": "secure-field",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "secure-field-wayland-opengl-standard.json",
+      "fixture": "secure-field",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "secure-field-wayland-software-scaled.json",
+      "fixture": "secure-field",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "secure-field-wayland-software-standard.json",
+      "fixture": "secure-field",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "secure-field-xcb-opengl-scaled.json",
+      "fixture": "secure-field",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "secure-field-xcb-opengl-standard.json",
+      "fixture": "secure-field",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "secure-field-xcb-software-scaled.json",
+      "fixture": "secure-field",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "secure-field-xcb-software-standard.json",
+      "fixture": "secure-field",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "selection-wayland-opengl-scaled.json",
+      "fixture": "selection",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "selection-wayland-opengl-standard.json",
+      "fixture": "selection",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "selection-wayland-software-scaled.json",
+      "fixture": "selection",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "selection-wayland-software-standard.json",
+      "fixture": "selection",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "selection-xcb-opengl-scaled.json",
+      "fixture": "selection",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "selection-xcb-opengl-standard.json",
+      "fixture": "selection",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "selection-xcb-software-scaled.json",
+      "fixture": "selection",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "selection-xcb-software-standard.json",
+      "fixture": "selection",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "sidebar-brand-wayland-opengl-scaled.json",
+      "fixture": "sidebar-brand",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "sidebar-brand-wayland-opengl-standard.json",
+      "fixture": "sidebar-brand",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "sidebar-brand-wayland-software-scaled.json",
+      "fixture": "sidebar-brand",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "sidebar-brand-wayland-software-standard.json",
+      "fixture": "sidebar-brand",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "sidebar-brand-xcb-opengl-scaled.json",
+      "fixture": "sidebar-brand",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "sidebar-brand-xcb-opengl-standard.json",
+      "fixture": "sidebar-brand",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "sidebar-brand-xcb-software-scaled.json",
+      "fixture": "sidebar-brand",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "sidebar-brand-xcb-software-standard.json",
+      "fixture": "sidebar-brand",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "slider-wayland-opengl-scaled.json",
+      "fixture": "slider",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "slider-wayland-opengl-standard.json",
+      "fixture": "slider",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "slider-wayland-software-scaled.json",
+      "fixture": "slider",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "slider-wayland-software-standard.json",
+      "fixture": "slider",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "slider-xcb-opengl-scaled.json",
+      "fixture": "slider",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "slider-xcb-opengl-standard.json",
+      "fixture": "slider",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "slider-xcb-software-scaled.json",
+      "fixture": "slider",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "slider-xcb-software-standard.json",
+      "fixture": "slider",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "spinner-wayland-opengl-scaled.json",
+      "fixture": "spinner",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "spinner-wayland-opengl-standard.json",
+      "fixture": "spinner",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "spinner-wayland-software-scaled.json",
+      "fixture": "spinner",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "spinner-wayland-software-standard.json",
+      "fixture": "spinner",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "spinner-xcb-opengl-scaled.json",
+      "fixture": "spinner",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "spinner-xcb-opengl-standard.json",
+      "fixture": "spinner",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "spinner-xcb-software-scaled.json",
+      "fixture": "spinner",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "spinner-xcb-software-standard.json",
+      "fixture": "spinner",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "stepper-wayland-opengl-scaled.json",
+      "fixture": "stepper",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "stepper-wayland-opengl-standard.json",
+      "fixture": "stepper",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "stepper-wayland-software-scaled.json",
+      "fixture": "stepper",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "stepper-wayland-software-standard.json",
+      "fixture": "stepper",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "stepper-xcb-opengl-scaled.json",
+      "fixture": "stepper",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "stepper-xcb-opengl-standard.json",
+      "fixture": "stepper",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "stepper-xcb-software-scaled.json",
+      "fixture": "stepper",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "stepper-xcb-software-standard.json",
+      "fixture": "stepper",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "tabs-wayland-opengl-scaled.json",
+      "fixture": "tabs",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "tabs-wayland-opengl-standard.json",
+      "fixture": "tabs",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "tabs-wayland-software-scaled.json",
+      "fixture": "tabs",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "tabs-wayland-software-standard.json",
+      "fixture": "tabs",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "tabs-xcb-opengl-scaled.json",
+      "fixture": "tabs",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "tabs-xcb-opengl-standard.json",
+      "fixture": "tabs",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "tabs-xcb-software-scaled.json",
+      "fixture": "tabs",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "tabs-xcb-software-standard.json",
+      "fixture": "tabs",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "tooltip-wayland-opengl-scaled.json",
+      "fixture": "tooltip",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "tooltip-wayland-opengl-standard.json",
+      "fixture": "tooltip",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "tooltip-wayland-software-scaled.json",
+      "fixture": "tooltip",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "tooltip-wayland-software-standard.json",
+      "fixture": "tooltip",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "tooltip-xcb-opengl-scaled.json",
+      "fixture": "tooltip",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "tooltip-xcb-opengl-standard.json",
+      "fixture": "tooltip",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "tooltip-xcb-software-scaled.json",
+      "fixture": "tooltip",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "tooltip-xcb-software-standard.json",
+      "fixture": "tooltip",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "wayland-opengl-scaled.json",
+      "fixture": "base",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "wayland-opengl-standard.json",
+      "fixture": "base",
+      "protocol": "wayland",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "wayland-software-scaled.json",
+      "fixture": "base",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "wayland-software-standard.json",
+      "fixture": "base",
+      "protocol": "wayland",
+      "backend": "software",
+      "dpr": 1
+    },
+    {
+      "file": "xcb-opengl-scaled.json",
+      "fixture": "base",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 2
+    },
+    {
+      "file": "xcb-opengl-standard.json",
+      "fixture": "base",
+      "protocol": "xcb",
+      "backend": "opengl",
+      "dpr": 1
+    },
+    {
+      "file": "xcb-software-scaled.json",
+      "fixture": "base",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 2
+    },
+    {
+      "file": "xcb-software-standard.json",
+      "fixture": "base",
+      "protocol": "xcb",
+      "backend": "software",
+      "dpr": 1
+    }
+  ]
+}

@@ -174,6 +174,17 @@ profiles pass. Their separate popup, retained shown pixels, caller state, focus,
 actual Qt accessibility interface and typed hint binding are recorded alongside
 whole-output captures. Physical displays, input and readers remain pending.
 
+Later CI exposed interference between QTest's synthetic pointer and the idle
+native compositor cursor. The [preserved diagnosis](../evidence/development/tooltip-pointer-isolation-20261016/README.md)
+reproduces a native Wayland Leave when the tooltip maps beneath that other
+cursor, despite the synthetic pointer remaining over the caller. The display
+harness now retains Xvfb state, parks and checks the native cursor outside the
+clients, and records its position. Thirty repeated processes using the actual
+failed CI installation pass the original retained-pixel assertion after this
+isolation. The complete 224-session matrix and eight executable-only Tooltip
+profiles also pass. This does not establish native dismissal or physical-input
+parity.
+
 A separate light DPR-two/text-scale-one profile captures the default popup body
 at 314 by 42 physical pixels. The native body is 342 by 42. The
 [body comparison](../evidence/development/tooltip/popup-comparison/comparison.json)

@@ -1,0 +1,50 @@
+{
+  "persistent": {
+    "exitCode": 0,
+    "seconds": 0.29729041701648384,
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--init",
+      "--name",
+      "avelino-pointer-guard-persistent",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/pointer-startup-guard-v12:/package:rw",
+      "-w",
+      "/package",
+      "avelino-toolchain:clipping-qt6.8.3",
+      "bash",
+      "persistent.sh",
+      "persistent-evidence"
+    ],
+    "scriptSha256": "9c7662365629ca7d0f53b62ab37aab6938c7123b04234d68fa39b7ddf2d7a1c8",
+    "pointer": "X=2559\nY=1919\nSCREEN=0\nWINDOW=543\n"
+  },
+  "resetting": {
+    "exitCode": 1,
+    "seconds": 0.3793477501021698,
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--init",
+      "--name",
+      "avelino-pointer-guard-resetting",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/pointer-startup-guard-v12:/package:rw",
+      "-w",
+      "/package",
+      "avelino-toolchain:clipping-qt6.8.3",
+      "bash",
+      "resetting.sh",
+      "resetting-evidence"
+    ],
+    "scriptSha256": "4c38af2760164e00417f4bf1ce744a444d5c6388e3424104e56ce0124ba3fb2e",
+    "pointer": "X=1280\nY=960\nSCREEN=0\nWINDOW=543\n"
+  }
+}

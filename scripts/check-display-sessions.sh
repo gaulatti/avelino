@@ -19,7 +19,7 @@ cleanup() {
 }
 trap cleanup EXIT
 # Keep the largest gallery (1100 x 850 logical units) within the output at DPR 2.
-Xvfb -displayfd 3 -screen 0 2560x1920x24 -nolisten tcp 3>"$runtime/display" >"$evidence/xvfb.log" 2>&1 &
+Xvfb -displayfd 3 -screen 0 2560x1920x24 -nolisten tcp -noreset 3>"$runtime/display" >"$evidence/xvfb.log" 2>&1 &
 xpid=$!
 for ((i=0;i<100;i++)); do
   if [[ -s "$runtime/display" ]]; then break; fi
@@ -27,6 +27,18 @@ for ((i=0;i<100;i++)); do
   sleep 0.1
 done
 export DISPLAY=":$(cat "$runtime/display")"
+# These consumers drive Qt's synthetic pointer independently of the native
+# cursor. Keep that cursor outside every client and the nested compositor so
+# mapping a popup cannot inject an unrelated native Enter/Leave into the test.
+# -noreset retains this position when the last X11 client disconnects.
+xdotool mousemove --sync 2559 1919
+xdotool getmouselocation --shell >"$evidence/native-pointer.txt"
+python3 - "$evidence/native-pointer.txt" <<'PY'
+from pathlib import Path
+import sys
+position = dict(line.split('=', 1) for line in Path(sys.argv[1]).read_text().splitlines())
+assert (position['X'], position['Y'], position['SCREEN']) == ('2559', '1919', '0'), position
+PY
 xdpyinfo >"$evidence/x11-server.txt"
 weston --version >"$evidence/weston-version.txt"
 import -version >"$evidence/capture-tool-version.txt"
@@ -324,6 +336,8 @@ record.update({
     'sessionCaptureMethod': 'ImageMagick import -window root (full X11 output)',
     'physicalDisplay': False,
     'hardwareAcceleration': False,
+    'nativePointerControl': 'parked outside clients and nested compositor; consumer pointer input is synthetic Qt input',
+    'nativePointerRecord': 'native-pointer.txt',
     'sessionOutputSize': list(session_size),
     'clientOutputSize': list(client_output),
     'sessionCapture': Path(prefix+'-session.png').name,
