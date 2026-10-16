@@ -39,11 +39,12 @@ FocusScope {
     }
     readonly property color strokeColor: variant === "primary" ? p.primary : variant === "secondary" ? p.border : variant === "outline" ? BleeckerTheme.alpha(p.sea, 0.5) : variant === "destructive" ? p.destructive : "transparent"
     implicitWidth: effectiveMaximumWidth===-1 ? contentItem.implicitWidth+leftPadding+rightPadding
-        : Math.min(contentItem.implicitWidth+leftPadding+rightPadding,Math.max(leftPadding+rightPadding,effectiveMaximumWidth))
+        : Math.ceil(Math.min(contentItem.implicitWidth+leftPadding+rightPadding,Math.max(leftPadding+rightPadding,effectiveMaximumWidth))*controlAlignment.devicePixelRatio)/controlAlignment.devicePixelRatio
     implicitHeight: Math.max(contentItem.implicitHeight, variant === "link" ? 0 : minimumHeight)
     readonly property real leftPadding: size === "xs" ? 10 : size === "sm" ? 14 : size === "lg" ? 24 : 18
     readonly property real rightPadding: leftPadding
     opacity: effectiveEnabled ? 1 : 0.45
+    PixelAlignment {id:controlAlignment;target:control}
     transform: [
         Translate { y: control.down ? 1 : 0; Behavior on y { NumberAnimation { duration: BleeckerTheme.reducedMotion ? 0 : BleeckerTokens.durations.control; easing.type: Easing.OutCubic } } },
         Scale { origin.x: control.width / 2; origin.y: control.height / 2; xScale: control.down ? 0.99 : 1; yScale: xScale
@@ -78,8 +79,8 @@ FocusScope {
                 objectName: "bleeckerButtonLabel"
                 text: control.text
                 wrapWidth: BleeckerTextTools.proposedWidth(control.effectiveMaximumWidth,control.leftPadding+control.rightPadding+(control.loading ? spinner.width+BleeckerTokens.spacing.inline : 0))
-                width:control.BleeckerLayout.proposedWidth<0 ? implicitWidth:Math.min(implicitWidth,Math.max(0,parent.width-x))
-                clip:control.BleeckerLayout.proposedWidth>=0
+                width:control.effectiveMaximumWidth<0 ? implicitWidth:Math.min(implicitWidth,Math.max(0,parent.width-x))
+                clip:control.effectiveMaximumWidth>=0
                 font: control.font
                 color: control.foregroundColor
                 height: Math.ceil(naturalHeight * labelAlignment.devicePixelRatio) / labelAlignment.devicePixelRatio

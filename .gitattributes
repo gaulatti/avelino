@@ -21,3 +21,9 @@ evidence/development/otp-transformation/*.log -text -whitespace
 # Preserve the exact candidate test, capture and virtual-session transcripts.
 evidence/development/otp/**/*.log -text -whitespace
 evidence/development/otp/sessions/capture-tool-version.txt -text -whitespace
+
+# Preserve ActivityItem candidate, failed-attempt and display transcripts.
+evidence/development/activity/**/*.log -text -whitespace
+evidence/development/activity/sessions/capture-tool-version.txt -text -whitespace
+evidence/development/activity/failed-sessions/capture-tool-version.txt -text -whitespace
+evidence/development/activity/diagnostics/**/capture-tool-version.txt -text -whitespace

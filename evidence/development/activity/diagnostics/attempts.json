@@ -1,0 +1,8 @@
+{
+  "originalSessionAttempt": "../failed-sessions",
+  "originalFailure": "Scaled Wayland/OpenGL failed the ordinary badge click: unexpected action callback. Seven other configurations passed. The fixed 10 ms producer delay did not establish frame completion.",
+  "debugV1": "Logging-only run passed the first three traces. Its diagnostic logging dereferenced a missing Review action in the empty trace and exited 139. This was a diagnostic bug.",
+  "debugV2": "Removed the fixed producer delay and made diagnostic logging null-safe. Scaled Wayland/OpenGL passed; the original failure was not reproduced.",
+  "debugV3": "A frame wait passed offscreen and all eight profiles. The final consumer additionally waits for layout synchronization before awaiting a completed frame.",
+  "acceptance": "Every failed attempt is preserved. The original cause was not conclusively isolated. Final input waits for layout synchronization and frame completion, with all 94 native state assertions unchanged."
+}

@@ -41,6 +41,7 @@ cmp assets/data-metrics-presentation.json "$stage/install/share/avelino/data-met
 cmp assets/sidebar-symbols.json "$stage/install/share/avelino/sidebar-symbols.json"
 cmp assets/stepper-presentation.json "$stage/install/share/avelino/stepper-presentation.json"
 cmp assets/radio-presentation.json "$stage/install/share/avelino/radio-presentation.json"
+cmp assets/activity-presentation.json "$stage/install/share/avelino/activity-presentation.json"
 cmp assets/unicode/LICENSE.txt "$stage/install/share/avelino/unicode/LICENSE.txt"
 cmp assets/unicode/provenance.json "$stage/install/share/avelino/unicode/provenance.json"
 cmp assets/brand/BleeckerLogo.png "$stage/install/share/avelino/brand/BleeckerLogo.png"
@@ -70,6 +71,7 @@ cmake --build "$stage/build" --parallel 2
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --stepper)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --radio-group)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --otp-input)
+(cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --activity-item)
 format_report="$PWD/artifacts/linux/number-formatting.json"
 set +e
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --data-metrics --format-diagnostics "$format_report")
@@ -93,7 +95,7 @@ cp artifacts/linux/environment.json artifacts/package/environment.json
 mkdir -p artifacts/linux
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --capture artifacts/linux/actions-light.png
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --dark --capture artifacts/linux/actions-dark.png
-for fixture in foundations surfaces data-display controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper radio-group otp-input; do
+for fixture in foundations surfaces data-display controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper radio-group otp-input activity-item; do
 for appearance in light dark; do
   for dpr in 1 2; do
     args=(--fixture "$fixture")
@@ -253,3 +255,10 @@ python3 scripts/capture-otp-cases.py \
 if [[ -e artifacts/linux/otp-source-candidates ]]; then mv artifacts/linux/otp-source-candidates "$stage/previous-otp-candidates"; fi
 mv "$otp_attempt/captures" artifacts/linux/otp-source-candidates
 rmdir "$otp_attempt"
+
+activity_attempt="$(mktemp -d "$PWD/artifacts/linux/activity-attempt.XXXXXX")"
+python3 scripts/capture-activity-cases.py \
+  "$stage/install/bin/AvelinoCatalog" "$activity_attempt/captures"
+if [[ -e artifacts/linux/activity-source-candidates ]]; then mv artifacts/linux/activity-source-candidates "$stage/previous-activity-candidates"; fi
+mv "$activity_attempt/captures" artifacts/linux/activity-source-candidates
+rmdir "$activity_attempt"

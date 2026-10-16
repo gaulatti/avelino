@@ -865,3 +865,29 @@ retains 344 matching public body bounds and 328 matching OTP initial states,
 with zero exact pixel matches. Coverage is 59/80 desktop APIs started, zero
 accepted; all 46 TV entries remain pending. No expected image, source pin,
 tolerance or approved exception changed.
+
+## ActivityItem candidate
+
+The [ActivityItem source contract](activity-item.md) preserves 552 native images,
+7,072 dense row proposals and 94 callback/lifecycle states. Separate standalone
+text and resize-history records explain fractional proposals and persistent
+measurement reuse. The unchanged full source and native helpers replay all
+preserved outputs byte for byte; the Apple tooling remains external.
+
+The [Linux candidate](../evidence/development/activity/candidate.json) passes
+6,188 bundled-font dense row queries, 3,374 standalone text proposals and 48
+resize histories. All 17 CTest targets pass across the full run and centering
+rerun; 217 Python contracts, 24 independent consumer modes, 107 catalog captures
+and eight focused virtual display configurations pass. The final harness waits
+for layout synchronization and a completed frame before producer-driven input.
+Its first failed display attempt and subsequent diagnostics remain preserved.
+All 112 installed files and 107 gallery PNG/full-metadata pairs remain identical
+between the capture and final validation packages.
+
+The strict comparison records 552 matching root frames, 536 matching Activity
+initial states and 488 matching child-frame sets, with zero complete pixel
+matches. Unicode/bidi, plain-font actions and narrow RTL retain child-frame
+differences. Physical/native keyboard, font/symbol/raster and actual reader gates
+remain open. Coverage is 60/80 desktop APIs started, zero accepted; all 46 TV
+entries remain pending. Source pins, expected images, tolerances and approved
+exceptions are unchanged.

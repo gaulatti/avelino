@@ -69,7 +69,10 @@ signals:
     void unwrappedWidthChanged();
     void layoutChanged();
 private:
-    void relayout();
+    void relayout(bool reuseWrapMeasurements = false);
+    struct WrapMeasurement { qreal proposal, fittedWidth; };
+    QList<WrapMeasurement> m_wrapMeasurements;
+    quint64 m_layoutGeneration = 0;
     struct Run {
         QString family, style;
         int weight;

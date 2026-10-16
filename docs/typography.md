@@ -5,6 +5,15 @@ source. It remains verification-pending for exact rasterization, system fonts,
 glyph fallback and complete component acceptance. Expected source images,
 reference revisions and comparison tolerances are unchanged.
 
+The [ActivityItem investigation](activity-item.md#proposal-and-measurement-history-evidence)
+also establishes that source Text fitting depends on its resize history. The
+custom-font renderer preserves measured wraps between an earlier proposal and
+its pixel-rounded fitted width, checking exact previous proposals first. It
+invalidates those measurements when shaping inputs or DPR change. ActivityItem
+and button fixtures replay all 3,374 original standalone proposals and 48 explicit
+histories; fresh instances are not substituted for persistent native sequences.
+Fractional row proposals remain raw until each child returns its fitted frame.
+
 The user-observable criteria are: custom-font resolution matches the source at
 fractional-size boundaries; single, explicit and wrapped lines have the source's
 height and first baseline; intrinsic view width rounds to the current physical

@@ -6,8 +6,8 @@ It contains 536 ActivityItem captures, eight Button anchors, eight IconBadge
 anchors, 7,072 dense width queries and 13 action traces with 94 snapshots. A fresh
 source-only extraction rebuilds the unchanged 89-file Sabella tree and the
 capture helpers, then reproduces all 1,753 image and metadata outputs byte for
-byte. This checkpoint adds source evidence. The Linux implementation remains
-pending; desktop candidate coverage stays 59/80, with zero complete acceptances.
+byte. The Linux candidate described below preserves these source records;
+complete mirror acceptance remains pending.
 
 `Sources/Sabella/Extended.swift:6` accepts a title, detail, timestamp, a system
 image defaulting to `clock`, and caller-created actions. The source stores the
@@ -78,8 +78,8 @@ the machine-local locator and source/tool hashes are in
 [tooling provenance](../evidence/reference-investigations/activity-item-20261016/tooling-provenance.json)
 and [replay inputs](../evidence/reference-investigations/activity-item-20261016/replay-inputs.json).
 Independent-machine helper availability, exact font/symbol/frame/raster parity,
-Linux runtime sessions, installed consumer, physical displays/input and reader
-acceptance remain pending. Source pins, expected images, tolerances and exception
+complete Linux runtime, physical display/input and reader acceptance remain
+pending. Source pins, expected images, tolerances and exception
 approvals are unchanged.
 
 ## Standalone text fitting diagnosis
@@ -90,7 +90,7 @@ It covers 3,374 geometry queries at half-point widths zero through 120, requeste
 display scales one/two and both action font scales. A separate fresh source-only
 rebuild reproduces its complete JSON byte for byte. These measurements confirm
 that the narrow label differences observed during Qt implementation also occur
-outside ActivityItem. The row allocation algorithm is unchanged.
+outside ActivityItem. This corpus isolates text fitting from the row allocator.
 
 The preserved Qt 6.8.3 diagnostic matches 3,189/3,374 proposals and disagrees on
 185: 165 at DPR one and 20 at DPR two. At DPR one, 161 differ in width and eight
@@ -101,7 +101,8 @@ Native `Review` at width ten has six lines at display scale one and five at two.
 Native `2 min ago` at width 40 has a fitted width of 28; the Qt paragraph-balancing
 heuristic produces 37. The original diagnostic source, logs, raw outcomes and
 shared text implementation's historical Git hash remain preserved. These are
-unresolved candidate failures, not an exception approval or a changed baseline.
+historical candidate failures. The later implementation below passes the same
+proposal histories; this does not approve an exception or change a baseline.
 
 Run `python3 scripts/verify-activity-text-source.py` to audit this additional
 record. The separate source-only archive SHA-256 is
@@ -143,3 +144,89 @@ source-only archive SHA-256 is
 the external locator and input hashes are in that record's tooling provenance.
 This evidence does not approve a Linux implementation, expected-image update,
 font/symbol substitution or physical/session/reader gate.
+
+## Linux candidate
+
+`BleeckerActivityItem` requires `title`, `detail` and `timestamp`. Its default
+`actions` property accepts caller-owned items without replacing their objects or
+state. `icon` accepts a component; the default is an original clock drawing whose
+SF-symbol equivalence remains unapproved. `foreground` overrides the inherited
+title/action foreground. The detail and timestamp retain secondary text color.
+`maximumWidth` accepts a nonnegative proposal or `-1` for intrinsic sizing;
+invalid negative, infinite and NaN values fail visibly.
+
+```qml
+BleeckerActivityItem {
+    title: "Ready for review"
+    detail: "A new edition is available"
+    timestamp: "2 min ago"
+    maximumWidth: 400
+    BleeckerButton { text: "Review"; variant: "link"; onClicked: review() }
+    BleeckerButton { text: "Archive"; variant: "link"; onClicked: archive() }
+}
+```
+
+Direct actions participate as separate row children. An explicit `ProposalRow`
+keeps a nested group together. Conditional loaders use
+`BleeckerLayout.flattenChildren: true` and `participates: active`; this preserves
+the distinction between absent content and a present zero-sized item. Hidden
+items retain layout. The row never adds a callback or keyboard focus target.
+Its three labels expose Qt static-text interfaces; enabled caller actions supply
+their own focus and accessibility behavior.
+
+The row passes fractional proposals unchanged and rounds the fitted frames to
+the display pixel grid. It allows the source's measured minimum-width overflow.
+The shared custom-font label renderer retains wrap measurements over the measured
+proposal/fitted-width interval, with an earlier exact proposal taking precedence.
+Text, font, tracking, line-height, alignment, elision or DPR changes invalidate
+those measurements. Reentrant intrinsic-size bindings preserve the newest layout.
+The shared button and breadcrumb use the same fitted-width rounding; this also
+keeps standalone finite-width buttons clipped to their actual text proposal.
+
+Component fixtures replay all 6,188 dense source queries for the seven action
+arrangements using bundled fonts, all 3,374 standalone text proposals and all
+48 explicit resize histories with 120 states. They retain the native input
+sequence on each item. The 884 plain system-font action queries remain outside
+the strict dense assertion because the Linux default-font substitution is
+unapproved. All original source measurements remain preserved.
+
+The independent consumer replays 13 native pointer and lifecycle traces with
+94 snapshots. It checks actual callback counts, local state, appearance/removal,
+disabled/hidden content, cancellation during reflow, hold/release, Qt Tab/Backtab
+and real Qt accessibility interfaces. The catalog includes an `activity-item`
+gallery and all 69 isolated native fixture groups. These synthetic and virtual
+checks do not accept native keyboard behavior, physical input or screen readers.
+Each producer update waits for a completed frame before subsequent synthetic
+input. The preserved first display attempt passed seven configurations and
+failed its first badge click on scaled Wayland/OpenGL; its fixed 10 ms producer
+delay did not establish displayed geometry. Diagnostic timing changes did not
+reproduce that failure. The frame-synchronized harness records its completed
+producer-frame count separately from the unchanged 94 native state assertions.
+
+The [sealed candidate](../evidence/development/activity/candidate.json) records
+17 passing CTest targets across the full run and centering rerun, 217 Python
+contracts, all 24 installed consumer modes, 107 catalog captures and eight
+package-only virtual display configurations. Each final profile completes 38
+producer updates and all 94 native state comparisons. The full 192-configuration
+display script is wired into CI; that entire matrix was not run locally.
+
+All 552 isolated captures preserve their original physical dimensions. Their
+root frames match; all 536 ActivityItem initial states match, and 488 child-frame
+sets match. The 48 remaining sets cover Unicode, bidi, narrow RTL and plain-font
+actions. Narrow RTL has one- or two-point label/column differences that require
+additional source diagnosis. The plain default/32-point native system font and
+Unicode fallback are unapproved substitutions. No complete pixel comparison
+passes. The inspected Unicode pair shows a missing double-struck digit in the
+Linux title; clock and button glyph raster also differ.
+
+The final validation package has no source/build trees, networking or ICU
+development headers. All 112 installed files match the 552-capture package byte
+for byte. The only later changes synchronize independent consumer input and
+require its frame counter in the display harness. All 107 final gallery PNGs and
+full metadata files remain byte-identical. Against the previous OTP checkpoint,
+all 103 metadata files and 101 images match; each remaining DPR-two presentation
+image differs by three pixels in its button label. Those differences are
+preserved without a baseline or tolerance change.
+
+Desktop candidate coverage is 60/80, with zero complete mirror acceptances.
+All 46 television entries remain pending in their separate later phase.

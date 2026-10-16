@@ -44,7 +44,7 @@ Window {
         anchors.alignWhenCentered: false
         sourceComponent: {
             const components = {
-                "BleeckerButton": button, "BleeckerOTPInput":otpCase, "BleeckerRadioGroup":radioCase, "BleeckerStepper":stepperCase, "BleeckerLoadingSpinner": spinner,
+                "BleeckerActivityItem":activityCase, "BleeckerButton": button, "BleeckerOTPInput":otpCase, "BleeckerRadioGroup":radioCase, "BleeckerStepper":stepperCase, "BleeckerLoadingSpinner": spinner,
                 "BleeckerSidebarItem":sidebarBrandCase, "BleeckerMetric":dataMetricsCase, "BleeckerStatCard":dataMetricsCase, "BleeckerKbd":dataMetricsCase, "BleeckerIconBadge":dataMetricsCase,"BleeckerBrandMark":sidebarBrandCase,"BleeckerBrandLockup":sidebarBrandCase,"BleeckerPageHeader":navigationCase,"BleeckerBreadcrumb":navigationCase,"BleeckerAlert":alert,"BleeckerEmptyState":emptyState,"BleeckerErrorState":errorState,"BleeckerLoadingOverlay":loadingOverlay,
                 "BleeckerTextField": textField, "BleeckerTextArea": textArea,
                 "BleeckerField": field, "BleeckerSwitchStyle": switchControl,
@@ -63,6 +63,7 @@ Window {
                 "BleeckerFooter": footer, "BleeckerFeedItem": feed, "BleeckerProgressStack": progressStack,
                 "BleeckerSelect": select, "BleeckerCheckbox": checkbox, "BleeckerSecureField": secureField, "BleeckerSearchField": searchField, "BleeckerFilterChip": filterChip, "BleeckerCollectionFilters": collectionFilters, "BleeckerSlider": slider, "BleeckerTabs": boundSelectionFrame, "BleeckerPagination": paginationFrame, "BleeckerIconButton": iconButton, "BleeckerAccordion": accordion
             }
+            if (definition.fixture==="badge-anchor" && definition.symbol==="clock") return activityBadge
             if (definition.fixture.startsWith("pagination-i64-")) return paginationIntegerFrame
             if (definition.fixture.startsWith("segments-bound-")) return boundSelectionFrame
             if (definition.api === "BleeckerTextField" && definition.fixture.startsWith("search-text-")) return searchField
@@ -72,6 +73,8 @@ Window {
         onLoaded: item.objectName = "referenceCaseComponent"
     }
     Component {id:radioCase;RadioGroupCase {definition:window.definition}}
+    Component {id:activityCase;ActivityItemCase {definition:window.definition}}
+    Component {id:activityBadge;BleeckerIconBadge {size:"md";variant:"subtle";icon:ActivityCaseGlyph {symbol:"clock";pixelSize:parent.pixelSize;color:parent.foregroundColor}}}
     Component {id:otpCase;OTPInputCase {definition:window.definition}}
     Component {id:stepperCase;StepperCase {definition:window.definition}}
     Component {id:dataMetricsCase;DataMetricsCase {definition:window.definition}}

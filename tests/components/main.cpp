@@ -38,6 +38,24 @@ public slots:
     void setProcessLocale(const QString &name) {QLocale::setDefault(QLocale(name));QEvent event(QEvent::LocaleChange);QCoreApplication::sendEvent(qApp,&event);}
     void qmlEngineAvailable(QQmlEngine *engine) {
         engine->rootContext()->setContextProperty("fixtureSetup",this);
+        const auto layoutDirectory=QStringLiteral(NATIVE_ACTIVITY_LAYOUT_DIRECTORY);
+        for(const auto &name:QStringList{"text/fixed-queries.json","buckets/buckets.json"}) {
+            QFile file(layoutDirectory+"/"+name);if(!file.open(QIODevice::ReadOnly))qFatal("Native text layout/history evidence missing");
+            const auto data=QJsonDocument::fromJson(file.readAll()).object();
+            if(data.value("reference").toString()!="fe8a1d462fbd793d883fb92086a16aa2947e32c9")qFatal("Native text layout/history reference invalid");
+            const auto key=name.startsWith("text/") ? "rows":"traces";
+            const auto context=name.startsWith("text/") ? "nativeTextLayoutQueries":"nativeTextLayoutHistory";
+            engine->rootContext()->setContextProperty(context,data.value(key).toArray().toVariantList());
+        }
+        const auto activityDirectory=QStringLiteral(NATIVE_ACTIVITY_DIRECTORY);
+        for(const auto &name:QStringList{"captures/captures.json","layout-queries.json","behavior/behavior.json"}) {
+            QFile file(activityDirectory+"/"+name);if(!file.open(QIODevice::ReadOnly))qFatal("Native ActivityItem evidence missing");
+            const auto data=QJsonDocument::fromJson(file.readAll()).object();
+            if(data.value("reference").toString()!="fe8a1d462fbd793d883fb92086a16aa2947e32c9")qFatal("Native ActivityItem reference invalid");
+            const auto key=name.startsWith("captures/") ? "captures":name.startsWith("layout-") ? "queries":"traces";
+            const auto context=name.startsWith("captures/") ? "nativeActivityCaptures":name.startsWith("layout-") ? "nativeActivityLayout":"nativeActivityBehavior";
+            engine->rootContext()->setContextProperty(context,data.value(key).toArray().toVariantList());
+        }
         QJsonArray otpTraces;
         for(const auto &name:QStringList{"behavior-final/behavior.json","state-bindings/state-bindings.json","edges/edges.json"}) {
             QFile file(QStringLiteral(NATIVE_OTP_DIRECTORY)+"/"+name);

@@ -30,7 +30,7 @@ Weston Wayland compositor nested on it. It saves whole-output and window capture
 for software/OpenGL rendering at two display/text scales. Source and build trees
 remain absent. Metadata explicitly identifies virtual displays, Mesa software
 rendering, synthetic input, and the still-pending overlay/accessibility checks.
-The harness runs twenty independent windows in each configuration: the base library
+The harness runs twenty-four independent windows in each configuration: the base library
 fixture, `InstalledConsumer --controls`, `InstalledConsumer --composition` and
 `InstalledConsumer --selection`, `InstalledConsumer --checkbox` and
 `InstalledConsumer --secure-field`, `InstalledConsumer --search-field` and
@@ -38,8 +38,10 @@ fixture, `InstalledConsumer --controls`, `InstalledConsumer --composition` and
 `InstalledConsumer --presentation-states`, `InstalledConsumer --spinner` and
 `InstalledConsumer --alert`, `InstalledConsumer --clipping` and
 `InstalledConsumer --navigation`, `InstalledConsumer --sidebar-brand` and
-`InstalledConsumer --data-metrics`.
-Their one hundred sixty capture pairs keep
+`InstalledConsumer --data-metrics`, `InstalledConsumer --stepper`,
+`InstalledConsumer --radio-group`, `InstalledConsumer --otp-input` and
+`InstalledConsumer --activity-item`.
+Their 192 capture pairs keep
 form editing, scrolling, switch/toggle actions, disabled segmented options and
 focus restoration separate from the base composition checks. The controls fixture
 exercises the multiline editor's owned scrollbar. The selector fixture exercises
@@ -103,8 +105,8 @@ using the same GNU install directories as the exported CMake package. Launch
 `QML_IMPORT_PATH` override is required. The Qt 6.8.3 runtime remains a prerequisite.
 The source-build catalog continues to use the documented build-tree import path.
 
-`check-installed-catalog.sh` exercises all twenty-four galleries at both appearances
-and DPRs, both action galleries, and the default button: 99 images with physical
+`check-installed-catalog.sh` exercises all twenty-six galleries at both appearances
+and DPRs, both action galleries, and the default button: 107 images with physical
 size/metadata checks. Both QML import environment variables are unset. A copied
 executable without its module must fail with the missing-module error. The full
 Linux check runs this against the staged install, then the package-only check
@@ -175,3 +177,14 @@ font/symbol/locale/raster/motion and physical/reader acceptance stays pending.
 The `radio-group` installed mode adds the source-derived selection and Unicode
 identity witnesses. Its virtual-session checks use the same software/OpenGL and
 standard/scaled profiles; native keyboard and actual-reader acceptance stay open.
+
+The `activity-item` mode preserves caller actions and replays 94 native state
+snapshots in 13 pointer/lifecycle traces. It verifies Qt Tab/Backtab and actual
+static-text/button interfaces. Producer updates await layout synchronization and
+a completed frame before further synthetic input; the session record reports
+38 completed producer updates. The final package passes all 24 consumer modes,
+107 gallery captures and eight focused ActivityItem configurations. All 112
+installed files are byte-identical to its separate 552-case capture package.
+The [candidate evidence](../evidence/development/activity/candidate.json) keeps
+the first failed display attempt, diagnostics, exact comparisons and remaining
+font/symbol/RTL/raster, physical and reader gates separate.

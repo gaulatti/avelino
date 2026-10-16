@@ -26,4 +26,5 @@ QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software consumer-build/InstalledCons
 QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software consumer-build/InstalledConsumer --stepper
 QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software consumer-build/InstalledConsumer --radio-group
 QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software consumer-build/InstalledConsumer --otp-input
+QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software consumer-build/InstalledConsumer --activity-item
 bash check-installed-catalog.sh

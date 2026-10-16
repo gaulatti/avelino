@@ -13,17 +13,21 @@ class BleeckerLayout : public QObject {
     Q_PROPERTY(qreal minimumWidth MEMBER minimumWidth NOTIFY metricsChanged)
     Q_PROPERTY(qreal idealWidth MEMBER idealWidth NOTIFY metricsChanged)
     Q_PROPERTY(bool fillsWidth MEMBER fillsWidth NOTIFY metricsChanged)
+    Q_PROPERTY(bool flattenChildren MEMBER flattenChildren NOTIFY structureChanged)
+    Q_PROPERTY(bool participates MEMBER participates NOTIFY structureChanged)
     Q_PROPERTY(qreal proposedWidth READ proposedWidth NOTIFY proposalChanged)
 public:
     explicit BleeckerLayout(QObject *parent=nullptr):QObject(parent){}
     static BleeckerLayout *qmlAttachedProperties(QObject *object) {return new BleeckerLayout(object);}
     qreal minimumWidth=-1,idealWidth=-1;
     bool fillsWidth=false;
+    bool flattenChildren=false,participates=true;
     qreal proposedWidth() const {return m_proposal;}
     void propose(qreal value) {if(m_proposal!=value){m_proposal=value;emit proposalChanged();}}
 signals:
     void metricsChanged();
     void proposalChanged();
+    void structureChanged();
 private:
     qreal m_proposal=-1;
 };
@@ -36,6 +40,7 @@ class ProposalRow : public QQuickItem {
     Q_PROPERTY(qreal maximumWidth READ maximumWidth WRITE setMaximumWidth NOTIFY configurationChanged)
     Q_PROPERTY(Qt::Alignment verticalAlignment READ verticalAlignment WRITE setVerticalAlignment NOTIFY configurationChanged)
     Q_PROPERTY(bool mirrored READ mirrored WRITE setMirrored NOTIFY configurationChanged)
+    Q_PROPERTY(bool cancelPointerOnReflow MEMBER m_cancelPointerOnReflow NOTIFY configurationChanged)
     Q_PROPERTY(qreal naturalWidth READ naturalWidth NOTIFY metricsChanged)
     Q_PROPERTY(qreal minimumWidth READ minimumWidth NOTIFY metricsChanged)
 public:
@@ -59,9 +64,10 @@ protected:
     void updatePolish() override {layout();}
 private:
     void childrenUpdated();
+    QList<QQuickItem*> layoutItems() const;
     QList<QMetaObject::Connection> m_connections;
     qreal m_spacing=0,m_maximum=-1,m_natural=0,m_minimum=0;
-    bool m_mirrored=false,m_layingOut=false;
+    bool m_mirrored=false,m_layingOut=false,m_cancelPointerOnReflow=false;
     Qt::Alignment m_verticalAlignment=Qt::AlignVCenter;
     PixelAlignment m_metrics;
 };

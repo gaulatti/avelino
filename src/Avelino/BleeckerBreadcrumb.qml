@@ -57,7 +57,7 @@ Item {
                         id:label;objectName:"bleeckerBreadcrumbLabel"+entry.logicalIndex
                         visible:!entry.separator;text:entry.text;font:entry.font;color:entry.foregroundColor
                         wrapWidth:entry.BleeckerLayout.proposedWidth<0 ? -1:Math.max(0,entry.BleeckerLayout.proposedWidth-iconSlot.width-entry.iconGap)
-                        width:wrapWidth<0 ? implicitWidth:Math.min(implicitWidth,wrapWidth)
+                        width:fittedWidth
                         x:control.LayoutMirroring.enabled ? 0:iconSlot.width+entry.iconGap
                         y:(parent.height-height)/2
                         horizontalAlignment:control.LayoutMirroring.enabled ? Qt.AlignRight:Qt.AlignLeft

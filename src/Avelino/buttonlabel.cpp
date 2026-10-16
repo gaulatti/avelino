@@ -12,7 +12,7 @@
 
 ButtonLabel::ButtonLabel(QQuickItem *parent) : QQuickPaintedItem(parent) {
     setAntialiasing(true);
-    connect(&m_layoutMetrics, &PixelAlignment::devicePixelRatioChanged, this, &ButtonLabel::relayout);
+    connect(&m_layoutMetrics, &PixelAlignment::devicePixelRatioChanged, this, [this] { relayout(); });
     m_layoutMetrics.setTarget(this);
     relayout();
 }
@@ -42,7 +42,7 @@ void ButtonLabel::setWrapWidth(qreal width) {
     if (!std::isfinite(width) || (width < 0 && width != -1))
         qFatal("Label wrap width must be nonnegative or -1 for explicit lines only");
     if (m_wrapWidth == width) return;
-    m_wrapWidth = width; relayout(); emit wrapWidthChanged();
+    m_wrapWidth = width; relayout(true); emit wrapWidthChanged();
 }
 
 void ButtonLabel::setLineHeight(qreal height) {
@@ -66,7 +66,9 @@ void ButtonLabel::setHorizontalAlignment(int alignment) {
     m_alignment = alignment; relayout(); emit horizontalAlignmentChanged();
 }
 
-void ButtonLabel::relayout() {
+void ButtonLabel::relayout(bool reuseWrapMeasurements) {
+    const auto generation = ++m_layoutGeneration;
+    if (!reuseWrapMeasurements) m_wrapMeasurements.clear();
     m_pixels = m_font.pixelSize() > 0 ? m_font.pixelSize()
         : m_font.pointSizeF() * BleeckerFonts::logicalFontDpi() / 72;
     if (!std::isfinite(m_pixels) || m_pixels <= 0) qFatal("Button label requires a positive finite font size");
@@ -100,6 +102,21 @@ void ButtonLabel::relayout() {
         ? qFromBigEndian<qint16>(reinterpret_cast<const uchar *>(os2.constData() + 88)) * ratio
         : original.capHeight();
     const qreal dpr = m_layoutMetrics.devicePixelRatio();
+    qreal layoutWidth = m_wrapWidth;
+    bool reusedMeasurement = false;
+    if (sourceFont && m_elideWidth < 0 && m_wrapWidth >= 0) {
+        // Native Text preserves measured wraps over the interval between a
+        // proposal and its pixel-rounded fitted width. An earlier exact
+        // proposal takes precedence over an overlapping interval. Re-shape at
+        // the original proposal instead of retaining duplicate glyph buffers.
+        const WrapMeasurement *cached = nullptr;
+        for (const auto &entry : m_wrapMeasurements)
+            if (entry.proposal == m_wrapWidth) { cached = &entry; break; }
+        if (!cached) for (const auto &entry : m_wrapMeasurements)
+            if (m_wrapWidth >= std::min(entry.proposal, entry.fittedWidth)
+                && m_wrapWidth <= std::max(entry.proposal, entry.fittedWidth)) { cached = &entry; break; }
+        if (cached) { layoutWidth = cached->proposal; reusedMeasurement = true; }
+    }
     const auto viewWidth = [sourceFont, dpr](qreal advance) {
         return sourceFont ? std::ceil(advance * dpr) / dpr : advance;
     };
@@ -206,6 +223,9 @@ void ButtonLabel::relayout() {
     if (m_unwrappedWidth != unwrappedWidth) {
         m_unwrappedWidth = unwrappedWidth;
         emit unwrappedWidthChanged();
+        // An intrinsic-width binding can synchronously offer a new width and
+        // finish a newer layout. Keep that result and its cache entries.
+        if (generation != m_layoutGeneration) return;
     }
     // Intrinsic advance stays independent of the offered elision width.
     // Otherwise a newline's ellipsis can change the control's implicit width
@@ -224,16 +244,17 @@ void ButtonLabel::relayout() {
     // logical width back to design units can round below QTextLayout's fixed
     // point boundary and wrap a word that fits. Keep explicit newlines, but
     // only enable automatic wrapping when the allocated width is smaller.
-    if (m_elideWidth < 0 && m_wrapWidth >= 0 && m_wrapWidth < m_glyphAdvance
-        && !qFuzzyCompare(m_wrapWidth, m_glyphAdvance))
+    if (m_elideWidth < 0 && layoutWidth >= 0 && layoutWidth < m_glyphAdvance
+        && !qFuzzyCompare(layoutWidth, m_glyphAdvance))
         option.setWrapMode(QTextOption::WrapAtWordBoundaryOrAnywhere);
     if (m_elideWidth >= 0)
         layoutText = QFontMetricsF(shapeFont).elidedText(layoutText, Qt::ElideRight, m_elideWidth / ratio);
     QTextLayout layout(layoutText, shapeFont);
     layout.setTextOption(option);
-    // Measured source two-line text keeps a final token of at most ten UTF-16
-    // characters with its predecessor when both fit. Longer tokens and longer
-    // paragraphs retain their breaks.
+    // Measured source two-line text can move a short orphan's predecessor to
+    // the last line. Compare the remaining prefix with the orphan; merely
+    // testing whether the new pair fits also moves short numeric prefixes and
+    // misses cases where the moved pair wraps into an additional line.
     // Preserve explicit paragraph breaks and leave
     // earlier lines and their shaping untouched.
     QMap<int,int> paragraphBreaks;
@@ -242,7 +263,7 @@ void ButtonLabel::relayout() {
         greedy.beginLayout();
         while (true) {
             auto line=greedy.createLine();if(!line.isValid())break;
-            line.setLineWidth(std::max(qreal(0.000001),(m_wrapWidth+std::max(qreal(0),m_tracking))/ratio));
+            line.setLineWidth(std::max(qreal(0.000001),(layoutWidth+std::max(qreal(0),m_tracking))/ratio));
         }
         greedy.endLayout();
         const QRegularExpression spaces(QStringLiteral("\\s+"));
@@ -264,10 +285,14 @@ void ButtonLabel::relayout() {
             auto wordStart=trimmedEnd;
             while(wordStart>previous.textStart() && !layoutText.at(wordStart-1).isSpace())--wordStart;
             if(wordStart==previous.textStart())continue;
-            const auto candidateText=layoutText.mid(wordStart,last.textStart()+last.textLength()-wordStart);
-            QTextLayout candidate(candidateText,shapeFont);auto single=option;single.setWrapMode(QTextOption::NoWrap);candidate.setTextOption(single);
-            candidate.beginLayout();auto candidateLine=candidate.createLine();candidateLine.setLineWidth(1000000);candidate.endLayout();
-            if(sourceMetrics(candidateLine,candidateText).width<=m_wrapWidth)
+            const auto prefixText=layoutText.mid(previous.textStart(),wordStart-previous.textStart());
+            auto single=option;single.setWrapMode(QTextOption::NoWrap);
+            const auto measuredWidth=[&](const QString &value) {
+                QTextLayout candidate(value,shapeFont);candidate.setTextOption(single);
+                candidate.beginLayout();auto line=candidate.createLine();line.setLineWidth(1000000);candidate.endLayout();
+                return sourceMetrics(line,value).width;
+            };
+            if(measuredWidth(prefixText)>=measuredWidth(finalWord))
                 paragraphBreaks.insert(previous.textStart(),wordStart-previous.textStart());
         }
     }
@@ -277,7 +302,12 @@ void ButtonLabel::relayout() {
         // independently of the declared custom font. Components may omit or
         // explicitly size empty content according to their own source contract.
         m_runs.clear(); m_linePositions.clear(); m_family = original.familyName(); m_style = original.styleName();
-        m_height = 14; setImplicitWidth(0); setImplicitHeight(m_height); setBaselineOffset(11);
+        m_height = 14; setImplicitWidth(0);
+        if (generation != m_layoutGeneration) return;
+        setImplicitHeight(m_height);
+        if (generation != m_layoutGeneration) return;
+        setBaselineOffset(11);
+        if (generation != m_layoutGeneration) return;
         update(); emit layoutChanged(); return;
     }
     layout.beginLayout();
@@ -287,14 +317,14 @@ void ButtonLabel::relayout() {
         // Source line fitting excludes positive final tracking. Its resulting
         // glyph extent may reach past the proposal and is cropped by the Text
         // view. Negative tracking is already included in Qt's measured fit.
-        const auto lineWidth=m_wrapWidth>=0 ? std::max(qreal(0.000001),(m_wrapWidth+std::max(qreal(0),m_tracking))/ratio):1000000;
+        const auto lineWidth=layoutWidth>=0 ? std::max(qreal(0.000001),(layoutWidth+std::max(qreal(0),m_tracking))/ratio):1000000;
         if(paragraphBreaks.contains(line.textStart()))line.setNumColumns(paragraphBreaks.value(line.textStart()),lineWidth);
         else line.setLineWidth(lineWidth);
         const qreal ascent = sourceFont ? std::round(line.ascent() * ratio) : line.ascent() * ratio;
         const qreal descent = sourceFont ? std::round(line.descent() * ratio) : line.descent() * ratio;
         line.setPosition(QPointF(0, (height + ascent) / ratio - line.ascent()));
         if (height == 0) baseline = ascent;
-        width = std::max(width, sourceFont ? sourceMetrics(line, layoutText, m_wrapWidth).width : line.naturalTextWidth() * ratio);
+        width = std::max(width, sourceFont ? sourceMetrics(line, layoutText, layoutWidth).width : line.naturalTextWidth() * ratio);
         // Keep the measured logical line box in logical units. A round trip
         // through design units turns an exact 16 into 15.999999999999998.
         height += m_lineHeight > 0 ? m_lineHeight
@@ -339,8 +369,14 @@ void ButtonLabel::relayout() {
         }
     }
     m_height = height;
-    setImplicitWidth(viewWidth(width)); setImplicitHeight(m_height);
+    if (sourceFont && m_elideWidth < 0 && m_wrapWidth >= 0 && !reusedMeasurement)
+        m_wrapMeasurements.append({m_wrapWidth, viewWidth(std::min(width, m_wrapWidth))});
+    setImplicitWidth(viewWidth(width));
+    if (generation != m_layoutGeneration) return;
+    setImplicitHeight(m_height);
+    if (generation != m_layoutGeneration) return;
     setBaselineOffset(baseline);
+    if (generation != m_layoutGeneration) return;
     update(); emit layoutChanged();
 }
 

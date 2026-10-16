@@ -63,7 +63,7 @@ int main(int argc, char *argv[]) {
     parser.addHelpOption();
     parser.addOptions({QCommandLineOption("capture", "Save the displayed fixture to PNG and exit", "path"),
                        QCommandLineOption("dark", "Use dark reference appearance"),
-                       QCommandLineOption("fixture", "Render a fixture (button, foundations, surfaces, data-display, controls, composition, selection, checkbox, secure-field, search-field, collection-filters, slider, tabs, pagination, pagination-integers, accordion, presentation-states, spinner, alert, clipping, navigation, sidebar-brand, data-metrics, stepper, radio-group, otp-input or reference-case)", "name"),
+                       QCommandLineOption("fixture", "Render a fixture (button, foundations, surfaces, data-display, controls, composition, selection, checkbox, secure-field, search-field, collection-filters, slider, tabs, pagination, pagination-integers, accordion, presentation-states, spinner, alert, clipping, navigation, sidebar-brand, data-metrics, stepper, radio-group, otp-input, activity-item or reference-case)", "name"),
                        QCommandLineOption("case", "Isolated reference fixture identifier", "id"),
                        QCommandLineOption("case-definitions", "JSON file containing the isolated fixture definitions", "path"),
                        QCommandLineOption("variant", "Button variant", "name", "primary"),
@@ -103,8 +103,8 @@ int main(int argc, char *argv[]) {
     if(isolated && definition.contains("processLocale"))QLocale::setDefault(QLocale(definition.value("processLocale").toString()));
     engine.rootContext()->setContextProperty("captureDefinition", definition.toVariantMap());
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreationFailed, &app, [] { QCoreApplication::exit(1); }, Qt::QueuedConnection);
-    if (parser.isSet("fixture") && fixture != "button" && fixture != "foundations" && fixture != "surfaces" && fixture != "data-display" && fixture != "controls" && fixture != "composition" && fixture != "selection" && fixture != "checkbox" && fixture != "secure-field" && fixture != "search-field" && fixture != "collection-filters" && fixture != "slider" && fixture != "tabs" && fixture != "pagination" && fixture != "pagination-integers" && fixture != "accordion" && fixture != "presentation-states" && fixture != "spinner" && fixture != "alert" && fixture != "clipping" && fixture != "navigation" && fixture != "sidebar-brand" && fixture != "data-metrics" && fixture != "stepper" && fixture != "radio-group" && fixture != "otp-input" && !isolated) return 4;
-    engine.loadFromModule("AvelinoCatalog", isolated ? "ReferenceCaseFixture" : fixture == "otp-input" ? "OTPInput" : fixture == "radio-group" ? "RadioGroup" : fixture == "stepper" ? "Stepper" : fixture == "data-metrics" ? "DataMetrics" : fixture == "sidebar-brand" ? "SidebarBrand" : fixture == "navigation" ? "Navigation" : fixture == "clipping" ? "Clipping" : fixture == "alert" ? "AlertFixture" : fixture == "spinner" ? "SpinnerFixture" : fixture == "presentation-states" ? "PresentationStatesFixture" : fixture == "accordion" ? "AccordionFixture" : fixture == "pagination-integers" ? "PaginationIntegerFixture" : fixture == "pagination" ? "PaginationFixture" : fixture == "tabs" ? "TabsFixture" : fixture == "slider" ? "SliderFixture" : fixture == "collection-filters" ? "CollectionFiltersFixture" : fixture == "search-field" ? "SearchFieldFixture" : fixture == "secure-field" ? "SecureFieldFixture" : fixture == "checkbox" ? "CheckboxFixture" : fixture == "selection" ? "SelectionFixture" : fixture == "composition" ? "CompositionFixture" : fixture == "controls" ? "ControlsFixture" : fixture == "data-display" ? "DataDisplayFixture" : fixture == "surfaces" ? "SurfacesFixture" : fixture == "foundations" ? "FoundationsFixture"
+    if (parser.isSet("fixture") && fixture != "button" && fixture != "foundations" && fixture != "surfaces" && fixture != "data-display" && fixture != "controls" && fixture != "composition" && fixture != "selection" && fixture != "checkbox" && fixture != "secure-field" && fixture != "search-field" && fixture != "collection-filters" && fixture != "slider" && fixture != "tabs" && fixture != "pagination" && fixture != "pagination-integers" && fixture != "accordion" && fixture != "presentation-states" && fixture != "spinner" && fixture != "alert" && fixture != "clipping" && fixture != "navigation" && fixture != "sidebar-brand" && fixture != "data-metrics" && fixture != "stepper" && fixture != "radio-group" && fixture != "otp-input" && fixture != "activity-item" && !isolated) return 4;
+    engine.loadFromModule("AvelinoCatalog", isolated ? "ReferenceCaseFixture" : fixture == "activity-item" ? "ActivityItem" : fixture == "otp-input" ? "OTPInput" : fixture == "radio-group" ? "RadioGroup" : fixture == "stepper" ? "Stepper" : fixture == "data-metrics" ? "DataMetrics" : fixture == "sidebar-brand" ? "SidebarBrand" : fixture == "navigation" ? "Navigation" : fixture == "clipping" ? "Clipping" : fixture == "alert" ? "AlertFixture" : fixture == "spinner" ? "SpinnerFixture" : fixture == "presentation-states" ? "PresentationStatesFixture" : fixture == "accordion" ? "AccordionFixture" : fixture == "pagination-integers" ? "PaginationIntegerFixture" : fixture == "pagination" ? "PaginationFixture" : fixture == "tabs" ? "TabsFixture" : fixture == "slider" ? "SliderFixture" : fixture == "collection-filters" ? "CollectionFiltersFixture" : fixture == "search-field" ? "SearchFieldFixture" : fixture == "secure-field" ? "SecureFieldFixture" : fixture == "checkbox" ? "CheckboxFixture" : fixture == "selection" ? "SelectionFixture" : fixture == "composition" ? "CompositionFixture" : fixture == "controls" ? "ControlsFixture" : fixture == "data-display" ? "DataDisplayFixture" : fixture == "surfaces" ? "SurfacesFixture" : fixture == "foundations" ? "FoundationsFixture"
         : fixture == "button" ? "ButtonFixture" : "Main");
     if (parser.isSet("capture")) {
         const auto path = parser.value("capture");
@@ -274,7 +274,7 @@ int main(int argc, char *argv[]) {
             const bool navigationEmpty=expectedEmpty && ((api=="BleeckerBreadcrumb" && (variant=="empty" || variant=="single-empty")) || (api=="BleeckerPageHeader" && variant=="empty-labels"));
             const bool radioEmpty=expectedEmpty && api=="BleeckerRadioGroup" && definition.value("options").isArray() && definition.value("options").toArray().isEmpty();
             const bool gridEmpty=expectedEmpty && api=="BleeckerDashboardGrid" && variant=="empty";
-            const auto geometryItem=api=="BleeckerOTPInput" && component ? component->property("presentationItem").value<QQuickItem*>():component;
+            const auto geometryItem=(api=="BleeckerOTPInput" || api=="BleeckerActivityItem") && component ? component->property("presentationItem").value<QQuickItem*>():component;
             if (isolated && (!component || !geometryItem || component->width()<0 || component->height()<0
                 || geometryItem->width()<0 || geometryItem->height()<0
                 || ((geometryItem->width()==0 || geometryItem->height()==0) && !expectedEmpty)
@@ -430,6 +430,40 @@ int main(int argc, char *argv[]) {
                 }
                 for (auto it = definition.begin(); it != definition.end(); ++it) meta.insert(it.key(), it.value());
                 meta.insert("caseDefinitions", parser.value("case-definitions"));
+                if(api=="BleeckerActivityItem") {
+                    const auto control=component->property("control").value<QQuickItem*>();
+                    const auto body=component->property("presentationItem").value<QQuickItem*>();
+                    if(!control || !body){app.exit(18);return;}
+                    meta.insert("renderedTitle",control->property("title").toString());
+                    meta.insert("renderedDetail",control->property("detail").toString());
+                    meta.insert("renderedTimestamp",control->property("timestamp").toString());
+                    meta.insert("renderedActionMode",component->property("actionMode").toString());
+                    meta.insert("renderedDisabled",!control->isEnabled());
+                    meta.insert("renderedRtl",control->property("mirrored").toBool());
+                    QJsonObject parts,painted;
+                    const QMap<QString,QString> names{{"badge","bleeckerActivityBadge"},{"row","bleeckerActivityRow"},
+                        {"text-column","bleeckerActivityLabels"},{"title","bleeckerActivityTitle"},
+                        {"detail","bleeckerActivityDetail"},{"timestamp","bleeckerActivityTimestamp"},
+                        {"spacer","bleeckerActivitySpacer"},{"action-review","activityActionReview"},
+                        {"action-archive","activityActionArchive"},{"action-nested","activityActionNested"},
+                        {"action-plain","activityActionPlain"},{"action-rect","activityActionRect"},
+                        {"action-tall","activityActionTall"},{"action-zero","activityActionZero"},{"action-counter","activityActionCounter"}};
+                    for(auto it=names.begin();it!=names.end();++it) {
+                        const auto item=findVisual(component,it.value());if(!item)continue;
+                        QPointF point;
+                        for(auto parent=item;parent && parent!=window->contentItem();parent=parent->parentItem())point+=parent->position();
+                        parts.insert(it.key(),QJsonObject{{"x",point.x()},{"y",point.y()},{"width",item->width()},{"height",item->height()}});
+                        const auto paint=item->mapToScene(QPointF());
+                        painted.insert(it.key(),QJsonObject{{"x",paint.x()},{"y",paint.y()},{"width",item->width()},{"height",item->height()}});
+                    }
+                    const auto origin=body->mapToScene(QPointF());
+                    parts.insert("root",QJsonObject{{"x",origin.x()},{"y",origin.y()},{"width",body->width()},{"height",body->height()}});
+                    meta.insert("layoutWitnessRects",parts);meta.insert("paintedWitnessRects",painted);
+                    meta.insert("layoutWitnessMethod","Layout x/y positions exclude text paint-only pixel translations; painted frames retained separately");
+                    meta.insert("actionLocalValue",component->property("localValue").toInt());
+                    meta.insert("actionAppears",component->property("appears").toInt());
+                    meta.insert("fontSymbolAcceptance","pending; inherited platform font and original clock/fixture artwork, no approved exception");
+                }
                 if(api=="BleeckerOTPInput") {
                     const auto control=component->property("control").value<QQuickItem*>();
                     const auto editor=control ? control->property("editor").value<QQuickItem*>():nullptr;
@@ -490,7 +524,7 @@ int main(int argc, char *argv[]) {
                     meta.insert("sourceCaptureMethodScope","Hosted native source investigation compared with Qt single-window capture; no equivalence to old ImageRenderer baseline or physical-session acceptance");
                 }
                 auto measuredComponent=component;
-                if (api=="BleeckerOTPInput" || api=="BleeckerRadioGroup" || api=="BleeckerStepper" || api=="BleeckerMetric" || api=="BleeckerStatCard" || api=="BleeckerKbd" || api=="BleeckerIconBadge" || api=="BleeckerSidebarItem" || api=="BleeckerBrandMark" || api=="BleeckerBrandLockup" || api=="BleeckerPageHeader" || api=="BleeckerBreadcrumb" || definition.value("api").toString()=="BleeckerAlert" || definition.value("api").toString()=="BleeckerEmptyState" || definition.value("api").toString()=="BleeckerErrorState") {
+                if (api=="BleeckerActivityItem" || api=="BleeckerOTPInput" || api=="BleeckerRadioGroup" || api=="BleeckerStepper" || api=="BleeckerMetric" || api=="BleeckerStatCard" || api=="BleeckerKbd" || api=="BleeckerIconBadge" || api=="BleeckerSidebarItem" || api=="BleeckerBrandMark" || api=="BleeckerBrandLockup" || api=="BleeckerPageHeader" || api=="BleeckerBreadcrumb" || definition.value("api").toString()=="BleeckerAlert" || definition.value("api").toString()=="BleeckerEmptyState" || definition.value("api").toString()=="BleeckerErrorState") {
                     measuredComponent=component->property("presentationItem").value<QQuickItem*>();
                     if(!measuredComponent){app.exit(18);return;}
                     meta.insert("offeredFrameSize",QJsonObject{{"width",component->width()},{"height",component->height()}});

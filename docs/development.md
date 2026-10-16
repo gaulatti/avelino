@@ -51,11 +51,19 @@ focus; the whole-output capture preserves it as session evidence.
 describes how its X11 backend composites Wayland surfaces into the parent output.
 Each configuration runs the base fixture, `--controls`, `--composition`,
 `--selection`, `--checkbox`, `--secure-field`, `--search-field`, `--collection-filters`, `--slider`, `--tabs`, `--pagination`, `--pagination-integers`, `--accordion`, `--presentation-states`, `--spinner`, `--alert`, `--clipping`, `--navigation`, `--sidebar-brand` and
-`--data-metrics` independently; one hundred sixty window/full-output pairs cover
+`--data-metrics`, `--stepper`, `--radio-group`, `--otp-input` and `--activity-item`
+independently; 192 window/full-output pairs cover
 them.
 The catalog galleries are `--fixture foundations`, `surfaces`, `data-display`,
-`controls`, `composition`, `selection`, `checkbox`, `secure-field`, `search-field`, `collection-filters`, `slider`, `tabs`, `pagination`, `pagination-integers`, `accordion`, `presentation-states`, `spinner`, `alert`, `clipping`, `navigation`, `sidebar-brand` and `data-metrics`; their native
+`controls`, `composition`, `selection`, `checkbox`, `secure-field`, `search-field`, `collection-filters`, `slider`, `tabs`, `pagination`, `pagination-integers`, `accordion`, `presentation-states`, `spinner`, `alert`, `clipping`, `navigation`, `sidebar-brand`, `data-metrics`, `stepper`, `radio-group`, `otp-input` and `activity-item`; their native
 comparisons remain pending.
+
+The [ActivityItem fixture](activity-item.md#linux-candidate) checks caller-owned
+actions, field updates, fixed typography, dense proposals and resize histories.
+`--fixture activity-item` opens its gallery; `InstalledConsumer --activity-item`
+replays the 13 source pointer/lifecycle traces. Producer updates wait for an
+actual completed frame before sending the next synthetic click. Qt interface
+queries and virtual displays remain separate from real reader/physical acceptance.
 
 The selector's open `Popup.Item` and scrollbars remain
 inside the captured client, with explicit bounds checks. Native selector/popover
