@@ -48,7 +48,7 @@ The [empty/error/loading source investigation](docs/presentation-states.md)
 now has [Linux presentation-state candidates](docs/presentation-states.md); complete mirror acceptance remains pending.
 The [alert candidate](docs/alert.md) adds typed feedback with caller-owned content
 and native prose-layout evidence.
-Fifty-eight of the 80 discovered desktop
+Fifty-nine of the 80 discovered desktop
 entries have started; no component has passed its complete mirror gate.
 The public GitHub wiki remote is unavailable; documentation currently lives here.
 
@@ -67,6 +67,10 @@ filtering, raw editing versus caller state, composition and large input. Its
 Linux candidate adds controlled editing, catalog and independent package
 fixtures; native lifecycle, font, raster, physical and reader acceptance remain
 pending.
+
+The [ActivityItem source investigation](docs/activity-item.md) preserves action-slot
+composition, dense width proposals, fixed label typography and native action
+lifecycle traces. Its Linux implementation remains pending.
 
 Generic child clipping now has a [software renderer candidate](docs/content-clipping.md)
 sharing the existing continuous/circular/capsule paths; strict native acceptance
