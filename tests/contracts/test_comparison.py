@@ -46,6 +46,14 @@ class ComparisonBoundaryTests(unittest.TestCase):
     def test_identical_pixels_and_equivalent_metadata_pass(self):
         self.check('passed')
 
+    def test_explicit_manifest_keeps_default_comparison_identical(self):
+        self.check('passed')
+        expected = (self.output / 'comparison.json').read_bytes()
+        manifest = json.loads((self.reference / 'captures.json').read_text())
+        with contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(comparison.compare(self.reference, self.candidate, self.output, manifest=manifest), 0)
+        self.assertEqual((self.output / 'comparison.json').read_bytes(), expected)
+
     def test_collection_actions_must_match(self):
         for key, value in [('title', 'No editions yet'), ('actionsMode', 'empty'), ('sourceQueryAfterAction', ''), ('sourceContentAfterAction', False),
                            ('sourceSelectedAfterAction', True), ('sourceActionCounts', {'activations': 1, 'removals': 0}),

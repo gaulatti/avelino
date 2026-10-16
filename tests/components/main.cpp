@@ -15,6 +15,21 @@ public slots:
     void setProcessLocale(const QString &name) {QLocale::setDefault(QLocale(name));QEvent event(QEvent::LocaleChange);QCoreApplication::sendEvent(qApp,&event);}
     void qmlEngineAvailable(QQmlEngine *engine) {
         engine->rootContext()->setContextProperty("fixtureSetup",this);
+        const auto stepperDirectory=QStringLiteral(NATIVE_STEPPER_DIRECTORY);
+        QFile stepperBehavior(stepperDirectory+"/behavior/behavior.json");
+        if(!stepperBehavior.open(QIODevice::ReadOnly))qFatal("Native stepper behavior missing");
+        const auto stepperData=QJsonDocument::fromJson(stepperBehavior.readAll()).object();
+        if(stepperData.value("reference").toString()!="fe8a1d462fbd793d883fb92086a16aa2947e32c9" || stepperData.value("traces").toArray().size()!=25)qFatal("Native stepper behavior invalid");
+        engine->rootContext()->setContextProperty("nativeStepperBehavior",stepperData.value("traces").toArray().toVariantList());
+        QJsonArray stepperFormatting;
+        for(const auto &locale:QStringList{"en_US","de_DE","es_CL","fr_FR","ja_JP","ar_EG","hi_IN"}) {
+            QFile file(stepperDirectory+"/locale-"+locale+"/formatting.json");
+            if(!file.open(QIODevice::ReadOnly))qFatal("Native stepper formatting missing");
+            const auto rows=QJsonDocument::fromJson(file.readAll()).object().value("formatting").toArray();
+            if(rows.size()!=18)qFatal("Native stepper formatting invalid");
+            for(const auto &v:rows){auto row=v.toObject();row.insert("locale",locale);stepperFormatting.append(row);}
+        }
+        engine->rootContext()->setContextProperty("nativeStepperFormatting",stepperFormatting.toVariantList());
         QFile numericText(QStringLiteral(NATIVE_NUMERIC_TEXT_FILE));if(!numericText.open(QIODevice::ReadOnly))qFatal("Numeric text witnesses missing");
         const auto numericData=QJsonDocument::fromJson(numericText.readAll()).object();if(numericData.value("cases").toArray().size()!=40)qFatal("Numeric text witnesses invalid");
         engine->rootContext()->setContextProperty("nativeNumericText",numericData.value("cases").toArray().toVariantList());

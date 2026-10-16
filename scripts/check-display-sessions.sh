@@ -50,7 +50,7 @@ INI
   fi
   for backend in software opengl; do
     for configuration in standard scaled; do
-    for fixture in base controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics; do
+    for fixture in base controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper; do
       prefix="$evidence/$protocol-$backend-$configuration"
       if [[ "$fixture" == controls ]]; then prefix="$evidence/controls-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == composition ]]; then prefix="$evidence/composition-$protocol-$backend-$configuration"; fi
@@ -63,6 +63,7 @@ INI
       if [[ "$fixture" == tabs ]]; then prefix="$evidence/tabs-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == pagination ]]; then prefix="$evidence/pagination-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == pagination-integers ]]; then prefix="$evidence/pagination-integers-$protocol-$backend-$configuration"; fi
+      if [[ "$fixture" == stepper ]]; then prefix="$evidence/stepper-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == data-metrics ]]; then prefix="$evidence/data-metrics-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == sidebar-brand ]]; then prefix="$evidence/sidebar-brand-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == navigation ]]; then prefix="$evidence/navigation-$protocol-$backend-$configuration"; fi
@@ -83,6 +84,7 @@ INI
       if [[ "$fixture" == tabs ]]; then args+=(--tabs); fi
       if [[ "$fixture" == pagination ]]; then args+=(--pagination); fi
       if [[ "$fixture" == pagination-integers ]]; then args+=(--pagination-integers); fi
+      if [[ "$fixture" == stepper ]]; then args+=(--stepper); fi
       if [[ "$fixture" == data-metrics ]]; then args+=(--data-metrics); fi
       if [[ "$fixture" == sidebar-brand ]]; then args+=(--sidebar-brand); fi
       if [[ "$fixture" == navigation ]]; then args+=(--navigation); fi
@@ -162,6 +164,9 @@ elif fixture == 'secure-field':
         assert record[key] == 'passed', record
     assert record['sourceHeight'] == 40 and record['fontPointSize'] == 10.5, record
     assert record['revealed'] is True, record
+elif fixture == 'stepper':
+    for key in ['stepperChecks','callerBindingChecks','focusChecks','qtAccessibilityChecks']:assert record[key]=='passed',record
+    assert len(record['nativeBehaviorTraces'])==25 and record['matchingNativeIntegerFormatterWitnesses']==126,record
 elif fixture == 'data-metrics':
     for key in ['dataMetricsChecks','focusChecks','qtAccessibilityChecks']:assert record[key]=='passed',record
     assert record['updates']==1 and record['formattedValue']=='12.345679%' and record['deltaLocale']=='de_DE',record

@@ -104,7 +104,7 @@ using the same GNU install directories as the exported CMake package. Launch
 The source-build catalog continues to use the documented build-tree import path.
 
 `check-installed-catalog.sh` exercises all twenty-two galleries at both appearances
-and DPRs, both action galleries, and the default button: 91 images with physical
+and DPRs, both action galleries, and the default button: 95 images with physical
 size/metadata checks. Both QML import environment variables are unset. A copied
 executable without its module must fail with the missing-module error. The full
 Linux check runs this against the staged install, then the package-only check

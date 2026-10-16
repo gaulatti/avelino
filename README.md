@@ -48,13 +48,14 @@ The [empty/error/loading source investigation](docs/presentation-states.md)
 now has [Linux presentation-state candidates](docs/presentation-states.md); complete mirror acceptance remains pending.
 The [alert candidate](docs/alert.md) adds typed feedback with caller-owned content
 and native prose-layout evidence.
-Fifty-six of the 80 discovered desktop
+Fifty-seven of the 80 discovered desktop
 entries have started; no component has passed its complete mirror gate.
 The public GitHub wiki remote is unavailable; documentation currently lives here.
 
 The [Stepper source investigation](docs/stepper.md) preserves hosted native
-captures, exact integer/binding behavior and a fresh source-only replay. Its Qt
-implementation and complete acceptance remain pending.
+captures, exact integer/binding behavior and a fresh source-only replay. The Qt
+candidate adds catalog and independent installed-consumer coverage; complete
+font, symbol, frame, raster, physical and reader acceptance remains pending.
 
 Generic child clipping now has a [software renderer candidate](docs/content-clipping.md)
 sharing the existing continuous/circular/capsule paths; strict native acceptance

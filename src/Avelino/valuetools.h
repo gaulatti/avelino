@@ -18,6 +18,10 @@ public:
     Q_INVOKABLE int alertTypeIndex(const QString &type) const;
     Q_INVOKABLE int spinnerEdge(const QString &size) const;
     Q_INVOKABLE QVariantMap pagination(const QVariant &page, const QVariant &pageCount, const QLocale &locale) const;
+    Q_INVOKABLE QVariantMap stepper(const QVariant &value, const QVariant &lower, const QVariant &upper,
+                                   const QVariant &step, const QVariant &offset, const QLocale &locale) const;
+    Q_INVOKABLE QVariant stepperRequest(const QVariant &value, const QVariant &lower, const QVariant &upper,
+                                       const QVariant &step, bool increment) const;
     Q_INVOKABLE void select(QObject *control, const QVariant &value) const;
     Q_INVOKABLE void setValue(QObject *control, qreal value) const;
     Q_INVOKABLE void moveSlider(QObject *control, qreal value) const;

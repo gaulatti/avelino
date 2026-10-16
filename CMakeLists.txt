@@ -25,3 +25,4 @@ install(DIRECTORY assets/fonts/ DESTINATION ${CMAKE_INSTALL_DATADIR}/avelino/fon
 install(FILES assets/provenance.json assets/selection-symbols.json assets/checkbox-symbols.json assets/secure-field-symbols.json assets/search-field-symbols.json assets/filter-chip-symbols.json assets/navigation-symbols.json assets/presentation-symbols.json assets/spinner-presentation.json assets/alert-symbols.json assets/brand-presentation.json assets/sidebar-symbols.json assets/data-metrics-presentation.json DESTINATION ${CMAKE_INSTALL_DATADIR}/avelino)
 
 install(FILES assets/brand/BleeckerLogo.png DESTINATION ${CMAKE_INSTALL_DATADIR}/avelino/brand)
+install(FILES assets/stepper-presentation.json DESTINATION ${CMAKE_INSTALL_DATADIR}/avelino)

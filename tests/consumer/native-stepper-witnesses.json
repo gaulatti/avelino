@@ -1,0 +1,3927 @@
+{
+  "reference": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+  "sourceFiles": {
+    "behavior/behavior.json": "f652c756a02150ab8fcf50c09370ae58fc41c0a621489157e946db55ec2fdfe5",
+    "locale-en_US/formatting.json": "b6b2c3bfee7a690856a6529e617a2b2168bf40da3b8c8f9b429195accebbb2ea",
+    "locale-de_DE/formatting.json": "779653e7017ac8f863713e735b142bc50457d65fd03c0566b7d513891e213fd2",
+    "locale-es_CL/formatting.json": "2460b5a03799480d2497272f06d64ae54d4d7e6788e29cb1d7c2e554f40a6a9b",
+    "locale-fr_FR/formatting.json": "a310c43c5ae38d55539ed3413651f6a39bb3f92c35f731a9387c0339562a999a",
+    "locale-ja_JP/formatting.json": "5cb60213abac8cf48a93a5fa36e854c3165104c8c3460e5fa457978e03b44ae5",
+    "locale-ar_EG/formatting.json": "265c4d755c9f783f7e0d15231961ea5d64e3ff4ab64468a771803c4ff9595fd9",
+    "locale-hi_IN/formatting.json": "5ac5e2f54f505afc6b20c466fa74f5eee602dd73b45d8cadca4959308dc350f9"
+  },
+  "traces": [
+    {
+      "actions": [
+        {
+          "action": "decrement",
+          "after": "1",
+          "before": "2",
+          "modelWrites": [
+            "1"
+          ],
+          "point": {
+            "x": 372,
+            "y": 90
+          },
+          "requests": [
+            "1"
+          ]
+        },
+        {
+          "action": "increment",
+          "after": "2",
+          "before": "1",
+          "modelWrites": [
+            "2"
+          ],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": [
+            "2"
+          ]
+        },
+        {
+          "action": "increment",
+          "after": "3",
+          "before": "2",
+          "modelWrites": [
+            "3"
+          ],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": [
+            "3"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "2",
+          "before": "3",
+          "modelWrites": [
+            "2"
+          ],
+          "point": {
+            "x": 372,
+            "y": 90
+          },
+          "requests": [
+            "2"
+          ]
+        },
+        {
+          "action": "cancel",
+          "after": "2",
+          "before": "2",
+          "modelWrites": [],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": []
+        }
+      ],
+      "afterExternalActions": [
+        {
+          "action": "increment",
+          "after": "7",
+          "before": "6",
+          "modelWrites": [
+            "7"
+          ],
+          "point": {
+            "x": 438.5,
+            "y": 90
+          },
+          "requests": [
+            "7"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "5",
+          "before": "7",
+          "modelWrites": [
+            "5"
+          ],
+          "point": {
+            "x": 391,
+            "y": 90
+          },
+          "requests": [
+            "5"
+          ]
+        }
+      ],
+      "disabled": false,
+      "displayOffset": "0",
+      "externalUpdate": {
+        "formattedValue": "106",
+        "requestCountAfter": 4,
+        "requestCountBefore": 4,
+        "value": "6"
+      },
+      "finalFormattedValue": "105",
+      "finalValue": "5",
+      "fixture": "normal",
+      "initializer": "unlabeled",
+      "initialValue": "2",
+      "lowerBound": "1",
+      "modelWrites": [
+        "1",
+        "2",
+        "3",
+        "2"
+      ],
+      "nativeWindowState": {
+        "applicationActive": false,
+        "backingDpr": 2,
+        "key": false,
+        "main": false
+      },
+      "observeOnly": false,
+      "requests": [
+        "1",
+        "2",
+        "3",
+        "2"
+      ],
+      "rtl": false,
+      "step": "1",
+      "upperBound": "10"
+    },
+    {
+      "actions": [
+        {
+          "action": "decrement",
+          "after": "1",
+          "before": "2",
+          "modelWrites": [
+            "1"
+          ],
+          "point": {
+            "x": 372,
+            "y": 90
+          },
+          "requests": [
+            "1"
+          ]
+        },
+        {
+          "action": "increment",
+          "after": "2",
+          "before": "1",
+          "modelWrites": [
+            "2"
+          ],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": [
+            "2"
+          ]
+        },
+        {
+          "action": "increment",
+          "after": "3",
+          "before": "2",
+          "modelWrites": [
+            "3"
+          ],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": [
+            "3"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "2",
+          "before": "3",
+          "modelWrites": [
+            "2"
+          ],
+          "point": {
+            "x": 372,
+            "y": 90
+          },
+          "requests": [
+            "2"
+          ]
+        },
+        {
+          "action": "cancel",
+          "after": "2",
+          "before": "2",
+          "modelWrites": [],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": []
+        }
+      ],
+      "afterExternalActions": [
+        {
+          "action": "increment",
+          "after": "7",
+          "before": "6",
+          "modelWrites": [
+            "7"
+          ],
+          "point": {
+            "x": 438.5,
+            "y": 90
+          },
+          "requests": [
+            "7"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "5",
+          "before": "7",
+          "modelWrites": [
+            "5"
+          ],
+          "point": {
+            "x": 391,
+            "y": 90
+          },
+          "requests": [
+            "5"
+          ]
+        }
+      ],
+      "disabled": false,
+      "displayOffset": "0",
+      "externalUpdate": {
+        "formattedValue": "106",
+        "requestCountAfter": 4,
+        "requestCountBefore": 4,
+        "value": "6"
+      },
+      "finalFormattedValue": "105",
+      "finalValue": "5",
+      "fixture": "labeled-initializer",
+      "initializer": "labeled",
+      "initialValue": "2",
+      "lowerBound": "1",
+      "modelWrites": [
+        "1",
+        "2",
+        "3",
+        "2"
+      ],
+      "nativeWindowState": {
+        "applicationActive": false,
+        "backingDpr": 2,
+        "key": false,
+        "main": false
+      },
+      "observeOnly": false,
+      "requests": [
+        "1",
+        "2",
+        "3",
+        "2"
+      ],
+      "rtl": false,
+      "step": "1",
+      "upperBound": "10"
+    },
+    {
+      "actions": [
+        {
+          "action": "decrement",
+          "after": "2",
+          "before": "2",
+          "modelWrites": [],
+          "point": {
+            "x": 372,
+            "y": 90
+          },
+          "requests": [
+            "1"
+          ]
+        },
+        {
+          "action": "increment",
+          "after": "2",
+          "before": "2",
+          "modelWrites": [],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": [
+            "3"
+          ]
+        },
+        {
+          "action": "increment",
+          "after": "2",
+          "before": "2",
+          "modelWrites": [],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": [
+            "3"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "2",
+          "before": "2",
+          "modelWrites": [],
+          "point": {
+            "x": 372,
+            "y": 90
+          },
+          "requests": [
+            "1"
+          ]
+        },
+        {
+          "action": "cancel",
+          "after": "2",
+          "before": "2",
+          "modelWrites": [],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": []
+        }
+      ],
+      "afterExternalActions": [
+        {
+          "action": "increment",
+          "after": "6",
+          "before": "6",
+          "modelWrites": [],
+          "point": {
+            "x": 438.5,
+            "y": 90
+          },
+          "requests": [
+            "7"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "6",
+          "before": "6",
+          "modelWrites": [],
+          "point": {
+            "x": 391,
+            "y": 90
+          },
+          "requests": [
+            "5"
+          ]
+        }
+      ],
+      "disabled": false,
+      "displayOffset": "0",
+      "externalUpdate": {
+        "formattedValue": "106",
+        "requestCountAfter": 4,
+        "requestCountBefore": 4,
+        "value": "6"
+      },
+      "finalFormattedValue": "106",
+      "finalValue": "6",
+      "fixture": "observe-only",
+      "initializer": "unlabeled",
+      "initialValue": "2",
+      "lowerBound": "1",
+      "modelWrites": [],
+      "nativeWindowState": {
+        "applicationActive": false,
+        "backingDpr": 2,
+        "key": false,
+        "main": false
+      },
+      "observeOnly": true,
+      "requests": [
+        "1",
+        "3",
+        "3",
+        "1"
+      ],
+      "rtl": false,
+      "step": "1",
+      "upperBound": "10"
+    },
+    {
+      "actions": [
+        {
+          "action": "decrement",
+          "after": "1",
+          "before": "1",
+          "modelWrites": [],
+          "point": {
+            "x": 372,
+            "y": 90
+          },
+          "requests": []
+        },
+        {
+          "action": "increment",
+          "after": "2",
+          "before": "1",
+          "modelWrites": [
+            "2"
+          ],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": [
+            "2"
+          ]
+        },
+        {
+          "action": "increment",
+          "after": "3",
+          "before": "2",
+          "modelWrites": [
+            "3"
+          ],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": [
+            "3"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "2",
+          "before": "3",
+          "modelWrites": [
+            "2"
+          ],
+          "point": {
+            "x": 372,
+            "y": 90
+          },
+          "requests": [
+            "2"
+          ]
+        },
+        {
+          "action": "cancel",
+          "after": "2",
+          "before": "2",
+          "modelWrites": [],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": []
+        }
+      ],
+      "afterExternalActions": [
+        {
+          "action": "increment",
+          "after": "7",
+          "before": "6",
+          "modelWrites": [
+            "7"
+          ],
+          "point": {
+            "x": 438.5,
+            "y": 90
+          },
+          "requests": [
+            "7"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "5",
+          "before": "7",
+          "modelWrites": [
+            "5"
+          ],
+          "point": {
+            "x": 391,
+            "y": 90
+          },
+          "requests": [
+            "5"
+          ]
+        }
+      ],
+      "disabled": false,
+      "displayOffset": "0",
+      "externalUpdate": {
+        "formattedValue": "106",
+        "requestCountAfter": 3,
+        "requestCountBefore": 3,
+        "value": "6"
+      },
+      "finalFormattedValue": "105",
+      "finalValue": "5",
+      "fixture": "lower",
+      "initializer": "unlabeled",
+      "initialValue": "1",
+      "lowerBound": "1",
+      "modelWrites": [
+        "2",
+        "3",
+        "2"
+      ],
+      "nativeWindowState": {
+        "applicationActive": false,
+        "backingDpr": 2,
+        "key": false,
+        "main": false
+      },
+      "observeOnly": false,
+      "requests": [
+        "2",
+        "3",
+        "2"
+      ],
+      "rtl": false,
+      "step": "1",
+      "upperBound": "10"
+    },
+    {
+      "actions": [
+        {
+          "action": "decrement",
+          "after": "9",
+          "before": "10",
+          "modelWrites": [
+            "9"
+          ],
+          "point": {
+            "x": 372,
+            "y": 90
+          },
+          "requests": [
+            "9"
+          ]
+        },
+        {
+          "action": "increment",
+          "after": "10",
+          "before": "9",
+          "modelWrites": [
+            "10"
+          ],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": [
+            "10"
+          ]
+        },
+        {
+          "action": "increment",
+          "after": "10",
+          "before": "10",
+          "modelWrites": [],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": []
+        },
+        {
+          "action": "decrement",
+          "after": "9",
+          "before": "10",
+          "modelWrites": [
+            "9"
+          ],
+          "point": {
+            "x": 372,
+            "y": 90
+          },
+          "requests": [
+            "9"
+          ]
+        },
+        {
+          "action": "cancel",
+          "after": "9",
+          "before": "9",
+          "modelWrites": [],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": []
+        }
+      ],
+      "afterExternalActions": [
+        {
+          "action": "increment",
+          "after": "7",
+          "before": "6",
+          "modelWrites": [
+            "7"
+          ],
+          "point": {
+            "x": 438.5,
+            "y": 90
+          },
+          "requests": [
+            "7"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "5",
+          "before": "7",
+          "modelWrites": [
+            "5"
+          ],
+          "point": {
+            "x": 391,
+            "y": 90
+          },
+          "requests": [
+            "5"
+          ]
+        }
+      ],
+      "disabled": false,
+      "displayOffset": "0",
+      "externalUpdate": {
+        "formattedValue": "106",
+        "requestCountAfter": 3,
+        "requestCountBefore": 3,
+        "value": "6"
+      },
+      "finalFormattedValue": "105",
+      "finalValue": "5",
+      "fixture": "upper",
+      "initializer": "unlabeled",
+      "initialValue": "10",
+      "lowerBound": "1",
+      "modelWrites": [
+        "9",
+        "10",
+        "9"
+      ],
+      "nativeWindowState": {
+        "applicationActive": false,
+        "backingDpr": 2,
+        "key": false,
+        "main": false
+      },
+      "observeOnly": false,
+      "requests": [
+        "9",
+        "10",
+        "9"
+      ],
+      "rtl": false,
+      "step": "1",
+      "upperBound": "10"
+    },
+    {
+      "actions": [
+        {
+          "action": "decrement",
+          "after": "-5",
+          "before": "-5",
+          "modelWrites": [],
+          "point": {
+            "x": 372,
+            "y": 90
+          },
+          "requests": []
+        },
+        {
+          "action": "increment",
+          "after": "-4",
+          "before": "-5",
+          "modelWrites": [
+            "-4"
+          ],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": [
+            "-4"
+          ]
+        },
+        {
+          "action": "increment",
+          "after": "-3",
+          "before": "-4",
+          "modelWrites": [
+            "-3"
+          ],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": [
+            "-3"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "-3",
+          "before": "-3",
+          "modelWrites": [],
+          "point": {
+            "x": 372,
+            "y": 90
+          },
+          "requests": []
+        },
+        {
+          "action": "cancel",
+          "after": "-3",
+          "before": "-3",
+          "modelWrites": [],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": []
+        }
+      ],
+      "afterExternalActions": [
+        {
+          "action": "increment",
+          "after": "7",
+          "before": "6",
+          "modelWrites": [
+            "7"
+          ],
+          "point": {
+            "x": 438.5,
+            "y": 90
+          },
+          "requests": [
+            "7"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "5",
+          "before": "7",
+          "modelWrites": [
+            "5"
+          ],
+          "point": {
+            "x": 391,
+            "y": 90
+          },
+          "requests": [
+            "5"
+          ]
+        }
+      ],
+      "disabled": false,
+      "displayOffset": "0",
+      "externalUpdate": {
+        "formattedValue": "106",
+        "requestCountAfter": 2,
+        "requestCountBefore": 2,
+        "value": "6"
+      },
+      "finalFormattedValue": "105",
+      "finalValue": "5",
+      "fixture": "below-range",
+      "initializer": "unlabeled",
+      "initialValue": "-5",
+      "lowerBound": "1",
+      "modelWrites": [
+        "-4",
+        "-3"
+      ],
+      "nativeWindowState": {
+        "applicationActive": false,
+        "backingDpr": 2,
+        "key": false,
+        "main": false
+      },
+      "observeOnly": false,
+      "requests": [
+        "-4",
+        "-3"
+      ],
+      "rtl": false,
+      "step": "1",
+      "upperBound": "10"
+    },
+    {
+      "actions": [
+        {
+          "action": "decrement",
+          "after": "14",
+          "before": "15",
+          "modelWrites": [
+            "14"
+          ],
+          "point": {
+            "x": 372,
+            "y": 90
+          },
+          "requests": [
+            "14"
+          ]
+        },
+        {
+          "action": "increment",
+          "after": "14",
+          "before": "14",
+          "modelWrites": [],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": []
+        },
+        {
+          "action": "increment",
+          "after": "14",
+          "before": "14",
+          "modelWrites": [],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": []
+        },
+        {
+          "action": "decrement",
+          "after": "13",
+          "before": "14",
+          "modelWrites": [
+            "13"
+          ],
+          "point": {
+            "x": 372,
+            "y": 90
+          },
+          "requests": [
+            "13"
+          ]
+        },
+        {
+          "action": "cancel",
+          "after": "13",
+          "before": "13",
+          "modelWrites": [],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": []
+        }
+      ],
+      "afterExternalActions": [
+        {
+          "action": "increment",
+          "after": "7",
+          "before": "6",
+          "modelWrites": [
+            "7"
+          ],
+          "point": {
+            "x": 438.5,
+            "y": 90
+          },
+          "requests": [
+            "7"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "5",
+          "before": "7",
+          "modelWrites": [
+            "5"
+          ],
+          "point": {
+            "x": 391,
+            "y": 90
+          },
+          "requests": [
+            "5"
+          ]
+        }
+      ],
+      "disabled": false,
+      "displayOffset": "0",
+      "externalUpdate": {
+        "formattedValue": "106",
+        "requestCountAfter": 2,
+        "requestCountBefore": 2,
+        "value": "6"
+      },
+      "finalFormattedValue": "105",
+      "finalValue": "5",
+      "fixture": "above-range",
+      "initializer": "unlabeled",
+      "initialValue": "15",
+      "lowerBound": "1",
+      "modelWrites": [
+        "14",
+        "13"
+      ],
+      "nativeWindowState": {
+        "applicationActive": false,
+        "backingDpr": 2,
+        "key": false,
+        "main": false
+      },
+      "observeOnly": false,
+      "requests": [
+        "14",
+        "13"
+      ],
+      "rtl": false,
+      "step": "1",
+      "upperBound": "10"
+    },
+    {
+      "actions": [
+        {
+          "action": "decrement",
+          "after": "5",
+          "before": "5",
+          "modelWrites": [],
+          "point": {
+            "x": 372,
+            "y": 90
+          },
+          "requests": []
+        },
+        {
+          "action": "increment",
+          "after": "5",
+          "before": "5",
+          "modelWrites": [],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": []
+        },
+        {
+          "action": "increment",
+          "after": "5",
+          "before": "5",
+          "modelWrites": [],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": []
+        },
+        {
+          "action": "decrement",
+          "after": "5",
+          "before": "5",
+          "modelWrites": [],
+          "point": {
+            "x": 372,
+            "y": 90
+          },
+          "requests": []
+        },
+        {
+          "action": "cancel",
+          "after": "5",
+          "before": "5",
+          "modelWrites": [],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": []
+        }
+      ],
+      "afterExternalActions": [
+        {
+          "action": "increment",
+          "after": "7",
+          "before": "6",
+          "modelWrites": [
+            "7"
+          ],
+          "point": {
+            "x": 438.5,
+            "y": 90
+          },
+          "requests": [
+            "7"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "5",
+          "before": "7",
+          "modelWrites": [
+            "5"
+          ],
+          "point": {
+            "x": 391,
+            "y": 90
+          },
+          "requests": [
+            "5"
+          ]
+        }
+      ],
+      "disabled": false,
+      "displayOffset": "0",
+      "externalUpdate": {
+        "formattedValue": "106",
+        "requestCountAfter": 0,
+        "requestCountBefore": 0,
+        "value": "6"
+      },
+      "finalFormattedValue": "105",
+      "finalValue": "5",
+      "fixture": "equal-range",
+      "initializer": "unlabeled",
+      "initialValue": "5",
+      "lowerBound": "5",
+      "modelWrites": [],
+      "nativeWindowState": {
+        "applicationActive": false,
+        "backingDpr": 2,
+        "key": false,
+        "main": false
+      },
+      "observeOnly": false,
+      "requests": [],
+      "rtl": false,
+      "step": "1",
+      "upperBound": "5"
+    },
+    {
+      "actions": [
+        {
+          "action": "decrement",
+          "after": "4",
+          "before": "4",
+          "modelWrites": [],
+          "point": {
+            "x": 372,
+            "y": 90
+          },
+          "requests": []
+        },
+        {
+          "action": "increment",
+          "after": "5",
+          "before": "4",
+          "modelWrites": [
+            "5"
+          ],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": [
+            "5"
+          ]
+        },
+        {
+          "action": "increment",
+          "after": "5",
+          "before": "5",
+          "modelWrites": [],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": []
+        },
+        {
+          "action": "decrement",
+          "after": "5",
+          "before": "5",
+          "modelWrites": [],
+          "point": {
+            "x": 372,
+            "y": 90
+          },
+          "requests": []
+        },
+        {
+          "action": "cancel",
+          "after": "5",
+          "before": "5",
+          "modelWrites": [],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": []
+        }
+      ],
+      "afterExternalActions": [
+        {
+          "action": "increment",
+          "after": "7",
+          "before": "6",
+          "modelWrites": [
+            "7"
+          ],
+          "point": {
+            "x": 438.5,
+            "y": 90
+          },
+          "requests": [
+            "7"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "5",
+          "before": "7",
+          "modelWrites": [
+            "5"
+          ],
+          "point": {
+            "x": 391,
+            "y": 90
+          },
+          "requests": [
+            "5"
+          ]
+        }
+      ],
+      "disabled": false,
+      "displayOffset": "0",
+      "externalUpdate": {
+        "formattedValue": "106",
+        "requestCountAfter": 1,
+        "requestCountBefore": 1,
+        "value": "6"
+      },
+      "finalFormattedValue": "105",
+      "finalValue": "5",
+      "fixture": "equal-below",
+      "initializer": "unlabeled",
+      "initialValue": "4",
+      "lowerBound": "5",
+      "modelWrites": [
+        "5"
+      ],
+      "nativeWindowState": {
+        "applicationActive": false,
+        "backingDpr": 2,
+        "key": false,
+        "main": false
+      },
+      "observeOnly": false,
+      "requests": [
+        "5"
+      ],
+      "rtl": false,
+      "step": "1",
+      "upperBound": "5"
+    },
+    {
+      "actions": [
+        {
+          "action": "decrement",
+          "after": "5",
+          "before": "6",
+          "modelWrites": [
+            "5"
+          ],
+          "point": {
+            "x": 372,
+            "y": 90
+          },
+          "requests": [
+            "5"
+          ]
+        },
+        {
+          "action": "increment",
+          "after": "5",
+          "before": "5",
+          "modelWrites": [],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": []
+        },
+        {
+          "action": "increment",
+          "after": "5",
+          "before": "5",
+          "modelWrites": [],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": []
+        },
+        {
+          "action": "decrement",
+          "after": "5",
+          "before": "5",
+          "modelWrites": [],
+          "point": {
+            "x": 372,
+            "y": 90
+          },
+          "requests": []
+        },
+        {
+          "action": "cancel",
+          "after": "5",
+          "before": "5",
+          "modelWrites": [],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": []
+        }
+      ],
+      "afterExternalActions": [
+        {
+          "action": "increment",
+          "after": "7",
+          "before": "6",
+          "modelWrites": [
+            "7"
+          ],
+          "point": {
+            "x": 438.5,
+            "y": 90
+          },
+          "requests": [
+            "7"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "5",
+          "before": "7",
+          "modelWrites": [
+            "5"
+          ],
+          "point": {
+            "x": 391,
+            "y": 90
+          },
+          "requests": [
+            "5"
+          ]
+        }
+      ],
+      "disabled": false,
+      "displayOffset": "0",
+      "externalUpdate": {
+        "formattedValue": "106",
+        "requestCountAfter": 1,
+        "requestCountBefore": 1,
+        "value": "6"
+      },
+      "finalFormattedValue": "105",
+      "finalValue": "5",
+      "fixture": "equal-above",
+      "initializer": "unlabeled",
+      "initialValue": "6",
+      "lowerBound": "5",
+      "modelWrites": [
+        "5"
+      ],
+      "nativeWindowState": {
+        "applicationActive": false,
+        "backingDpr": 2,
+        "key": false,
+        "main": false
+      },
+      "observeOnly": false,
+      "requests": [
+        "5"
+      ],
+      "rtl": false,
+      "step": "1",
+      "upperBound": "5"
+    },
+    {
+      "actions": [
+        {
+          "action": "decrement",
+          "after": "2",
+          "before": "2",
+          "modelWrites": [
+            "2"
+          ],
+          "point": {
+            "x": 372,
+            "y": 90
+          },
+          "requests": [
+            "2"
+          ]
+        },
+        {
+          "action": "increment",
+          "after": "2",
+          "before": "2",
+          "modelWrites": [
+            "2"
+          ],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": [
+            "2"
+          ]
+        },
+        {
+          "action": "increment",
+          "after": "2",
+          "before": "2",
+          "modelWrites": [
+            "2"
+          ],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": [
+            "2"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "2",
+          "before": "2",
+          "modelWrites": [
+            "2"
+          ],
+          "point": {
+            "x": 372,
+            "y": 90
+          },
+          "requests": [
+            "2"
+          ]
+        },
+        {
+          "action": "cancel",
+          "after": "2",
+          "before": "2",
+          "modelWrites": [],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": []
+        }
+      ],
+      "afterExternalActions": [
+        {
+          "action": "increment",
+          "after": "7",
+          "before": "6",
+          "modelWrites": [
+            "7"
+          ],
+          "point": {
+            "x": 438.5,
+            "y": 90
+          },
+          "requests": [
+            "7"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "5",
+          "before": "7",
+          "modelWrites": [
+            "5"
+          ],
+          "point": {
+            "x": 391,
+            "y": 90
+          },
+          "requests": [
+            "5"
+          ]
+        }
+      ],
+      "disabled": false,
+      "displayOffset": "0",
+      "externalUpdate": {
+        "formattedValue": "106",
+        "requestCountAfter": 4,
+        "requestCountBefore": 4,
+        "value": "6"
+      },
+      "finalFormattedValue": "105",
+      "finalValue": "5",
+      "fixture": "step-zero",
+      "initializer": "unlabeled",
+      "initialValue": "2",
+      "lowerBound": "1",
+      "modelWrites": [
+        "2",
+        "2",
+        "2",
+        "2"
+      ],
+      "nativeWindowState": {
+        "applicationActive": false,
+        "backingDpr": 2,
+        "key": false,
+        "main": false
+      },
+      "observeOnly": false,
+      "requests": [
+        "2",
+        "2",
+        "2",
+        "2"
+      ],
+      "rtl": false,
+      "step": "0",
+      "upperBound": "10"
+    },
+    {
+      "actions": [
+        {
+          "action": "decrement",
+          "after": "4",
+          "before": "2",
+          "modelWrites": [
+            "4"
+          ],
+          "point": {
+            "x": 372,
+            "y": 90
+          },
+          "requests": [
+            "4"
+          ]
+        },
+        {
+          "action": "increment",
+          "after": "2",
+          "before": "4",
+          "modelWrites": [
+            "2"
+          ],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": [
+            "2"
+          ]
+        },
+        {
+          "action": "increment",
+          "after": "0",
+          "before": "2",
+          "modelWrites": [
+            "0"
+          ],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": [
+            "0"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "0",
+          "before": "0",
+          "modelWrites": [],
+          "point": {
+            "x": 372,
+            "y": 90
+          },
+          "requests": []
+        },
+        {
+          "action": "cancel",
+          "after": "0",
+          "before": "0",
+          "modelWrites": [],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": []
+        }
+      ],
+      "afterExternalActions": [
+        {
+          "action": "increment",
+          "after": "7",
+          "before": "6",
+          "modelWrites": [
+            "7"
+          ],
+          "point": {
+            "x": 438.5,
+            "y": 90
+          },
+          "requests": [
+            "7"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "5",
+          "before": "7",
+          "modelWrites": [
+            "5"
+          ],
+          "point": {
+            "x": 391,
+            "y": 90
+          },
+          "requests": [
+            "5"
+          ]
+        }
+      ],
+      "disabled": false,
+      "displayOffset": "0",
+      "externalUpdate": {
+        "formattedValue": "106",
+        "requestCountAfter": 3,
+        "requestCountBefore": 3,
+        "value": "6"
+      },
+      "finalFormattedValue": "105",
+      "finalValue": "5",
+      "fixture": "step-negative",
+      "initializer": "unlabeled",
+      "initialValue": "2",
+      "lowerBound": "1",
+      "modelWrites": [
+        "4",
+        "2",
+        "0"
+      ],
+      "nativeWindowState": {
+        "applicationActive": false,
+        "backingDpr": 2,
+        "key": false,
+        "main": false
+      },
+      "observeOnly": false,
+      "requests": [
+        "4",
+        "2",
+        "0"
+      ],
+      "rtl": false,
+      "step": "-2",
+      "upperBound": "10"
+    },
+    {
+      "actions": [
+        {
+          "action": "decrement",
+          "after": "13",
+          "before": "9",
+          "modelWrites": [
+            "13"
+          ],
+          "point": {
+            "x": 372,
+            "y": 90
+          },
+          "requests": [
+            "13"
+          ]
+        },
+        {
+          "action": "increment",
+          "after": "13",
+          "before": "13",
+          "modelWrites": [],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": []
+        },
+        {
+          "action": "increment",
+          "after": "13",
+          "before": "13",
+          "modelWrites": [],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": []
+        },
+        {
+          "action": "decrement",
+          "after": "17",
+          "before": "13",
+          "modelWrites": [
+            "17"
+          ],
+          "point": {
+            "x": 372,
+            "y": 90
+          },
+          "requests": [
+            "17"
+          ]
+        },
+        {
+          "action": "cancel",
+          "after": "17",
+          "before": "17",
+          "modelWrites": [],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": []
+        }
+      ],
+      "afterExternalActions": [
+        {
+          "action": "increment",
+          "after": "7",
+          "before": "6",
+          "modelWrites": [
+            "7"
+          ],
+          "point": {
+            "x": 438.5,
+            "y": 90
+          },
+          "requests": [
+            "7"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "5",
+          "before": "7",
+          "modelWrites": [
+            "5"
+          ],
+          "point": {
+            "x": 391,
+            "y": 90
+          },
+          "requests": [
+            "5"
+          ]
+        }
+      ],
+      "disabled": false,
+      "displayOffset": "0",
+      "externalUpdate": {
+        "formattedValue": "106",
+        "requestCountAfter": 2,
+        "requestCountBefore": 2,
+        "value": "6"
+      },
+      "finalFormattedValue": "105",
+      "finalValue": "5",
+      "fixture": "step-negative-cross",
+      "initializer": "unlabeled",
+      "initialValue": "9",
+      "lowerBound": "1",
+      "modelWrites": [
+        "13",
+        "17"
+      ],
+      "nativeWindowState": {
+        "applicationActive": false,
+        "backingDpr": 2,
+        "key": false,
+        "main": false
+      },
+      "observeOnly": false,
+      "requests": [
+        "13",
+        "17"
+      ],
+      "rtl": false,
+      "step": "-4",
+      "upperBound": "10"
+    },
+    {
+      "actions": [
+        {
+          "action": "decrement",
+          "after": "4",
+          "before": "8",
+          "modelWrites": [
+            "4"
+          ],
+          "point": {
+            "x": 372,
+            "y": 90
+          },
+          "requests": [
+            "4"
+          ]
+        },
+        {
+          "action": "increment",
+          "after": "8",
+          "before": "4",
+          "modelWrites": [
+            "8"
+          ],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": [
+            "8"
+          ]
+        },
+        {
+          "action": "increment",
+          "after": "10",
+          "before": "8",
+          "modelWrites": [
+            "10"
+          ],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": [
+            "10"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "6",
+          "before": "10",
+          "modelWrites": [
+            "6"
+          ],
+          "point": {
+            "x": 372,
+            "y": 90
+          },
+          "requests": [
+            "6"
+          ]
+        },
+        {
+          "action": "cancel",
+          "after": "6",
+          "before": "6",
+          "modelWrites": [],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": []
+        }
+      ],
+      "afterExternalActions": [
+        {
+          "action": "increment",
+          "after": "7",
+          "before": "6",
+          "modelWrites": [
+            "7"
+          ],
+          "point": {
+            "x": 438.5,
+            "y": 90
+          },
+          "requests": [
+            "7"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "5",
+          "before": "7",
+          "modelWrites": [
+            "5"
+          ],
+          "point": {
+            "x": 391,
+            "y": 90
+          },
+          "requests": [
+            "5"
+          ]
+        }
+      ],
+      "disabled": false,
+      "displayOffset": "0",
+      "externalUpdate": {
+        "formattedValue": "106",
+        "requestCountAfter": 4,
+        "requestCountBefore": 4,
+        "value": "6"
+      },
+      "finalFormattedValue": "105",
+      "finalValue": "5",
+      "fixture": "step-four",
+      "initializer": "unlabeled",
+      "initialValue": "8",
+      "lowerBound": "1",
+      "modelWrites": [
+        "4",
+        "8",
+        "10",
+        "6"
+      ],
+      "nativeWindowState": {
+        "applicationActive": false,
+        "backingDpr": 2,
+        "key": false,
+        "main": false
+      },
+      "observeOnly": false,
+      "requests": [
+        "4",
+        "8",
+        "10",
+        "6"
+      ],
+      "rtl": false,
+      "step": "4",
+      "upperBound": "10"
+    },
+    {
+      "actions": [
+        {
+          "action": "decrement",
+          "after": "1",
+          "before": "2",
+          "modelWrites": [
+            "1"
+          ],
+          "point": {
+            "x": 370.25,
+            "y": 90
+          },
+          "requests": [
+            "1"
+          ]
+        },
+        {
+          "action": "increment",
+          "after": "2",
+          "before": "1",
+          "modelWrites": [
+            "2"
+          ],
+          "point": {
+            "x": 421.25,
+            "y": 90
+          },
+          "requests": [
+            "2"
+          ]
+        },
+        {
+          "action": "increment",
+          "after": "3",
+          "before": "2",
+          "modelWrites": [
+            "3"
+          ],
+          "point": {
+            "x": 421.25,
+            "y": 90
+          },
+          "requests": [
+            "3"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "2",
+          "before": "3",
+          "modelWrites": [
+            "2"
+          ],
+          "point": {
+            "x": 370.25,
+            "y": 90
+          },
+          "requests": [
+            "2"
+          ]
+        },
+        {
+          "action": "cancel",
+          "after": "2",
+          "before": "2",
+          "modelWrites": [],
+          "point": {
+            "x": 421.25,
+            "y": 90
+          },
+          "requests": []
+        }
+      ],
+      "afterExternalActions": [
+        {
+          "action": "increment",
+          "after": "7",
+          "before": "6",
+          "modelWrites": [
+            "7"
+          ],
+          "point": {
+            "x": 438.5,
+            "y": 90
+          },
+          "requests": [
+            "7"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "5",
+          "before": "7",
+          "modelWrites": [
+            "5"
+          ],
+          "point": {
+            "x": 391,
+            "y": 90
+          },
+          "requests": [
+            "5"
+          ]
+        }
+      ],
+      "disabled": false,
+      "displayOffset": "1000",
+      "externalUpdate": {
+        "formattedValue": "106",
+        "requestCountAfter": 4,
+        "requestCountBefore": 4,
+        "value": "6"
+      },
+      "finalFormattedValue": "105",
+      "finalValue": "5",
+      "fixture": "offset",
+      "initializer": "unlabeled",
+      "initialValue": "2",
+      "lowerBound": "1",
+      "modelWrites": [
+        "1",
+        "2",
+        "3",
+        "2"
+      ],
+      "nativeWindowState": {
+        "applicationActive": false,
+        "backingDpr": 2,
+        "key": false,
+        "main": false
+      },
+      "observeOnly": false,
+      "requests": [
+        "1",
+        "2",
+        "3",
+        "2"
+      ],
+      "rtl": false,
+      "step": "1",
+      "upperBound": "10"
+    },
+    {
+      "actions": [
+        {
+          "action": "decrement",
+          "after": "1",
+          "before": "2",
+          "modelWrites": [
+            "1"
+          ],
+          "point": {
+            "x": 372,
+            "y": 90
+          },
+          "requests": [
+            "1"
+          ]
+        },
+        {
+          "action": "increment",
+          "after": "2",
+          "before": "1",
+          "modelWrites": [
+            "2"
+          ],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": [
+            "2"
+          ]
+        },
+        {
+          "action": "increment",
+          "after": "3",
+          "before": "2",
+          "modelWrites": [
+            "3"
+          ],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": [
+            "3"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "2",
+          "before": "3",
+          "modelWrites": [
+            "2"
+          ],
+          "point": {
+            "x": 372,
+            "y": 90
+          },
+          "requests": [
+            "2"
+          ]
+        },
+        {
+          "action": "cancel",
+          "after": "2",
+          "before": "2",
+          "modelWrites": [],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": []
+        }
+      ],
+      "afterExternalActions": [
+        {
+          "action": "increment",
+          "after": "7",
+          "before": "6",
+          "modelWrites": [
+            "7"
+          ],
+          "point": {
+            "x": 438.5,
+            "y": 90
+          },
+          "requests": [
+            "7"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "5",
+          "before": "7",
+          "modelWrites": [
+            "5"
+          ],
+          "point": {
+            "x": 391,
+            "y": 90
+          },
+          "requests": [
+            "5"
+          ]
+        }
+      ],
+      "disabled": false,
+      "displayOffset": "-1000",
+      "externalUpdate": {
+        "formattedValue": "106",
+        "requestCountAfter": 4,
+        "requestCountBefore": 4,
+        "value": "6"
+      },
+      "finalFormattedValue": "105",
+      "finalValue": "5",
+      "fixture": "negative-offset",
+      "initializer": "unlabeled",
+      "initialValue": "2",
+      "lowerBound": "1",
+      "modelWrites": [
+        "1",
+        "2",
+        "3",
+        "2"
+      ],
+      "nativeWindowState": {
+        "applicationActive": false,
+        "backingDpr": 2,
+        "key": false,
+        "main": false
+      },
+      "observeOnly": false,
+      "requests": [
+        "1",
+        "2",
+        "3",
+        "2"
+      ],
+      "rtl": false,
+      "step": "1",
+      "upperBound": "10"
+    },
+    {
+      "actions": [
+        {
+          "action": "decrement",
+          "after": "-9223372036854775808",
+          "before": "-9223372036854775808",
+          "modelWrites": [],
+          "point": {
+            "x": 292.5,
+            "y": 90
+          },
+          "requests": []
+        },
+        {
+          "action": "increment",
+          "after": "-9223372036854775807",
+          "before": "-9223372036854775808",
+          "modelWrites": [
+            "-9223372036854775807"
+          ],
+          "point": {
+            "x": 499,
+            "y": 90
+          },
+          "requests": [
+            "-9223372036854775807"
+          ]
+        },
+        {
+          "action": "increment",
+          "after": "-9223372036854775806",
+          "before": "-9223372036854775807",
+          "modelWrites": [
+            "-9223372036854775806"
+          ],
+          "point": {
+            "x": 499,
+            "y": 90
+          },
+          "requests": [
+            "-9223372036854775806"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "-9223372036854775807",
+          "before": "-9223372036854775806",
+          "modelWrites": [
+            "-9223372036854775807"
+          ],
+          "point": {
+            "x": 292.5,
+            "y": 90
+          },
+          "requests": [
+            "-9223372036854775807"
+          ]
+        },
+        {
+          "action": "cancel",
+          "after": "-9223372036854775807",
+          "before": "-9223372036854775807",
+          "modelWrites": [],
+          "point": {
+            "x": 499,
+            "y": 90
+          },
+          "requests": []
+        }
+      ],
+      "afterExternalActions": [
+        {
+          "action": "increment",
+          "after": "7",
+          "before": "6",
+          "modelWrites": [
+            "7"
+          ],
+          "point": {
+            "x": 438.5,
+            "y": 90
+          },
+          "requests": [
+            "7"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "5",
+          "before": "7",
+          "modelWrites": [
+            "5"
+          ],
+          "point": {
+            "x": 391,
+            "y": 90
+          },
+          "requests": [
+            "5"
+          ]
+        }
+      ],
+      "disabled": false,
+      "displayOffset": "0",
+      "externalUpdate": {
+        "formattedValue": "106",
+        "requestCountAfter": 3,
+        "requestCountBefore": 3,
+        "value": "6"
+      },
+      "finalFormattedValue": "105",
+      "finalValue": "5",
+      "fixture": "integer-min",
+      "initializer": "unlabeled",
+      "initialValue": "-9223372036854775808",
+      "lowerBound": "-9223372036854775808",
+      "modelWrites": [
+        "-9223372036854775807",
+        "-9223372036854775806",
+        "-9223372036854775807"
+      ],
+      "nativeWindowState": {
+        "applicationActive": false,
+        "backingDpr": 2,
+        "key": false,
+        "main": false
+      },
+      "observeOnly": false,
+      "requests": [
+        "-9223372036854775807",
+        "-9223372036854775806",
+        "-9223372036854775807"
+      ],
+      "rtl": false,
+      "step": "1",
+      "upperBound": "9223372036854775807"
+    },
+    {
+      "actions": [
+        {
+          "action": "decrement",
+          "after": "9223372036854775806",
+          "before": "9223372036854775807",
+          "modelWrites": [
+            "9223372036854775806"
+          ],
+          "point": {
+            "x": 296.25,
+            "y": 90
+          },
+          "requests": [
+            "9223372036854775806"
+          ]
+        },
+        {
+          "action": "increment",
+          "after": "9223372036854775807",
+          "before": "9223372036854775806",
+          "modelWrites": [
+            "9223372036854775807"
+          ],
+          "point": {
+            "x": 495.25,
+            "y": 90
+          },
+          "requests": [
+            "9223372036854775807"
+          ]
+        },
+        {
+          "action": "increment",
+          "after": "9223372036854775807",
+          "before": "9223372036854775807",
+          "modelWrites": [],
+          "point": {
+            "x": 495.25,
+            "y": 90
+          },
+          "requests": []
+        },
+        {
+          "action": "decrement",
+          "after": "9223372036854775806",
+          "before": "9223372036854775807",
+          "modelWrites": [
+            "9223372036854775806"
+          ],
+          "point": {
+            "x": 296.25,
+            "y": 90
+          },
+          "requests": [
+            "9223372036854775806"
+          ]
+        },
+        {
+          "action": "cancel",
+          "after": "9223372036854775806",
+          "before": "9223372036854775806",
+          "modelWrites": [],
+          "point": {
+            "x": 495.25,
+            "y": 90
+          },
+          "requests": []
+        }
+      ],
+      "afterExternalActions": [
+        {
+          "action": "increment",
+          "after": "7",
+          "before": "6",
+          "modelWrites": [
+            "7"
+          ],
+          "point": {
+            "x": 438.5,
+            "y": 90
+          },
+          "requests": [
+            "7"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "5",
+          "before": "7",
+          "modelWrites": [
+            "5"
+          ],
+          "point": {
+            "x": 391,
+            "y": 90
+          },
+          "requests": [
+            "5"
+          ]
+        }
+      ],
+      "disabled": false,
+      "displayOffset": "0",
+      "externalUpdate": {
+        "formattedValue": "106",
+        "requestCountAfter": 3,
+        "requestCountBefore": 3,
+        "value": "6"
+      },
+      "finalFormattedValue": "105",
+      "finalValue": "5",
+      "fixture": "integer-max",
+      "initializer": "unlabeled",
+      "initialValue": "9223372036854775807",
+      "lowerBound": "-9223372036854775808",
+      "modelWrites": [
+        "9223372036854775806",
+        "9223372036854775807",
+        "9223372036854775806"
+      ],
+      "nativeWindowState": {
+        "applicationActive": false,
+        "backingDpr": 2,
+        "key": false,
+        "main": false
+      },
+      "observeOnly": false,
+      "requests": [
+        "9223372036854775806",
+        "9223372036854775807",
+        "9223372036854775806"
+      ],
+      "rtl": false,
+      "step": "1",
+      "upperBound": "9223372036854775807"
+    },
+    {
+      "actions": [
+        {
+          "action": "decrement",
+          "after": "9007199254740992",
+          "before": "9007199254740993",
+          "modelWrites": [
+            "9007199254740992"
+          ],
+          "point": {
+            "x": 311,
+            "y": 90
+          },
+          "requests": [
+            "9007199254740992"
+          ]
+        },
+        {
+          "action": "increment",
+          "after": "9007199254740993",
+          "before": "9007199254740992",
+          "modelWrites": [
+            "9007199254740993"
+          ],
+          "point": {
+            "x": 480.5,
+            "y": 90
+          },
+          "requests": [
+            "9007199254740993"
+          ]
+        },
+        {
+          "action": "increment",
+          "after": "9007199254740994",
+          "before": "9007199254740993",
+          "modelWrites": [
+            "9007199254740994"
+          ],
+          "point": {
+            "x": 480.5,
+            "y": 90
+          },
+          "requests": [
+            "9007199254740994"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "9007199254740993",
+          "before": "9007199254740994",
+          "modelWrites": [
+            "9007199254740993"
+          ],
+          "point": {
+            "x": 311,
+            "y": 90
+          },
+          "requests": [
+            "9007199254740993"
+          ]
+        },
+        {
+          "action": "cancel",
+          "after": "9007199254740993",
+          "before": "9007199254740993",
+          "modelWrites": [],
+          "point": {
+            "x": 480.5,
+            "y": 90
+          },
+          "requests": []
+        }
+      ],
+      "afterExternalActions": [
+        {
+          "action": "increment",
+          "after": "7",
+          "before": "6",
+          "modelWrites": [
+            "7"
+          ],
+          "point": {
+            "x": 438.5,
+            "y": 90
+          },
+          "requests": [
+            "7"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "5",
+          "before": "7",
+          "modelWrites": [
+            "5"
+          ],
+          "point": {
+            "x": 391,
+            "y": 90
+          },
+          "requests": [
+            "5"
+          ]
+        }
+      ],
+      "disabled": false,
+      "displayOffset": "0",
+      "externalUpdate": {
+        "formattedValue": "106",
+        "requestCountAfter": 4,
+        "requestCountBefore": 4,
+        "value": "6"
+      },
+      "finalFormattedValue": "105",
+      "finalValue": "5",
+      "fixture": "beyond-js-safe",
+      "initializer": "unlabeled",
+      "initialValue": "9007199254740993",
+      "lowerBound": "-9223372036854775808",
+      "modelWrites": [
+        "9007199254740992",
+        "9007199254740993",
+        "9007199254740994",
+        "9007199254740993"
+      ],
+      "nativeWindowState": {
+        "applicationActive": false,
+        "backingDpr": 2,
+        "key": false,
+        "main": false
+      },
+      "observeOnly": false,
+      "requests": [
+        "9007199254740992",
+        "9007199254740993",
+        "9007199254740994",
+        "9007199254740993"
+      ],
+      "rtl": false,
+      "step": "1",
+      "upperBound": "9223372036854775807"
+    },
+    {
+      "actions": [
+        {
+          "action": "decrement",
+          "after": "2",
+          "before": "2",
+          "modelWrites": [],
+          "point": {
+            "x": 372,
+            "y": 90
+          },
+          "requests": []
+        },
+        {
+          "action": "increment",
+          "after": "2",
+          "before": "2",
+          "modelWrites": [],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": []
+        },
+        {
+          "action": "increment",
+          "after": "2",
+          "before": "2",
+          "modelWrites": [],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": []
+        },
+        {
+          "action": "decrement",
+          "after": "2",
+          "before": "2",
+          "modelWrites": [],
+          "point": {
+            "x": 372,
+            "y": 90
+          },
+          "requests": []
+        },
+        {
+          "action": "cancel",
+          "after": "2",
+          "before": "2",
+          "modelWrites": [],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": []
+        }
+      ],
+      "afterExternalActions": [
+        {
+          "action": "increment",
+          "after": "7",
+          "before": "6",
+          "modelWrites": [
+            "7"
+          ],
+          "point": {
+            "x": 438.5,
+            "y": 90
+          },
+          "requests": [
+            "7"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "5",
+          "before": "7",
+          "modelWrites": [
+            "5"
+          ],
+          "point": {
+            "x": 391,
+            "y": 90
+          },
+          "requests": [
+            "5"
+          ]
+        }
+      ],
+      "disabled": true,
+      "displayOffset": "0",
+      "externalUpdate": {
+        "formattedValue": "106",
+        "requestCountAfter": 0,
+        "requestCountBefore": 0,
+        "value": "6"
+      },
+      "finalFormattedValue": "105",
+      "finalValue": "5",
+      "fixture": "disabled",
+      "initializer": "unlabeled",
+      "initialValue": "2",
+      "lowerBound": "1",
+      "modelWrites": [],
+      "nativeWindowState": {
+        "applicationActive": false,
+        "backingDpr": 2,
+        "key": false,
+        "main": false
+      },
+      "observeOnly": false,
+      "requests": [],
+      "rtl": false,
+      "step": "1",
+      "upperBound": "10"
+    },
+    {
+      "actions": [
+        {
+          "action": "decrement",
+          "after": "1",
+          "before": "2",
+          "modelWrites": [
+            "1"
+          ],
+          "point": {
+            "x": 348,
+            "y": 90
+          },
+          "requests": [
+            "1"
+          ]
+        },
+        {
+          "action": "increment",
+          "after": "2",
+          "before": "1",
+          "modelWrites": [
+            "2"
+          ],
+          "point": {
+            "x": 300.5,
+            "y": 90
+          },
+          "requests": [
+            "2"
+          ]
+        },
+        {
+          "action": "increment",
+          "after": "3",
+          "before": "2",
+          "modelWrites": [
+            "3"
+          ],
+          "point": {
+            "x": 300.5,
+            "y": 90
+          },
+          "requests": [
+            "3"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "2",
+          "before": "3",
+          "modelWrites": [
+            "2"
+          ],
+          "point": {
+            "x": 348,
+            "y": 90
+          },
+          "requests": [
+            "2"
+          ]
+        },
+        {
+          "action": "cancel",
+          "after": "2",
+          "before": "2",
+          "modelWrites": [],
+          "point": {
+            "x": 300.5,
+            "y": 90
+          },
+          "requests": []
+        }
+      ],
+      "afterExternalActions": [
+        {
+          "action": "increment",
+          "after": "7",
+          "before": "6",
+          "modelWrites": [
+            "7"
+          ],
+          "point": {
+            "x": 281.5,
+            "y": 90
+          },
+          "requests": [
+            "7"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "5",
+          "before": "7",
+          "modelWrites": [
+            "5"
+          ],
+          "point": {
+            "x": 329,
+            "y": 90
+          },
+          "requests": [
+            "5"
+          ]
+        }
+      ],
+      "disabled": false,
+      "displayOffset": "0",
+      "externalUpdate": {
+        "formattedValue": "106",
+        "requestCountAfter": 4,
+        "requestCountBefore": 4,
+        "value": "6"
+      },
+      "finalFormattedValue": "105",
+      "finalValue": "5",
+      "fixture": "rtl",
+      "initializer": "unlabeled",
+      "initialValue": "2",
+      "lowerBound": "1",
+      "modelWrites": [
+        "1",
+        "2",
+        "3",
+        "2"
+      ],
+      "nativeWindowState": {
+        "applicationActive": false,
+        "backingDpr": 2,
+        "key": false,
+        "main": false
+      },
+      "observeOnly": false,
+      "requests": [
+        "1",
+        "2",
+        "3",
+        "2"
+      ],
+      "rtl": true,
+      "step": "1",
+      "upperBound": "10"
+    },
+    {
+      "actions": [
+        {
+          "action": "decrement",
+          "after": "1",
+          "before": "2",
+          "modelWrites": [
+            "1"
+          ],
+          "point": {
+            "x": 346.75,
+            "y": 90
+          },
+          "requests": [
+            "1"
+          ]
+        },
+        {
+          "action": "increment",
+          "after": "2",
+          "before": "1",
+          "modelWrites": [
+            "2"
+          ],
+          "point": {
+            "x": 394.25,
+            "y": 90
+          },
+          "requests": [
+            "2"
+          ]
+        },
+        {
+          "action": "increment",
+          "after": "3",
+          "before": "2",
+          "modelWrites": [
+            "3"
+          ],
+          "point": {
+            "x": 394.25,
+            "y": 90
+          },
+          "requests": [
+            "3"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "2",
+          "before": "3",
+          "modelWrites": [
+            "2"
+          ],
+          "point": {
+            "x": 346.75,
+            "y": 90
+          },
+          "requests": [
+            "2"
+          ]
+        },
+        {
+          "action": "cancel",
+          "after": "2",
+          "before": "2",
+          "modelWrites": [],
+          "point": {
+            "x": 394.25,
+            "y": 90
+          },
+          "requests": []
+        }
+      ],
+      "afterExternalActions": [
+        {
+          "action": "increment",
+          "after": "7",
+          "before": "6",
+          "modelWrites": [
+            "7"
+          ],
+          "point": {
+            "x": 394.25,
+            "y": 90
+          },
+          "requests": [
+            "7"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "5",
+          "before": "7",
+          "modelWrites": [
+            "5"
+          ],
+          "point": {
+            "x": 346.75,
+            "y": 90
+          },
+          "requests": [
+            "5"
+          ]
+        }
+      ],
+      "disabled": false,
+      "displayOffset": "0",
+      "externalUpdate": {
+        "formattedValue": "106",
+        "requestCountAfter": 4,
+        "requestCountBefore": 4,
+        "value": "6"
+      },
+      "finalFormattedValue": "105",
+      "finalValue": "5",
+      "fixture": "narrow",
+      "initializer": "unlabeled",
+      "initialValue": "2",
+      "lowerBound": "1",
+      "modelWrites": [
+        "1",
+        "2",
+        "3",
+        "2"
+      ],
+      "nativeWindowState": {
+        "applicationActive": false,
+        "backingDpr": 2,
+        "key": false,
+        "main": false
+      },
+      "observeOnly": false,
+      "requests": [
+        "1",
+        "2",
+        "3",
+        "2"
+      ],
+      "rtl": false,
+      "step": "1",
+      "upperBound": "10"
+    },
+    {
+      "actions": [
+        {
+          "action": "decrement",
+          "after": "1",
+          "before": "2",
+          "modelWrites": [
+            "1"
+          ],
+          "point": {
+            "x": 363,
+            "y": 90
+          },
+          "requests": [
+            "1"
+          ]
+        },
+        {
+          "action": "increment",
+          "after": "2",
+          "before": "1",
+          "modelWrites": [
+            "2"
+          ],
+          "point": {
+            "x": 428.5,
+            "y": 90
+          },
+          "requests": [
+            "2"
+          ]
+        },
+        {
+          "action": "increment",
+          "after": "3",
+          "before": "2",
+          "modelWrites": [
+            "3"
+          ],
+          "point": {
+            "x": 428.5,
+            "y": 90
+          },
+          "requests": [
+            "3"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "2",
+          "before": "3",
+          "modelWrites": [
+            "2"
+          ],
+          "point": {
+            "x": 363,
+            "y": 90
+          },
+          "requests": [
+            "2"
+          ]
+        },
+        {
+          "action": "cancel",
+          "after": "2",
+          "before": "2",
+          "modelWrites": [],
+          "point": {
+            "x": 428.5,
+            "y": 90
+          },
+          "requests": []
+        }
+      ],
+      "afterExternalActions": [
+        {
+          "action": "increment",
+          "after": "7",
+          "before": "6",
+          "modelWrites": [
+            "7"
+          ],
+          "point": {
+            "x": 447.5,
+            "y": 90
+          },
+          "requests": [
+            "7"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "5",
+          "before": "7",
+          "modelWrites": [
+            "5"
+          ],
+          "point": {
+            "x": 382,
+            "y": 90
+          },
+          "requests": [
+            "5"
+          ]
+        }
+      ],
+      "disabled": false,
+      "displayOffset": "0",
+      "externalUpdate": {
+        "formattedValue": "106",
+        "requestCountAfter": 4,
+        "requestCountBefore": 4,
+        "value": "6"
+      },
+      "finalFormattedValue": "105",
+      "finalValue": "5",
+      "fixture": "parent-font30",
+      "initializer": "unlabeled",
+      "initialValue": "2",
+      "lowerBound": "1",
+      "modelWrites": [
+        "1",
+        "2",
+        "3",
+        "2"
+      ],
+      "nativeWindowState": {
+        "applicationActive": false,
+        "backingDpr": 2,
+        "key": false,
+        "main": false
+      },
+      "observeOnly": false,
+      "requests": [
+        "1",
+        "2",
+        "3",
+        "2"
+      ],
+      "rtl": false,
+      "step": "1",
+      "upperBound": "10"
+    },
+    {
+      "actions": [
+        {
+          "action": "decrement",
+          "after": "9223372036854775807",
+          "before": "-1",
+          "modelWrites": [
+            "9223372036854775807"
+          ],
+          "point": {
+            "x": 372,
+            "y": 90
+          },
+          "requests": [
+            "9223372036854775807"
+          ]
+        }
+      ],
+      "afterExternalActions": [
+        {
+          "action": "increment",
+          "after": "7",
+          "before": "6",
+          "modelWrites": [
+            "7"
+          ],
+          "point": {
+            "x": 438.5,
+            "y": 90
+          },
+          "requests": [
+            "7"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "5",
+          "before": "7",
+          "modelWrites": [
+            "5"
+          ],
+          "point": {
+            "x": 391,
+            "y": 90
+          },
+          "requests": [
+            "5"
+          ]
+        }
+      ],
+      "disabled": false,
+      "displayOffset": "0",
+      "externalUpdate": {
+        "formattedValue": "106",
+        "requestCountAfter": 1,
+        "requestCountBefore": 1,
+        "value": "6"
+      },
+      "finalFormattedValue": "105",
+      "finalValue": "5",
+      "fixture": "subtract-int-min-safe",
+      "initializer": "unlabeled",
+      "initialValue": "-1",
+      "lowerBound": "-9223372036854775808",
+      "modelWrites": [
+        "9223372036854775807"
+      ],
+      "nativeWindowState": {
+        "applicationActive": false,
+        "backingDpr": 2,
+        "key": false,
+        "main": false
+      },
+      "observeOnly": false,
+      "requests": [
+        "9223372036854775807"
+      ],
+      "rtl": false,
+      "step": "-9223372036854775808",
+      "upperBound": "9223372036854775807"
+    },
+    {
+      "actions": [
+        {
+          "action": "increment",
+          "after": "-9223372036854775808",
+          "before": "0",
+          "modelWrites": [
+            "-9223372036854775808"
+          ],
+          "point": {
+            "x": 419.5,
+            "y": 90
+          },
+          "requests": [
+            "-9223372036854775808"
+          ]
+        }
+      ],
+      "afterExternalActions": [
+        {
+          "action": "increment",
+          "after": "7",
+          "before": "6",
+          "modelWrites": [
+            "7"
+          ],
+          "point": {
+            "x": 438.5,
+            "y": 90
+          },
+          "requests": [
+            "7"
+          ]
+        },
+        {
+          "action": "decrement",
+          "after": "5",
+          "before": "7",
+          "modelWrites": [
+            "5"
+          ],
+          "point": {
+            "x": 391,
+            "y": 90
+          },
+          "requests": [
+            "5"
+          ]
+        }
+      ],
+      "disabled": false,
+      "displayOffset": "0",
+      "externalUpdate": {
+        "formattedValue": "106",
+        "requestCountAfter": 1,
+        "requestCountBefore": 1,
+        "value": "6"
+      },
+      "finalFormattedValue": "105",
+      "finalValue": "5",
+      "fixture": "add-int-min-safe",
+      "initializer": "unlabeled",
+      "initialValue": "0",
+      "lowerBound": "-9223372036854775808",
+      "modelWrites": [
+        "-9223372036854775808"
+      ],
+      "nativeWindowState": {
+        "applicationActive": false,
+        "backingDpr": 2,
+        "key": false,
+        "main": false
+      },
+      "observeOnly": false,
+      "requests": [
+        "-9223372036854775808"
+      ],
+      "rtl": false,
+      "step": "-9223372036854775808",
+      "upperBound": "9223372036854775807"
+    }
+  ],
+  "formatting": [
+    {
+      "text": "-9,223,372,036,854,775,808",
+      "value": "-9223372036854775808",
+      "locale": "en_US"
+    },
+    {
+      "text": "-9,223,372,036,854,775,807",
+      "value": "-9223372036854775807",
+      "locale": "en_US"
+    },
+    {
+      "text": "-9,007,199,254,740,993",
+      "value": "-9007199254740993",
+      "locale": "en_US"
+    },
+    {
+      "text": "-1,234,567",
+      "value": "-1234567",
+      "locale": "en_US"
+    },
+    {
+      "text": "-1,000",
+      "value": "-1000",
+      "locale": "en_US"
+    },
+    {
+      "text": "-999",
+      "value": "-999",
+      "locale": "en_US"
+    },
+    {
+      "text": "-1",
+      "value": "-1",
+      "locale": "en_US"
+    },
+    {
+      "text": "0",
+      "value": "0",
+      "locale": "en_US"
+    },
+    {
+      "text": "1",
+      "value": "1",
+      "locale": "en_US"
+    },
+    {
+      "text": "999",
+      "value": "999",
+      "locale": "en_US"
+    },
+    {
+      "text": "1,000",
+      "value": "1000",
+      "locale": "en_US"
+    },
+    {
+      "text": "1,234",
+      "value": "1234",
+      "locale": "en_US"
+    },
+    {
+      "text": "1,234,567",
+      "value": "1234567",
+      "locale": "en_US"
+    },
+    {
+      "text": "9,007,199,254,740,991",
+      "value": "9007199254740991",
+      "locale": "en_US"
+    },
+    {
+      "text": "9,007,199,254,740,992",
+      "value": "9007199254740992",
+      "locale": "en_US"
+    },
+    {
+      "text": "9,007,199,254,740,993",
+      "value": "9007199254740993",
+      "locale": "en_US"
+    },
+    {
+      "text": "9,223,372,036,854,775,806",
+      "value": "9223372036854775806",
+      "locale": "en_US"
+    },
+    {
+      "text": "9,223,372,036,854,775,807",
+      "value": "9223372036854775807",
+      "locale": "en_US"
+    },
+    {
+      "text": "-9.223.372.036.854.775.808",
+      "value": "-9223372036854775808",
+      "locale": "de_DE"
+    },
+    {
+      "text": "-9.223.372.036.854.775.807",
+      "value": "-9223372036854775807",
+      "locale": "de_DE"
+    },
+    {
+      "text": "-9.007.199.254.740.993",
+      "value": "-9007199254740993",
+      "locale": "de_DE"
+    },
+    {
+      "text": "-1.234.567",
+      "value": "-1234567",
+      "locale": "de_DE"
+    },
+    {
+      "text": "-1.000",
+      "value": "-1000",
+      "locale": "de_DE"
+    },
+    {
+      "text": "-999",
+      "value": "-999",
+      "locale": "de_DE"
+    },
+    {
+      "text": "-1",
+      "value": "-1",
+      "locale": "de_DE"
+    },
+    {
+      "text": "0",
+      "value": "0",
+      "locale": "de_DE"
+    },
+    {
+      "text": "1",
+      "value": "1",
+      "locale": "de_DE"
+    },
+    {
+      "text": "999",
+      "value": "999",
+      "locale": "de_DE"
+    },
+    {
+      "text": "1.000",
+      "value": "1000",
+      "locale": "de_DE"
+    },
+    {
+      "text": "1.234",
+      "value": "1234",
+      "locale": "de_DE"
+    },
+    {
+      "text": "1.234.567",
+      "value": "1234567",
+      "locale": "de_DE"
+    },
+    {
+      "text": "9.007.199.254.740.991",
+      "value": "9007199254740991",
+      "locale": "de_DE"
+    },
+    {
+      "text": "9.007.199.254.740.992",
+      "value": "9007199254740992",
+      "locale": "de_DE"
+    },
+    {
+      "text": "9.007.199.254.740.993",
+      "value": "9007199254740993",
+      "locale": "de_DE"
+    },
+    {
+      "text": "9.223.372.036.854.775.806",
+      "value": "9223372036854775806",
+      "locale": "de_DE"
+    },
+    {
+      "text": "9.223.372.036.854.775.807",
+      "value": "9223372036854775807",
+      "locale": "de_DE"
+    },
+    {
+      "text": "-9.223.372.036.854.775.808",
+      "value": "-9223372036854775808",
+      "locale": "es_CL"
+    },
+    {
+      "text": "-9.223.372.036.854.775.807",
+      "value": "-9223372036854775807",
+      "locale": "es_CL"
+    },
+    {
+      "text": "-9.007.199.254.740.993",
+      "value": "-9007199254740993",
+      "locale": "es_CL"
+    },
+    {
+      "text": "-1.234.567",
+      "value": "-1234567",
+      "locale": "es_CL"
+    },
+    {
+      "text": "-1.000",
+      "value": "-1000",
+      "locale": "es_CL"
+    },
+    {
+      "text": "-999",
+      "value": "-999",
+      "locale": "es_CL"
+    },
+    {
+      "text": "-1",
+      "value": "-1",
+      "locale": "es_CL"
+    },
+    {
+      "text": "0",
+      "value": "0",
+      "locale": "es_CL"
+    },
+    {
+      "text": "1",
+      "value": "1",
+      "locale": "es_CL"
+    },
+    {
+      "text": "999",
+      "value": "999",
+      "locale": "es_CL"
+    },
+    {
+      "text": "1.000",
+      "value": "1000",
+      "locale": "es_CL"
+    },
+    {
+      "text": "1.234",
+      "value": "1234",
+      "locale": "es_CL"
+    },
+    {
+      "text": "1.234.567",
+      "value": "1234567",
+      "locale": "es_CL"
+    },
+    {
+      "text": "9.007.199.254.740.991",
+      "value": "9007199254740991",
+      "locale": "es_CL"
+    },
+    {
+      "text": "9.007.199.254.740.992",
+      "value": "9007199254740992",
+      "locale": "es_CL"
+    },
+    {
+      "text": "9.007.199.254.740.993",
+      "value": "9007199254740993",
+      "locale": "es_CL"
+    },
+    {
+      "text": "9.223.372.036.854.775.806",
+      "value": "9223372036854775806",
+      "locale": "es_CL"
+    },
+    {
+      "text": "9.223.372.036.854.775.807",
+      "value": "9223372036854775807",
+      "locale": "es_CL"
+    },
+    {
+      "text": "-9 223 372 036 854 775 808",
+      "value": "-9223372036854775808",
+      "locale": "fr_FR"
+    },
+    {
+      "text": "-9 223 372 036 854 775 807",
+      "value": "-9223372036854775807",
+      "locale": "fr_FR"
+    },
+    {
+      "text": "-9 007 199 254 740 993",
+      "value": "-9007199254740993",
+      "locale": "fr_FR"
+    },
+    {
+      "text": "-1 234 567",
+      "value": "-1234567",
+      "locale": "fr_FR"
+    },
+    {
+      "text": "-1 000",
+      "value": "-1000",
+      "locale": "fr_FR"
+    },
+    {
+      "text": "-999",
+      "value": "-999",
+      "locale": "fr_FR"
+    },
+    {
+      "text": "-1",
+      "value": "-1",
+      "locale": "fr_FR"
+    },
+    {
+      "text": "0",
+      "value": "0",
+      "locale": "fr_FR"
+    },
+    {
+      "text": "1",
+      "value": "1",
+      "locale": "fr_FR"
+    },
+    {
+      "text": "999",
+      "value": "999",
+      "locale": "fr_FR"
+    },
+    {
+      "text": "1 000",
+      "value": "1000",
+      "locale": "fr_FR"
+    },
+    {
+      "text": "1 234",
+      "value": "1234",
+      "locale": "fr_FR"
+    },
+    {
+      "text": "1 234 567",
+      "value": "1234567",
+      "locale": "fr_FR"
+    },
+    {
+      "text": "9 007 199 254 740 991",
+      "value": "9007199254740991",
+      "locale": "fr_FR"
+    },
+    {
+      "text": "9 007 199 254 740 992",
+      "value": "9007199254740992",
+      "locale": "fr_FR"
+    },
+    {
+      "text": "9 007 199 254 740 993",
+      "value": "9007199254740993",
+      "locale": "fr_FR"
+    },
+    {
+      "text": "9 223 372 036 854 775 806",
+      "value": "9223372036854775806",
+      "locale": "fr_FR"
+    },
+    {
+      "text": "9 223 372 036 854 775 807",
+      "value": "9223372036854775807",
+      "locale": "fr_FR"
+    },
+    {
+      "text": "-9,223,372,036,854,775,808",
+      "value": "-9223372036854775808",
+      "locale": "ja_JP"
+    },
+    {
+      "text": "-9,223,372,036,854,775,807",
+      "value": "-9223372036854775807",
+      "locale": "ja_JP"
+    },
+    {
+      "text": "-9,007,199,254,740,993",
+      "value": "-9007199254740993",
+      "locale": "ja_JP"
+    },
+    {
+      "text": "-1,234,567",
+      "value": "-1234567",
+      "locale": "ja_JP"
+    },
+    {
+      "text": "-1,000",
+      "value": "-1000",
+      "locale": "ja_JP"
+    },
+    {
+      "text": "-999",
+      "value": "-999",
+      "locale": "ja_JP"
+    },
+    {
+      "text": "-1",
+      "value": "-1",
+      "locale": "ja_JP"
+    },
+    {
+      "text": "0",
+      "value": "0",
+      "locale": "ja_JP"
+    },
+    {
+      "text": "1",
+      "value": "1",
+      "locale": "ja_JP"
+    },
+    {
+      "text": "999",
+      "value": "999",
+      "locale": "ja_JP"
+    },
+    {
+      "text": "1,000",
+      "value": "1000",
+      "locale": "ja_JP"
+    },
+    {
+      "text": "1,234",
+      "value": "1234",
+      "locale": "ja_JP"
+    },
+    {
+      "text": "1,234,567",
+      "value": "1234567",
+      "locale": "ja_JP"
+    },
+    {
+      "text": "9,007,199,254,740,991",
+      "value": "9007199254740991",
+      "locale": "ja_JP"
+    },
+    {
+      "text": "9,007,199,254,740,992",
+      "value": "9007199254740992",
+      "locale": "ja_JP"
+    },
+    {
+      "text": "9,007,199,254,740,993",
+      "value": "9007199254740993",
+      "locale": "ja_JP"
+    },
+    {
+      "text": "9,223,372,036,854,775,806",
+      "value": "9223372036854775806",
+      "locale": "ja_JP"
+    },
+    {
+      "text": "9,223,372,036,854,775,807",
+      "value": "9223372036854775807",
+      "locale": "ja_JP"
+    },
+    {
+      "text": "؜-٩٬٢٢٣٬٣٧٢٬٠٣٦٬٨٥٤٬٧٧٥٬٨٠٨",
+      "value": "-9223372036854775808",
+      "locale": "ar_EG"
+    },
+    {
+      "text": "؜-٩٬٢٢٣٬٣٧٢٬٠٣٦٬٨٥٤٬٧٧٥٬٨٠٧",
+      "value": "-9223372036854775807",
+      "locale": "ar_EG"
+    },
+    {
+      "text": "؜-٩٬٠٠٧٬١٩٩٬٢٥٤٬٧٤٠٬٩٩٣",
+      "value": "-9007199254740993",
+      "locale": "ar_EG"
+    },
+    {
+      "text": "؜-١٬٢٣٤٬٥٦٧",
+      "value": "-1234567",
+      "locale": "ar_EG"
+    },
+    {
+      "text": "؜-١٬٠٠٠",
+      "value": "-1000",
+      "locale": "ar_EG"
+    },
+    {
+      "text": "؜-٩٩٩",
+      "value": "-999",
+      "locale": "ar_EG"
+    },
+    {
+      "text": "؜-١",
+      "value": "-1",
+      "locale": "ar_EG"
+    },
+    {
+      "text": "٠",
+      "value": "0",
+      "locale": "ar_EG"
+    },
+    {
+      "text": "١",
+      "value": "1",
+      "locale": "ar_EG"
+    },
+    {
+      "text": "٩٩٩",
+      "value": "999",
+      "locale": "ar_EG"
+    },
+    {
+      "text": "١٬٠٠٠",
+      "value": "1000",
+      "locale": "ar_EG"
+    },
+    {
+      "text": "١٬٢٣٤",
+      "value": "1234",
+      "locale": "ar_EG"
+    },
+    {
+      "text": "١٬٢٣٤٬٥٦٧",
+      "value": "1234567",
+      "locale": "ar_EG"
+    },
+    {
+      "text": "٩٬٠٠٧٬١٩٩٬٢٥٤٬٧٤٠٬٩٩١",
+      "value": "9007199254740991",
+      "locale": "ar_EG"
+    },
+    {
+      "text": "٩٬٠٠٧٬١٩٩٬٢٥٤٬٧٤٠٬٩٩٢",
+      "value": "9007199254740992",
+      "locale": "ar_EG"
+    },
+    {
+      "text": "٩٬٠٠٧٬١٩٩٬٢٥٤٬٧٤٠٬٩٩٣",
+      "value": "9007199254740993",
+      "locale": "ar_EG"
+    },
+    {
+      "text": "٩٬٢٢٣٬٣٧٢٬٠٣٦٬٨٥٤٬٧٧٥٬٨٠٦",
+      "value": "9223372036854775806",
+      "locale": "ar_EG"
+    },
+    {
+      "text": "٩٬٢٢٣٬٣٧٢٬٠٣٦٬٨٥٤٬٧٧٥٬٨٠٧",
+      "value": "9223372036854775807",
+      "locale": "ar_EG"
+    },
+    {
+      "text": "-92,23,37,20,36,85,47,75,808",
+      "value": "-9223372036854775808",
+      "locale": "hi_IN"
+    },
+    {
+      "text": "-92,23,37,20,36,85,47,75,807",
+      "value": "-9223372036854775807",
+      "locale": "hi_IN"
+    },
+    {
+      "text": "-9,00,71,99,25,47,40,993",
+      "value": "-9007199254740993",
+      "locale": "hi_IN"
+    },
+    {
+      "text": "-12,34,567",
+      "value": "-1234567",
+      "locale": "hi_IN"
+    },
+    {
+      "text": "-1,000",
+      "value": "-1000",
+      "locale": "hi_IN"
+    },
+    {
+      "text": "-999",
+      "value": "-999",
+      "locale": "hi_IN"
+    },
+    {
+      "text": "-1",
+      "value": "-1",
+      "locale": "hi_IN"
+    },
+    {
+      "text": "0",
+      "value": "0",
+      "locale": "hi_IN"
+    },
+    {
+      "text": "1",
+      "value": "1",
+      "locale": "hi_IN"
+    },
+    {
+      "text": "999",
+      "value": "999",
+      "locale": "hi_IN"
+    },
+    {
+      "text": "1,000",
+      "value": "1000",
+      "locale": "hi_IN"
+    },
+    {
+      "text": "1,234",
+      "value": "1234",
+      "locale": "hi_IN"
+    },
+    {
+      "text": "12,34,567",
+      "value": "1234567",
+      "locale": "hi_IN"
+    },
+    {
+      "text": "9,00,71,99,25,47,40,991",
+      "value": "9007199254740991",
+      "locale": "hi_IN"
+    },
+    {
+      "text": "9,00,71,99,25,47,40,992",
+      "value": "9007199254740992",
+      "locale": "hi_IN"
+    },
+    {
+      "text": "9,00,71,99,25,47,40,993",
+      "value": "9007199254740993",
+      "locale": "hi_IN"
+    },
+    {
+      "text": "92,23,37,20,36,85,47,75,806",
+      "value": "9223372036854775806",
+      "locale": "hi_IN"
+    },
+    {
+      "text": "92,23,37,20,36,85,47,75,807",
+      "value": "9223372036854775807",
+      "locale": "hi_IN"
+    }
+  ]
+}

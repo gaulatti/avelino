@@ -44,7 +44,7 @@ Window {
         anchors.alignWhenCentered: false
         sourceComponent: {
             const components = {
-                "BleeckerButton": button, "BleeckerLoadingSpinner": spinner,
+                "BleeckerButton": button, "BleeckerStepper":stepperCase, "BleeckerLoadingSpinner": spinner,
                 "BleeckerSidebarItem":sidebarBrandCase, "BleeckerMetric":dataMetricsCase, "BleeckerStatCard":dataMetricsCase, "BleeckerKbd":dataMetricsCase, "BleeckerIconBadge":dataMetricsCase,"BleeckerBrandMark":sidebarBrandCase,"BleeckerBrandLockup":sidebarBrandCase,"BleeckerPageHeader":navigationCase,"BleeckerBreadcrumb":navigationCase,"BleeckerAlert":alert,"BleeckerEmptyState":emptyState,"BleeckerErrorState":errorState,"BleeckerLoadingOverlay":loadingOverlay,
                 "BleeckerTextField": textField, "BleeckerTextArea": textArea,
                 "BleeckerField": field, "BleeckerSwitchStyle": switchControl,
@@ -71,6 +71,7 @@ Window {
         }
         onLoaded: item.objectName = "referenceCaseComponent"
     }
+    Component {id:stepperCase;StepperCase {definition:window.definition}}
     Component {id:dataMetricsCase;DataMetricsCase {definition:window.definition}}
     Component {id:sidebarBrandCase;SidebarBrandCase {definition:window.definition}}
     Component {id:navigationCase;NavigationCase {definition:window.definition}}

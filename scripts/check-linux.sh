@@ -39,6 +39,7 @@ cmp assets/alert-symbols.json "$stage/install/share/avelino/alert-symbols.json"
 cmp assets/brand-presentation.json "$stage/install/share/avelino/brand-presentation.json"
 cmp assets/data-metrics-presentation.json "$stage/install/share/avelino/data-metrics-presentation.json"
 cmp assets/sidebar-symbols.json "$stage/install/share/avelino/sidebar-symbols.json"
+cmp assets/stepper-presentation.json "$stage/install/share/avelino/stepper-presentation.json"
 cmp assets/brand/BleeckerLogo.png "$stage/install/share/avelino/brand/BleeckerLogo.png"
 cp -R tests/consumer "$stage/consumer"
 cmake -S "$stage/consumer" -B "$stage/build" -G Ninja -DCMAKE_PREFIX_PATH="$stage/install;/opt/qt"
@@ -63,6 +64,7 @@ cmake --build "$stage/build" --parallel 2
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --navigation)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --sidebar-brand)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --data-metrics)
+(cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --stepper)
 format_report="$PWD/artifacts/linux/number-formatting.json"
 set +e
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --data-metrics --format-diagnostics "$format_report")
@@ -86,7 +88,7 @@ cp artifacts/linux/environment.json artifacts/package/environment.json
 mkdir -p artifacts/linux
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --capture artifacts/linux/actions-light.png
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --dark --capture artifacts/linux/actions-dark.png
-for fixture in foundations surfaces data-display controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics; do
+for fixture in foundations surfaces data-display controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper; do
 for appearance in light dark; do
   for dpr in 1 2; do
     args=(--fixture "$fixture")
@@ -223,3 +225,12 @@ QML_IMPORT_PATH="$PWD/build/linux/qml" python3 scripts/capture-proposals.py \
   --output "$stage/data-metrics-proposals"
 if [[ -e artifacts/linux/data-metrics-proposals ]]; then mv artifacts/linux/data-metrics-proposals "$stage/previous-data-metrics-proposals"; fi
 mv "$stage/data-metrics-proposals" artifacts/linux/data-metrics-proposals
+
+# Hosted source investigations use the installed catalog and keep failed
+# attempts outside the disposable stage. Existing baselines are not updated.
+stepper_attempt="$(mktemp -d "$PWD/artifacts/linux/stepper-attempt.XXXXXX")"
+python3 scripts/capture-stepper-cases.py \
+  "$stage/install/bin/AvelinoCatalog" "$stepper_attempt/captures"
+if [[ -e artifacts/linux/stepper-source-candidates ]]; then mv artifacts/linux/stepper-source-candidates "$stage/previous-stepper-candidates"; fi
+mv "$stepper_attempt/captures" artifacts/linux/stepper-source-candidates
+rmdir "$stepper_attempt"

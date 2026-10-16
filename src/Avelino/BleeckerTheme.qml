@@ -14,6 +14,7 @@ QtObject {
     readonly property color nativeEditorText: nativeTextPrimary
     readonly property color nativeEditorPlaceholder: Qt.rgba(dark ? 1 : 0, dark ? 1 : 0, dark ? 1 : 0, (dark ? 140 : 127)/255)
     readonly property color nativeEditorDisabledText: Qt.rgba(dark ? 1 : 0, dark ? 1 : 0, dark ? 1 : 0, 63/255)
+    readonly property color nativeSeparator: Qt.rgba(dark ? 1 : 0, dark ? 1 : 0, dark ? 1 : 0, 25/255)
     readonly property color nativeSpinnerForeground: dark ? "#ffffff" : "#000000"
     readonly property int nativeSpinnerDuration: 800
     // Opaque Color.red samples from the pinned macOS source at both schemes.

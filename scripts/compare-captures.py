@@ -12,9 +12,10 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def compare(reference, candidate, output, apis=None):
+def compare(reference, candidate, output, apis=None, manifest=None):
     output.mkdir(parents=True, exist_ok=True)
-    manifest = json.loads((reference / "captures.json").read_text())
+    if manifest is None:
+        manifest = json.loads((reference / "captures.json").read_text())
     results, rows = [], []
     for fixture in manifest["captures"]:
         if apis and fixture.get("api") not in apis: continue

@@ -28,6 +28,7 @@ int BleeckerValueTools::spinnerEdge(const QString &size) const {
 #include <algorithm>
 #include <cmath>
 #include <limits>
+#include <unicode/numberformatter.h>
 
 qreal BleeckerValueTools::brandSize(qreal value) const {
     if(!std::isfinite(value)||value<0)qFatal("Brand size must be finite and nonnegative");
@@ -63,27 +64,27 @@ void BleeckerValueTools::select(QObject *control, const QVariant &value) const {
 }
 
 namespace {
-[[noreturn]] void invalidPageInteger() {
-    qFatal("Pagination requires signed 64-bit integers; use canonical decimal strings outside the JavaScript safe integer range");
+[[noreturn]] void invalidInteger(const char *owner) {
+    qFatal("%s requires signed 64-bit integers; use canonical decimal strings outside the JavaScript safe integer range", owner);
 }
-qint64 pageInteger(QVariant value) {
+qint64 signedInteger(QVariant value, const char *owner) {
     if (value.metaType()==QMetaType::fromType<QJSValue>()) {
         const auto js=value.value<QJSValue>();
         if (js.isString()) value=js.toString();
         else if (js.isNumber()) value=js.toNumber();
-        else invalidPageInteger();
+        else invalidInteger(owner);
     }
     switch (value.metaType().id()) {
     case QMetaType::QString: {
         const auto text=value.toString();bool ok=false;
         const auto number=text.toLongLong(&ok);
-        if (!ok || QString::number(number)!=text) invalidPageInteger();
+        if (!ok || QString::number(number)!=text) invalidInteger(owner);
         return number;
     }
     case QMetaType::Double: case QMetaType::Float: {
         const auto number=value.toDouble();
         constexpr double safeInteger=9007199254740991.0;
-        if (!std::isfinite(number) || std::trunc(number)!=number || std::abs(number)>safeInteger) invalidPageInteger();
+        if (!std::isfinite(number) || std::trunc(number)!=number || std::abs(number)>safeInteger) invalidInteger(owner);
         return qint64(number);
     }
     case QMetaType::Int: case QMetaType::UInt: case QMetaType::Short: case QMetaType::UShort:
@@ -91,22 +92,65 @@ qint64 pageInteger(QVariant value) {
         return value.toLongLong();
     case QMetaType::ULong: case QMetaType::ULongLong: {
         const auto number=value.toULongLong();
-        if (number>quint64(std::numeric_limits<qint64>::max())) invalidPageInteger();
+        if (number>quint64(std::numeric_limits<qint64>::max())) invalidInteger(owner);
         return qint64(number);
     }
-    default: invalidPageInteger();
+    default: invalidInteger(owner);
     }
+}
+
+qint64 stepperAdd(qint64 value, qint64 step, const char *phase) {
+    if ((step>0 && value>std::numeric_limits<qint64>::max()-step)
+        || (step<0 && value<std::numeric_limits<qint64>::min()-step))
+        qFatal("Stepper %s overflow", phase);
+    return value+step;
+}
+
+qint64 stepperSubtract(qint64 value, qint64 step) {
+    // Do not negate step: Int.min is a valid source step.
+    if ((step>0 && value<std::numeric_limits<qint64>::min()+step)
+        || (step<0 && value>std::numeric_limits<qint64>::max()+step))
+        qFatal("Stepper decrement overflow");
+    return value-step;
 }
 }
 
 QVariantMap BleeckerValueTools::pagination(const QVariant &pageValue,const QVariant &countValue,const QLocale &locale) const {
-    const auto page=pageInteger(pageValue),count=pageInteger(countValue);
+    const auto page=signedInteger(pageValue,"Pagination"),count=signedInteger(countValue,"Pagination");
     const bool previous=page>1,next=page<count;
     // An enabled action cannot overflow: previous implies page>1; next implies page<Int.max.
     return {{"pageText",locale.toString(page)},{"countText",locale.toString(std::max(qint64(1),count))},
         {"previousEnabled",previous},{"nextEnabled",next},
         {"previousRequest",previous ? QVariant(QString::number(page-1)) : QVariant()},
         {"nextRequest",next ? QVariant(QString::number(page+1)) : QVariant()}};
+}
+
+QVariantMap BleeckerValueTools::stepper(const QVariant &valueInput,const QVariant &lowerInput,const QVariant &upperInput,
+    const QVariant &stepInput,const QVariant &offsetInput,const QLocale &locale) const {
+    const auto value=signedInteger(valueInput,"Stepper"),lower=signedInteger(lowerInput,"Stepper"),upper=signedInteger(upperInput,"Stepper");
+    signedInteger(stepInput,"Stepper");
+    const auto offset=signedInteger(offsetInput,"Stepper");
+    if(lower>upper)qFatal("Stepper requires an ascending closed range");
+    const auto displayed=stepperAdd(value,offset,"display");
+    UErrorCode status=U_ZERO_ERROR;
+    const auto number=icu::number::NumberFormatter::withLocale(icu::Locale(locale.name().toUtf8().constData())).formatInt(displayed,status);
+    const auto text=number.toString(status);
+    if(U_FAILURE(status))qFatal("Stepper integer formatting failed: %s",u_errorName(status));
+    return {{"value",QString::number(value)},{"displayValue",QString::number(displayed)},
+        {"formattedValue",QString::fromUtf16(reinterpret_cast<const char16_t*>(text.getBuffer()),text.length())},
+        {"decrementEnabled",value>lower},{"incrementEnabled",value<upper}};
+}
+
+QVariant BleeckerValueTools::stepperRequest(const QVariant &valueInput,const QVariant &lowerInput,const QVariant &upperInput,
+    const QVariant &stepInput,bool increment) const {
+    const auto value=signedInteger(valueInput,"Stepper"),lower=signedInteger(lowerInput,"Stepper"),upper=signedInteger(upperInput,"Stepper"),step=signedInteger(stepInput,"Stepper");
+    if(lower>upper)qFatal("Stepper requires an ascending closed range");
+    if(increment ? value>=upper:value<=lower)return {};
+    // Source arithmetic happens on activation, before its one-sided clamp.
+    // Precomputing either request in stepper() would trap too early.
+    const auto requested=increment ? std::min(upper,stepperAdd(value,step,"increment"))
+        : std::max(lower,stepperSubtract(value,step));
+    return QString::number(requested);
 }
 
 int BleeckerValueTools::alertTypeIndex(const QString &type) const {
