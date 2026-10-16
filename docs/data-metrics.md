@@ -216,6 +216,13 @@ source numeric geometry and all 190 US formatter witnesses. The separate strict
 `--format-diagnostics PATH` comparison covers all seven process locales and
 keeps remaining source string differences visible.
 
+The later [native locale profile](number-locales.md) adds measured Japanese yen,
+Arabic NaN and Chilean compact-number data. The strict installed-consumer matrix
+now contains 49,448 witnesses, including the original 1,330, exact Double bit
+patterns, signed percentages and dense compact boundaries across seven locales.
+It uses the same process/environment ownership described above. Broader locale
+and complete visual acceptance remain pending.
+
 Installed delta-removal checks wait for the exact hidden-label and fitted-height
 state, with a two-second bound. A traced Wayland/Mesa run showed the label hidden
 at 20 ms while the card still had its old height; the expected height appeared

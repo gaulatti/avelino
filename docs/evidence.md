@@ -808,3 +808,27 @@ References CI audits source-tree identity, locked dependencies and output hashes
 This checkpoint changes evidence, verification and documentation. It does not
 change the Qt product or establish new Linux runtime, physical, reader or TV
 acceptance. Coverage stays 56/80 desktop APIs started, zero fully accepted.
+
+## Measured numeric locale repair
+
+The [locale profile](number-locales.md) supplies source-measured Japanese yen and
+Arabic NaN symbols and Chilean billion-scale compact patterns to the private
+ICU 74.2 formatter. The original 1,330 source strings now match. Expanded exact
+Double and dense compact-boundary oracles bring the installed diagnostic to
+49,448 matching witnesses with zero differences across seven measured locales.
+Other locale/input, glyph and full mirror gates remain pending.
+
+The [candidate evidence](../evidence/development/number-locales/candidate.json)
+records 7,042 Qt checks across eight CTest targets, 119 passing contract tests on
+macOS and Linux, twenty source-free installed modes, 91 installed catalog captures
+and eight focused metric X11/nested-Wayland/software/Mesa/scaled configurations.
+The consumer has runtime ICU 74 but no ICU development headers or library
+source/build mounts. Its exact-bit inputs include signed zero, nonfinite values,
+rounding ties and adjacent representable numbers; signed percentages exercise
+the actual API argument.
+
+All 1,048 existing data-display PNG/full-metadata pairs and all 91 catalog pairs
+are byte-identical. Earlier strict native pixel and child-geometry failures are
+unchanged; no baseline, tolerance or approved exception changed. The scaled
+Weston virtual keyboard remains clipped at the output boundary and unaccepted.
+This checkpoint adds no accepted desktop API and changes no TV implementation.

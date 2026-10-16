@@ -6,12 +6,22 @@ static void runDataMetricsConsumer(QQuickWindow *window,QGuiApplication &app,con
         const auto tools=engine.singletonInstance<QObject*>(qmlTypeId("Avelino",0,1,"BleeckerNumberTools"));
         if(!tools){qCritical("Metric formatter singleton missing");app.exit(241);return;}
         for(const auto &v:native.value("cases").toArray()) {
-            auto row=v.toObject();const auto input=row.value("value").toString();double value=input=="nan" ? std::numeric_limits<double>::quiet_NaN():input=="infinity" ? std::numeric_limits<double>::infinity():input=="-infinity" ? -std::numeric_limits<double>::infinity():input.toDouble();
-            QString output;const bool invoked=QMetaObject::invokeMethod(tools,"format",Qt::DirectConnection,Q_RETURN_ARG(QString,output),Q_ARG(double,value),Q_ARG(QString,row.value("format").toString()),Q_ARG(QString,row.value("currencyCode").toString()),Q_ARG(QLocale,QLocale(row.value("processLocale").toString())),Q_ARG(bool,false));
+            auto row=v.toObject();double value=0;
+            if(row.contains("bits")) {
+                static_assert(sizeof(double)==sizeof(quint64) && std::numeric_limits<double>::is_iec559);
+                const auto input=row.value("bits").toString();bool valid=false;const quint64 bits=input.toULongLong(&valid,16);
+                if(!valid||input.size()!=16){qCritical("Invalid native Double bits");app.exit(240);return;}
+                std::memcpy(&value,&bits,sizeof(value));
+            }else {
+                const auto input=row.value("value").toString();bool valid=true;
+                value=input=="nan" ? std::numeric_limits<double>::quiet_NaN():input=="infinity" ? std::numeric_limits<double>::infinity():input=="-infinity" ? -std::numeric_limits<double>::infinity():input.toDouble(&valid);
+                if(!valid){qCritical("Invalid native Double description");app.exit(240);return;}
+            }
+            QString output;const bool invoked=QMetaObject::invokeMethod(tools,"format",Qt::DirectConnection,Q_RETURN_ARG(QString,output),Q_ARG(double,value),Q_ARG(QString,row.value("format").toString()),Q_ARG(QString,row.value("currencyCode").toString()),Q_ARG(QLocale,QLocale(row.value("processLocale").toString())),Q_ARG(bool,row.value("signedPercent").toBool()));
             if(!invoked){app.exit(242);return;}
             const bool equal=output==row.value("text").toString();matched+=equal;row.insert("candidate",output);row.insert("status",equal ? "passed":"failed; unaccepted");results.append(row);
         }
-        QJsonObject record{{"reference",native.value("reference")},{"sourceFiles",native.value("sourceFiles")},{"qt",qVersion()},{"cases",results.size()},{"matches",matched},{"mismatches",results.size()-matched},{"status",matched==results.size() ? "passed":"failed; unaccepted"},{"accepted",false},{"results",results}};
+        QJsonObject record{{"reference",native.value("reference")},{"sourceFiles",native.value("sourceFiles")},{"groups",native.value("groups")},{"qt",qVersion()},{"cases",results.size()},{"matches",matched},{"mismatches",results.size()-matched},{"status",matched==results.size() ? "passed":"failed; unaccepted"},{"accepted",false},{"results",results}};
         QFile output(parser.value("format-diagnostics"));if(!output.open(QIODevice::WriteOnly)){app.exit(243);return;}output.write(QJsonDocument(record).toJson());output.close();app.exit(matched==results.size() ? 0:244);return;
     }
     auto item=[window](const QString &name){return findVisualItem(window->contentItem(),name);};

@@ -34,6 +34,19 @@ Item {
             fixtureSetup.setProcessLocale("de_DE");wait(20);compare(item.formattedValue,"12,345679 %")
             fixtureSetup.setProcessLocale("en_US");wait(20);compare(item.formattedValue,"12.345679%")
         }
+        function test_measured_locale_profile_updates_existing_metric(){
+            const item=createTemporaryObject(metric,root,{format:"currency",currencyCode:"JPY"});wait(20)
+            const label=findChild(item,"bleeckerMetricValue")
+            fixtureSetup.setProcessLocale("ja_JP");wait(20);compare(item.formattedValue,"¥1,235")
+            item.format="number";item.value=NaN;fixtureSetup.setProcessLocale("ar_EG");wait(20)
+            compare(item.formattedValue,"ليس رقمًا")
+            fixtureSetup.setProcessLocale("es_CL");item.format="compact";item.value=999499999;wait(20)
+            compare(item.formattedValue,"999 M")
+            item.value=999500000;wait(20);compare(item.formattedValue,"1k M")
+            item.value=999499000000;wait(20);compare(item.formattedValue,"999k M")
+            item.value=999500000000;wait(20);compare(item.formattedValue,"1 B")
+            compare(findChild(item,"bleeckerMetricValue"),label)
+        }
         function test_delta_optional_zero_and_locale(){
             const item=createTemporaryObject(stat,root);wait(20);compare(item.formattedDelta,"+0 %");compare(item.presentationItem.height,105)
             item.delta=null;wait(20);compare(item.formattedDelta,"");compare(item.presentationItem.height,94)

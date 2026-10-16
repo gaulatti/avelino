@@ -17843,7 +17843,7 @@
           "src/Avelino/BleeckerIconBadge.qml",
           "assets/data-metrics-presentation.json"
         ],
-        "caseDiscovery": "Partial; Qt fitted/narrow/intrinsic/RTL, fixed styles, caller updates, locale ownership, delta presence, icon slots and native-static-text interfaces have candidate checks. Native mono/SF assets, remaining Japanese/Arabic formatter differences, exact pixels, numeric transition frames, broader compositions, physical sessions and actual readers remain pending.",
+        "caseDiscovery": "Partial; Qt fitted/narrow/intrinsic/RTL, fixed styles, caller updates, locale ownership, delta presence, icon slots and native-static-text interfaces have candidate checks. Native mono/SF assets, exact pixels, numeric transition frames, broader compositions, physical sessions and actual readers remain pending.",
         "cases": [
           {
             "id": "native-data-display-source",
@@ -23421,7 +23421,7 @@
           "assets/data-metrics-presentation.json",
           "src/Avelino/bleeckerfonts.cpp"
         ],
-        "caseDiscovery": "Partial; Qt fitted/narrow/intrinsic/RTL, fixed styles, caller updates, locale ownership, delta presence, icon slots and native-static-text interfaces have candidate checks. Native mono/SF assets, remaining Japanese/Arabic formatter differences, exact pixels, numeric transition frames, broader compositions, physical sessions and actual readers remain pending.",
+        "caseDiscovery": "Partial; Qt fitted/narrow/intrinsic/RTL, fixed styles, caller updates, locale ownership, delta presence, icon slots and native-static-text interfaces have candidate checks. Native mono/SF assets, exact pixels, numeric transition frames, broader compositions, physical sessions and actual readers remain pending.",
         "cases": [
           {
             "id": "native-data-display-source",
@@ -24412,7 +24412,7 @@
           "src/Avelino/numbertools.cpp",
           "src/Avelino/buttonlabel.cpp"
         ],
-        "caseDiscovery": "Partial; Qt fitted/narrow/intrinsic/RTL, fixed styles, caller updates, locale ownership, delta presence, icon slots and native-static-text interfaces have candidate checks. Native mono/SF assets, remaining Japanese/Arabic formatter differences, exact pixels, numeric transition frames, broader compositions, physical sessions and actual readers remain pending.",
+        "caseDiscovery": "Partial; Qt fitted/narrow/intrinsic/RTL, fixed styles, caller updates, locale ownership, delta presence, icon slots and native-static-text interfaces have candidate checks. Native mono/SF assets, exact pixels, numeric transition frames, broader compositions, physical sessions and actual readers remain pending. The measured locale profile matches 49,448 native formatter witnesses across seven locales; broader locale/input coverage remains pending.",
         "cases": [
           {
             "id": "native-data-display-source",
@@ -24441,6 +24441,16 @@
               "evidence/development/data-metrics/sessions/environment.json"
             ],
             "notes": "Producer identity/focus, separate process/control locale, optional/zero/signed delta, fixed badges, key updates and real Qt accessibility. Actual readers, physical input and source motion remain unverified."
+          },
+          {
+            "id": "measured-number-locale-profile",
+            "status": "pending",
+            "evidence": [
+              "evidence/reference-investigations/number-locales-20261016/investigation.json",
+              "evidence/development/number-locales/candidate.json",
+              "docs/number-locales.md"
+            ],
+            "notes": "All 49,448 measured source strings match exactly, including compact-boundary and exact-Double witnesses. Broader locales/inputs, rendering and complete component acceptance remain open."
           }
         ],
         "tests": [
@@ -24449,7 +24459,10 @@
           "tests/consumer/datametricschecks.h",
           "tests/contracts/test_data_metrics_adapters.py",
           "scripts/verify-data-metrics-source.py",
-          "scripts/verify-data-metrics-inputs.py"
+          "scripts/verify-data-metrics-inputs.py",
+          "scripts/verify-number-locales-source.py",
+          "scripts/generate-number-format-witnesses.py",
+          "tests/contracts/test_number_locales_source.py"
         ],
         "captures": [
           "evidence/development/data-metrics/captures/metric-number-normal-light-text1.0-offscreen-dpr1.0.png",
@@ -24873,7 +24886,8 @@
           "evidence/development/data-metrics/comparison/comparison.json",
           "evidence/development/data-metrics/native-child-bounds.json",
           "evidence/development/data-metrics/number-formatting.json",
-          "evidence/development/data-metrics/regressions.json"
+          "evidence/development/data-metrics/regressions.json",
+          "evidence/development/number-locales/number-formatting.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -24882,63 +24896,70 @@
             "evidence": [
               "evidence/development/data-metrics/candidate.json",
               "tests/consumer/datametricschecks.h",
-              "docs/data-metrics.md"
+              "docs/data-metrics.md",
+              "evidence/development/number-locales/candidate.json"
             ],
-            "notes": "Qt candidate evidence does not accept native mono/SF assets, remaining locale/pixel differences, source motion, physical displays/input or actual reader behavior."
+            "notes": "The measured 49,448 formatter-witness matrix has zero differences. Full native fonts/SF assets, broader locales/inputs, exact pixels, source motion, physical displays/input and actual readers remain pending."
           },
           "x11": {
             "status": "pending",
             "evidence": [
               "evidence/development/data-metrics/candidate.json",
               "tests/consumer/datametricschecks.h",
-              "docs/data-metrics.md"
+              "docs/data-metrics.md",
+              "evidence/development/number-locales/candidate.json"
             ],
-            "notes": "Qt candidate evidence does not accept native mono/SF assets, remaining locale/pixel differences, source motion, physical displays/input or actual reader behavior."
+            "notes": "The measured 49,448 formatter-witness matrix has zero differences. Full native fonts/SF assets, broader locales/inputs, exact pixels, source motion, physical displays/input and actual readers remain pending."
           },
           "wayland": {
             "status": "pending",
             "evidence": [
               "evidence/development/data-metrics/candidate.json",
               "tests/consumer/datametricschecks.h",
-              "docs/data-metrics.md"
+              "docs/data-metrics.md",
+              "evidence/development/number-locales/candidate.json"
             ],
-            "notes": "Qt candidate evidence does not accept native mono/SF assets, remaining locale/pixel differences, source motion, physical displays/input or actual reader behavior."
+            "notes": "The measured 49,448 formatter-witness matrix has zero differences. Full native fonts/SF assets, broader locales/inputs, exact pixels, source motion, physical displays/input and actual readers remain pending."
           },
           "keyboardPointer": {
             "status": "pending",
             "evidence": [
               "evidence/development/data-metrics/candidate.json",
               "tests/consumer/datametricschecks.h",
-              "docs/data-metrics.md"
+              "docs/data-metrics.md",
+              "evidence/development/number-locales/candidate.json"
             ],
-            "notes": "Qt candidate evidence does not accept native mono/SF assets, remaining locale/pixel differences, source motion, physical displays/input or actual reader behavior."
+            "notes": "The measured 49,448 formatter-witness matrix has zero differences. Full native fonts/SF assets, broader locales/inputs, exact pixels, source motion, physical displays/input and actual readers remain pending."
           },
           "focusAccessibility": {
             "status": "pending",
             "evidence": [
               "evidence/development/data-metrics/candidate.json",
               "tests/consumer/datametricschecks.h",
-              "docs/data-metrics.md"
+              "docs/data-metrics.md",
+              "evidence/development/number-locales/candidate.json"
             ],
-            "notes": "Qt candidate evidence does not accept native mono/SF assets, remaining locale/pixel differences, source motion, physical displays/input or actual reader behavior."
+            "notes": "The measured 49,448 formatter-witness matrix has zero differences. Full native fonts/SF assets, broader locales/inputs, exact pixels, source motion, physical displays/input and actual readers remain pending."
           },
           "displayTextScaling": {
             "status": "pending",
             "evidence": [
               "evidence/development/data-metrics/candidate.json",
               "tests/consumer/datametricschecks.h",
-              "docs/data-metrics.md"
+              "docs/data-metrics.md",
+              "evidence/development/number-locales/candidate.json"
             ],
-            "notes": "Qt candidate evidence does not accept native mono/SF assets, remaining locale/pixel differences, source motion, physical displays/input or actual reader behavior."
+            "notes": "The measured 49,448 formatter-witness matrix has zero differences. Full native fonts/SF assets, broader locales/inputs, exact pixels, source motion, physical displays/input and actual readers remain pending."
           },
           "installedConsumer": {
             "status": "pending",
             "evidence": [
               "evidence/development/data-metrics/candidate.json",
               "tests/consumer/datametricschecks.h",
-              "docs/data-metrics.md"
+              "docs/data-metrics.md",
+              "evidence/development/number-locales/candidate.json"
             ],
-            "notes": "Qt candidate evidence does not accept native mono/SF assets, remaining locale/pixel differences, source motion, physical displays/input or actual reader behavior."
+            "notes": "The measured 49,448 formatter-witness matrix has zero differences. Full native fonts/SF assets, broader locales/inputs, exact pixels, source motion, physical displays/input and actual readers remain pending."
           }
         },
         "sourceInvestigation": {
@@ -38307,7 +38328,7 @@
           "src/Avelino/BleeckerCard.qml",
           "src/Avelino/proposalrow.cpp"
         ],
-        "caseDiscovery": "Partial; Qt fitted/narrow/intrinsic/RTL, fixed styles, caller updates, locale ownership, delta presence, icon slots and native-static-text interfaces have candidate checks. Native mono/SF assets, remaining Japanese/Arabic formatter differences, exact pixels, numeric transition frames, broader compositions, physical sessions and actual readers remain pending.",
+        "caseDiscovery": "Partial; Qt fitted/narrow/intrinsic/RTL, fixed styles, caller updates, locale ownership, delta presence, icon slots and native-static-text interfaces have candidate checks. Native mono/SF assets, exact pixels, numeric transition frames, broader compositions, physical sessions and actual readers remain pending. The measured locale profile matches 49,448 native formatter witnesses across seven locales; broader locale/input coverage remains pending.",
         "cases": [
           {
             "id": "native-data-display-source",
@@ -38336,6 +38357,16 @@
               "evidence/development/data-metrics/sessions/environment.json"
             ],
             "notes": "Producer identity/focus, separate process/control locale, optional/zero/signed delta, fixed badges, key updates and real Qt accessibility. Actual readers, physical input and source motion remain unverified."
+          },
+          {
+            "id": "measured-number-locale-profile",
+            "status": "pending",
+            "evidence": [
+              "evidence/reference-investigations/number-locales-20261016/investigation.json",
+              "evidence/development/number-locales/candidate.json",
+              "docs/number-locales.md"
+            ],
+            "notes": "All 49,448 measured source strings match exactly, including compact-boundary and exact-Double witnesses. Broader locales/inputs, rendering and complete component acceptance remain open."
           }
         ],
         "tests": [
@@ -38344,7 +38375,10 @@
           "tests/consumer/datametricschecks.h",
           "tests/contracts/test_data_metrics_adapters.py",
           "scripts/verify-data-metrics-source.py",
-          "scripts/verify-data-metrics-inputs.py"
+          "scripts/verify-data-metrics-inputs.py",
+          "scripts/verify-number-locales-source.py",
+          "scripts/generate-number-format-witnesses.py",
+          "tests/contracts/test_number_locales_source.py"
         ],
         "captures": [
           "evidence/development/data-metrics/captures/stat-card-none-normal-light-text1.0-offscreen-dpr1.0.png",
@@ -38696,7 +38730,8 @@
           "evidence/development/data-metrics/comparison/comparison.json",
           "evidence/development/data-metrics/native-child-bounds.json",
           "evidence/development/data-metrics/number-formatting.json",
-          "evidence/development/data-metrics/regressions.json"
+          "evidence/development/data-metrics/regressions.json",
+          "evidence/development/number-locales/number-formatting.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -38705,63 +38740,70 @@
             "evidence": [
               "evidence/development/data-metrics/candidate.json",
               "tests/consumer/datametricschecks.h",
-              "docs/data-metrics.md"
+              "docs/data-metrics.md",
+              "evidence/development/number-locales/candidate.json"
             ],
-            "notes": "Qt candidate evidence does not accept native mono/SF assets, remaining locale/pixel differences, source motion, physical displays/input or actual reader behavior."
+            "notes": "The measured 49,448 formatter-witness matrix has zero differences. Full native fonts/SF assets, broader locales/inputs, exact pixels, source motion, physical displays/input and actual readers remain pending."
           },
           "x11": {
             "status": "pending",
             "evidence": [
               "evidence/development/data-metrics/candidate.json",
               "tests/consumer/datametricschecks.h",
-              "docs/data-metrics.md"
+              "docs/data-metrics.md",
+              "evidence/development/number-locales/candidate.json"
             ],
-            "notes": "Qt candidate evidence does not accept native mono/SF assets, remaining locale/pixel differences, source motion, physical displays/input or actual reader behavior."
+            "notes": "The measured 49,448 formatter-witness matrix has zero differences. Full native fonts/SF assets, broader locales/inputs, exact pixels, source motion, physical displays/input and actual readers remain pending."
           },
           "wayland": {
             "status": "pending",
             "evidence": [
               "evidence/development/data-metrics/candidate.json",
               "tests/consumer/datametricschecks.h",
-              "docs/data-metrics.md"
+              "docs/data-metrics.md",
+              "evidence/development/number-locales/candidate.json"
             ],
-            "notes": "Qt candidate evidence does not accept native mono/SF assets, remaining locale/pixel differences, source motion, physical displays/input or actual reader behavior."
+            "notes": "The measured 49,448 formatter-witness matrix has zero differences. Full native fonts/SF assets, broader locales/inputs, exact pixels, source motion, physical displays/input and actual readers remain pending."
           },
           "keyboardPointer": {
             "status": "pending",
             "evidence": [
               "evidence/development/data-metrics/candidate.json",
               "tests/consumer/datametricschecks.h",
-              "docs/data-metrics.md"
+              "docs/data-metrics.md",
+              "evidence/development/number-locales/candidate.json"
             ],
-            "notes": "Qt candidate evidence does not accept native mono/SF assets, remaining locale/pixel differences, source motion, physical displays/input or actual reader behavior."
+            "notes": "The measured 49,448 formatter-witness matrix has zero differences. Full native fonts/SF assets, broader locales/inputs, exact pixels, source motion, physical displays/input and actual readers remain pending."
           },
           "focusAccessibility": {
             "status": "pending",
             "evidence": [
               "evidence/development/data-metrics/candidate.json",
               "tests/consumer/datametricschecks.h",
-              "docs/data-metrics.md"
+              "docs/data-metrics.md",
+              "evidence/development/number-locales/candidate.json"
             ],
-            "notes": "Qt candidate evidence does not accept native mono/SF assets, remaining locale/pixel differences, source motion, physical displays/input or actual reader behavior."
+            "notes": "The measured 49,448 formatter-witness matrix has zero differences. Full native fonts/SF assets, broader locales/inputs, exact pixels, source motion, physical displays/input and actual readers remain pending."
           },
           "displayTextScaling": {
             "status": "pending",
             "evidence": [
               "evidence/development/data-metrics/candidate.json",
               "tests/consumer/datametricschecks.h",
-              "docs/data-metrics.md"
+              "docs/data-metrics.md",
+              "evidence/development/number-locales/candidate.json"
             ],
-            "notes": "Qt candidate evidence does not accept native mono/SF assets, remaining locale/pixel differences, source motion, physical displays/input or actual reader behavior."
+            "notes": "The measured 49,448 formatter-witness matrix has zero differences. Full native fonts/SF assets, broader locales/inputs, exact pixels, source motion, physical displays/input and actual readers remain pending."
           },
           "installedConsumer": {
             "status": "pending",
             "evidence": [
               "evidence/development/data-metrics/candidate.json",
               "tests/consumer/datametricschecks.h",
-              "docs/data-metrics.md"
+              "docs/data-metrics.md",
+              "evidence/development/number-locales/candidate.json"
             ],
-            "notes": "Qt candidate evidence does not accept native mono/SF assets, remaining locale/pixel differences, source motion, physical displays/input or actual reader behavior."
+            "notes": "The measured 49,448 formatter-witness matrix has zero differences. Full native fonts/SF assets, broader locales/inputs, exact pixels, source motion, physical displays/input and actual readers remain pending."
           }
         },
         "sourceInvestigation": {

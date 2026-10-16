@@ -20,6 +20,7 @@
 #include <QColor>
 #include <QAccessible>
 #include <cmath>
+#include <cstring>
 static QQuickItem *findVisualItem(QQuickItem *item, const QString &name) {
     if (item->objectName() == name) return item;
     for (auto child : item->childItems())

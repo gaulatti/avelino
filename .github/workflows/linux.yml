@@ -187,10 +187,12 @@ jobs:
         run: |
           python3 - <<'PY'
           import json,os
+          from collections import Counter
           from pathlib import Path
           report=json.loads(Path('artifacts/candidate/number-formatting.json').read_text())
-          assert report['cases']==len(report['results'])==1330 and len(report['sourceFiles'])==7
+          assert report['cases']==len(report['results'])==49448 and len(report['sourceFiles'])==9
+          assert dict(Counter(r['group'] for r in report['results']))==report['groups']=={'original':1330,'wide-double':19460,'compact-boundaries':28658}
           with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as out:
-              out.write(f"Native formatter strings: {report['matches']}/1330 exact; {report['mismatches']} unaccepted differences.\n")
+              out.write(f"Native formatter strings: {report['matches']}/{report['cases']} exact; {report['mismatches']} unaccepted differences.\n")
           assert all(r['status']=='passed' for r in report['results']), 'Native formatter differences remain unaccepted'
           PY

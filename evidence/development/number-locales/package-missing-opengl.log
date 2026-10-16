@@ -1,0 +1,64 @@
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Performing Test HAVE_STDATOMIC
+-- Performing Test HAVE_STDATOMIC - Success
+-- Found WrapAtomic: TRUE  
+-- Could NOT find OpenGL (missing: OPENGL_opengl_LIBRARY OPENGL_glx_LIBRARY OPENGL_INCLUDE_DIR) 
+-- Could NOT find OpenGL (missing: OPENGL_opengl_LIBRARY OPENGL_INCLUDE_DIR OpenGL) 
+-- Could NOT find WrapOpenGL (missing: WrapOpenGL_FOUND) 
+CMake Warning at /opt/qt/lib/cmake/Qt6/Qt6Config.cmake:196 (find_package):
+  Found package configuration file:
+
+    /opt/qt/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake
+
+  but it set Qt6Gui_FOUND to FALSE so package "Qt6Gui" is considered to be
+  NOT FOUND.  Reason given by package:
+
+  Qt6Gui could not be found because dependency WrapOpenGL could not be found.
+
+  Configuring with --debug-find-pkg=WrapOpenGL might reveal details why the
+  package was not found.
+
+  Configuring with -DQT_DEBUG_FIND_PACKAGE=ON will print the values of some
+  of the path variables that find_package uses to try and find the package.
+
+Call Stack (most recent call first):
+  /usr/share/cmake-3.28/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)
+  /package/install/lib/cmake/Avelino/AvelinoConfig.cmake:30 (find_dependency)
+  CMakeLists.txt:3 (find_package)
+
+
+CMake Error at /usr/share/cmake-3.28/Modules/CMakeFindDependencyMacro.cmake:76 (find_package):
+  Found package configuration file:
+
+    /opt/qt/lib/cmake/Qt6/Qt6Config.cmake
+
+  but it set Qt6_FOUND to FALSE so package "Qt6" is considered to be NOT
+  FOUND.  Reason given by package:
+
+  Failed to find required Qt component "Gui".
+
+  Expected Config file at "/opt/qt/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake"
+  exists
+
+
+
+  Configuring with --debug-find-pkg=Qt6Gui might reveal details why the
+  package was not found.
+
+  Configuring with -DQT_DEBUG_FIND_PACKAGE=ON will print the values of some
+  of the path variables that find_package uses to try and find the package.
+
+Call Stack (most recent call first):
+  /package/install/lib/cmake/Avelino/AvelinoConfig.cmake:30 (find_dependency)
+  CMakeLists.txt:3 (find_package)
+
+
+-- Configuring incomplete, errors occurred!
