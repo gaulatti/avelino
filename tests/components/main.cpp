@@ -38,6 +38,24 @@ public slots:
     void setProcessLocale(const QString &name) {QLocale::setDefault(QLocale(name));QEvent event(QEvent::LocaleChange);QCoreApplication::sendEvent(qApp,&event);}
     void qmlEngineAvailable(QQmlEngine *engine) {
         engine->rootContext()->setContextProperty("fixtureSetup",this);
+        const auto alignmentDirectory=QStringLiteral(NATIVE_ACTIVITY_ALIGNMENT_DIRECTORY);
+        QFile directions(alignmentDirectory+"/directions/text-directions.json");
+        if(!directions.open(QIODevice::ReadOnly))qFatal("Native text direction evidence missing");
+        const auto directionData=QJsonDocument::fromJson(directions.readAll()).object();
+        if(directionData.value("reference").toString()!="fe8a1d462fbd793d883fb92086a16aa2947e32c9")qFatal("Native text direction reference invalid");
+        engine->rootContext()->setContextProperty("nativeTextDirectionQueries",directionData.value("queries").toArray().toVariantList());
+        engine->rootContext()->setContextProperty("nativeTextDirectionFresh",directionData.value("fresh").toArray().toVariantList());
+        QFile alignments(alignmentDirectory+"/lines/lines.json");
+        if(!alignments.open(QIODevice::ReadOnly))qFatal("Native bare text alignment evidence missing");
+        const auto alignmentData=QJsonDocument::fromJson(alignments.readAll()).object();
+        if(alignmentData.value("reference").toString()!="fe8a1d462fbd793d883fb92086a16aa2947e32c9")qFatal("Native text alignment reference invalid");
+        QJsonArray bareAlignmentCases;
+        for(const auto &value:alignmentData.value("rows").toArray()) {
+            const auto row=value.toObject();QJsonObject bare;
+            for(const auto &key:QStringList{"key","text","dpr","rtl","alignment","proposalWidth","bareRect"})bare.insert(key,row.value(key));
+            bareAlignmentCases.append(bare);
+        }
+        engine->rootContext()->setContextProperty("nativeTextAlignmentCases",bareAlignmentCases.toVariantList());
         const auto layoutDirectory=QStringLiteral(NATIVE_ACTIVITY_LAYOUT_DIRECTORY);
         for(const auto &name:QStringList{"text/fixed-queries.json","buckets/buckets.json"}) {
             QFile file(layoutDirectory+"/"+name);if(!file.open(QIODevice::ReadOnly))qFatal("Native text layout/history evidence missing");

@@ -891,3 +891,28 @@ differences. Physical/native keyboard, font/symbol/raster and actual reader gate
 remain open. Coverage is 60/80 desktop APIs started, zero accepted; all 46 TV
 entries remain pending. Source pins, expected images, tolerances and approved
 exceptions are unchanged.
+
+## Aligned text whitespace
+
+The [additional text source record](../evidence/reference-investigations/activity-text-alignment-20261016/investigation.json)
+reproduces all 3,374 prior LTR measurements and 16 original ActivityItem images.
+It adds 7,000 direction/fresh measurements and 768 unmodified public Text samples;
+all 1,599 outputs replay byte for byte from unchanged source. Physical alignment
+image pairs match across ambient directions. The custom TextRenderer probe is
+explicitly a proxy: every image differs and 142 frames differ from bare Text.
+Only the separate bare measurements supply regression expectations.
+
+The [bounded shared-label candidate](../evidence/development/text-alignment/candidate.json)
+matches all 7,000 measurements and 768 bare cases. It preserves the historical
+614 RTL geometry failures and the intermediate prototype's 104 intrinsic-size
+failures. Full 17-target and 227-contract runs pass; the independent package
+passes 24 consumer modes, 107 galleries and eight focused virtual profiles.
+All 107 preceding gallery PNG/full-metadata pairs remain byte-identical.
+
+Eight narrow RTL child-frame sets are fixed: the 552-case comparison now records
+496 matching ActivityItem child-frame sets, 552 matching root frames and 536
+matching initial states. Complete pixel matches remain zero. Unicode/bidi,
+plain system-font, font/symbol/raster, physical/native keyboard and actual-reader
+gates remain open. Desktop coverage stays 60/80 started, zero accepted, with all
+46 television entries pending. No source pin, expected image, tolerance or
+approved exception changed.

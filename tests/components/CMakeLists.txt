@@ -19,6 +19,7 @@ target_compile_definitions(AvelinoComponentTests PRIVATE
     NATIVE_RADIO_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/radio-20261016"
     NATIVE_ACTIVITY_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/activity-item-20261016"
     NATIVE_ACTIVITY_LAYOUT_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/activity-layout-mechanics-20261016"
+    NATIVE_ACTIVITY_ALIGNMENT_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/activity-text-alignment-20261016"
     NATIVE_OTP_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/otp-20261016"
     OTP_TRACE_OUTPUT_DIRECTORY="${PROJECT_SOURCE_DIR}/artifacts/otp-editor-traces"
     NATIVE_STEPPER_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/stepper-20261016"

@@ -32,6 +32,7 @@ jobs:
       - run: python3 scripts/verify-activity-source.py
       - run: python3 scripts/verify-activity-text-source.py
       - run: python3 scripts/verify-activity-layout-source.py
+      - run: python3 scripts/verify-activity-alignment-source.py
       - run: python3 scripts/generate-otp-unicode.py --check
       - run: python3 scripts/generate-otp-witnesses.py --check
       - run: python3 scripts/generate-activity-witnesses.py --check

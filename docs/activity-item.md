@@ -145,7 +145,7 @@ the external locator and input hashes are in that record's tooling provenance.
 This evidence does not approve a Linux implementation, expected-image update,
 font/symbol substitution or physical/session/reader gate.
 
-## Linux candidate
+## Linux candidate at bf30fa14
 
 `BleeckerActivityItem` requires `title`, `detail` and `timestamp`. Its default
 `actions` property accepts caller-owned items without replacing their objects or
@@ -230,3 +230,45 @@ preserved without a baseline or tolerance change.
 
 Desktop candidate coverage is 60/80, with zero complete mirror acceptances.
 All 46 television entries remain pending in their separate later phase.
+
+## Aligned text follow-up
+
+The [additional source investigation](../evidence/reference-investigations/activity-text-alignment-20261016/investigation.json)
+isolates the narrow RTL label widths. All 3,374 prior LTR measurements and 16
+original public ActivityItem images reproduce exactly. Ambient RTL changes 593
+ascending text measurements, including five history-dependent heights; the older
+installed Qt renderer has those 593 differences and 21 fresh-case differences.
+Unmodified public Text reproduces the same width growth with physical right
+alignment in an LTR environment. These measurements isolate text alignment with
+the fixed bundled fonts.
+
+The shared label now includes trailing whitespace after centering/right alignment.
+All 7,000 direction/fresh measurements and 768 bare alignment cases match in the
+actual ActivityItem field and Button label fixtures. A separate fresh source-only
+rebuild reproduces all 1,599 new outputs. The original 614 Qt failures remain
+bound to `bf30fa14`; expected images, source pins, tolerances and exception
+approvals are unchanged. See [typography](typography.md) for the alignment rule and
+the explicitly non-transparent custom renderer diagnostic.
+
+The external source-only replay archive SHA-256 is
+`fd17c1569ba4dce5dbf29a49bca0f4de8e887511f4dd73a37808498755ee15a4`.
+Its six members contain the unchanged full source, three native helper files,
+the replay script and input hashes; compiled project inputs are absent. The
+external locator and toolchain are recorded in
+[tooling provenance](../evidence/reference-investigations/activity-text-alignment-20261016/tooling-provenance.json).
+Independent-machine helper availability remains pending.
+
+The [bounded alignment candidate](../evidence/development/text-alignment/candidate.json)
+passes all 17 CTest targets and 227 Python contracts, plus all 24 installed
+consumer modes, 107 galleries and eight focused virtual profiles. The intrinsic
+size regression rejects 104 cases in the earlier unbounded prototype and passes
+all 768 bare cases in the final package. A later assertion strengthens the
+permanent tests; both 519-result alignment profiles pass without changing the
+installed library or its captured inputs.
+
+All eight narrow RTL child-frame sets now match. The complete 552-case recapture
+retains 552 matching root frames, 536 matching initial Activity states and 496
+matching child-frame sets, up from 488. All 107 previous gallery PNGs and complete
+metadata files remain byte-identical. Unicode/bidi and plain system-font child
+frames remain different in 40 cases; complete pixel matches remain zero. Font,
+symbol, raster, physical/native keyboard and reader acceptance stays pending.

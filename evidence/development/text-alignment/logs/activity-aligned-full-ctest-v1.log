@@ -1,0 +1,58 @@
+[0/2] Re-checking globbed directories...
+[1/2] Re-running CMake...
+-- Could NOT find WrapVulkanHeaders (missing: Vulkan_INCLUDE_DIR) 
+-- Could NOT find WrapVulkanHeaders (missing: Vulkan_INCLUDE_DIR) 
+-- Found the following ICU libraries:
+--   i18n (required): /usr/lib/aarch64-linux-gnu/libicui18n.so.74
+--   uc (required): /usr/lib/aarch64-linux-gnu/libicuuc.so.74
+-- Configuring done (0.6s)
+-- Generating done (0.1s)
+-- Build files have been written to: /work/build/linux
+[0/2] Re-checking globbed directories...
+[1/100] Automatic MOC and UIC for target AvelinoCatalog
+[2/99] Running AUTOMOC file extraction for target AvelinoCatalog
+[3/9] Automatic MOC and UIC for target AvelinoOTPSemanticsTests
+[4/7] Automatic MOC and UIC for target AvelinoComponentTests
+[5/7] Building CXX object tests/components/CMakeFiles/AvelinoComponentTests.dir/AvelinoComponentTests_autogen/mocs_compilation.cpp.o
+[6/7] Building CXX object tests/components/CMakeFiles/AvelinoComponentTests.dir/main.cpp.o
+[7/7] Linking CXX executable tests/components/AvelinoComponentTests
+Internal ctest changing into directory: /work/build/linux
+Test project /work/build/linux
+      Start  1: components
+ 1/17 Test  #1: components .......................   Passed  119.34 sec
+      Start  2: components-dpr2
+ 2/17 Test  #2: components-dpr2 ..................   Passed  136.45 sec
+      Start  3: slider-invalid-config
+ 3/17 Test  #3: slider-invalid-config ............   Passed    1.61 sec
+      Start  4: pagination-invalid-config
+ 4/17 Test  #4: pagination-invalid-config ........   Passed    4.53 sec
+      Start  5: presentation-invalid-config
+ 5/17 Test  #5: presentation-invalid-config ......   Passed    5.09 sec
+      Start  6: navigation-invalid-config
+ 6/17 Test  #6: navigation-invalid-config ........   Passed    2.74 sec
+      Start  7: sidebar-brand-invalid-config
+ 7/17 Test  #7: sidebar-brand-invalid-config .....   Passed    2.80 sec
+      Start  8: data-metrics-invalid-config
+ 8/17 Test  #8: data-metrics-invalid-config ......   Passed    4.40 sec
+      Start  9: stepper-invalid-config
+ 9/17 Test  #9: stepper-invalid-config ...........   Passed   14.03 sec
+      Start 10: radio-invalid-config
+10/17 Test #10: radio-invalid-config .............   Passed    8.42 sec
+      Start 11: radio-catalog-metadata
+11/17 Test #11: radio-catalog-metadata ...........   Passed    7.35 sec
+      Start 12: otp-native-transformation
+12/17 Test #12: otp-native-transformation ........   Passed    3.74 sec
+      Start 13: otp-invalid-transformation
+13/17 Test #13: otp-invalid-transformation .......   Passed    9.99 sec
+      Start 14: otp-invalid-input
+14/17 Test #14: otp-invalid-input ................   Passed    4.41 sec
+      Start 15: otp-catalog-metadata
+15/17 Test #15: otp-catalog-metadata .............   Passed    7.11 sec
+      Start 16: activity-invalid-config
+16/17 Test #16: activity-invalid-config ..........   Passed    1.65 sec
+      Start 17: activity-catalog-metadata
+17/17 Test #17: activity-catalog-metadata ........   Passed   12.83 sec
+
+100% tests passed, 0 tests failed out of 17
+
+Total Test time (real) = 346.57 sec

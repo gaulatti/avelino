@@ -331,6 +331,40 @@ void ButtonLabel::relayout(bool reuseWrapMeasurements) {
             : sourceFont ? ascent + descent : line.height() * ratio;
     }
     layout.endLayout();
+    const auto trimmedAdvance = [&](const QTextLine &line) {
+        auto text = layoutText.mid(line.textStart(), line.textLength());
+        while (!text.isEmpty() && text.back().isSpace()) text.chop(1);
+        QTextLayout trimmed(text, shapeFont);
+        QTextOption trimmedOption = option; trimmedOption.setWrapMode(QTextOption::NoWrap);
+        trimmed.setTextOption(trimmedOption); trimmed.beginLayout();
+        auto trimmedLine = trimmed.createLine();
+        qreal advance = 0;
+        if (trimmedLine.isValid()) {
+            trimmedLine.setLineWidth(1000000);
+            advance = sourceFont ? sourceMetrics(trimmedLine, text).advance : trimmedLine.horizontalAdvance() * ratio;
+        }
+        trimmed.endLayout();
+        return advance;
+    };
+    if (sourceFont && m_alignment != Qt::AlignLeft) {
+        // Public Text measures trailing whitespace after centering/right
+        // alignment. Align the trimmed lines, then retain each full extent.
+        qreal longest = 0;
+        QList<qreal> advances;
+        for (int i = 0; i < layout.lineCount(); ++i) {
+            const auto advance = trimmedAdvance(layout.lineAt(i));
+            advances.append(advance); longest = std::max(longest, advance);
+        }
+        qreal alignedWidth = 0;
+        for (int i = 0; i < layout.lineCount(); ++i) {
+            const auto offset = (longest - advances[i]) / (m_alignment == Qt::AlignHCenter ? 2 : 1);
+            alignedWidth = std::max(alignedWidth, sourceMetrics(layout.lineAt(i), layoutText, layoutWidth).width + offset);
+        }
+        // Paint against the fitted Text view as well. Using an extent wider
+        // than its finite proposal shifts visible right-aligned glyphs into
+        // the clip even though the QML view itself has the correct width.
+        width = layoutWidth >= 0 ? std::min(alignedWidth, layoutWidth) : alignedWidth;
+    }
     m_runs.clear();
     m_linePositions.clear();
     m_family = original.familyName(); m_style = original.styleName();
@@ -349,18 +383,7 @@ void ButtonLabel::relayout(bool reuseWrapMeasurements) {
     } else {
         for (int i = 0; i < layout.lineCount(); ++i) {
             const auto line = layout.lineAt(i);
-            auto text = layoutText.mid(line.textStart(), line.textLength());
-            while (!text.isEmpty() && text.back().isSpace()) text.chop(1);
-            QTextLayout trimmed(text, shapeFont);
-            QTextOption trimmedOption = option; trimmedOption.setWrapMode(QTextOption::NoWrap);
-            trimmed.setTextOption(trimmedOption); trimmed.beginLayout();
-            auto trimmedLine = trimmed.createLine();
-            qreal advance = 0;
-            if (trimmedLine.isValid()) {
-                trimmedLine.setLineWidth(1000000);
-                advance = sourceFont ? sourceMetrics(trimmedLine, text).advance : trimmedLine.horizontalAdvance() * ratio;
-            }
-            trimmed.endLayout();
+            const qreal advance = trimmedAdvance(line);
             const qreal offset = (viewWidth(width) - advance) / (m_alignment == Qt::AlignHCenter ? 2 : 1);
             // Keep logical offsets outside QTextLine's design-space QFixed
             // positions so fractional centered origins are not quantized.

@@ -14,6 +14,32 @@ and button fixtures replay all 3,374 original standalone proposals and 48 explic
 histories; fresh instances are not substituted for persistent native sequences.
 Fractional row proposals remain raw until each child returns its fitted frame.
 
+Centered and right-aligned wrapped text also measures the whitespace retained
+after alignment. The [alignment source record](../evidence/reference-investigations/activity-text-alignment-20261016/investigation.json)
+contains 7,000 direction/history measurements and 768 unmodified public Text
+samples. For Libre Franklin 12, `Ready for review` at proposal 40 and DPR one
+fits to widths 38, 39 and 40 with left, center and right alignment. Encode Sans
+semibold 14 `Edition updated` at proposal 60 fits to 55, 55 and 58.
+RTL maps logical leading/trailing alignment to physical right/left; 384 matching
+physical-alignment image pairs remain byte-identical across ambient directions.
+
+The label aligns trimmed line advances against the largest trimmed advance,
+retains each full line extent including trailing whitespace, then rounds the
+result to the physical pixel grid. Incoming proposals stay fractional. The finite
+fitted bounds constrain paint alignment, keeping ending glyphs inside the view's
+clip, and feed the existing measurement-history intervals. The older
+`bf30fa14` installed renderer's 614 RTL geometry failures remain preserved in
+the source record; the corrected calculation matches all 7,000 measurements and
+all 768 bare alignment samples without changing expected data or tolerances.
+
+The custom `TextRenderer` probe is a diagnostic proxy: all 768 image pairs
+differ from unmodified Text, and 142 fitted frames differ. Its line/run records
+are not transparent observations of bare Text. Tests use the separately captured
+bare frames. A fresh unchanged full-source rebuild reproduces all 1,599 outputs
+byte for byte. Native helpers and the source-only replay archive remain external;
+independent-machine helper availability and exact raster/physical/reader acceptance
+remain pending.
+
 The user-observable criteria are: custom-font resolution matches the source at
 fractional-size boundaries; single, explicit and wrapped lines have the source's
 height and first baseline; intrinsic view width rounds to the current physical
