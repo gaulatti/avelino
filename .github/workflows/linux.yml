@@ -501,28 +501,3 @@ jobs:
           name: font-modifier-source-comparison-${{ matrix.source-runner }}
           path: artifacts/font-modifier-comparison
           if-no-files-found: error
-  number-formatting-diagnostics:
-    needs: build-runtime-package
-    runs-on: ubuntu-24.04
-    strategy:
-      fail-fast: false
-      matrix:
-        source-runner: [ubuntu-24.04, ubuntu-24.04-arm]
-    steps:
-      - uses: actions/download-artifact@v4
-        with:
-          name: desktop-button-candidates-${{ matrix.source-runner }}
-          path: artifacts/candidate
-      - name: Strict native formatter comparison
-        run: |
-          python3 - <<'PY'
-          import json,os
-          from collections import Counter
-          from pathlib import Path
-          report=json.loads(Path('artifacts/candidate/number-formatting.json').read_text())
-          assert report['cases']==len(report['results'])==49448 and len(report['sourceFiles'])==9
-          assert dict(Counter(r['group'] for r in report['results']))==report['groups']=={'original':1330,'wide-double':19460,'compact-boundaries':28658}
-          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as out:
-              out.write(f"Native formatter strings: {report['matches']}/{report['cases']} exact; {report['mismatches']} unaccepted differences.\n")
-          assert all(r['status']=='passed' for r in report['results']), 'Native formatter differences remain unaccepted'
-          PY

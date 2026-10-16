@@ -1134,3 +1134,13 @@ Linux CI runs fail the separate Tooltip retained-popup check in scaled Wayland
 on both architectures. Their strict comparison jobs were skipped. Isolated
 Tooltip replay passes locally; the preceding session sequence still needs a
 focused reproduction. This is not recorded as a successful whole-workflow CI run.
+
+
+## Workflow job-key repair
+
+The first font push duplicated the existing `number-formatting-diagnostics` job
+when copying the diagnostic section. GitHub refused the workflow before jobs
+started. The repair removes only that byte-identical duplicate, leaving all
+12 intended jobs and strict comparisons intact. Official actionlint 1.7.7,
+verified against its release checksums, validates both workflow files. No library,
+reference, capture, tolerance or acceptance record changes.
