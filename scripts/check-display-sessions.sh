@@ -18,7 +18,8 @@ cleanup() {
   rm -rf "$runtime"
 }
 trap cleanup EXIT
-Xvfb -displayfd 3 -screen 0 1920x1400x24 -nolisten tcp 3>"$runtime/display" >"$evidence/xvfb.log" 2>&1 &
+# Keep the largest gallery (1100 x 850 logical units) within the output at DPR 2.
+Xvfb -displayfd 3 -screen 0 2560x1920x24 -nolisten tcp 3>"$runtime/display" >"$evidence/xvfb.log" 2>&1 &
 xpid=$!
 for ((i=0;i<100;i++)); do
   if [[ -s "$runtime/display" ]]; then break; fi
@@ -37,7 +38,7 @@ panel-position=none
 background-color=0xffdbe1e7
 locking=false
 INI
-    weston --backend=x11 --renderer=pixman --width=1760 --height=1280 --socket=avelino-wayland \
+    weston --backend=x11 --renderer=pixman --width=2400 --height=1800 --socket=avelino-wayland \
       --idle-time=0 --config="$runtime/weston.ini" --log="$evidence/weston.log" >"$evidence/weston-client.log" 2>&1 &
     wpid=$!
     for ((i=0;i<100;i++)); do
@@ -50,7 +51,7 @@ INI
   fi
   for backend in software opengl; do
     for configuration in standard scaled; do
-    for fixture in base controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper radio-group otp-input activity-item; do
+    for fixture in base controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper radio-group otp-input activity-item modal; do
       prefix="$evidence/$protocol-$backend-$configuration"
       if [[ "$fixture" == controls ]]; then prefix="$evidence/controls-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == composition ]]; then prefix="$evidence/composition-$protocol-$backend-$configuration"; fi
@@ -63,6 +64,7 @@ INI
       if [[ "$fixture" == tabs ]]; then prefix="$evidence/tabs-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == pagination ]]; then prefix="$evidence/pagination-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == pagination-integers ]]; then prefix="$evidence/pagination-integers-$protocol-$backend-$configuration"; fi
+      if [[ "$fixture" == modal ]]; then prefix="$evidence/modal-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == activity-item ]]; then prefix="$evidence/activity-item-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == otp-input ]]; then prefix="$evidence/otp-input-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == radio-group ]]; then prefix="$evidence/radio-group-$protocol-$backend-$configuration"; fi
@@ -87,6 +89,7 @@ INI
       if [[ "$fixture" == tabs ]]; then args+=(--tabs); fi
       if [[ "$fixture" == pagination ]]; then args+=(--pagination); fi
       if [[ "$fixture" == pagination-integers ]]; then args+=(--pagination-integers); fi
+      if [[ "$fixture" == modal ]]; then args+=(--modal); fi
       if [[ "$fixture" == activity-item ]]; then args+=(--activity-item); fi
       if [[ "$fixture" == otp-input ]]; then args+=(--otp-input); fi
       if [[ "$fixture" == radio-group ]]; then args+=(--radio-group); fi
@@ -113,7 +116,9 @@ INI
       fi
       QT_QPA_PLATFORM="$protocol" consumer-build/InstalledConsumer "${args[@]}" >"$prefix.log" 2>&1 &
       client=$!
-      for ((i=0;i<100;i++)); do
+      readiness_attempts=100
+      if [[ "$fixture" == modal ]]; then readiness_attempts=600; fi
+      for ((i=0;i<readiness_attempts;i++)); do
         if [[ -f "$prefix.json" ]]; then break; fi
         if ! kill -0 "$client" 2>/dev/null; then
           result=0
@@ -170,6 +175,15 @@ elif fixture == 'secure-field':
         assert record[key] == 'passed', record
     assert record['sourceHeight'] == 40 and record['fontPointSize'] == 10.5, record
     assert record['revealed'] is True, record
+elif fixture == 'modal':
+    for key in ['modalChecks','callerStateChecks','focusChecks','qtAccessibilityChecks','qtEditorChecks']:assert record[key]=='passed',record
+    assert record['qtEditedAndReopenedValue']=='q' and record['nativeTypingAcceptance']=='pending',record
+    assert record['nativeSnapshots']==80 and len(record['nativeTraces'])==17 and record['accepted'] is False,record
+    assert record['clippingQueries']==170 and record['glyphQueries']==142,record
+    assert record['peakSourceWindows']<=3,record
+    assert record['separatePresentationWindow'] is True and record['popupWidth']==480,record
+    popup=Path(prefix+'-popup.png')
+    assert popup.is_file() and struct.unpack('>II',popup.read_bytes()[16:24])==(record['popupWidth']*record['dpr'],record['popupHeight']*record['dpr']),record
 elif fixture == 'activity-item':
     for key in ['activityChecks','callerStateChecks','focusChecks','qtAccessibilityChecks']:assert record[key]=='passed',record
     assert record['nativeSnapshots']==94 and len(record['nativeTraces'])==13 and record['accepted'] is False,record
@@ -269,8 +283,8 @@ physical = struct.unpack('>II', window_bytes[16:24])
 assert physical == (record['width']*record['dpr'], record['height']*record['dpr']), record
 session_bytes = Path(prefix+'-session.png').read_bytes()
 session_size = struct.unpack('>II', session_bytes[16:24])
-assert session_size == (1920, 1400), session_size
-client_output = (1920, 1400) if protocol == 'xcb' else (1760, 1280)
+assert session_size == (2560, 1920), session_size
+client_output = (2560, 1920) if protocol == 'xcb' else (2400, 1800)
 # Reserve room for native window decorations as well as the complete client.
 assert physical[0] + 40 <= client_output[0] and physical[1] + 60 <= client_output[1], (physical, client_output)
 record.update({

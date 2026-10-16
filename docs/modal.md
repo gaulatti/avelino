@@ -160,5 +160,100 @@ retains the external locator and unchanged 89-source build. All failed helper
 attempts, incomplete data, mismatched witnesses and replay differences remain in
 the investigation. Run `python3 scripts/verify-modal-input-source.py` to audit the
 facts, original capture anchors, precise hit model, source-only input hashes and
-explicit exclusions. These observations leave Linux implementation and all
-complete mirror gates pending.
+explicit exclusions. At that source-only checkpoint, Linux implementation and
+all complete mirror gates were pending; the candidate below is recorded separately.
+
+## Linux candidate
+
+`BleeckerModal` requires `title` and accepts caller content through its default
+data property. `modalWidth` defaults to 480 and fixes the visible body independently
+of the caller's allocated `width`. A zero allocation can contain a 480-point body;
+a zero `modalWidth` has no visible body while retaining its measured layout and
+input behavior. Negative or nonfinite body widths report explicit errors.
+
+```qml
+BleeckerModal {
+    title: "Edit edition"
+    modalWidth: 480
+    BleeckerTextField {
+        text: edition.name
+        onTextEdited: edition.name = text
+        BleeckerLayout.minimumWidth: 0
+        BleeckerLayout.idealWidth: implicitWidth
+        BleeckerLayout.fillsWidth: true
+    }
+}
+```
+
+The header owns its 18-point semibold title and ghost Close control. Each
+flattened caller child receives 20 points of padding. Explicit `ProposalColumn`
+or `ProposalRow` content remains one caller child. Layout-transparent conditional
+hosts use `BleeckerLayout.flattenChildren` and `participates`; custom content can
+describe minimum, ideal and flexible width through `BleeckerLayout`. A fixed wide
+child can overflow its proposal. The circular visual mask preserves pointer
+delivery outside the visible body, matching the measured source contract.
+
+By default, Close closes the containing Qt window. A presentation owner can
+provide `dismissAction` to dismiss its own presentation. The separate
+`BleeckerModalDialog` Qt adapter owns a `Popup.Window`, supplies that action and
+creates caller content from a `Component` each time it opens. Retained window
+content therefore keeps local state; reopened dialog content starts fresh while
+its externally owned bindings remain available.
+
+```qml
+BleeckerModalDialog {
+    id: editor
+    title: "Edit edition"
+    content: Component {
+        BleeckerTextField {
+            text: edition.name
+            onTextEdited: edition.name = text
+            BleeckerLayout.minimumWidth: 0
+            BleeckerLayout.idealWidth: implicitWidth
+            BleeckerLayout.fillsWidth: true
+        }
+    }
+}
+```
+
+The adapter uses no automatic Escape/outside close policy. The preserved native
+Escape/outside traces came from an inactive application; they do not establish
+active native keyboard policy. Dialog focus, IME, full window chrome, reader
+behavior and physical presentations remain pending. Qt destruction counts are
+retained separately from native disappear callbacks. The original cross artwork,
+inherited platform font candidate and exact shadow/raster remain unapproved.
+
+`AvelinoCatalog --fixture modal` opens the gallery. `InstalledConsumer --modal`
+replays all 80 preserved state snapshots, the 170 clipping queries and the 142
+Close glyph samples matching its display/text-scale profile. Original lifecycle
+and clipping traces run at their recorded text scale one; the glyph profile and
+final gallery use the requested scale. Parent activation and displayed frames
+are awaited before keyboard traversal. Qt title/button accessibility interfaces
+are checked independently from native readers.
+The gallery's editor button is also activated through input, text is typed into
+the presented field, and its caller binding is checked again after reopening.
+That Qt editing check does not establish native keyboard/IME equivalence.
+
+`scripts/capture-modal-cases.py` captures all 288 original hosted contexts through
+the installed catalog, including the unresolved Unicode, bidi and inherited-font
+cases. `scripts/compare-modal-captures.py` compares original physical pixels,
+body and child frames, actual state and the independently allocated outer frame.
+It preserves failures and keeps acceptance false. No expected image, font/symbol
+exception or tolerance changes as part of this candidate.
+
+The [candidate evidence](../evidence/development/modal/candidate.json) records
+146 Qt results per DPR, 267 contracts on both macOS and Linux, 25 independent
+consumer modes, 111 catalog images and eight focused X11/Wayland software/OpenGL
+profiles. All 107 prior gallery PNGs and complete metadata files are byte-identical.
+All 116 installed catalog/library/asset files used for the 288 source captures
+are byte-identical to the final consumed package. Parent activation and a
+displayed frame are awaited before opening a separate sheet. Each source trace's
+window is destroyed immediately afterward; the observed peak is two windows.
+
+The strict comparison matches all 288 title/width/content-kind/disabled/RTL
+observations, 280 root frames and 248 child-frame sets. Its eight complete pixel
+matches are the blank zero-width bodies. No visible Modal pixel case passes.
+The eight root failures are `parent-font32`; the 40 child-frame failures are the
+Unicode, bidi and three inherited-font fixtures. The visible shadow profile,
+exact glyph/corner/line raster and symbol remain unresolved. Desktop coverage
+is 61/80 candidates, zero accepted; all 46 television entries remain pending.

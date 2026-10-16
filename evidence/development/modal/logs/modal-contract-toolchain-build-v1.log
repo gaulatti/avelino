@@ -1,0 +1,45 @@
+#0 building with "colima-centinela" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 331B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/avelino-toolchain:data-metrics-qt6.8.3
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 65B done
+#4 DONE 0.0s
+
+#5 [1/3] FROM docker.io/library/avelino-toolchain:data-metrics-qt6.8.3@sha256:48d88f958d93310bf887e4318b27713b7ecbb8b9f6a7d276087e599c9b6383d8
+#5 resolve docker.io/library/avelino-toolchain:data-metrics-qt6.8.3@sha256:48d88f958d93310bf887e4318b27713b7ecbb8b9f6a7d276087e599c9b6383d8 done
+#5 DONE 0.0s
+
+#6 [2/3] COPY visual-requirements.txt /tmp/modal-visual-requirements.txt
+#6 DONE 0.0s
+
+#7 [3/3] RUN python3 -m venv /opt/modal-contracts && /opt/modal-contracts/bin/pip install --no-cache-dir --report /opt/modal-contracts/install-report.json -r /tmp/modal-visual-requirements.txt
+#7 2.678 Collecting Pillow==12.1.1 (from -r /tmp/modal-visual-requirements.txt (line 1))
+#7 2.725   Downloading pillow-12.1.1-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl.metadata (8.8 kB)
+#7 2.743 Downloading pillow-12.1.1-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl (6.3 MB)
+#7 2.826    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 78.7 MB/s eta 0:00:00
+#7 2.845 Installing collected packages: Pillow
+#7 3.066 Successfully installed Pillow-12.1.1
+#7 DONE 3.2s
+
+#8 exporting to image
+#8 exporting layers
+#8 exporting layers 0.9s done
+#8 exporting manifest sha256:c5fa431d96b6056524769382fb71a24b6adb71e6a89b75c60961d95aca59698f
+#8 exporting manifest sha256:c5fa431d96b6056524769382fb71a24b6adb71e6a89b75c60961d95aca59698f done
+#8 exporting config sha256:956f557729fd908408aa3b649cd710a415be086cae60f7130e6e4dc0f3a4da7d done
+#8 exporting attestation manifest sha256:09fc6315226b9129175dd48b24b13da32eacad849fb70119f4a7dc18e79202d9 done
+#8 exporting manifest list sha256:cfbd25a0f947f3c7742057d680b1f5057304d02090e1dcd33c8ad1a78d3f6c5b done
+#8 naming to docker.io/library/avelino-toolchain:modal-contracts-qt6.8.3 done
+#8 unpacking to docker.io/library/avelino-toolchain:modal-contracts-qt6.8.3
+#8 unpacking to docker.io/library/avelino-toolchain:modal-contracts-qt6.8.3 0.3s done
+#8 DONE 1.2s

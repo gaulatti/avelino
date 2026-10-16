@@ -80,8 +80,9 @@ remains pending.
 
 The [Modal source investigation](docs/modal.md) records fixed-width layout,
 per-child padding and contextual sheet dismissal, with a clean source-only replay.
-Its Linux implementation and complete visual, input and reader acceptance remain
-pending.
+Its Linux candidate adds caller content, separate-window presentation, catalog
+captures and an independent consumer. Exact pixels, native focused input,
+physical presentations and reader acceptance remain pending.
 
 The [page header and breadcrumb candidates](docs/navigation-layout.md) use measured
 source layout, fixed typography, caller action content and logical-index

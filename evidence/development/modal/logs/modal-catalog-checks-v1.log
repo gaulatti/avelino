@@ -1,0 +1,20 @@
+Internal ctest changing into directory: /work/build/linux
+Test project /work/build/linux
+    Start 18: modal-invalid-config
+1/2 Test #18: modal-invalid-config .............***Failed    2.13 sec
+Traceback (most recent call last):
+  File "/work/tests/components/check-invalid-modal.py", line 23, in <module>
+    assert result.returncode != 0 and message.encode() in output, (declaration, result.returncode, output.decode(errors='replace'))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('modalWidth:Infinity', -6, 'Row maximum width must be nonnegative or -1\nReceived signal 6 (SIGABRT)\n         [Non-test] function time: -2147483648ms, total time: -2147483648ms\n')
+
+    Start 19: modal-catalog-metadata
+2/2 Test #19: modal-catalog-metadata ...........   Passed   18.79 sec
+
+50% tests passed, 1 tests failed out of 2
+
+Total Test time (real) =  20.94 sec
+
+The following tests FAILED:
+	 18 - modal-invalid-config (Failed)
+Errors while running CTest

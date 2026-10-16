@@ -20,7 +20,9 @@ FocusScope {
     property real maximumWidth: -1
     readonly property real effectiveMaximumWidth: BleeckerLayout.proposedWidth<0 ? maximumWidth
         : maximumWidth<0 ? BleeckerLayout.proposedWidth:Math.min(maximumWidth,BleeckerLayout.proposedWidth)
-    BleeckerLayout.minimumWidth:leftPadding+rightPadding
+    readonly property real contentMinimumWidth:contentItem===defaultContent ? 0
+        :Math.max(0,contentItem.BleeckerLayout.minimumWidth>=0 ? contentItem.BleeckerLayout.minimumWidth:contentItem.implicitWidth)
+    BleeckerLayout.minimumWidth:leftPadding+rightPadding+contentMinimumWidth
     BleeckerLayout.idealWidth:(contentItem===defaultContent ? label.unwrappedWidth+(loading ? spinner.width+BleeckerTokens.spacing.inline:0):contentItem.implicitWidth)+leftPadding+rightPadding
     readonly property var p: BleeckerTheme.palette
     readonly property int minimumHeight: size === "xs" ? 28 : size === "sm" ? 36 : size === "lg" ? 48 : 40
@@ -39,7 +41,7 @@ FocusScope {
     }
     readonly property color strokeColor: variant === "primary" ? p.primary : variant === "secondary" ? p.border : variant === "outline" ? BleeckerTheme.alpha(p.sea, 0.5) : variant === "destructive" ? p.destructive : "transparent"
     implicitWidth: effectiveMaximumWidth===-1 ? contentItem.implicitWidth+leftPadding+rightPadding
-        : Math.ceil(Math.min(contentItem.implicitWidth+leftPadding+rightPadding,Math.max(leftPadding+rightPadding,effectiveMaximumWidth))*controlAlignment.devicePixelRatio)/controlAlignment.devicePixelRatio
+        : Math.ceil(Math.min(contentItem.implicitWidth+leftPadding+rightPadding,Math.max(leftPadding+rightPadding+contentMinimumWidth,effectiveMaximumWidth))*controlAlignment.devicePixelRatio)/controlAlignment.devicePixelRatio
     implicitHeight: Math.max(contentItem.implicitHeight, variant === "link" ? 0 : minimumHeight)
     readonly property real leftPadding: size === "xs" ? 10 : size === "sm" ? 14 : size === "lg" ? 24 : 18
     readonly property real rightPadding: leftPadding

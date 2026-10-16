@@ -1,0 +1,17 @@
+{
+  "reference": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+  "status": "verification-pending",
+  "sourceDefaultSymbol": "xmark",
+  "candidate": "Original Canvas cross; no Apple symbol artwork or font data copied",
+  "implementation": "src/Avelino/ModalCloseGlyph.qml",
+  "contentAdapter": "Default content data preserve caller objects; layout-transparent hosts explicitly use flattenChildren and participates; padding applies to each flattened child",
+  "presentationAdapter": "BleeckerModal is a content view with contextual window dismissal; BleeckerModalDialog owns a Qt Popup.Window and recreates its caller Component on reopen",
+  "widthAdapter": "modalWidth fixes the visible body; width is the independent caller allocation and may be zero while the body remains 480",
+  "inputAdapter": "Rounded visual clipping preserves input outside the body; Close uses the measured pixel-aligned symbol hit region at font sizes 13 and 20, DPR one/two",
+  "defaultInheritedFont": "Encode Sans 13 candidate; native inherited SF fonts remain unapproved",
+  "fixedTitleFont": "Encode Sans semibold 18, independent of parent font and text scale",
+  "sourceInvestigation": "evidence/reference-investigations/modal-20261016/investigation.json",
+  "sourceInputInvestigation": "evidence/reference-investigations/modal-input-20261016/investigation.json",
+  "lifecycleScope": "Qt QObject destruction is recorded independently from native onDisappear callbacks",
+  "exceptionsApproved": false
+}

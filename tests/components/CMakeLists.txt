@@ -18,6 +18,8 @@ target_compile_definitions(AvelinoComponentTests PRIVATE
     NATIVE_SPINNER_FILE="${PROJECT_SOURCE_DIR}/evidence/geometry/native-spinner.json"
     NATIVE_RADIO_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/radio-20261016"
     NATIVE_ACTIVITY_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/activity-item-20261016"
+    NATIVE_MODAL_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/modal-20261016"
+    NATIVE_MODAL_INPUT_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/modal-input-20261016"
     NATIVE_ACTIVITY_LAYOUT_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/activity-layout-mechanics-20261016"
     NATIVE_ACTIVITY_ALIGNMENT_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/activity-text-alignment-20261016"
     NATIVE_OTP_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/otp-20261016"
@@ -70,4 +72,9 @@ add_test(NAME otp-catalog-metadata COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/c
 add_test(NAME activity-invalid-config COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/check-invalid-activity.py
     $<TARGET_FILE:AvelinoComponentTests> ${CMAKE_BINARY_DIR}/qml)
 add_test(NAME activity-catalog-metadata COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/check-activity-catalog.py
+    $<TARGET_FILE:AvelinoCatalog> ${CMAKE_BINARY_DIR}/qml ${PROJECT_SOURCE_DIR})
+
+add_test(NAME modal-invalid-config COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/check-invalid-modal.py
+    $<TARGET_FILE:AvelinoComponentTests> ${CMAKE_BINARY_DIR}/qml)
+add_test(NAME modal-catalog-metadata COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/check-modal-catalog.py
     $<TARGET_FILE:AvelinoCatalog> ${CMAKE_BINARY_DIR}/qml ${PROJECT_SOURCE_DIR})

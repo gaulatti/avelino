@@ -29,4 +29,5 @@ install(FILES assets/stepper-presentation.json DESTINATION ${CMAKE_INSTALL_DATAD
 
 install(FILES assets/radio-presentation.json DESTINATION ${CMAKE_INSTALL_DATADIR}/avelino)
 install(FILES assets/activity-presentation.json DESTINATION ${CMAKE_INSTALL_DATADIR}/avelino)
+install(FILES assets/modal-presentation.json DESTINATION ${CMAKE_INSTALL_DATADIR}/avelino)
 install(FILES assets/unicode/LICENSE.txt assets/unicode/provenance.json DESTINATION ${CMAKE_INSTALL_DATADIR}/avelino/unicode)

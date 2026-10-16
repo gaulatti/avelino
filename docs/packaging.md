@@ -30,7 +30,7 @@ Weston Wayland compositor nested on it. It saves whole-output and window capture
 for software/OpenGL rendering at two display/text scales. Source and build trees
 remain absent. Metadata explicitly identifies virtual displays, Mesa software
 rendering, synthetic input, and the still-pending overlay/accessibility checks.
-The harness runs twenty-four independent windows in each configuration: the base library
+The harness runs twenty-five independent fixtures in each configuration: the base library
 fixture, `InstalledConsumer --controls`, `InstalledConsumer --composition` and
 `InstalledConsumer --selection`, `InstalledConsumer --checkbox` and
 `InstalledConsumer --secure-field`, `InstalledConsumer --search-field` and
@@ -40,8 +40,8 @@ fixture, `InstalledConsumer --controls`, `InstalledConsumer --composition` and
 `InstalledConsumer --navigation`, `InstalledConsumer --sidebar-brand` and
 `InstalledConsumer --data-metrics`, `InstalledConsumer --stepper`,
 `InstalledConsumer --radio-group`, `InstalledConsumer --otp-input` and
-`InstalledConsumer --activity-item`.
-Their 192 capture pairs keep
+`InstalledConsumer --activity-item` and `InstalledConsumer --modal`.
+Their configured 200 capture pairs keep
 form editing, scrolling, switch/toggle actions, disabled segmented options and
 focus restoration separate from the base composition checks. The controls fixture
 exercises the multiline editor's owned scrollbar. The selector fixture exercises
@@ -67,7 +67,19 @@ window resizing, plus section/action, shell, footer, feed and progress slots.
 These runtime checks do not close their native visual comparisons.
 The package includes the original selection/checkbox/secure-field/search-field-symbol candidates' provenance records;
 their source equivalence and distribution acceptance remain pending.
-The X11 output is 1920 × 1400 and the nested Wayland output 1760 × 1280.
+The X11 output is 2560 × 1920 and the nested Wayland output 2400 × 1800.
+These outputs contain the 1100-by-850 Modal gallery at DPR two, including room
+for window decorations. Client capture dimensions are checked against the output;
+the harness does not resize client pixels to make them fit.
+
+The [Modal package candidate](modal.md#linux-candidate) runs 25 consumer modes and
+111 catalog captures without the implementation source/build tree mounted. The
+eight focused display profiles also preserve a separate popup image. Its gallery
+button opens the editor; typed text crosses the caller binding and survives a
+close/reopen cycle. Source trace windows are deleted between traces to release
+their renderers, and the parent must regain activation before a new sheet opens.
+All 116 installed files match the package used for the 288 native-case captures.
+Exact visible pixels, native keyboard/IME, physical input and readers stay open.
 The harness checks that each complete scaled client fits with room for decorations;
 the composition fixture's 1680 × 1120 client must not be cropped by the compositor.
 If a consumer exits before producing capture metadata, the harness reports its

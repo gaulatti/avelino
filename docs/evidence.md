@@ -916,3 +916,20 @@ plain system-font, font/symbol/raster, physical/native keyboard and actual-reade
 gates remain open. Desktop coverage stays 60/80 started, zero accepted, with all
 46 television entries pending. No source pin, expected image, tolerance or
 approved exception changed.
+
+## Modal candidate
+
+The [Modal candidate](../evidence/development/modal/candidate.json) preserves 288
+original-size Linux captures, eight separate-window virtual display profiles,
+Qt typing/focus/accessibility checks, all 80 native state snapshots and precise
+clipping/symbol input queries. The independent package runs 25 modes and 111
+gallery captures; all 107 prior PNG/full-metadata pairs remain byte-identical.
+All 116 installed files match the native-case capture producer.
+
+The strict result is eight blank zero-width matches, 280 matching roots, 288
+matching declared/rendered initial state observations and 248 matching child
+frame sets. No visible Modal pixel case passes. Inherited system fonts,
+Unicode/bidi, shadow/symbol/raster, full native presentation, active native
+keyboard/IME, physical input and readers remain pending. Failed attempts and
+resource/focus diagnostics remain preserved. Desktop coverage is now 61/80
+candidates, zero accepted; television remains 46 pending entries.

@@ -10,12 +10,25 @@
 #include <QEvent>
 #include <QInputMethodEvent>
 #include <QQuickItem>
+#include <QQuickWindow>
+#include <QMouseEvent>
 #include <QTemporaryDir>
 #include <QDir>
 
 class FixtureSetup : public QObject {
     Q_OBJECT
 public slots:
+    void clickModalPoint(QQuickItem *item,qreal x,qreal y) {
+        if(!item || !item->window() || !item->window()->isVisible())qFatal("Modal pointer test requires a visible owned window");
+        auto window=item->window();const auto point=item->mapToScene(QPointF(x,y));
+        const auto global=QPointF(window->position())+point;
+        // Preserve the source's fractional synthetic coordinates. QtTest's
+        // ordinary mouse helper rounds window positions to integer points.
+        QMouseEvent press(QEvent::MouseButtonPress,point,point,global,Qt::LeftButton,Qt::LeftButton,Qt::NoModifier);
+        QCoreApplication::sendEvent(window,&press);
+        QMouseEvent release(QEvent::MouseButtonRelease,point,point,global,Qt::LeftButton,Qt::NoButton,Qt::NoModifier);
+        QCoreApplication::sendEvent(window,&release);
+    }
     QString saveOTPTraceReport(const QVariantList &traces) {
         const auto root=QStringLiteral(OTP_TRACE_OUTPUT_DIRECTORY);
         if(!QDir().mkpath(root))qFatal("Cannot create OTP trace output root");
@@ -66,6 +79,22 @@ public slots:
             engine->rootContext()->setContextProperty(context,data.value(key).toArray().toVariantList());
         }
         const auto activityDirectory=QStringLiteral(NATIVE_ACTIVITY_DIRECTORY);
+        QFile modal(QStringLiteral(NATIVE_MODAL_DIRECTORY)+"/captures/captures.json");
+        if(!modal.open(QIODevice::ReadOnly))qFatal("Native Modal evidence missing");
+        const auto modalData=QJsonDocument::fromJson(modal.readAll()).object();
+        if(modalData.value("reference").toString()!="fe8a1d462fbd793d883fb92086a16aa2947e32c9")qFatal("Native Modal reference invalid");
+        engine->rootContext()->setContextProperty("nativeModalCaptures",modalData.value("captures").toArray().toVariantList());
+        QFile modalInput(QStringLiteral(NATIVE_MODAL_INPUT_DIRECTORY)+"/outputs/input.json");
+        QFile modalHits(QStringLiteral(NATIVE_MODAL_INPUT_DIRECTORY)+"/outputs/hit-profiles.json");
+        if(!modalInput.open(QIODevice::ReadOnly)||!modalHits.open(QIODevice::ReadOnly))qFatal("Native Modal input evidence missing");
+        const auto modalInputData=QJsonDocument::fromJson(modalInput.readAll()).object();
+        const auto modalHitData=QJsonDocument::fromJson(modalHits.readAll()).object();
+        if(!modalInputData.value("complete").toBool() || modalInputData.value("reference").toString()!="fe8a1d462fbd793d883fb92086a16aa2947e32c9"
+            || modalHitData.value("reference").toString()!="fe8a1d462fbd793d883fb92086a16aa2947e32c9")qFatal("Native Modal input reference invalid");
+        // The field body's nontransparent witness is intentionally not exposed.
+        engine->rootContext()->setContextProperty("nativeModalInputGroups",modalInputData.value("groups").toArray().toVariantList());
+        engine->rootContext()->setContextProperty("nativeModalClippingQueries",modalInputData.value("queries").toArray().toVariantList());
+        engine->rootContext()->setContextProperty("nativeModalHitProfiles",modalHitData.value("profiles").toArray().toVariantList());
         for(const auto &name:QStringList{"captures/captures.json","layout-queries.json","behavior/behavior.json"}) {
             QFile file(activityDirectory+"/"+name);if(!file.open(QIODevice::ReadOnly))qFatal("Native ActivityItem evidence missing");
             const auto data=QJsonDocument::fromJson(file.readAll()).object();

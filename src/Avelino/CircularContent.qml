@@ -5,10 +5,11 @@ Item {
     id:control
     default property alias content:contents.data
     property real radius:BleeckerTokens.radii.ui
+    property bool clipsInput:true
     readonly property bool softwareClipping:GraphicsInfo.api===GraphicsInfo.Software
     readonly property bool roundedClipping:softwareClipping || outline.rendererType===Shape.CurveRenderer
-    clip:true;containmentMask:outline
-    Item {id:contents;anchors.fill:parent;clip:true}
+    clip:clipsInput;containmentMask:clipsInput ? outline:null
+    Item {id:contents;anchors.fill:parent;clip:control.clipsInput}
     ShaderEffectSource {
         id:texture;sourceItem:contents;sourceRect:Qt.rect(0,0,control.width,control.height)
         hideSource:control.roundedClipping;visible:false

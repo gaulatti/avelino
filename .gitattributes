@@ -33,3 +33,7 @@ evidence/development/activity/diagnostics/**/capture-tool-version.txt -text -whi
 # Preserve aligned-text regression, package and virtual-session transcripts.
 evidence/development/text-alignment/**/*.log -text -whitespace
 evidence/development/text-alignment/sessions/capture-tool-version.txt -text -whitespace
+
+# Preserve exact Modal build, input, failed-attempt and compositor transcripts.
+evidence/development/modal/**/*.log -text -whitespace
+evidence/development/modal/**/capture-tool-version.txt -text -whitespace

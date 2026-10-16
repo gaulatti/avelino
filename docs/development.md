@@ -51,11 +51,11 @@ focus; the whole-output capture preserves it as session evidence.
 describes how its X11 backend composites Wayland surfaces into the parent output.
 Each configuration runs the base fixture, `--controls`, `--composition`,
 `--selection`, `--checkbox`, `--secure-field`, `--search-field`, `--collection-filters`, `--slider`, `--tabs`, `--pagination`, `--pagination-integers`, `--accordion`, `--presentation-states`, `--spinner`, `--alert`, `--clipping`, `--navigation`, `--sidebar-brand` and
-`--data-metrics`, `--stepper`, `--radio-group`, `--otp-input` and `--activity-item`
-independently; 192 window/full-output pairs cover
-them.
+`--data-metrics`, `--stepper`, `--radio-group`, `--otp-input`, `--activity-item`
+and `--modal` independently. The configured matrix has 200 parent-window/full-output
+pairs; Modal also records its separate popup window in each configuration.
 The catalog galleries are `--fixture foundations`, `surfaces`, `data-display`,
-`controls`, `composition`, `selection`, `checkbox`, `secure-field`, `search-field`, `collection-filters`, `slider`, `tabs`, `pagination`, `pagination-integers`, `accordion`, `presentation-states`, `spinner`, `alert`, `clipping`, `navigation`, `sidebar-brand`, `data-metrics`, `stepper`, `radio-group`, `otp-input` and `activity-item`; their native
+`controls`, `composition`, `selection`, `checkbox`, `secure-field`, `search-field`, `collection-filters`, `slider`, `tabs`, `pagination`, `pagination-integers`, `accordion`, `presentation-states`, `spinner`, `alert`, `clipping`, `navigation`, `sidebar-brand`, `data-metrics`, `stepper`, `radio-group`, `otp-input`, `activity-item` and `modal`; their native
 comparisons remain pending.
 
 The [ActivityItem fixture](activity-item.md#linux-candidate) checks caller-owned
@@ -64,6 +64,14 @@ actions, field updates, fixed typography, dense proposals and resize histories.
 replays the 13 source pointer/lifecycle traces. Producer updates wait for an
 actual completed frame before sending the next synthetic click. Qt interface
 queries and virtual displays remain separate from real reader/physical acceptance.
+
+The [Modal fixture](modal.md#linux-candidate) replays 80 preserved state snapshots,
+clipped input and measured Close hit regions, then uses the gallery button to
+open an editor, type through its caller binding and reopen it. Separate source
+trace windows are destroyed immediately between traces to release their renderers;
+retained-window state is kept throughout its own reopening trace. The final popup
+remains visible for the full-output capture. Native focused keyboard/IME and
+reader acceptance remain separate.
 
 The selector's open `Popup.Item` and scrollbars remain
 inside the captured client, with explicit bounds checks. Native selector/popover
