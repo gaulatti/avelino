@@ -1,0 +1,27 @@
+{
+  "accepted": false,
+  "existingExpectedImagesChanged": false,
+  "files": {
+    "archive-replay-build.log": "607d5c52546f094ce8f683771546144f46ea9a5ac94f151946f06f0bcdf2ac73",
+    "archive-replay-helper-build.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive-replay.log": "d0d29604ea9d784a681095ecb0d66bc3e2a7e7e61e28c64157b4601e63437219",
+    "build-provenance.json": "8cdf594057ca09eb1a9f042e7eb46df70ce406c61c37caa58e0397609adeceab",
+    "comparison.json": "0e59879bb41cfce928aa43f24567d474a685c30d87d163c33ea933b9313c5baf",
+    "first-build.log": "91b05865b2b6228aedd25d6671ba5289932927767facc3701ac08f79ba379564",
+    "first-helper-build.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "historical-scoped-build.log": "2bb082aab2546faa0fc517d58b2d80fd53681353bbd2f16d581b1d6466dd64de",
+    "source-identity.json": "5f1b9664fd2a81f8d2b48a75d6940a0ae14db51075d2be60002b53cbad6d17e4"
+  },
+  "limitations": [
+    "The unchanged package manifest requires the test directory omitted from the historical 53-file scoped archive. Successful builds use the complete pinned 89-file Git tree. The original scoped archive remains immutable; its standalone SwiftPM build failure is preserved.",
+    "The complete source and native helper archive is external and currently has a machine-local locator; public or independent-machine download remains pending.",
+    "Only the macOS Sabella library target and data-display helper were built and replayed. Other helpers, TV, native test execution, catalog execution and physical native sessions are not established by this record.",
+    "Native ImageRenderer reproduction does not accept Linux fonts, symbols, locales, geometry, rasterization, input, accessibility, animation or physical sessions. No image, source pin, pixel tolerance or approved exception changed."
+  ],
+  "localeFormatterWitnesses": 1330,
+  "nativeCaptures": 1048,
+  "referenceRevision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+  "referenceTree": "db61113381a51fc3c7b3d12786609cd9e76627c8",
+  "schemaVersion": 1,
+  "status": "Fresh desktop Sabella library compilation and source-only local archive replay reproduce existing data-display evidence; public input availability and all Linux mirror gates remain separate"
+}

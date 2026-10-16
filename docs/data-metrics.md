@@ -119,8 +119,10 @@ process, installed library or reference capture was changed by the probe.
 The archived helper remains outside the Linux tree. A clean extraction verifies
 36 build inputs, recompiles the helper and reproduces all 3,160 output files byte
 for byte, including the seven locale runs. The helper links the preserved
-source-verified Sabella module/object; fresh complete Sabella compilation and
-public helper distribution remain pending. [Provenance](../evidence/reference-investigations/data-metrics-20261015/tooling-provenance.json)
+source-verified Sabella module/object. A later
+[complete pinned source build and source-only archive replay](native-source-rebuild.md)
+each reproduce all 3,160 files without preserved compiled Sabella inputs.
+Public helper/full-source distribution remains pending. The original [provenance](../evidence/reference-investigations/data-metrics-20261015/tooling-provenance.json)
 records the archive checksum, source revision, compiler, SDK, OS and dependencies.
 
 Run `python3 scripts/verify-data-metrics-source.py` and the contract suite. Tests

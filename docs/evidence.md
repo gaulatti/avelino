@@ -785,3 +785,26 @@ and raster, source keyboard/focus, physical desktop/input/GPU, actual readers
 and all TV acceptance remain pending. The scaled Weston keyboard remains clipped
 at the compositor boundary. These are source/package candidate checks, with no
 physical installation or deployment claim.
+
+## Fresh pinned desktop source rebuild
+
+The [native source rebuild](native-source-rebuild.md) compiles the unchanged
+Sabella desktop library target from its complete pinned 89-file Git tree.
+All 53 earlier scoped inputs retain their hashes, and both fresh builds leave
+the full source unchanged. The data-display helper source is unchanged and links
+only the newly built object, module and resources.
+
+The first build and an independent extraction of a source-only archive each
+reproduce all 3,160 preserved files: 1,048 captures with public/root/layout
+witnesses and seven locale runs containing 1,330 formatter strings. The
+[comparison](../evidence/reference-investigations/native-source-rebuild-20261016/comparison.json)
+retains each expected and reproduced hash. No expected image is replaced.
+
+The older 53-file archive cannot build alone because its unchanged manifest
+declares the omitted test target. Its failed build is preserved alongside the
+successful full-tree builds. The new complete source/helper archive remains
+external with a machine-local locator; independent-machine download is pending.
+References CI audits source-tree identity, locked dependencies and output hashes.
+This checkpoint changes evidence, verification and documentation. It does not
+change the Qt product or establish new Linux runtime, physical, reader or TV
+acceptance. Coverage stays 56/80 desktop APIs started, zero fully accepted.

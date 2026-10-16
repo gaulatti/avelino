@@ -7,9 +7,12 @@ explicit Git object path for each archive. They are absent from the current trac
 tree, which is Linux-only. Verification recovers them into the ignored
 `.cache/reference-sources/` directory and checks the archive hash before use.
 The archive scope is `Sources`,
-`Package.swift`, and `Package.resolved`: all library, catalog, shell-example, native
-workaround, resource, and dependency inputs needed to build/render the reference.
-It deliberately excludes repository management metadata and unrelated test fixtures.
+`Package.swift`, and `Package.resolved`: library, catalog, shell-example, native
+workaround, resources, and dependency locks. It excludes repository management
+metadata and test fixtures. A fresh SwiftPM build of this scoped archive fails
+because the unchanged manifest also declares a test target. The
+[complete pinned source rebuild](native-source-rebuild.md) records the required
+full-tree supplement and its current availability limits.
 It is a source artifact, not a replacement Git repository or a new Sabella release.
 
 The original preservation script read Git objects without creating refs, checking out,
@@ -37,7 +40,9 @@ is never silently replaced. The original source revisions, file hashes, dependen
 locks, and archive hashes are unchanged by the storage cleanup. The local migration
 also preserved exact copies and tooling checksums in the separate
 `../avelino-reference-vault/` directory; reproduction does not depend on that
-machine-local directory. Existing Git history has not been rewritten.
+machine-local directory for recovery of those scoped archives. Full native source
+build and helper availability are documented separately. Existing Git history
+has not been rewritten.
 
 Apple SDKs are still necessary for SwiftUI rendering. Tooling provenance and
 per-capture metadata distinguish the original preservation environment from the
@@ -128,3 +133,10 @@ separate 37-input clean extraction replays all 179 files exactly. The 84 trusted
 Qt cases retain their source paths; a native-hosted primary18 renderer witness
 that changes under instrumentation is excluded and preserved as a diagnostic.
 Neither replay approves a new expected image or a visual tolerance.
+
+The [desktop source rebuild](native-source-rebuild.md) compiles the complete
+pinned Sabella library target twice without preserved modules or objects. Both
+runs reproduce the 1,048-case data-display evidence and seven locale checks:
+3,160 files are byte-identical per run. This closes the cached-object limitation
+for that helper on the recorded host. Other helpers and independent-machine
+input download remain pending; no expected image or Linux acceptance changes.
