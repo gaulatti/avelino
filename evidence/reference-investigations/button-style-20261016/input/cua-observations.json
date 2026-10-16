@@ -1,0 +1,42 @@
+{
+  "accepted": false,
+  "method": "CUA app binding, AX element clicks, coordinate holds and drag; own application observes delivery only",
+  "counter": {
+    "initialName": "Publish 0",
+    "afterElementClick": "Publish 1",
+    "afterVariantUpdate": "Publish 1",
+    "afterHeldCoordinateClick": "Publish 2",
+    "disabledRoleObserved": true,
+    "disabledCoordinateClickCount": 2
+  },
+  "row": {
+    "containerObserved": true,
+    "buttonRoles": [
+      "button",
+      "button"
+    ],
+    "buttonNames": [
+      "First child",
+      ""
+    ],
+    "firstHeldClickCount": 1,
+    "secondHeldClickCount": 2,
+    "crossPartDragCount": 2,
+    "cornerClickCount": 3,
+    "heldCornerClickCount": 4,
+    "outsideGapCount": 4,
+    "aboveBodyCount": 4,
+    "themeUpdateCount": 4
+  },
+  "keyboard": {
+    "key": "Tab",
+    "focusObserved": "window",
+    "acceptance": "pending; Tab activated app/key window late in this run; focus remained window"
+  },
+  "diagnostics": [
+    "Dock binding timed out; no activation inferred",
+    "Quit action ended application; following AX read timed out; ps confirmed no process"
+  ],
+  "physicalLinuxAcceptance": "pending",
+  "readerOutputAcceptance": "pending"
+}

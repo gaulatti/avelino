@@ -982,3 +982,32 @@ after launch with its existing 80 state, 170 clipping and 142 glyph checks intac
 A deliberate producer exit still fails and reports status 23. These are observer
 regressions; the original x64 producer's underlying progress was not established,
 and complete new CI, physical-session and native mirror gates remain separate.
+
+## ButtonStyle source investigation
+
+The [ButtonStyle source record](button-style.md) captures 88 fixtures across eight
+profiles. All 704 public images match their geometry-probed and independent
+witness images; the probe and witness state collections also match. A clean extraction rebuilds 89 unchanged source files
+and reproduces every one of the 2113 output files. The final collector records
+multiple independently decorated flat label parts, including their separate
+HStack/VStack participation. Empty and zero-size labels remain distinct.
+
+Two CUA input runs preserve 96 captures and 42 delivered events. The second app
+is independently rebuilt from a source-only archive; both held samples and every
+row capture are active/key. Either target presses both bodies, release over a
+different target cancels, and a held transparent-corner click activates. Variant,
+disabled and theme updates retain the measured caller count. Tab establishes
+activation without focused-control keyboard acceptance. Timed live input is not
+an automatic pixel replay. Both apps terminate after CUA Quit.
+
+All failed probes, incomplete scalar geometry, resource-bundle diagnostics and
+superseded helper attempts remain classified and preserved. Data-only diagnostic
+archives contain 4034 PNG/JSON outputs; Apple tooling and source archives remain
+external. The verifier checks geometry multiplicity, sealed bytes, replay,
+delivered input intervals and active/key scope, with negative contracts in CI.
+The [validation receipt](../evidence/development/button-style-source-20261016/result.json)
+preserves passing 310-contract host and Linux transcripts. Immutable references,
+API discovery, proposed captures and the staged Linux-only boundary also pass.
+Linux ButtonStyle implementation, native fonts/raster, caller lifecycle, focused
+keyboard, physical input and readers remain pending. Desktop counts stay 62/80
+candidates, 18 pending and zero accepted; all 46 TV entries remain pending.

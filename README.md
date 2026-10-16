@@ -91,6 +91,12 @@ their layout/input/state, supplies Qt accessibility hints and owns a separate
 tooltip window. Native font, popup appearance/timing, physical input and reader
 acceptance remain pending.
 
+The [ButtonStyle source investigation](docs/button-style.md) preserves 704 closed
+groups and an exact source-only replay. Flat label parts participate separately
+in parent layout while sharing pressed visuals. CUA checks in an active/key
+window confirm distinct targets, cross-target cancellation and rectangular input
+beyond rounded paint. Linux implementation and complete acceptance remain pending.
+
 The [page header and breadcrumb candidates](docs/navigation-layout.md) use measured
 source layout, fixed typography, caller action content and logical-index
 callbacks. Full font/symbol/raster and physical/reader acceptance remains pending.

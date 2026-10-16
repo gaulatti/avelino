@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "status": "source-investigation-checkpoint",
+  "accepted": false,
+  "baseCommit": "86cd3794ddb43ee1117689503150275be103b458",
+  "sourceInvestigation": "evidence/reference-investigations/button-style-20261016/investigation.json",
+  "sourceVerification": {
+    "closedGroups": 704,
+    "sourceReplayFiles": 2113,
+    "repeatedPartContexts": 24,
+    "pointerPhases": 13,
+    "accepted": false
+  },
+  "contracts": {
+    "host": {
+      "tests": 310,
+      "seconds": 155.296,
+      "exitCode": 0,
+      "python": "3.14.7",
+      "pillow": "12.1.1"
+    },
+    "linux": {
+      "tests": 310,
+      "seconds": 482.63,
+      "exitCode": 0,
+      "image": "avelino-toolchain:modal-contracts-qt6.8.3",
+      "imageId": "sha256:cfbd25a0f947f3c7742057d680b1f5057304d02090e1dcd33c8ad1a78d3f6c5b",
+      "python": "/opt/modal-contracts/bin/python",
+      "pillow": "12.1.1"
+    }
+  },
+  "guards": {
+    "immutableReferences": "passed",
+    "discovery": "passed",
+    "proposals": "passed",
+    "linuxBoundary": "passed"
+  },
+  "sealedStagedAudit": {
+    "stagedFiles": 2271,
+    "stagedBlobsMatchSealedWorkingBytes": true,
+    "accepted": false
+  },
+  "desktopCounts": {
+    "candidate": 62,
+    "pending": 18,
+    "accepted": 0
+  },
+  "televisionPending": 46,
+  "scope": "Native source evidence, integrity contracts and documentation only; Qt library, catalog and installed runtime unchanged",
+  "approvedExceptions": [],
+  "files": {
+    "host-contracts.log": "689857d57746365aff26bd3f7f6a5729704960210ecc3d20e768d178c89636f5",
+    "linux-contracts.log": "27d5bf0c98ac4c82f5d12ac0a1a524a2d3923fd6001f46033361a4364176f097"
+  }
+}
