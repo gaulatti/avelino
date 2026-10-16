@@ -1,0 +1,15 @@
+{
+  "accepted": false,
+  "outerWrapperExitCode": 1,
+  "requiredCheck": "bash check-installed.sh",
+  "requiredCheckExitCode": 0,
+  "proof": "The shell executed the second command after &&, proving the first complete checker exited zero. That first checker already ran all 28 modes and the 123-gallery capture/refusal checks.",
+  "issue": "Outer wrapper invoked check-installed-catalog.sh again; it correctly refused the existing capture directory.",
+  "completedModes": 28,
+  "catalogCaptures": 123,
+  "sourceAndProducerBuildAbsent": true,
+  "artifactsOverwritten": false,
+  "priorAttemptPreserved": true,
+  "correction": "Invoke check-installed.sh once; completed checks are retained instead of repeated.",
+  "catalogResultsSha256": "04b81c7816e302f05630faf62c424290922f2ff8fd58405c51d65a765b6b8d4c"
+}

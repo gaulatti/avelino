@@ -1,0 +1,32 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--rm",
+    "--init",
+    "--name",
+    "avelino-font-modifier-build-v5",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/font-modifier-integration-v5/source:/work:ro",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/font-modifier-integration-v5:/result:rw",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/assets:/work/assets:ro",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/tokens:/work/tokens:ro",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/evidence:/work/evidence:ro",
+    "-w",
+    "/work",
+    "avelino-toolchain:data-metrics-qt6.8.3",
+    "bash",
+    "-lc",
+    "cmake -S /work -B /result/build -G Ninja -DCMAKE_PREFIX_PATH=/opt/qt -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/result/install && cmake --build /result/build --parallel 1 && cmake --install /result/build"
+  ],
+  "exitCode": 0,
+  "seconds": 223.58914154104423,
+  "isolatedSourceSnapshot": true,
+  "parallelCompilerJobs": 1
+}

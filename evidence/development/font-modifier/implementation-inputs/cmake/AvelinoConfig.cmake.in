@@ -1,0 +1,8 @@
+@PACKAGE_INIT@
+# Older CMake dependency configs can replace PACKAGE_PREFIX_DIR. Resolve our
+# paths before loading Qt, using this package's own relocated installation root.
+set_and_check(Avelino_QML_IMPORT_PATH "${PACKAGE_PREFIX_DIR}/@CMAKE_INSTALL_LIBDIR@/qml")
+include(CMakeFindDependencyMacro)
+find_dependency(Qt6 6.8.3 EXACT COMPONENTS Core Gui Qml Quick QuickControls2)
+include("${CMAKE_CURRENT_LIST_DIR}/AvelinoTargets.cmake")
+check_required_components(Avelino)

@@ -1,0 +1,26 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--rm",
+    "--init",
+    "--ulimit",
+    "core=0",
+    "--name",
+    "avelino-font-v5-runtime",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/font-modifier-integration-v5/runtime-only:/package:rw",
+    "-w",
+    "/package",
+    "avelino-toolchain:clipping-qt6.8.3",
+    "bash",
+    "font-modifier-sessions.sh"
+  ],
+  "exitCode": 0,
+  "seconds": 170.9207086249953,
+  "consumerSourcesAbsent": true,
+  "producerSourcesAbsent": true,
+  "producerBuildAbsent": true
+}

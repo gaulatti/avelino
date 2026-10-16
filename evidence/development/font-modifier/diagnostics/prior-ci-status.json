@@ -1,0 +1,19 @@
+{
+  "accepted": false,
+  "sourceCheckpoint": "a3fa6a9135830e180254b734f46f0de5ae118cdd",
+  "referencesCi": "passed",
+  "referencesRun": 38970180183,
+  "olderLinuxRuns": [
+    38961229340,
+    38963055542
+  ],
+  "platforms": [
+    "ubuntu-24.04",
+    "ubuntu-24.04-arm"
+  ],
+  "failure": "Consumer with source/build absent: tooltip-wayland-software-scaled; visible popup changed pixels during hint update",
+  "strictComparisonJobs": "skipped because runtime/package jobs failed; these prior failures are not native raster diagnostics",
+  "isolatedTooltipReplay": "all eight local profiles passed with diagnostics-only consumer; original full-session sequence still needs reproduction",
+  "fontRuntime": "eight local font profiles passed independently; does not close the older Tooltip CI failure",
+  "requiredFollowup": "Reproduce the preceding modal/tooltip session sequence, capture pre/post images and actual window/DPR metrics, then repair the cause without widening pixel checks"
+}

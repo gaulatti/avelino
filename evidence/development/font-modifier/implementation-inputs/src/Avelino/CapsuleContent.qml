@@ -1,0 +1,39 @@
+import QtQuick
+import QtQuick.Shapes
+
+Item {
+    id: control
+    default property alias content: contents.data
+    readonly property bool softwareClipping: GraphicsInfo.api === GraphicsInfo.Software
+    readonly property bool roundedClipping: softwareClipping || outline.rendererType === Shape.CurveRenderer
+    clip: true
+    containmentMask: outline
+    Item { id: contents; anchors.fill: parent; clip: true }
+    ShaderEffectSource {
+        id: texture
+        sourceItem: contents; sourceRect: Qt.rect(0,0,control.width,control.height)
+        hideSource: control.roundedClipping; visible: false
+        textureMirroring: control.softwareClipping ? ShaderEffectSource.NoMirroring : ShaderEffectSource.MirrorVertically
+    }
+    SoftwareContentMask {
+        anchors.fill: parent; visible: control.softwareClipping; source: texture; outline: clipPath
+    }
+    Shape {
+        id: outline
+        anchors.fill: parent
+        preferredRendererType: Shape.CurveRenderer
+        containsMode: Shape.FillContains; antialiasing: true
+        ShapePath {
+            id: clipPath
+            fillColor: "transparent"; strokeColor: "transparent"; strokeWidth: -1
+            fillItem: outline.rendererType === Shape.CurveRenderer ? texture : null
+            PathSvg {
+                path: {
+                    const w=control.width,h=control.height,r=Math.min(w,h)/2
+                    if (w<=0 || h<=0) return ""
+                    return `M ${r} 0 H ${w-r} A ${r} ${r} 0 0 1 ${w} ${r} V ${h-r} A ${r} ${r} 0 0 1 ${w-r} ${h} H ${r} A ${r} ${r} 0 0 1 0 ${h-r} V ${r} A ${r} ${r} 0 0 1 ${r} 0 Z`
+                }
+            }
+        }
+    }
+}

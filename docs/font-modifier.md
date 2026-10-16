@@ -1,4 +1,75 @@
-# Font modifier source contract
+# Caller font defaults
+
+`BleeckerFont` supplies a default font to retained caller content. Set required
+`family` (`primary`, `secondary` or `mono`) and `size`; `weight` defaults to
+`regular`. The nine weight names are `ultraLight`, `thin`, `light`, `regular`,
+`medium`, `semibold`, `bold`, `heavy` and `black`. The scope reads the nearest
+ancestor `bleeckerTextScale`, or `BleeckerTheme.textScale`; its own `textScale`
+can be set explicitly. Size and scale must be finite in this candidate.
+
+```qml
+BleeckerFont {
+    family: "primary"
+    size: 14
+    BleeckerText { text: "Keep edition" }
+}
+```
+
+Caller fonts, bold/italic traits, paint and input remain caller-owned. Nested
+scopes read their own scale without multiplying an already resolved font again.
+`ProposalRow`, `ProposalColumn` and `ProposalOverlay` flatten the font scope's
+emitted views; an explicit caller stack remains one view. The scope adds no
+padding, background or input target. `BleeckerText` provides the owned renderer
+and first-baseline guide for ordinary text in these scopes. Standard Qt text
+has its own point-size quantization, including the half-point rounding in
+[Qt 6.8.3 QQuickText::setFont](https://github.com/qt/qtdeclarative/blob/v6.8.3/src/quick/items/qquicktext.cpp#L1776).
+
+## Linux candidate
+
+Open `AvelinoCatalog --fixture font-modifier` to change family, size, weight,
+caller structure, baseline parent, text scale and theme. The independent installed
+consumer runs with `--font-modifier`. Its actual X11 toolbar checks deliver eight
+XTest clicks across six controls and match nine complete caller viewports against
+separately captured Qt fixtures. Whole window images remain available in the
+[operator record](../evidence/development/font-modifier/operator-ui/result.json).
+
+The [candidate](../evidence/development/font-modifier/candidate.json) preserves all
+1,656 closed contexts: 864 caller cases, 720 first-baseline cases and 72 finite
+negative-size cases. Strict comparison records **76 exact pixel/frame matches**,
+1,168 frame matches, 1,440 baseline maps and all 1,656 matching produced states.
+All 488 frame differences and 216 baseline differences remain in the report;
+monospaced/system font mapping, noncustom line boxes, attributed runs, Unicode,
+bidi and exact glyph/raster behavior remain open. No case is excluded and no
+font mapping, tolerance or exception is approved.
+
+All 382 host and 382 Linux contracts pass. The full Qt suite passes all 25 targets,
+including 5,172 component checks at DPR
+one and 5,400 at DPR two. The new kernel contributes 487 checks at each DPR.
+A fresh independent package passes 28 modes and 123 gallery captures; all 119
+prior PNGs and full metadata are byte-identical. Eight compiled-only virtual
+X11/Wayland profiles exercise software/OpenGL rendering, standard/scaled displays,
+caller identity, live/restored font pixels, pointer/keyboard and Qt accessibility.
+Each profile measures 207 contexts, 146 exact frame sets and 180 baseline maps.
+These virtual checks leave physical displays, actual readers and complete native
+framework contexts pending. Desktop candidate coverage is 64/80, with 16 pending
+and zero accepted; all 46 TV entries remain pending.
+
+The corrected candidate reproduces every original v4 PNG byte for byte while
+removing its warnings. Its shared library differs only in GNU build ID and a
+generated qmldir timestamp. Original prototypes, the tiny-font metadata crash,
+pending-polish observations and warning-bearing captures are preserved in the
+candidate's diagnostics. An outer package wrapper invoked an already completed
+gallery checker twice; its overwrite refusal and terminal exit one are retained
+separately from the successful required package check.
+
+Run `python3 scripts/verify-font-modifier-candidate.py` and
+`python3 scripts/generate-font-modifier-witnesses.py --check` to audit the saved
+candidate and native consumer projection. For a fresh capture, run
+`python3 scripts/capture-font-modifier-cases.py <installed-catalog> <new-directory>`;
+then use `scripts/compare-font-modifier-captures.py` for the complete strict
+comparison. Comparison exit one preserves the unresolved native differences.
+
+## Native source contract
 
 `View.bleeckerFont` sets the default font for caller content. Its pinned source is
 `Sources/Sabella/Tokens.swift:93–114` at
@@ -148,3 +219,11 @@ Other weight combinations, nonfinite Text layout, hosted/physical behavior,
 readers and Linux acceptance remain pending. Centered baseline maps remain empty;
 this supplement adds no baseline claim. Pins, expected images and tolerances are
 unchanged. Linux catalog and independent-consumer integration remain pending.
+
+
+Earlier full Linux CI runs on x64 and ARM64 fail Tooltip retained-popup pixels
+in scaled Wayland after the preceding session sequence. Its isolated local
+eight-profile replay passes, so that separate runtime issue remains open. The
+font evidence above verifies the font matrix and does not claim whole-workflow
+CI success. The [CI note](../evidence/development/font-modifier/diagnostics/prior-ci-status.json)
+retains the exact failed step and follow-up scope.

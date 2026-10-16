@@ -13,7 +13,7 @@ cmake_pop_check_state()
 if(NOT AVELINO_ICU_ABI_COHERENT)
     message(FATAL_ERROR "ICU74 headers and libraries must resolve to the same system installation")
 endif()
-set(qml_files BleeckerButtonStyle.qml ButtonStylePart.qml BleeckerTooltip.qml TooltipHost.qml BleeckerModalDialog.qml BleeckerModal.qml ModalCloseGlyph.qml BleeckerActivityItem.qml ActivityGlyph.qml BleeckerMetric.qml BleeckerStatCard.qml BleeckerIconBadge.qml BleeckerKbd.qml BleeckerTokens.qml BleeckerTheme.qml BleeckerButton.qml
+set(qml_files BleeckerFont.qml BleeckerText.qml BleeckerButtonStyle.qml ButtonStylePart.qml BleeckerTooltip.qml TooltipHost.qml BleeckerModalDialog.qml BleeckerModal.qml ModalCloseGlyph.qml BleeckerActivityItem.qml ActivityGlyph.qml BleeckerMetric.qml BleeckerStatCard.qml BleeckerIconBadge.qml BleeckerKbd.qml BleeckerTokens.qml BleeckerTheme.qml BleeckerButton.qml
     BleeckerOTPInput.qml BleeckerRadioGroup.qml RadioGlyph.qml BleeckerLoadingSpinner.qml BleeckerStepper.qml StepperGlyph.qml BleeckerAlert.qml AlertGlyph.qml CircularContent.qml BleeckerEmptyState.qml BleeckerErrorState.qml BleeckerLoadingOverlay.qml StateGlyph.qml BleeckerTextField.qml BleeckerSeparator.qml
     BleeckerSkeleton.qml BleeckerBauhausBackground.qml BleeckerProgress.qml
     BleeckerButtonGroup.qml BleeckerHeader.qml BleeckerPanelLayout.qml
@@ -40,7 +40,7 @@ qt_add_library(Avelino SHARED)
 qt_add_qml_module(Avelino URI Avelino VERSION 0.1
     OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/qml/Avelino
     QML_FILES ${qml_files}
-    SOURCES tooltipaccess.h tooltipaccess.cpp proposalcolumn.h proposalcolumn.cpp inheritedcontrol.h inheritedcontrol.cpp otptools.h otptools.cpp otpunicode.h selectionidentity.h selectionidentity.cpp radiooptions.h radiooptions.cpp radiogroupbase.h radiogroupbase.cpp bleeckerfonts.h bleeckerfonts.cpp pixelalignment.h pixelalignment.cpp buttonlabel.h buttonlabel.cpp texttools.h texttools.cpp valuetools.h valuetools.cpp softwarecontentmask.h softwarecontentmask.cpp proposalrow.h proposalrow.cpp brandimage.h brandimage.cpp numbertools.h numbertools.cpp
+    SOURCES proposaloverlay.h proposaloverlay.cpp tooltipaccess.h tooltipaccess.cpp proposalcolumn.h proposalcolumn.cpp inheritedcontrol.h inheritedcontrol.cpp otptools.h otptools.cpp otpunicode.h selectionidentity.h selectionidentity.cpp radiooptions.h radiooptions.cpp radiogroupbase.h radiogroupbase.cpp bleeckerfonts.h bleeckerfonts.cpp pixelalignment.h pixelalignment.cpp buttonlabel.h buttonlabel.cpp texttools.h texttools.cpp valuetools.h valuetools.cpp softwarecontentmask.h softwarecontentmask.cpp proposalrow.h proposalrow.cpp brandimage.h brandimage.cpp numbertools.h numbertools.cpp
     RESOURCES ${font_resources} ${brand_logo} unicode-normalization-17.json)
 target_link_libraries(Avelino PUBLIC Qt6::Core Qt6::Gui Qt6::Qml Qt6::Quick Qt6::QuickControls2)
 target_link_libraries(Avelino PRIVATE Qt6::QuickPrivate Qt6::QuickTemplates2Private ICU::i18n ICU::uc)

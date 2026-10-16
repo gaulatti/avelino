@@ -1,0 +1,26 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--rm",
+    "--init",
+    "--name",
+    "avelino-font-v5-capture",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino:/work:ro",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/font-modifier-integration-v5:/result:rw",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts:/work/artifacts:rw",
+    "-w",
+    "/work",
+    "avelino-toolchain:data-metrics-qt6.8.3",
+    "bash",
+    "-lc",
+    "python3 /work/scripts/capture-font-modifier-cases.py /result/install/bin/AvelinoCatalog /result/captures --jobs 4"
+  ],
+  "exitCode": 0,
+  "seconds": 348.9006520829862
+}

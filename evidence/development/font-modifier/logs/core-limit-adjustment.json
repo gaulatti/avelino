@@ -1,0 +1,56 @@
+{
+  "container": "avelino-font-v4-ctest",
+  "ctestPid": 7,
+  "resource": "RLIMIT_CORE",
+  "processes": [
+    {
+      "pid": 7,
+      "previous": [
+        -1,
+        -1
+      ],
+      "current": [
+        0,
+        0
+      ]
+    },
+    {
+      "pid": 424,
+      "previous": [
+        -1,
+        -1
+      ],
+      "current": [
+        0,
+        0
+      ]
+    },
+    {
+      "pid": 497,
+      "previous": [
+        -1,
+        -1
+      ],
+      "current": [
+        0,
+        0
+      ]
+    }
+  ],
+  "timestamp": "2026-10-16T21:51:53.975238+00:00",
+  "reason": "Expected malformed-input SIGABRT probes were writing 356818944-byte core files repeatedly",
+  "sourceInputsChanged": false,
+  "processesRestarted": false,
+  "exitSignalsOrLogsSuppressed": false,
+  "existingCoreRetained": true,
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "exec",
+    "-i",
+    "avelino-font-v4-ctest",
+    "python3",
+    "-"
+  ]
+}

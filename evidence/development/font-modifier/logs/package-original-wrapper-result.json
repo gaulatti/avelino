@@ -1,0 +1,23 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--rm",
+    "--init",
+    "--name",
+    "avelino-font-v5-package-all",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/font-modifier-integration-v5/package-only:/package:rw",
+    "-w",
+    "/package",
+    "avelino-toolchain:clipping-qt6.8.3",
+    "bash",
+    "-lc",
+    "bash check-installed.sh && bash check-installed-catalog.sh"
+  ],
+  "exitCode": 1,
+  "seconds": 232.03214374999516,
+  "sourceAndProducerBuildAbsent": true
+}

@@ -80163,14 +80163,20 @@
       },
       {
         "id": "View.bleeckerFont",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Tokens.swift",
           "line": 111
         },
-        "implementation": [],
-        "caseDiscovery": "pending",
+        "implementation": [
+          "src/Avelino/BleeckerFont.qml",
+          "src/Avelino/BleeckerText.qml",
+          "src/Avelino/proposaloverlay.cpp",
+          "tests/consumer/FontModifier.qml",
+          "tests/consumer/FontModifierCase.qml"
+        ],
+        "caseDiscovery": "207 fixtures across eight source profiles: 1656 closed captures, 76 exact pixel/frame matches, 1168 frame matches, 1440 baseline maps and 1656 matching states. Eight virtual display profiles and separate XTest toolbar input preserve actual callers and live/restored paint. Full native font/raster/framework, physical and reader acceptance pending.",
         "cases": [
           {
             "id": "View.bleeckerFont-wrapped-whitespace-ink-bounds",
@@ -80207,12 +80213,43 @@
               "evidence/reference-investigations/font-edges-20261016/clean-replay.json"
             ],
             "notes": "72 regular-weight finite-negative contexts match original zero-size states and 216 PNGs. All 217 outputs replay after a fresh unchanged-source build. Other weights, nonfinite Text layout, Linux, physical and reader acceptance remain pending."
+          },
+          {
+            "id": "View.bleeckerFont-linux-caller-matrix",
+            "status": "verification-pending",
+            "fixtures": 108,
+            "profiles": 8,
+            "evidence": "evidence/development/font-modifier/candidate.json",
+            "notes": "Complete named cases and preserved failures in captures/capture-results.json and comparison/comparison.json; no exclusions or tolerance changes."
+          },
+          {
+            "id": "View.bleeckerFont-linux-baseline-matrix",
+            "status": "verification-pending",
+            "fixtures": 90,
+            "profiles": 8,
+            "evidence": "evidence/development/font-modifier/candidate.json",
+            "notes": "Complete named cases and preserved failures in captures/capture-results.json and comparison/comparison.json; no exclusions or tolerance changes."
+          },
+          {
+            "id": "View.bleeckerFont-linux-negative-matrix",
+            "status": "verification-pending",
+            "fixtures": 9,
+            "profiles": 8,
+            "evidence": "evidence/development/font-modifier/candidate.json",
+            "notes": "Complete named cases and preserved failures in captures/capture-results.json and comparison/comparison.json; no exclusions or tolerance changes."
           }
         ],
         "tests": [
           "tests/components/tst_native_wrapping.qml",
           "tests/contracts/test_font_modifier_source.py",
-          "tests/contracts/test_font_baseline_source.py"
+          "tests/contracts/test_font_baseline_source.py",
+          "tests/components/tst_font_scope.qml",
+          "tests/components/check-font-modifier-catalog.py",
+          "tests/components/check-invalid-font-modifier.py",
+          "tests/contracts/test_font_edges_source.py",
+          "tests/contracts/test_font_modifier_adapters.py",
+          "tests/consumer/fontmodifierchecks.h",
+          "scripts/verify-font-modifier-candidate.py"
         ],
         "captures": [
           "evidence/geometry/native-wrapping.json",
@@ -80220,41 +80257,114 @@
           "evidence/reference-investigations/font-modifier-20261016/investigation.json",
           "evidence/reference-investigations/font-modifier-20261016/captures/captures.json",
           "evidence/reference-investigations/font-baseline-20261016/investigation.json",
-          "evidence/reference-investigations/font-baseline-20261016/captures/captures.json"
+          "evidence/reference-investigations/font-baseline-20261016/captures/captures.json",
+          "evidence/development/font-modifier/candidate.json",
+          "evidence/development/font-modifier/captures/capture-results.json",
+          "evidence/development/font-modifier/operator-ui/result.json"
         ],
-        "comparisonResults": [],
+        "comparisonResults": [
+          "evidence/development/font-modifier/comparison/comparison.json"
+        ],
         "exceptions": [
           "FONT-MONO-001"
         ],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/font-modifier/candidate.json",
+              "docs/font-modifier.md"
+            ],
+            "notes": "Local full Qt suite, independent package, eight virtual profiles, actual toolbar callbacks, caller identity and live/restored pixels passed. Strict native fonts/metrics/raster, complete contexts, physical and reader acceptance remain pending."
           },
           "x11": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/font-modifier/candidate.json",
+              "docs/font-modifier.md"
+            ],
+            "notes": "Local full Qt suite, independent package, eight virtual profiles, actual toolbar callbacks, caller identity and live/restored pixels passed. Strict native fonts/metrics/raster, complete contexts, physical and reader acceptance remain pending."
           },
           "wayland": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/font-modifier/candidate.json",
+              "docs/font-modifier.md"
+            ],
+            "notes": "Local full Qt suite, independent package, eight virtual profiles, actual toolbar callbacks, caller identity and live/restored pixels passed. Strict native fonts/metrics/raster, complete contexts, physical and reader acceptance remain pending."
           },
           "keyboardPointer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/font-modifier/candidate.json",
+              "docs/font-modifier.md"
+            ],
+            "notes": "Local full Qt suite, independent package, eight virtual profiles, actual toolbar callbacks, caller identity and live/restored pixels passed. Strict native fonts/metrics/raster, complete contexts, physical and reader acceptance remain pending."
           },
           "focusAccessibility": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/font-modifier/candidate.json",
+              "docs/font-modifier.md"
+            ],
+            "notes": "Local full Qt suite, independent package, eight virtual profiles, actual toolbar callbacks, caller identity and live/restored pixels passed. Strict native fonts/metrics/raster, complete contexts, physical and reader acceptance remain pending."
           },
           "displayTextScaling": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/font-modifier/candidate.json",
+              "docs/font-modifier.md"
+            ],
+            "notes": "Local full Qt suite, independent package, eight virtual profiles, actual toolbar callbacks, caller identity and live/restored pixels passed. Strict native fonts/metrics/raster, complete contexts, physical and reader acceptance remain pending."
           },
           "installedConsumer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/font-modifier/candidate.json",
+              "docs/font-modifier.md"
+            ],
+            "notes": "Local full Qt suite, independent package, eight virtual profiles, actual toolbar callbacks, caller identity and live/restored pixels passed. Strict native fonts/metrics/raster, complete contexts, physical and reader acceptance remain pending."
           }
+        },
+        "linuxCandidate": {
+          "status": "verification-pending",
+          "accepted": false,
+          "fullCtestTargets": 25,
+          "fullCtestSeconds": 950.57,
+          "dpr1QtChecks": 5172,
+          "dpr2QtChecks": 5400,
+          "newKernelChecksPerDpr": 487,
+          "installedModes": 28,
+          "catalogCaptures": 123,
+          "priorGalleryPngAndFullMetadataByteIdentity": 119,
+          "installedFilesMatched": 123,
+          "qtPrivateIntegrationFiles": 7,
+          "freshSourceInputs": 411,
+          "closedCaptures": 1656,
+          "displayConfigurations": 8,
+          "closedContextsPerVirtualProfile": 207,
+          "exactFrameSetsPerVirtualProfile": 146,
+          "exactBaselineSetsPerVirtualProfile": 180,
+          "actualGalleryControls": 6,
+          "xTestToolbarClicks": 8,
+          "operatorUiStates": 9,
+          "operatorQtViewportMatches": 9,
+          "freshIndependentConsumerBuild": true,
+          "producerSourcesAndBuildAbsent": true,
+          "consumerSourcesAbsentInRuntime": true,
+          "liveFontPaintChecks": "passed",
+          "referencePinsChanged": false,
+          "expectedImagesChanged": false,
+          "tolerancesChanged": false,
+          "approvedExceptionsChanged": false,
+          "strictComparison": {
+            "cases": 1656,
+            "exactPixelAndGeometryMatches": 76,
+            "partFrameMatches": 1168,
+            "baselineMatches": 1440,
+            "stateMatches": 1656
+          },
+          "evidence": "evidence/development/font-modifier/candidate.json"
         }
       },
       {

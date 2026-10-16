@@ -58,13 +58,14 @@ static void recordLabels(QQuickItem *root, QJsonArray &labels) {
 }
 
 #include "../../tests/consumer/buttonstyleframes.h"
+#include "../../tests/consumer/fontmodifierframes.h"
 int main(int argc, char *argv[]) {
     QGuiApplication app(argc, argv);
     QCommandLineParser parser;
     parser.addHelpOption();
     parser.addOptions({QCommandLineOption("capture", "Save the displayed fixture to PNG and exit", "path"),
                        QCommandLineOption("dark", "Use dark reference appearance"),
-                       QCommandLineOption("fixture", "Render a fixture (button, foundations, surfaces, data-display, controls, composition, selection, checkbox, secure-field, search-field, collection-filters, slider, tabs, pagination, pagination-integers, accordion, presentation-states, spinner, alert, clipping, navigation, sidebar-brand, data-metrics, stepper, radio-group, otp-input, activity-item, modal, tooltip, button-style or reference-case)", "name"),
+                       QCommandLineOption("fixture", "Render a fixture (button, foundations, surfaces, data-display, controls, composition, selection, checkbox, secure-field, search-field, collection-filters, slider, tabs, pagination, pagination-integers, accordion, presentation-states, spinner, alert, clipping, navigation, sidebar-brand, data-metrics, stepper, radio-group, otp-input, activity-item, modal, tooltip, button-style, font-modifier or reference-case)", "name"),
                        QCommandLineOption("case", "Isolated reference fixture identifier", "id"),
                        QCommandLineOption("case-definitions", "JSON file containing the isolated fixture definitions", "path"),
                        QCommandLineOption("variant", "Button variant", "name", "primary"),
@@ -91,6 +92,23 @@ int main(int argc, char *argv[]) {
             if (entry.value("fixture").toString() == parser.value("case")) { definition = entry; ++matches; }
         }
         if (matches != 1 || definition.value("width").toDouble() <= 0 || definition.value("height").toDouble() <= 0) return 6;
+        if(definition.value("api").toString()=="View.bleeckerFont") {
+            if(definition.keys()!=QStringList{"api","baselineParent","content","expectedEmpty","family","fixture","height","offer","outerFontModifier","outerSystem","parentFont","parentLayout","rtl","size","source","text","weight","width"}
+                || definition.value("source").toString()!="fe8a1d462fbd793d883fb92086a16aa2947e32c9")return 6;
+            const auto finite=[](QJsonValue value){return value.isDouble() && std::isfinite(value.toDouble());};
+            const auto offer=definition.value("offer");
+            if(!QStringList{"primary","secondary","mono"}.contains(definition.value("family").toString())
+                || !QStringList{"ultraLight","thin","light","regular","medium","semibold","bold","heavy","black"}.contains(definition.value("weight").toString())
+                || !finite(definition.value("size")) || (!offer.isNull() && (!finite(offer) || offer.toDouble()<0))
+                || !QStringList{"text","empty-view","zero","rectangle","hidden","own-font","system-font","nil-font","red","bold","italic","attributed","nested-font","scaled-subtree","inner-scale","multi","vstack","hstack"}.contains(definition.value("content").toString())
+                || !QStringList{"zstack","hstack","vstack"}.contains(definition.value("parentLayout").toString())
+                || !definition.value("text").isString() || !definition.value("parentFont").isBool()
+                || !definition.value("outerSystem").isBool() || !definition.value("outerFontModifier").isBool()
+                || !definition.value("rtl").isBool() || !definition.value("baselineParent").isBool()
+                || !definition.value("expectedEmpty").isBool()
+                || definition.value("expectedEmpty").toBool()!=(definition.value("content").toString()=="empty-view")
+                || definition.value("width").toDouble()!=640 || definition.value("height").toDouble()!=400)return 6;
+        }
         if(definition.value("api").toString()=="BleeckerButtonStyle") {
             const auto nonnegative=[](QJsonValue value){return value.isDouble() && std::isfinite(value.toDouble()) && value.toDouble()>=0;};
             const auto offer=definition.value("offer");
@@ -137,8 +155,8 @@ int main(int argc, char *argv[]) {
     if(isolated && definition.contains("processLocale"))QLocale::setDefault(QLocale(definition.value("processLocale").toString()));
     engine.rootContext()->setContextProperty("captureDefinition", definition.toVariantMap());
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreationFailed, &app, [] { QCoreApplication::exit(1); }, Qt::QueuedConnection);
-    if (parser.isSet("fixture") && fixture != "button" && fixture != "foundations" && fixture != "surfaces" && fixture != "data-display" && fixture != "controls" && fixture != "composition" && fixture != "selection" && fixture != "checkbox" && fixture != "secure-field" && fixture != "search-field" && fixture != "collection-filters" && fixture != "slider" && fixture != "tabs" && fixture != "pagination" && fixture != "pagination-integers" && fixture != "accordion" && fixture != "presentation-states" && fixture != "spinner" && fixture != "alert" && fixture != "clipping" && fixture != "navigation" && fixture != "sidebar-brand" && fixture != "data-metrics" && fixture != "stepper" && fixture != "radio-group" && fixture != "otp-input" && fixture != "activity-item" && fixture != "modal" && fixture != "tooltip" && fixture != "button-style" && !isolated) return 4;
-    engine.loadFromModule("AvelinoCatalog", isolated ? "ReferenceCaseFixture" : fixture == "button-style" ? "ButtonStyle" : fixture == "tooltip" ? "Tooltip" : fixture == "modal" ? "Modal" : fixture == "activity-item" ? "ActivityItem" : fixture == "otp-input" ? "OTPInput" : fixture == "radio-group" ? "RadioGroup" : fixture == "stepper" ? "Stepper" : fixture == "data-metrics" ? "DataMetrics" : fixture == "sidebar-brand" ? "SidebarBrand" : fixture == "navigation" ? "Navigation" : fixture == "clipping" ? "Clipping" : fixture == "alert" ? "AlertFixture" : fixture == "spinner" ? "SpinnerFixture" : fixture == "presentation-states" ? "PresentationStatesFixture" : fixture == "accordion" ? "AccordionFixture" : fixture == "pagination-integers" ? "PaginationIntegerFixture" : fixture == "pagination" ? "PaginationFixture" : fixture == "tabs" ? "TabsFixture" : fixture == "slider" ? "SliderFixture" : fixture == "collection-filters" ? "CollectionFiltersFixture" : fixture == "search-field" ? "SearchFieldFixture" : fixture == "secure-field" ? "SecureFieldFixture" : fixture == "checkbox" ? "CheckboxFixture" : fixture == "selection" ? "SelectionFixture" : fixture == "composition" ? "CompositionFixture" : fixture == "controls" ? "ControlsFixture" : fixture == "data-display" ? "DataDisplayFixture" : fixture == "surfaces" ? "SurfacesFixture" : fixture == "foundations" ? "FoundationsFixture"
+    if (parser.isSet("fixture") && fixture != "button" && fixture != "foundations" && fixture != "surfaces" && fixture != "data-display" && fixture != "controls" && fixture != "composition" && fixture != "selection" && fixture != "checkbox" && fixture != "secure-field" && fixture != "search-field" && fixture != "collection-filters" && fixture != "slider" && fixture != "tabs" && fixture != "pagination" && fixture != "pagination-integers" && fixture != "accordion" && fixture != "presentation-states" && fixture != "spinner" && fixture != "alert" && fixture != "clipping" && fixture != "navigation" && fixture != "sidebar-brand" && fixture != "data-metrics" && fixture != "stepper" && fixture != "radio-group" && fixture != "otp-input" && fixture != "activity-item" && fixture != "modal" && fixture != "tooltip" && fixture != "button-style" && fixture != "font-modifier" && !isolated) return 4;
+    engine.loadFromModule("AvelinoCatalog", isolated ? "ReferenceCaseFixture" : fixture == "font-modifier" ? "FontModifier" : fixture == "button-style" ? "ButtonStyle" : fixture == "tooltip" ? "Tooltip" : fixture == "modal" ? "Modal" : fixture == "activity-item" ? "ActivityItem" : fixture == "otp-input" ? "OTPInput" : fixture == "radio-group" ? "RadioGroup" : fixture == "stepper" ? "Stepper" : fixture == "data-metrics" ? "DataMetrics" : fixture == "sidebar-brand" ? "SidebarBrand" : fixture == "navigation" ? "Navigation" : fixture == "clipping" ? "Clipping" : fixture == "alert" ? "AlertFixture" : fixture == "spinner" ? "SpinnerFixture" : fixture == "presentation-states" ? "PresentationStatesFixture" : fixture == "accordion" ? "AccordionFixture" : fixture == "pagination-integers" ? "PaginationIntegerFixture" : fixture == "pagination" ? "PaginationFixture" : fixture == "tabs" ? "TabsFixture" : fixture == "slider" ? "SliderFixture" : fixture == "collection-filters" ? "CollectionFiltersFixture" : fixture == "search-field" ? "SearchFieldFixture" : fixture == "secure-field" ? "SecureFieldFixture" : fixture == "checkbox" ? "CheckboxFixture" : fixture == "selection" ? "SelectionFixture" : fixture == "composition" ? "CompositionFixture" : fixture == "controls" ? "ControlsFixture" : fixture == "data-display" ? "DataDisplayFixture" : fixture == "surfaces" ? "SurfacesFixture" : fixture == "foundations" ? "FoundationsFixture"
         : fixture == "button" ? "ButtonFixture" : "Main");
     if (parser.isSet("capture")) {
         const auto path = parser.value("capture");
@@ -310,12 +328,13 @@ int main(int argc, char *argv[]) {
             const bool gridEmpty=expectedEmpty && api=="BleeckerDashboardGrid" && variant=="empty";
             const bool modalEmpty=expectedEmpty && api=="BleeckerModal" && definition.value("modalWidth").toDouble()==0;
             const bool tooltipEmpty=expectedEmpty && api=="BleeckerTooltip" && QStringList{"empty","zero","hidden"}.contains(definition.value("content").toString());
+            const bool fontEmpty=expectedEmpty && api=="View.bleeckerFont" && definition.value("content").toString()=="empty-view";
             const bool buttonStyleEmpty=expectedEmpty && api=="BleeckerButtonStyle" && definition.value("content").toString()=="empty";
             const auto geometryItem=api=="BleeckerTooltip" && component ? component->property("control").value<QQuickItem*>():(api=="BleeckerModal" || api=="BleeckerOTPInput" || api=="BleeckerActivityItem") && component ? component->property("presentationItem").value<QQuickItem*>():component;
             if (isolated && (!component || !geometryItem || component->width()<0 || component->height()<0
                 || geometryItem->width()<0 || geometryItem->height()<0
                 || ((geometryItem->width()==0 || geometryItem->height()==0) && !expectedEmpty)
-                || (expectedEmpty && !navigationEmpty && !gridEmpty && !brandEmpty && !radioEmpty && !modalEmpty && !tooltipEmpty && !buttonStyleEmpty)
+                || (expectedEmpty && !navigationEmpty && !gridEmpty && !brandEmpty && !radioEmpty && !modalEmpty && !tooltipEmpty && !buttonStyleEmpty && !fontEmpty)
                 || (modalEmpty && (geometryItem->width()!=0 || geometryItem->height()<=0))
                 || (gridEmpty && component->height()!=0)
                 || (radioEmpty && (component->width()!=0 || component->height()!=0)))) {qCritical("Invalid isolated geometry or expected-empty contract");app.exit(6);return;}
@@ -468,6 +487,10 @@ int main(int argc, char *argv[]) {
                 }
                 for (auto it = definition.begin(); it != definition.end(); ++it) meta.insert(it.key(), it.value());
                 meta.insert("caseDefinitions", parser.value("case-definitions"));
+                if(api=="View.bleeckerFont") {
+                    const auto observation=fontModifierObservation(component);
+                    for(auto it=observation.begin();it!=observation.end();++it)meta.insert(it.key(),it.value());
+                }
                 if(api=="BleeckerButtonStyle") {
                     const auto control=component->property("control").value<QQuickItem*>();
                     if(!control){app.exit(18);return;}

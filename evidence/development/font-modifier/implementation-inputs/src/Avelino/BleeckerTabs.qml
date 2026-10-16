@@ -1,0 +1,3 @@
+import QtQuick
+
+BleeckerSegmentedControl {}

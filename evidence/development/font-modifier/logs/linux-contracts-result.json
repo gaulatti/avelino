@@ -1,0 +1,23 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--rm",
+    "--init",
+    "--name",
+    "avelino-font-final-contracts-v1",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino:/work:ro",
+    "-w",
+    "/work",
+    "avelino-toolchain:data-metrics-qt6.8.3",
+    "bash",
+    "-lc",
+    "python3 -m venv /tmp/font-final-contracts && /tmp/font-final-contracts/bin/pip install -r tools/visual-requirements.txt && /tmp/font-final-contracts/bin/python -m unittest discover -s tests/contracts -v"
+  ],
+  "started": "2026-10-16T22:18:07.610279+00:00",
+  "seconds": 251.50471462507267,
+  "exitCode": 0
+}

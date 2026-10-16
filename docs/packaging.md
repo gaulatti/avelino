@@ -220,3 +220,26 @@ absent. Every profile includes live curve-paint growth/shrink checks. All 115
 previous gallery images and their full metadata remain byte-identical; all
 installed files and five Qt private-integration files match. Native font/raster,
 focused keyboard/timing, physical input and readers remain pending.
+
+
+## Caller-font package checkpoint
+
+The [font candidate](../evidence/development/font-modifier/candidate.json) adds
+`BleeckerFont` and `BleeckerText` to the installed module. All 123 installed files
+match across the build, independent package and compiled-only runtime copies.
+The package's 28 modes and 123 gallery captures pass; all 119 prior PNGs and
+full metadata remain byte-identical. Seven source files include Qt private
+headers for the exact 6.8.3 integration; none is exported as a package header.
+
+Eight virtual X11/Wayland profiles verify retained callers, actual Qt input and
+accessibility, and live/restored font paint. A separate XTest operator run checks
+six toolbar controls through nine exact complete Qt caller viewports. Source and
+consumer checkouts are absent from those runtime containers. Native strict
+comparison still fails, with 76/1,656 exact cases. Physical displays/readers and
+complete framework contexts remain pending.
+
+The original outer package wrapper ran the completed gallery check twice. Its
+second call refused the existing directory and exited one; the required
+`check-installed.sh` had already passed all modes, galleries and missing-module
+refusal. The [receipt](../evidence/development/font-modifier/package-validation.json)
+retains that control-flow evidence and the failed outer result separately.

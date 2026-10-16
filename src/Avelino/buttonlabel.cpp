@@ -84,6 +84,11 @@ void ButtonLabel::relayout(bool reuseWrapMeasurements) {
     if (declaredSourceFont && m_resolvedPixels == 0) m_resolvedPixels = 12;
     if (declaredSourceFont)
         lookupFont.setPointSizeF(m_resolvedPixels * 72 / BleeckerFonts::logicalFontDpi());
+    // Qt 6.8.3 can return unusable raw-font family metadata when a system
+    // request rounds below one raster pixel. Resolve the same face at one
+    // pixel for its tables; shaping and paint retain the requested size.
+    const bool tinyLookup = m_resolvedPixels < 0.5;
+    if (tinyLookup) lookupFont.setPixelSize(1);
     auto original = QRawFont::fromFont(lookupFont);
     const bool sourceFont = sourceFamily(original.familyName());
     if (sourceFont && !declaredSourceFont) {
@@ -100,7 +105,7 @@ void ButtonLabel::relayout(bool reuseWrapMeasurements) {
     const auto os2 = original.fontTable("OS/2");
     m_capHeight = sourceFont && os2.size() >= 90
         ? qFromBigEndian<qint16>(reinterpret_cast<const uchar *>(os2.constData() + 88)) * ratio
-        : original.capHeight();
+        : original.capHeight() * (tinyLookup ? m_resolvedPixels / original.pixelSize() : 1);
     const qreal dpr = m_layoutMetrics.devicePixelRatio();
     qreal layoutWidth = m_wrapWidth;
     bool reusedMeasurement = false;

@@ -1098,3 +1098,39 @@ staged source files. Linux implementation is excluded from this source-only
 checkpoint. Other weights, nonfinite Text layout, full Linux/physical/reader
 acceptance remain pending. Coverage remains 63/80 candidates and zero accepted;
 all 46 TV entries remain pending. Pins, expected images and tolerances are unchanged.
+
+
+## Caller-font candidate
+
+The [sealed candidate](../evidence/development/font-modifier/candidate.json)
+contains all 1,656 caller/baseline/finite-negative contexts and their strict
+results: 76 exact pixel/frame matches, 1,168 frame matches, 1,440 baseline maps
+and all 1,656 produced states matching. The failed comparisons remain open.
+The full Qt suite passes 25 targets with 5,172 DPR-one and 5,400 DPR-two checks;
+487 checks per DPR cover the new font kernel.
+
+Independent consumption passes 28 modes and 123 gallery captures. Every prior
+119 PNG and full metadata pair is byte-identical. Eight compiled-only virtual
+protocol/backend/scale profiles pass caller identity, live/restored paint, Qt
+pointer/keyboard and accessibility checks. Actual XTest toolbar input changes
+family, weight, size, baseline, scale and theme; nine complete caller viewports
+match independent Qt fixtures exactly. These are separate from native raster
+and physical/reader acceptance.
+
+The diagnostics retain the tiny-font SIGSEGV, exact pending-polish failures,
+original warning-bearing captures, and the duplicate outer gallery invocation.
+The corrected captures reproduce all 1,656 earlier PNGs exactly. Expected-abort
+core dumping was disabled inside the test container without source changes or
+process restart, preserving signals/logs and the existing core externally.
+Desktop coverage reaches 64/80 candidates with 16 pending and zero accepted;
+all 46 TV entries remain pending. Pins, baselines, tolerances and exceptions
+are unchanged. The public wiki remote remains unavailable; these in-repository
+documents carry the checkpoint. This native library change has no backend,
+production deployment, configuration or telemetry effect.
+
+
+The font checkpoint also passes 382 host and 382 Linux contracts. Older full
+Linux CI runs fail the separate Tooltip retained-popup check in scaled Wayland
+on both architectures. Their strict comparison jobs were skipped. Isolated
+Tooltip replay passes locally; the preceding session sequence still needs a
+focused reproduction. This is not recorded as a successful whole-workflow CI run.

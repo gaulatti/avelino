@@ -1,4 +1,5 @@
 #include "proposalcolumn.h"
+#include "proposaloverlay.h"
 #include <QtQml/qqml.h>
 #include <QPointer>
 #include <algorithm>
@@ -30,6 +31,10 @@ void ProposalColumn::childrenUpdated() {
         m_connections.append(connect(child,&QQuickItem::implicitHeightChanged,this,changed));
         m_connections.append(connect(child,&QQuickItem::widthChanged,this,changed));
         m_connections.append(connect(child,&QQuickItem::heightChanged,this,changed));
+        m_connections.append(connect(child,&QQuickItem::baselineOffsetChanged,this,changed));
+        if(auto row=qobject_cast<ProposalRow*>(child))m_connections.append(connect(row,&ProposalRow::baselineMetricsChanged,this,changed));
+        if(auto column=qobject_cast<ProposalColumn*>(child))m_connections.append(connect(column,&ProposalColumn::baselineMetricsChanged,this,changed));
+        if(auto overlay=qobject_cast<ProposalOverlay*>(child))m_connections.append(connect(overlay,&ProposalOverlay::baselineMetricsChanged,this,changed));
         auto hint=qobject_cast<BleeckerLayout*>(qmlAttachedPropertiesObject<BleeckerLayout>(child,true));
         m_connections.append(connect(hint,&BleeckerLayout::metricsChanged,this,changed));
         m_connections.append(connect(hint,&BleeckerLayout::structureChanged,this,&ProposalColumn::childrenUpdated));
@@ -74,6 +79,7 @@ void ProposalColumn::layout() {
         if(!child)continue;
         if(auto row=qobject_cast<ProposalRow*>(child.data()))row->layout();
         if(auto column=qobject_cast<ProposalColumn*>(child.data()))column->layout();
+        if(auto overlay=qobject_cast<ProposalOverlay*>(child.data()))overlay->layout();
         if(!child)continue;
         const auto width=hint->fillsWidth && offered>=0 ? std::max(lower,offered)
             :lower==ideal ? ideal:std::clamp(child->implicitWidth(),lower,ideal);
@@ -90,7 +96,18 @@ void ProposalColumn::layout() {
     }
     setImplicitSize(fitted,height);
     const auto available=width();
-    for(const auto &cell:cells)if(cell.item)cell.item->setPosition(QPointF((available-cell.width)/2,cell.y));
+    qreal implicitBaseline=height;
+    bool hasBaseline=false;
+    for(const auto &cell:cells)if(cell.item) {
+        cell.item->setPosition(QPointF((available-cell.width)/2,cell.y));
+        const auto baseline=BleeckerLayout::baselineFor(cell.item);
+        if(baseline.containsText) {
+            implicitBaseline=hasBaseline ? std::min(implicitBaseline,cell.y+baseline.offset):cell.y+baseline.offset;
+            hasBaseline=true;
+        }
+    }
+    setBaselineOffset(implicitBaseline);
+    if(m_containsTextBaseline!=hasBaseline){m_containsTextBaseline=hasBaseline;emit baselineMetricsChanged();}
     if(m_natural!=natural||m_minimum!=minimum){m_natural=natural;m_minimum=minimum;emit metricsChanged();}
     m_layingOut=false;
 }

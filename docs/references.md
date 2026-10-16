@@ -174,3 +174,11 @@ The [finite-negative font supplement](font-modifier.md#finite-negative-size-supp
 adds 72 groups whose 216 images exactly match the original zero-size cases.
 All 217 outputs replay after a clean source-only full build. This regular-weight
 measurement leaves other weights, nonfinite Text layout and Linux acceptance open.
+
+
+The [integrated font candidate](font-modifier.md#linux-candidate) compares all
+1,656 original-size public captures without changing the three source corpora.
+It retains 76 exact pixel/frame cases, 1,168 frame matches, 1,440 baseline maps
+and all matching produced states. The separate source-expression witness failures
+remain preserved. Linux runtime/package/operator evidence does not approve fonts,
+expected images, tolerances, physical displays or readers.

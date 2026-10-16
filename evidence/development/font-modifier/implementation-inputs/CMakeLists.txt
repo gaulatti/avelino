@@ -1,0 +1,33 @@
+cmake_minimum_required(VERSION 3.24)
+project(Avelino VERSION 0.1.0 LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+include(GNUInstallDirs)
+include(CTest)
+include(CMakePackageConfigHelpers)
+find_package(Qt6 6.8.3 EXACT REQUIRED COMPONENTS Core Gui Qml Quick QuickControls2)
+qt_standard_project_setup(REQUIRES 6.8)
+set(CMAKE_INSTALL_RPATH "$ORIGIN")
+add_subdirectory(src/Avelino)
+add_subdirectory(samples/AvelinoCatalog)
+if(BUILD_TESTING)
+    find_package(Qt6 6.8.3 EXACT REQUIRED COMPONENTS Test QuickTest)
+    add_subdirectory(tests/components)
+endif()
+install(EXPORT AvelinoTargets NAMESPACE Avelino:: DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Avelino)
+configure_package_config_file(cmake/AvelinoConfig.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/AvelinoConfig.cmake
+    INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Avelino)
+write_basic_package_version_file(${CMAKE_CURRENT_BINARY_DIR}/AvelinoConfigVersion.cmake
+    VERSION ${PROJECT_VERSION} COMPATIBILITY SameMajorVersion)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/AvelinoConfig.cmake ${CMAKE_CURRENT_BINARY_DIR}/AvelinoConfigVersion.cmake
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Avelino)
+install(DIRECTORY assets/fonts/ DESTINATION ${CMAKE_INSTALL_DATADIR}/avelino/fonts FILES_MATCHING PATTERN "*.txt" PATTERN "*.md")
+install(FILES assets/provenance.json assets/selection-symbols.json assets/checkbox-symbols.json assets/secure-field-symbols.json assets/search-field-symbols.json assets/filter-chip-symbols.json assets/navigation-symbols.json assets/presentation-symbols.json assets/spinner-presentation.json assets/alert-symbols.json assets/brand-presentation.json assets/sidebar-symbols.json assets/data-metrics-presentation.json DESTINATION ${CMAKE_INSTALL_DATADIR}/avelino)
+
+install(FILES assets/brand/BleeckerLogo.png DESTINATION ${CMAKE_INSTALL_DATADIR}/avelino/brand)
+install(FILES assets/stepper-presentation.json DESTINATION ${CMAKE_INSTALL_DATADIR}/avelino)
+
+install(FILES assets/radio-presentation.json DESTINATION ${CMAKE_INSTALL_DATADIR}/avelino)
+install(FILES assets/activity-presentation.json DESTINATION ${CMAKE_INSTALL_DATADIR}/avelino)
+install(FILES assets/tooltip-presentation.json assets/modal-presentation.json DESTINATION ${CMAKE_INSTALL_DATADIR}/avelino)
+install(FILES assets/unicode/LICENSE.txt assets/unicode/provenance.json DESTINATION ${CMAKE_INSTALL_DATADIR}/avelino/unicode)

@@ -14,7 +14,7 @@ Window {
     property real sliderValue: definition.api === "BleeckerSlider" ? Number(definition.text) : 0
     property int sliderEdits: 0
     property int pageValue: definition.api === "BleeckerPagination" && !definition.fixture.startsWith("pagination-i64-") ? Number(definition.text) : 0
-    property int pageTotal: definition.value
+    property int pageTotal: definition.api === "BleeckerPagination" ? definition.value : 0
     property string integerPage: definition.fixture.startsWith("pagination-i64-") ? definition.text : "0"
     property string integerCount: definition.fixture.startsWith("pagination-i64-") ? definition.size : "0"
     property var integerRequested: null
@@ -44,7 +44,7 @@ Window {
         anchors.alignWhenCentered: false
         sourceComponent: {
             const components = {
-                "BleeckerButtonStyle":buttonStyleCase,"BleeckerTooltip":tooltipCase,"BleeckerModal":modalCase,"BleeckerActivityItem":activityCase, "BleeckerButton": button, "BleeckerOTPInput":otpCase, "BleeckerRadioGroup":radioCase, "BleeckerStepper":stepperCase, "BleeckerLoadingSpinner": spinner,
+                "View.bleeckerFont":fontModifierCase,"BleeckerButtonStyle":buttonStyleCase,"BleeckerTooltip":tooltipCase,"BleeckerModal":modalCase,"BleeckerActivityItem":activityCase, "BleeckerButton": button, "BleeckerOTPInput":otpCase, "BleeckerRadioGroup":radioCase, "BleeckerStepper":stepperCase, "BleeckerLoadingSpinner": spinner,
                 "BleeckerSidebarItem":sidebarBrandCase, "BleeckerMetric":dataMetricsCase, "BleeckerStatCard":dataMetricsCase, "BleeckerKbd":dataMetricsCase, "BleeckerIconBadge":dataMetricsCase,"BleeckerBrandMark":sidebarBrandCase,"BleeckerBrandLockup":sidebarBrandCase,"BleeckerPageHeader":navigationCase,"BleeckerBreadcrumb":navigationCase,"BleeckerAlert":alert,"BleeckerEmptyState":emptyState,"BleeckerErrorState":errorState,"BleeckerLoadingOverlay":loadingOverlay,
                 "BleeckerTextField": textField, "BleeckerTextArea": textArea,
                 "BleeckerField": field, "BleeckerSwitchStyle": switchControl,
@@ -74,6 +74,7 @@ Window {
     }
     Component {id:radioCase;RadioGroupCase {definition:window.definition}}
     Component {id:activityCase;ActivityItemCase {definition:window.definition}}
+    Component {id:fontModifierCase;FontModifierCase {definition:window.definition;baselineParent:window.definition.baselineParent}}
     Component {id:buttonStyleCase;ButtonStyleCase {definition:window.definition}}
     Component {id:tooltipCase;TooltipCase {definition:window.definition}}
     Component {id:modalCase;ModalCase {definition:window.definition}}

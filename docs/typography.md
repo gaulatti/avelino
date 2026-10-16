@@ -165,3 +165,13 @@ replays after a clean build. `Create 0` at a 50-point offer measures 50 × 54 at
 both DPRs. The [data-display audit](data-metrics.md) preserves twelve earlier
 candidate differences caused by this correction, including four PageHeader
 images whose action width now matches the existing native rectangle.
+
+
+The [font-scope candidate](font-modifier.md#linux-candidate) carries these measured
+custom-font sizes and baseline guides into inherited caller content, including
+flat siblings and nested scopes. Its kernel passes 487 checks per DPR. Tiny
+noncustom requests now use a one-pixel raw-font lookup solely for metadata;
+requested/shaping/paint sizes remain unchanged. This prevents the preserved
+Qt 6.8.3 tiny raw-font family lookup crash. Monospaced/system font mapping,
+noncustom line-box metrics, attributed runs, Unicode/bidi and exact rasterization
+remain unaccepted in the complete 1,656-case comparison.

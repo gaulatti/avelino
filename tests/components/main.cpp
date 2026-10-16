@@ -64,6 +64,25 @@ public slots:
     void setProcessLocale(const QString &name) {QLocale::setDefault(QLocale(name));QEvent event(QEvent::LocaleChange);QCoreApplication::sendEvent(qApp,&event);}
     void qmlEngineAvailable(QQmlEngine *engine) {
         engine->rootContext()->setContextProperty("fixtureSetup",this);
+        for(const auto &source:QList<QPair<QString,QString>>{
+            {QStringLiteral(NATIVE_FONT_MODIFIER_DIRECTORY),"nativeFontModifierCaptures"},
+            {QStringLiteral(NATIVE_FONT_BASELINE_DIRECTORY),"nativeFontBaselineCaptures"}}) {
+            QFile file(source.first+"/captures/captures.json");
+            if(!file.open(QIODevice::ReadOnly))qFatal("Native font modifier source evidence missing");
+            const auto data=QJsonDocument::fromJson(file.readAll()).object();
+            if(data.value("reference").toString()!="fe8a1d462fbd793d883fb92086a16aa2947e32c9")qFatal("Native font modifier reference invalid");
+            const auto captures=data.value("captures").toArray();
+            if(captures.size()!=(source.second=="nativeFontModifierCaptures" ? 864:720))qFatal("Native font modifier contexts incomplete");
+            QJsonArray compact;
+            for(const auto &value:captures) {
+                const auto row=value.toObject();
+                if(!row.value("publicProbedIdentical").toBool())qFatal("Font geometry requires a transparent public probe");
+                QJsonObject selected;
+                for(const auto &key:QStringList{"configuration","appearance","textScale","dpr"})selected.insert(key,row.value(key));
+                selected.insert("state",row.value("states").toArray().at(1));compact.append(selected);
+            }
+            engine->rootContext()->setContextProperty(source.second,compact.toVariantList());
+        }
         QFile buttonStyle(QStringLiteral(NATIVE_BUTTON_STYLE_DIRECTORY)+"/captures/captures.json");
         if(!buttonStyle.open(QIODevice::ReadOnly))qFatal("Native ButtonStyle evidence missing");
         const auto buttonStyleData=QJsonDocument::fromJson(buttonStyle.readAll()).object();

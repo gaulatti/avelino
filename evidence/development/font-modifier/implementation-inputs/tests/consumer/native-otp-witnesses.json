@@ -1,0 +1,3249 @@
+{
+  "reference": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+  "sourceFiles": {
+    "behavior-final/behavior.json": "1efd8361313594731b9907e94f3a4a41f65b1ddf42c6eda89e7700e8a6282b5c",
+    "state-bindings/state-bindings.json": "009f26369e96eca25c73afcdb04bd295f5bfb27e0dff91453f48291a28116694",
+    "edges/edges.json": "62b6d0001ec52a30fee07bf0d84a3c5b7d9ca940f2cd2cd932181b3348f0dd6f"
+  },
+  "traces": [
+    {
+      "sourceFile": "behavior-final/behavior.json",
+      "fixture": "editing",
+      "bindingMode": "functional-observed",
+      "initialCode": "",
+      "initialLength": 6,
+      "disabled": false,
+      "observeOnly": false,
+      "deferredOwner": false,
+      "events": [
+        {
+          "action": "initial",
+          "state": {
+            "code": "",
+            "fieldValue": "",
+            "requests": []
+          }
+        },
+        {
+          "action": "focus",
+          "state": {
+            "code": "",
+            "fieldValue": "",
+            "requests": [
+              ""
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "select-all",
+          "state": {
+            "code": "",
+            "fieldValue": "",
+            "requests": [
+              ""
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "insert-mixed",
+          "state": {
+            "code": "1٢Ⅳ1́2",
+            "fieldValue": "a1b٢Ⅳ1́2",
+            "requests": [
+              "",
+              "",
+              "1٢Ⅳ1́2"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 8
+            }
+          }
+        },
+        {
+          "action": "settled",
+          "state": {
+            "code": "1٢Ⅳ1́2",
+            "fieldValue": "a1b٢Ⅳ1́2",
+            "requests": [
+              "",
+              "",
+              "1٢Ⅳ1́2"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 8
+            }
+          }
+        },
+        {
+          "action": "delete-backward",
+          "state": {
+            "code": "1٢Ⅳ1́",
+            "fieldValue": "a1b٢Ⅳ1́",
+            "requests": [
+              "",
+              "",
+              "1٢Ⅳ1́2",
+              "1٢Ⅳ1́"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 7
+            }
+          }
+        },
+        {
+          "action": "external-unfiltered",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [
+              "",
+              "",
+              "1٢Ⅳ1́2",
+              "1٢Ⅳ1́"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 10
+            }
+          }
+        },
+        {
+          "action": "external-length-two",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [
+              "",
+              "",
+              "1٢Ⅳ1́2",
+              "1٢Ⅳ1́"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 10
+            }
+          }
+        },
+        {
+          "action": "insert-keycap",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢Ⅳ³一",
+            "requests": [
+              "",
+              "",
+              "1٢Ⅳ1́2",
+              "1٢Ⅳ1́",
+              "1️⃣٢"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 7
+            }
+          }
+        },
+        {
+          "action": "return-command",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢",
+            "requests": [
+              "",
+              "",
+              "1٢Ⅳ1́2",
+              "1٢Ⅳ1́",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 4,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "blur",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢",
+            "requests": [
+              "",
+              "",
+              "1٢Ⅳ1́2",
+              "1٢Ⅳ1́",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "sourceFile": "behavior-final/behavior.json",
+      "fixture": "unfiltered-initial",
+      "bindingMode": "functional-observed",
+      "initialCode": "A12",
+      "initialLength": 6,
+      "disabled": false,
+      "observeOnly": false,
+      "deferredOwner": false,
+      "events": [
+        {
+          "action": "initial",
+          "state": {
+            "code": "A12",
+            "fieldValue": "A12",
+            "requests": []
+          }
+        },
+        {
+          "action": "focus",
+          "state": {
+            "code": "12",
+            "fieldValue": "12",
+            "requests": [
+              "12",
+              "12"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 2
+            }
+          }
+        },
+        {
+          "action": "select-all",
+          "state": {
+            "code": "12",
+            "fieldValue": "12",
+            "requests": [
+              "12",
+              "12"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 2,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "insert-mixed",
+          "state": {
+            "code": "1٢Ⅳ1́2",
+            "fieldValue": "a1b٢Ⅳ1́2",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 8
+            }
+          }
+        },
+        {
+          "action": "settled",
+          "state": {
+            "code": "1٢Ⅳ1́2",
+            "fieldValue": "a1b٢Ⅳ1́2",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 8
+            }
+          }
+        },
+        {
+          "action": "delete-backward",
+          "state": {
+            "code": "1٢Ⅳ1́",
+            "fieldValue": "a1b٢Ⅳ1́",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2",
+              "1٢Ⅳ1́"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 7
+            }
+          }
+        },
+        {
+          "action": "external-unfiltered",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2",
+              "1٢Ⅳ1́"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 10
+            }
+          }
+        },
+        {
+          "action": "external-length-two",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2",
+              "1٢Ⅳ1́"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 10
+            }
+          }
+        },
+        {
+          "action": "insert-keycap",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢Ⅳ³一",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2",
+              "1٢Ⅳ1́",
+              "1️⃣٢"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 7
+            }
+          }
+        },
+        {
+          "action": "return-command",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2",
+              "1٢Ⅳ1́",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 4,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "blur",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2",
+              "1٢Ⅳ1́",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "sourceFile": "behavior-final/behavior.json",
+      "fixture": "observe-only",
+      "bindingMode": "functional-observed",
+      "initialCode": "12",
+      "initialLength": 6,
+      "disabled": false,
+      "observeOnly": true,
+      "deferredOwner": false,
+      "events": [
+        {
+          "action": "initial",
+          "state": {
+            "code": "12",
+            "fieldValue": "12",
+            "requests": []
+          }
+        },
+        {
+          "action": "focus",
+          "state": {
+            "code": "12",
+            "fieldValue": "12",
+            "requests": [
+              "12"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 2,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "select-all",
+          "state": {
+            "code": "12",
+            "fieldValue": "12",
+            "requests": [
+              "12"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 2,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "insert-mixed",
+          "state": {
+            "code": "12",
+            "fieldValue": "a1b٢Ⅳ1́2",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 8
+            }
+          }
+        },
+        {
+          "action": "settled",
+          "state": {
+            "code": "12",
+            "fieldValue": "a1b٢Ⅳ1́2",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 8
+            }
+          }
+        },
+        {
+          "action": "delete-backward",
+          "state": {
+            "code": "12",
+            "fieldValue": "a1b٢Ⅳ1́",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2",
+              "1٢Ⅳ1́"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 7
+            }
+          }
+        },
+        {
+          "action": "external-unfiltered",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "a1b٢Ⅳ1́",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2",
+              "1٢Ⅳ1́"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 7
+            }
+          }
+        },
+        {
+          "action": "external-length-two",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2",
+              "1٢Ⅳ1́"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 10
+            }
+          }
+        },
+        {
+          "action": "insert-keycap",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "1️⃣٢Ⅳ³一",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2",
+              "1٢Ⅳ1́",
+              "1️⃣٢"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 7
+            }
+          }
+        },
+        {
+          "action": "return-command",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2",
+              "1٢Ⅳ1́",
+              "1️⃣٢",
+              "98",
+              "98",
+              "98"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 10,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "blur",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2",
+              "1٢Ⅳ1́",
+              "1️⃣٢",
+              "98",
+              "98",
+              "98",
+              "98",
+              "98"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "sourceFile": "behavior-final/behavior.json",
+      "fixture": "deferred-owner",
+      "bindingMode": "functional-observed",
+      "initialCode": "12",
+      "initialLength": 6,
+      "disabled": false,
+      "observeOnly": false,
+      "deferredOwner": true,
+      "events": [
+        {
+          "action": "initial",
+          "state": {
+            "code": "12",
+            "fieldValue": "12",
+            "requests": []
+          }
+        },
+        {
+          "action": "focus",
+          "state": {
+            "code": "12",
+            "fieldValue": "12",
+            "requests": [
+              "12"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 2,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "select-all",
+          "state": {
+            "code": "12",
+            "fieldValue": "12",
+            "requests": [
+              "12"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 2,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "insert-mixed",
+          "state": {
+            "code": "12",
+            "fieldValue": "a1b٢Ⅳ1́2",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 8
+            }
+          }
+        },
+        {
+          "action": "settled",
+          "state": {
+            "code": "1٢Ⅳ1́2",
+            "fieldValue": "a1b٢Ⅳ1́2",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 8
+            }
+          }
+        },
+        {
+          "action": "delete-backward",
+          "state": {
+            "code": "1٢Ⅳ1́",
+            "fieldValue": "a1b٢Ⅳ1́",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2",
+              "1٢Ⅳ1́"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 7
+            }
+          }
+        },
+        {
+          "action": "external-unfiltered",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2",
+              "1٢Ⅳ1́"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 10
+            }
+          }
+        },
+        {
+          "action": "external-length-two",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2",
+              "1٢Ⅳ1́"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 10
+            }
+          }
+        },
+        {
+          "action": "insert-keycap",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢Ⅳ³一",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2",
+              "1٢Ⅳ1́",
+              "1️⃣٢"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 7
+            }
+          }
+        },
+        {
+          "action": "return-command",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2",
+              "1٢Ⅳ1́",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 4,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "blur",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2",
+              "1٢Ⅳ1́",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "sourceFile": "behavior-final/behavior.json",
+      "fixture": "disabled",
+      "bindingMode": "functional-observed",
+      "initialCode": "A12",
+      "initialLength": 6,
+      "disabled": true,
+      "observeOnly": false,
+      "deferredOwner": false,
+      "events": [
+        {
+          "action": "initial",
+          "state": {
+            "code": "A12",
+            "fieldValue": "A12",
+            "requests": []
+          }
+        },
+        {
+          "action": "focus",
+          "state": {
+            "code": "A12",
+            "fieldValue": "A12",
+            "requests": []
+          }
+        },
+        {
+          "action": "blur",
+          "state": {
+            "code": "A12",
+            "fieldValue": "A12",
+            "requests": []
+          }
+        }
+      ]
+    },
+    {
+      "sourceFile": "behavior-final/behavior.json",
+      "fixture": "zero-length",
+      "bindingMode": "functional-observed",
+      "initialCode": "",
+      "initialLength": 0,
+      "disabled": false,
+      "observeOnly": false,
+      "deferredOwner": false,
+      "events": [
+        {
+          "action": "initial",
+          "state": {
+            "code": "",
+            "fieldValue": "",
+            "requests": []
+          }
+        },
+        {
+          "action": "focus",
+          "state": {
+            "code": "",
+            "fieldValue": "",
+            "requests": [
+              ""
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "select-all",
+          "state": {
+            "code": "",
+            "fieldValue": "",
+            "requests": [
+              ""
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "insert-mixed",
+          "state": {
+            "code": "",
+            "fieldValue": "a1b٢Ⅳ1́2",
+            "requests": [
+              "",
+              "",
+              ""
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 8
+            }
+          }
+        },
+        {
+          "action": "settled",
+          "state": {
+            "code": "",
+            "fieldValue": "a1b٢Ⅳ1́2",
+            "requests": [
+              "",
+              "",
+              ""
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 8
+            }
+          }
+        },
+        {
+          "action": "delete-backward",
+          "state": {
+            "code": "",
+            "fieldValue": "a1b٢Ⅳ1́",
+            "requests": [
+              "",
+              "",
+              "",
+              ""
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 7
+            }
+          }
+        },
+        {
+          "action": "external-unfiltered",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [
+              "",
+              "",
+              "",
+              ""
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 10
+            }
+          }
+        },
+        {
+          "action": "external-length-two",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [
+              "",
+              "",
+              "",
+              ""
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 10
+            }
+          }
+        },
+        {
+          "action": "insert-keycap",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢Ⅳ³一",
+            "requests": [
+              "",
+              "",
+              "",
+              "",
+              "1️⃣٢"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 7
+            }
+          }
+        },
+        {
+          "action": "return-command",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢",
+            "requests": [
+              "",
+              "",
+              "",
+              "",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 4,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "blur",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢",
+            "requests": [
+              "",
+              "",
+              "",
+              "",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "sourceFile": "behavior-final/behavior.json",
+      "fixture": "short-length",
+      "bindingMode": "functional-observed",
+      "initialCode": "",
+      "initialLength": 2,
+      "disabled": false,
+      "observeOnly": false,
+      "deferredOwner": false,
+      "events": [
+        {
+          "action": "initial",
+          "state": {
+            "code": "",
+            "fieldValue": "",
+            "requests": []
+          }
+        },
+        {
+          "action": "focus",
+          "state": {
+            "code": "",
+            "fieldValue": "",
+            "requests": [
+              ""
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "select-all",
+          "state": {
+            "code": "",
+            "fieldValue": "",
+            "requests": [
+              ""
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "insert-mixed",
+          "state": {
+            "code": "1٢",
+            "fieldValue": "a1b٢Ⅳ1́2",
+            "requests": [
+              "",
+              "",
+              "1٢"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 8
+            }
+          }
+        },
+        {
+          "action": "settled",
+          "state": {
+            "code": "1٢",
+            "fieldValue": "a1b٢Ⅳ1́2",
+            "requests": [
+              "",
+              "",
+              "1٢"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 8
+            }
+          }
+        },
+        {
+          "action": "delete-backward",
+          "state": {
+            "code": "1٢",
+            "fieldValue": "a1b٢Ⅳ1́",
+            "requests": [
+              "",
+              "",
+              "1٢",
+              "1٢"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 7
+            }
+          }
+        },
+        {
+          "action": "external-unfiltered",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [
+              "",
+              "",
+              "1٢",
+              "1٢"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 10
+            }
+          }
+        },
+        {
+          "action": "external-length-two",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [
+              "",
+              "",
+              "1٢",
+              "1٢"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 10
+            }
+          }
+        },
+        {
+          "action": "insert-keycap",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢Ⅳ³一",
+            "requests": [
+              "",
+              "",
+              "1٢",
+              "1٢",
+              "1️⃣٢"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 7
+            }
+          }
+        },
+        {
+          "action": "return-command",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢",
+            "requests": [
+              "",
+              "",
+              "1٢",
+              "1٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 4,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "blur",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢",
+            "requests": [
+              "",
+              "",
+              "1٢",
+              "1٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "sourceFile": "behavior-final/behavior.json",
+      "fixture": "unicode",
+      "bindingMode": "functional-observed",
+      "initialCode": "١٢Ⅳ",
+      "initialLength": 6,
+      "disabled": false,
+      "observeOnly": false,
+      "deferredOwner": false,
+      "events": [
+        {
+          "action": "initial",
+          "state": {
+            "code": "١٢Ⅳ",
+            "fieldValue": "١٢Ⅳ",
+            "requests": []
+          }
+        },
+        {
+          "action": "focus",
+          "state": {
+            "code": "١٢Ⅳ",
+            "fieldValue": "١٢Ⅳ",
+            "requests": [
+              "١٢Ⅳ"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 3,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "select-all",
+          "state": {
+            "code": "١٢Ⅳ",
+            "fieldValue": "١٢Ⅳ",
+            "requests": [
+              "١٢Ⅳ"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 3,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "insert-mixed",
+          "state": {
+            "code": "1٢Ⅳ1́2",
+            "fieldValue": "a1b٢Ⅳ1́2",
+            "requests": [
+              "١٢Ⅳ",
+              "١٢Ⅳ",
+              "1٢Ⅳ1́2"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 8
+            }
+          }
+        },
+        {
+          "action": "settled",
+          "state": {
+            "code": "1٢Ⅳ1́2",
+            "fieldValue": "a1b٢Ⅳ1́2",
+            "requests": [
+              "١٢Ⅳ",
+              "١٢Ⅳ",
+              "1٢Ⅳ1́2"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 8
+            }
+          }
+        },
+        {
+          "action": "delete-backward",
+          "state": {
+            "code": "1٢Ⅳ1́",
+            "fieldValue": "a1b٢Ⅳ1́",
+            "requests": [
+              "١٢Ⅳ",
+              "١٢Ⅳ",
+              "1٢Ⅳ1́2",
+              "1٢Ⅳ1́"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 7
+            }
+          }
+        },
+        {
+          "action": "external-unfiltered",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [
+              "١٢Ⅳ",
+              "١٢Ⅳ",
+              "1٢Ⅳ1́2",
+              "1٢Ⅳ1́"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 10
+            }
+          }
+        },
+        {
+          "action": "external-length-two",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [
+              "١٢Ⅳ",
+              "١٢Ⅳ",
+              "1٢Ⅳ1́2",
+              "1٢Ⅳ1́"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 10
+            }
+          }
+        },
+        {
+          "action": "insert-keycap",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢Ⅳ³一",
+            "requests": [
+              "١٢Ⅳ",
+              "١٢Ⅳ",
+              "1٢Ⅳ1́2",
+              "1٢Ⅳ1́",
+              "1️⃣٢"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 7
+            }
+          }
+        },
+        {
+          "action": "return-command",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢",
+            "requests": [
+              "١٢Ⅳ",
+              "١٢Ⅳ",
+              "1٢Ⅳ1́2",
+              "1٢Ⅳ1́",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 4,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "blur",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢",
+            "requests": [
+              "١٢Ⅳ",
+              "١٢Ⅳ",
+              "1٢Ⅳ1́2",
+              "1٢Ⅳ1́",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "sourceFile": "state-bindings/state-bindings.json",
+      "fixture": "empty",
+      "bindingMode": "projected-state",
+      "initialCode": "",
+      "initialLength": 6,
+      "disabled": false,
+      "observeOnly": false,
+      "deferredOwner": false,
+      "events": [
+        {
+          "action": "initial",
+          "state": {
+            "code": "",
+            "fieldValue": "",
+            "requests": []
+          }
+        },
+        {
+          "action": "focus",
+          "state": {
+            "code": "",
+            "fieldValue": "",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "focus-settled",
+          "state": {
+            "code": "",
+            "fieldValue": "",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "insert-mixed",
+          "state": {
+            "code": "1٢Ⅳ1́2",
+            "fieldValue": "a1b٢Ⅳ1́2",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 8
+            }
+          }
+        },
+        {
+          "action": "insert-settled",
+          "state": {
+            "code": "1٢Ⅳ1́2",
+            "fieldValue": "a1b٢Ⅳ1́2",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 8
+            }
+          }
+        },
+        {
+          "action": "external-unfiltered",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 10
+            }
+          }
+        },
+        {
+          "action": "external-settled",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 10
+            }
+          }
+        },
+        {
+          "action": "length-two",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 10
+            }
+          }
+        },
+        {
+          "action": "insert-keycap",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢Ⅳ³一",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 7
+            }
+          }
+        },
+        {
+          "action": "keycap-settled",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢Ⅳ³一",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 7
+            }
+          }
+        },
+        {
+          "action": "return-command",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 4,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "blur",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢",
+            "requests": []
+          }
+        },
+        {
+          "action": "blur-settled",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢",
+            "requests": []
+          }
+        }
+      ]
+    },
+    {
+      "sourceFile": "state-bindings/state-bindings.json",
+      "fixture": "unfiltered-initial",
+      "bindingMode": "projected-state",
+      "initialCode": "A12",
+      "initialLength": 6,
+      "disabled": false,
+      "observeOnly": false,
+      "deferredOwner": false,
+      "events": [
+        {
+          "action": "initial",
+          "state": {
+            "code": "A12",
+            "fieldValue": "A12",
+            "requests": []
+          }
+        },
+        {
+          "action": "focus",
+          "state": {
+            "code": "12",
+            "fieldValue": "12",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 2
+            }
+          }
+        },
+        {
+          "action": "focus-settled",
+          "state": {
+            "code": "12",
+            "fieldValue": "12",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 2
+            }
+          }
+        },
+        {
+          "action": "insert-mixed",
+          "state": {
+            "code": "1٢Ⅳ1́2",
+            "fieldValue": "a1b٢Ⅳ1́2",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 8
+            }
+          }
+        },
+        {
+          "action": "insert-settled",
+          "state": {
+            "code": "1٢Ⅳ1́2",
+            "fieldValue": "a1b٢Ⅳ1́2",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 8
+            }
+          }
+        },
+        {
+          "action": "external-unfiltered",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 10
+            }
+          }
+        },
+        {
+          "action": "external-settled",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 10
+            }
+          }
+        },
+        {
+          "action": "length-two",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 10
+            }
+          }
+        },
+        {
+          "action": "insert-keycap",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢Ⅳ³一",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 7
+            }
+          }
+        },
+        {
+          "action": "keycap-settled",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢Ⅳ³一",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 7
+            }
+          }
+        },
+        {
+          "action": "return-command",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 4,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "blur",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢",
+            "requests": []
+          }
+        },
+        {
+          "action": "blur-settled",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢",
+            "requests": []
+          }
+        }
+      ]
+    },
+    {
+      "sourceFile": "state-bindings/state-bindings.json",
+      "fixture": "valid-initial",
+      "bindingMode": "projected-state",
+      "initialCode": "12",
+      "initialLength": 6,
+      "disabled": false,
+      "observeOnly": false,
+      "deferredOwner": false,
+      "events": [
+        {
+          "action": "initial",
+          "state": {
+            "code": "12",
+            "fieldValue": "12",
+            "requests": []
+          }
+        },
+        {
+          "action": "focus",
+          "state": {
+            "code": "12",
+            "fieldValue": "12",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 2,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "focus-settled",
+          "state": {
+            "code": "12",
+            "fieldValue": "12",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 2,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "insert-mixed",
+          "state": {
+            "code": "1٢Ⅳ1́2",
+            "fieldValue": "a1b٢Ⅳ1́2",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 8
+            }
+          }
+        },
+        {
+          "action": "insert-settled",
+          "state": {
+            "code": "1٢Ⅳ1́2",
+            "fieldValue": "a1b٢Ⅳ1́2",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 8
+            }
+          }
+        },
+        {
+          "action": "external-unfiltered",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 10
+            }
+          }
+        },
+        {
+          "action": "external-settled",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 10
+            }
+          }
+        },
+        {
+          "action": "length-two",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 10
+            }
+          }
+        },
+        {
+          "action": "insert-keycap",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢Ⅳ³一",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 7
+            }
+          }
+        },
+        {
+          "action": "keycap-settled",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢Ⅳ³一",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 7
+            }
+          }
+        },
+        {
+          "action": "return-command",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 4,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "blur",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢",
+            "requests": []
+          }
+        },
+        {
+          "action": "blur-settled",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢",
+            "requests": []
+          }
+        }
+      ]
+    },
+    {
+      "sourceFile": "state-bindings/state-bindings.json",
+      "fixture": "zero-length",
+      "bindingMode": "projected-state",
+      "initialCode": "",
+      "initialLength": 0,
+      "disabled": false,
+      "observeOnly": false,
+      "deferredOwner": false,
+      "events": [
+        {
+          "action": "initial",
+          "state": {
+            "code": "",
+            "fieldValue": "",
+            "requests": []
+          }
+        },
+        {
+          "action": "focus",
+          "state": {
+            "code": "",
+            "fieldValue": "",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "focus-settled",
+          "state": {
+            "code": "",
+            "fieldValue": "",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "insert-mixed",
+          "state": {
+            "code": "",
+            "fieldValue": "a1b٢Ⅳ1́2",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 8
+            }
+          }
+        },
+        {
+          "action": "insert-settled",
+          "state": {
+            "code": "",
+            "fieldValue": "a1b٢Ⅳ1́2",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 8
+            }
+          }
+        },
+        {
+          "action": "external-unfiltered",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "a1b٢Ⅳ1́2",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 8
+            }
+          }
+        },
+        {
+          "action": "external-settled",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "a1b٢Ⅳ1́2",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 8
+            }
+          }
+        },
+        {
+          "action": "length-two",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 10
+            }
+          }
+        },
+        {
+          "action": "insert-keycap",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢Ⅳ³一",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 7
+            }
+          }
+        },
+        {
+          "action": "keycap-settled",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢Ⅳ³一",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 7
+            }
+          }
+        },
+        {
+          "action": "return-command",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢",
+            "requests": [],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 4,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "blur",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢",
+            "requests": []
+          }
+        },
+        {
+          "action": "blur-settled",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢",
+            "requests": []
+          }
+        }
+      ]
+    },
+    {
+      "sourceFile": "state-bindings/state-bindings.json",
+      "fixture": "disabled",
+      "bindingMode": "projected-state",
+      "initialCode": "A12",
+      "initialLength": 6,
+      "disabled": true,
+      "observeOnly": false,
+      "deferredOwner": false,
+      "events": [
+        {
+          "action": "initial",
+          "state": {
+            "code": "A12",
+            "fieldValue": "A12",
+            "requests": []
+          }
+        },
+        {
+          "action": "focus",
+          "state": {
+            "code": "A12",
+            "fieldValue": "A12",
+            "requests": []
+          }
+        },
+        {
+          "action": "focus-settled",
+          "state": {
+            "code": "A12",
+            "fieldValue": "A12",
+            "requests": []
+          }
+        },
+        {
+          "action": "blur",
+          "state": {
+            "code": "A12",
+            "fieldValue": "A12",
+            "requests": []
+          }
+        },
+        {
+          "action": "blur-settled",
+          "state": {
+            "code": "A12",
+            "fieldValue": "A12",
+            "requests": []
+          }
+        }
+      ]
+    },
+    {
+      "sourceFile": "state-bindings/state-bindings.json",
+      "fixture": "empty",
+      "bindingMode": "functional-state",
+      "initialCode": "",
+      "initialLength": 6,
+      "disabled": false,
+      "observeOnly": false,
+      "deferredOwner": false,
+      "events": [
+        {
+          "action": "initial",
+          "state": {
+            "code": "",
+            "fieldValue": "",
+            "requests": []
+          }
+        },
+        {
+          "action": "focus",
+          "state": {
+            "code": "",
+            "fieldValue": "",
+            "requests": [
+              ""
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "focus-settled",
+          "state": {
+            "code": "",
+            "fieldValue": "",
+            "requests": [
+              ""
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "insert-mixed",
+          "state": {
+            "code": "1٢Ⅳ1́2",
+            "fieldValue": "a1b٢Ⅳ1́2",
+            "requests": [
+              "",
+              "",
+              "1٢Ⅳ1́2"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 8
+            }
+          }
+        },
+        {
+          "action": "insert-settled",
+          "state": {
+            "code": "1٢Ⅳ1́2",
+            "fieldValue": "a1b٢Ⅳ1́2",
+            "requests": [
+              "",
+              "",
+              "1٢Ⅳ1́2"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 8
+            }
+          }
+        },
+        {
+          "action": "external-unfiltered",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [
+              "",
+              "",
+              "1٢Ⅳ1́2"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 10
+            }
+          }
+        },
+        {
+          "action": "external-settled",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [
+              "",
+              "",
+              "1٢Ⅳ1́2"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 10
+            }
+          }
+        },
+        {
+          "action": "length-two",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [
+              "",
+              "",
+              "1٢Ⅳ1́2"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 10
+            }
+          }
+        },
+        {
+          "action": "insert-keycap",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢Ⅳ³一",
+            "requests": [
+              "",
+              "",
+              "1٢Ⅳ1́2",
+              "1️⃣٢"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 7
+            }
+          }
+        },
+        {
+          "action": "keycap-settled",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢Ⅳ³一",
+            "requests": [
+              "",
+              "",
+              "1٢Ⅳ1́2",
+              "1️⃣٢"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 7
+            }
+          }
+        },
+        {
+          "action": "return-command",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢",
+            "requests": [
+              "",
+              "",
+              "1٢Ⅳ1́2",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 4,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "blur",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢",
+            "requests": [
+              "",
+              "",
+              "1٢Ⅳ1́2",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢"
+            ]
+          }
+        },
+        {
+          "action": "blur-settled",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢",
+            "requests": [
+              "",
+              "",
+              "1٢Ⅳ1́2",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "sourceFile": "state-bindings/state-bindings.json",
+      "fixture": "unfiltered-initial",
+      "bindingMode": "functional-state",
+      "initialCode": "A12",
+      "initialLength": 6,
+      "disabled": false,
+      "observeOnly": false,
+      "deferredOwner": false,
+      "events": [
+        {
+          "action": "initial",
+          "state": {
+            "code": "A12",
+            "fieldValue": "A12",
+            "requests": []
+          }
+        },
+        {
+          "action": "focus",
+          "state": {
+            "code": "12",
+            "fieldValue": "12",
+            "requests": [
+              "12",
+              "12"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 2
+            }
+          }
+        },
+        {
+          "action": "focus-settled",
+          "state": {
+            "code": "12",
+            "fieldValue": "12",
+            "requests": [
+              "12",
+              "12"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 2
+            }
+          }
+        },
+        {
+          "action": "insert-mixed",
+          "state": {
+            "code": "1٢Ⅳ1́2",
+            "fieldValue": "a1b٢Ⅳ1́2",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 8
+            }
+          }
+        },
+        {
+          "action": "insert-settled",
+          "state": {
+            "code": "1٢Ⅳ1́2",
+            "fieldValue": "a1b٢Ⅳ1́2",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 8
+            }
+          }
+        },
+        {
+          "action": "external-unfiltered",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 10
+            }
+          }
+        },
+        {
+          "action": "external-settled",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 10
+            }
+          }
+        },
+        {
+          "action": "length-two",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 10
+            }
+          }
+        },
+        {
+          "action": "insert-keycap",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢Ⅳ³一",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2",
+              "1️⃣٢"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 7
+            }
+          }
+        },
+        {
+          "action": "keycap-settled",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢Ⅳ³一",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2",
+              "1️⃣٢"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 7
+            }
+          }
+        },
+        {
+          "action": "return-command",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 4,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "blur",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢"
+            ]
+          }
+        },
+        {
+          "action": "blur-settled",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "sourceFile": "state-bindings/state-bindings.json",
+      "fixture": "observe-only",
+      "bindingMode": "functional-state",
+      "initialCode": "12",
+      "initialLength": 6,
+      "disabled": false,
+      "observeOnly": true,
+      "deferredOwner": false,
+      "events": [
+        {
+          "action": "initial",
+          "state": {
+            "code": "12",
+            "fieldValue": "12",
+            "requests": []
+          }
+        },
+        {
+          "action": "focus",
+          "state": {
+            "code": "12",
+            "fieldValue": "12",
+            "requests": [
+              "12"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 2,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "focus-settled",
+          "state": {
+            "code": "12",
+            "fieldValue": "12",
+            "requests": [
+              "12"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 2,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "insert-mixed",
+          "state": {
+            "code": "12",
+            "fieldValue": "a1b٢Ⅳ1́2",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 8
+            }
+          }
+        },
+        {
+          "action": "insert-settled",
+          "state": {
+            "code": "12",
+            "fieldValue": "a1b٢Ⅳ1́2",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 8
+            }
+          }
+        },
+        {
+          "action": "external-unfiltered",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "a1b٢Ⅳ1́2",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 8
+            }
+          }
+        },
+        {
+          "action": "external-settled",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "a1b٢Ⅳ1́2",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 8
+            }
+          }
+        },
+        {
+          "action": "length-two",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 10
+            }
+          }
+        },
+        {
+          "action": "insert-keycap",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "1️⃣٢Ⅳ³一",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2",
+              "1️⃣٢"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 7
+            }
+          }
+        },
+        {
+          "action": "keycap-settled",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "1️⃣٢Ⅳ³一",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2",
+              "1️⃣٢"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 7
+            }
+          }
+        },
+        {
+          "action": "return-command",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2",
+              "1️⃣٢",
+              "98",
+              "98",
+              "98"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 10,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "blur",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2",
+              "1️⃣٢",
+              "98",
+              "98",
+              "98",
+              "98",
+              "98"
+            ]
+          }
+        },
+        {
+          "action": "blur-settled",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2",
+              "1️⃣٢",
+              "98",
+              "98",
+              "98",
+              "98",
+              "98"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "sourceFile": "state-bindings/state-bindings.json",
+      "fixture": "deferred-owner",
+      "bindingMode": "functional-state",
+      "initialCode": "12",
+      "initialLength": 6,
+      "disabled": false,
+      "observeOnly": false,
+      "deferredOwner": true,
+      "events": [
+        {
+          "action": "initial",
+          "state": {
+            "code": "12",
+            "fieldValue": "12",
+            "requests": []
+          }
+        },
+        {
+          "action": "focus",
+          "state": {
+            "code": "12",
+            "fieldValue": "12",
+            "requests": [
+              "12"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 2,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "focus-settled",
+          "state": {
+            "code": "12",
+            "fieldValue": "12",
+            "requests": [
+              "12"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 2,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "insert-mixed",
+          "state": {
+            "code": "12",
+            "fieldValue": "a1b٢Ⅳ1́2",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 8
+            }
+          }
+        },
+        {
+          "action": "insert-settled",
+          "state": {
+            "code": "1٢Ⅳ1́2",
+            "fieldValue": "a1b٢Ⅳ1́2",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 8
+            }
+          }
+        },
+        {
+          "action": "external-unfiltered",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 10
+            }
+          }
+        },
+        {
+          "action": "external-settled",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 10
+            }
+          }
+        },
+        {
+          "action": "length-two",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 10
+            }
+          }
+        },
+        {
+          "action": "insert-keycap",
+          "state": {
+            "code": "X987654321",
+            "fieldValue": "1️⃣٢Ⅳ³一",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2",
+              "1️⃣٢"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 7
+            }
+          }
+        },
+        {
+          "action": "keycap-settled",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢Ⅳ³一",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2",
+              "1️⃣٢"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 0,
+              "location": 7
+            }
+          }
+        },
+        {
+          "action": "return-command",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢"
+            ],
+            "hasMarkedText": false,
+            "selection": {
+              "length": 4,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "blur",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢"
+            ]
+          }
+        },
+        {
+          "action": "blur-settled",
+          "state": {
+            "code": "1️⃣٢",
+            "fieldValue": "1️⃣٢",
+            "requests": [
+              "12",
+              "12",
+              "1٢Ⅳ1́2",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢",
+              "1️⃣٢"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "sourceFile": "edges/edges.json",
+      "fixture": "large-insert",
+      "bindingMode": "functional-observed",
+      "initialCode": "",
+      "initialLength": 6,
+      "disabled": false,
+      "observeOnly": false,
+      "deferredOwner": false,
+      "events": [
+        {
+          "action": "initial",
+          "state": {
+            "code": "",
+            "fieldValue": "",
+            "requests": []
+          }
+        },
+        {
+          "action": "focus",
+          "state": {
+            "code": "",
+            "fieldValue": "",
+            "requests": [
+              ""
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "insert-40001",
+          "state": {
+            "code": "1",
+            "fieldValue": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1",
+            "requests": [
+              "",
+              "",
+              "1"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 40001
+            }
+          }
+        },
+        {
+          "action": "blur",
+          "state": {
+            "code": "1",
+            "fieldValue": "1",
+            "requests": [
+              "",
+              "",
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "sourceFile": "edges/edges.json",
+      "fixture": "marked-text",
+      "bindingMode": "functional-observed",
+      "initialCode": "12",
+      "initialLength": 6,
+      "disabled": false,
+      "observeOnly": false,
+      "deferredOwner": false,
+      "events": [
+        {
+          "action": "initial",
+          "state": {
+            "code": "12",
+            "fieldValue": "12",
+            "requests": []
+          }
+        },
+        {
+          "action": "focus",
+          "state": {
+            "code": "12",
+            "fieldValue": "12",
+            "requests": [
+              "12"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 2,
+              "location": 0
+            }
+          }
+        },
+        {
+          "action": "mark-one",
+          "state": {
+            "code": "12",
+            "fieldValue": "一",
+            "requests": [
+              "12",
+              "12"
+            ],
+            "hasMarkedText": true,
+            "editorSelection": {
+              "length": 0,
+              "location": 1
+            }
+          }
+        },
+        {
+          "action": "mark-two",
+          "state": {
+            "code": "12",
+            "fieldValue": "一二",
+            "requests": [
+              "12",
+              "12"
+            ],
+            "hasMarkedText": true,
+            "editorSelection": {
+              "length": 0,
+              "location": 2
+            }
+          }
+        },
+        {
+          "action": "unmark",
+          "state": {
+            "code": "一二",
+            "fieldValue": "一二",
+            "requests": [
+              "12",
+              "12",
+              "一二"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 2
+            }
+          }
+        },
+        {
+          "action": "commit-mixed",
+          "state": {
+            "code": "𝟙1️⃣一٢",
+            "fieldValue": "a𝟙1️⃣一b٢",
+            "requests": [
+              "12",
+              "12",
+              "一二",
+              "𝟙1️⃣一٢"
+            ],
+            "hasMarkedText": false,
+            "editorSelection": {
+              "length": 0,
+              "location": 9
+            }
+          }
+        },
+        {
+          "action": "blur",
+          "state": {
+            "code": "𝟙1️⃣一٢",
+            "fieldValue": "𝟙1️⃣一٢",
+            "requests": [
+              "12",
+              "12",
+              "一二",
+              "𝟙1️⃣一٢",
+              "𝟙1️⃣一٢",
+              "𝟙1️⃣一٢",
+              "𝟙1️⃣一٢"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

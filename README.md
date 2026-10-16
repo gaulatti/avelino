@@ -100,16 +100,13 @@ action/press and caller identity, with catalog, independent package and eight
 virtual profiles. Exact native pixels, focused keyboard/timing, physical input
 and readers remain pending.
 
-The [font-modifier source investigation](docs/font-modifier.md) records 864
-public/probed/witness groups and 24 retained update histories. All 2,761 outputs
-replay byte for byte after a fresh unchanged-source build. Inner font precedence,
-flat layout and caller retention are measured; Linux implementation, complete baseline contexts,
-dynamic type, monospaced font mapping and physical/reader acceptance remain pending.
-Its separate first-baseline parent supplement measures 720 contexts with
-transparent public probes and an exact 2,161-file fresh-source replay; three
-source-expression witness raster differences remain open. A finite-negative
-supplement adds 72 contexts with an exact 217-file replay; nonfinite Text layout
-and other weight combinations remain pending.
+The [caller-font candidate](docs/font-modifier.md) supplies inherited defaults,
+retained caller views, local scaling and first-baseline participation. All 1,656
+closed source contexts remain in strict comparison: 76 exact pixel/frame matches,
+1,168 frame matches and all produced states matching. Full Qt tests, independent
+packaging, eight virtual display profiles and actual gallery toolbar input pass.
+Native fonts/raster, complete contexts, physical displays and readers remain open.
+Desktop candidate coverage is 64/80; none are accepted.
 
 The [page header and breadcrumb candidates](docs/navigation-layout.md) use measured
 source layout, fixed typography, caller action content and logical-index

@@ -1,0 +1,59 @@
+import QtQuick
+import "continuouscorners.js" as Corners
+
+Canvas {
+    id: shadow
+    property real surfaceWidth: 0
+    property real surfaceHeight: 0
+    property real radius: BleeckerTokens.radii.card
+    property real blurRadius: 10
+    property real offsetY: 3
+    property bool circular: false
+    property bool roundedRectangle: false
+    property color shadowColor: "transparent"
+    property color fillColor: "transparent"
+    readonly property real margin: Math.ceil(blurRadius * 3 + Math.abs(offsetY))
+    readonly property real dpr: alignment.devicePixelRatio
+    x: -margin; y: -margin
+    width: surfaceWidth + margin * 2; height: surfaceHeight + margin * 2
+    visible: shadowColor.a > 0 && surfaceWidth > 0 && surfaceHeight > 0
+    renderTarget: Canvas.Image
+    PixelAlignment { id: alignment; target: shadow.parent }
+    Accessible.ignored: true
+    onSurfaceWidthChanged: requestPaint()
+    onSurfaceHeightChanged: requestPaint()
+    onRadiusChanged: requestPaint()
+    onBlurRadiusChanged: requestPaint()
+    onOffsetYChanged: requestPaint()
+    onCircularChanged: requestPaint()
+    onRoundedRectangleChanged: requestPaint()
+    onShadowColorChanged: requestPaint()
+    onFillColorChanged: requestPaint()
+    onDprChanged: requestPaint()
+    onPaint: {
+        const ctx = getContext("2d")
+        // Canvas.Image applies the window DPR itself; its coordinates are logical.
+        ctx.reset(); ctx.clearRect(0,0,width,height)
+        ctx.translate(margin,margin)
+        ctx.shadowColor = shadowColor
+        ctx.shadowBlur = blurRadius
+        ctx.shadowOffsetY = offsetY
+        ctx.fillStyle = fillColor
+        ctx.beginPath()
+        if (circular) ctx.arc(surfaceWidth/2,surfaceHeight/2,Math.min(surfaceWidth,surfaceHeight)/2,0,Math.PI*2)
+        else if (roundedRectangle) {
+            const r=Math.min(radius,surfaceWidth/2,surfaceHeight/2),w=surfaceWidth,h=surfaceHeight
+            ctx.moveTo(r,0);ctx.lineTo(w-r,0);ctx.arcTo(w,0,w,r,r)
+            ctx.lineTo(w,h-r);ctx.arcTo(w,h,w-r,h,r)
+            ctx.lineTo(r,h);ctx.arcTo(0,h,0,h-r,r)
+            ctx.lineTo(0,r);ctx.arcTo(0,0,r,0,r);ctx.closePath()
+        }
+        else for (const e of Corners.elements(surfaceWidth,surfaceHeight,radius,0)) {
+            if (e.kind === "move") ctx.moveTo(e.points[0][0],e.points[0][1])
+            else if (e.kind === "line") ctx.lineTo(e.points[0][0],e.points[0][1])
+            else if (e.kind === "cubic") ctx.bezierCurveTo(e.points[0][0],e.points[0][1],e.points[1][0],e.points[1][1],e.points[2][0],e.points[2][1])
+            else ctx.closePath()
+        }
+        ctx.fill()
+    }
+}

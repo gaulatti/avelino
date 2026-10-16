@@ -65,3 +65,9 @@ evidence/reference-investigations/font-modifier-20261016/**/*.log -text -whitesp
 evidence/development/font-modifier-source-20261016/*.log -text -whitespace
 evidence/reference-investigations/font-baseline-20261016/**/*.log -text -whitespace
 evidence/development/font-baseline-source-20261016/*.log -text -whitespace
+
+# Preserve raw font candidate transcripts, generated diff and exact tested script snapshot.
+evidence/development/font-modifier/**/*.log -text -whitespace
+evidence/development/font-modifier/**/capture-tool-version.txt -text -whitespace
+evidence/development/font-modifier/rcc-continuity.diff -text -whitespace
+evidence/development/font-modifier/implementation-inputs/scripts/capture-font-modifier-cases.py -text -whitespace
