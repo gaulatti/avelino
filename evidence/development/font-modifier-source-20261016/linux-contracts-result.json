@@ -1,0 +1,23 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--rm",
+    "--init",
+    "--name",
+    "avelino-font-modifier-contracts-v1",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino:/work:ro",
+    "-w",
+    "/work",
+    "avelino-toolchain:data-metrics-qt6.8.3",
+    "bash",
+    "-lc",
+    "python3 -m venv /tmp/font-modifier-contracts && /tmp/font-modifier-contracts/bin/pip install -r tools/visual-requirements.txt && /tmp/font-modifier-contracts/bin/python -m unittest discover -s tests/contracts -v"
+  ],
+  "started": "2026-10-16T20:26:44.918087+00:00",
+  "seconds": 298.2560700830072,
+  "exitCode": 0
+}

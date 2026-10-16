@@ -5,6 +5,12 @@ source. It remains verification-pending for exact rasterization, system fonts,
 glyph fallback and complete component acceptance. Expected source images,
 reference revisions and comparison tolerances are unchanged.
 
+The [font-modifier investigation](font-modifier.md) separately measures the
+public modifier's default-font precedence, all nine weights, three families,
+flat caller layout and retained property updates. Its centered layouts supply
+no first-baseline measurements; the narrower baseline probes below retain their
+original scope.
+
 The [ActivityItem investigation](activity-item.md#proposal-and-measurement-history-evidence)
 also establishes that source Text fitting depends on its resize history. The
 custom-font renderer preserves measured wraps between an earlier proposal and

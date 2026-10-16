@@ -1013,6 +1013,31 @@ coverage was 62/80 candidates, 18 pending and zero accepted. Native fonts/raster
 caller lifecycle, focused keyboard, physical input and readers remain pending;
 all 46 TV entries remain pending.
 
+## Font modifier source investigation
+
+The [font-modifier source record](font-modifier.md) preserves 108 fixtures across
+eight profiles: 864 public/probed/source-expression groups and 24 seven-step
+update histories. Every probe and witness image matches its public image.
+Geometry arrays retain flat siblings in their surrounding row/column; fixed
+inner fonts, nil font, nested scaled fonts and caller retention are measured
+separately from the ambient font observed by a background probe.
+
+An independent source-only extraction rebuilds all 89 unchanged pinned files
+and reproduces 2,761 outputs byte for byte. The centered matrix produces no
+baseline measurements; its empty baseline maps stay untrusted. Dynamic type,
+legibility, invalid sizes, native accessibility, font mapping/raster and
+physical/reader acceptance remain pending. Apple source and tooling stay external.
+
+The [validation receipt](../evidence/development/font-modifier-source-20261016/result.json)
+records all 342 host and 342 Linux contracts passing, including 14 new corpus
+and negative checks. All 2,775 staged source-evidence blobs match recorded hashes.
+The original omitted ignored-log audit and corrected complete audit are retained.
+Reference integrity, API/inventory reconciliation, proposed captures, staged
+whitespace and the Linux-only boundary pass. This source-only checkpoint leaves
+Linux implementation pending and coverage at 63/80 desktop candidates, 17 pending
+and zero accepted; all 46 TV entries remain pending. Pins, expected images,
+tolerances and approved exceptions are unchanged.
+
 
 ## ButtonStyle candidate
 

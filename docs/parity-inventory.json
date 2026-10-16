@@ -80177,14 +80177,27 @@
             "status": "verification-pending",
             "evidence": "evidence/development/text-wrapping/candidate.json",
             "notes": "120 measured source Text/font cases; source whitespace proposal and comma overhang bounds; complete font/script/visual/physical acceptance remains pending"
+          },
+          {
+            "id": "View.bleeckerFont-native-default-environment-and-caller-contexts",
+            "status": "verification-pending",
+            "evidence": [
+              "evidence/reference-investigations/font-modifier-20261016/investigation.json",
+              "evidence/reference-investigations/font-modifier-20261016/captures/captures.json",
+              "evidence/reference-investigations/font-modifier-20261016/clean-replay.json"
+            ],
+            "notes": "864 public/probed/source-expression groups, all weights/families and 24 retained-update histories; 2761 byte-identical fresh-source replay files. Centered baseline maps are empty and untrusted. Linux, dynamic type, legibility, invalid sizes, native accessibility and physical/reader acceptance remain pending."
           }
         ],
         "tests": [
-          "tests/components/tst_native_wrapping.qml"
+          "tests/components/tst_native_wrapping.qml",
+          "tests/contracts/test_font_modifier_source.py"
         ],
         "captures": [
           "evidence/geometry/native-wrapping.json",
-          "evidence/development/text-wrapping/candidate.json"
+          "evidence/development/text-wrapping/candidate.json",
+          "evidence/reference-investigations/font-modifier-20261016/investigation.json",
+          "evidence/reference-investigations/font-modifier-20261016/captures/captures.json"
         ],
         "comparisonResults": [],
         "exceptions": [

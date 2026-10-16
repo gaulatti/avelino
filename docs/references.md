@@ -153,3 +153,12 @@ rebuild reproduces all 977 raw capture/behavior outputs. It separates embedded
 dismissal of the hosting window from the caller's sheet context and preserves
 inactive accessibility and post-dismissal input diagnostics. Linux implementation
 and acceptance remain pending.
+
+The [font-modifier investigation](font-modifier.md) records 864 public,
+geometry-probed and independent source-expression groups, plus 24 retained
+property-update histories. All 2,761 raw outputs replay byte for byte after a
+clean source-only extraction and full rebuild of the 89 unchanged pinned files.
+The environment probe is explicitly distinct from actual fonts in attributed or
+explicitly styled Text. Centered layouts yield no first-baseline measurements.
+Linux implementation, complete font/framework contexts, physical/reader
+acceptance and independent-machine archive availability remain pending.
