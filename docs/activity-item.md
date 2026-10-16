@@ -81,3 +81,30 @@ Independent-machine helper availability, exact font/symbol/frame/raster parity,
 Linux runtime sessions, installed consumer, physical displays/input and reader
 acceptance remain pending. Source pins, expected images, tolerances and exception
 approvals are unchanged.
+
+## Standalone text fitting diagnosis
+
+An additional [source record](../evidence/reference-investigations/activity-text-20261016/investigation.json)
+isolates the five default field/action strings in public native `Text` views.
+It covers 3,374 geometry queries at half-point widths zero through 120, requested
+display scales one/two and both action font scales. A separate fresh source-only
+rebuild reproduces its complete JSON byte for byte. These measurements confirm
+that the narrow label differences observed during Qt implementation also occur
+outside ActivityItem. The row allocation algorithm is unchanged.
+
+The preserved Qt 6.8.3 diagnostic matches 3,189/3,374 proposals and disagrees on
+185: 165 at DPR one and 20 at DPR two. At DPR one, 161 differ in width and eight
+in height; at DPR two, 20 differ in width and four in height. Those counts overlap.
+Fractional fitted widths and line breaking are distinct measured differences.
+For example, native `Ready for review` at width 54 has three lines; Qt has two.
+Native `Review` at width ten has six lines at display scale one and five at two.
+Native `2 min ago` at width 40 has a fitted width of 28; the Qt paragraph-balancing
+heuristic produces 37. The original diagnostic source, logs, raw outcomes and
+shared text implementation's historical Git hash remain preserved. These are
+unresolved candidate failures, not an exception approval or a changed baseline.
+
+Run `python3 scripts/verify-activity-text-source.py` to audit this additional
+record. The separate source-only archive SHA-256 is
+`e6918deff925728e5e6dcedb0b6a49d46d9721852da83e3ff9c51e01ea79a782`.
+Its helper/source hashes and machine-local external locator are in that record's
+tooling provenance; independent-machine availability remains pending.

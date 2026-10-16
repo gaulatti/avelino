@@ -30,6 +30,7 @@ jobs:
       - run: python3 scripts/verify-radio-source.py
       - run: python3 scripts/verify-otp-source.py
       - run: python3 scripts/verify-activity-source.py
+      - run: python3 scripts/verify-activity-text-source.py
       - run: python3 scripts/generate-otp-unicode.py --check
       - run: python3 scripts/generate-otp-witnesses.py --check
       - run: python3 scripts/generate-radio-witnesses.py --check
