@@ -1,0 +1,36 @@
+[
+  {
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v3/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v3/tool/Common.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v3/tool/History.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-nan-stability-20261017-v1/tool/StabilityMain.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v3/build/out/Products/Debug/Sabella.o",
+      "-framework",
+      "Charts",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v3/tool/NativeNanStability"
+    ],
+    "exitCode": 0,
+    "seconds": 3.5522726660128683
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v3/tool/NativeNanStability",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v3",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-nan-stability-20261017-v1/output",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "exitCode": 0,
+    "seconds": 11.83450887503568
+  }
+]

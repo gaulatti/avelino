@@ -110,9 +110,14 @@ Desktop candidate coverage is 66/80; none are accepted.
 
 The [pill candidate](docs/pill-modifier.md) retains a single text caller, fixed mono 9
 font and 7/4 capsule padding, caller formatting and baseline guides. All 2,112
-public/bare/history captures remain in strict comparison: 172 exact cases, all
+public/bare/history captures remain in strict comparison: 224 exact cases, all
 bare. Native fonts, symbols, pixels, complete formatting, physical input and
 reader acceptance remain pending.
+
+The [native chart investigation](docs/charts.md) covers all five chart families,
+120 closed fixtures, 45 non-finite inputs and five finite controls. Ordinary
+source outputs reproduce exactly; NaN-bar replay differences remain failed and
+preserved. Linux chart implementation and reader acceptance remain pending.
 
 The [surface modifier](docs/surface-modifier.md) decorates flat callers separately
 and explicit stacks as one caller, preserving caller state, font inheritance and

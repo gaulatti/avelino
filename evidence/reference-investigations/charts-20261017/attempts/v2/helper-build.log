@@ -1,0 +1,47 @@
+/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v2/tool/History.swift:11:46: error: value of type 'NSAccessibility' has no member 'isAccessibilityElement'
+ 9 |         let identity=ObjectIdentifier(node as AnyObject)
+10 |         if visited.contains(identity){return nil};visited.insert(identity);count+=1
+11 |         var row:[String:Any]=["element":node.isAccessibilityElement()]
+   |                                              `- error: value of type 'NSAccessibility' has no member 'isAccessibilityElement'
+12 |         if let role=node.accessibilityRole(){row["role"]=role.rawValue}
+13 |         if let label=node.accessibilityLabel(){row["label"]=label}
+
+/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v2/tool/History.swift:12:26: error: value of type 'NSAccessibility' has no member 'accessibilityRole'
+10 |         if visited.contains(identity){return nil};visited.insert(identity);count+=1
+11 |         var row:[String:Any]=["element":node.isAccessibilityElement()]
+12 |         if let role=node.accessibilityRole(){row["role"]=role.rawValue}
+   |                          `- error: value of type 'NSAccessibility' has no member 'accessibilityRole'
+13 |         if let label=node.accessibilityLabel(){row["label"]=label}
+14 |         if let help=node.accessibilityHelp(){row["help"]=help}
+
+/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v2/tool/History.swift:13:27: error: value of type 'NSAccessibility' has no member 'accessibilityLabel'
+11 |         var row:[String:Any]=["element":node.isAccessibilityElement()]
+12 |         if let role=node.accessibilityRole(){row["role"]=role.rawValue}
+13 |         if let label=node.accessibilityLabel(){row["label"]=label}
+   |                           `- error: value of type 'NSAccessibility' has no member 'accessibilityLabel'
+14 |         if let help=node.accessibilityHelp(){row["help"]=help}
+15 |         if let value=node.accessibilityValue() {
+
+/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v2/tool/History.swift:14:26: error: value of type 'NSAccessibility' has no member 'accessibilityHelp'
+12 |         if let role=node.accessibilityRole(){row["role"]=role.rawValue}
+13 |         if let label=node.accessibilityLabel(){row["label"]=label}
+14 |         if let help=node.accessibilityHelp(){row["help"]=help}
+   |                          `- error: value of type 'NSAccessibility' has no member 'accessibilityHelp'
+15 |         if let value=node.accessibilityValue() {
+16 |             if let text=value as? String{row["value"]=text}
+
+/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v2/tool/History.swift:15:27: error: value of type 'NSAccessibility' has no member 'accessibilityValue'
+13 |         if let label=node.accessibilityLabel(){row["label"]=label}
+14 |         if let help=node.accessibilityHelp(){row["help"]=help}
+15 |         if let value=node.accessibilityValue() {
+   |                           `- error: value of type 'NSAccessibility' has no member 'accessibilityValue'
+16 |             if let text=value as? String{row["value"]=text}
+17 |             else if let number=value as? NSNumber{row["value"]=number}
+
+/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v2/tool/History.swift:19:30: error: value of type 'NSAccessibility' has no member 'accessibilityChildren'
+17 |             else if let number=value as? NSNumber{row["value"]=number}
+18 |         }
+19 |         if let children=node.accessibilityChildren(){row["children"]=children.compactMap{visit($0,depth+1)}}
+   |                              `- error: value of type 'NSAccessibility' has no member 'accessibilityChildren'
+20 |         return row
+21 |     }

@@ -1,0 +1,61 @@
+[
+  {
+    "command": [
+      "swift",
+      "build",
+      "--package-path",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v1/source",
+      "--scratch-path",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v1/build",
+      "--jobs",
+      "2",
+      "--target",
+      "Sabella",
+      "--disable-automatic-resolution",
+      "-Xswiftc",
+      "-target",
+      "-Xswiftc",
+      "arm64-apple-macosx26.0"
+    ],
+    "log": "library-build.log",
+    "exitCode": 0,
+    "durationSeconds": 27.566794625017792
+  },
+  {
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v1/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v1/tool/Main.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v1/build/out/Products/Debug/Sabella.o",
+      "-framework",
+      "Charts",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v1/tool/NativeCharts"
+    ],
+    "log": "helper-build.log",
+    "exitCode": 0,
+    "durationSeconds": 1.5363536670338362
+  },
+  {
+    "command": [
+      "/usr/bin/time",
+      "-l",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v1/tool/NativeCharts",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v1/fixtures.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v1/output/pilot",
+      "--pilot",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "pilot-run.log",
+    "exitCode": 0,
+    "durationSeconds": 1.4505464578978717
+  }
+]

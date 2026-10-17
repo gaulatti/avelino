@@ -1318,3 +1318,16 @@ edges, the hidden-subtree image test failure and all corrected attempts remain
 reviewable with their exact code inputs. Native expectations and tolerances are
 unchanged. Complete fonts/raster/symbols/formatting, input timing, physical
 displays/input, readers and independent-machine reference replay remain pending.
+
+## Native chart source investigation
+
+The [chart source record](charts.md) covers all five chart families, line area,
+120 closed fixtures, 45 non-finite inputs, five finite controls, 12,480 sizing queries and 48
+retained-wrapper histories. All 5,238 ordinary outputs reproduce through a fresh source
+build and a source-only archive extraction. The 450 edge-case outputs stay in
+strict comparison; native NaN-bar variations remain failed and are preserved
+alongside a repeated-frame stability diagnostic. Public/probed/literal pixels agree;
+plot domains, frames, positions, category ranges and palette cycling remain in
+the raw data. The minimal hidden-window accessibility tree does not accept chart
+readers, pointer delivery or physical sessions. Linux chart implementation remains
+pending, with desktop coverage unchanged at 66/80 candidates and zero accepted.

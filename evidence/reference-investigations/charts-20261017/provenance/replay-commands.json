@@ -1,0 +1,1590 @@
+[
+  {
+    "command": [
+      "swift",
+      "build",
+      "--package-path",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/source",
+      "--scratch-path",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/build",
+      "--jobs",
+      "2",
+      "--target",
+      "Sabella",
+      "--disable-automatic-resolution",
+      "-Xswiftc",
+      "-target",
+      "-Xswiftc",
+      "arm64-apple-macosx26.0"
+    ],
+    "log": "library-build.log",
+    "exitCode": 0,
+    "durationSeconds": 28.221328207990155
+  },
+  {
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/Common.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/ClosedMain.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/History.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/build/out/Products/Debug/Sabella.o",
+      "-framework",
+      "Charts",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeCharts"
+    ],
+    "log": "helper-build.log",
+    "exitCode": 0,
+    "durationSeconds": 2.0980320000089705
+  },
+  {
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/Common.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/History.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/SizingMain.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/build/out/Products/Debug/Sabella.o",
+      "-framework",
+      "Charts",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing"
+    ],
+    "log": "sizing-build.log",
+    "exitCode": 0,
+    "durationSeconds": 1.9946391659323126
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/line-default.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-line-default",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-line-default.log",
+    "exitCode": 0,
+    "durationSeconds": 0.8944506660336629
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/line-empty.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-line-empty",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-line-empty.log",
+    "exitCode": 0,
+    "durationSeconds": 0.6895437079947442
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/line-singleton.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-line-singleton",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-line-singleton.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7381773330271244
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/line-zero-singleton.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-line-zero-singleton",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-line-zero-singleton.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7080373340286314
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/line-two.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-line-two",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-line-two.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7498107500141487
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/line-constant.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-line-constant",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-line-constant.log",
+    "exitCode": 0,
+    "durationSeconds": 0.737272166996263
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/line-zeroes.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-line-zeroes",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-line-zeroes.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7275510829640552
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/line-negative.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-line-negative",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-line-negative.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7491914998972788
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/line-mixed.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-line-mixed",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-line-mixed.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7285835410002619
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/line-fractions.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-line-fractions",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-line-fractions.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7618852499872446
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/line-large.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-line-large",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-line-large.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7275198749266565
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/line-rtl.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-line-rtl",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-line-rtl.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7448298329254612
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/line-disabled.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-line-disabled",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-line-disabled.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7467552500311285
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/line-font28.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-line-font28",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-line-font28.log",
+    "exitCode": 0,
+    "durationSeconds": 0.71269570896402
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/line-red-parent.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-line-red-parent",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-line-red-parent.log",
+    "exitCode": 0,
+    "durationSeconds": 0.728000667062588
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/line-narrow.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-line-narrow",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-line-narrow.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7578592089703307
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/line-wide.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-line-wide",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-line-wide.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7663519580382854
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/line-zero-frame.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-line-zero-frame",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-line-zero-frame.log",
+    "exitCode": 0,
+    "durationSeconds": 0.757676916080527
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/line-series-three.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-line-series-three",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-line-series-three.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7569715409772471
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/line-series-eight.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-line-series-eight",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-line-series-eight.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7840707920258865
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/line-unsorted.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-line-unsorted",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-line-unsorted.log",
+    "exitCode": 0,
+    "durationSeconds": 0.735504416981712
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/line-duplicate-x.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-line-duplicate-x",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-line-duplicate-x.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7555781250121072
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/line-negative-x.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-line-negative-x",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-line-negative-x.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7272611251100898
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/line-area-default.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-line-area-default",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-line-area-default.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7490292500006035
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/line-area-mixed.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-line-area-mixed",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-line-area-mixed.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7380826660664752
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/line-area-series-three.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-line-area-series-three",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-line-area-series-three.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7738543750019744
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/line-area-unsorted.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-line-area-unsorted",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-line-area-unsorted.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7465647079516202
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/bar-default.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-bar-default",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-bar-default.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7562767500057817
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/bar-empty.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-bar-empty",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-bar-empty.log",
+    "exitCode": 0,
+    "durationSeconds": 0.6978803749661893
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/bar-singleton.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-bar-singleton",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-bar-singleton.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7197729580802843
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/bar-zero-singleton.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-bar-zero-singleton",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-bar-zero-singleton.log",
+    "exitCode": 0,
+    "durationSeconds": 0.735082249972038
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/bar-two.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-bar-two",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-bar-two.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7604767499724403
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/bar-constant.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-bar-constant",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-bar-constant.log",
+    "exitCode": 0,
+    "durationSeconds": 0.782337374985218
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/bar-zeroes.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-bar-zeroes",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-bar-zeroes.log",
+    "exitCode": 0,
+    "durationSeconds": 0.81933966698125
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/bar-negative.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-bar-negative",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-bar-negative.log",
+    "exitCode": 0,
+    "durationSeconds": 0.8013151249615476
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/bar-mixed.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-bar-mixed",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-bar-mixed.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7756925830617547
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/bar-fractions.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-bar-fractions",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-bar-fractions.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7529475840274245
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/bar-large.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-bar-large",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-bar-large.log",
+    "exitCode": 0,
+    "durationSeconds": 0.8285195839125663
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/bar-rtl.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-bar-rtl",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-bar-rtl.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7828875420382246
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/bar-disabled.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-bar-disabled",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-bar-disabled.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7663444579811767
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/bar-font28.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-bar-font28",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-bar-font28.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7503698340151459
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/bar-red-parent.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-bar-red-parent",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-bar-red-parent.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7405218329513445
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/bar-narrow.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-bar-narrow",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-bar-narrow.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7674909579800442
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/bar-wide.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-bar-wide",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-bar-wide.log",
+    "exitCode": 0,
+    "durationSeconds": 0.759370542014949
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/bar-zero-frame.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-bar-zero-frame",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-bar-zero-frame.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7626214579213411
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/bar-series-three.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-bar-series-three",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-bar-series-three.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7559931250289083
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/bar-series-eight.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-bar-series-eight",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-bar-series-eight.log",
+    "exitCode": 0,
+    "durationSeconds": 0.8041630829684436
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/bar-stacked-mixed.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-bar-stacked-mixed",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-bar-stacked-mixed.log",
+    "exitCode": 0,
+    "durationSeconds": 0.746232291101478
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/bar-same-label.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-bar-same-label",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-bar-same-label.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7333314589923248
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/bar-long-labels.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-bar-long-labels",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-bar-long-labels.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7444845420541242
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/bar-unicode-labels.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-bar-unicode-labels",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-bar-unicode-labels.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7831480000168085
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/pie-default.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-pie-default",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-pie-default.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7120705420384184
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/pie-empty.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-pie-empty",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-pie-empty.log",
+    "exitCode": 0,
+    "durationSeconds": 0.68837720900774
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/pie-singleton.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-pie-singleton",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-pie-singleton.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7099018340231851
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/pie-zero-singleton.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-pie-zero-singleton",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-pie-zero-singleton.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7136206249706447
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/pie-two.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-pie-two",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-pie-two.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7144678750773892
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/pie-constant.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-pie-constant",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-pie-constant.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7056083750212565
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/pie-zeroes.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-pie-zeroes",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-pie-zeroes.log",
+    "exitCode": 0,
+    "durationSeconds": 0.708712333929725
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/pie-negative.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-pie-negative",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-pie-negative.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7057628339389339
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/pie-mixed.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-pie-mixed",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-pie-mixed.log",
+    "exitCode": 0,
+    "durationSeconds": 0.746296374942176
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/pie-fractions.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-pie-fractions",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-pie-fractions.log",
+    "exitCode": 0,
+    "durationSeconds": 0.715626958059147
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/pie-large.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-pie-large",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-pie-large.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7338416669517756
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/pie-rtl.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-pie-rtl",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-pie-rtl.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7232999159023166
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/pie-disabled.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-pie-disabled",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-pie-disabled.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7130954170133919
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/pie-font28.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-pie-font28",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-pie-font28.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7035246250452474
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/pie-red-parent.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-pie-red-parent",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-pie-red-parent.log",
+    "exitCode": 0,
+    "durationSeconds": 0.721333457971923
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/pie-narrow.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-pie-narrow",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-pie-narrow.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7154591659782454
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/pie-wide.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-pie-wide",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-pie-wide.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7250837079482153
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/pie-zero-frame.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-pie-zero-frame",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-pie-zero-frame.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7132418749388307
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/pie-series-three.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-pie-series-three",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-pie-series-three.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7205970420036465
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/pie-series-eight.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-pie-series-eight",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-pie-series-eight.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7430155000183731
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/pie-radius-0.25.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-pie-radius-0.25",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-pie-radius-0.25.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7157473330153152
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/pie-radius-0.58.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-pie-radius-0.58",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-pie-radius-0.58.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7652500419644639
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/pie-radius-1.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-pie-radius-1",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-pie-radius-1.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7479897079756483
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/pie-radius--0.2.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-pie-radius--0.2",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-pie-radius--0.2.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7303034160286188
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/pie-radius-1.2.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-pie-radius-1.2",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-pie-radius-1.2.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7416419169167057
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/pie-tiny-sector.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-pie-tiny-sector",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-pie-tiny-sector.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7178211249411106
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/scatter-default.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-scatter-default",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-scatter-default.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7295382500160486
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/scatter-empty.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-scatter-empty",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-scatter-empty.log",
+    "exitCode": 0,
+    "durationSeconds": 0.6968092499300838
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/scatter-singleton.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-scatter-singleton",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-scatter-singleton.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7165100000565872
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/scatter-zero-singleton.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-scatter-zero-singleton",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-scatter-zero-singleton.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7027959580300376
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/scatter-two.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-scatter-two",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-scatter-two.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7137505420250818
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/scatter-constant.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-scatter-constant",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-scatter-constant.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7437007080297917
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/scatter-zeroes.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-scatter-zeroes",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-scatter-zeroes.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7265133340843022
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/scatter-negative.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-scatter-negative",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-scatter-negative.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7255131250713021
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/scatter-mixed.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-scatter-mixed",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-scatter-mixed.log",
+    "exitCode": 0,
+    "durationSeconds": 0.745481290970929
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/scatter-fractions.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-scatter-fractions",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-scatter-fractions.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7518913749372587
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/scatter-large.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-scatter-large",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-scatter-large.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7487512090010568
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/scatter-rtl.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-scatter-rtl",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-scatter-rtl.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7363147500436753
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/scatter-disabled.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-scatter-disabled",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-scatter-disabled.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7385464160470292
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/scatter-font28.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-scatter-font28",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-scatter-font28.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7268709579948336
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/scatter-red-parent.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-scatter-red-parent",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-scatter-red-parent.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7321906250435859
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/scatter-narrow.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-scatter-narrow",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-scatter-narrow.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7459939999971539
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/scatter-wide.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-scatter-wide",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-scatter-wide.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7578244589967653
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/scatter-zero-frame.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-scatter-zero-frame",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-scatter-zero-frame.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7380385000724345
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/scatter-series-three.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-scatter-series-three",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-scatter-series-three.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7415946249384433
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/scatter-series-eight.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-scatter-series-eight",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-scatter-series-eight.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7605719580315053
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/scatter-unsorted.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-scatter-unsorted",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-scatter-unsorted.log",
+    "exitCode": 0,
+    "durationSeconds": 0.729432333027944
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/scatter-duplicate-x.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-scatter-duplicate-x",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-scatter-duplicate-x.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7267891250085086
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/scatter-negative-x.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-scatter-negative-x",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-scatter-negative-x.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7446322089526802
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/sparkline-default.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-sparkline-default",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-sparkline-default.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7192731250543147
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/sparkline-empty.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-sparkline-empty",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-sparkline-empty.log",
+    "exitCode": 0,
+    "durationSeconds": 0.6938733749557287
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/sparkline-singleton.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-sparkline-singleton",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-sparkline-singleton.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7124306249897927
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/sparkline-zero-singleton.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-sparkline-zero-singleton",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-sparkline-zero-singleton.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7116620410233736
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/sparkline-two.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-sparkline-two",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-sparkline-two.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7195936249336228
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/sparkline-constant.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-sparkline-constant",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-sparkline-constant.log",
+    "exitCode": 0,
+    "durationSeconds": 0.719095625099726
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/sparkline-zeroes.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-sparkline-zeroes",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-sparkline-zeroes.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7130982079543173
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/sparkline-negative.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-sparkline-negative",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-sparkline-negative.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7184304168913513
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/sparkline-mixed.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-sparkline-mixed",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-sparkline-mixed.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7195825829403475
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/sparkline-fractions.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-sparkline-fractions",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-sparkline-fractions.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7193501660367474
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/sparkline-large.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-sparkline-large",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-sparkline-large.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7249539169715717
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/sparkline-rtl.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-sparkline-rtl",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-sparkline-rtl.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7093216669745743
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/sparkline-disabled.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-sparkline-disabled",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-sparkline-disabled.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7251199160236865
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/sparkline-font28.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-sparkline-font28",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-sparkline-font28.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7142677080119029
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/sparkline-red-parent.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-sparkline-red-parent",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-sparkline-red-parent.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7155023749219254
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/sparkline-narrow.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-sparkline-narrow",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-sparkline-narrow.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7105837089475244
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/sparkline-wide.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-sparkline-wide",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-sparkline-wide.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7391844160156325
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/sparkline-zero-frame.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-sparkline-zero-frame",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-sparkline-zero-frame.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7125111250206828
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/sparkline-series-three.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-sparkline-series-three",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-sparkline-series-three.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7277418749872595
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/sparkline-series-eight.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/sizing-sparkline-series-eight",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "sizing-sparkline-series-eight.log",
+    "exitCode": 0,
+    "durationSeconds": 0.7212763749994338
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeCharts",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/line-default.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/history-line-default",
+      "--history",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "history-line-default.log",
+    "exitCode": 0,
+    "durationSeconds": 15.7449454999296
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeCharts",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/line-area-default.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/history-line-area-default",
+      "--history",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "history-line-area-default.log",
+    "exitCode": 0,
+    "durationSeconds": 15.93361416598782
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeCharts",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/bar-default.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/history-bar-default",
+      "--history",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "history-bar-default.log",
+    "exitCode": 0,
+    "durationSeconds": 15.927027874975465
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeCharts",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/pie-default.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/history-pie-default",
+      "--history",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "history-pie-default.log",
+    "exitCode": 0,
+    "durationSeconds": 15.493592250044458
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeCharts",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/scatter-default.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/history-scatter-default",
+      "--history",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "history-scatter-default.log",
+    "exitCode": 0,
+    "durationSeconds": 15.651515208068304
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeCharts",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/sparkline-default.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/output/history-sparkline-default",
+      "--history",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "history-sparkline-default.log",
+    "exitCode": 0,
+    "durationSeconds": 15.381448167026974
+  }
+]

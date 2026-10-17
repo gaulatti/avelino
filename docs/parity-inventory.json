@@ -11367,9 +11367,385 @@
           "line": 16
         },
         "implementation": [],
-        "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
+        "caseDiscovery": "24 closed fixtures and 7 edge/control fixtures across eight native contexts; source-only plot/style/sizing observations and retained-wrapper restoration. Public/probed/literal pixels agree and ordinary clean-source plus archive outputs reproduce exactly; NaN-bar input variations remain failed in the complete edge comparison. Linux implementation, native input/timing, physical displays and readers remain pending.",
+        "cases": [
+          {
+            "id": "BleeckerBarChart-native-bar-default",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-bar-default/bar-default-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerBarChart-native-bar-empty",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-bar-empty/bar-empty-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerBarChart-native-bar-singleton",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-bar-singleton/bar-singleton-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerBarChart-native-bar-zero-singleton",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-bar-zero-singleton/bar-zero-singleton-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerBarChart-native-bar-two",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-bar-two/bar-two-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerBarChart-native-bar-constant",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-bar-constant/bar-constant-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerBarChart-native-bar-zeroes",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-bar-zeroes/bar-zeroes-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerBarChart-native-bar-negative",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-bar-negative/bar-negative-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerBarChart-native-bar-mixed",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-bar-mixed/bar-mixed-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerBarChart-native-bar-fractions",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-bar-fractions/bar-fractions-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerBarChart-native-bar-large",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-bar-large/bar-large-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerBarChart-native-bar-rtl",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-bar-rtl/bar-rtl-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerBarChart-native-bar-disabled",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-bar-disabled/bar-disabled-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerBarChart-native-bar-font28",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-bar-font28/bar-font28-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerBarChart-native-bar-red-parent",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-bar-red-parent/bar-red-parent-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerBarChart-native-bar-narrow",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-bar-narrow/bar-narrow-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerBarChart-native-bar-wide",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-bar-wide/bar-wide-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerBarChart-native-bar-zero-frame",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-bar-zero-frame/bar-zero-frame-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerBarChart-native-bar-series-three",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-bar-series-three/bar-series-three-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerBarChart-native-bar-series-eight",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-bar-series-eight/bar-series-eight-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerBarChart-native-bar-stacked-mixed",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-bar-stacked-mixed/bar-stacked-mixed-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerBarChart-native-bar-same-label",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-bar-same-label/bar-same-label-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerBarChart-native-bar-long-labels",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-bar-long-labels/bar-long-labels-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerBarChart-native-bar-unicode-labels",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-bar-unicode-labels/bar-unicode-labels-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerBarChart-edge-bar-finite-control",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/bar-finite-control/bar-finite-control-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerBarChart-edge-bar-y-nan-one",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/bar-y-nan-one/bar-y-nan-one-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerBarChart-edge-bar-y-nan-all",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/bar-y-nan-all/bar-y-nan-all-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerBarChart-edge-bar-y-positive-infinity-one",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/bar-y-positive-infinity-one/bar-y-positive-infinity-one-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerBarChart-edge-bar-y-positive-infinity-all",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/bar-y-positive-infinity-all/bar-y-positive-infinity-all-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerBarChart-edge-bar-y-negative-infinity-one",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/bar-y-negative-infinity-one/bar-y-negative-infinity-one-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerBarChart-edge-bar-y-negative-infinity-all",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/bar-y-negative-infinity-all/bar-y-negative-infinity-all-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          }
+        ],
+        "tests": [
+          "scripts/verify-charts-source.py",
+          "tests/contracts/test_charts_source.py"
+        ],
         "captures": [],
         "comparisonResults": [],
         "exceptions": [],
@@ -11402,7 +11778,8 @@
             "status": "pending",
             "evidence": []
           }
-        }
+        },
+        "sourceInvestigation": "evidence/reference-investigations/charts-20261017/investigation.json"
       },
       {
         "id": "BleeckerBauhausBackground",
@@ -39818,9 +40195,493 @@
           "line": 10
         },
         "implementation": [],
-        "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
+        "caseDiscovery": "27 closed fixtures and 13 edge/control fixtures across eight native contexts; source-only plot/style/sizing observations and retained-wrapper restoration. Public/probed/literal pixels agree and ordinary clean-source plus archive outputs reproduce exactly; NaN-bar input variations remain failed in the complete edge comparison. Linux implementation, native input/timing, physical displays and readers remain pending.",
+        "cases": [
+          {
+            "id": "BleeckerLineChart-native-line-default",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-line-default/line-default-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-native-line-empty",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-line-empty/line-empty-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-native-line-singleton",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-line-singleton/line-singleton-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-native-line-zero-singleton",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-line-zero-singleton/line-zero-singleton-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-native-line-two",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-line-two/line-two-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-native-line-constant",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-line-constant/line-constant-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-native-line-zeroes",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-line-zeroes/line-zeroes-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-native-line-negative",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-line-negative/line-negative-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-native-line-mixed",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-line-mixed/line-mixed-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-native-line-fractions",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-line-fractions/line-fractions-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-native-line-large",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-line-large/line-large-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-native-line-rtl",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-line-rtl/line-rtl-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-native-line-disabled",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-line-disabled/line-disabled-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-native-line-font28",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-line-font28/line-font28-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-native-line-red-parent",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-line-red-parent/line-red-parent-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-native-line-narrow",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-line-narrow/line-narrow-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-native-line-wide",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-line-wide/line-wide-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-native-line-zero-frame",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-line-zero-frame/line-zero-frame-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-native-line-series-three",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-line-series-three/line-series-three-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-native-line-series-eight",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-line-series-eight/line-series-eight-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-native-line-unsorted",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-line-unsorted/line-unsorted-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-native-line-duplicate-x",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-line-duplicate-x/line-duplicate-x-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-native-line-negative-x",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-line-negative-x/line-negative-x-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-native-line-area-default",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-line-area-default/line-area-default-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-native-line-area-mixed",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-line-area-mixed/line-area-mixed-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-native-line-area-series-three",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-line-area-series-three/line-area-series-three-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-native-line-area-unsorted",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-line-area-unsorted/line-area-unsorted-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-edge-line-finite-control",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/line-finite-control/line-finite-control-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-edge-line-y-nan-one",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/line-y-nan-one/line-y-nan-one-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-edge-line-y-nan-all",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/line-y-nan-all/line-y-nan-all-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-edge-line-y-positive-infinity-one",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/line-y-positive-infinity-one/line-y-positive-infinity-one-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-edge-line-y-positive-infinity-all",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/line-y-positive-infinity-all/line-y-positive-infinity-all-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-edge-line-y-negative-infinity-one",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/line-y-negative-infinity-one/line-y-negative-infinity-one-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-edge-line-y-negative-infinity-all",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/line-y-negative-infinity-all/line-y-negative-infinity-all-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-edge-line-x-nan-one",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/line-x-nan-one/line-x-nan-one-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-edge-line-x-nan-all",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/line-x-nan-all/line-x-nan-all-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-edge-line-x-positive-infinity-one",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/line-x-positive-infinity-one/line-x-positive-infinity-one-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-edge-line-x-positive-infinity-all",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/line-x-positive-infinity-all/line-x-positive-infinity-all-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-edge-line-x-negative-infinity-one",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/line-x-negative-infinity-one/line-x-negative-infinity-one-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerLineChart-edge-line-x-negative-infinity-all",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/line-x-negative-infinity-all/line-x-negative-infinity-all-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          }
+        ],
+        "tests": [
+          "scripts/verify-charts-source.py",
+          "tests/contracts/test_charts_source.py"
+        ],
         "captures": [],
         "comparisonResults": [],
         "exceptions": [],
@@ -39853,7 +40714,8 @@
             "status": "pending",
             "evidence": []
           }
-        }
+        },
+        "sourceInvestigation": "evidence/reference-investigations/charts-20261017/investigation.json"
       },
       {
         "id": "BleeckerLoadingOverlay",
@@ -55024,9 +55886,445 @@
           "line": 22
         },
         "implementation": [],
-        "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
+        "caseDiscovery": "26 closed fixtures and 10 edge/control fixtures across eight native contexts; source-only plot/style/sizing observations and retained-wrapper restoration. Public/probed/literal pixels agree and ordinary clean-source plus archive outputs reproduce exactly; NaN-bar input variations remain failed in the complete edge comparison. Linux implementation, native input/timing, physical displays and readers remain pending.",
+        "cases": [
+          {
+            "id": "BleeckerPieChart-native-pie-default",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-pie-default/pie-default-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerPieChart-native-pie-empty",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-pie-empty/pie-empty-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerPieChart-native-pie-singleton",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-pie-singleton/pie-singleton-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerPieChart-native-pie-zero-singleton",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-pie-zero-singleton/pie-zero-singleton-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerPieChart-native-pie-two",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-pie-two/pie-two-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerPieChart-native-pie-constant",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-pie-constant/pie-constant-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerPieChart-native-pie-zeroes",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-pie-zeroes/pie-zeroes-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerPieChart-native-pie-negative",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-pie-negative/pie-negative-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerPieChart-native-pie-mixed",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-pie-mixed/pie-mixed-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerPieChart-native-pie-fractions",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-pie-fractions/pie-fractions-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerPieChart-native-pie-large",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-pie-large/pie-large-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerPieChart-native-pie-rtl",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-pie-rtl/pie-rtl-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerPieChart-native-pie-disabled",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-pie-disabled/pie-disabled-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerPieChart-native-pie-font28",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-pie-font28/pie-font28-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerPieChart-native-pie-red-parent",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-pie-red-parent/pie-red-parent-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerPieChart-native-pie-narrow",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-pie-narrow/pie-narrow-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerPieChart-native-pie-wide",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-pie-wide/pie-wide-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerPieChart-native-pie-zero-frame",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-pie-zero-frame/pie-zero-frame-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerPieChart-native-pie-series-three",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-pie-series-three/pie-series-three-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerPieChart-native-pie-series-eight",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-pie-series-eight/pie-series-eight-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerPieChart-native-pie-radius-0.25",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-pie-radius-0.25/pie-radius-0.25-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerPieChart-native-pie-radius-0.58",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-pie-radius-0.58/pie-radius-0.58-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerPieChart-native-pie-radius-1",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-pie-radius-1/pie-radius-1-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerPieChart-native-pie-radius--0.2",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-pie-radius--0.2/pie-radius--0.2-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerPieChart-native-pie-radius-1.2",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-pie-radius-1.2/pie-radius-1.2-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerPieChart-native-pie-tiny-sector",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-pie-tiny-sector/pie-tiny-sector-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerPieChart-edge-pie-finite-control",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/pie-finite-control/pie-finite-control-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerPieChart-edge-pie-y-nan-one",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/pie-y-nan-one/pie-y-nan-one-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerPieChart-edge-pie-y-nan-all",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/pie-y-nan-all/pie-y-nan-all-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerPieChart-edge-pie-y-positive-infinity-one",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/pie-y-positive-infinity-one/pie-y-positive-infinity-one-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerPieChart-edge-pie-y-positive-infinity-all",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/pie-y-positive-infinity-all/pie-y-positive-infinity-all-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerPieChart-edge-pie-y-negative-infinity-one",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/pie-y-negative-infinity-one/pie-y-negative-infinity-one-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerPieChart-edge-pie-y-negative-infinity-all",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/pie-y-negative-infinity-all/pie-y-negative-infinity-all-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerPieChart-edge-pie-radius-nan",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/pie-radius-nan/pie-radius-nan-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerPieChart-edge-pie-radius-positive-infinity",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/pie-radius-positive-infinity/pie-radius-positive-infinity-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerPieChart-edge-pie-radius-negative-infinity",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/pie-radius-negative-infinity/pie-radius-negative-infinity-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          }
+        ],
+        "tests": [
+          "scripts/verify-charts-source.py",
+          "tests/contracts/test_charts_source.py"
+        ],
         "captures": [],
         "comparisonResults": [],
         "exceptions": [],
@@ -55059,7 +56357,8 @@
             "status": "pending",
             "evidence": []
           }
-        }
+        },
+        "sourceInvestigation": "evidence/reference-investigations/charts-20261017/investigation.json"
       },
       {
         "id": "BleeckerProgress",
@@ -61780,9 +63079,445 @@
           "line": 28
         },
         "implementation": [],
-        "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
+        "caseDiscovery": "23 closed fixtures and 13 edge/control fixtures across eight native contexts; source-only plot/style/sizing observations and retained-wrapper restoration. Public/probed/literal pixels agree and ordinary clean-source plus archive outputs reproduce exactly; NaN-bar input variations remain failed in the complete edge comparison. Linux implementation, native input/timing, physical displays and readers remain pending.",
+        "cases": [
+          {
+            "id": "BleeckerScatterChart-native-scatter-default",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-scatter-default/scatter-default-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerScatterChart-native-scatter-empty",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-scatter-empty/scatter-empty-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerScatterChart-native-scatter-singleton",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-scatter-singleton/scatter-singleton-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerScatterChart-native-scatter-zero-singleton",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-scatter-zero-singleton/scatter-zero-singleton-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerScatterChart-native-scatter-two",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-scatter-two/scatter-two-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerScatterChart-native-scatter-constant",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-scatter-constant/scatter-constant-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerScatterChart-native-scatter-zeroes",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-scatter-zeroes/scatter-zeroes-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerScatterChart-native-scatter-negative",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-scatter-negative/scatter-negative-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerScatterChart-native-scatter-mixed",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-scatter-mixed/scatter-mixed-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerScatterChart-native-scatter-fractions",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-scatter-fractions/scatter-fractions-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerScatterChart-native-scatter-large",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-scatter-large/scatter-large-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerScatterChart-native-scatter-rtl",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-scatter-rtl/scatter-rtl-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerScatterChart-native-scatter-disabled",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-scatter-disabled/scatter-disabled-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerScatterChart-native-scatter-font28",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-scatter-font28/scatter-font28-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerScatterChart-native-scatter-red-parent",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-scatter-red-parent/scatter-red-parent-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerScatterChart-native-scatter-narrow",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-scatter-narrow/scatter-narrow-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerScatterChart-native-scatter-wide",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-scatter-wide/scatter-wide-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerScatterChart-native-scatter-zero-frame",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-scatter-zero-frame/scatter-zero-frame-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerScatterChart-native-scatter-series-three",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-scatter-series-three/scatter-series-three-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerScatterChart-native-scatter-series-eight",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-scatter-series-eight/scatter-series-eight-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerScatterChart-native-scatter-unsorted",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-scatter-unsorted/scatter-unsorted-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerScatterChart-native-scatter-duplicate-x",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-scatter-duplicate-x/scatter-duplicate-x-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerScatterChart-native-scatter-negative-x",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-scatter-negative-x/scatter-negative-x-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerScatterChart-edge-scatter-finite-control",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/scatter-finite-control/scatter-finite-control-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerScatterChart-edge-scatter-y-nan-one",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/scatter-y-nan-one/scatter-y-nan-one-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerScatterChart-edge-scatter-y-nan-all",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/scatter-y-nan-all/scatter-y-nan-all-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerScatterChart-edge-scatter-y-positive-infinity-one",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/scatter-y-positive-infinity-one/scatter-y-positive-infinity-one-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerScatterChart-edge-scatter-y-positive-infinity-all",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/scatter-y-positive-infinity-all/scatter-y-positive-infinity-all-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerScatterChart-edge-scatter-y-negative-infinity-one",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/scatter-y-negative-infinity-one/scatter-y-negative-infinity-one-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerScatterChart-edge-scatter-y-negative-infinity-all",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/scatter-y-negative-infinity-all/scatter-y-negative-infinity-all-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerScatterChart-edge-scatter-x-nan-one",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/scatter-x-nan-one/scatter-x-nan-one-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerScatterChart-edge-scatter-x-nan-all",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/scatter-x-nan-all/scatter-x-nan-all-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerScatterChart-edge-scatter-x-positive-infinity-one",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/scatter-x-positive-infinity-one/scatter-x-positive-infinity-one-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerScatterChart-edge-scatter-x-positive-infinity-all",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/scatter-x-positive-infinity-all/scatter-x-positive-infinity-all-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerScatterChart-edge-scatter-x-negative-infinity-one",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/scatter-x-negative-infinity-one/scatter-x-negative-infinity-one-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerScatterChart-edge-scatter-x-negative-infinity-all",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/scatter-x-negative-infinity-all/scatter-x-negative-infinity-all-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          }
+        ],
+        "tests": [
+          "scripts/verify-charts-source.py",
+          "tests/contracts/test_charts_source.py"
+        ],
         "captures": [],
         "comparisonResults": [],
         "exceptions": [],
@@ -61815,7 +63550,8 @@
             "status": "pending",
             "evidence": []
           }
-        }
+        },
+        "sourceInvestigation": "evidence/reference-investigations/charts-20261017/investigation.json"
       },
       {
         "id": "BleeckerSearchField",
@@ -68355,9 +70091,337 @@
           "line": 34
         },
         "implementation": [],
-        "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
+        "caseDiscovery": "20 closed fixtures and 7 edge/control fixtures across eight native contexts; source-only plot/style/sizing observations and retained-wrapper restoration. Public/probed/literal pixels agree and ordinary clean-source plus archive outputs reproduce exactly; NaN-bar input variations remain failed in the complete edge comparison. Linux implementation, native input/timing, physical displays and readers remain pending.",
+        "cases": [
+          {
+            "id": "BleeckerSparkline-native-sparkline-default",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-sparkline-default/sparkline-default-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerSparkline-native-sparkline-empty",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-sparkline-empty/sparkline-empty-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerSparkline-native-sparkline-singleton",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-sparkline-singleton/sparkline-singleton-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerSparkline-native-sparkline-zero-singleton",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-sparkline-zero-singleton/sparkline-zero-singleton-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerSparkline-native-sparkline-two",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-sparkline-two/sparkline-two-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerSparkline-native-sparkline-constant",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-sparkline-constant/sparkline-constant-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerSparkline-native-sparkline-zeroes",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-sparkline-zeroes/sparkline-zeroes-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerSparkline-native-sparkline-negative",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-sparkline-negative/sparkline-negative-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerSparkline-native-sparkline-mixed",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-sparkline-mixed/sparkline-mixed-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerSparkline-native-sparkline-fractions",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-sparkline-fractions/sparkline-fractions-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerSparkline-native-sparkline-large",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-sparkline-large/sparkline-large-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerSparkline-native-sparkline-rtl",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-sparkline-rtl/sparkline-rtl-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerSparkline-native-sparkline-disabled",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-sparkline-disabled/sparkline-disabled-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerSparkline-native-sparkline-font28",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-sparkline-font28/sparkline-font28-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerSparkline-native-sparkline-red-parent",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-sparkline-red-parent/sparkline-red-parent-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerSparkline-native-sparkline-narrow",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-sparkline-narrow/sparkline-narrow-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerSparkline-native-sparkline-wide",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-sparkline-wide/sparkline-wide-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerSparkline-native-sparkline-zero-frame",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-sparkline-zero-frame/sparkline-zero-frame-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerSparkline-native-sparkline-series-three",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-sparkline-series-three/sparkline-series-three-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerSparkline-native-sparkline-series-eight",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/captures/closed-sparkline-series-eight/sparkline-series-eight-light-text1.0-dpr1.0-mode0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/fixtures.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerSparkline-edge-sparkline-finite-control",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/sparkline-finite-control/sparkline-finite-control-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerSparkline-edge-sparkline-y-nan-one",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/sparkline-y-nan-one/sparkline-y-nan-one-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerSparkline-edge-sparkline-y-nan-all",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/sparkline-y-nan-all/sparkline-y-nan-all-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerSparkline-edge-sparkline-y-positive-infinity-one",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/sparkline-y-positive-infinity-one/sparkline-y-positive-infinity-one-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerSparkline-edge-sparkline-y-positive-infinity-all",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/sparkline-y-positive-infinity-all/sparkline-y-positive-infinity-all-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerSparkline-edge-sparkline-y-negative-infinity-one",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/sparkline-y-negative-infinity-one/sparkline-y-negative-infinity-one-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          },
+          {
+            "id": "BleeckerSparkline-edge-sparkline-y-negative-infinity-all",
+            "status": "pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/charts-20261017/edges/sparkline-y-negative-infinity-all/sparkline-y-negative-infinity-all-light-text1.0-dpr1.0.png",
+            "evidence": [
+              "docs/charts.md",
+              "evidence/reference-investigations/charts-20261017/investigation.json",
+              "evidence/reference-investigations/charts-20261017/edge-cases.json"
+            ],
+            "notes": "Native source observations only. Linux implementation and comparison, input timing, physical sessions and actual readers remain pending."
+          }
+        ],
+        "tests": [
+          "scripts/verify-charts-source.py",
+          "tests/contracts/test_charts_source.py"
+        ],
         "captures": [],
         "comparisonResults": [],
         "exceptions": [],
@@ -68390,7 +70454,8 @@
             "status": "pending",
             "evidence": []
           }
-        }
+        },
+        "sourceInvestigation": "evidence/reference-investigations/charts-20261017/investigation.json"
       },
       {
         "id": "BleeckerStatCard",

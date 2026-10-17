@@ -51,6 +51,7 @@ jobs:
       - run: python3 scripts/verify-surface-supplement-candidate.py
       - run: python3 scripts/verify-surface-stroke-dense.py
       - run: python3 scripts/verify-pill-modifier-source.py
+      - run: python3 scripts/verify-charts-source.py
       - run: python3 scripts/verify-pill-modifier-candidate.py
       - run: python3 scripts/verify-pill-marker-raster.py evidence/development/pill-modifier-20261017/native-marker-raster.json --check
       - run: python3 scripts/generate-pill-witnesses.py --check

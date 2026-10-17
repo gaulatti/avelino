@@ -1,0 +1,72 @@
+[
+  {
+    "command": [
+      "swift",
+      "build",
+      "--package-path",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/source",
+      "--scratch-path",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/build",
+      "--jobs",
+      "2",
+      "--target",
+      "Sabella",
+      "--disable-automatic-resolution",
+      "-Xswiftc",
+      "-target",
+      "-Xswiftc",
+      "arm64-apple-macosx26.0"
+    ],
+    "log": "library-build.log",
+    "exitCode": 0,
+    "durationSeconds": 28.221328207990155
+  },
+  {
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/Common.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/ClosedMain.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/History.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/build/out/Products/Debug/Sabella.o",
+      "-framework",
+      "Charts",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeCharts"
+    ],
+    "log": "helper-build.log",
+    "exitCode": 0,
+    "durationSeconds": 2.0980320000089705
+  },
+  {
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/Common.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/History.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/SizingMain.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/build/out/Products/Debug/Sabella.o",
+      "-framework",
+      "Charts",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeSizing"
+    ],
+    "log": "sizing-build.log",
+    "exitCode": 0,
+    "durationSeconds": 1.9946391659323126
+  }
+]

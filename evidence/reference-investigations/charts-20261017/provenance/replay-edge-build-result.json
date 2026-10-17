@@ -1,0 +1,22 @@
+{
+  "command": [
+    "xcrun",
+    "swiftc",
+    "-parse-as-library",
+    "-swift-version",
+    "6",
+    "-target",
+    "arm64-apple-macosx26.0",
+    "-I",
+    "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/build/out/Products/Debug",
+    "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/Common.swift",
+    "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/History.swift",
+    "/Users/gaulatti/.codex/tmp/avelino-charts-edge-20261017-v2/tool/EdgeMain.swift",
+    "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/build/out/Products/Debug/Sabella.o",
+    "-framework",
+    "Charts",
+    "-o",
+    "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/tool/NativeEdges"
+  ],
+  "exitCode": 0
+}
