@@ -143,6 +143,12 @@ brings the installed gallery to 28/28 exact operator states and preserves visibl
 badges at both pixel ratios. Native symbols, label fitting, sizing, keyboard timing,
 accessibility, physical displays and readers remain pending.
 
+The [command spotlight native record](docs/command-spotlight.md) preserves its
+fixed 520 by 380 surface, caller-owned query and lazy rows. Its public, probed and
+literal witnesses agree at 256 closed contexts and 1,536 retained steps. The
+source-only replay reproduces all 5,381 outputs. Linux implementation is pending;
+desktop candidate coverage remains 73/80 with zero accepted APIs.
+
 The [surface modifier](docs/surface-modifier.md) decorates flat callers separately
 and explicit stacks as one caller, preserving caller state, font inheritance and
 input. Its complete 416-context comparison has 36 exact pixel/frame matches, 376

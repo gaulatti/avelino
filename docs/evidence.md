@@ -1414,3 +1414,24 @@ separate.
 The final supplemental build passes all 37 Qt targets, including the two new
 retained-raster targets. References CI runs `scripts/verify-app-tabs-raster.py`
 and the six additional evidence guard contracts.
+
+## CommandSpotlight native source investigation
+
+The [native record](../evidence/reference-investigations/command-spotlight-20261017/investigation.json)
+contains 256 closed contexts, 64 retained histories and 11,520 direct sizing
+responses. All 256 closed and 1,536 retained public/probed/literal image, state
+and common geometry witnesses agree. Every direct size response is 520 by 380.
+A fresh source-only replay reproduces all 5,381 outputs, including 5,376 PNGs,
+and leaves all 89 pinned source files unchanged. All Apple source, capture tools
+and source-only archives remain external; tracked provenance contains hashes.
+
+Local events in inactive offscreen windows record 128 public key attempts and
+64 clear-button clicks whose targets are measured from native query images.
+The source does not filter rows or dispatch their actions. Caller state in the
+80-row button sequence survives empty/restore at two, then advances to three;
+the three-row sequence resets. Its eight changed restore images are preserved
+as caller state. The initial focus-interfering pilot and corrected pilot remain
+under diagnostics. Native input timing, generic identity, lazy state, physical
+displays, accessibility hierarchy, readers and independent-machine availability
+remain pending. Linux implementation is still pending, keeping desktop candidate
+coverage at 73/80 and fully accepted APIs at zero.

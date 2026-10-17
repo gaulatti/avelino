@@ -1,0 +1,52 @@
+[
+  {
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-app-tabs-source-replay-20261017-v1/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-native-20261017-v2/tool/SpotlightCommon.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-native-20261017-v2/tool/Accessibility.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-native-20261017-v2/tool/SpotlightMain.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-native-20261017-v2/tool/SpotlightSizing.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-app-tabs-source-replay-20261017-v1/build/out/Products/Debug/Sabella.o",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-native-20261017-v2/tool/NativeSpotlight"
+    ],
+    "exitCode": 0,
+    "seconds": 2.6539106249110773,
+    "log": "helper-build.log"
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-native-20261017-v2/tool/NativeSpotlight",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-native-20261017-v2/fixtures.json",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-native-20261017-v2/pilot-output",
+      "--pilot",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "exitCode": 0,
+    "seconds": 15.483755916007794,
+    "log": "pilot-output.log"
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-native-20261017-v2/tool/NativeSpotlight",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-native-20261017-v2/histories.json",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-native-20261017-v2/pilot-histories",
+      "--pilot",
+      "--histories",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "exitCode": 0,
+    "seconds": 67.39096845802851,
+    "log": "pilot-histories.log"
+  }
+]

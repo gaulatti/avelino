@@ -1,0 +1,113 @@
+[
+  {
+    "command": [
+      "swift",
+      "build",
+      "--package-path",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-source-replay-20261017-v1/source",
+      "--scratch-path",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-source-replay-20261017-v1/build",
+      "--jobs",
+      "2",
+      "--target",
+      "Sabella",
+      "--disable-automatic-resolution",
+      "-Xswiftc",
+      "-target",
+      "-Xswiftc",
+      "arm64-apple-macosx26.0"
+    ],
+    "exitCode": 0,
+    "seconds": 29.52501199999824,
+    "log": "library-build.log"
+  },
+  {
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-source-replay-20261017-v1/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-source-replay-20261017-v1/tool/SpotlightCommon.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-source-replay-20261017-v1/tool/Accessibility.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-source-replay-20261017-v1/tool/SpotlightMain.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-source-replay-20261017-v1/tool/SpotlightSizing.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-source-replay-20261017-v1/build/out/Products/Debug/Sabella.o",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-source-replay-20261017-v1/tool/NativeSpotlight"
+    ],
+    "exitCode": 0,
+    "seconds": 2.975461333990097,
+    "log": "helper-build.log"
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-source-replay-20261017-v1/tool/NativeSpotlight",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-source-replay-20261017-v1/fixtures.json",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-source-replay-20261017-v1/output",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "exitCode": 0,
+    "seconds": 137.23757441702764,
+    "log": "output.log"
+  },
+  {
+    "command": [
+      "/private/tmp/avelino-resume-visuals-20261015/bin/python",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-source-replay-20261017-v1/measure-clear.py",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-source-replay-20261017-v1/output",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-source-replay-20261017-v1/clear-targets.json"
+    ],
+    "exitCode": 0,
+    "seconds": 0.3666927079902962,
+    "log": "clear-targets.log"
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-source-replay-20261017-v1/tool/NativeSpotlight",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-source-replay-20261017-v1/histories.json",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-source-replay-20261017-v1/history-output",
+      "--histories",
+      "--clear-targets",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-source-replay-20261017-v1/clear-targets.json",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "exitCode": 0,
+    "seconds": 901.7815085840411,
+    "log": "history-output.log"
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-source-replay-20261017-v1/tool/NativeSpotlight",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-source-replay-20261017-v1/fixtures.json",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-source-replay-20261017-v1/sizing-output",
+      "--sizing",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "exitCode": 0,
+    "seconds": 83.21701237501111,
+    "log": "sizing-output.log"
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-source-replay-20261017-v1/tool/NativeSpotlight",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-source-replay-20261017-v1/supplementary-histories.json",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-source-replay-20261017-v1/supplementary-history-output",
+      "--histories",
+      "--clear-targets",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-source-replay-20261017-v1/clear-targets.json",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "exitCode": 0,
+    "seconds": 133.60277474997565,
+    "log": "supplementary-history-output.log"
+  }
+]

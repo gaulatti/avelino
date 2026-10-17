@@ -53,6 +53,12 @@ makes all 28 retained gallery states match fresh processes at DPR 1 and 2.
 badge pixels, independently of fresh-versus-retained equality. The original
 disabled failures and discarded ordinary-layer attempts remain preserved.
 
+The [command spotlight source investigation](command-spotlight.md) precedes its
+Linux implementation. It records fixed sizing, caller query ownership, local
+field events, measured clear-button targets and retained row state. Run
+`python3 scripts/verify-command-spotlight-source.py` to audit the native record;
+these observations do not increment candidate coverage or close Linux gates.
+
 Every Linux capture links an environment record with source revision, dirty-tree
 state, exact source/resource hashes, compiler, Qt, CMake, and installed package
 versions. The image metadata also records the actual renderer API and resolved

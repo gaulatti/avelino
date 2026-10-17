@@ -1,0 +1,51 @@
+[
+  {
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-app-tabs-source-replay-20261017-v1/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-native-20261017-v1/tool/SpotlightCommon.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-native-20261017-v1/tool/Accessibility.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-native-20261017-v1/tool/SpotlightMain.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-app-tabs-source-replay-20261017-v1/build/out/Products/Debug/Sabella.o",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-native-20261017-v1/tool/NativeSpotlight"
+    ],
+    "exitCode": 0,
+    "seconds": 4.605518875061534,
+    "log": "helper-build.log"
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-native-20261017-v1/tool/NativeSpotlight",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-native-20261017-v1/fixtures.json",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-native-20261017-v1/pilot-output",
+      "--pilot",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "exitCode": 0,
+    "seconds": 14.880018207943067,
+    "log": "pilot-output.log"
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-native-20261017-v1/tool/NativeSpotlight",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-native-20261017-v1/histories.json",
+      "/Users/gaulatti/.codex/tmp/avelino-command-spotlight-native-20261017-v1/pilot-histories",
+      "--pilot",
+      "--histories",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "exitCode": 0,
+    "seconds": 57.645638999994844,
+    "log": "pilot-histories.log"
+  }
+]
