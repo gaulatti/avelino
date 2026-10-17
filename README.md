@@ -135,6 +135,10 @@ difference; Linux direct sizing remains unobserved. Fractional/text geometry,
 lazy height estimates, fonts/raster, native input timing,
 physical displays and readers remain pending; no mirror acceptance is claimed.
 
+The [desktop app tab bar reference](docs/app-tabs.md) records compact icon/label
+layout and caller-owned selection before Linux implementation. Native accessibility
+children and focused keyboard behavior remain unobserved. Coverage is unchanged.
+
 The [surface modifier](docs/surface-modifier.md) decorates flat callers separately
 and explicit stacks as one caller, preserving caller state, font inheritance and
 input. Its complete 416-context comparison has 36 exact pixel/frame matches, 376

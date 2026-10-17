@@ -10531,10 +10531,15 @@
           "line": 87
         },
         "implementation": [],
-        "caseDiscovery": "pending",
+        "caseDiscovery": "native source investigation; Linux fixture discovery pending",
         "cases": [],
-        "tests": [],
-        "captures": [],
+        "tests": [
+          "scripts/verify-app-tabs-source.py",
+          "tests/contracts/test_app_tabs_source.py"
+        ],
+        "captures": [
+          "evidence/reference-investigations/app-tabs-20261017/investigation.json"
+        ],
         "comparisonResults": [],
         "exceptions": [],
         "runtimeGates": {

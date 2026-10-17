@@ -1,0 +1,55 @@
+/Users/gaulatti/.codex/tmp/avelino-app-tabs-native-20261017-v1/tool/TabsCommon.swift:14:5: error: let 'strings' is not concurrency-safe because non-'Sendable' type 'Codec<String>' may have shared mutable state [#MutableGlobalVariable]
+ 11 | func rect(_ r:CGRect)->[String:Double] {["x":r.minX,"y":r.minY,"width":r.width,"height":r.height]}
+ 12 | struct Record:Hashable {var namespace:String,index:Int}
+ 13 | struct Codec<V:Hashable> {let decode:(String)->V,encode:(V)->String}
+    |        `- note: consider making generic struct 'Codec' conform to the 'Sendable' protocol
+ 14 | let strings=Codec<String>(decode:{$0},encode:{$0})
+    |     |- error: let 'strings' is not concurrency-safe because non-'Sendable' type 'Codec<String>' may have shared mutable state [#MutableGlobalVariable]
+    |     |- note: add '@MainActor' to make let 'strings' part of global actor 'MainActor'
+    |     `- note: disable concurrency-safety checks if accesses are protected by an external synchronization mechanism
+ 15 | let integers=Codec<Int>(decode:{Int($0)!},encode:{String($0)})
+ 16 | let booleans=Codec<Bool>(decode:{$0=="true"},encode:{$0 ? "true":"false"})
+
+/Users/gaulatti/.codex/tmp/avelino-app-tabs-native-20261017-v1/tool/TabsCommon.swift:15:5: error: let 'integers' is not concurrency-safe because non-'Sendable' type 'Codec<Int>' may have shared mutable state [#MutableGlobalVariable]
+ 11 | func rect(_ r:CGRect)->[String:Double] {["x":r.minX,"y":r.minY,"width":r.width,"height":r.height]}
+ 12 | struct Record:Hashable {var namespace:String,index:Int}
+ 13 | struct Codec<V:Hashable> {let decode:(String)->V,encode:(V)->String}
+    |        `- note: consider making generic struct 'Codec' conform to the 'Sendable' protocol
+ 14 | let strings=Codec<String>(decode:{$0},encode:{$0})
+ 15 | let integers=Codec<Int>(decode:{Int($0)!},encode:{String($0)})
+    |     |- error: let 'integers' is not concurrency-safe because non-'Sendable' type 'Codec<Int>' may have shared mutable state [#MutableGlobalVariable]
+    |     |- note: add '@MainActor' to make let 'integers' part of global actor 'MainActor'
+    |     `- note: disable concurrency-safety checks if accesses are protected by an external synchronization mechanism
+ 16 | let booleans=Codec<Bool>(decode:{$0=="true"},encode:{$0 ? "true":"false"})
+ 17 | let records=Codec<Record>(decode:{s in let a=s.split(separator:"|");return Record(namespace:String(a[0]),index:Int(a[1])!)},encode:{"\($0.namespace)|\($0.index)"})
+
+/Users/gaulatti/.codex/tmp/avelino-app-tabs-native-20261017-v1/tool/TabsCommon.swift:16:5: error: let 'booleans' is not concurrency-safe because non-'Sendable' type 'Codec<Bool>' may have shared mutable state [#MutableGlobalVariable]
+ 11 | func rect(_ r:CGRect)->[String:Double] {["x":r.minX,"y":r.minY,"width":r.width,"height":r.height]}
+ 12 | struct Record:Hashable {var namespace:String,index:Int}
+ 13 | struct Codec<V:Hashable> {let decode:(String)->V,encode:(V)->String}
+    |        `- note: consider making generic struct 'Codec' conform to the 'Sendable' protocol
+ 14 | let strings=Codec<String>(decode:{$0},encode:{$0})
+ 15 | let integers=Codec<Int>(decode:{Int($0)!},encode:{String($0)})
+ 16 | let booleans=Codec<Bool>(decode:{$0=="true"},encode:{$0 ? "true":"false"})
+    |     |- error: let 'booleans' is not concurrency-safe because non-'Sendable' type 'Codec<Bool>' may have shared mutable state [#MutableGlobalVariable]
+    |     |- note: add '@MainActor' to make let 'booleans' part of global actor 'MainActor'
+    |     `- note: disable concurrency-safety checks if accesses are protected by an external synchronization mechanism
+ 17 | let records=Codec<Record>(decode:{s in let a=s.split(separator:"|");return Record(namespace:String(a[0]),index:Int(a[1])!)},encode:{"\($0.namespace)|\($0.index)"})
+ 18 | @MainActor final class Model:ObservableObject {
+
+/Users/gaulatti/.codex/tmp/avelino-app-tabs-native-20261017-v1/tool/TabsCommon.swift:17:5: error: let 'records' is not concurrency-safe because non-'Sendable' type 'Codec<Record>' may have shared mutable state [#MutableGlobalVariable]
+ 11 | func rect(_ r:CGRect)->[String:Double] {["x":r.minX,"y":r.minY,"width":r.width,"height":r.height]}
+ 12 | struct Record:Hashable {var namespace:String,index:Int}
+ 13 | struct Codec<V:Hashable> {let decode:(String)->V,encode:(V)->String}
+    |        `- note: consider making generic struct 'Codec' conform to the 'Sendable' protocol
+ 14 | let strings=Codec<String>(decode:{$0},encode:{$0})
+ 15 | let integers=Codec<Int>(decode:{Int($0)!},encode:{String($0)})
+ 16 | let booleans=Codec<Bool>(decode:{$0=="true"},encode:{$0 ? "true":"false"})
+ 17 | let records=Codec<Record>(decode:{s in let a=s.split(separator:"|");return Record(namespace:String(a[0]),index:Int(a[1])!)},encode:{"\($0.namespace)|\($0.index)"})
+    |     |- error: let 'records' is not concurrency-safe because non-'Sendable' type 'Codec<Record>' may have shared mutable state [#MutableGlobalVariable]
+    |     |- note: add '@MainActor' to make let 'records' part of global actor 'MainActor'
+    |     `- note: disable concurrency-safety checks if accesses are protected by an external synchronization mechanism
+ 18 | @MainActor final class Model:ObservableObject {
+ 19 |     @Published var fixture:Fixture
+
+[#MutableGlobalVariable]: <https://docs.swift.org/compiler/documentation/diagnostics/mutable-global-variable>

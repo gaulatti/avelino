@@ -1331,3 +1331,26 @@ plot domains, frames, positions, category ranges and palette cycling remain in
 the raw data. The minimal hidden-window accessibility tree does not accept chart
 readers, pointer delivery or physical sessions. Linux chart implementation remains
 pending, with desktop coverage unchanged at 66/80 candidates and zero accepted.
+
+## Native desktop app tab bar source investigation
+
+The [app tab bar record](app-tabs.md) keeps the desktop compact button row
+separate from segmented tabs and the macOS shell toolbar picker. Its 43
+definitions run across 344 closed contexts, with 1,032 public/probed/literal
+images, 15,480 direct sizing queries and 48 retained histories containing 864
+steps and 2,592 images. Public/probed/literal pixels agree throughout, and all
+3,627 outputs replay byte for byte from a fresh pinned-source build. Narrow
+proposals overflow the caller frame according to
+icon and text minima; an empty bar has intrinsic size zero by five.
+
+The owner traces preserve reselection requests, disabled pointer input, external
+selection changes and echo/observe/delayed/redirect behavior. Native string,
+integer, boolean and custom record instantiations stay distinct. The minimal
+inactive hosting accessibility tree exposes no button children; accessibility
+presses are recorded as unavailable, and the raw badge accessibility strings
+remain a source contract without runtime or reader acceptance. Pinned source and
+native tooling remain external; the Linux verifier audits rendered output,
+geometry, state and the fresh source-only replay. Linux implementation, symbols,
+fonts, fitting, broader identities, keyboard timing, accessibility, physical
+sessions and reader checks remain pending. Desktop coverage stays 72/80 candidates
+and zero accepted; expected images, pins, tolerances and exceptions are unchanged.
