@@ -278,5 +278,14 @@ retains the initial font-unit assertion failure. A point-based QFont reports raw
 pixel size -1 while retaining the correct family and 24-point size. The corrected
 consumer compares the exact installed pixel-to-point conversion; all eight
 virtual profiles pass and preserve these measurements in their logs. This check
-does not approve a native font mapping. The complete source capture/catalog matrix,
-strict native comparison, first-baseline and physical/reader acceptance remain open.
+does not approve a native font mapping. The later complete matrix below keeps
+strict native comparison, first-baseline and physical/reader acceptance open.
+
+The [complete surface candidate](../evidence/development/surface-modifier/candidate.json)
+extends that mode with all 52 closed contexts and five retained histories per
+profile. Eight surface and eight base profiles pass with consumer sources and
+producer sources/builds absent. The package still has 125 installed files and
+29 modes; the catalog now has 127 captures. All 123 prior PNGs and metadata are
+unchanged. Its 96 module files match the published kernel exactly. Ten actual
+XTest toolbar clicks produce eleven exact Qt caller viewports. These checks do
+not accept native pixels, first-baseline/hit tests or physical/reader behavior.

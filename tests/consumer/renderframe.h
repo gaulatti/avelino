@@ -1,6 +1,7 @@
 #pragma once
 #include <QCoreApplication>
 #include <QElapsedTimer>
+#include <QImage>
 #include <QQuickItem>
 #include <QQuickWindow>
 #include <QSignalSpy>
@@ -8,11 +9,13 @@
 #include <functional>
 
 // Async Shape paths may still describe the previous geometry after a frame was
-// displayed. Observe processing on the visual tree, then require two displayed
-// frames with unchanged ready path/geometry observations before capturing it.
+// displayed. Ready path/geometry can also precede the first complete outline
+// readback on GL. Require unchanged ready observations and two byte-identical
+// window readbacks; this never changes an expected image or comparison tolerance.
 static bool waitForShapeFrame(QQuickWindow *window,int timeout=5000) {
     QElapsedTimer elapsed;elapsed.start();
     QList<QVariantList> previous;
+    QImage previousPixels;
     bool previousReady=false;
     while(elapsed.elapsed()<timeout) {
         QSignalSpy swapped(window,&QQuickWindow::frameSwapped);
@@ -33,8 +36,9 @@ static bool waitForShapeFrame(QQuickWindow *window,int timeout=5000) {
             for(auto child:item->childItems())visit(child);
         };
         visit(window->contentItem());
-        if(!processing && previousReady && observed==previous)return true;
-        previousReady=!processing;previous=observed;
+        const auto pixels=processing ? QImage():window->grabWindow();
+        if(!pixels.isNull() && previousReady && observed==previous && pixels==previousPixels)return true;
+        previousReady=!pixels.isNull();previous=observed;previousPixels=pixels;
     }
     return false;
 }

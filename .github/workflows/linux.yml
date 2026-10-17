@@ -501,3 +501,42 @@ jobs:
           name: font-modifier-source-comparison-${{ matrix.source-runner }}
           path: artifacts/font-modifier-comparison
           if-no-files-found: error
+
+  surface-modifier-mirror-diagnostics:
+    needs: build-runtime-package
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        source-runner: [ubuntu-24.04, ubuntu-24.04-arm]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -m pip install -r tools/visual-requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: desktop-button-candidates-${{ matrix.source-runner }}
+          path: artifacts/candidate
+      - name: Strict closed-source surface modifier comparison
+        run: python3 scripts/compare-surface-modifier-captures.py artifacts/candidate/surface-modifier-source-candidates artifacts/surface-modifier-comparison
+      - name: Record independent closed-source result
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json,os
+          from pathlib import Path
+          path=Path('artifacts/surface-modifier-comparison/comparison.json')
+          if path.is_file():
+              report=json.loads(path.read_text())
+              with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as out:
+                  out.write(f"Closed surface modifier comparison: **{report['status']}**; {report['summary']}.\n\n")
+                  out.write('Closed bodies and emitted frames only; centered baseline maps do not accept first-baseline behavior. Native font/raster/shadow and OS button, source hit tests, physical input and readers remain pending. No baseline, tolerance or exception approval.\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: surface-modifier-source-comparison-${{ matrix.source-runner }}
+          path: artifacts/surface-modifier-comparison
+          if-no-files-found: error

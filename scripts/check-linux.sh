@@ -80,6 +80,7 @@ cmake --build "$stage/build" --parallel 2
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --tooltip)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --button-style)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --font-modifier)
+(cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --surface-modifier)
 format_report="$PWD/artifacts/linux/number-formatting.json"
 set +e
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --data-metrics --format-diagnostics "$format_report")
@@ -103,7 +104,7 @@ cp artifacts/linux/environment.json artifacts/package/environment.json
 mkdir -p artifacts/linux
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --capture artifacts/linux/actions-light.png
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --dark --capture artifacts/linux/actions-dark.png
-for fixture in foundations surfaces data-display controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper radio-group otp-input activity-item modal tooltip button-style font-modifier; do
+for fixture in foundations surfaces data-display controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper radio-group otp-input activity-item modal tooltip button-style font-modifier surface-modifier; do
 for appearance in light dark; do
   for dpr in 1 2; do
     args=(--fixture "$fixture")
@@ -298,3 +299,10 @@ python3 scripts/capture-font-modifier-cases.py \
 if [[ -e artifacts/linux/font-modifier-source-candidates ]]; then mv artifacts/linux/font-modifier-source-candidates "$stage/previous-font-modifier-candidates"; fi
 mv "$font_modifier_attempt/captures" artifacts/linux/font-modifier-source-candidates
 rmdir "$font_modifier_attempt"
+
+surface_modifier_attempt="$(mktemp -d "$PWD/artifacts/linux/surface-modifier-attempt.XXXXXX")"
+python3 scripts/capture-surface-modifier-cases.py \
+  "$stage/install/bin/AvelinoCatalog" "$surface_modifier_attempt/captures" --jobs 2
+if [[ -e artifacts/linux/surface-modifier-source-candidates ]]; then mv artifacts/linux/surface-modifier-source-candidates "$stage/previous-surface-modifier-candidates"; fi
+mv "$surface_modifier_attempt/captures" artifacts/linux/surface-modifier-source-candidates
+rmdir "$surface_modifier_attempt"

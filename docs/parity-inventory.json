@@ -73421,7 +73421,7 @@
       },
       {
         "id": "BleeckerSurfaceModifier",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Tokens.swift",
@@ -73431,581 +73431,739 @@
           "src/Avelino/BleeckerSurfaceModifier.qml",
           "src/Avelino/SurfaceModifierPart.qml",
           "src/Avelino/surfacedecorator.cpp",
-          "src/Avelino/surfacedecorator.h"
+          "src/Avelino/surfacedecorator.h",
+          "tests/consumer/SurfaceModifier.qml",
+          "tests/consumer/SurfaceModifierCase.qml"
         ],
-        "caseDiscovery": "52 native fixture groups across 416 contexts and 30 retained histories; generic Linux per-leaf kernel under verification with 248 fixed-caller geometry contexts; full capture/catalog, strict raster/shadow, native first-baseline/hit tests, physical display/input and readers remain pending",
+        "caseDiscovery": "52 closed native fixtures across 416 contexts: 36 exact pixel/frame matches, 376 exact frame sets and all 416 caller states matching. Eight surface virtual profiles retain five six-step source histories; ten actual toolbar controls pass eleven exact Qt viewports. Native raster/shadow, system fonts/button, first-baseline/hit tests, physical displays/input and readers remain pending.",
         "cases": [
           {
             "id": "BleeckerSurfaceModifier-native-content-button",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/content-button-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-content-button-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-content-empty",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/content-empty-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-content-empty-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-content-fractional",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/content-fractional-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-content-fractional-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-content-hidden",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/content-hidden-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-content-hidden-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-content-hstack",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/content-hstack-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-content-hstack-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-content-multi",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/content-multi-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-content-multi-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-content-opaque",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/content-opaque-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-content-opaque-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-content-overflow",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/content-overflow-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-content-overflow-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-content-own-font",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/content-own-font-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-content-own-font-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-content-rectangle",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/content-rectangle-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-content-rectangle-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-content-red",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/content-red-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-content-red-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-content-system-font",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/content-system-font-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-content-system-font-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-content-text",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/content-text-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-content-text-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-content-vstack",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/content-vstack-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-content-vstack-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-content-wide",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/content-wide-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-content-wide-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-content-zero",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/content-zero-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-content-zero-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-default",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/default-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-default-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-multi-parent-hstack",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/multi-parent-hstack-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-multi-parent-hstack-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-multi-parent-vstack",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/multi-parent-vstack-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-multi-parent-vstack-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-offer-0",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/offer-0-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-offer-0-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-offer-1",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/offer-1-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-offer-1-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-offer-160",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/offer-160-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-offer-160-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-offer-40",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/offer-40-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-offer-40-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-offer-400",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/offer-400-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-offer-400-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-offer-80",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/offer-80-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-offer-80-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-offer-800",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/offer-800-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-offer-800-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-parent-font32",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/parent-font32-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-parent-font32-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-parent-hstack",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/parent-hstack-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-parent-hstack-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-parent-red",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/parent-red-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-parent-red-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-parent-vstack",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/parent-vstack-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-parent-vstack-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-radius--1.0",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/radius--1.0-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-radius--1.0-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-radius--12.0",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/radius--12.0-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-radius--12.0-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-radius-0.0",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/radius-0.0-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-radius-0.0-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-radius-0.11",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/radius-0.11-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-radius-0.11-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-radius-0.49",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/radius-0.49-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-radius-0.49-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-radius-0.5",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/radius-0.5-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-radius-0.5-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-radius-1.0",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/radius-1.0-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-radius-1.0-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-radius-12.0",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/radius-12.0-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-radius-12.0-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-radius-14.0",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/radius-14.0-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-radius-14.0-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-radius-24.0",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/radius-24.0-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-radius-24.0-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-radius-3.0",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/radius-3.0-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-radius-3.0-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-radius-500.0",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/radius-500.0-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-radius-500.0-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-radius-60.0",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/radius-60.0-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-radius-60.0-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-radius-7.0",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/radius-7.0-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-radius-7.0-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-rtl",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/rtl-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-rtl-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-text-bidi",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/text-bidi-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-text-bidi-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-text-empty",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/text-empty-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-text-empty-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-text-lines",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/text-lines-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-text-lines-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-text-long",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/text-long-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-text-long-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-text-parent-hstack",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/text-parent-hstack-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-text-parent-hstack-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-text-parent-vstack",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/text-parent-vstack-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-text-parent-vstack-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "BleeckerSurfaceModifier-native-text-unicode",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/text-unicode-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-text-unicode-light-text1.0-dpr1.0-mode0.png"
           }
         ],
         "tests": [
@@ -74014,42 +74172,95 @@
           "tests/components/tst_surface_modifier.qml",
           "tests/components/check-invalid-surface-modifier.py",
           "tests/consumer/SurfaceModifier.qml",
-          "tests/consumer/surfacemodifierchecks.h"
+          "tests/consumer/surfacemodifierchecks.h",
+          "tests/components/check-surface-modifier-catalog.py",
+          "tests/contracts/test_surface_modifier_adapters.py",
+          "tests/contracts/test_surface_modifier_candidate.py",
+          "scripts/verify-surface-modifier-candidate.py"
         ],
-        "captures": [],
-        "comparisonResults": [],
+        "captures": [
+          "evidence/development/surface-modifier/candidate.json",
+          "evidence/development/surface-modifier/captures/capture-results.json",
+          "evidence/development/surface-modifier/operator-ui/result.json"
+        ],
+        "comparisonResults": [
+          "evidence/development/surface-modifier/comparison/comparison.json"
+        ],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
-            "status": "pending",
-            "evidence": []
+            "status": "verification-pending",
+            "evidence": [
+              "evidence/development/surface-modifier/candidate.json"
+            ]
           },
           "x11": {
-            "status": "pending",
-            "evidence": []
+            "status": "verification-pending",
+            "evidence": [
+              "evidence/development/surface-modifier/candidate.json"
+            ]
           },
           "wayland": {
-            "status": "pending",
-            "evidence": []
+            "status": "verification-pending",
+            "evidence": [
+              "evidence/development/surface-modifier/candidate.json"
+            ]
           },
           "keyboardPointer": {
-            "status": "pending",
-            "evidence": []
+            "status": "verification-pending",
+            "evidence": [
+              "evidence/development/surface-modifier/candidate.json"
+            ]
           },
           "focusAccessibility": {
-            "status": "pending",
-            "evidence": []
+            "status": "verification-pending",
+            "evidence": [
+              "evidence/development/surface-modifier/candidate.json"
+            ]
           },
           "displayTextScaling": {
-            "status": "pending",
-            "evidence": []
+            "status": "verification-pending",
+            "evidence": [
+              "evidence/development/surface-modifier/candidate.json"
+            ]
           },
           "installedConsumer": {
-            "status": "pending",
-            "evidence": []
+            "status": "verification-pending",
+            "evidence": [
+              "evidence/development/surface-modifier/candidate.json"
+            ]
           }
         },
-        "sourceInvestigation": "evidence/reference-investigations/surface-modifier-20261016/investigation.json"
+        "sourceInvestigation": "evidence/reference-investigations/surface-modifier-20261016/investigation.json",
+        "linuxCandidate": {
+          "status": "verification-pending",
+          "accepted": false,
+          "closedCaptures": 416,
+          "virtualSurfaceProfiles": 8,
+          "baseRegressionProfiles": 8,
+          "closedContextsPerSurfaceProfile": 52,
+          "exactFrameSetsPerSurfaceProfile": 47,
+          "retainedHistoriesPerProfile": 5,
+          "stepsPerHistory": 6,
+          "qtFullTargets": 27,
+          "finalFocusedTargets": 2,
+          "independentModes": 29,
+          "catalogCaptures": 127,
+          "unchangedPriorGalleries": 123,
+          "unchangedPublishedModuleFiles": 96,
+          "operatorControls": 10,
+          "operatorClicks": 10,
+          "operatorViewports": 11,
+          "strictComparison": {
+            "cases": 416,
+            "exactPixelAndGeometryMatches": 36,
+            "partFrameMatches": 376,
+            "requestedBaselineContexts": 0,
+            "baselineMismatches": 0,
+            "stateMatches": 416
+          },
+          "evidence": "evidence/development/surface-modifier/candidate.json"
+        }
       },
       {
         "id": "BleeckerSwitchStyle",
@@ -80966,9 +81177,11 @@
           "src/Avelino/BleeckerSurfaceModifier.qml",
           "src/Avelino/SurfaceModifierPart.qml",
           "src/Avelino/surfacedecorator.cpp",
-          "src/Avelino/surfacedecorator.h"
+          "src/Avelino/surfacedecorator.h",
+          "tests/consumer/SurfaceModifier.qml",
+          "tests/consumer/SurfaceModifierCase.qml"
         ],
-        "caseDiscovery": "52 native fixture groups across 416 contexts and 30 retained histories; generic Linux per-leaf kernel under verification with 248 fixed-caller geometry contexts; full capture/catalog, strict raster/shadow, native first-baseline/hit tests, physical display/input and readers remain pending",
+        "caseDiscovery": "52 closed native fixtures across 416 contexts: 36 exact pixel/frame matches, 376 exact frame sets and all 416 caller states matching. Eight surface virtual profiles retain five six-step source histories; ten actual toolbar controls pass eleven exact Qt viewports. Native raster/shadow, system fonts/button, first-baseline/hit tests, physical displays/input and readers remain pending.",
         "cases": [
           {
             "id": "View.bleeckerSurface-default-light",
@@ -81071,575 +81284,731 @@
           },
           {
             "id": "View.bleeckerSurface-native-content-button",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/content-button-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-content-button-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-content-empty",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/content-empty-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-content-empty-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-content-fractional",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/content-fractional-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-content-fractional-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-content-hidden",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/content-hidden-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-content-hidden-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-content-hstack",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/content-hstack-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-content-hstack-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-content-multi",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/content-multi-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-content-multi-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-content-opaque",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/content-opaque-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-content-opaque-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-content-overflow",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/content-overflow-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-content-overflow-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-content-own-font",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/content-own-font-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-content-own-font-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-content-rectangle",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/content-rectangle-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-content-rectangle-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-content-red",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/content-red-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-content-red-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-content-system-font",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/content-system-font-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-content-system-font-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-content-text",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/content-text-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-content-text-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-content-vstack",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/content-vstack-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-content-vstack-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-content-wide",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/content-wide-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-content-wide-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-content-zero",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/content-zero-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-content-zero-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-default",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/default-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-default-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-multi-parent-hstack",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/multi-parent-hstack-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-multi-parent-hstack-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-multi-parent-vstack",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/multi-parent-vstack-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-multi-parent-vstack-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-offer-0",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/offer-0-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-offer-0-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-offer-1",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/offer-1-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-offer-1-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-offer-160",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/offer-160-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-offer-160-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-offer-40",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/offer-40-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-offer-40-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-offer-400",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/offer-400-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-offer-400-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-offer-80",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/offer-80-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-offer-80-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-offer-800",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/offer-800-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-offer-800-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-parent-font32",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/parent-font32-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-parent-font32-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-parent-hstack",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/parent-hstack-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-parent-hstack-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-parent-red",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/parent-red-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-parent-red-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-parent-vstack",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/parent-vstack-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-parent-vstack-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-radius--1.0",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/radius--1.0-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-radius--1.0-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-radius--12.0",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/radius--12.0-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-radius--12.0-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-radius-0.0",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/radius-0.0-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-radius-0.0-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-radius-0.11",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/radius-0.11-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-radius-0.11-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-radius-0.49",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/radius-0.49-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-radius-0.49-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-radius-0.5",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/radius-0.5-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-radius-0.5-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-radius-1.0",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/radius-1.0-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-radius-1.0-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-radius-12.0",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/radius-12.0-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-radius-12.0-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-radius-14.0",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/radius-14.0-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-radius-14.0-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-radius-24.0",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/radius-24.0-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-radius-24.0-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-radius-3.0",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/radius-3.0-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-radius-3.0-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-radius-500.0",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/radius-500.0-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-radius-500.0-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-radius-60.0",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/radius-60.0-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-radius-60.0-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-radius-7.0",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/radius-7.0-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-radius-7.0-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-rtl",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/rtl-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-rtl-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-text-bidi",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/text-bidi-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-text-bidi-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-text-empty",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/text-empty-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-text-empty-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-text-lines",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/text-lines-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-text-lines-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-text-long",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/text-long-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-text-long-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-text-parent-hstack",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/text-parent-hstack-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-text-parent-hstack-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-text-parent-vstack",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/text-parent-vstack-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-text-parent-vstack-light-text1.0-dpr1.0-mode0.png"
           },
           {
             "id": "View.bleeckerSurface-native-text-unicode",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/surface-modifier-20261016/captures/text-unicode-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/surface-modifier.md",
-              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json"
+              "evidence/reference-investigations/surface-modifier-20261016/captures/captures.json",
+              "evidence/development/surface-modifier/candidate.json",
+              "evidence/development/surface-modifier/comparison/comparison.json"
             ],
-            "notes": "Native source observation; the generic Linux kernel development checkpoint does not establish complete fixture/capture or strict mirror/runtime acceptance."
+            "notes": "All eight Linux source contexts captured. Strict native pixels/frames remain independently reported; native first-baseline/hit tests and physical/reader acceptance remain pending.",
+            "linuxCandidateCapture": "evidence/development/surface-modifier/captures/surface-text-unicode-light-text1.0-dpr1.0-mode0.png"
           }
         ],
         "tests": [
@@ -81650,7 +82019,11 @@
           "tests/components/tst_surface_modifier.qml",
           "tests/components/check-invalid-surface-modifier.py",
           "tests/consumer/SurfaceModifier.qml",
-          "tests/consumer/surfacemodifierchecks.h"
+          "tests/consumer/surfacemodifierchecks.h",
+          "tests/components/check-surface-modifier-catalog.py",
+          "tests/contracts/test_surface_modifier_adapters.py",
+          "tests/contracts/test_surface_modifier_candidate.py",
+          "scripts/verify-surface-modifier-candidate.py"
         ],
         "captures": [
           "samples/AvelinoCatalog/DataDisplayFixture.qml",
@@ -81685,85 +82058,96 @@
           "evidence/development/panel-sizing/captures/surface-24-dark-text1.0-offscreen-dpr1.0.png",
           "evidence/development/panel-sizing/captures/surface-24-dark-text1.0-offscreen-dpr2.0.png",
           "evidence/development/panel-sizing/captures/surface-24-dark-text1.5-offscreen-dpr1.0.png",
-          "evidence/development/panel-sizing/captures/surface-24-dark-text1.5-offscreen-dpr2.0.png"
+          "evidence/development/panel-sizing/captures/surface-24-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/development/surface-modifier/candidate.json",
+          "evidence/development/surface-modifier/captures/capture-results.json",
+          "evidence/development/surface-modifier/operator-ui/result.json"
         ],
         "comparisonResults": [
           "evidence/development/isolated-desktop/comparison/comparison.json",
           "evidence/development/panel-sizing/comparison/comparison.json",
-          "evidence/development/software-clipping/regression-comparison.json"
+          "evidence/development/software-clipping/regression-comparison.json",
+          "evidence/development/surface-modifier/comparison/comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
-            "status": "pending",
+            "status": "verification-pending",
             "evidence": [
               "docs/data-display.md",
               "tests/components/tst_data_display.qml",
               "tests/consumer/main.cpp",
               "scripts/check-display-sessions.sh",
               "evidence/development/isolated-desktop/candidate.json",
-              "evidence/development/panel-sizing/candidate.json"
+              "evidence/development/panel-sizing/candidate.json",
+              "evidence/development/surface-modifier/candidate.json"
             ],
             "notes": "Candidate checks do not close parity; native images, typography/assets, accessibility and complete behavior cases remain pending."
           },
           "x11": {
-            "status": "pending",
-            "evidence": [
-              "docs/data-display.md",
-              "tests/components/tst_data_display.qml",
-              "tests/consumer/main.cpp",
-              "scripts/check-display-sessions.sh"
-            ],
-            "notes": "Candidate checks do not close parity; native images, typography/assets, accessibility and complete behavior cases remain pending."
-          },
-          "wayland": {
-            "status": "pending",
-            "evidence": [
-              "docs/data-display.md",
-              "tests/components/tst_data_display.qml",
-              "tests/consumer/main.cpp",
-              "scripts/check-display-sessions.sh"
-            ],
-            "notes": "Candidate checks do not close parity; native images, typography/assets, accessibility and complete behavior cases remain pending."
-          },
-          "keyboardPointer": {
-            "status": "pending",
-            "evidence": [
-              "docs/data-display.md",
-              "tests/components/tst_data_display.qml",
-              "tests/consumer/main.cpp",
-              "scripts/check-display-sessions.sh"
-            ],
-            "notes": "Candidate checks do not close parity; native images, typography/assets, accessibility and complete behavior cases remain pending."
-          },
-          "focusAccessibility": {
-            "status": "pending",
-            "evidence": [
-              "docs/data-display.md",
-              "tests/components/tst_data_display.qml",
-              "tests/consumer/main.cpp",
-              "scripts/check-display-sessions.sh"
-            ],
-            "notes": "Candidate checks do not close parity; native images, typography/assets, accessibility and complete behavior cases remain pending."
-          },
-          "displayTextScaling": {
-            "status": "pending",
-            "evidence": [
-              "docs/data-display.md",
-              "tests/components/tst_data_display.qml",
-              "tests/consumer/main.cpp",
-              "scripts/check-display-sessions.sh"
-            ],
-            "notes": "Candidate checks do not close parity; native images, typography/assets, accessibility and complete behavior cases remain pending."
-          },
-          "installedConsumer": {
-            "status": "pending",
+            "status": "verification-pending",
             "evidence": [
               "docs/data-display.md",
               "tests/components/tst_data_display.qml",
               "tests/consumer/main.cpp",
               "scripts/check-display-sessions.sh",
-              "evidence/development/catalog-runtime/candidate.json"
+              "evidence/development/surface-modifier/candidate.json"
+            ],
+            "notes": "Candidate checks do not close parity; native images, typography/assets, accessibility and complete behavior cases remain pending."
+          },
+          "wayland": {
+            "status": "verification-pending",
+            "evidence": [
+              "docs/data-display.md",
+              "tests/components/tst_data_display.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "evidence/development/surface-modifier/candidate.json"
+            ],
+            "notes": "Candidate checks do not close parity; native images, typography/assets, accessibility and complete behavior cases remain pending."
+          },
+          "keyboardPointer": {
+            "status": "verification-pending",
+            "evidence": [
+              "docs/data-display.md",
+              "tests/components/tst_data_display.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "evidence/development/surface-modifier/candidate.json"
+            ],
+            "notes": "Candidate checks do not close parity; native images, typography/assets, accessibility and complete behavior cases remain pending."
+          },
+          "focusAccessibility": {
+            "status": "verification-pending",
+            "evidence": [
+              "docs/data-display.md",
+              "tests/components/tst_data_display.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "evidence/development/surface-modifier/candidate.json"
+            ],
+            "notes": "Candidate checks do not close parity; native images, typography/assets, accessibility and complete behavior cases remain pending."
+          },
+          "displayTextScaling": {
+            "status": "verification-pending",
+            "evidence": [
+              "docs/data-display.md",
+              "tests/components/tst_data_display.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "evidence/development/surface-modifier/candidate.json"
+            ],
+            "notes": "Candidate checks do not close parity; native images, typography/assets, accessibility and complete behavior cases remain pending."
+          },
+          "installedConsumer": {
+            "status": "verification-pending",
+            "evidence": [
+              "docs/data-display.md",
+              "tests/components/tst_data_display.qml",
+              "tests/consumer/main.cpp",
+              "scripts/check-display-sessions.sh",
+              "evidence/development/catalog-runtime/candidate.json",
+              "evidence/development/surface-modifier/candidate.json"
             ],
             "notes": "Candidate checks do not close parity; native images, typography/assets, accessibility and complete behavior cases remain pending."
           }
@@ -81787,7 +82171,36 @@
           "evidence/reference-proposals/desktop-20261012/surface-24-dark-text1.5-offscreen-dpr2.0.png"
         ],
         "referenceCandidateStatus": "proposed; baseline approval pending",
-        "sourceInvestigation": "evidence/reference-investigations/surface-modifier-20261016/investigation.json"
+        "sourceInvestigation": "evidence/reference-investigations/surface-modifier-20261016/investigation.json",
+        "linuxCandidate": {
+          "status": "verification-pending",
+          "accepted": false,
+          "closedCaptures": 416,
+          "virtualSurfaceProfiles": 8,
+          "baseRegressionProfiles": 8,
+          "closedContextsPerSurfaceProfile": 52,
+          "exactFrameSetsPerSurfaceProfile": 47,
+          "retainedHistoriesPerProfile": 5,
+          "stepsPerHistory": 6,
+          "qtFullTargets": 27,
+          "finalFocusedTargets": 2,
+          "independentModes": 29,
+          "catalogCaptures": 127,
+          "unchangedPriorGalleries": 123,
+          "unchangedPublishedModuleFiles": 96,
+          "operatorControls": 10,
+          "operatorClicks": 10,
+          "operatorViewports": 11,
+          "strictComparison": {
+            "cases": 416,
+            "exactPixelAndGeometryMatches": 36,
+            "partFrameMatches": 376,
+            "requestedBaselineContexts": 0,
+            "baselineMismatches": 0,
+            "stateMatches": 416
+          },
+          "evidence": "evidence/development/surface-modifier/candidate.json"
+        }
       }
     ]
   },

@@ -9,15 +9,16 @@ coverage is recorded in the [parity inventory](parity-inventory.json).
 | `BleeckerAvatar` | Required `name`, optional image `source`, sizes xs/sm/md/lg/xl = 24/32/40/52/72; first grapheme of the first two literal-space-separated words, uppercased; semibold Encode Sans at edge × 0.32; centered image cover crop inside a circle; muted background and one-pixel border |
 | `BleeckerDataList` | `rows` in authoritative array order; required `rowContent` QML component; slot context exposes `row` and `rowIndex`; padding 10 above/below each row, separator after each row except the final one; Qt ListView delegates retain lazy creation in a finite viewport |
 | `BleeckerTimelineItem` | Required `title` and `date`, `last`, default content slot; dot 9, connector 1, horizontal gap 12, body gap 4, bottom padding 18 except final item; title Encode Sans 14 semibold, date Libre Franklin 11, inherited content Libre Franklin 13 |
-| `View.bleeckerSurface` | `BleeckerSurface` wraps a content slot without padding; continuous radius defaults to 12, configurable `radius`, card background/border, light-only deep-sea shadow opacity 0.055/radius 14/offset 5 |
+| `View.bleeckerSurface` | `BleeckerSurfaceModifier` decorates flat caller leaves independently; explicit stacks get one surface without padding; continuous radius defaults to 12, configurable `radius`, card background/border, light-only deep-sea shadow opacity 0.055/radius 14/offset 5 |
 
 The [surface-modifier investigation](surface-modifier.md) now records the full
 native paint order and separate flat caller bounds. `BleeckerSurface` paints its
 border once above the clipped content so an opaque slot cannot cover it. The
 separate `BleeckerSurfaceModifier` development adapter decorates flat caller
-leaves individually and treats explicit stacks as one caller. Its full capture
-and catalog matrix is still pending. Native raster/shadow, full layout, physical
-and reader acceptance remain pending.
+leaves individually and treats explicit stacks as one caller. All 52 closed native
+fixtures are captured across 416 contexts, with state and geometry reported
+separately from strict pixels. Native raster/shadow, complete framework contexts,
+physical input/displays and reader acceptance remain pending.
 
 The Linux composition interface uses QML components and slots. Timeline content
 implemented with Qt control templates such as `QtQuick.Templates.Label` inherits

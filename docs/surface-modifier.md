@@ -86,9 +86,8 @@ correction. Small text-pixel variations reproduced in unchanged old OpenGL
 processes remain unaccepted; no image masking or tolerance change is introduced.
 
 That paint checkpoint covers one allocated surface. The generic adapter below
-is a later development checkpoint; its inventory entry remains pending and the
-existing extension mapping remains verification-pending. Source investigation
-does not increase the 64/80 candidate count or accept any mirror entry.
+is a later development checkpoint. The complete closed-context candidate below
+now places both mappings in verification-pending; no mirror entry is accepted.
 
 ## Generic Linux adapter under verification
 
@@ -131,6 +130,45 @@ separate caller surfaces, an explicit stack, inherited font, live/restored radiu
 paint and retained button input. The virtual-session runner includes this mode.
 Its [development evidence](../evidence/development/surface-modifier-kernel-20261016/validation.json)
 preserves the frozen inputs, earlier failed assertions and actual run exits.
-The complete 52-fixture capture/catalog adapter, strict native raster/shadow and
-proposal/baseline comparison, source hit testing, physical displays and readers
-remain open. No expected image, source pin, mapping or tolerance changes.
+The complete closed-context adapter and its later verification are described below.
+No expected image, source pin, mapping or tolerance changes.
+
+## Complete closed-context candidate
+
+The [candidate evidence](../evidence/development/surface-modifier/candidate.json)
+contains all 52 native fixtures across 416 appearance/text-scale/DPR contexts.
+The catalog and independent consumer share `SurfaceModifierCase`; schema checks
+reject 23 malformed definitions. All caller states match. Exact geometry matches
+376 contexts; the 40 remaining contexts are the system font, native button,
+Unicode/bidi fallback and inherited system-font cases. Strict comparison keeps
+36 exact pixel/frame matches and every failed native raster/shadow result.
+Centered baseline maps are explicitly unrequested, with no baseline acceptance.
+
+Each of eight surface virtual profiles measures all 52 cases, with 47 exact frame
+sets, and retains five six-step radius/theme/scale histories. Another eight base
+profiles cover the shared capture helper. All ten real gallery toolbar controls
+pass XTest input through eleven complete 640-by-400 Qt viewport comparisons.
+The 29 independent modes and 127 galleries pass; all 123 older PNGs and metadata
+remain byte-identical. The 96 installed module files are unchanged from the
+published kernel; only catalog/consumer tooling is extended.
+
+A palette binding loop was removed without changing any of its 416 original PNG
+or metadata bytes. The source RTL fixture then exposed an unmirrored top-leading
+patch; explicit semantic anchors fix its eight candidate images, and direct
+native-pixel checks cover the four color positions. Neither change rewrites a
+source capture. GL history replay also proved that Ready Shape geometry could
+precede its complete border readback. Capture readiness now requires two identical
+window readbacks and ready geometry. The original failed images, later frames,
+unchanged assertions and corrected five-history GL replay are preserved.
+
+The full 27-target suite passes on the preceding snapshot; the final RTL and
+readback refinements pass both affected surface targets. All library and other
+component inputs are identical, and final package/display/operator checks use
+the refined code. All 427 host contracts pass. Nine evidence-integrity contracts reject forged acceptance,
+missing cases/profiles, new tolerances, skipped histories and extra captures.
+References CI verifies all hashes, raw pixels and measurements again.
+
+Desktop coverage is 65/80 candidates, with 15 pending and zero accepted. Native
+raster/shadow calibration, system-font/native-button presentation, native first
+baselines/hit testing, physical displays/input and readers remain open. TV remains
+separate with 46 pending entries.

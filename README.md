@@ -106,13 +106,15 @@ closed source contexts remain in strict comparison: 76 exact pixel/frame matches
 1,168 frame matches and all produced states matching. Full Qt tests, independent
 packaging, eight virtual display profiles and actual gallery toolbar input pass.
 Native fonts/raster, complete contexts, physical displays and readers remain open.
-Desktop candidate coverage is 64/80; none are accepted.
+Desktop candidate coverage is 65/80; none are accepted.
 
-The [surface-modifier source investigation](docs/surface-modifier.md) records 416
-public/probe/body-witness groups and 30 retained live histories, with an exact
-source-only replay. The existing surface paints its border over opaque caller
-content. Generic flat-caller decoration, strict native raster and physical/reader
-acceptance remain pending; candidate and accepted counts are unchanged.
+The [surface modifier](docs/surface-modifier.md) decorates flat callers separately
+and explicit stacks as one caller, preserving caller state, font inheritance and
+input. Its complete 416-context comparison has 36 exact pixel/frame matches, 376
+matching frame sets and all caller states matching. Eight surface virtual profiles,
+five retained histories per profile and all ten actual gallery toolbar controls
+pass. Native raster/shadow, system fonts/button, first-baseline/hit tests, physical
+displays/input and readers remain pending.
 
 The [page header and breadcrumb candidates](docs/navigation-layout.md) use measured
 source layout, fixed typography, caller action content and logical-index

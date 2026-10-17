@@ -51,7 +51,8 @@ X11/Wayland profiles exercise software/OpenGL rendering, standard/scaled display
 caller identity, live/restored font pixels, pointer/keyboard and Qt accessibility.
 Each profile measures 207 contexts, 146 exact frame sets and 180 baseline maps.
 These virtual checks leave physical displays, actual readers and complete native
-framework contexts pending. Desktop candidate coverage is 64/80, with 16 pending
+framework contexts pending. At this font checkpoint, desktop candidate coverage
+reached 64/80, with 16 pending
 and zero accepted; all 46 TV entries remain pending.
 
 The corrected candidate reproduces every original v4 PNG byte for byte while

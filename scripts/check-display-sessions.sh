@@ -18,7 +18,7 @@ cleanup() {
   rm -rf "$runtime"
 }
 trap cleanup EXIT
-# Keep the largest gallery (1100 x 850 logical units) within the output at DPR 2.
+# Keep the largest gallery (1160 x 860 logical units) within the output at DPR 2.
 Xvfb -displayfd 3 -screen 0 2560x1920x24 -nolisten tcp -noreset 3>"$runtime/display" >"$evidence/xvfb.log" 2>&1 &
 xpid=$!
 for ((i=0;i<100;i++)); do
@@ -203,6 +203,8 @@ elif fixture == 'secure-field':
 elif fixture == 'surface-modifier':
     for key in ['surfaceModifierChecks','callerStateChecks','focusChecks','qtAccessibilityChecks','liveRadiusPaintChecks','asyncShapeFrameChecks']:assert record[key]=='passed',record
     assert record['flatParts']==2 and record['stackParts']==1 and record['activations']==3 and record['accepted'] is False,record
+    assert record['closedContextCount']==52 and len(record['closedContexts'])==52 and record['requestedBaselineContexts']==0,record
+    assert len(record['retainedHistories'])==5 and all(len(h['steps'])==6 and h['restoredPixelsIdentical'] for h in record['retainedHistories']),record
 elif fixture == 'font-modifier':
     for key in ['fontModifierChecks','callerStateChecks','liveFontPaintChecks','focusChecks','qtAccessibilityChecks']:assert record[key]=='passed',record
     assert record['closedContextCount']==207 and len(record['closedContexts'])==207,record

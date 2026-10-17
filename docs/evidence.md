@@ -1195,3 +1195,30 @@ fonts. Complete 52-fixture capture/catalog integration, strict native raster,
 shadow, proposals/baselines, source hit testing and physical/reader checks remain
 pending. The generic modifier's inventory status stays pending; coverage remains
 64/80 candidates, zero accepted, with TV separate.
+
+## Complete surface capture/catalog candidate
+
+The [candidate](../evidence/development/surface-modifier/candidate.json) preserves
+all 416 closed native comparisons: 36 exact pixel/frame matches, 376 exact frame
+sets and all 416 matching caller states. Zero native baseline contexts were
+requested; empty maps do not close that gate. All 427 host contracts pass. Nine integrity contracts recheck
+source/candidate bytes and reject missing contexts, forged acceptance, changed
+tolerances, skipped histories and missing display profiles.
+
+The full 27-target Qt suite passes with 5,319/5,547 component checks at DPR one/two.
+Both affected surface targets pass again after the final RTL fixture/readback
+refinements; all library/other component inputs are identical. The final package
+passes 29 modes and 127 gallery captures, retaining all 123 old images and metadata.
+All 96 published module files are byte-identical. Sixteen executable-only virtual
+profiles pass; each of eight surface profiles measures 52 cases and retains five
+six-step histories. Ten actual XTest toolbar controls produce eleven exact whole
+Qt caller viewports.
+
+The missing-manifest setup, palette-loop attempt, unmirrored RTL patch, premature
+GL border capture and actual exits are preserved. The palette correction leaves
+all 416 PNG/metadata bytes unchanged; semantic anchors change only eight RTL
+candidate images. Two identical window readbacks now accompany ready geometry;
+no assertion, expected image, source pin, mapping, mask or tolerance is weakened.
+Desktop coverage reaches 65/80 candidates with 15 pending and zero accepted.
+Native raster/shadow, system fonts/button, first-baseline/hit tests, physical
+input/displays and readers remain open; TV remains separate.
