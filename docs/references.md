@@ -189,3 +189,10 @@ radius/appearance/scale histories. The corrected source-only replay reproduces
 1,845 outputs exactly; the original conditional-helper lifecycle defect remains
 diagnostic evidence. Flat caller decoration, actual first-baseline layouts,
 native input, full raster/shadow and physical/reader acceptance remain pending.
+
+The [surface baseline/input supplement](surface-modifier.md#first-baseline-and-sampled-native-input-supplement)
+records 440 native first-baseline groups and 288 synthetic input profiles. Its
+seven input branches separate clipping from the border overlay's sampled hit
+behavior. All 3,778 corrected outputs replay after a fresh source-only build;
+the original 32 nontransparent guide-probe cases remain diagnostic failures.
+The Linux candidate has not yet been compared against these new observations.

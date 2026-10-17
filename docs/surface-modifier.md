@@ -65,6 +65,61 @@ empty-baseline claims, source rebuilds, public API exposure and replay coverage.
 Reference pins, approved exceptions, expected images and tolerances are unchanged.
 The wiki remote remains unavailable; this contract is maintained in the repository.
 
+## First-baseline and sampled native input supplement
+
+The [supplement](../evidence/reference-investigations/surface-baseline-input-20261016/investigation.json)
+adds 440 first-baseline groups: all 52 original fixtures plus explicit caller
+guides -5, 0 and 42, in the same eight contexts. A three-by-thirty reference
+rectangle participates in an outer first-baseline HStack. Every corrected public,
+probed-public and literal-body image agrees. Flat children retain separate frame
+and guide records; explicit guides outside the caller's height are not clamped.
+The [projection](../evidence/reference-investigations/surface-baseline-input-20261016/guide-projection.json)
+associates queries with final frames by exact width/height and preserves
+unrequested guides and unmatched proposals explicitly. It does not replace them
+with default baselines.
+
+The first complete helper made child rectangle guides explicit while measuring
+them. That changed 32 nested-parent public/probe images in four fixtures. The
+corrected helper measures only the outer parent and marker guides in those
+explicit-parent fixtures; nested child probes retain geometry alone. All 440
+unprobed images remain unchanged. The complete original attempt, clean replay,
+compiler failure and controlled pilots remain in the supplement's diagnostics.
+Those original 32 probed cases cannot establish native geometry or guides.
+
+The input corpus has 288 profiles: filled, transparent and overflowing plain
+Button labels (transparent labels set a rectangular contentShape); default,
+negative, zero, 12, 48 and oversized
+radii; enabled/disabled; both appearances, text scales and requested DPRs. Each
+profile records seven modes and the actual down/up/settled action counters at
+the same points. Public, probed-public and body-witness hit samples agree. In
+these samples, clipping alone preserves the bare caller's hit map, including
+overflow beyond the allocated frame. A border-only overlay reproduces the
+public blocked edge points; disabling hit testing only on that border restores
+the bare map. Paint clipping therefore does not specify this caller's hit region.
+These are sampled observations rather than an analytic boundary specification.
+Across 202,272 samples, the public border blocks 2,496 points relative to bare
+callers, while 1,104 public activations occur outside the allocated caller frame.
+
+All 3,778 corrected outputs replay byte for byte after another fresh build of
+the unchanged 89-file reference. The corrected intermediate baseline also reproduces all 1,761 files and matches
+the final baseline bytes. Four input attempts were terminated for retained native
+window/render memory. Their partial images, source audits and actual exits
+(native signal exit -15; runner exit 241) remain diagnostic. The final helper
+drains an autorelease pool after each closed seven-window profile; timed run
+logs retain maximum resident memory. Incomplete attempts do not supply complete
+input records.
+Run `python3 scripts/verify-surface-baseline-input-source.py` to verify the raw
+bytes, guide associations, full point sequences, disabled behavior, counter
+delivery, retained caller state, diagnostic failures and both source-only replays.
+
+The application was inactive/prohibited; NSEvent was delivered directly to its
+hosted offscreen NSWindow. Requested bitmap DPR one/two is distinct from actual
+window backing DPR two. This is native synthetic input evidence; physical input,
+timing, readers and Linux equivalence remain pending. The existing Linux
+candidate still clips input through RoundedContent and does not yet have a
+comparison against these guide/hit samples. This supplement changes no library
+behavior, expected capture, tolerance, reference pin or approved exception.
+
 ## Linux surface border
 
 The existing `BleeckerSurface` candidate renders one allocated caller surface.

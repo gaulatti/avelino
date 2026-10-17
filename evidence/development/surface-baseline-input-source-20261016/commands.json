@@ -1,0 +1,119 @@
+[
+  {
+    "command": [
+      "/private/tmp/avelino-resume-visuals-20261015/bin/python",
+      "scripts/verify-surface-baseline-input-source.py"
+    ],
+    "exitCode": 0,
+    "log": "0.log",
+    "durationSeconds": 1.7493088329210877
+  },
+  {
+    "command": [
+      "/private/tmp/avelino-resume-visuals-20261015/bin/python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests/contracts",
+      "-v"
+    ],
+    "exitCode": 0,
+    "log": "1.log",
+    "durationSeconds": 224.43303250009194
+  },
+  {
+    "command": [
+      "/private/tmp/avelino-resume-visuals-20261015/bin/python",
+      "scripts/verify-references.py"
+    ],
+    "exitCode": 0,
+    "log": "2.log",
+    "durationSeconds": 0.2038676249794662
+  },
+  {
+    "command": [
+      "/private/tmp/avelino-resume-visuals-20261015/bin/python",
+      "scripts/discover-reference.py",
+      "--check"
+    ],
+    "exitCode": 0,
+    "log": "3.log",
+    "durationSeconds": 0.17224041698500514
+  },
+  {
+    "command": [
+      "/private/tmp/avelino-resume-visuals-20261015/bin/python",
+      "scripts/verify-proposals.py"
+    ],
+    "exitCode": 0,
+    "log": "4.log",
+    "durationSeconds": 0.7841868340037763
+  },
+  {
+    "command": [
+      "/private/tmp/avelino-resume-visuals-20261015/bin/python",
+      "scripts/verify-surface-modifier-source.py"
+    ],
+    "exitCode": 0,
+    "log": "5.log",
+    "durationSeconds": 0.254094791947864
+  },
+  {
+    "command": [
+      "/private/tmp/avelino-resume-visuals-20261015/bin/python",
+      "scripts/verify-surface-modifier-candidate.py"
+    ],
+    "exitCode": 0,
+    "log": "6.log",
+    "durationSeconds": 4.675179583020508
+  },
+  {
+    "command": [
+      "/private/tmp/avelino-resume-visuals-20261015/bin/python",
+      "scripts/generate-surface-modifier-witnesses.py",
+      "--check"
+    ],
+    "exitCode": 0,
+    "log": "7.log",
+    "durationSeconds": 0.11420187505427748
+  },
+  {
+    "command": [
+      "ruby",
+      "-ryaml",
+      "-e",
+      "YAML.load_file(\".github/workflows/references.yml\"); puts \"References YAML parsed\""
+    ],
+    "exitCode": 0,
+    "log": "8.log",
+    "durationSeconds": 0.13185712497215718
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "exitCode": 0,
+    "log": "9.log",
+    "durationSeconds": 0.5376421249238774
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--exit-code",
+      "134363d8e46e301ea811533c8509093b468ebfe4",
+      "--",
+      "src",
+      "tests/consumer",
+      "samples",
+      "CMakeLists.txt",
+      "tools"
+    ],
+    "exitCode": 0,
+    "log": "10.log",
+    "durationSeconds": 0.05994449998252094
+  }
+]

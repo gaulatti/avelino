@@ -43,6 +43,7 @@ jobs:
       - run: python3 scripts/verify-font-baseline-source.py
       - run: python3 scripts/verify-font-edges-source.py
       - run: python3 scripts/verify-surface-modifier-source.py
+      - run: python3 scripts/verify-surface-baseline-input-source.py
       - run: python3 scripts/generate-font-modifier-witnesses.py --check
       - run: python3 scripts/generate-surface-modifier-witnesses.py --check
       - run: python3 scripts/verify-surface-modifier-candidate.py

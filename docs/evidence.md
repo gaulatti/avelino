@@ -1222,3 +1222,27 @@ no assertion, expected image, source pin, mapping, mask or tolerance is weakened
 Desktop coverage reaches 65/80 candidates with 15 pending and zero accepted.
 Native raster/shadow, system fonts/button, first-baseline/hit tests, physical
 input/displays and readers remain open; TV remains separate.
+
+## Native surface baseline and sampled input supplement
+
+The [supplement](../evidence/reference-investigations/surface-baseline-input-20261016/investigation.json)
+preserves 440 first-baseline groups and 288 input profiles, with seven native
+branches separating the public modifier, its body witness, bare caller, clip,
+border overlay and border pass-through behavior. Corrected probes preserve all
+public pixels; exact frame-size associations retain separate emitted guides and
+explicit -5/0/42 values. Nested-parent child guides remain unrequested.
+
+The first helper's 32 nontransparent nested-parent cases remain failures. Both
+original and corrected 1,761-file baseline replays are preserved, with all 440
+unprobed images unchanged. Four incomplete input attempts were terminated for
+retained native window/render memory; partial images and actual exits remain
+diagnostic. The final helper drains an autorelease pool after each closed
+profile. All 3,778 final outputs replay exactly. Source-only Apple tooling stays
+outside the Linux repository; tracked archives contain only PNG/JSON/log data.
+
+Actual native event counters show sampled caller overflow remains reachable
+through paint clipping, while the border overlay blocks some edge points.
+Direct NSEvent delivery to an inactive hosted window does not establish physical
+input, timing or reader acceptance. The Linux candidate is unchanged and its
+comparison to these new guide/input observations remains pending. Coverage stays
+65/80 desktop candidates, 15 pending and zero accepted; TV remains separate.

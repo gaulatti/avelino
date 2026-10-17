@@ -1,0 +1,140 @@
+{
+  "accepted": false,
+  "scope": "Native source/data and host contracts only; Linux library/consumer/catalog bytes unchanged",
+  "sourceRevision": "134363d8e46e301ea811533c8509093b468ebfe4",
+  "tests": 442,
+  "commands": [
+    {
+      "command": [
+        "/private/tmp/avelino-resume-visuals-20261015/bin/python",
+        "scripts/verify-surface-baseline-input-source.py"
+      ],
+      "exitCode": 0,
+      "log": "0.log",
+      "durationSeconds": 1.7493088329210877
+    },
+    {
+      "command": [
+        "/private/tmp/avelino-resume-visuals-20261015/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/contracts",
+        "-v"
+      ],
+      "exitCode": 0,
+      "log": "1.log",
+      "durationSeconds": 224.43303250009194
+    },
+    {
+      "command": [
+        "/private/tmp/avelino-resume-visuals-20261015/bin/python",
+        "scripts/verify-references.py"
+      ],
+      "exitCode": 0,
+      "log": "2.log",
+      "durationSeconds": 0.2038676249794662
+    },
+    {
+      "command": [
+        "/private/tmp/avelino-resume-visuals-20261015/bin/python",
+        "scripts/discover-reference.py",
+        "--check"
+      ],
+      "exitCode": 0,
+      "log": "3.log",
+      "durationSeconds": 0.17224041698500514
+    },
+    {
+      "command": [
+        "/private/tmp/avelino-resume-visuals-20261015/bin/python",
+        "scripts/verify-proposals.py"
+      ],
+      "exitCode": 0,
+      "log": "4.log",
+      "durationSeconds": 0.7841868340037763
+    },
+    {
+      "command": [
+        "/private/tmp/avelino-resume-visuals-20261015/bin/python",
+        "scripts/verify-surface-modifier-source.py"
+      ],
+      "exitCode": 0,
+      "log": "5.log",
+      "durationSeconds": 0.254094791947864
+    },
+    {
+      "command": [
+        "/private/tmp/avelino-resume-visuals-20261015/bin/python",
+        "scripts/verify-surface-modifier-candidate.py"
+      ],
+      "exitCode": 0,
+      "log": "6.log",
+      "durationSeconds": 4.675179583020508
+    },
+    {
+      "command": [
+        "/private/tmp/avelino-resume-visuals-20261015/bin/python",
+        "scripts/generate-surface-modifier-witnesses.py",
+        "--check"
+      ],
+      "exitCode": 0,
+      "log": "7.log",
+      "durationSeconds": 0.11420187505427748
+    },
+    {
+      "command": [
+        "ruby",
+        "-ryaml",
+        "-e",
+        "YAML.load_file(\".github/workflows/references.yml\"); puts \"References YAML parsed\""
+      ],
+      "exitCode": 0,
+      "log": "8.log",
+      "durationSeconds": 0.13185712497215718
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exitCode": 0,
+      "log": "9.log",
+      "durationSeconds": 0.5376421249238774
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--exit-code",
+        "134363d8e46e301ea811533c8509093b468ebfe4",
+        "--",
+        "src",
+        "tests/consumer",
+        "samples",
+        "CMakeLists.txt",
+        "tools"
+      ],
+      "exitCode": 0,
+      "log": "10.log",
+      "durationSeconds": 0.05994449998252094
+    }
+  ],
+  "files": {
+    "4.log": "daba667751579b925f954896cf823ab9d9282f04a8becce1303f202651f6990e",
+    "5.log": "57502f53209c0048b68e2c3765059798106c09be9f8adda54789e48f50323e5b",
+    "7.log": "880d386ac5a273ef78602bbe2a8cbdaed358b8c0d8416abf9727ac4714039d9a",
+    "6.log": "0a718410b113180890407f9c7b77c053e85befe0c36ef55c2418869512a0db0c",
+    "2.log": "4ac12ff776d768cb483b86473b1ffa8ababa598f9228cc39de5401998463d92c",
+    "3.log": "b46122db81e931188a9fb4ceeac494288de7d5e78465b49594299027d4b89ebb",
+    "1.log": "7c2ff2fc11e0bbae8f4787fbe269a021e3c08d41846fd083eac7bf725b298e8e",
+    "0.log": "11ddfd855b15b304542a9887008861cb2a86985f5a2e06a849eda2e8c809e3ea",
+    "commands.json": "199e25ddb23ff75dc1f39bf3dc2a34d19e58510ccb4834e3675504e640e84102",
+    "inputs.json": "ee543a39336630d2ea43d2b0a64d2747ab81eae19719548f6c614f984a0255b4",
+    "10.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "8.log": "cd88417a8b4effd33f98b1686072c0f4815584fd900de1fc82e78832fad1c52f",
+    "9.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

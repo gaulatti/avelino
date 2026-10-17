@@ -1,0 +1,92 @@
+[
+  {
+    "command": [
+      "swift",
+      "build",
+      "--package-path",
+      "/Users/gaulatti/.codex/tmp/avelino-surface-baseline-input-20261016-v2/source",
+      "--scratch-path",
+      "/Users/gaulatti/.codex/tmp/avelino-surface-baseline-input-20261016-v2/build",
+      "--jobs",
+      "2",
+      "--target",
+      "Sabella",
+      "--disable-automatic-resolution",
+      "-Xswiftc",
+      "-target",
+      "-Xswiftc",
+      "arm64-apple-macosx26.0"
+    ],
+    "log": "library-build.log",
+    "exitCode": 0,
+    "durationSeconds": 28.784728165948763
+  },
+  {
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-surface-baseline-input-20261016-v2/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-surface-baseline-input-20261016-v2/tool/Common.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-surface-baseline-input-20261016-v2/tool/BaselineMain.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-surface-baseline-input-20261016-v2/build/out/Products/Debug/Sabella.o",
+      "-framework",
+      "Charts",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-surface-baseline-input-20261016-v2/tool/NativeBaseline"
+    ],
+    "log": "baseline-build.log",
+    "exitCode": 0,
+    "durationSeconds": 2.500400791061111
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-surface-baseline-input-20261016-v2/tool/NativeBaseline",
+      "/Users/gaulatti/.codex/tmp/avelino-surface-baseline-input-20261016-v2/output/baseline",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "baseline-run.log",
+    "exitCode": 0,
+    "durationSeconds": 287.1333583750529
+  },
+  {
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-surface-baseline-input-20261016-v2/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-surface-baseline-input-20261016-v2/tool/Common.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-surface-baseline-input-20261016-v2/tool/InputMain.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-surface-baseline-input-20261016-v2/build/out/Products/Debug/Sabella.o",
+      "-framework",
+      "Charts",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-surface-baseline-input-20261016-v2/tool/NativeInput"
+    ],
+    "log": "input-build.log",
+    "exitCode": 0,
+    "durationSeconds": 3.8195427919272333
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-surface-baseline-input-20261016-v2/tool/NativeInput",
+      "/Users/gaulatti/.codex/tmp/avelino-surface-baseline-input-20261016-v2/output/input",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "input-run.log",
+    "exitCode": -15,
+    "durationSeconds": 142.2274275419768
+  }
+]
