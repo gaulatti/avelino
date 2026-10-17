@@ -1,0 +1,36 @@
+[
+  {
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-chart-geometry-source-replay-20261017-v1/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-native-20261017-v2/tool/MediaCommon.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-native-20261017-v2/tool/MediaMain.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-chart-geometry-source-replay-20261017-v1/build/out/Products/Debug/Sabella.o",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-native-20261017-v2/tool/NativeMedia"
+    ],
+    "exitCode": 0,
+    "seconds": 2.3132700830465183,
+    "log": "build.log"
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-native-20261017-v2/tool/NativeMedia",
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-native-20261017-v2/fixtures.json",
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-native-20261017-v2/output",
+      "--pilot",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "exitCode": 0,
+    "seconds": 10.498030208051205,
+    "log": "closed.log"
+  }
+]

@@ -1,0 +1,3 @@
+# Native MediaLibrary investigation
+
+Unmodified public/probed/literal source cases preserve 496 closed contexts, 22320 direct sizing queries, 1008 retained-history steps and all 112 isolated edge outcomes. All closed and retained pixel/geometry/lifecycle witnesses match; one sizing context differs and remains unresolved. Fresh-source replay outcomes and every differing output remain in investigation.json and replay.json. Source-only inputs and all pilot helper versions stay in external checksummed artifacts. Linux implementation and all mirror acceptance remain pending. No source pin, expected image, tolerance or exception changes. See [the contract](../../../docs/media-library.md).

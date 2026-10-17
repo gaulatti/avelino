@@ -1,0 +1,70 @@
+[
+  {
+    "command": [
+      "/private/tmp/avelino-resume-visuals-20261015/bin/python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests/contracts",
+      "-p",
+      "test_media_library_source.py",
+      "-v"
+    ],
+    "exitCode": 0,
+    "seconds": 1.5074719580588862,
+    "log": "0.log"
+  },
+  {
+    "command": [
+      "/private/tmp/avelino-resume-visuals-20261015/bin/python",
+      "scripts/verify-references.py"
+    ],
+    "exitCode": 0,
+    "seconds": 0.21996133390348405,
+    "log": "1.log"
+  },
+  {
+    "command": [
+      "/private/tmp/avelino-resume-visuals-20261015/bin/python",
+      "scripts/discover-reference.py",
+      "--check"
+    ],
+    "exitCode": 0,
+    "seconds": 0.17527791706379503,
+    "log": "2.log"
+  },
+  {
+    "command": [
+      "/private/tmp/avelino-resume-visuals-20261015/bin/python",
+      "scripts/verify-proposals.py"
+    ],
+    "exitCode": 0,
+    "seconds": 0.8450076249428093,
+    "log": "3.log"
+  },
+  {
+    "command": [
+      "ruby",
+      "-ryaml",
+      "-e",
+      "ARGV.each { |p| YAML.load_file(p) }",
+      ".github/workflows/references.yml"
+    ],
+    "exitCode": 0,
+    "seconds": 0.13189024990424514,
+    "log": "4.log"
+  },
+  {
+    "command": [
+      "/private/tmp/avelino-resume-visuals-20261015/bin/python",
+      "-m",
+      "py_compile",
+      "scripts/verify-media-library-source.py",
+      "tests/contracts/test_media_library_source.py"
+    ],
+    "exitCode": 0,
+    "seconds": 0.05486312508583069,
+    "log": "5.log"
+  }
+]

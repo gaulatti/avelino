@@ -1,0 +1,8 @@
+/Users/gaulatti/.codex/tmp/avelino-media-library-native-20261017-v1/tool/MediaCommon.swift:86:122: error: cannot convert value of type 'Double?' to expected argument type 'CGFloat?'
+ 84 |     @ViewBuilder var body:some View {
+ 85 |         if model.fixture.scroll {
+ 86 |             ScrollView(.vertical){MediaGrid(model:model,mode:mode)}.frame(width:model.fixture.width,height:model.fixture.height)
+    |                                                                                                                          |- error: cannot convert value of type 'Double?' to expected argument type 'CGFloat?'
+    |                                                                                                                          `- note: arguments to generic parameter 'Wrapped' ('Double' and 'CGFloat') are expected to be equal
+ 87 |                 .modifier(FrameProbe(model:model,name:"caller",enabled:mode != 0))
+ 88 |         } else {

@@ -1,0 +1,63 @@
+[
+  {
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-chart-geometry-source-replay-20261017-v1/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-native-20261017-v4/tool/MediaCommon.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-native-20261017-v4/tool/MediaMain.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-native-20261017-v4/tool/MediaSizing.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-native-20261017-v4/tool/MediaHistory.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-chart-geometry-source-replay-20261017-v1/build/out/Products/Debug/Sabella.o",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-native-20261017-v4/tool/NativeMedia"
+    ],
+    "exitCode": 0,
+    "seconds": 2.5028694580541924,
+    "log": "build.log"
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-native-20261017-v4/tool/NativeMedia",
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-native-20261017-v4/fixtures.json",
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-native-20261017-v4/output",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "exitCode": 0,
+    "seconds": 123.27383550000377,
+    "log": "closed.log"
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-native-20261017-v4/tool/NativeMedia",
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-native-20261017-v4/fixtures.json",
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-native-20261017-v4/sizing-output",
+      "--sizing",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "exitCode": 0,
+    "seconds": 112.53450004209299,
+    "log": "sizing.log"
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-native-20261017-v4/tool/NativeMedia",
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-native-20261017-v4/histories.json",
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-native-20261017-v4/history-output",
+      "--histories",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "exitCode": 0,
+    "seconds": 299.1021656659432,
+    "log": "histories.log"
+  }
+]

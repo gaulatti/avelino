@@ -1,0 +1,85 @@
+[
+  {
+    "command": [
+      "swift",
+      "build",
+      "--package-path",
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-source-replay-20261017-v1/source",
+      "--scratch-path",
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-source-replay-20261017-v1/build",
+      "--jobs",
+      "2",
+      "--target",
+      "Sabella",
+      "--disable-automatic-resolution",
+      "-Xswiftc",
+      "-target",
+      "-Xswiftc",
+      "arm64-apple-macosx26.0"
+    ],
+    "exitCode": 0,
+    "seconds": 28.265272540971637,
+    "log": "library-build.log"
+  },
+  {
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-source-replay-20261017-v1/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-source-replay-20261017-v1/tool/MediaCommon.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-source-replay-20261017-v1/tool/MediaMain.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-source-replay-20261017-v1/tool/MediaSizing.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-source-replay-20261017-v1/tool/MediaHistory.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-source-replay-20261017-v1/build/out/Products/Debug/Sabella.o",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-source-replay-20261017-v1/tool/NativeMedia"
+    ],
+    "exitCode": 0,
+    "seconds": 2.4859492500545457,
+    "log": "helper-build.log"
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-source-replay-20261017-v1/tool/NativeMedia",
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-source-replay-20261017-v1/fixtures.json",
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-source-replay-20261017-v1/output",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "exitCode": 0,
+    "seconds": 126.51195804099552,
+    "log": "output.log"
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-source-replay-20261017-v1/tool/NativeMedia",
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-source-replay-20261017-v1/fixtures.json",
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-source-replay-20261017-v1/sizing-output",
+      "--sizing",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "exitCode": 0,
+    "seconds": 109.66745970910415,
+    "log": "sizing-output.log"
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-source-replay-20261017-v1/tool/NativeMedia",
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-source-replay-20261017-v1/histories.json",
+      "/Users/gaulatti/.codex/tmp/avelino-media-library-source-replay-20261017-v1/history-output",
+      "--histories",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "exitCode": 0,
+    "seconds": 297.8425707920687,
+    "log": "history-output.log"
+  }
+]

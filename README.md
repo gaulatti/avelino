@@ -124,6 +124,11 @@ charts. Another 125 scale/size/category/legend pairs remain strict. Native fonts
 fractional layout, geometry/raster, intrinsic proposals, non-finite behavior,
 physical input and readers remain pending.
 
+The [MediaLibrary source investigation](docs/media-library.md) preserves 496
+closed contexts and 1,008 retained steps, including lazy row creation, Unicode
+identity, zero-width state retention and empty-data reset. One native sizing
+witness differs and remains open. Linux implementation is pending.
+
 The [surface modifier](docs/surface-modifier.md) decorates flat callers separately
 and explicit stacks as one caller, preserving caller state, font inheritance and
 input. Its complete 416-context comparison has 36 exact pixel/frame matches, 376
