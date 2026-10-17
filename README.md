@@ -143,6 +143,10 @@ brings the installed gallery to 28/28 exact operator states and preserves visibl
 badges at both pixel ratios. Native symbols, label fitting, sizing, keyboard timing,
 accessibility, physical displays and readers remain pending.
 
+The [dropdown menu source record](docs/dropdown-menu.md) preserves 256 native
+closed contexts, label conversion and direct sizing measurements before Linux
+implementation. Desktop candidate coverage remains 74/80 with zero accepted APIs.
+
 The [command spotlight candidate](docs/command-spotlight.md) preserves its
 fixed 520 by 380 surface, caller-owned query and lazy rows. Its public, probed and
 literal witnesses agree at 256 closed contexts and 1,536 retained steps. The

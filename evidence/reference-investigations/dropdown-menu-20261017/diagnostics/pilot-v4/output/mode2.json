@@ -1,0 +1,516 @@
+{
+  "accepted" : false,
+  "steps" : [
+    {
+      "applicationActive" : false,
+      "delegate" : "Coordinator",
+      "menu" : {
+        "autoenablesItems" : false,
+        "items" : [
+
+        ],
+        "title" : ""
+      },
+      "method" : "public control inspection",
+      "phase" : "initial",
+      "popupEnabled" : true,
+      "windowKey" : false
+    },
+    {
+      "calls" : [
+
+      ],
+      "menu" : {
+        "autoenablesItems" : false,
+        "items" : [
+
+        ],
+        "title" : ""
+      },
+      "method" : "NSMenu.update",
+      "phase" : "update"
+    },
+    {
+      "calls" : [
+
+      ],
+      "menu" : {
+        "autoenablesItems" : false,
+        "items" : [
+          {
+            "action" : "_popUpItemAction:",
+            "enabled" : false,
+            "hasSubmenu" : false,
+            "hidden" : true,
+            "image" : null,
+            "keyEquivalent" : "",
+            "separator" : true,
+            "state" : 0,
+            "tag" : 0,
+            "targetClass" : "SwiftUIPopupButtonCell",
+            "title" : ""
+          },
+          {
+            "action" : "menuAction:",
+            "enabled" : true,
+            "hasSubmenu" : false,
+            "hidden" : false,
+            "image" : null,
+            "keyEquivalent" : "",
+            "separator" : false,
+            "state" : 0,
+            "tag" : 0,
+            "targetClass" : "MenuItemCallback",
+            "title" : "Open"
+          },
+          {
+            "action" : "menuAction:",
+            "enabled" : true,
+            "hasSubmenu" : false,
+            "hidden" : false,
+            "image" : null,
+            "keyEquivalent" : "",
+            "separator" : false,
+            "state" : 0,
+            "tag" : 0,
+            "targetClass" : "MenuItemCallback",
+            "title" : "Duplicate"
+          },
+          {
+            "action" : "menuAction:",
+            "enabled" : true,
+            "hasSubmenu" : false,
+            "hidden" : false,
+            "image" : null,
+            "keyEquivalent" : "",
+            "separator" : false,
+            "state" : 0,
+            "tag" : 0,
+            "targetClass" : "MenuItemCallback",
+            "title" : "Remove"
+          }
+        ],
+        "title" : ""
+      },
+      "method" : "timer during NSPopUpButton.performClick",
+      "phase" : "tracking",
+      "visibleWindows" : [
+        {
+          "class" : "NSWindow",
+          "frame" : {
+            "height" : 300,
+            "width" : 600,
+            "x" : -10000,
+            "y" : -10000
+          },
+          "visible" : false
+        },
+        {
+          "class" : "NSPopupMenuWindow",
+          "frame" : {
+            "height" : 82,
+            "width" : 90,
+            "x" : 6,
+            "y" : 94
+          },
+          "visible" : false
+        },
+        {
+          "class" : "NSWindow",
+          "frame" : {
+            "height" : 300,
+            "width" : 600,
+            "x" : -10000,
+            "y" : -10000
+          },
+          "visible" : false
+        },
+        {
+          "class" : "NSPopupMenuWindow",
+          "frame" : {
+            "height" : 82,
+            "width" : 90,
+            "x" : 6,
+            "y" : 94
+          },
+          "visible" : false
+        },
+        {
+          "class" : "NSWindow",
+          "frame" : {
+            "height" : 300,
+            "width" : 600,
+            "x" : -10000,
+            "y" : -10000
+          },
+          "visible" : true
+        },
+        {
+          "class" : "NSPopupMenuWindow",
+          "frame" : {
+            "height" : 82,
+            "width" : 90,
+            "x" : 6,
+            "y" : 94
+          },
+          "visible" : true
+        }
+      ]
+    },
+    {
+      "frame" : {
+        "height" : 82,
+        "width" : 90,
+        "x" : 6,
+        "y" : 94
+      },
+      "itemFrames" : [
+        {
+          "frame" : {
+            "height" : 24,
+            "width" : 90,
+            "x" : 6,
+            "y" : 147
+          },
+          "title" : ""
+        },
+        {
+          "frame" : {
+            "height" : 24,
+            "width" : 90,
+            "x" : 6,
+            "y" : 147
+          },
+          "title" : "Open"
+        },
+        {
+          "frame" : {
+            "height" : 24,
+            "width" : 90,
+            "x" : 6,
+            "y" : 123
+          },
+          "title" : "Duplicate"
+        },
+        {
+          "frame" : {
+            "height" : 24,
+            "width" : 90,
+            "x" : 6,
+            "y" : 99
+          },
+          "title" : "Remove"
+        }
+      ],
+      "path" : "mode2-menu-0.png",
+      "phase" : "menu-view",
+      "scope" : "own menu content view bounds; outer window shadow not captured",
+      "views" : [
+        {
+          "frame" : {
+            "height" : 82,
+            "width" : 90,
+            "x" : 0,
+            "y" : 0
+          },
+          "type" : "NSGlassEffectView"
+        },
+        {
+          "frame" : {
+            "height" : 82,
+            "width" : 90,
+            "x" : 0,
+            "y" : 0
+          },
+          "type" : "ContentHolderView"
+        },
+        {
+          "frame" : {
+            "height" : 82,
+            "width" : 90,
+            "x" : 0,
+            "y" : 0
+          },
+          "type" : "NSView"
+        },
+        {
+          "frame" : {
+            "height" : 82,
+            "width" : 90,
+            "x" : 0,
+            "y" : 0
+          },
+          "type" : "NSMenuScrollView"
+        },
+        {
+          "frame" : {
+            "height" : 82,
+            "width" : 90,
+            "x" : 0,
+            "y" : 0
+          },
+          "type" : "NSClipView"
+        },
+        {
+          "frame" : {
+            "height" : 82,
+            "width" : 90,
+            "x" : 0,
+            "y" : 0
+          },
+          "type" : "NSTableViewBackedMenuRepresentation"
+        },
+        {
+          "frame" : {
+            "height" : 0,
+            "width" : 0,
+            "x" : 0,
+            "y" : 0
+          },
+          "type" : "NSRootMenuWindowBackgroundView"
+        },
+        {
+          "frame" : {
+            "height" : 24,
+            "width" : 90,
+            "x" : 0,
+            "y" : 5
+          },
+          "type" : "NSTableRowView"
+        },
+        {
+          "frame" : {
+            "height" : 24,
+            "width" : 90,
+            "x" : 0,
+            "y" : 0
+          },
+          "type" : "NSContextMenuItemView"
+        },
+        {
+          "frame" : {
+            "height" : 16,
+            "width" : 70,
+            "x" : 14,
+            "y" : 4
+          },
+          "type" : "_NSMenuItemTextField"
+        },
+        {
+          "frame" : {
+            "height" : 16,
+            "width" : 70,
+            "x" : 0,
+            "y" : 0
+          },
+          "type" : "NSTextFieldSimpleLabel"
+        },
+        {
+          "frame" : {
+            "height" : 24,
+            "width" : 90,
+            "x" : 0,
+            "y" : 29
+          },
+          "type" : "NSTableRowView"
+        },
+        {
+          "frame" : {
+            "height" : 24,
+            "width" : 90,
+            "x" : 0,
+            "y" : 0
+          },
+          "type" : "NSContextMenuItemView"
+        },
+        {
+          "frame" : {
+            "height" : 16,
+            "width" : 70,
+            "x" : 14,
+            "y" : 4
+          },
+          "type" : "_NSMenuItemTextField"
+        },
+        {
+          "frame" : {
+            "height" : 16,
+            "width" : 70,
+            "x" : 0,
+            "y" : 0
+          },
+          "type" : "NSTextFieldSimpleLabel"
+        },
+        {
+          "frame" : {
+            "height" : 24,
+            "width" : 90,
+            "x" : 0,
+            "y" : 53
+          },
+          "type" : "NSTableRowView"
+        },
+        {
+          "frame" : {
+            "height" : 24,
+            "width" : 90,
+            "x" : 0,
+            "y" : 0
+          },
+          "type" : "NSContextMenuItemView"
+        },
+        {
+          "frame" : {
+            "height" : 16,
+            "width" : 70,
+            "x" : 14,
+            "y" : 4
+          },
+          "type" : "_NSMenuItemTextField"
+        },
+        {
+          "frame" : {
+            "height" : 16,
+            "width" : 70,
+            "x" : 0,
+            "y" : 0
+          },
+          "type" : "NSTextFieldSimpleLabel"
+        },
+        {
+          "frame" : {
+            "height" : 82,
+            "width" : 90,
+            "x" : 0,
+            "y" : 0
+          },
+          "type" : "_NSCoreHostingView<RootView>"
+        }
+      ]
+    },
+    {
+      "frame" : {
+        "height" : 24,
+        "width" : 90,
+        "x" : 6,
+        "y" : 123
+      },
+      "method" : "own application event queue; no global pointer injection",
+      "phase" : "pointer-target",
+      "target" : "Duplicate",
+      "windowPoint" : {
+        "x" : 45,
+        "y" : 41
+      }
+    },
+    {
+      "calls" : [
+
+      ],
+      "phase" : "fallback-cancel"
+    },
+    {
+      "calls" : [
+        "duplicate"
+      ],
+      "menu" : {
+        "autoenablesItems" : false,
+        "items" : [
+          {
+            "action" : "_popUpItemAction:",
+            "enabled" : false,
+            "hasSubmenu" : false,
+            "hidden" : true,
+            "image" : null,
+            "keyEquivalent" : "",
+            "separator" : true,
+            "state" : 0,
+            "tag" : 0,
+            "targetClass" : "SwiftUIPopupButtonCell",
+            "title" : ""
+          },
+          {
+            "action" : "menuAction:",
+            "enabled" : true,
+            "hasSubmenu" : false,
+            "hidden" : false,
+            "image" : null,
+            "keyEquivalent" : "",
+            "separator" : false,
+            "state" : 0,
+            "tag" : 0,
+            "targetClass" : "MenuItemCallback",
+            "title" : "Open"
+          },
+          {
+            "action" : "menuAction:",
+            "enabled" : true,
+            "hasSubmenu" : false,
+            "hidden" : false,
+            "image" : null,
+            "keyEquivalent" : "",
+            "separator" : false,
+            "state" : 0,
+            "tag" : 0,
+            "targetClass" : "MenuItemCallback",
+            "title" : "Duplicate"
+          },
+          {
+            "action" : "menuAction:",
+            "enabled" : true,
+            "hasSubmenu" : false,
+            "hidden" : false,
+            "image" : null,
+            "keyEquivalent" : "",
+            "separator" : false,
+            "state" : 0,
+            "tag" : 0,
+            "targetClass" : "MenuItemCallback",
+            "title" : "Remove"
+          }
+        ],
+        "title" : ""
+      },
+      "method" : "NSPopUpButton.performClick then NSMenu.cancelTracking",
+      "phase" : "after-cancel"
+    },
+    {
+      "calls" : [
+        "duplicate"
+      ],
+      "method" : "NSMenu.performActionForItem direct-dispatch diagnostic, not pointer acceptance",
+      "phase" : "dispatch-0",
+      "title" : ""
+    },
+    {
+      "calls" : [
+        "duplicate",
+        "open"
+      ],
+      "method" : "NSMenu.performActionForItem direct-dispatch diagnostic, not pointer acceptance",
+      "phase" : "dispatch-1",
+      "title" : "Open"
+    },
+    {
+      "calls" : [
+        "duplicate",
+        "open",
+        "duplicate"
+      ],
+      "method" : "NSMenu.performActionForItem direct-dispatch diagnostic, not pointer acceptance",
+      "phase" : "dispatch-2",
+      "title" : "Duplicate"
+    },
+    {
+      "calls" : [
+        "duplicate",
+        "open",
+        "duplicate",
+        "remove"
+      ],
+      "method" : "NSMenu.performActionForItem direct-dispatch diagnostic, not pointer acceptance",
+      "phase" : "dispatch-3",
+      "title" : "Remove"
+    }
+  ]
+}

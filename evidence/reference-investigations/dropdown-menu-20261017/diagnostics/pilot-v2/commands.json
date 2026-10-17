@@ -1,0 +1,23 @@
+[
+  {
+    "name": "helper-build",
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-app-tabs-source-replay-20261017-v1/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-native-20261017-v2/tool/DropdownCommon.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-native-20261017-v2/tool/BehaviorMain.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-app-tabs-source-replay-20261017-v1/build/out/Products/Debug/Sabella.o",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-native-20261017-v2/tool/NativeDropdownBehavior"
+    ],
+    "exitCode": 1,
+    "seconds": 1.3024764999281615
+  }
+]

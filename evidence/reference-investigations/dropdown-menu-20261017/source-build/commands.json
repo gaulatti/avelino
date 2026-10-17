@@ -1,0 +1,122 @@
+[
+  {
+    "name": "library-build",
+    "command": [
+      "swift",
+      "build",
+      "--package-path",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-source-20261017-v1/source",
+      "--scratch-path",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-source-20261017-v1/build",
+      "--jobs",
+      "2",
+      "--target",
+      "Sabella",
+      "--disable-automatic-resolution",
+      "-Xswiftc",
+      "-target",
+      "-Xswiftc",
+      "arm64-apple-macosx26.0"
+    ],
+    "exitCode": 0,
+    "seconds": 30.995061874971725
+  },
+  {
+    "name": "capture-build",
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-source-20261017-v1/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-source-20261017-v1/tool/DropdownCommon.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-source-20261017-v1/tool/CaptureMain.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-source-20261017-v1/build/out/Products/Debug/Sabella.o",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-source-20261017-v1/tool/NativeDropdownCapture"
+    ],
+    "exitCode": 0,
+    "seconds": 1.9202025840058923
+  },
+  {
+    "name": "sizing-build",
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-source-20261017-v1/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-source-20261017-v1/tool/DropdownCommon.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-source-20261017-v1/tool/SizingMain.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-source-20261017-v1/build/out/Products/Debug/Sabella.o",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-source-20261017-v1/tool/NativeDropdownSizing"
+    ],
+    "exitCode": 0,
+    "seconds": 1.4880962080787867
+  },
+  {
+    "name": "behavior-build",
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-source-20261017-v1/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-source-20261017-v1/tool/DropdownCommon.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-source-20261017-v1/tool/BehaviorMain.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-source-20261017-v1/build/out/Products/Debug/Sabella.o",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-source-20261017-v1/tool/NativeDropdownBehavior"
+    ],
+    "exitCode": 0,
+    "seconds": 1.436463666963391
+  },
+  {
+    "name": "capture",
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-source-20261017-v1/tool/NativeDropdownCapture",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-source-20261017-v1/fixtures.json",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-source-20261017-v1/output",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "exitCode": 0,
+    "seconds": 122.118021375034
+  },
+  {
+    "name": "sizing",
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-source-20261017-v1/tool/NativeDropdownSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-source-20261017-v1/fixtures.json",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-source-20261017-v1/sizing-output",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "exitCode": 0,
+    "seconds": 71.78330620808993
+  },
+  {
+    "name": "behavior",
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-source-20261017-v1/tool/NativeDropdownBehavior",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-source-20261017-v1/behavior-output",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "exitCode": 0,
+    "seconds": 2.7460567919770256
+  }
+]

@@ -1,0 +1,221 @@
+{
+  "accepted" : false,
+  "steps" : [
+    {
+      "applicationActive" : false,
+      "delegate" : "Coordinator",
+      "menu" : {
+        "autoenablesItems" : false,
+        "items" : [
+
+        ],
+        "title" : ""
+      },
+      "method" : "public control inspection",
+      "phase" : "initial",
+      "popupEnabled" : true,
+      "windowKey" : false
+    },
+    {
+      "calls" : [
+
+      ],
+      "menu" : {
+        "autoenablesItems" : false,
+        "items" : [
+
+        ],
+        "title" : ""
+      },
+      "method" : "NSMenu.update",
+      "phase" : "update"
+    },
+    {
+      "calls" : [
+
+      ],
+      "menu" : {
+        "autoenablesItems" : false,
+        "items" : [
+          {
+            "action" : "_popUpItemAction:",
+            "enabled" : false,
+            "hasSubmenu" : false,
+            "hidden" : true,
+            "image" : null,
+            "keyEquivalent" : "",
+            "separator" : true,
+            "state" : 0,
+            "tag" : 0,
+            "targetClass" : "SwiftUIPopupButtonCell",
+            "title" : ""
+          },
+          {
+            "action" : "menuAction:",
+            "enabled" : true,
+            "hasSubmenu" : false,
+            "hidden" : false,
+            "image" : null,
+            "keyEquivalent" : "",
+            "separator" : false,
+            "state" : 0,
+            "tag" : 0,
+            "targetClass" : "MenuItemCallback",
+            "title" : "Open"
+          },
+          {
+            "action" : "menuAction:",
+            "enabled" : true,
+            "hasSubmenu" : false,
+            "hidden" : false,
+            "image" : null,
+            "keyEquivalent" : "",
+            "separator" : false,
+            "state" : 0,
+            "tag" : 0,
+            "targetClass" : "MenuItemCallback",
+            "title" : "Duplicate"
+          },
+          {
+            "action" : "menuAction:",
+            "enabled" : true,
+            "hasSubmenu" : false,
+            "hidden" : false,
+            "image" : null,
+            "keyEquivalent" : "",
+            "separator" : false,
+            "state" : 0,
+            "tag" : 0,
+            "targetClass" : "MenuItemCallback",
+            "title" : "Remove"
+          }
+        ],
+        "title" : ""
+      },
+      "method" : "timer during NSPopUpButton.performClick",
+      "phase" : "tracking",
+      "visibleWindows" : [
+        {
+          "class" : "NSWindow",
+          "frame" : {
+            "height" : 300,
+            "width" : 600,
+            "x" : -10000,
+            "y" : -10000
+          },
+          "visible" : true
+        },
+        {
+          "class" : "NSPopupMenuWindow",
+          "frame" : {
+            "height" : 82,
+            "width" : 90,
+            "x" : 6,
+            "y" : 94
+          },
+          "visible" : true
+        }
+      ]
+    },
+    {
+      "calls" : [
+
+      ],
+      "menu" : {
+        "autoenablesItems" : false,
+        "items" : [
+          {
+            "action" : "_popUpItemAction:",
+            "enabled" : false,
+            "hasSubmenu" : false,
+            "hidden" : true,
+            "image" : null,
+            "keyEquivalent" : "",
+            "separator" : true,
+            "state" : 0,
+            "tag" : 0,
+            "targetClass" : "SwiftUIPopupButtonCell",
+            "title" : ""
+          },
+          {
+            "action" : "menuAction:",
+            "enabled" : true,
+            "hasSubmenu" : false,
+            "hidden" : false,
+            "image" : null,
+            "keyEquivalent" : "",
+            "separator" : false,
+            "state" : 0,
+            "tag" : 0,
+            "targetClass" : "MenuItemCallback",
+            "title" : "Open"
+          },
+          {
+            "action" : "menuAction:",
+            "enabled" : true,
+            "hasSubmenu" : false,
+            "hidden" : false,
+            "image" : null,
+            "keyEquivalent" : "",
+            "separator" : false,
+            "state" : 0,
+            "tag" : 0,
+            "targetClass" : "MenuItemCallback",
+            "title" : "Duplicate"
+          },
+          {
+            "action" : "menuAction:",
+            "enabled" : true,
+            "hasSubmenu" : false,
+            "hidden" : false,
+            "image" : null,
+            "keyEquivalent" : "",
+            "separator" : false,
+            "state" : 0,
+            "tag" : 0,
+            "targetClass" : "MenuItemCallback",
+            "title" : "Remove"
+          }
+        ],
+        "title" : ""
+      },
+      "method" : "NSPopUpButton.performClick then NSMenu.cancelTracking",
+      "phase" : "after-cancel"
+    },
+    {
+      "calls" : [
+
+      ],
+      "method" : "NSMenu.performActionForItem direct-dispatch diagnostic, not pointer acceptance",
+      "phase" : "dispatch-0",
+      "title" : ""
+    },
+    {
+      "calls" : [
+        "open"
+      ],
+      "method" : "NSMenu.performActionForItem direct-dispatch diagnostic, not pointer acceptance",
+      "phase" : "dispatch-1",
+      "title" : "Open"
+    },
+    {
+      "calls" : [
+        "open",
+        "duplicate"
+      ],
+      "method" : "NSMenu.performActionForItem direct-dispatch diagnostic, not pointer acceptance",
+      "phase" : "dispatch-2",
+      "title" : "Duplicate"
+    },
+    {
+      "calls" : [
+        "open",
+        "duplicate",
+        "remove"
+      ],
+      "method" : "NSMenu.performActionForItem direct-dispatch diagnostic, not pointer acceptance",
+      "phase" : "dispatch-3",
+      "title" : "Remove"
+    }
+  ]
+}
