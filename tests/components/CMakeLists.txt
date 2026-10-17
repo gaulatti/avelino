@@ -20,6 +20,7 @@ target_compile_definitions(AvelinoComponentTests PRIVATE
     NATIVE_ACTIVITY_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/activity-item-20261016"
     NATIVE_MODAL_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/modal-20261016"
     NATIVE_MODAL_INPUT_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/modal-input-20261016"
+    NATIVE_MEDIA_LIBRARY_FILE="${PROJECT_SOURCE_DIR}/tests/consumer/native-media-library-witnesses.json"
     NATIVE_BUTTON_STYLE_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/button-style-20261016"
     NATIVE_FONT_MODIFIER_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/font-modifier-20261016"
     NATIVE_SURFACE_MODIFIER_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/surface-modifier-20261016"

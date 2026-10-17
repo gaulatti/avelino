@@ -145,9 +145,11 @@ void MediaLibraryBase::layout() {
     }
     if(width()<=0 ||m_entries.isEmpty() ||!window()) {
         for(const auto &entry:m_entries)setActive(entry,false);
+        const auto previousHeight=m_contentHeight;
         m_columns=0;m_columnWidth=0;m_contentHeight=0;
         if(m_entries.isEmpty()){m_naturalWidth=0;setImplicitWidth(0);}
-        setImplicitHeight(0);emit metricsChanged();m_layingOut=false;return;
+        setImplicitHeight(0);if(previousHeight!=m_contentHeight)emit contentHeightChanged();
+        emit metricsChanged();m_layingOut=false;return;
     }
     if(!std::isfinite(width()))qFatal("MediaLibrary layout width must be finite");
     if(m_minimum==-16)qFatal("MediaLibrary minimumTileWidth -16 produces an undefined native adaptive column count");
@@ -181,9 +183,15 @@ void MediaLibraryBase::layout() {
         if(count)m_estimate=sum/count;
         for(int row=0;row<rows;++row)if(!known[row])heights[row]=m_estimate;
     }
+    const auto previousHeight=m_contentHeight;
     m_contentHeight=std::max(qsizetype(0),rows-1)*16;for(auto h:heights)m_contentHeight+=h;
     if(!m_entries.isEmpty() &&m_entries[0]->item){auto item=m_entries[0]->item.data();auto hint=qobject_cast<BleeckerLayout*>(qmlAttachedPropertiesObject<BleeckerLayout>(item,true));m_naturalWidth=hint->idealWidth>=0 ? hint->idealWidth:m_entries[0]->explicitWidth ? item->width():item->implicitWidth();}
     setImplicitSize(m_naturalWidth,m_contentHeight);
+    if(previousHeight!=m_contentHeight)emit contentHeightChanged();
+    // Auto-height callers can recenter synchronously when the grid publishes
+    // its measured size. A viewport calculated before that change is stale;
+    // keep existing activity until the next polish uses the settled geometry.
+    const bool viewportStable=visibleRect()==viewport;
     QList<qreal> columnOrigins;qreal span=0;
     for(int column=0;column<m_columns;++column){if(column<m_entries.size())columnOrigins.append(span);span+=m_columnWidth+16;}
     span-=16;const auto horizontal=(width()-span)/2,vertical=(height()-m_contentHeight)/2;y=0;
@@ -194,12 +202,12 @@ void MediaLibraryBase::layout() {
             const auto left=horizontal+columnOrigins[column]+(m_columnWidth-entry->measuredWidth)/2;
             const auto x=m_mirrored ? width()-left-entry->measuredWidth:left;
             entry->cell->setPosition(QPointF(x,vertical+y+(heights[row]-entry->measuredHeight)/2));entry->cell->setSize(entry->item->size());
-            setActive(entry,active[row]);
+            if(viewportStable)setActive(entry,active[row]);
         }
         y+=heights[row]+16;
     }
     emit metricsChanged();m_layingOut=false;
-    if((learned &&m_contentHeight!=provisional) ||visibleRect()!=viewport)polish();
+    if((learned &&m_contentHeight!=provisional) ||!viewportStable)polish();
 }
 QVariantMap MediaLibraryBase::layoutSnapshot() const {
     QVariantList entries;

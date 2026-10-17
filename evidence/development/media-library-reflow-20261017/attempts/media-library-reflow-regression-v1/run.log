@@ -1,0 +1,31 @@
+********* Start testing of avelino *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : avelino::MediaLibrary::initTestCase()
+PASS   : avelino::MediaLibrary::test_action_can_remove_its_own_tile()
+PASS   : avelino::MediaLibrary::test_adaptive_columns_and_variable_rows()
+PASS   : avelino::MediaLibrary::test_caller_button_input_and_disabled_inheritance()
+PASS   : avelino::MediaLibrary::test_fixed_overflow_and_rtl()
+PASS   : avelino::MediaLibrary::test_identity_updates_reorder_insert_remove_and_empty_reset()
+PASS   : avelino::MediaLibrary::test_initial_identity_projection()
+PASS   : avelino::MediaLibrary::test_lazy_viewport_scroll_and_state_restoration()
+FAIL!  : avelino::MediaLibrary::test_text_reflow_preserves_visible_lifecycle(light-text1) size appearances
+   Actual   (): [object Object]
+   Expected (): [object Object]
+   Loc: [/probe/input.qml(96)]
+FAIL!  : avelino::MediaLibrary::test_text_reflow_preserves_visible_lifecycle(light-text1.5) size appearances
+   Actual   (): [object Object]
+   Expected (): [object Object]
+   Loc: [/probe/input.qml(96)]
+FAIL!  : avelino::MediaLibrary::test_text_reflow_preserves_visible_lifecycle(dark-text1) size appearances
+   Actual   (): [object Object]
+   Expected (): [object Object]
+   Loc: [/probe/input.qml(96)]
+FAIL!  : avelino::MediaLibrary::test_text_reflow_preserves_visible_lifecycle(dark-text1.5) size appearances
+   Actual   (): [object Object]
+   Expected (): [object Object]
+   Loc: [/probe/input.qml(96)]
+PASS   : avelino::MediaLibrary::test_unicode_identity_and_typed_identifiers()
+PASS   : avelino::MediaLibrary::test_zero_width_retains_state_and_initial_zero_is_lazy()
+PASS   : avelino::MediaLibrary::cleanupTestCase()
+Totals: 11 passed, 4 failed, 0 skipped, 0 blacklisted, 2970ms
+********* Finished testing of avelino *********

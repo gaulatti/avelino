@@ -48,11 +48,11 @@ def validate_report(report):
         assert validation[key] == value, key
     assert validation['physicalDisplay'] is False and validation['hardwareAcceleration'] is False
 
-def verify(directory=DIRECTORY):
+def verify(directory=DIRECTORY, *, report_validator=validate_report):
     directory = Path(directory)
     read = lambda name: json.loads((directory / name).read_text())
     report = read('candidate.json')
-    validate_report(report)
+    report_validator(report)
     files = {str(p.relative_to(directory)) for p in directory.rglob('*')
         if p.is_file() and p.name not in ['candidate.json', 'README.md']}
     assert set(report['files']) == files

@@ -1,0 +1,24 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--rm",
+    "--init",
+    "--ulimit",
+    "core=0",
+    "--name",
+    "avelino-media-library-reflow-runtime-v1",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/media-library-reflow-runtime-v1:/package:rw",
+    "-w",
+    "/package",
+    "avelino-toolchain:clipping-qt6.8.3",
+    "bash",
+    "replay.sh"
+  ],
+  "exitCode": 0,
+  "seconds": 111.51707941596396,
+  "expectedSessions": 8
+}

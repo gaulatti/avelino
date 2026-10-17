@@ -8,6 +8,8 @@ TestCase {
     property int nextToken:0
     property var clicks:[]
     property var removalTarget:null
+    property var reflowAppearances:({})
+    property var reflowDisappearances:({})
     Item {id:scene;anchors.fill:parent}
     Component {
         id:fill
@@ -35,6 +37,38 @@ TestCase {
     }
     Component {id:library;BleeckerMediaLibrary {tile:fill}}
     Component {
+        id:centeredTextLibrary
+        InheritedControl {
+            id:scope;width:640;height:400;clip:true;padding:0;background:null;contentItem:null
+            property real offeredWidth:460
+            readonly property alias control:grid
+            font.family:BleeckerFonts.primary;font.pointSize:BleeckerFonts.pointSizeForPixels(13)
+            Item {
+                x:(scope.width-width)/2;y:(scope.height-height)/2
+                width:scope.offeredWidth;height:grid.contentHeight
+                BleeckerMediaLibrary {
+                    id:grid;width:parent.width
+                    tile:Component {
+                        InheritedControl {
+                            id:tile
+                            required property var tileData
+                            required property bool tileActive
+                            implicitWidth:label.naturalWidth;implicitHeight:label.implicitHeight
+                            padding:0;background:null;contentItem:null
+                            BleeckerLayout.minimumWidth:0;BleeckerLayout.idealWidth:implicitWidth
+                            BleeckerText {id:label;text:tile.tileData.title;font:tile.presentationFont}
+                            BleeckerLayout.onProposalChanged:label.BleeckerLayout.propose(BleeckerLayout.proposedWidth)
+                            onTileActiveChanged:{
+                                const counts=tileActive ? testCase.reflowAppearances:testCase.reflowDisappearances
+                                counts[tileData.id]=(counts[tileData.id]||0)+1
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    Component {
         id:scrolling
         Flickable {
             width:460;height:100;clip:true;contentWidth:width;contentHeight:library.contentHeight
@@ -43,7 +77,26 @@ TestCase {
         }
     }
     function rows(count) {return Array.from({length:count},(_,i)=>({id:String(i),width:40+i*10,height:20+(i%3)*20}))}
-    function init(){clicks=[];removalTarget=null}
+    function init(){clicks=[];removalTarget=null;reflowAppearances={};reflowDisappearances={}}
+    function cleanup(){BleeckerTheme.dark=false;BleeckerTheme.textScale=1}
+    function test_text_reflow_preserves_visible_lifecycle_data() {
+        return nativeMediaLibraryHistories.filter(row=>row.configuration.id==="text-long" &&row.dpr===testCase.Screen.devicePixelRatio)
+            .map(row=>({tag:row.appearance+"-text"+row.textScale,history:row}))
+    }
+    function test_text_reflow_preserves_visible_lifecycle(data) {
+        const history=data.history
+        BleeckerTheme.dark=history.appearance==="dark";BleeckerTheme.textScale=history.textScale
+        const scope=createTemporaryObject(centeredTextLibrary,scene)
+        for(const step of history.steps.slice(0,7)) {
+            scope.offeredWidth=step.configuration.width
+            scope.control.minimumTileWidth=step.configuration.minimumTileWidth
+            scope.control.items=step.configuration.items
+            tryCompare(scope.control,"contentHeight",step.frame.grid.height)
+            wait(50)
+            compare(reflowAppearances,step.lifecycle.tileAppearances,step.step+" appearances "+JSON.stringify(reflowAppearances))
+            compare(reflowDisappearances,step.lifecycle.tileDisappearances,step.step+" disappearances "+JSON.stringify(reflowDisappearances))
+        }
+    }
     function test_adaptive_columns_and_variable_rows() {
         const grid=createTemporaryObject(library,scene,{width:337,items:rows(7)})
         tryCompare(grid,"activeCount",7);compare(grid.columns,2);compare(grid.columnWidth,160.5);compare(grid.contentHeight,228)

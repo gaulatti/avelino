@@ -1,0 +1,59 @@
+[
+  {
+    "command": [
+      "cmake",
+      "-S",
+      "consumer",
+      "-B",
+      "consumer-build",
+      "-G",
+      "Ninja",
+      "-DCMAKE_PREFIX_PATH=/package/install;/opt/qt"
+    ],
+    "exitCode": 0,
+    "seconds": 0.6218369459966198,
+    "log": "0.log"
+  },
+  {
+    "command": [
+      "cmake",
+      "--build",
+      "consumer-build",
+      "--parallel",
+      "2"
+    ],
+    "exitCode": 0,
+    "seconds": 35.87897807699483,
+    "log": "1.log"
+  },
+  {
+    "command": [
+      "consumer-build/InstalledConsumer",
+      "--media-library",
+      "--media-library-observe",
+      "--media-library-report",
+      "/package/results/media-library"
+    ],
+    "exitCode": -11,
+    "seconds": 3.2361949469996034,
+    "log": "2.log"
+  },
+  {
+    "command": [
+      "consumer-build/InstalledConsumer",
+      "--radio-group"
+    ],
+    "exitCode": 0,
+    "seconds": 8.105704157002037,
+    "log": "3.log"
+  },
+  {
+    "command": [
+      "consumer-build/InstalledConsumer",
+      "--selection"
+    ],
+    "exitCode": 0,
+    "seconds": 1.4469651770050405,
+    "log": "4.log"
+  }
+]

@@ -22,6 +22,9 @@ property. `itemAt(index)` returns a previously created tile or null, and the
 read-only `itemCount`, `instantiatedCount` and `activeCount` distinguish data,
 creation and visibility. `contentHeight`, `columns` and `columnWidth` describe
 the current layout. The caller owns any surrounding `Flickable` and its clipping.
+Content-height changes notify the caller before viewport activity is updated.
+If an auto-height caller recenters the grid, activity waits for its settled
+viewport. A visible tile therefore retains its appearance count during reflow.
 
 ```qml
 Flickable {
@@ -57,10 +60,13 @@ while still failing structural errors. `scripts/capture-media-library.py` keeps
 all 496 closed contexts, 104 successful edges, eight isolated fatal edges and
 all 1,008 retained-history steps. The strict comparator adds no tolerance.
 
-The [sealed candidate record](../evidence/development/media-library-20261017/candidate.json)
-compares all 1,608 observed pairs: 864 match pixels, frames and lifecycle together;
-992 match pixels, 1,288 match frames and 1,488 match native lifecycle. All 48
-offscreen restore observations reproduce their initial candidate pixels. The
+The [reflow correction record](../evidence/development/media-library-reflow-20261017/candidate.json)
+compares all 1,608 observed pairs: 1,008 match pixels, frames and lifecycle together;
+1,168 match pixels, 1,288 match frames and all 1,608 match native lifecycle. All 48
+offscreen restore observations reproduce their initial candidate pixels. No
+previously passing pixel, frame, lifecycle, state or retained-raster observation
+regressed from the [earlier candidate](../evidence/development/media-library-20261017/candidate.json),
+which had 864 complete matches and 1,488 matching native lifecycle observations. The
 7,440 direct public sizing queries remain unobserved on Linux. No complete
 component acceptance follows from these capture matches.
 
@@ -71,12 +77,31 @@ bytes independently of the checkout's generated files.
 
 The candidate evidence keeps failures as well as successful checks. Fractional
 column geometry, text measurement and lazy height estimates still differ from
-the source. Actual gallery input exercises 14 controls through 24 states;
-19 caller viewports match fresh isolated candidates, while five retained RTL
-caption states differ. Virtual Wayland software window grabs also differ after restoring the
-fractional-width fill case (`width-337`) at both standard and scaled settings. Observation mode saves those failed frames and
-continues; strict comparison remains failed. Raw Qt inactive-painter warnings
-remain preserved with their origin unresolved. These are open acceptance gates.
+the source. Actual gallery input exercises 14 controls and 23 XTest clicks through
+24 states; 20 caller viewports match fresh isolated candidates. Four retained RTL
+button-text states (`width460`, `minimum160`, `light`, `scale-restored`) differ.
+Observation mode saves those failed frames and continues; strict comparison
+remains failed. Earlier inactive-painter warnings remain preserved; the current
+eight capture contexts contain none.
+
+The catalog and independent consumer use the same fixture-only `MediaTileFill`
+for caller fill and button backgrounds. It preserves logical item geometry and
+snaps the two scene-space edges independently at the effective display scale,
+including fills narrower than one pixel. An alpha-capable texture avoids the
+fractional-edge background gap observed under virtual Wayland software rendering.
+The grid still supplies no tile styling. A painted-item trial lost subpixel-width
+fills and a texture ownership trial crashed; both failed attempts and their input
+bytes remain in the correction record. Qt's [exact 6.8.3 painted-item implementation](https://github.com/qt/qtdeclarative/blob/v6.8.3/src/quick/items/qquickpainteditem.cpp)
+and [texture-node ownership implementation](https://github.com/qt/qtdeclarative/blob/v6.8.3/src/quick/scenegraph/util/qsgsimpletexturenode.cpp)
+are recorded as investigation sources.
+
+All eight current virtual X11/Wayland profiles preserve the six retained restore
+cases, including `width-337`, for 48 exact restore observations. They use software
+rendering, including the OpenGL profiles, and do not establish physical display,
+hardware acceleration, real input or reader acceptance. Fifteen focused checks
+pass at each DPR, including the native-backed reflow regression; all 33 Qt targets,
+34 installed modes and 139 catalog captures pass. All 139 previous catalog images
+and complete metadata remain byte-identical.
 
 The [native source record](../evidence/reference-investigations/media-library-20261017/investigation.json)
 uses the unchanged public component, a transparent geometry probe and the literal
@@ -153,3 +178,5 @@ Source pins, expected images and tolerances remain unchanged; no exception or
 mirror baseline is approved. Run `python3 scripts/verify-media-library-source.py`
 to recompute the source evidence. A native reference investigation is not an
 accepted Linux component.
+Run `python3 scripts/verify-media-library-reflow.py` to recompute the corrected
+captures, historical regression guard and virtual restore images.

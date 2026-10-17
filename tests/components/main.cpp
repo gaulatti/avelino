@@ -64,6 +64,12 @@ public slots:
     void setProcessLocale(const QString &name) {QLocale::setDefault(QLocale(name));QEvent event(QEvent::LocaleChange);QCoreApplication::sendEvent(qApp,&event);}
     void qmlEngineAvailable(QQmlEngine *engine) {
         engine->rootContext()->setContextProperty("fixtureSetup",this);
+        QFile media(QStringLiteral(NATIVE_MEDIA_LIBRARY_FILE));
+        if(!media.open(QIODevice::ReadOnly))qFatal("Native media library evidence missing");
+        const auto mediaData=QJsonDocument::fromJson(media.readAll()).object();
+        if(mediaData.value("reference").toString()!="fe8a1d462fbd793d883fb92086a16aa2947e32c9"
+            ||mediaData.value("histories").toArray().size()!=48)qFatal("Native media library histories incomplete");
+        engine->rootContext()->setContextProperty("nativeMediaLibraryHistories",mediaData.value("histories").toArray().toVariantList());
         QFile surface(QStringLiteral(NATIVE_SURFACE_MODIFIER_DIRECTORY)+"/captures/captures.json");
         if(!surface.open(QIODevice::ReadOnly))qFatal("Native surface modifier evidence missing");
         const auto surfaceData=QJsonDocument::fromJson(surface.readAll()).object();

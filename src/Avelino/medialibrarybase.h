@@ -35,7 +35,7 @@ class MediaLibraryBase : public QQuickItem {
     Q_PROPERTY(qreal minimumTileWidth READ minimumTileWidth WRITE setMinimumTileWidth NOTIFY configurationChanged)
     Q_PROPERTY(bool mirrored READ mirrored WRITE setMirrored NOTIFY configurationChanged)
     Q_PROPERTY(qreal naturalWidth READ naturalWidth NOTIFY metricsChanged)
-    Q_PROPERTY(qreal contentHeight READ contentHeight NOTIFY metricsChanged)
+    Q_PROPERTY(qreal contentHeight READ contentHeight NOTIFY contentHeightChanged)
     Q_PROPERTY(int columns READ columns NOTIFY metricsChanged)
     Q_PROPERTY(qreal columnWidth READ columnWidth NOTIFY metricsChanged)
     Q_PROPERTY(int itemCount READ itemCount NOTIFY itemsChanged)
@@ -69,6 +69,7 @@ signals:
     void tileChanged();
     void configurationChanged();
     void metricsChanged();
+    void contentHeightChanged();
 protected:
     void componentComplete() override;
     void geometryChange(const QRectF &next,const QRectF &previous) override;

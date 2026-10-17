@@ -19,7 +19,7 @@ InheritedControl {
     BleeckerLayout.idealWidth:implicitWidth
     BleeckerLayout.fillsWidth:kind==="fill" ||kind==="button"
     padding:0;background:null;contentItem:null;focusPolicy:Qt.NoFocus;Accessible.ignored:true
-    Rectangle {anchors.fill:parent;color:tile.tileColor;visible:tile.kind==="fill" ||tile.kind==="fixed";Accessible.ignored:true}
+    MediaTileFill {anchors.fill:parent;color:tile.tileColor;visible:tile.kind==="fill" ||tile.kind==="fixed";Accessible.ignored:true}
     BleeckerText {
         id:label
         text:tile.kind==="text" ? tile.tileData.title:""
@@ -29,7 +29,7 @@ InheritedControl {
     T.Button {
         objectName:"mediaTileButton"
         anchors.fill:parent;visible:tile.kind==="button";padding:0;background:null
-        contentItem:Rectangle {
+        contentItem:MediaTileFill {
             color:tile.tileColor
             BleeckerText {
                 id:caption;text:tile.tileData.title;font:tile.presentationFont;color:"white"
