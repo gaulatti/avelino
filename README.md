@@ -106,7 +106,7 @@ closed source contexts remain in strict comparison: 76 exact pixel/frame matches
 1,168 frame matches and all produced states matching. Full Qt tests, independent
 packaging, eight virtual display profiles and actual gallery toolbar input pass.
 Native fonts/raster, complete contexts, physical displays and readers remain open.
-Desktop candidate coverage is 74/80; none are accepted.
+Desktop candidate coverage is 75/80; none are accepted.
 
 The [pill candidate](docs/pill-modifier.md) retains a single text caller, fixed mono 9
 font and 7/4 capsule padding, caller formatting and baseline guides. All 2,112
@@ -143,9 +143,13 @@ brings the installed gallery to 28/28 exact operator states and preserves visibl
 badges at both pixel ratios. Native symbols, label fitting, sizing, keyboard timing,
 accessibility, physical displays and readers remain pending.
 
-The [dropdown menu source record](docs/dropdown-menu.md) preserves 256 native
-closed contexts, label conversion and direct sizing measurements before Linux
-implementation. Desktop candidate coverage remains 74/80 with zero accepted APIs.
+The [dropdown menu candidate](docs/dropdown-menu.md) preserves all 256 native
+closed contexts and 3,840 public sizing proposals. Every closed state agrees;
+zero complete frame sets or pixels match, with 48 body/caller-only frame matches.
+The installed package, eight virtual display profiles and 24 exact gallery caller
+states pass. Native label/update timing, fonts/symbols/raster, popup presentation,
+sizing, accessibility, physical displays and readers remain pending. Desktop
+candidate coverage is 75/80 with zero accepted APIs.
 
 The [command spotlight candidate](docs/command-spotlight.md) preserves its
 fixed 520 by 380 surface, caller-owned query and lazy rows. Its public, probed and
@@ -154,7 +158,7 @@ source-only replay reproduces all 5,381 outputs. The Linux candidate retains all
 1,792 strict native comparisons and caller-owned query/row state. All 23 actual
 gallery states pass, and all 143 prior catalog PNGs and metadata stay unchanged.
 Native fonts/raster, builder and callback timing, lazy eviction, sizing, physical
-input and readers remain pending. Desktop candidate coverage is 74/80 with zero
+input and readers remain pending. Desktop candidate coverage is 75/80 with zero
 accepted APIs.
 
 The [surface modifier](docs/surface-modifier.md) decorates flat callers separately

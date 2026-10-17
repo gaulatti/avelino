@@ -1,0 +1,80 @@
+[
+  {
+    "command": [
+      "cmake",
+      "-S",
+      "consumer",
+      "-B",
+      "consumer-build",
+      "-G",
+      "Ninja",
+      "-DCMAKE_PREFIX_PATH=/package/install;/opt/qt"
+    ],
+    "exitCode": 0,
+    "expectedExitCode": 0,
+    "seconds": 1.1862871719931718,
+    "log": "0.log"
+  },
+  {
+    "command": [
+      "cmake",
+      "--build",
+      "consumer-build",
+      "--parallel",
+      "2"
+    ],
+    "exitCode": 0,
+    "expectedExitCode": 0,
+    "seconds": 0.17212061399186496,
+    "log": "1.log"
+  },
+  {
+    "command": [
+      "bash",
+      "check-installed.sh"
+    ],
+    "exitCode": 0,
+    "expectedExitCode": 0,
+    "seconds": 291.87021851299505,
+    "log": "2.log"
+  },
+  {
+    "command": [
+      "python3",
+      "driver/scripts/capture-dropdown-menu.py",
+      "consumer-build/InstalledConsumer",
+      "captures",
+      "--jobs",
+      "2"
+    ],
+    "exitCode": 0,
+    "expectedExitCode": 0,
+    "seconds": 17.100542257001507,
+    "log": "3.log"
+  },
+  {
+    "command": [
+      "consumer-build/InstalledConsumer",
+      "--dropdown-menu",
+      "--dropdown-menu-report",
+      "/package/strict"
+    ],
+    "exitCode": 1,
+    "expectedExitCode": 1,
+    "seconds": 3.6819224190112436,
+    "log": "4.log"
+  },
+  {
+    "command": [
+      "install/bin/AvelinoCatalog",
+      "--fixture",
+      "dropdown-menu",
+      "--capture",
+      "/package/gallery.png"
+    ],
+    "exitCode": 0,
+    "expectedExitCode": 0,
+    "seconds": 0.8122607620025519,
+    "log": "5.log"
+  }
+]

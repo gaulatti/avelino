@@ -63,7 +63,7 @@ INI
   fi
   for backend in software opengl; do
     for configuration in standard scaled; do
-    for fixture in base controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper radio-group otp-input activity-item modal tooltip button-style font-modifier surface-modifier surface-baseline surface-input pill-modifier charts media-library app-tabs command-spotlight; do
+    for fixture in base controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper radio-group otp-input activity-item modal tooltip button-style font-modifier surface-modifier surface-baseline surface-input pill-modifier charts media-library app-tabs command-spotlight dropdown-menu; do
       prefix="$evidence/$protocol-$backend-$configuration"
       if [[ "$fixture" == controls ]]; then prefix="$evidence/controls-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == composition ]]; then prefix="$evidence/composition-$protocol-$backend-$configuration"; fi
@@ -83,6 +83,7 @@ INI
       if [[ "$fixture" == pill-modifier ]]; then prefix="$evidence/pill-modifier-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == media-library ]]; then prefix="$evidence/media-library-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == command-spotlight ]]; then prefix="$evidence/command-spotlight-$protocol-$backend-$configuration"; fi
+      if [[ "$fixture" == dropdown-menu ]]; then prefix="$evidence/dropdown-menu-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == app-tabs ]]; then prefix="$evidence/app-tabs-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == charts ]]; then prefix="$evidence/charts-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == font-modifier ]]; then prefix="$evidence/font-modifier-$protocol-$backend-$configuration"; fi
@@ -118,6 +119,7 @@ INI
       if [[ "$fixture" == pill-modifier ]]; then args+=(--pill-modifier --pill-observe); fi
       if [[ "$fixture" == media-library ]]; then args+=(--media-library --media-library-observe); fi
       if [[ "$fixture" == command-spotlight ]]; then args+=(--command-spotlight --command-spotlight-observe); fi
+      if [[ "$fixture" == dropdown-menu ]]; then args+=(--dropdown-menu --dropdown-menu-observe); fi
       if [[ "$fixture" == app-tabs ]]; then args+=(--app-tabs --app-tabs-observe); fi
       if [[ "$fixture" == charts ]]; then args+=(--charts --charts-observe); fi
       if [[ "$fixture" == font-modifier ]]; then args+=(--font-modifier); fi
@@ -223,6 +225,12 @@ elif fixture == 'command-spotlight':
     assert record['pointerDeliveries']==40 and record['keyDeliveries']==8,record
     assert all(len(h['steps'])==24 for h in record['histories']),record
     assert record['retainedRestores']==sum(h['steps'][22]['matchesInitialPixels'] for h in record['histories']),record
+    assert record['nativeRasterAcceptance']==record['physicalInputAcceptance']==record['readerAcceptance']=='pending',record
+    assert record['nativeAccessibilityAcceptance']=='unobserved',record
+elif fixture == 'dropdown-menu':
+    assert record['structuralChecks']=='passed' and record['accepted'] is False,record
+    assert len(record['closed'])==len(record['sizing'])==record['images']==32,record
+    assert record['pointerDeliveries']==11 and record['keyDeliveries']==1 and len(record['actions'])==6,record
     assert record['nativeRasterAcceptance']==record['physicalInputAcceptance']==record['readerAcceptance']=='pending',record
     assert record['nativeAccessibilityAcceptance']=='unobserved',record
 elif fixture == 'app-tabs':

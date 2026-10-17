@@ -1,0 +1,117 @@
+********* Start testing of avelino *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : avelino::DropdownMenu::initTestCase()
+QWARN  : avelino::DropdownMenu::test_all_forty_commands_remain_scrollable() This plugin does not support grabbing the keyboard
+PASS   : avelino::DropdownMenu::test_all_forty_commands_remain_scrollable()
+QWARN  : avelino::DropdownMenu::test_callback_can_remove_all_rows() This plugin does not support grabbing the keyboard
+PASS   : avelino::DropdownMenu::test_callback_can_remove_all_rows()
+QWARN  : avelino::DropdownMenu::test_disable_during_press_cancels_activation() This plugin does not support grabbing the keyboard
+PASS   : avelino::DropdownMenu::test_disable_during_press_cancels_activation()
+QWARN  : avelino::DropdownMenu::test_drag_release_activates_the_visible_target_once() This plugin does not support grabbing the keyboard
+PASS   : avelino::DropdownMenu::test_drag_release_activates_the_visible_target_once()
+PASS   : avelino::DropdownMenu::test_empty_and_disabled_trigger_reject_input()
+PASS   : avelino::DropdownMenu::test_first_image_metadata_ignores_outer_image_frame()
+PASS   : avelino::DropdownMenu::test_first_text_hidden_and_opacity_metadata()
+QWARN  : avelino::DropdownMenu::test_keyboard_open_navigation_activation_and_escape() This plugin does not support grabbing the keyboard
+QWARN  : avelino::DropdownMenu::test_keyboard_open_navigation_activation_and_escape() This plugin does not support grabbing the keyboard
+PASS   : avelino::DropdownMenu::test_keyboard_open_navigation_activation_and_escape()
+QWARN  : avelino::DropdownMenu::test_label_button_does_not_receive_trigger_input() This plugin does not support grabbing the keyboard
+PASS   : avelino::DropdownMenu::test_label_button_does_not_receive_trigger_input()
+QWARN  : avelino::DropdownMenu::test_lazy_menu_repeated_titles_and_owner_callback() This plugin does not support grabbing the keyboard
+PASS   : avelino::DropdownMenu::test_lazy_menu_repeated_titles_and_owner_callback()
+PASS   : avelino::DropdownMenu::test_local_text_styling_and_owner_update()
+PASS   : avelino::DropdownMenu::test_metadata_context_ignores_parent_style_and_custom_scale()
+QWARN  : avelino::DropdownMenu::test_reorder_title_and_role_updates_keep_identity() This plugin does not support grabbing the keyboard
+PASS   : avelino::DropdownMenu::test_reorder_title_and_role_updates_keep_identity()
+PASS   : avelino::DropdownMenu::test_unsupported_visual_label_has_indicator_only()
+PASS   : avelino::DropdownMenu::cleanupTestCase()
+Totals: 16 passed, 0 failed, 0 skipped, 0 blacklisted, 2003ms
+********* Finished testing of avelino *********
+Internal ctest changing into directory: /result/build
+Test project /result/build
+      Start  1: components
+      Start  2: components-dpr2
+ 1/41 Test  #1: components ...........................   Passed  498.08 sec
+      Start  3: slider-invalid-config
+ 2/41 Test  #3: slider-invalid-config ................   Passed    4.69 sec
+      Start  4: pagination-invalid-config
+ 3/41 Test  #4: pagination-invalid-config ............   Passed    8.18 sec
+      Start  5: presentation-invalid-config
+ 4/41 Test  #2: components-dpr2 ......................   Passed  526.87 sec
+      Start  6: navigation-invalid-config
+ 5/41 Test  #5: presentation-invalid-config ..........   Passed   16.25 sec
+      Start  7: sidebar-brand-invalid-config
+ 6/41 Test  #6: navigation-invalid-config ............   Passed    8.44 sec
+      Start  8: data-metrics-invalid-config
+ 7/41 Test  #7: sidebar-brand-invalid-config .........   Passed    8.99 sec
+      Start  9: stepper-invalid-config
+ 8/41 Test  #8: data-metrics-invalid-config ..........   Passed   11.62 sec
+      Start 10: radio-invalid-config
+ 9/41 Test #10: radio-invalid-config .................   Passed   23.79 sec
+      Start 11: radio-catalog-metadata
+10/41 Test  #9: stepper-invalid-config ...............   Passed   36.56 sec
+      Start 12: otp-native-transformation
+11/41 Test #12: otp-native-transformation ............   Passed    4.98 sec
+      Start 13: otp-invalid-transformation
+12/41 Test #11: radio-catalog-metadata ...............   Passed    8.51 sec
+      Start 14: otp-invalid-input
+13/41 Test #14: otp-invalid-input ....................   Passed    8.05 sec
+      Start 15: otp-catalog-metadata
+14/41 Test #15: otp-catalog-metadata .................   Passed    8.23 sec
+      Start 16: activity-invalid-config
+15/41 Test #13: otp-invalid-transformation ...........   Passed   19.44 sec
+      Start 17: activity-catalog-metadata
+16/41 Test #16: activity-invalid-config ..............   Passed    6.85 sec
+      Start 18: modal-invalid-config
+17/41 Test #17: activity-catalog-metadata ............   Passed   18.82 sec
+      Start 19: modal-catalog-metadata
+18/41 Test #18: modal-invalid-config .................   Passed   19.68 sec
+      Start 20: tooltip-invalid-config
+19/41 Test #20: tooltip-invalid-config ...............   Passed    6.97 sec
+      Start 21: tooltip-catalog-metadata
+20/41 Test #19: modal-catalog-metadata ...............   Passed   31.54 sec
+      Start 22: button-style-invalid-config
+21/41 Test #21: tooltip-catalog-metadata .............   Passed   20.85 sec
+      Start 23: button-style-catalog-metadata
+22/41 Test #22: button-style-invalid-config ..........   Passed   12.70 sec
+      Start 24: font-modifier-invalid-config
+23/41 Test #24: font-modifier-invalid-config .........   Passed   11.59 sec
+      Start 25: font-modifier-catalog-metadata
+24/41 Test #25: font-modifier-catalog-metadata .......   Passed   58.47 sec
+      Start 26: surface-modifier-invalid-config
+25/41 Test #26: surface-modifier-invalid-config ......   Passed    6.18 sec
+      Start 27: surface-modifier-catalog-metadata
+26/41 Test #23: button-style-catalog-metadata ........   Passed   88.07 sec
+      Start 28: pill-modifier-invalid-config
+27/41 Test #27: surface-modifier-catalog-metadata ....   Passed   15.07 sec
+      Start 29: pill-modifier-catalog-metadata
+28/41 Test #28: pill-modifier-invalid-config .........   Passed   23.07 sec
+      Start 30: charts-invalid-config
+29/41 Test #30: charts-invalid-config ................   Passed   11.51 sec
+      Start 31: charts-catalog-metadata
+30/41 Test #29: pill-modifier-catalog-metadata .......   Passed   35.59 sec
+      Start 32: media-library-invalid-config
+31/41 Test #32: media-library-invalid-config .........   Passed   16.05 sec
+      Start 33: media-library-catalog-metadata
+32/41 Test #31: charts-catalog-metadata ..............   Passed   45.84 sec
+      Start 34: app-tabs-invalid-config
+33/41 Test #33: media-library-catalog-metadata .......   Passed   19.32 sec
+      Start 35: app-tabs-catalog-metadata
+34/41 Test #35: app-tabs-catalog-metadata ............   Passed   11.47 sec
+      Start 36: app-tabs-retained-raster
+35/41 Test #34: app-tabs-invalid-config ..............   Passed   19.84 sec
+      Start 37: app-tabs-retained-raster-dpr2
+36/41 Test #36: app-tabs-retained-raster .............   Passed   24.89 sec
+      Start 38: command-spotlight-invalid-config
+37/41 Test #37: app-tabs-retained-raster-dpr2 ........   Passed   27.41 sec
+      Start 39: command-spotlight-catalog-metadata
+38/41 Test #39: command-spotlight-catalog-metadata ...   Passed   10.33 sec
+      Start 40: dropdown-menu-invalid-config
+39/41 Test #38: command-spotlight-invalid-config .....   Passed   21.08 sec
+      Start 41: dropdown-menu-catalog-metadata
+40/41 Test #40: dropdown-menu-invalid-config .........   Passed   14.02 sec
+41/41 Test #41: dropdown-menu-catalog-metadata .......   Passed   10.98 sec
+
+100% tests passed, 0 tests failed out of 41
+
+Total Test time (real) = 891.33 sec

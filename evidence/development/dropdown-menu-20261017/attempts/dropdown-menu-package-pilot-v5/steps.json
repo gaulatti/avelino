@@ -1,0 +1,53 @@
+[
+  {
+    "command": [
+      "cmake",
+      "-S",
+      "consumer",
+      "-B",
+      "consumer-build",
+      "-G",
+      "Ninja",
+      "-DCMAKE_PREFIX_PATH=/package/install;/opt/qt"
+    ],
+    "exitCode": 0,
+    "seconds": 1.1080924819980282,
+    "log": "0.log"
+  },
+  {
+    "command": [
+      "cmake",
+      "--build",
+      "consumer-build",
+      "--parallel",
+      "2"
+    ],
+    "exitCode": 0,
+    "seconds": 10.270336248999229,
+    "log": "1.log"
+  },
+  {
+    "command": [
+      "consumer-build/InstalledConsumer",
+      "--dropdown-menu",
+      "--dropdown-menu-observe",
+      "--dropdown-menu-report",
+      "/package/pilot"
+    ],
+    "exitCode": 0,
+    "seconds": 3.755725995011744,
+    "log": "2.log"
+  },
+  {
+    "command": [
+      "install/bin/AvelinoCatalog",
+      "--fixture",
+      "dropdown-menu",
+      "--capture",
+      "/package/gallery.png"
+    ],
+    "exitCode": 0,
+    "seconds": 0.8900597820029361,
+    "log": "3.log"
+  }
+]

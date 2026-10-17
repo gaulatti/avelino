@@ -1,0 +1,41 @@
+[
+  {
+    "command": [
+      "cmake",
+      "-S",
+      "consumer",
+      "-B",
+      "consumer-build",
+      "-G",
+      "Ninja",
+      "-DCMAKE_PREFIX_PATH=/package/install;/opt/qt"
+    ],
+    "exitCode": 0,
+    "seconds": 0.6243021739937831,
+    "log": "0.log"
+  },
+  {
+    "command": [
+      "cmake",
+      "--build",
+      "consumer-build",
+      "--parallel",
+      "2"
+    ],
+    "exitCode": 0,
+    "seconds": 67.83204776700586,
+    "log": "1.log"
+  },
+  {
+    "command": [
+      "consumer-build/InstalledConsumer",
+      "--dropdown-menu",
+      "--dropdown-menu-observe",
+      "--dropdown-menu-report",
+      "/package/pilot"
+    ],
+    "exitCode": 99,
+    "seconds": 2.77814260199375,
+    "log": "2.log"
+  }
+]

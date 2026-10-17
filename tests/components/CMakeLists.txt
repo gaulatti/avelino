@@ -153,3 +153,9 @@ add_test(NAME command-spotlight-invalid-config COMMAND python3 ${CMAKE_CURRENT_S
 
 add_test(NAME command-spotlight-catalog-metadata COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/check-command-spotlight-catalog.py
     $<TARGET_FILE:AvelinoCatalog> ${CMAKE_BINARY_DIR}/qml ${PROJECT_SOURCE_DIR})
+
+add_test(NAME dropdown-menu-invalid-config COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/check-invalid-dropdown-menu.py
+    $<TARGET_FILE:AvelinoComponentTests> ${CMAKE_BINARY_DIR}/qml)
+
+add_test(NAME dropdown-menu-catalog-metadata COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/check-dropdown-menu-catalog.py
+    $<TARGET_FILE:AvelinoCatalog> ${CMAKE_BINARY_DIR}/qml ${PROJECT_SOURCE_DIR})

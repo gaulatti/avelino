@@ -1,0 +1,38 @@
+-- Could NOT find WrapVulkanHeaders (missing: Vulkan_INCLUDE_DIR) 
+-- Could NOT find WrapVulkanHeaders (missing: Vulkan_INCLUDE_DIR) 
+-- Found the following ICU libraries:
+--   i18n (required): /usr/lib/aarch64-linux-gnu/libicui18n.so.74
+--   uc (required): /usr/lib/aarch64-linux-gnu/libicuuc.so.74
+-- Configuring done (2.8s)
+-- Generating done (0.9s)
+-- Build files have been written to: /result/build
+[0/2] Re-checking globbed directories...
+[1/3] Automatic MOC and UIC for target AvelinoComponentTests
+********* Start testing of avelino *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : avelino::DropdownMenu::initTestCase()
+QWARN  : avelino::DropdownMenu::test_all_forty_commands_remain_scrollable() This plugin does not support grabbing the keyboard
+FAIL!  : avelino::DropdownMenu::test_all_forty_commands_remain_scrollable() Compared values are not the same
+   Actual   (): [32]
+   Expected (): [39]
+   Loc: [/work/tests/components/tst_dropdown_menu.qml(138)]
+QWARN  : avelino::DropdownMenu::test_callback_can_remove_all_rows() This plugin does not support grabbing the keyboard
+PASS   : avelino::DropdownMenu::test_callback_can_remove_all_rows()
+PASS   : avelino::DropdownMenu::test_empty_and_disabled_trigger_reject_input()
+PASS   : avelino::DropdownMenu::test_first_image_metadata_preserves_source_and_size_updates()
+PASS   : avelino::DropdownMenu::test_first_text_hidden_and_opacity_metadata()
+QWARN  : avelino::DropdownMenu::test_keyboard_open_navigation_activation_and_escape() This plugin does not support grabbing the keyboard
+QWARN  : avelino::DropdownMenu::test_keyboard_open_navigation_activation_and_escape() This plugin does not support grabbing the keyboard
+PASS   : avelino::DropdownMenu::test_keyboard_open_navigation_activation_and_escape()
+QWARN  : avelino::DropdownMenu::test_label_button_does_not_receive_trigger_input() This plugin does not support grabbing the keyboard
+PASS   : avelino::DropdownMenu::test_label_button_does_not_receive_trigger_input()
+QWARN  : avelino::DropdownMenu::test_lazy_menu_repeated_titles_and_owner_callback() This plugin does not support grabbing the keyboard
+PASS   : avelino::DropdownMenu::test_lazy_menu_repeated_titles_and_owner_callback()
+PASS   : avelino::DropdownMenu::test_local_text_styling_and_owner_update()
+PASS   : avelino::DropdownMenu::test_metadata_context_ignores_parent_style_and_custom_scale()
+QWARN  : avelino::DropdownMenu::test_reorder_title_and_role_updates_keep_identity() This plugin does not support grabbing the keyboard
+PASS   : avelino::DropdownMenu::test_reorder_title_and_role_updates_keep_identity()
+PASS   : avelino::DropdownMenu::test_unsupported_visual_label_has_indicator_only()
+PASS   : avelino::DropdownMenu::cleanupTestCase()
+Totals: 13 passed, 1 failed, 0 skipped, 0 blacklisted, 1065ms
+********* Finished testing of avelino *********

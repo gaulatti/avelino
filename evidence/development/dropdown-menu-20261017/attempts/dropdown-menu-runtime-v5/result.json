@@ -1,0 +1,25 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--rm",
+    "--init",
+    "--ulimit",
+    "core=0",
+    "--name",
+    "avelino-dropdown-menu-runtime-v5",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/dropdown-menu-runtime-v5:/package:rw",
+    "-w",
+    "/package",
+    "avelino-toolchain:clipping-qt6.8.3",
+    "bash",
+    "-lc",
+    "python3 collect-environment.py && bash replay.sh"
+  ],
+  "exitCode": 0,
+  "seconds": 9.13259570801165,
+  "expectedSessions": 8
+}

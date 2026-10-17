@@ -1,0 +1,29 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--rm",
+    "--init",
+    "--ulimit",
+    "core=0",
+    "--name",
+    "avelino-dropdown-menu-runtime-v3",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/dropdown-menu-runtime-v3:/package:rw",
+    "-w",
+    "/package",
+    "avelino-toolchain:clipping-qt6.8.3",
+    "-e",
+    "WAYLAND_DEBUG=1",
+    "-e",
+    "QT_LOGGING_RULES=qt.quick.controls.popup.debug=true;qt.qpa.wayland.debug=true",
+    "bash",
+    "-lc",
+    "python3 collect-environment.py && bash replay.sh"
+  ],
+  "exitCode": 127,
+  "seconds": 0.8533492919523269,
+  "expectedSessions": 8
+}
