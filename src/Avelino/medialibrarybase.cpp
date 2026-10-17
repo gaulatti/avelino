@@ -24,7 +24,14 @@ MediaLibraryBase::MediaLibraryBase(QQuickItem *parent):QQuickItem(parent) {
     connect(this,&QQuickItem::windowChanged,this,&MediaLibraryBase::attachWindow);
     connect(this,&QQuickItem::visibleChanged,this,[this]{polish();});
 }
-MediaLibraryBase::~MediaLibraryBase(){disconnect(m_frameConnection);m_entries.clear();}
+MediaLibraryBase::~MediaLibraryBase(){
+    disconnect(m_frameConnection);
+    // QQuickItem emits window/geometry changes during its base destructor.
+    // Stop callbacks while our derived state and caller contexts still exist.
+    disconnect(this,nullptr,this,nullptr);
+    for(auto sender:findChildren<QObject*>())disconnect(sender,nullptr,this,nullptr);
+    m_entries.clear();
+}
 void MediaLibraryBase::componentComplete(){QQuickItem::componentComplete();m_complete=true;attachWindow(window());reconcile();layout();}
 void MediaLibraryBase::geometryChange(const QRectF &next,const QRectF &previous) {
     QQuickItem::geometryChange(next,previous);if(!m_layingOut)polish();

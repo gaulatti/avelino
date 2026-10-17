@@ -7,6 +7,13 @@ gaps. It adds no scroll view, tile presentation, selection, background or clippi
 Those belong to its caller. A Linux candidate uses retained caller components and
 viewport-driven creation. Native mirror acceptance remains pending.
 
+Library teardown disconnects window and owned-caller geometry observers before
+the derived library state is destroyed. Qt's base-item teardown can emit those
+signals while detaching the visual tree; they must not reenter library methods
+after its destructor has run. Caller actions may remove their own tiles, and an
+attached grid may be destroyed with live tiles. Both paths have Qt regression
+coverage. Caller contexts continue to outlive their tiles during deferred removal.
+
 The QML API takes an `items` array and a required `tile: Component`. Each item
 normally has an `id`; `itemIdentity: value => value.key` can supply the identity
 for another data shape. Identities are typed primitives, with canonical Unicode

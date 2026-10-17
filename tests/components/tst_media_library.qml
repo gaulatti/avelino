@@ -10,6 +10,7 @@ TestCase {
     property var removalTarget:null
     property var reflowAppearances:({})
     property var reflowDisappearances:({})
+    property int destroyedGrids:0
     Item {id:scene;anchors.fill:parent}
     Component {
         id:fill
@@ -152,6 +153,16 @@ TestCase {
         tryCompare(grid,"activeCount",2);removalTarget=grid
         const item=grid.itemAt(0);mouseClick(item,item.width/2,item.height/2)
         compare(clicks,["0"]);compare(grid.itemCount,0);compare(grid.instantiatedCount,0);wait(1)
+    }
+    Component {
+        id:destructibleLibrary
+        BleeckerMediaLibrary {tile:fill;Component.onDestruction:++testCase.destroyedGrids}
+    }
+    function test_attached_grid_can_be_destroyed_with_live_tiles() {
+        const before=destroyedGrids
+        const grid=destructibleLibrary.createObject(scene,{width:460,items:rows(2)})
+        verify(grid!==null);tryCompare(grid,"activeCount",2)
+        grid.destroy();tryCompare(testCase,"destroyedGrids",before+1);wait(1)
     }
     function test_initial_identity_projection() {
         const grid=createTemporaryObject(library,scene,{width:460,items:[{key:"a",height:20}],itemIdentity:(value)=>value.key})
