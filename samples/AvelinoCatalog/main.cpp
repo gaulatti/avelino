@@ -4,6 +4,7 @@
 #include <QQmlContext>
 #include <QQuickWindow>
 #include <QTimer>
+#include <QElapsedTimer>
 #include <QCommandLineParser>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -67,7 +68,7 @@ int main(int argc, char *argv[]) {
     parser.addHelpOption();
     parser.addOptions({QCommandLineOption("capture", "Save the displayed fixture to PNG and exit", "path"),
                        QCommandLineOption("dark", "Use dark reference appearance"),
-                       QCommandLineOption("fixture", "Render a fixture (button, foundations, surfaces, data-display, controls, composition, selection, checkbox, secure-field, search-field, collection-filters, slider, tabs, pagination, pagination-integers, accordion, presentation-states, spinner, alert, clipping, navigation, sidebar-brand, data-metrics, stepper, radio-group, otp-input, activity-item, modal, tooltip, button-style, font-modifier, surface-modifier or reference-case)", "name"),
+                       QCommandLineOption("fixture", "Render a fixture (button, foundations, surfaces, data-display, controls, composition, selection, checkbox, secure-field, search-field, collection-filters, slider, tabs, pagination, pagination-integers, accordion, presentation-states, spinner, alert, clipping, navigation, sidebar-brand, data-metrics, stepper, radio-group, otp-input, activity-item, modal, tooltip, button-style, font-modifier, surface-modifier, pill-modifier or reference-case)", "name"),
                        QCommandLineOption("case", "Isolated reference fixture identifier", "id"),
                        QCommandLineOption("case-definitions", "JSON file containing the isolated fixture definitions", "path"),
                        QCommandLineOption("variant", "Button variant", "name", "primary"),
@@ -94,6 +95,22 @@ int main(int argc, char *argv[]) {
             if (entry.value("fixture").toString() == parser.value("case")) { definition = entry; ++matches; }
         }
         if (matches != 1 || definition.value("width").toDouble() <= 0 || definition.value("height").toDouble() <= 0) return 6;
+        if(definition.value("api").toString()=="Text.bleeckerPill") {
+            const auto finite=[](QJsonValue value){return value.isDouble() && std::isfinite(value.toDouble());};
+            const auto offer=definition.value("offer"),lines=definition.value("lineLimit");
+            if(definition.keys()!=QStringList{"api","disabled","fixture","height","hidden","id","lineLimit","offer","parentFont","parentLayout","parentRed","rtl","source","style","text","width"}
+                || definition.value("source").toString()!="fe8a1d462fbd793d883fb92086a16aa2947e32c9"
+                || !definition.value("fixture").toString().startsWith("pill-")
+                || definition.value("fixture").toString()!="pill-"+definition.value("id").toString()
+                || !definition.value("text").isString()
+                || (!offer.isNull() && (!finite(offer) || offer.toDouble()<0))
+                || (!lines.isNull() && (!finite(lines) || lines.toDouble()<1 || lines.toDouble()>2147483647 || std::floor(lines.toDouble())!=lines.toDouble()))
+                || !QStringList{"plain","primary19","secondary19","mono3","mono32","system32","red","style-red","bold","italic","underline","strike","tracking","kerning","baseline5","concat","attributed","markdown","image","image-text"}.contains(definition.value("style").toString())
+                || !QStringList{"center","hstack","vstack","baseline"}.contains(definition.value("parentLayout").toString())
+                || !definition.value("parentFont").isBool() || !definition.value("parentRed").isBool() || !definition.value("rtl").isBool()
+                || !definition.value("hidden").isBool() || !definition.value("disabled").isBool()
+                || definition.value("width").toDouble()!=640 || definition.value("height").toDouble()!=400)return 6;
+        }
         if(definition.value("api").toString()=="BleeckerSurfaceModifier") {
             const auto finite=[](QJsonValue value){return value.isDouble() && std::isfinite(value.toDouble());};
             const auto radius=definition.value("radius"),offer=definition.value("offer");
@@ -173,8 +190,8 @@ int main(int argc, char *argv[]) {
     if(isolated && definition.contains("processLocale"))QLocale::setDefault(QLocale(definition.value("processLocale").toString()));
     engine.rootContext()->setContextProperty("captureDefinition", definition.toVariantMap());
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreationFailed, &app, [] { QCoreApplication::exit(1); }, Qt::QueuedConnection);
-    if (parser.isSet("fixture") && fixture != "button" && fixture != "foundations" && fixture != "surfaces" && fixture != "data-display" && fixture != "controls" && fixture != "composition" && fixture != "selection" && fixture != "checkbox" && fixture != "secure-field" && fixture != "search-field" && fixture != "collection-filters" && fixture != "slider" && fixture != "tabs" && fixture != "pagination" && fixture != "pagination-integers" && fixture != "accordion" && fixture != "presentation-states" && fixture != "spinner" && fixture != "alert" && fixture != "clipping" && fixture != "navigation" && fixture != "sidebar-brand" && fixture != "data-metrics" && fixture != "stepper" && fixture != "radio-group" && fixture != "otp-input" && fixture != "activity-item" && fixture != "modal" && fixture != "tooltip" && fixture != "button-style" && fixture != "font-modifier" && fixture != "surface-modifier" && !isolated) return 4;
-    engine.loadFromModule("AvelinoCatalog", isolated ? "ReferenceCaseFixture" : fixture == "surface-modifier" ? "SurfaceModifier" : fixture == "font-modifier" ? "FontModifier" : fixture == "button-style" ? "ButtonStyle" : fixture == "tooltip" ? "Tooltip" : fixture == "modal" ? "Modal" : fixture == "activity-item" ? "ActivityItem" : fixture == "otp-input" ? "OTPInput" : fixture == "radio-group" ? "RadioGroup" : fixture == "stepper" ? "Stepper" : fixture == "data-metrics" ? "DataMetrics" : fixture == "sidebar-brand" ? "SidebarBrand" : fixture == "navigation" ? "Navigation" : fixture == "clipping" ? "Clipping" : fixture == "alert" ? "AlertFixture" : fixture == "spinner" ? "SpinnerFixture" : fixture == "presentation-states" ? "PresentationStatesFixture" : fixture == "accordion" ? "AccordionFixture" : fixture == "pagination-integers" ? "PaginationIntegerFixture" : fixture == "pagination" ? "PaginationFixture" : fixture == "tabs" ? "TabsFixture" : fixture == "slider" ? "SliderFixture" : fixture == "collection-filters" ? "CollectionFiltersFixture" : fixture == "search-field" ? "SearchFieldFixture" : fixture == "secure-field" ? "SecureFieldFixture" : fixture == "checkbox" ? "CheckboxFixture" : fixture == "selection" ? "SelectionFixture" : fixture == "composition" ? "CompositionFixture" : fixture == "controls" ? "ControlsFixture" : fixture == "data-display" ? "DataDisplayFixture" : fixture == "surfaces" ? "SurfacesFixture" : fixture == "foundations" ? "FoundationsFixture"
+    if (parser.isSet("fixture") && fixture != "button" && fixture != "foundations" && fixture != "surfaces" && fixture != "data-display" && fixture != "controls" && fixture != "composition" && fixture != "selection" && fixture != "checkbox" && fixture != "secure-field" && fixture != "search-field" && fixture != "collection-filters" && fixture != "slider" && fixture != "tabs" && fixture != "pagination" && fixture != "pagination-integers" && fixture != "accordion" && fixture != "presentation-states" && fixture != "spinner" && fixture != "alert" && fixture != "clipping" && fixture != "navigation" && fixture != "sidebar-brand" && fixture != "data-metrics" && fixture != "stepper" && fixture != "radio-group" && fixture != "otp-input" && fixture != "activity-item" && fixture != "modal" && fixture != "tooltip" && fixture != "button-style" && fixture != "font-modifier" && fixture != "surface-modifier" && fixture != "pill-modifier" && !isolated) return 4;
+    engine.loadFromModule("AvelinoCatalog", isolated ? "ReferenceCaseFixture" : fixture == "pill-modifier" ? "PillModifier" : fixture == "surface-modifier" ? "SurfaceModifier" : fixture == "font-modifier" ? "FontModifier" : fixture == "button-style" ? "ButtonStyle" : fixture == "tooltip" ? "Tooltip" : fixture == "modal" ? "Modal" : fixture == "activity-item" ? "ActivityItem" : fixture == "otp-input" ? "OTPInput" : fixture == "radio-group" ? "RadioGroup" : fixture == "stepper" ? "Stepper" : fixture == "data-metrics" ? "DataMetrics" : fixture == "sidebar-brand" ? "SidebarBrand" : fixture == "navigation" ? "Navigation" : fixture == "clipping" ? "Clipping" : fixture == "alert" ? "AlertFixture" : fixture == "spinner" ? "SpinnerFixture" : fixture == "presentation-states" ? "PresentationStatesFixture" : fixture == "accordion" ? "AccordionFixture" : fixture == "pagination-integers" ? "PaginationIntegerFixture" : fixture == "pagination" ? "PaginationFixture" : fixture == "tabs" ? "TabsFixture" : fixture == "slider" ? "SliderFixture" : fixture == "collection-filters" ? "CollectionFiltersFixture" : fixture == "search-field" ? "SearchFieldFixture" : fixture == "secure-field" ? "SecureFieldFixture" : fixture == "checkbox" ? "CheckboxFixture" : fixture == "selection" ? "SelectionFixture" : fixture == "composition" ? "CompositionFixture" : fixture == "controls" ? "ControlsFixture" : fixture == "data-display" ? "DataDisplayFixture" : fixture == "surfaces" ? "SurfacesFixture" : fixture == "foundations" ? "FoundationsFixture"
         : fixture == "button" ? "ButtonFixture" : "Main");
     if (parser.isSet("capture")) {
         const auto path = parser.value("capture");
@@ -359,6 +376,16 @@ int main(int argc, char *argv[]) {
                 || (radioEmpty && (component->width()!=0 || component->height()!=0)))) {qCritical("Invalid isolated geometry or expected-empty contract");app.exit(6);return;}
             const bool surfaceCapture=api=="BleeckerSurfaceModifier" || parser.value("fixture")=="surface-modifier";
             if(surfaceCapture && !waitForShapeFrame(window)){qCritical("Surface capture did not reach displayed ready geometry");app.exit(96);return;}
+            if(api=="Text.bleeckerPill" || parser.value("fixture")=="pill-modifier") {
+                const auto pill=isolated ? component:window->property("primaryFixture").value<QQuickItem*>();
+                QElapsedTimer timer;timer.start();bool ready=false;
+                do {
+                    if(!waitForShapeFrame(window)){app.exit(96);return;}
+                    const auto label=pill ? pill->property("label").value<QQuickItem*>():nullptr;
+                    if(!label || !QMetaObject::invokeMethod(label,"resourcesReady",Q_RETURN_ARG(bool,ready))){app.exit(96);return;}
+                }while(!ready && timer.elapsed()<5000);
+                if(!ready){qCritical("Pill text resources did not finish");app.exit(96);return;}
+            }
             if (!window->grabWindow().save(path)) { app.exit(2); return; }
             QJsonObject meta{{"qt", qVersion()}, {"os", QSysInfo::prettyProductName()},
                 {"compiler", QString::fromUtf8(__VERSION__)}, {"environmentRecord", "environment.json"},
@@ -508,6 +535,12 @@ int main(int argc, char *argv[]) {
                 }
                 for (auto it = definition.begin(); it != definition.end(); ++it) meta.insert(it.key(), it.value());
                 meta.insert("caseDefinitions", parser.value("case-definitions"));
+                if(api=="Text.bleeckerPill") {
+                    meta.insert("pillParts",surfaceModifierMap(component,"frames"));
+                    meta.insert("pillBaselines",surfaceModifierMap(component,"baselines"));
+                    meta.insert("pillState",QJsonObject{{"appearances",component->property("appearances").toInt()},{"disappearances",component->property("disappearances").toInt()},{"callerInstances",component->property("callerInstances").toInt()}});
+                    meta.insert("asyncTextResourceChecks","passed");
+                }
                 if(api=="BleeckerSurfaceModifier") {
                     const auto observation=surfaceModifierObservation(component);
                     for(auto it=observation.begin();it!=observation.end();++it)meta.insert(it.key(),it.value());

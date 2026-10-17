@@ -302,7 +302,7 @@ void ButtonLabel::relayout(bool reuseWrapMeasurements) {
         }
     }
     qreal width = 0, height = 0, baseline = 0;
-    if (sourceFont && m_text.isEmpty()) {
+    if (m_text.isEmpty()) {
         // The pinned empty Text keeps the source's default empty line box,
         // independently of the declared custom font. Components may omit or
         // explicitly size empty content according to their own source contract.

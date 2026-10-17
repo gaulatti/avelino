@@ -80971,1385 +80971,1551 @@
       },
       {
         "id": "Text.bleeckerPill",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Tokens.swift",
           "line": 196
         },
-        "implementation": [],
-        "caseDiscovery": "111 native fixtures across 888 closed contexts; 440 first-baseline groups and 56 six-step retained-wrapper histories. Public/probed/literal pixels agree, all 4,563 corrected source outputs replay exactly, and 53 pinned files remain unchanged. Own fonts/colors, rich runs, inline images, empty text, width offers, RTL and baseline behavior are measured. Linux implementation, native raster/fonts/symbols, input/timing, physical displays/input and readers remain pending.",
+        "implementation": [
+          "src/Avelino/BleeckerPill.qml",
+          "src/Avelino/PillModifierPart.qml",
+          "src/Avelino/BleeckerText.qml",
+          "src/Avelino/texttools.cpp",
+          "src/Avelino/buttonlabel.cpp",
+          "src/Avelino/surfacedecorator.cpp",
+          "tests/consumer/PillModifier.qml",
+          "tests/consumer/PillModifierCase.qml",
+          "tests/consumer/sharprectangle.h"
+        ],
+        "caseDiscovery": "111 source fixtures across eight contexts; complete 888 public, 888 bare and 336 retained-history images. Strict comparison has 224 exact cases, all bare; 236 pixel, 888 frame, 1616 guide and 2112 state matches. Source-measured sharp marker paint retains fractional frames. Native fonts/raster/symbols, complete format combinations, input timing, physical displays and readers remain pending.",
         "cases": [
           {
             "id": "Text.bleeckerPill-native-default",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/default-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-text-empty",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/text-empty-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-text-space",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/text-space-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-text-newline",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/text-newline-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-text-lines",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/text-lines-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-text-long",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/text-long-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-text-unicode",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/text-unicode-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-text-bidi",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/text-bidi-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-text-emoji",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/text-emoji-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-style-primary19",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/style-primary19-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-style-secondary19",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/style-secondary19-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-style-mono3",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/style-mono3-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-style-mono32",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/style-mono32-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-style-system32",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/style-system32-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-style-red",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/style-red-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-style-style-red",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/style-style-red-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-style-bold",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/style-bold-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-style-italic",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/style-italic-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-style-underline",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/style-underline-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-style-strike",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/style-strike-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-style-tracking",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/style-tracking-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-style-kerning",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/style-kerning-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-style-baseline5",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/style-baseline5-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-style-concat",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/style-concat-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-style-attributed",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/style-attributed-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-style-markdown",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/style-markdown-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-style-image",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/style-image-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-style-image-text",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/style-image-text-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-offer-0",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/offer-0-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-offer-1",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/offer-1-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-offer-7",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/offer-7-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-offer-14",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/offer-14-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-offer-20",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/offer-20-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-offer-40",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/offer-40-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-offer-80",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/offer-80-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-offer-160",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/offer-160-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-offer-800",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/offer-800-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-parent-hstack",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/parent-hstack-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-parent-vstack",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/parent-vstack-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-parent-baseline",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/parent-baseline-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-parent-font32",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/parent-font32-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-parent-red",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/parent-red-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-rtl",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/rtl-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-opacity-zero",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/opacity-zero-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-line-limit-1",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/line-limit-1-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-line-limit-2",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/line-limit-2-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-disabled",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/disabled-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-default",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-default-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-text-empty",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-text-empty-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-text-space",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-text-space-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-text-newline",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-text-newline-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-text-lines",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-text-lines-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-text-long",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-text-long-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-text-unicode",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-text-unicode-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-text-bidi",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-text-bidi-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-text-emoji",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-text-emoji-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-style-primary19",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-style-primary19-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-style-secondary19",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-style-secondary19-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-style-mono3",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-style-mono3-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-style-mono32",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-style-mono32-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-style-system32",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-style-system32-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-style-red",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-style-red-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-style-style-red",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-style-style-red-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-style-bold",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-style-bold-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-style-italic",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-style-italic-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-style-underline",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-style-underline-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-style-strike",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-style-strike-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-style-tracking",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-style-tracking-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-style-kerning",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-style-kerning-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-style-baseline5",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-style-baseline5-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-style-concat",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-style-concat-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-style-attributed",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-style-attributed-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-style-markdown",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-style-markdown-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-style-image",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-style-image-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-style-image-text",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-style-image-text-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-offer-0",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-offer-0-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-offer-1",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-offer-1-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-offer-7",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-offer-7-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-offer-14",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-offer-14-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-offer-20",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-offer-20-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-offer-40",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-offer-40-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-offer-80",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-offer-80-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-offer-160",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-offer-160-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-offer-800",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-offer-800-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-parent-font32",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-parent-font32-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-parent-red",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-parent-red-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-rtl",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-rtl-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-opacity-zero",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-opacity-zero-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-line-limit-1",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-line-limit-1-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-line-limit-2",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-line-limit-2-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-disabled",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/closed/baseline-disabled-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/closed/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-empty-plain-parent13",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/empty/empty-plain-parent13-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-empty-plain-parent13",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/empty/baseline-empty-plain-parent13-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-empty-plain-parent32",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/empty/empty-plain-parent32-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-empty-plain-parent32",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/empty/baseline-empty-plain-parent32-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-empty-mono3-parent13",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/empty/empty-mono3-parent13-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-empty-mono3-parent13",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/empty/baseline-empty-mono3-parent13-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-empty-mono3-parent32",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/empty/empty-mono3-parent32-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-empty-mono3-parent32",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/empty/baseline-empty-mono3-parent32-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-empty-mono32-parent13",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/empty/empty-mono32-parent13-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-empty-mono32-parent13",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/empty/baseline-empty-mono32-parent13-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-empty-mono32-parent32",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/empty/empty-mono32-parent32-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-empty-mono32-parent32",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/empty/baseline-empty-mono32-parent32-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-empty-primary19-parent13",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/empty/empty-primary19-parent13-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-empty-primary19-parent13",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/empty/baseline-empty-primary19-parent13-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-empty-primary19-parent32",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/empty/empty-primary19-parent32-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-empty-primary19-parent32",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/empty/baseline-empty-primary19-parent32-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-empty-system32-parent13",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/empty/empty-system32-parent13-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-empty-system32-parent13",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/empty/baseline-empty-system32-parent13-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-empty-system32-parent32",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/empty/empty-system32-parent32-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           },
           {
             "id": "Text.bleeckerPill-native-baseline-empty-system32-parent32",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/pill-modifier-20261016/empty/baseline-empty-system32-parent32-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/pill-modifier.md",
               "evidence/reference-investigations/pill-modifier-20261016/investigation.json",
-              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json"
+              "evidence/reference-investigations/pill-modifier-20261016/empty/captures.json",
+              "evidence/development/pill-modifier-20261017/candidate.json"
             ],
-            "notes": "Native source evidence only. Linux implementation, typography/assets, complete comparison and target runtime acceptance remain pending."
+            "notes": "The Linux candidate preserves this named source case and all eight contexts; complete native pixel/frame/guide differences are recorded without exclusions. Native fonts, symbols, full format combinations, physical input and readers remain pending."
           }
         ],
         "tests": [
           "scripts/verify-pill-modifier-source.py",
-          "tests/contracts/test_pill_modifier_source.py"
+          "tests/contracts/test_pill_modifier_source.py",
+          "scripts/generate-pill-witnesses.py",
+          "scripts/capture-pill-modifier-cases.py",
+          "scripts/compare-pill-modifier-captures.py",
+          "scripts/verify-pill-marker-raster.py",
+          "scripts/verify-pill-modifier-candidate.py",
+          "tests/contracts/test_pill_modifier_adapters.py",
+          "tests/contracts/test_pill_modifier_candidate.py",
+          "tests/components/tst_pill_modifier.qml",
+          "tests/components/check-invalid-pill-modifier.py",
+          "tests/components/check-pill-modifier-catalog.py",
+          "tests/consumer/pillchecks.h"
         ],
-        "captures": [],
-        "comparisonResults": [],
+        "captures": [
+          "evidence/development/pill-modifier-20261017/candidate.json",
+          "evidence/development/pill-modifier-20261017/captures/capture-results.json",
+          "evidence/development/pill-modifier-20261017/operator/result.json"
+        ],
+        "comparisonResults": [
+          "evidence/development/pill-modifier-20261017/comparison/comparison.json"
+        ],
         "exceptions": [
           "FONT-MONO-001"
         ],
         "runtimeGates": {
           "offscreen": {
-            "status": "pending",
-            "evidence": []
+            "status": "verification-pending",
+            "evidence": [
+              "docs/pill-modifier.md",
+              "evidence/development/pill-modifier-20261017/candidate.json"
+            ],
+            "notes": "Candidate package, display and operator checks remain distinct from native font/raster/symbol/input, physical display and reader acceptance. Per-profile results and preserved failures are in the sealed candidate."
           },
           "x11": {
-            "status": "pending",
-            "evidence": []
+            "status": "verification-pending",
+            "evidence": [
+              "docs/pill-modifier.md",
+              "evidence/development/pill-modifier-20261017/candidate.json"
+            ],
+            "notes": "Candidate package, display and operator checks remain distinct from native font/raster/symbol/input, physical display and reader acceptance. Per-profile results and preserved failures are in the sealed candidate."
           },
           "wayland": {
-            "status": "pending",
-            "evidence": []
+            "status": "verification-pending",
+            "evidence": [
+              "docs/pill-modifier.md",
+              "evidence/development/pill-modifier-20261017/candidate.json"
+            ],
+            "notes": "Candidate package, display and operator checks remain distinct from native font/raster/symbol/input, physical display and reader acceptance. Per-profile results and preserved failures are in the sealed candidate."
           },
           "keyboardPointer": {
-            "status": "pending",
-            "evidence": []
+            "status": "verification-pending",
+            "evidence": [
+              "docs/pill-modifier.md",
+              "evidence/development/pill-modifier-20261017/candidate.json"
+            ],
+            "notes": "Candidate package, display and operator checks remain distinct from native font/raster/symbol/input, physical display and reader acceptance. Per-profile results and preserved failures are in the sealed candidate."
           },
           "focusAccessibility": {
-            "status": "pending",
-            "evidence": []
+            "status": "verification-pending",
+            "evidence": [
+              "docs/pill-modifier.md",
+              "evidence/development/pill-modifier-20261017/candidate.json"
+            ],
+            "notes": "Candidate package, display and operator checks remain distinct from native font/raster/symbol/input, physical display and reader acceptance. Per-profile results and preserved failures are in the sealed candidate."
           },
           "displayTextScaling": {
-            "status": "pending",
-            "evidence": []
+            "status": "verification-pending",
+            "evidence": [
+              "docs/pill-modifier.md",
+              "evidence/development/pill-modifier-20261017/candidate.json"
+            ],
+            "notes": "Candidate package, display and operator checks remain distinct from native font/raster/symbol/input, physical display and reader acceptance. Per-profile results and preserved failures are in the sealed candidate."
           },
           "installedConsumer": {
-            "status": "pending",
-            "evidence": []
+            "status": "verification-pending",
+            "evidence": [
+              "docs/pill-modifier.md",
+              "evidence/development/pill-modifier-20261017/candidate.json"
+            ],
+            "notes": "Candidate package, display and operator checks remain distinct from native font/raster/symbol/input, physical display and reader acceptance. Per-profile results and preserved failures are in the sealed candidate."
           }
         },
         "sourceInvestigation": "evidence/reference-investigations/pill-modifier-20261016/investigation.json"

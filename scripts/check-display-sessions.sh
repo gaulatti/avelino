@@ -63,7 +63,7 @@ INI
   fi
   for backend in software opengl; do
     for configuration in standard scaled; do
-    for fixture in base controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper radio-group otp-input activity-item modal tooltip button-style font-modifier surface-modifier surface-baseline surface-input; do
+    for fixture in base controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper radio-group otp-input activity-item modal tooltip button-style font-modifier surface-modifier surface-baseline surface-input pill-modifier; do
       prefix="$evidence/$protocol-$backend-$configuration"
       if [[ "$fixture" == controls ]]; then prefix="$evidence/controls-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == composition ]]; then prefix="$evidence/composition-$protocol-$backend-$configuration"; fi
@@ -80,6 +80,7 @@ INI
       if [[ "$fixture" == tooltip ]]; then prefix="$evidence/tooltip-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == surface-baseline || "$fixture" == surface-input ]]; then prefix="$evidence/$fixture-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == surface-modifier ]]; then prefix="$evidence/surface-modifier-$protocol-$backend-$configuration"; fi
+      if [[ "$fixture" == pill-modifier ]]; then prefix="$evidence/pill-modifier-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == font-modifier ]]; then prefix="$evidence/font-modifier-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == button-style ]]; then prefix="$evidence/button-style-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == activity-item ]]; then prefix="$evidence/activity-item-$protocol-$backend-$configuration"; fi
@@ -110,6 +111,7 @@ INI
       if [[ "$fixture" == tooltip ]]; then args+=(--tooltip); fi
       if [[ "$fixture" == surface-baseline || "$fixture" == surface-input ]]; then args+=(--"$fixture" --surface-supplement-observe); fi
       if [[ "$fixture" == surface-modifier ]]; then args+=(--surface-modifier); fi
+      if [[ "$fixture" == pill-modifier ]]; then args+=(--pill-modifier --pill-observe); fi
       if [[ "$fixture" == font-modifier ]]; then args+=(--font-modifier); fi
       if [[ "$fixture" == button-style ]]; then args+=(--button-style); fi
       if [[ "$fixture" == activity-item ]]; then args+=(--activity-item); fi
@@ -207,6 +209,12 @@ elif fixture in ['surface-baseline','surface-input']:
     assert record['nativeComparisonStatus'] in ['passed','failed'],record
     assert len(record['rows'])==(55 if fixture=='surface-baseline' else 36),record
     assert record['physicalInputAcceptance']==record['readerAcceptance']==record['rasterAcceptance']=='pending',record
+elif fixture == 'pill-modifier':
+    assert record['structuralChecks']=='passed' and record['accepted'] is False,record
+    assert len(record['rows'])==111 and len(record['histories'])==7 and record['measurements']==264,record
+    assert record['nativeComparisonStatus'] in ['passed','failed'],record
+    assert record['nativeRasterAcceptance']==record['physicalInputAcceptance']==record['readerAcceptance']=='pending',record
+    assert all(len(h['steps'])==6 and h['steps'][-1]['restoredInitialPixelsAndGeometry'] for h in record['histories']),record
 elif fixture == 'surface-modifier':
     for key in ['surfaceModifierChecks','callerStateChecks','focusChecks','qtAccessibilityChecks','liveRadiusPaintChecks','asyncShapeFrameChecks']:assert record[key]=='passed',record
     assert record['flatParts']==2 and record['stackParts']==1 and record['activations']==3 and record['accepted'] is False,record

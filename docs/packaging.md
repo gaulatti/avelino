@@ -305,3 +305,28 @@ has 112 activation differences, 16 guide and 40 baseline-frame failures, and
 758 nonmatching images. Two catalog PNGs change; all other PNGs and all catalog
 metadata remain identical. Physical display/input, hardware acceleration and
 readers remain pending.
+
+
+## Pill package checkpoint
+
+The [pill candidate](pill-modifier.md#linux-candidate) adds `BleeckerPill` and its
+internal decorator to a 127-file installation. The standalone consumer has 32
+modes; the catalog has 131 captures. `--pill-modifier` fails on native frame/guide
+differences; `--pill-observe` records every difference with structural failures
+still fatal. The separate strict image job retains all 2,112 public/bare/history
+comparisons. Native fonts, symbols, pixels, complete formatting, input timing and
+physical/reader acceptance remain open.
+
+Nine library source/header files include exact-version Qt private interfaces.
+The new text resource bridge prepares explicitly sized inline images on the GUI
+thread before the threaded scene graph can request them. Private headers stay
+inside the library. GPU capsule tessellation is asynchronous and capture waits
+for ready geometry and stable displayed pixels. Source-measured sharp rectangles
+snap their paint while retaining fractional layout frames; the fixture's
+alpha-capable painted texture clears adjacent software-rendered pixels correctly.
+
+All 127 previous gallery PNGs and metadata are checked against the published
+surface checkpoint. The executable-only virtual runtime uses the same compiled
+consumer and installed module bytes as the independent package. Exact inputs,
+failed attempts, source overlays and remaining gates are recorded in the
+[sealed evidence](../evidence/development/pill-modifier-20261017/candidate.json).

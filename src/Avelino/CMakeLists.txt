@@ -18,7 +18,7 @@ set(qml_files BleeckerSurfaceModifier.qml SurfaceModifierPart.qml BleeckerFont.q
     BleeckerSkeleton.qml BleeckerBauhausBackground.qml BleeckerProgress.qml
     BleeckerButtonGroup.qml BleeckerHeader.qml BleeckerPanelLayout.qml
     BleeckerCard.qml BleeckerPanel.qml BleeckerAttentionSurface.qml
-    BleeckerStatusBadge.qml BleeckerNotificationBadge.qml BleeckerEyebrow.qml
+    BleeckerStatusBadge.qml BleeckerNotificationBadge.qml BleeckerEyebrow.qml BleeckerPill.qml PillModifierPart.qml
     BleeckerAvatar.qml BleeckerDataList.qml BleeckerTimelineItem.qml BleeckerSurface.qml
     BleeckerField.qml BleeckerSwitch.qml BleeckerToggleButton.qml BleeckerSegmentedControl.qml BleeckerTabs.qml BleeckerIconButton.qml BleeckerPagination.qml BleeckerAccordion.qml NavigationGlyph.qml BleeckerTextArea.qml
     BleeckerBrandMark.qml BleeckerBrandLockup.qml BleeckerSidebarItem.qml BleeckerPageHeader.qml BleeckerBreadcrumb.qml BleeckerSectionHeader.qml BleeckerDashboardSection.qml BleeckerDashboardGrid.qml
@@ -28,6 +28,7 @@ set(qml_files BleeckerSurfaceModifier.qml SurfaceModifierPart.qml BleeckerFont.q
     OwnedText.qml RoundedContent.qml SurfaceShadow.qml attentioncolors.js
     ContinuousSurface.qml continuouscorners.js spinnerpresentation.js)
 set_source_files_properties(BleeckerTokens.qml BleeckerTheme.qml TooltipHost.qml PROPERTIES QT_QML_SINGLETON_TYPE TRUE)
+set_source_files_properties(PillModifierPart.qml PROPERTIES QT_QML_INTERNAL_TYPE TRUE)
 set_source_files_properties(SurfaceModifierPart.qml ButtonStylePart.qml ModalCloseGlyph.qml ActivityGlyph.qml ContinuousSurface.qml OwnedText.qml RoundedContent.qml SurfaceShadow.qml SelectionGlyph.qml CheckboxGlyph.qml SecureEyeGlyph.qml InputGlyph.qml CapsuleContent.qml NavigationGlyph.qml StateGlyph.qml CircularContent.qml StepperGlyph.qml RadioGlyph.qml PROPERTIES QT_QML_INTERNAL_TYPE TRUE)
 file(GLOB font_resources CONFIGURE_DEPENDS "${PROJECT_SOURCE_DIR}/assets/fonts/*.ttf")
 foreach(font_file IN LISTS font_resources)

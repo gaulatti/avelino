@@ -1,0 +1,24 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--rm",
+    "--init",
+    "--ulimit",
+    "core=0",
+    "--name",
+    "avelino-pill-runtime-v2",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/pill-runtime-v2:/package:rw",
+    "-w",
+    "/package",
+    "avelino-toolchain:clipping-qt6.8.3",
+    "bash",
+    "replay.sh"
+  ],
+  "exitCode": 1,
+  "seconds": 215.90819045796525,
+  "expectedSessions": 32
+}

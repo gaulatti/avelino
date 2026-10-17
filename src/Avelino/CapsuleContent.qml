@@ -21,6 +21,7 @@ Item {
     Shape {
         id: outline
         anchors.fill: parent
+        asynchronous: !control.softwareClipping
         preferredRendererType: Shape.CurveRenderer
         containsMode: Shape.FillContains; antialiasing: true
         ShapePath {

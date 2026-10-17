@@ -1,0 +1,14 @@
+[1/122] Copying InstalledConsumer qml sources into build dir
+[2/122] Running qmlimportscanner for InstalledConsumer
+[3/122] Automatic MOC and UIC for target InstalledConsumer
+[4/121] Running rcc for resource qmake_InstalledConsumer
+[5/121] Generating .rcc/qmlcache/InstalledConsumer_qmlcache_loader.cpp
+[6/121] Running rcc for resource InstalledConsumer_raw_qml_0
+[7/121] Running AUTOMOC file extraction for target InstalledConsumer
+[8/118] Generating .rcc/qmlcache/InstalledConsumer_PillModifier_qml.cpp, .rcc/qmlcache/InstalledConsumer_PillModifier_qml.cpp.aotstats
+[9/118] Generating .rcc/qmlcache/InstalledConsumer_PillModifierCase_qml.cpp, .rcc/qmlcache/InstalledConsumer_PillModifierCase_qml.cpp.aotstats
+FAILED: .rcc/qmlcache/InstalledConsumer_PillModifierCase_qml.cpp .rcc/qmlcache/InstalledConsumer_PillModifierCase_qml.cpp.aotstats /package/consumer-build/.rcc/qmlcache/InstalledConsumer_PillModifierCase_qml.cpp /package/consumer-build/.rcc/qmlcache/InstalledConsumer_PillModifierCase_qml.cpp.aotstats 
+cd /package/consumer-build && /usr/bin/cmake -E make_directory /package/consumer-build/.rcc/qmlcache && /opt/qt/libexec/qmlcachegen --bare --resource-path /qt/qml/InstalledConsumer/PillModifierCase.qml -I /package/consumer-build -I /opt/qt/qml -i /package/consumer-build/qml/InstalledConsumer/qmldir --resource /package/consumer-build/.qt/rcc/qmake_InstalledConsumer.qrc --resource /package/consumer-build/.qt/rcc/InstalledConsumer_raw_qml_0.qrc --resource /package/consumer-build/.qt/rcc/consumer_fixture_assets.qrc --dump-aot-stats "--module-id=InstalledConsumer(InstalledConsumer)" -o /package/consumer-build/.rcc/qmlcache/InstalledConsumer_PillModifierCase_qml.cpp /package/consumer/PillModifierCase.qml
+Error compiling qml file: /package/consumer/PillModifierCase.qml:20:14: error: Illegal method name
+[10/118] Running rcc for resource consumer_fixture_assets
+ninja: build stopped: subcommand failed.

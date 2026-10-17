@@ -1,0 +1,59 @@
+[
+  {
+    "command": [
+      "cmake",
+      "-S",
+      "consumer",
+      "-B",
+      "consumer-build",
+      "-G",
+      "Ninja",
+      "-DCMAKE_PREFIX_PATH=/package/install;/opt/qt"
+    ],
+    "exitCode": 0,
+    "seconds": 0.4277256200002739,
+    "log": "0.log"
+  },
+  {
+    "command": [
+      "cmake",
+      "--build",
+      "consumer-build",
+      "--parallel",
+      "2"
+    ],
+    "exitCode": 0,
+    "seconds": 5.611255898998934,
+    "log": "1.log"
+  },
+  {
+    "command": [
+      "consumer-build/InstalledConsumer",
+      "--pill-modifier",
+      "--pill-observe",
+      "--pill-report",
+      "/package/results/pill"
+    ],
+    "exitCode": 0,
+    "seconds": 9.295954612996866,
+    "log": "2.log"
+  },
+  {
+    "command": [
+      "consumer-build/InstalledConsumer",
+      "--surface-modifier"
+    ],
+    "exitCode": 0,
+    "seconds": 5.194084810002096,
+    "log": "3.log"
+  },
+  {
+    "command": [
+      "consumer-build/InstalledConsumer",
+      "--font-modifier"
+    ],
+    "exitCode": 0,
+    "seconds": 9.524429791999864,
+    "log": "4.log"
+  }
+]

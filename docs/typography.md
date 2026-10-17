@@ -175,3 +175,15 @@ requested/shaping/paint sizes remain unchanged. This prevents the preserved
 Qt 6.8.3 tiny raw-font family lookup crash. Monospaced/system font mapping,
 noncustom line-box metrics, attributed runs, Unicode/bidi and exact rasterization
 remain unaccepted in the complete 1,656-case comparison.
+
+
+The [pill candidate](pill-modifier.md#linux-candidate) extends `BleeckerText` with
+explicit plain/styled/rich/Markdown formats, finite line limits on Qt's supported
+paths, tracking, kerning, baseline shift and accessible text. Plain callers keep
+the original renderer. Formatted callers allocate separate unwrapped measurement
+and displayed text only when requested, so proposal changes do not re-enter the
+natural-width getter or resolve unused tiny fonts. Inline resources load on the
+GUI thread before scene-graph rendering. Empty plain text keeps the observed
+14-unit line box and baseline 11 across the twenty measured font/parent cases.
+Native font/system-symbol/raster and full format-combination acceptance remain
+pending; the capsule does not apply the custom text-scale environment.

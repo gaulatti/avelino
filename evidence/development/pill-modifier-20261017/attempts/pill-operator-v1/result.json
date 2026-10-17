@@ -1,0 +1,26 @@
+{
+  "status": "failed",
+  "accepted": false,
+  "error": "KeyError('labels')",
+  "records": [],
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--rm",
+    "--init",
+    "--ulimit",
+    "core=0",
+    "--name",
+    "avelino-pill-operator-v1",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/pill-operator-v1:/package:rw",
+    "-w",
+    "/package",
+    "avelino-toolchain:clipping-qt6.8.3",
+    "bash",
+    "start.sh"
+  ],
+  "seconds": 22.719849625020288
+}

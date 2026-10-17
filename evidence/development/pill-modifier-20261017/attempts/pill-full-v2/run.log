@@ -1,0 +1,91 @@
+Internal ctest changing into directory: /result/build
+Test project /result/build
+      Start  1: components
+ 1/29 Test  #1: components ..........................   Passed  253.02 sec
+      Start  2: components-dpr2
+ 2/29 Test  #2: components-dpr2 .....................   Passed  267.41 sec
+      Start  3: slider-invalid-config
+ 3/29 Test  #3: slider-invalid-config ...............   Passed    1.95 sec
+      Start  4: pagination-invalid-config
+ 4/29 Test  #4: pagination-invalid-config ...........   Passed    5.20 sec
+      Start  5: presentation-invalid-config
+ 5/29 Test  #5: presentation-invalid-config .........   Passed    6.70 sec
+      Start  6: navigation-invalid-config
+ 6/29 Test  #6: navigation-invalid-config ...........   Passed    4.04 sec
+      Start  7: sidebar-brand-invalid-config
+ 7/29 Test  #7: sidebar-brand-invalid-config ........   Passed    3.64 sec
+      Start  8: data-metrics-invalid-config
+ 8/29 Test  #8: data-metrics-invalid-config .........   Passed    5.28 sec
+      Start  9: stepper-invalid-config
+ 9/29 Test  #9: stepper-invalid-config ..............   Passed   17.33 sec
+      Start 10: radio-invalid-config
+10/29 Test #10: radio-invalid-config ................   Passed   10.14 sec
+      Start 11: radio-catalog-metadata
+11/29 Test #11: radio-catalog-metadata ..............   Passed    7.32 sec
+      Start 12: otp-native-transformation
+12/29 Test #12: otp-native-transformation ...........   Passed    3.58 sec
+      Start 13: otp-invalid-transformation
+13/29 Test #13: otp-invalid-transformation ..........   Passed   11.45 sec
+      Start 14: otp-invalid-input
+14/29 Test #14: otp-invalid-input ...................   Passed    5.11 sec
+      Start 15: otp-catalog-metadata
+15/29 Test #15: otp-catalog-metadata ................   Passed    7.10 sec
+      Start 16: activity-invalid-config
+16/29 Test #16: activity-invalid-config .............   Passed    1.97 sec
+      Start 17: activity-catalog-metadata
+17/29 Test #17: activity-catalog-metadata ...........   Passed   12.92 sec
+      Start 18: modal-invalid-config
+18/29 Test #18: modal-invalid-config ................   Passed    6.00 sec
+      Start 19: modal-catalog-metadata
+19/29 Test #19: modal-catalog-metadata ..............   Passed   18.80 sec
+      Start 20: tooltip-invalid-config
+20/29 Test #20: tooltip-invalid-config ..............   Passed    2.41 sec
+      Start 21: tooltip-catalog-metadata
+21/29 Test #21: tooltip-catalog-metadata ............   Passed   16.75 sec
+      Start 22: button-style-invalid-config
+22/29 Test #22: button-style-invalid-config .........   Passed    5.21 sec
+      Start 23: button-style-catalog-metadata
+23/29 Test #23: button-style-catalog-metadata .......   Passed   69.99 sec
+      Start 24: font-modifier-invalid-config
+24/29 Test #24: font-modifier-invalid-config ........   Passed    4.53 sec
+      Start 25: font-modifier-catalog-metadata
+25/29 Test #25: font-modifier-catalog-metadata ......***Failed   15.08 sec
+Traceback (most recent call last):
+  File "/work/tests/components/check-font-modifier-catalog.py", line 32, in <module>
+    with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:list(pool.map(one,chosen))
+                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 619, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 317, in _result_or_cancel
+    return fut.result(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/tests/components/check-font-modifier-catalog.py", line 26, in one
+    assert not any(message in log for message in ['Unable to assign','QFont::','ReferenceError','TypeError']), (name,log)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('caller-size-mono-0.11', 'QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0\n')
+
+      Start 26: surface-modifier-invalid-config
+26/29 Test #26: surface-modifier-invalid-config .....   Passed    2.68 sec
+      Start 27: surface-modifier-catalog-metadata
+27/29 Test #27: surface-modifier-catalog-metadata ...   Passed   11.50 sec
+      Start 28: pill-modifier-invalid-config
+28/29 Test #28: pill-modifier-invalid-config ........   Passed   10.36 sec
+      Start 29: pill-modifier-catalog-metadata
+29/29 Test #29: pill-modifier-catalog-metadata ......   Passed   24.90 sec
+
+97% tests passed, 1 tests failed out of 29
+
+Total Test time (real) = 812.50 sec
+
+The following tests FAILED:
+	 25 - font-modifier-catalog-metadata (Failed)
+Errors while running CTest

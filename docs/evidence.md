@@ -1298,5 +1298,23 @@ remain diagnostic. All 3,552 closed/empty and 720 unrelated history PNGs remain
 unchanged. A clean source-only replay reproduces all 4,563 corrected outputs
 after a fresh unchanged reference build. Compiler probes preserve the public
 Text extension and expected private-type/non-Text errors. Apple sources stay
-external. Linux implementation and all target acceptance remain pending; no
-inventory status, source pin, expected image, tolerance or exception is approved.
+external. The Linux candidate below keeps all target acceptance pending; no
+source pin, expected image, tolerance or exception is approved.
+
+
+## Pill candidate and sharp-marker audit
+
+The [sealed pill candidate](../evidence/development/pill-modifier-20261017/candidate.json)
+retains 888 public, 888 bare and 336 history images. Strict comparison finds 224
+exact pixel/frame/guide cases, all bare; there are 236 pixel, 888 frame, 1,616 guide
+and 2,112 state matches. All public and history cases remain failed under the
+complete strict comparison. Public custom-text-scale pairs remain unchanged.
+
+The source marker audit checks 1,024 native images against actual sharp physical
+pixel coverage, keeping fractional emitted frames and viewport clipping separate.
+The Linux fixture snaps only its diagnostic rectangles' paint. Original GPU
+stale-capsule pixels, render-thread image warnings, Wayland transparent marker
+edges, the hidden-subtree image test failure and all corrected attempts remain
+reviewable with their exact code inputs. Native expectations and tolerances are
+unchanged. Complete fonts/raster/symbols/formatting, input timing, physical
+displays/input, readers and independent-machine reference replay remain pending.

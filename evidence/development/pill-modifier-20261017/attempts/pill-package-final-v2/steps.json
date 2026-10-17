@@ -1,0 +1,38 @@
+[
+  {
+    "command": [
+      "bash",
+      "check-installed.sh"
+    ],
+    "exitCode": 0,
+    "expectedExitCode": 0,
+    "seconds": 212.27165431200046,
+    "log": "0.log"
+  },
+  {
+    "command": [
+      "python3",
+      "driver/scripts/capture-pill-modifier-cases.py",
+      "consumer-build/InstalledConsumer",
+      "captures",
+      "--jobs",
+      "2"
+    ],
+    "exitCode": 0,
+    "expectedExitCode": 0,
+    "seconds": 54.75108040300256,
+    "log": "1.log"
+  },
+  {
+    "command": [
+      "consumer-build/InstalledConsumer",
+      "--pill-modifier",
+      "--pill-report",
+      "/package/strict"
+    ],
+    "exitCode": 1,
+    "expectedExitCode": 1,
+    "seconds": 9.183137664000242,
+    "log": "2.log"
+  }
+]

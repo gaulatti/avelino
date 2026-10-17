@@ -21,12 +21,15 @@ class SurfaceDecorator : public QObject, public QQmlParserStatus {
     Q_INTERFACES(QQmlParserStatus)
     Q_PROPERTY(QQuickItem *target READ target WRITE setTarget NOTIFY configurationChanged)
     Q_PROPERTY(QQmlComponent *delegate READ delegate WRITE setDelegate NOTIFY configurationChanged)
+    Q_PROPERTY(bool textOnly READ textOnly WRITE setTextOnly NOTIFY configurationChanged)
 public:
     explicit SurfaceDecorator(QObject *parent=nullptr):QObject(parent){}
     QQuickItem *target() const {return m_target;}
     QQmlComponent *delegate() const {return m_delegate;}
     void setTarget(QQuickItem *item);
     void setDelegate(QQmlComponent *component);
+    bool textOnly() const {return m_textOnly;}
+    void setTextOnly(bool value) {if(value==m_textOnly)return;m_textOnly=value;emit configurationChanged();schedule();}
     void classBegin() override {}
     void componentComplete() override;
 signals:
@@ -45,4 +48,5 @@ private:
     QList<Part> m_parts;
     QList<QMetaObject::Connection> m_connections;
     bool m_complete=false,m_queued=false,m_rebuilding=false;
+    bool m_textOnly=false;
 };

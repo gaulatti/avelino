@@ -1,0 +1,27 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--rm",
+    "--init",
+    "--ulimit",
+    "core=0",
+    "--name",
+    "avelino-pill-capture-v1",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/pill-capture-v1:/package:rw",
+    "-w",
+    "/package",
+    "avelino-toolchain:clipping-qt6.8.3",
+    "python3",
+    "driver/scripts/capture-pill-modifier-cases.py",
+    "consumer-build/InstalledConsumer",
+    "captures",
+    "--jobs",
+    "2"
+  ],
+  "exitCode": 1,
+  "seconds": 29.747578416951
+}

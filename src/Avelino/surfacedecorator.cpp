@@ -106,6 +106,8 @@ void SurfaceDecorator::rebuild() {
     observe(m_target);
     for(auto item:m_target->childItems())append(item);
     if(retry){m_rebuilding=false;schedule();return;}
+    if(m_textOnly &&(leaves.size()!=1 ||!leaves.first()->property("bleeckerTextContent").toBool()))
+        qFatal("BleeckerPill requires exactly one BleeckerText caller");
     for(int i=m_parts.size()-1;i>=0;--i)
         if(!leaves.contains(callerOf(m_parts[i].wrapper)))removePart(i);
     for(const auto &caller:leaves) {
