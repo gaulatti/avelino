@@ -64,6 +64,11 @@ offscreen restore observations reproduce their initial candidate pixels. The
 7,440 direct public sizing queries remain unobserved on Linux. No complete
 component acceptance follows from these capture matches.
 
+Historical producer verification uses the frozen build manifest, immutable Git
+objects and archived source overlays. Generated Python bytecode present during
+capture remains preserved as input provenance; replay verifies those archived
+bytes independently of the checkout's generated files.
+
 The candidate evidence keeps failures as well as successful checks. Fractional
 column geometry, text measurement and lazy height estimates still differ from
 the source. Actual gallery input exercises 14 controls through 24 states;

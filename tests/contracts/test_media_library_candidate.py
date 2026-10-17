@@ -21,6 +21,23 @@ class MediaLibraryCandidate(unittest.TestCase):
             candidate.validate_report(self.report)
     def test_complete_candidate_recomputes(self):
         candidate.verify()
+    def test_frozen_producer_keeps_generated_cache_inputs(self):
+        binding = json.loads((candidate.DIRECTORY / 'package/artifact-binding.json').read_text())
+        producer = json.loads((candidate.DIRECTORY / 'qt/inputs.json').read_text())['sourceFiles']
+        self.assertTrue(any('__pycache__' in Path(name).parts for name in binding['producerCriticalFiles']))
+        candidate.validate_producer_inputs(binding, producer)
+    def test_cannot_omit_frozen_producer_input(self):
+        binding = json.loads((candidate.DIRECTORY / 'package/artifact-binding.json').read_text())
+        producer = json.loads((candidate.DIRECTORY / 'qt/inputs.json').read_text())['sourceFiles']
+        binding['producerCriticalFiles'].pop('src/Avelino/BleeckerMediaLibrary.qml')
+        with self.assertRaises(AssertionError):
+            candidate.validate_producer_inputs(binding, producer)
+    def test_cannot_change_frozen_producer_checksum(self):
+        binding = json.loads((candidate.DIRECTORY / 'package/artifact-binding.json').read_text())
+        producer = json.loads((candidate.DIRECTORY / 'qt/inputs.json').read_text())['sourceFiles']
+        binding['producerCriticalFiles']['src/Avelino/BleeckerMediaLibrary.qml'] = 'other'
+        with self.assertRaises(AssertionError):
+            candidate.validate_producer_inputs(binding, producer)
     def test_cannot_claim_acceptance(self):
         self.report['accepted'] = True
         self.refused()

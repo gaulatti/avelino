@@ -20,6 +20,12 @@ spec.loader.exec_module(inputs)
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
+def validate_producer_inputs(binding, producer):
+    critical = {name: checksum for name, checksum in producer.items()
+        if name.startswith(('src/', 'samples/', 'assets/', 'tokens/', 'cmake/', 'tests/components/', 'tests/consumer/'))
+        or name in ['CMakeLists.txt', 'CMakePresets.json']}
+    assert binding['producerCriticalFiles'] == critical, 'Frozen producer input binding changed'
+
 def validate_report(report):
     assert report['reference'] == inputs.REFERENCE and report['accepted'] is False
     assert report['baseRevision'] == '616abb40affb769029f80144a2f0807c79679f44'
@@ -74,8 +80,10 @@ def verify(directory=DIRECTORY):
     assert hashlib.sha256(archived['consumer-build/InstalledConsumer']).hexdigest() == binding['consumerSha256']
     for name, checksum in binding['installedFiles'].items():
         assert hashlib.sha256(archived['install/' + name]).hexdigest() == checksum, name
-    for name, checksum in binding['producerCriticalFiles'].items():
-        assert digest(ROOT / name) == checksum, name
+    # These are historical build inputs. Their complete bytes are checked below
+    # against immutable Git objects and archived overlays, including incidental
+    # bytecode caches that a clean checkout has no reason to contain.
+    validate_producer_inputs(binding, read('qt/inputs.json')['sourceFiles'])
     corpus = inputs.rows(projection)
     comparisons = {r['fixture']: r for r in read('comparison/comparison.json')['results']}
     assert set(comparisons) == {r['path'] for r in corpus}

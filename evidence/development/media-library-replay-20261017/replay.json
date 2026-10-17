@@ -1,0 +1,31 @@
+{
+  "reference": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+  "subjectCommit": "ad1eb773ead17f84d490d19627407eb92e1e1479",
+  "accepted": false,
+  "status": "verified replay; native acceptance pending",
+  "originalCiRun": "https://github.com/gaulatti/avelino/actions/runs/39022264482",
+  "originalFailure": "The verifier read an incidental Python 3.14 bytecode cache from the checkout instead of the archived producer inputs.",
+  "repair": "Bind every critical producer input to the complete frozen manifest; immutable Git objects and archived overlays still validate every underlying byte.",
+  "validation": {
+    "frozenCandidateVerifierExitCode": 0,
+    "focusedContractTests": 19,
+    "focusedContractExitCode": 0,
+    "platform": "Linux aarch64",
+    "maskedCacheDirectories": [
+      "tests/components/__pycache__"
+    ]
+  },
+  "sourceFiles": {
+    "scripts/verify-media-library-candidate.py": "dfa2b2b940e8cc2354de2bff709a4e37f346fe52e4fb8fd64096a849d6bea18a",
+    "tests/contracts/test_media_library_candidate.py": "85ab6303293d2038aa9233df7ff095b4189b65baeb158f9540988c4921eb461d"
+  },
+  "nativeCandidateSha256": "2b9aa2524d9ee394aa4909c85502364bc16a9f93c69ee1f609503869e8f464f8",
+  "files": {
+    "result.json": "00c290ba554020803e930632b6266676f0d292f3b19e00bf7c50ea0659c77a58",
+    "run.log": "03eb82a1ce97ac0d88e539adb72e2e1cf8d5807d852ca101dae48e335510bb57",
+    "regression-contracts.py": "85ab6303293d2038aa9233df7ff095b4189b65baeb158f9540988c4921eb461d",
+    "inputs.json": "e5d446874c10d23e829799b992f925d73a0c9fb7644e3d3310e6c8b3c807afe9",
+    "original-ci-failure.log": "e5275aa816cece4d5e33a1979ff2524d3dd6e3d7cee4c6fccf6a5e00f2a6619f",
+    "verifier.py": "dfa2b2b940e8cc2354de2bff709a4e37f346fe52e4fb8fd64096a849d6bea18a"
+  }
+}

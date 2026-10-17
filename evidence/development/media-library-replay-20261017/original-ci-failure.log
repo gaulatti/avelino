@@ -1,0 +1,28 @@
+immutable-inputs	Run python3 scripts/verify-media-library-candidate.py	﻿2026-10-17T09:49:44.8896854Z ##[group]Run python3 scripts/verify-media-library-candidate.py
+immutable-inputs	Run python3 scripts/verify-media-library-candidate.py	2026-10-17T09:49:44.8897323Z ^[[36;1mpython3 scripts/verify-media-library-candidate.py^[[0m
+immutable-inputs	Run python3 scripts/verify-media-library-candidate.py	2026-10-17T09:49:44.8959103Z shell: /usr/bin/bash -e {0}
+immutable-inputs	Run python3 scripts/verify-media-library-candidate.py	2026-10-17T09:49:44.8959349Z env:
+immutable-inputs	Run python3 scripts/verify-media-library-candidate.py	2026-10-17T09:49:44.8959617Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+immutable-inputs	Run python3 scripts/verify-media-library-candidate.py	2026-10-17T09:49:44.8960064Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+immutable-inputs	Run python3 scripts/verify-media-library-candidate.py	2026-10-17T09:49:44.8960495Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+immutable-inputs	Run python3 scripts/verify-media-library-candidate.py	2026-10-17T09:49:44.8960872Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+immutable-inputs	Run python3 scripts/verify-media-library-candidate.py	2026-10-17T09:49:44.8961261Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+immutable-inputs	Run python3 scripts/verify-media-library-candidate.py	2026-10-17T09:49:44.8961640Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+immutable-inputs	Run python3 scripts/verify-media-library-candidate.py	2026-10-17T09:49:44.8961959Z ##[endgroup]
+immutable-inputs	Run python3 scripts/verify-media-library-candidate.py	2026-10-17T09:49:47.1372975Z Traceback (most recent call last):
+immutable-inputs	Run python3 scripts/verify-media-library-candidate.py	2026-10-17T09:49:47.1381997Z   File "/home/runner/work/avelino/avelino/scripts/verify-media-library-candidate.py", line 193, in <module>
+immutable-inputs	Run python3 scripts/verify-media-library-candidate.py	2026-10-17T09:49:47.1382848Z     verify()
+immutable-inputs	Run python3 scripts/verify-media-library-candidate.py	2026-10-17T09:49:47.1383531Z   File "/home/runner/work/avelino/avelino/scripts/verify-media-library-candidate.py", line 78, in verify
+immutable-inputs	Run python3 scripts/verify-media-library-candidate.py	2026-10-17T09:49:47.1384320Z     assert digest(ROOT / name) == checksum, name
+immutable-inputs	Run python3 scripts/verify-media-library-candidate.py	2026-10-17T09:49:47.1384702Z            ^^^^^^^^^^^^^^^^^^^
+immutable-inputs	Run python3 scripts/verify-media-library-candidate.py	2026-10-17T09:49:47.1385266Z   File "/home/runner/work/avelino/avelino/scripts/verify-media-library-candidate.py", line 21, in digest
+immutable-inputs	Run python3 scripts/verify-media-library-candidate.py	2026-10-17T09:49:47.1386135Z     return hashlib.sha256(path.read_bytes()).hexdigest()
+immutable-inputs	Run python3 scripts/verify-media-library-candidate.py	2026-10-17T09:49:47.1386487Z                           ^^^^^^^^^^^^^^^^^
+immutable-inputs	Run python3 scripts/verify-media-library-candidate.py	2026-10-17T09:49:47.1387033Z   File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/pathlib.py", line 1019, in read_bytes
+immutable-inputs	Run python3 scripts/verify-media-library-candidate.py	2026-10-17T09:49:47.1471734Z     with self.open(mode='rb') as f:
+immutable-inputs	Run python3 scripts/verify-media-library-candidate.py	2026-10-17T09:49:47.1472368Z          ^^^^^^^^^^^^^^^^^^^^
+immutable-inputs	Run python3 scripts/verify-media-library-candidate.py	2026-10-17T09:49:47.1473420Z   File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/pathlib.py", line 1013, in open
+immutable-inputs	Run python3 scripts/verify-media-library-candidate.py	2026-10-17T09:49:47.1486464Z     return io.open(self, mode, buffering, encoding, errors, newline)
+immutable-inputs	Run python3 scripts/verify-media-library-candidate.py	2026-10-17T09:49:47.1487187Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+immutable-inputs	Run python3 scripts/verify-media-library-candidate.py	2026-10-17T09:49:47.1488525Z FileNotFoundError: [Errno 2] No such file or directory: '/home/runner/work/avelino/avelino/tests/components/__pycache__/check-font-modifier-catalog.cpython-314.pyc'
+immutable-inputs	Run python3 scripts/verify-media-library-candidate.py	2026-10-17T09:49:47.1781201Z ##[error]Process completed with exit code 1.

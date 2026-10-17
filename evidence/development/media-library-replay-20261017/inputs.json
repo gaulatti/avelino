@@ -1,0 +1,34 @@
+{
+  "sourceRevision": "ad1eb773ead17f84d490d19627407eb92e1e1479",
+  "maskedCacheDirectories": [
+    "tests/components/__pycache__"
+  ],
+  "changedFiles": [
+    "scripts/verify-media-library-candidate.py",
+    "tests/contracts/test_media_library_candidate.py"
+  ],
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--rm",
+    "--init",
+    "--ulimit",
+    "core=0",
+    "--name",
+    "avelino-media-clean-replay-v1",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino:/work:ro",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/media-library-clean-replay-v1:/receipt:rw",
+    "-w",
+    "/work",
+    "--mount",
+    "type=tmpfs,destination=/work/tests/components/__pycache__",
+    "avelino-toolchain:data-metrics-qt6.8.3",
+    "bash",
+    "-lc",
+    "python3 -m venv /tmp/evidence-env && /tmp/evidence-env/bin/pip install -r tools/visual-requirements.txt && git config --global --add safe.directory /work && /tmp/evidence-env/bin/python scripts/verify-media-library-candidate.py && /tmp/evidence-env/bin/python -m unittest discover -s tests/contracts -p test_media_library_candidate.py -v"
+  ]
+}
