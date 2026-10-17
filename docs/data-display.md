@@ -13,10 +13,11 @@ coverage is recorded in the [parity inventory](parity-inventory.json).
 
 The [surface-modifier investigation](surface-modifier.md) now records the full
 native paint order and separate flat caller bounds. `BleeckerSurface` paints its
-border once above the clipped content so an opaque slot cannot cover it. Its
-single allocated surface does not yet implement the generic modifier's separate
-flat children. Native raster/shadow, full layout, physical and reader acceptance
-remain pending.
+border once above the clipped content so an opaque slot cannot cover it. The
+separate `BleeckerSurfaceModifier` development adapter decorates flat caller
+leaves individually and treats explicit stacks as one caller. Its full capture
+and catalog matrix is still pending. Native raster/shadow, full layout, physical
+and reader acceptance remain pending.
 
 The Linux composition interface uses QML components and slots. Timeline content
 implemented with Qt control templates such as `QtQuick.Templates.Label` inherits

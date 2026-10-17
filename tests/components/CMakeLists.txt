@@ -22,6 +22,7 @@ target_compile_definitions(AvelinoComponentTests PRIVATE
     NATIVE_MODAL_INPUT_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/modal-input-20261016"
     NATIVE_BUTTON_STYLE_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/button-style-20261016"
     NATIVE_FONT_MODIFIER_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/font-modifier-20261016"
+    NATIVE_SURFACE_MODIFIER_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/surface-modifier-20261016"
     NATIVE_FONT_BASELINE_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/font-baseline-20261016"
     NATIVE_ACTIVITY_LAYOUT_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/activity-layout-mechanics-20261016"
     NATIVE_ACTIVITY_ALIGNMENT_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/activity-text-alignment-20261016"
@@ -96,3 +97,6 @@ add_test(NAME font-modifier-invalid-config COMMAND python3 ${CMAKE_CURRENT_SOURC
     $<TARGET_FILE:AvelinoComponentTests> ${CMAKE_BINARY_DIR}/qml)
 add_test(NAME font-modifier-catalog-metadata COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/check-font-modifier-catalog.py
     $<TARGET_FILE:AvelinoCatalog> ${CMAKE_BINARY_DIR}/qml ${PROJECT_SOURCE_DIR})
+
+add_test(NAME surface-modifier-invalid-config COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/check-invalid-surface-modifier.py
+    $<TARGET_FILE:AvelinoComponentTests> ${CMAKE_BINARY_DIR}/qml)

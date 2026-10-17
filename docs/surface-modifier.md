@@ -85,9 +85,52 @@ preserves a controlled async Shape capture defect and the displayed-ready-frame
 correction. Small text-pixel variations reproduced in unchanged old OpenGL
 processes remain unaccepted; no image masking or tolerance change is introduced.
 
-That paint correction does not supply the generic flat-caller modifier layout.
-`BleeckerSurfaceModifier` remains pending, and the existing extension mapping
-remains verification-pending. Strict native raster/shadow comparisons, complete
-proposal/baseline contexts, nonfinite inputs, physical input/display and readers
-remain open. Source investigation does not increase the 64/80 candidate count or
-accept any mirror entry.
+That paint checkpoint covers one allocated surface. The generic adapter below
+is a later development checkpoint; its inventory entry remains pending and the
+existing extension mapping remains verification-pending. Source investigation
+does not increase the 64/80 candidate count or accept any mirror entry.
+
+## Generic Linux adapter under verification
+
+`BleeckerSurfaceModifier` decorates each logical caller leaf independently. Its
+default radius is 12; finite custom values include zero, negative and fractional
+radii. Negative radii use the existing zero-radius paint path. Nonfinite values
+produce an explicit Linux diagnostic; native equivalence for those inputs is open.
+
+```qml
+BleeckerSurfaceModifier {
+    radius: 12
+    BleeckerText { text: "First child" }
+    Rectangle { width: 72; height: 44; color: "#2c5784" }
+}
+```
+
+These are two surfaces. Put the children inside an explicit `ProposalRow` or
+`ProposalColumn` for a single decorated stack. `BleeckerLayout.flattenChildren`
+keeps font and Loader scopes transparent to the surrounding proposal layout.
+An empty modifier emits no surface; a zero-size Item remains one caller. Hidden
+callers retain their extent and background.
+
+The adapter reparents each existing caller visually into a paint/layout host
+inside its original inheritance scope. It leaves QObject ownership with the
+caller’s creator and keeps the same caller and decoration during radius/theme
+changes. It supplies no font, foreground, padding, action or focus target.
+Nested surfaces retain separate paint layers; dynamic flat scopes and Repeaters
+update their emitted parts. Width proposals and implicit first baselines pass
+through each part to its caller.
+
+Component checks compare fixed-caller bounds with 248 preserved native contexts
+(31 fixtures in both appearances, text scales and DPRs). Separate Linux checks
+exercise flat and explicit layouts, nested decoration, dynamic removal, wrapping,
+font inheritance, retained local state/focus, pointer/keyboard actions and actual
+Qt accessible names. These baseline and input checks are Linux observations;
+the native centered corpus does not establish first-baseline or hit-test parity.
+
+The independent package mode `InstalledConsumer --surface-modifier` exercises
+separate caller surfaces, an explicit stack, inherited font, live/restored radius
+paint and retained button input. The virtual-session runner includes this mode.
+Its [development evidence](../evidence/development/surface-modifier-kernel-20261016/validation.json)
+preserves the frozen inputs, earlier failed assertions and actual run exits.
+The complete 52-fixture capture/catalog adapter, strict native raster/shadow and
+proposal/baseline comparison, source hit testing, physical displays and readers
+remain open. No expected image, source pin, mapping or tolerance changes.

@@ -63,7 +63,7 @@ INI
   fi
   for backend in software opengl; do
     for configuration in standard scaled; do
-    for fixture in base controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper radio-group otp-input activity-item modal tooltip button-style font-modifier; do
+    for fixture in base controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper radio-group otp-input activity-item modal tooltip button-style font-modifier surface-modifier; do
       prefix="$evidence/$protocol-$backend-$configuration"
       if [[ "$fixture" == controls ]]; then prefix="$evidence/controls-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == composition ]]; then prefix="$evidence/composition-$protocol-$backend-$configuration"; fi
@@ -78,6 +78,7 @@ INI
       if [[ "$fixture" == pagination-integers ]]; then prefix="$evidence/pagination-integers-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == modal ]]; then prefix="$evidence/modal-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == tooltip ]]; then prefix="$evidence/tooltip-$protocol-$backend-$configuration"; fi
+      if [[ "$fixture" == surface-modifier ]]; then prefix="$evidence/surface-modifier-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == font-modifier ]]; then prefix="$evidence/font-modifier-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == button-style ]]; then prefix="$evidence/button-style-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == activity-item ]]; then prefix="$evidence/activity-item-$protocol-$backend-$configuration"; fi
@@ -106,6 +107,7 @@ INI
       if [[ "$fixture" == pagination-integers ]]; then args+=(--pagination-integers); fi
       if [[ "$fixture" == modal ]]; then args+=(--modal); fi
       if [[ "$fixture" == tooltip ]]; then args+=(--tooltip); fi
+      if [[ "$fixture" == surface-modifier ]]; then args+=(--surface-modifier); fi
       if [[ "$fixture" == font-modifier ]]; then args+=(--font-modifier); fi
       if [[ "$fixture" == button-style ]]; then args+=(--button-style); fi
       if [[ "$fixture" == activity-item ]]; then args+=(--activity-item); fi
@@ -198,6 +200,9 @@ elif fixture == 'secure-field':
         assert record[key] == 'passed', record
     assert record['sourceHeight'] == 40 and record['fontPointSize'] == 10.5, record
     assert record['revealed'] is True, record
+elif fixture == 'surface-modifier':
+    for key in ['surfaceModifierChecks','callerStateChecks','focusChecks','qtAccessibilityChecks','liveRadiusPaintChecks','asyncShapeFrameChecks']:assert record[key]=='passed',record
+    assert record['flatParts']==2 and record['stackParts']==1 and record['activations']==3 and record['accepted'] is False,record
 elif fixture == 'font-modifier':
     for key in ['fontModifierChecks','callerStateChecks','liveFontPaintChecks','focusChecks','qtAccessibilityChecks']:assert record[key]=='passed',record
     assert record['closedContextCount']==207 and len(record['closedContexts'])==207,record

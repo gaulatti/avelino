@@ -64,6 +64,22 @@ public slots:
     void setProcessLocale(const QString &name) {QLocale::setDefault(QLocale(name));QEvent event(QEvent::LocaleChange);QCoreApplication::sendEvent(qApp,&event);}
     void qmlEngineAvailable(QQmlEngine *engine) {
         engine->rootContext()->setContextProperty("fixtureSetup",this);
+        QFile surface(QStringLiteral(NATIVE_SURFACE_MODIFIER_DIRECTORY)+"/captures/captures.json");
+        if(!surface.open(QIODevice::ReadOnly))qFatal("Native surface modifier evidence missing");
+        const auto surfaceData=QJsonDocument::fromJson(surface.readAll()).object();
+        const auto surfaceCaptures=surfaceData.value("captures").toArray();
+        if(surfaceData.value("reference").toString()!="fe8a1d462fbd793d883fb92086a16aa2947e32c9"
+            ||surfaceCaptures.size()!=416)qFatal("Native surface modifier reference incomplete");
+        QJsonArray surfaceContexts;
+        for(const auto &value:surfaceCaptures) {
+            const auto row=value.toObject();
+            if(!row.value("publicProbedIdentical").toBool()||!row.value("publicWitnessIdentical").toBool())
+                qFatal("Surface geometry requires transparent public and literal-body witnesses");
+            QJsonObject selected;
+            for(const auto &key:QStringList{"configuration","appearance","textScale","dpr"})selected.insert(key,row.value(key));
+            selected.insert("state",row.value("states").toArray().at(1));surfaceContexts.append(selected);
+        }
+        engine->rootContext()->setContextProperty("nativeSurfaceModifierCaptures",surfaceContexts.toVariantList());
         for(const auto &source:QList<QPair<QString,QString>>{
             {QStringLiteral(NATIVE_FONT_MODIFIER_DIRECTORY),"nativeFontModifierCaptures"},
             {QStringLiteral(NATIVE_FONT_BASELINE_DIRECTORY),"nativeFontBaselineCaptures"}}) {

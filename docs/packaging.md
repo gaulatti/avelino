@@ -263,3 +263,20 @@ second call refused the existing directory and exited one; the required
 `check-installed.sh` had already passed all modes, galleries and missing-module
 refusal. The [receipt](../evidence/development/font-modifier/package-validation.json)
 retains that control-flow evidence and the failed outer result separately.
+
+## Generic surface adapter checkpoint
+
+`InstalledConsumer --surface-modifier` exercises independent flat caller surfaces,
+an explicit stack, inherited fonts, live/restored radius paint and retained button
+state, focus, pointer/keyboard actions and actual Qt accessible names. The package
+now runs 29 modes. Its 125 installed files match the executable-only runtime copy;
+all 123 existing catalog PNGs and their metadata remain byte-identical to the
+previous surface-paint checkpoint, as does the catalog relocation record.
+
+The [development evidence](../evidence/development/surface-modifier-kernel-20261016/validation.json)
+retains the initial font-unit assertion failure. A point-based QFont reports raw
+pixel size -1 while retaining the correct family and 24-point size. The corrected
+consumer compares the exact installed pixel-to-point conversion; all eight
+virtual profiles pass and preserve these measurements in their logs. This check
+does not approve a native font mapping. The complete source capture/catalog matrix,
+strict native comparison, first-baseline and physical/reader acceptance remain open.

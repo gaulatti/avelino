@@ -1171,3 +1171,27 @@ are retained without masks, resized comparisons or tolerance changes.
 
 Generic flat-caller surface decoration is still pending. Desktop coverage remains
 64/80 candidates, with 16 pending and zero accepted; TV remains separate.
+
+## Generic surface adapter development checkpoint
+
+The [adapter evidence](../evidence/development/surface-modifier-kernel-20261016/validation.json)
+adds independent caller surfaces through transparent font/Loader scopes and one
+surface for an explicit stack. Radius/theme changes retain the caller, local
+state, focus and actual Qt input/accessibility objects. Linux tests also exercise
+nested layers, dynamic Repeaters, hidden/empty/zero callers, wrapping proposals
+and inherited first baselines. Fixed-caller frames match 248 native contexts;
+native first-baseline and hit-test acceptance remains open.
+
+All 26 Qt targets pass, including 5,319 component checks at DPR one and 5,547 at
+DPR two, with no failures/skips. All 396 host contracts, 29 independent consumer
+modes and 123 existing galleries pass. Eight virtual profiles use only the
+installed module and compiled consumer executable. The 125 installed files match
+across final copies; every prior gallery PNG and metadata file is byte-identical.
+
+Original row-height and raw QFont pixel-unit assertion failures, frozen inputs
+and actual exits are archived. The corrected consumer compares the inherited
+font family and exact installed point-size mapping; it does not change product
+fonts. Complete 52-fixture capture/catalog integration, strict native raster,
+shadow, proposals/baselines, source hit testing and physical/reader checks remain
+pending. The generic modifier's inventory status stays pending; coverage remains
+64/80 candidates, zero accepted, with TV separate.
