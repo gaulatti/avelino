@@ -11,6 +11,7 @@ class InheritedControl : public QQuickControl {
     Q_PROPERTY(QColor resolvedTextColor READ resolvedTextColor NOTIFY resolvedTextColorChanged)
 public:
     explicit InheritedControl(QQuickItem *parent=nullptr);
+    ~InheritedControl() override;
     QFont presentationFont() const;
     QColor defaultTextColor() const{return m_defaultTextColor;}
     void setDefaultTextColor(const QColor &value);

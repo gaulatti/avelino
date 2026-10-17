@@ -159,3 +159,13 @@ add_test(NAME dropdown-menu-invalid-config COMMAND python3 ${CMAKE_CURRENT_SOURC
 
 add_test(NAME dropdown-menu-catalog-metadata COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/check-dropdown-menu-catalog.py
     $<TARGET_FILE:AvelinoCatalog> ${CMAKE_BINARY_DIR}/qml ${PROJECT_SOURCE_DIR})
+
+# Teardown regression for attached derived items, including disabled ancestry.
+qt_add_executable(AvelinoItemLifetimeTests itemlifetime.cpp)
+target_include_directories(AvelinoItemLifetimeTests PRIVATE "${PROJECT_SOURCE_DIR}/src/Avelino")
+target_link_libraries(AvelinoItemLifetimeTests PRIVATE Avelino Qt6::Test Qt6::QuickPrivate Qt6::QuickTemplates2Private)
+target_compile_definitions(AvelinoItemLifetimeTests PRIVATE AVELINO_LIFETIME_IMPORT_PATH="${CMAKE_BINARY_DIR}/qml")
+add_test(NAME item-lifetime COMMAND AvelinoItemLifetimeTests)
+add_test(NAME item-lifetime-dpr2 COMMAND AvelinoItemLifetimeTests)
+set_tests_properties(item-lifetime PROPERTIES ENVIRONMENT "QT_QPA_PLATFORM=offscreen;QT_QUICK_BACKEND=software;QT_SCALE_FACTOR=1")
+set_tests_properties(item-lifetime-dpr2 PROPERTIES ENVIRONMENT "QT_QPA_PLATFORM=offscreen;QT_QUICK_BACKEND=software;QT_SCALE_FACTOR=2")

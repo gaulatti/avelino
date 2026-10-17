@@ -176,6 +176,10 @@ SoftwareContentMask::SoftwareContentMask(QQuickItem *parent) : QQuickItem(parent
 }
 
 SoftwareContentMask::~SoftwareContentMask() {
+    disconnect(this,nullptr,this,nullptr);
+    disconnect(m_frame);
+    disconnect(m_sourceDestroyed);disconnect(m_sourceChanged);
+    disconnect(m_outlineDestroyed);disconnect(m_pathChanged);
     if (m_source) QQuickItemPrivate::get(m_source)->derefFromEffectItem(false);
 }
 

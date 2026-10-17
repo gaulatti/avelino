@@ -11,6 +11,7 @@ class RadioGroupBase : public QQuickControl {
     Q_PROPERTY(QColor resolvedTextColor READ resolvedTextColor NOTIFY resolvedTextColorChanged)
 public:
     explicit RadioGroupBase(QQuickItem *parent=nullptr);
+    ~RadioGroupBase() override;
     QFont presentationFont() const;
     QColor defaultTextColor() const{return m_defaultTextColor;}
     void setDefaultTextColor(const QColor &value);

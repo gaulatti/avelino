@@ -167,6 +167,7 @@ ChartRenderer::ChartRenderer(QQuickItem *parent):QQuickPaintedItem(parent) {
     setOpaquePainting(false);setAntialiasing(true);setSmooth(false);
     connect(this,&QQuickItem::windowChanged,this,&ChartRenderer::attachWindow);
 }
+ChartRenderer::~ChartRenderer(){disconnect(m_frameConnection);disconnect(this,nullptr,this,nullptr);}
 void ChartRenderer::componentComplete(){QQuickPaintedItem::componentComplete();m_complete=true;relayout();}
 void ChartRenderer::attachWindow(QQuickWindow *window) {
     disconnect(m_frameConnection);

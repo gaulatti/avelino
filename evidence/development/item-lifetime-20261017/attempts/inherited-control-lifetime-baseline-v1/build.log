@@ -1,0 +1,10 @@
+[1/2] Building CXX object CMakeFiles/Repro.dir/repro.cpp.o
+FAILED: CMakeFiles/Repro.dir/repro.cpp.o 
+/usr/bin/c++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_OPENGL_LIB -DQT_QMLINTEGRATION_LIB -DQT_QMLMETA_LIB -DQT_QMLMODELS_LIB -DQT_QMLWORKERSCRIPT_LIB -DQT_QML_LIB -DQT_QUICKTEMPLATES2_LIB -DQT_QUICK_LIB -I/work/artifacts/resumed-avelino-20261016/file-input-qt-v13/source/src/Avelino -isystem /opt/qt/include/QtQuick -isystem /opt/qt/include -isystem /opt/qt/include/QtCore -isystem /opt/qt/mkspecs/linux-g++ -isystem /opt/qt/include/QtGui -isystem /opt/qt/include/QtQml -isystem /opt/qt/include/QtQmlIntegration -isystem /opt/qt/include/QtNetwork -isystem /opt/qt/include/QtQmlMeta -isystem /opt/qt/include/QtQmlModels -isystem /opt/qt/include/QtQmlWorkerScript -isystem /opt/qt/include/QtOpenGL -isystem /opt/qt/include/QtQuickTemplates2/6.8.3 -isystem /opt/qt/include/QtQuickTemplates2/6.8.3/QtQuickTemplates2 -isystem /opt/qt/include/QtQuickTemplates2 -isystem /opt/qt/include/QtQmlModels/6.8.3 -isystem /opt/qt/include/QtQmlModels/6.8.3/QtQmlModels -isystem /opt/qt/include/QtCore/6.8.3 -isystem /opt/qt/include/QtCore/6.8.3/QtCore -isystem /opt/qt/include/QtQml/6.8.3 -isystem /opt/qt/include/QtQml/6.8.3/QtQml -g -MD -MT CMakeFiles/Repro.dir/repro.cpp.o -MF CMakeFiles/Repro.dir/repro.cpp.o.d -o CMakeFiles/Repro.dir/repro.cpp.o -c /work/artifacts/resumed-avelino-20261016/inherited-control-lifetime-baseline-v1/repro.cpp
+In file included from /work/artifacts/resumed-avelino-20261016/file-input-qt-v13/source/src/Avelino/inheritedcontrol.h:2,
+                 from /work/artifacts/resumed-avelino-20261016/inherited-control-lifetime-baseline-v1/repro.cpp:1:
+/opt/qt/include/QtQuickTemplates2/6.8.3/QtQuickTemplates2/private/qquickcontrol_p.h:21:10: fatal error: QtQuick/private/qquickpalette_p.h: No such file or directory
+   21 | #include <QtQuick/private/qquickpalette_p.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+ninja: build stopped: subcommand failed.

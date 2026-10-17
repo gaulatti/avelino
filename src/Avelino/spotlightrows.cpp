@@ -23,7 +23,11 @@ SpotlightRows::SpotlightRows(QQuickItem *parent):QQuickItem(parent) {
     connect(this,&QQuickItem::visibleChanged,this,[this]{polish();});
     setImplicitHeight(12);
 }
-SpotlightRows::~SpotlightRows(){disconnect(m_frame);m_entries.clear();m_retired.clear();}
+SpotlightRows::~SpotlightRows(){
+    disconnect(m_frame);disconnect(this,nullptr,this,nullptr);
+    for(auto sender:findChildren<QObject*>())disconnect(sender,nullptr,this,nullptr);
+    m_entries.clear();m_retired.clear();
+}
 void SpotlightRows::componentComplete(){QQuickItem::componentComplete();m_complete=true;attachWindow(window());reconcile();emit itemsChanged();layout();}
 void SpotlightRows::geometryChange(const QRectF &next,const QRectF &previous){QQuickItem::geometryChange(next,previous);if(!m_layingOut)polish();}
 void SpotlightRows::setItems(const QJSValue &value) {

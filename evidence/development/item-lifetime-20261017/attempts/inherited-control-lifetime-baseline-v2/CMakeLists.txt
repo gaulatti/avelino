@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.24)
+project(InheritedControlLifetimeRepro LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 17)
+find_package(Qt6 6.8.3 EXACT REQUIRED COMPONENTS Quick Qml QuickTemplates2)
+add_executable(Repro repro.cpp)
+target_include_directories(Repro PRIVATE /work/artifacts/resumed-avelino-20261016/file-input-qt-v13/source/src/Avelino)
+target_link_libraries(Repro PRIVATE /work/artifacts/resumed-avelino-20261016/file-input-build/build/src/Avelino/libAvelino.so Qt6::Quick Qt6::Qml Qt6::QuickTemplates2Private Qt6::QuickPrivate)
