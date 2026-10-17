@@ -1435,3 +1435,21 @@ under diagnostics. Native input timing, generic identity, lazy state, physical
 displays, accessibility hierarchy, readers and independent-machine availability
 remain pending. Linux implementation is still pending, keeping desktop candidate
 coverage at 73/80 and fully accepted APIs at zero.
+
+## FileInput native source investigation
+
+The [FileInput record](../evidence/reference-investigations/file-input-20261017/investigation.json)
+preserves 256 closed contexts, 768 PNGs and 11,520 direct sizing responses.
+Public/probed/literal closed pixels, measured geometry and sizing witnesses all
+agree. Fresh builds retain all 89 source files unchanged; the source replay
+compares every capture, metadata file and sizing response byte-for-byte.
+
+The native UI diagnostic records seven successful owner callbacks, normal
+cancellation, multiple-selection order, symlink resolution, owner removal and
+scoped image/folder/empty/broad type observations. Failed own-process helpers
+remain under diagnostics. Cached panel directory metadata is explicitly separate
+from the actual CUA-observed folder. The retained-instance broad-type result,
+fresh behavior replay, exact type mapping, complete chooser artwork, accessibility,
+physical displays/input, readers and independent-machine availability remain
+pending. Linux implementation is pending; desktop coverage stays 75/80 candidates,
+zero accepted APIs. TV remains a separate later phase.

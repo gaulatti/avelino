@@ -1,0 +1,35 @@
+[
+  {
+    "name": "helper-build",
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-supplement-source-20261017-v1/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-file-input-native-20261017-v4/tool/FileInputCommon.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-file-input-native-20261017-v4/tool/UIMain.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-supplement-source-20261017-v1/build/out/Products/Debug/Sabella.o",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-file-input-native-20261017-v4/FileInputSourceProbe.app/Contents/MacOS/NativeFileInputUI"
+    ],
+    "exitCode": 0,
+    "seconds": 21.70286245807074
+  },
+  {
+    "name": "ui",
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-file-input-native-20261017-v4/FileInputSourceProbe.app/Contents/MacOS/NativeFileInputUI",
+      "/Users/gaulatti/.codex/tmp/avelino-file-input-native-20261017-v4/output",
+      "/Users/gaulatti/.codex/tmp/avelino-file-input-fixtures-20261017-v1",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "exitCode": 0,
+    "seconds": 492.7487778750947
+  }
+]

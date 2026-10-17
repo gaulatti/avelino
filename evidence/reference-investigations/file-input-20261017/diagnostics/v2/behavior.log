@@ -1,0 +1,31 @@
+*** Terminating app due to uncaught exception 'NSGenericException', reason: '-[NSSavePanel ok:] : not implemented'
+*** First throw call stack:
+(
+	0   CoreFoundation                      0x00000001a00768c0 __exceptionPreprocess + 176
+	1   libobjc.A.dylib                     0x000000019fad460c objc_exception_throw + 88
+	2   CoreFoundation                      0x00000001a00767b0 +[NSException exceptionWithName:reason:userInfo:] + 0
+	3   AppKit                              0x00000001a51e66d0 -[NSSavePanel ok:] + 60
+	4   NativeFileInputBehavior             0x00000001044a17b4 $s23NativeFileInputBehavior3RunC4pollyyF + 6612
+	5   NativeFileInputBehavior             0x00000001044a2a78 $s23NativeFileInputBehavior3RunC5startyyFySo7NSTimerCYbcfU_yyScMYcXEfU_ + 156
+	6   NativeFileInputBehavior             0x00000001044a4824 $s23NativeFileInputBehavior3RunC5startyyFySo7NSTimerCYbcfU_yyScMYcXEfU_TA + 20
+	7   NativeFileInputBehavior             0x00000001044a48bc $sxs5Error_pIgrzo_xsAA_pIegrzo_s8SendableRzlTR + 24
+	8   NativeFileInputBehavior             0x00000001044a4958 $sxs5Error_pIgrzo_xsAA_pIegrzo_s8SendableRzlTRTA + 40
+	9   NativeFileInputBehavior             0x00000001044a4984 $sScM14assumeIsolated_4file4linexxyKScMYcXE_s12StaticStringVSutKs8SendableRzlFZxxyKScMYccKXEfU_ + 28
+	10  NativeFileInputBehavior             0x00000001044a2c3c $sScM14assumeIsolated_4file4linexxyKScMYcXE_s12StaticStringVSutKs8SendableRzlFZ + 424
+	11  NativeFileInputBehavior             0x00000001044a29a4 $s23NativeFileInputBehavior3RunC5startyyFySo7NSTimerCYbcfU_ + 132
+	12  NativeFileInputBehavior             0x00000001044a2d48 $sSo7NSTimerCIeghg_ABIeyBhy_TR + 72
+	13  Foundation                          0x00000001a1744420 __NSFireTimer + 104
+	14  CoreFoundation                      0x00000001a00208cc __CFRUNLOOP_IS_CALLING_OUT_TO_A_TIMER_CALLBACK_FUNCTION__ + 32
+	15  CoreFoundation                      0x00000001a00205c8 __CFRunLoopDoTimer + 1084
+	16  CoreFoundation                      0x00000001a00200d8 __CFRunLoopDoTimers + 280
+	17  CoreFoundation                      0x00000001a00055dc __CFRunLoopRun + 1852
+	18  CoreFoundation                      0x00000001a00df82c _CFRunLoopRunSpecificWithOptions + 536
+	19  Foundation                          0x00000001a1708d5c -[NSRunLoop(NSRunLoop) runMode:beforeDate:] + 212
+	20  Foundation                          0x00000001a177d75c -[NSRunLoop(NSRunLoop) runUntilDate:] + 100
+	21  NativeFileInputBehavior             0x00000001044a2810 $s23NativeFileInputBehavior3RunC5startyyF + 952
+	22  NativeFileInputBehavior             0x00000001044a343c $s23NativeFileInputBehavior4MainV4mainyyKFZ + 1280
+	23  NativeFileInputBehavior             0x00000001044a3f74 $s23NativeFileInputBehavior4MainV5$mainyyKFZ + 20
+	24  NativeFileInputBehavior             0x00000001044a3fd0 main + 28
+	25  dyld                                0x000000019fb6fe80 start + 6688
+)
+libc++abi: terminating due to uncaught exception of type NSException

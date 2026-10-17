@@ -1,0 +1,90 @@
+[
+  {
+    "name": "library-build",
+    "command": [
+      "swift",
+      "build",
+      "--package-path",
+      "/Users/gaulatti/.codex/tmp/avelino-file-input-source-replay-20261017-v1/source",
+      "--scratch-path",
+      "/Users/gaulatti/.codex/tmp/avelino-file-input-source-replay-20261017-v1/build",
+      "--jobs",
+      "2",
+      "--target",
+      "Sabella",
+      "--disable-automatic-resolution",
+      "-Xswiftc",
+      "-target",
+      "-Xswiftc",
+      "arm64-apple-macosx26.0"
+    ],
+    "exitCode": 0,
+    "seconds": 41.337114957976155
+  },
+  {
+    "name": "capture-build",
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-file-input-source-replay-20261017-v1/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-file-input-source-replay-20261017-v1/tool/FileInputCommon.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-file-input-source-replay-20261017-v1/tool/CaptureMain.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-file-input-source-replay-20261017-v1/build/out/Products/Debug/Sabella.o",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-file-input-source-replay-20261017-v1/tool/NativeFileInputCapture"
+    ],
+    "exitCode": 0,
+    "seconds": 1.5501622089650482
+  },
+  {
+    "name": "capture",
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-file-input-source-replay-20261017-v1/tool/NativeFileInputCapture",
+      "/Users/gaulatti/.codex/tmp/avelino-file-input-source-replay-20261017-v1/fixtures.json",
+      "/Users/gaulatti/.codex/tmp/avelino-file-input-source-replay-20261017-v1/output",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "exitCode": 0,
+    "seconds": 138.4676750000799
+  },
+  {
+    "name": "sizing-build",
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-file-input-source-replay-20261017-v1/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-file-input-source-replay-20261017-v1/tool/FileInputCommon.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-file-input-source-replay-20261017-v1/tool/SizingMain.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-file-input-source-replay-20261017-v1/build/out/Products/Debug/Sabella.o",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-file-input-source-replay-20261017-v1/tool/NativeFileInputSizing"
+    ],
+    "exitCode": 0,
+    "seconds": 1.6598989999620244
+  },
+  {
+    "name": "sizing",
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-file-input-source-replay-20261017-v1/tool/NativeFileInputSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-file-input-source-replay-20261017-v1/fixtures.json",
+      "/Users/gaulatti/.codex/tmp/avelino-file-input-source-replay-20261017-v1/sizing-output",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "exitCode": 0,
+    "seconds": 62.234459625091404
+  }
+]

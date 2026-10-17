@@ -151,6 +151,11 @@ states pass. Native label/update timing, fonts/symbols/raster, popup presentatio
 sizing, accessibility, physical displays and readers remain pending. Desktop
 candidate coverage is 75/80 with zero accepted APIs.
 
+The [file input source investigation](docs/file-input.md) records 256 native
+closed contexts, 11,520 sizing responses and scoped chooser selection/cancel
+diagnostics. FileInput's Linux chooser and full type/input/visual acceptance
+remain pending, so desktop candidate coverage stays 75/80 with zero accepted.
+
 The [command spotlight candidate](docs/command-spotlight.md) preserves its
 fixed 520 by 380 surface, caller-owned query and lazy rows. Its public, probed and
 literal witnesses agree at 256 closed contexts and 1,536 retained steps. The

@@ -1,0 +1,45 @@
+{
+  "reference": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+  "tree": "db61113381a51fc3c7b3d12786609cd9e76627c8",
+  "sourceInputArchive": {
+    "location": "/Users/gaulatti/.codex/tmp/avelino-file-input-source-20261017-v1/source-inputs.tar.gz",
+    "sha256": "ab7ff095cdcd10ff6816b09997ccdce5bed57e689d5077b079b9cc961e166bea",
+    "bytes": 1425723,
+    "containsPinnedSourceFiles": 89,
+    "prebuiltLibraryInputs": false,
+    "downloadAvailability": "pending independent-machine replay"
+  },
+  "sourceInputs": {
+    "accepted": false,
+    "prebuiltLibraryInputs": false,
+    "files": {
+      "reference-source.tar": "4fd5cf743fd13c12f375c65a4a711d7210e6fb9d4639225737b391eb498f784c",
+      "fixtures.json": "53c100f2ac87a1f9f8ace998f8932d6d12783fa84cec399e5f18bae2a5cb63d6",
+      "tool/CaptureMain.swift": "53fce7d5a95c11a3484931db14129d670f6d8aedeaeaf6b968bbf8b875ed6297",
+      "tool/SizingMain.swift": "6c5a478816f53eac16d7541ab912c3d33994e60be20a3a05b457a61621bf589e",
+      "tool/FileInputCommon.swift": "9ef7bd86ae24c6fe249f15be17ae2c93e98c96ffb58bad2872d1a322455a9009"
+    }
+  },
+  "sourceFilesUnchanged": 89,
+  "prebuiltLibraryInputs": false,
+  "replayDriver": {
+    "location": "/Users/gaulatti/.codex/tmp/replay-avelino-file-input-source-20261017.py",
+    "sha256": "b937d911dd9a6b3eb04c28927a7adde46015c8bd014a8ab6bd9934647988a603",
+    "portability": "Recorded host paths; independent-machine availability pending"
+  },
+  "swift": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0\n",
+  "xcode": "Xcode 27.0\nBuild version 27A266a\n",
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0\nBuildVersion:\t\t26A428\n",
+  "sdk": "27.0\n",
+  "deploymentTarget": "arm64-apple-macosx26.0",
+  "behaviorLibraryProvenance": "Native UI diagnostic uses the previously source-built Dropdown supplement Sabella object; its source-only build uses the same immutable 89-file source archive. Fresh FileInput behavior replay remains pending.",
+  "behaviorSourceArchiveSha256": "4fd5cf743fd13c12f375c65a4a711d7210e6fb9d4639225737b391eb498f784c",
+  "diagnosticLimitations": [
+    "v2 panel.ok(nil) terminated with an unsupported AppKit action; no owner failure was observed",
+    "v3 own-panel Return events did not complete a selection",
+    "directoryIsControlled records the NSOpenPanel directoryURL property; actual remote UI location was verified separately through CUA navigation and controlled rows",
+    "CUA records contain selected controlled AX excerpts, not a complete native accessibility acceptance tree",
+    "The UI type changes share a retained source instance; public.item selection left Open disabled and needs isolated fresh-process investigation",
+    "No open-panel raster, physical input, display or reader acceptance is claimed"
+  ]
+}
