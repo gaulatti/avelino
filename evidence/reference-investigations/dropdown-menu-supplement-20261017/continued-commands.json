@@ -1,0 +1,68 @@
+[
+  {
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-supplement-source-20261017-v1/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-supplement-source-20261017-v1/labels/tool/DropdownCommon.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-supplement-source-20261017-v1/labels/tool/CaptureMain.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-supplement-source-20261017-v1/build/out/Products/Debug/Sabella.o",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-supplement-source-20261017-v1/labels/tool/Helper"
+    ],
+    "name": "labels-build",
+    "exitCode": 0,
+    "seconds": 3.2892566670197994
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-supplement-source-20261017-v1/labels/tool/Helper",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-supplement-source-20261017-v1/labels/fixtures.json",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-supplement-source-20261017-v1/labels/output",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "name": "labels",
+    "exitCode": 0,
+    "seconds": 4.254082125029527
+  },
+  {
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-supplement-source-20261017-v1/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-supplement-source-20261017-v1/metrics/tool/DropdownCommon.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-supplement-source-20261017-v1/metrics/tool/CaptureMain.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-supplement-source-20261017-v1/build/out/Products/Debug/Sabella.o",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-supplement-source-20261017-v1/metrics/tool/Helper"
+    ],
+    "name": "metrics-build",
+    "exitCode": 0,
+    "seconds": 2.5307034170255065
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-supplement-source-20261017-v1/metrics/tool/Helper",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-supplement-source-20261017-v1/metrics/fixtures.json",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-supplement-source-20261017-v1/metrics/output",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "name": "metrics",
+    "exitCode": 0,
+    "seconds": 4.820277416030876
+  }
+]

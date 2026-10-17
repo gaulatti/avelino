@@ -1,0 +1,76 @@
+{
+  "reference": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+  "accepted": false,
+  "status": "source-investigation; differences-retained",
+  "sourceFilesUnchanged": 89,
+  "prebuiltLibraryInputs": false,
+  "filesCompared": 62,
+  "exactFiles": 59,
+  "differingFiles": 3,
+  "expectedImagesChanged": false,
+  "tolerance": "none",
+  "approvedExceptions": [],
+  "sourceOnlyArchive": {
+    "locator": "/Users/gaulatti/.codex/tmp/avelino-dropdown-supplement-source-20261017-v1/source-inputs.tar.gz",
+    "sha256": "5a1d69309887b93eca06c1871353ebe6b6cc87054b9c6460cabf5d688941583c",
+    "members": [
+      {
+        "path": "behavior/tool/BehaviorMain.swift",
+        "bytes": 5427,
+        "sha256": "bb1e6b25c4bfd04a3044e23337b8f1aebe738797866d9381a02e14bc31b9d219"
+      },
+      {
+        "path": "behavior/tool/DropdownCommon.swift",
+        "bytes": 4228,
+        "sha256": "9b07b413c81aa0c02bc329fe917572883c3c5c9559efc410fa22257163173952"
+      },
+      {
+        "path": "labels/fixtures.json",
+        "bytes": 2867,
+        "sha256": "1fd62f6e50c1f33098e7cc5a19d0b210114aeddd890d9904803204e64a495193"
+      },
+      {
+        "path": "labels/tool/CaptureMain.swift",
+        "bytes": 3215,
+        "sha256": "4ef5f157465a7b8c21ebb637785a8ac43cc5be0ab60fef59c77f74c424af0bcb"
+      },
+      {
+        "path": "labels/tool/DropdownCommon.swift",
+        "bytes": 6215,
+        "sha256": "913a78f72fa448371d438f4e40269f557c369e7094add0ccadf5b71132f758d8"
+      },
+      {
+        "path": "metrics/fixtures.json",
+        "bytes": 1547,
+        "sha256": "d1c3cf8cf9974aae8bdd04bb6a472a6255ff6d68cdf7e7633344bd49d18f37a7"
+      },
+      {
+        "path": "metrics/tool/CaptureMain.swift",
+        "bytes": 3600,
+        "sha256": "6a5e715fdb5188e79973e20c179b5235a49742c0e83f32326fb8f14fe4d0b5cb"
+      },
+      {
+        "path": "metrics/tool/DropdownCommon.swift",
+        "bytes": 5735,
+        "sha256": "8a152a2301f9688a0f9f83a89a66625661f6606eba7a741748069aa7ff892b32"
+      },
+      {
+        "path": "reference-source.tar",
+        "bytes": 3328000,
+        "sha256": "4fd5cf743fd13c12f375c65a4a711d7210e6fb9d4639225737b391eb498f784c"
+      },
+      {
+        "path": "inputs.json",
+        "bytes": 1010,
+        "sha256": "c97a078db3314b8686aefe0ab18966785b05d71db6ff49e4b6e32f4c5976b5da"
+      }
+    ]
+  },
+  "remainingAcceptance": [
+    "independentMachineReplay",
+    "nativePopupPlacement",
+    "physicalPointerKeyboard",
+    "nativeAccessibilityReaders"
+  ],
+  "note": "All 59 label/image outputs reproduce exactly. Three behavior JSON files retain a 15-pixel popup vertical-placement difference. Each own-process queued pointer still selects Duplicate without the timed fallback cancel. Trigger opening uses NSPopUpButton.performClick; no physical/native global pointer acceptance is claimed."
+}

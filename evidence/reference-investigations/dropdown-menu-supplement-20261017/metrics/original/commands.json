@@ -1,0 +1,35 @@
+[
+  {
+    "name": "helper-build",
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-source-20261017-v1/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-native-20261017-v7/tool/DropdownCommon.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-native-20261017-v7/tool/CaptureMain.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-source-20261017-v1/build/out/Products/Debug/Sabella.o",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-native-20261017-v7/tool/NativeDropdownCapture"
+    ],
+    "exitCode": 0,
+    "seconds": 3.54822041594889
+  },
+  {
+    "name": "capture",
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-native-20261017-v7/tool/NativeDropdownCapture",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-native-20261017-v7/fixtures.json",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-native-20261017-v7/output",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "exitCode": 0,
+    "seconds": 4.6090681669302285
+  }
+]

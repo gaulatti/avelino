@@ -1,0 +1,56 @@
+[
+  {
+    "command": [
+      "swift",
+      "build",
+      "--package-path",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-supplement-source-20261017-v1/source",
+      "--scratch-path",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-supplement-source-20261017-v1/build",
+      "--jobs",
+      "2",
+      "--target",
+      "Sabella",
+      "--disable-automatic-resolution",
+      "-Xswiftc",
+      "-target",
+      "-Xswiftc",
+      "arm64-apple-macosx26.0"
+    ],
+    "name": "library-build",
+    "exitCode": 0,
+    "seconds": 47.66623091697693
+  },
+  {
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-supplement-source-20261017-v1/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-supplement-source-20261017-v1/behavior/tool/DropdownCommon.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-supplement-source-20261017-v1/behavior/tool/BehaviorMain.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-supplement-source-20261017-v1/build/out/Products/Debug/Sabella.o",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-supplement-source-20261017-v1/behavior/tool/Helper"
+    ],
+    "name": "behavior-build",
+    "exitCode": 0,
+    "seconds": 2.321337666013278
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-supplement-source-20261017-v1/behavior/tool/Helper",
+      "/Users/gaulatti/.codex/tmp/avelino-dropdown-supplement-source-20261017-v1/behavior/output",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "name": "behavior",
+    "exitCode": 0,
+    "seconds": 3.069335374981165
+  }
+]

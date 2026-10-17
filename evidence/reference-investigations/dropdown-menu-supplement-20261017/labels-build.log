@@ -1,0 +1,9 @@
+/Users/gaulatti/.codex/tmp/avelino-dropdown-supplement-source-20261017-v1/labels/tool/DropdownCommon.swift:45:33: warning: '+' was deprecated in macOS 26.0: Use string interpolation on `Text` instead: `Text("Hello \(name)")` [#DeprecatedDeclaration]
+43 |   case "two-texts-h":HStack(spacing:7){Text("One");Text("Two")}
+44 |   case "two-texts-v":VStack(spacing:7){Text("One");Text("Two")}
+45 |   case "joined-text":Text("One")+Text("Two")
+   |                                 `- warning: '+' was deprecated in macOS 26.0: Use string interpolation on `Text` instead: `Text("Hello \(name)")` [#DeprecatedDeclaration]
+46 |   case "two-images":HStack(spacing:7){Image(systemName:"folder");Image(systemName:"ellipsis")}
+47 |   case "hidden-text":Text(model.fixture.title).hidden()
+
+[#DeprecatedDeclaration]: <https://docs.swift.org/compiler/documentation/diagnostics/deprecated-declaration>
