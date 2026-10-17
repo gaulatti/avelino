@@ -77,6 +77,10 @@ InheritedControl {
                     elide:label.maximumLineCount===2147483647 ? Text.ElideNone:Text.ElideRight
                     horizontalAlignment:label.horizontalAlignment
                     width:label.offeredWidth<0 ? formattedHost.naturalWidth:label.offeredWidth
+                    // Qt 6.8.3 can translate a layout made at an earlier
+                    // fractional width when this width grows. Re-layout at
+                    // the current width so retained and fresh glyphs agree.
+                    onWidthChanged:if(resourcesMounted)forceLayout()
                     y:Math.max(0,-label.baselineShift)
                     transform:Translate {x:alignment.offset.x;y:alignment.offset.y}
                 }

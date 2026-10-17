@@ -60,7 +60,7 @@ while still failing structural errors. `scripts/capture-media-library.py` keeps
 all 496 closed contexts, 104 successful edges, eight isolated fatal edges and
 all 1,008 retained-history steps. The strict comparator adds no tolerance.
 
-The [reflow correction record](../evidence/development/media-library-reflow-20261017/candidate.json)
+The [formatted-text correction record](../evidence/development/media-library-caption-20261017/candidate.json)
 compares all 1,608 observed pairs: 1,008 match pixels, frames and lifecycle together;
 1,168 match pixels, 1,288 match frames and all 1,608 match native lifecycle. All 48
 offscreen restore observations reproduce their initial candidate pixels. No
@@ -78,11 +78,20 @@ bytes independently of the checkout's generated files.
 The candidate evidence keeps failures as well as successful checks. Fractional
 column geometry, text measurement and lazy height estimates still differ from
 the source. Actual gallery input exercises 14 controls and 23 XTest clicks through
-24 states; 20 caller viewports match fresh isolated candidates. Four retained RTL
-button-text states (`width460`, `minimum160`, `light`, `scale-restored`) differ.
-Observation mode saves those failed frames and continues; strict comparison
-remains failed. Earlier inactive-painter warnings remain preserved; the current
-eight capture contexts contain none.
+24 states; every caller viewport now matches its fresh isolated candidate.
+The [earlier reflow record](../evidence/development/media-library-reflow-20261017/candidate.json)
+keeps the four failed RTL states (`width460`, `minimum160`, `light`,
+`scale-restored`) and their original pixels. Earlier inactive-painter warnings
+also remain preserved; the current eight capture contexts contain none.
+
+A Qt 6.8.3 trace found a retained line width of `101 + 1/3` after the item grew to 103 and
+222. Its [width-growth shortcut](https://github.com/qt/qtdeclarative/blob/v6.8.3/src/quick/items/qquicktext.cpp#L2489)
+reuses the earlier layout and translates its glyphs. Wrapped `BleeckerText`
+now invokes the public [forceLayout method](https://github.com/qt/qtdeclarative/blob/v6.8.3/src/quick/items/qquicktext.cpp#L3167)
+when its width changes. The regression reproduces two pixel failures against the
+earlier module, in right-aligned `Tile 2` and centered `Tile 5`, and passes all
+14 text/alignment rows at DPR 1 and 2 with the correction. Native sizing, complete
+raster, font, physical display/input and reader acceptance remain pending.
 
 The catalog and independent consumer use the same fixture-only `MediaTileFill`
 for caller fill and button backgrounds. It preserves logical item geometry and
@@ -178,5 +187,14 @@ Source pins, expected images and tolerances remain unchanged; no exception or
 mirror baseline is approved. Run `python3 scripts/verify-media-library-source.py`
 to recompute the source evidence. A native reference investigation is not an
 accepted Linux component.
-Run `python3 scripts/verify-media-library-reflow.py` to recompute the corrected
-captures, historical regression guard and virtual restore images.
+Run `python3 scripts/verify-media-library-caption.py` to recompute the current
+media comparisons, all 3,768 font/pill pairs, archived restore images and
+historical regression guards. The font/pill native pixels remain byte-identical
+to their earlier candidates; existing native mismatches remain failed.
+
+
+The corrected package also exercises eight virtual font and eight virtual pill
+profiles across X11/Wayland, software/OpenGL and standard/scaled settings. These
+profiles preserve the separate physical display, input, acceleration and reader
+gates. Auxiliary captures and metadata are stored in the formatted-observations
+archives with `font-captures/` and `pill-captures/` member prefixes.

@@ -145,3 +145,13 @@ window pixels, including at DPR two, rather than an already hidden texture child
 
 Desktop coverage is 66/80 verification-pending candidates and 14 pending entries;
 zero are accepted. Television remains separate with 46 pending entries.
+
+Pill callers with rich text or a line limit share the formatted `BleeckerText`
+width-update policy described in [font modifiers](font-modifier.md). Growing
+a fractional offer requests a complete wrapped-text layout before rendering.
+The closed and retained native corpora remain strict; this correction does not
+establish native font or pill acceptance.
+
+The [formatted-text correction replay](../evidence/development/media-library-caption-20261017/candidate.json)
+keeps all 2,112 pill PNGs byte-identical to the earlier candidate. No previously
+passing frame, baseline or state observation regressed.

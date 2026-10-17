@@ -1,0 +1,26 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--rm",
+    "--init",
+    "--name",
+    "avelino-media-caption-trace-build-v1",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/media-library-caption-trace-build-v1/source:/work:ro",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/media-library-caption-trace-build-v1:/result:rw",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/media-library-caption-trace-build-v1/qt-artifacts:/work/artifacts:rw",
+    "-w",
+    "/work",
+    "avelino-toolchain:data-metrics-qt6.8.3",
+    "bash",
+    "-lc",
+    "cmake -S /work -B /result/build -G Ninja -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=ON -DCMAKE_PREFIX_PATH=/opt/qt && cmake --build /result/build --target AvelinoCatalog --parallel 2 && cmake --install /result/build --prefix /result/install"
+  ],
+  "exitCode": 0,
+  "seconds": 3.874989292002283
+}

@@ -1,0 +1,22 @@
+********* Start testing of avelino *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : avelino::FormattedTextReflow::initTestCase()
+PASS   : avelino::FormattedTextReflow::test_fractional_growth_matches_fresh_pixels(2-tile1)
+FAIL!  : avelino::FormattedTextReflow::test_fractional_growth_matches_fresh_pixels(2-tile2) 'Tile 2 alignment 2 at width 222' returned FALSE. ()
+   Loc: [/probe/input.qml(44)]
+PASS   : avelino::FormattedTextReflow::test_fractional_growth_matches_fresh_pixels(2-tile3)
+PASS   : avelino::FormattedTextReflow::test_fractional_growth_matches_fresh_pixels(2-tile4)
+PASS   : avelino::FormattedTextReflow::test_fractional_growth_matches_fresh_pixels(2-tile5)
+PASS   : avelino::FormattedTextReflow::test_fractional_growth_matches_fresh_pixels(2-tile6)
+PASS   : avelino::FormattedTextReflow::test_fractional_growth_matches_fresh_pixels(2-tile7)
+PASS   : avelino::FormattedTextReflow::test_fractional_growth_matches_fresh_pixels(4-tile1)
+PASS   : avelino::FormattedTextReflow::test_fractional_growth_matches_fresh_pixels(4-tile2)
+PASS   : avelino::FormattedTextReflow::test_fractional_growth_matches_fresh_pixels(4-tile3)
+PASS   : avelino::FormattedTextReflow::test_fractional_growth_matches_fresh_pixels(4-tile4)
+FAIL!  : avelino::FormattedTextReflow::test_fractional_growth_matches_fresh_pixels(4-tile5) 'Tile 5 alignment 4 at width 222' returned FALSE. ()
+   Loc: [/probe/input.qml(44)]
+PASS   : avelino::FormattedTextReflow::test_fractional_growth_matches_fresh_pixels(4-tile6)
+PASS   : avelino::FormattedTextReflow::test_fractional_growth_matches_fresh_pixels(4-tile7)
+PASS   : avelino::FormattedTextReflow::cleanupTestCase()
+Totals: 14 passed, 2 failed, 0 skipped, 0 blacklisted, 7418ms
+********* Finished testing of avelino *********

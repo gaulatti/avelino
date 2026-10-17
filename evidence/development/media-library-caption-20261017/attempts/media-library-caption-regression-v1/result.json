@@ -1,0 +1,32 @@
+{
+  "exitCode": 0,
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--rm",
+    "--init",
+    "--name",
+    "avelino-media-caption-regression-v1",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/media-library-reflow-build-v5/source:/work:ro",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/media-library-reflow-build-v5:/result:ro",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/media-library-caption-regression-v1:/probe:rw",
+    "-w",
+    "/work",
+    "-e",
+    "QT_QPA_PLATFORM=offscreen",
+    "-e",
+    "QT_QUICK_BACKEND=software",
+    "avelino-toolchain:data-metrics-qt6.8.3",
+    "/result/build/tests/components/AvelinoComponentTests",
+    "-input",
+    "/probe/input.qml",
+    "-import",
+    "/result/build/qml"
+  ],
+  "seconds": 6.361123249982484
+}

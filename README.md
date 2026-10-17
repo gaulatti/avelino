@@ -128,10 +128,11 @@ The [MediaLibrary candidate](docs/media-library.md) supplies an adaptive lazy gr
 with retained caller tiles and generic primitive identities. Its complete 1,608
 pixel/frame/lifecycle comparisons have 1,008 exact observed pairs and all 1,608
 native lifecycle observations match; eight isolated
-fatal inputs remain preserved. Strict acceptance still fails.
+fatal inputs remain preserved. The formatted-text correction makes all 24 actual
+gallery states match fresh callers exactly. Strict acceptance still fails.
 The native record also preserves 7,440 public sizing queries and one witness
 difference; Linux direct sizing remains unobserved. Fractional/text geometry,
-lazy height estimates, four retained RTL button-text states, fonts/raster, native input timing,
+lazy height estimates, fonts/raster, native input timing,
 physical displays and readers remain pending; no mirror acceptance is claimed.
 
 The [surface modifier](docs/surface-modifier.md) decorates flat callers separately

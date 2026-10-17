@@ -228,3 +228,13 @@ eight-profile replay passes, so that separate runtime issue remains open. The
 font evidence above verifies the font matrix and does not claim whole-workflow
 CI success. The [CI note](../evidence/development/font-modifier/diagnostics/prior-ci-status.json)
 retains the exact failed step and follow-up scope.
+
+Formatted `BleeckerText` callers request `Text.forceLayout()` when their wrapped
+width changes. This makes growing fractional widths render like fresh callers
+at the same width. The plain `ButtonLabel` path keeps its existing layout policy.
+The [media reflow investigation](media-library.md) records the original failure
+and the public Qt API correction; font and raster acceptance remain pending.
+
+The [formatted-text correction replay](../evidence/development/media-library-caption-20261017/candidate.json)
+keeps all 1,656 font PNGs byte-identical to the earlier candidate. No previously
+passing frame, baseline or state observation regressed.

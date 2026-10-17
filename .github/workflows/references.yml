@@ -63,6 +63,7 @@ jobs:
       - run: python3 scripts/verify-chart-geometry-candidate.py
       - run: python3 scripts/verify-media-library-candidate.py
       - run: python3 scripts/verify-media-library-reflow.py
+      - run: python3 scripts/verify-media-library-caption.py
       - run: python3 scripts/verify-font-modifier-candidate.py
       - run: python3 scripts/generate-otp-unicode.py --check
       - run: python3 scripts/generate-otp-witnesses.py --check

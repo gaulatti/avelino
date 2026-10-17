@@ -1,0 +1,28 @@
+{
+  "exitCode": 0,
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--rm",
+    "--init",
+    "--ulimit",
+    "core=0",
+    "--name",
+    "avelino-media-caption-pills-v1",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/media-library-caption-pills-v1:/package:rw",
+    "-w",
+    "/package",
+    "avelino-toolchain:clipping-qt6.8.3",
+    "python3",
+    "driver/scripts/capture-pill-modifier-cases.py",
+    "consumer-build/InstalledConsumer",
+    "captures",
+    "--jobs",
+    "2"
+  ],
+  "seconds": 86.22113204107154,
+  "sourceAndBuildAbsent": true
+}
