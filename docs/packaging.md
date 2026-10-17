@@ -10,6 +10,14 @@ The formatter links versioned system ICU libraries independently from Qt's ICU73
 Installed consumers need public Qt development files and the runtime library;
 Avelino's private ICU and Qt QuickPrivate headers are not exported.
 
+The five [chart candidates](charts.md#linux-candidate) add an owned QPainter-based
+renderer to the same library, with no Qt Charts dependency. The package-only
+`--charts --charts-observe` mode exercises all 170 closed/edge inputs and six
+retained histories in each selected context, including per-row Qt accessibility
+and read-only synthetic input. Default `--charts` keeps native geometry failures
+strict; observation mode does not accept them. The display harness includes charts
+in all eight X11/Wayland, renderer and display/text-scale profiles.
+
 The independent consumer is copied outside the repository and built against a
 temporary installation. Its public import comes from the installed package;
 it does not use a source QML directory or build-tree module import. CI then builds
@@ -49,7 +57,7 @@ passes the complete 224-session matrix, eight executable-only Tooltip profiles,
 and 30 repeated processes using the original failed CI installation. Failed
 attempts, the native Wayland event trace and the startup position guard remain
 preserved. These checks leave strict native and physical acceptance pending.
-The harness runs twenty-eight independent fixtures in each configuration: the base library
+The harness runs thirty-three independent fixtures in each configuration: the base library
 fixture, `InstalledConsumer --controls`, `InstalledConsumer --composition` and
 `InstalledConsumer --selection`, `InstalledConsumer --checkbox` and
 `InstalledConsumer --secure-field`, `InstalledConsumer --search-field` and
@@ -61,8 +69,9 @@ fixture, `InstalledConsumer --controls`, `InstalledConsumer --composition` and
 `InstalledConsumer --radio-group`, `InstalledConsumer --otp-input` and
 `InstalledConsumer --activity-item`, `InstalledConsumer --modal` and
 `InstalledConsumer --tooltip`, `InstalledConsumer --button-style` and
-`InstalledConsumer --font-modifier`.
-Their configured 224 capture pairs keep
+`InstalledConsumer --font-modifier`, `--surface-modifier`, `--surface-baseline`,
+`--surface-input`, `--pill-modifier` and `--charts`.
+Their configured 264 capture pairs keep
 form editing, scrolling, switch/toggle actions, disabled segmented options and
 focus restoration separate from the base composition checks. The controls fixture
 exercises the multiline editor's owned scrollbar. The selector fixture exercises
@@ -148,8 +157,8 @@ using the same GNU install directories as the exported CMake package. Launch
 `QML_IMPORT_PATH` override is required. The Qt 6.8.3 runtime remains a prerequisite.
 The source-build catalog continues to use the documented build-tree import path.
 
-`check-installed-catalog.sh` exercises all twenty-nine galleries at both appearances
-and DPRs, both action galleries, and the default button: 119 images with physical
+`check-installed-catalog.sh` exercises all thirty-three galleries at both appearances
+and DPRs, both action galleries, and the default button: 135 images with physical
 size/metadata checks. Both QML import environment variables are unset. A copied
 executable without its module must fail with the missing-module error. The full
 Linux check runs this against the staged install, then the package-only check

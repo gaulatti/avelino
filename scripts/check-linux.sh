@@ -82,6 +82,7 @@ cmake --build "$stage/build" --parallel 2
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --font-modifier)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --surface-modifier)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --pill-modifier --pill-observe)
+(cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --charts --charts-observe)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --surface-baseline --surface-supplement-observe)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --surface-input --surface-supplement-observe)
 format_report="$PWD/artifacts/linux/number-formatting.json"
@@ -107,7 +108,7 @@ cp artifacts/linux/environment.json artifacts/package/environment.json
 mkdir -p artifacts/linux
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --capture artifacts/linux/actions-light.png
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --dark --capture artifacts/linux/actions-dark.png
-for fixture in foundations surfaces data-display controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper radio-group otp-input activity-item modal tooltip button-style font-modifier surface-modifier pill-modifier; do
+for fixture in foundations surfaces data-display controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper radio-group otp-input activity-item modal tooltip button-style font-modifier surface-modifier pill-modifier charts; do
 for appearance in light dark; do
   for dpr in 1 2; do
     args=(--fixture "$fixture")
@@ -325,3 +326,11 @@ python3 scripts/capture-pill-modifier-cases.py \
 if [[ -e artifacts/linux/pill-modifier-source-candidates ]]; then mv artifacts/linux/pill-modifier-source-candidates "$stage/previous-pill-modifier-candidates"; fi
 mv "$pill_modifier_attempt/captures" artifacts/linux/pill-modifier-source-candidates
 rmdir "$pill_modifier_attempt"
+
+# Preserve all chart closed/edge inputs and complete retained histories.
+chart_attempt="$(mktemp -d "$PWD/artifacts/linux/charts-attempt.XXXXXX")"
+python3 scripts/capture-charts.py \
+  "$stage/build/InstalledConsumer" "$chart_attempt/captures" --jobs 2
+if [[ -e artifacts/linux/charts-source-candidates ]]; then mv artifacts/linux/charts-source-candidates "$stage/previous-charts-candidates"; fi
+mv "$chart_attempt/captures" artifacts/linux/charts-source-candidates
+rmdir "$chart_attempt"

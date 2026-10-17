@@ -21,7 +21,7 @@ Window {
     property int integerCalls: 0
     property int pageRequests: 0
     property var lastPageRequest: null
-    property string accordionTitle: definition.text
+    property string accordionTitle: definition.text ?? ""
     property string accordionBodyText: definition.variant === "long-body" ? "Keep selected editions available for review" : "Body copy"
     property int accordionMounts:0
     property int accordionUnmounts:0
@@ -44,7 +44,7 @@ Window {
         anchors.alignWhenCentered: false
         sourceComponent: {
             const components = {
-                "Text.bleeckerPill":pillModifierCase,"BleeckerSurfaceModifier":surfaceModifierCase,"View.bleeckerFont":fontModifierCase,"BleeckerButtonStyle":buttonStyleCase,"BleeckerTooltip":tooltipCase,"BleeckerModal":modalCase,"BleeckerActivityItem":activityCase, "BleeckerButton": button, "BleeckerOTPInput":otpCase, "BleeckerRadioGroup":radioCase, "BleeckerStepper":stepperCase, "BleeckerLoadingSpinner": spinner,
+                "BleeckerLineChart":chartsCase,"BleeckerBarChart":chartsCase,"BleeckerPieChart":chartsCase,"BleeckerScatterChart":chartsCase,"BleeckerSparkline":chartsCase,"Text.bleeckerPill":pillModifierCase,"BleeckerSurfaceModifier":surfaceModifierCase,"View.bleeckerFont":fontModifierCase,"BleeckerButtonStyle":buttonStyleCase,"BleeckerTooltip":tooltipCase,"BleeckerModal":modalCase,"BleeckerActivityItem":activityCase, "BleeckerButton": button, "BleeckerOTPInput":otpCase, "BleeckerRadioGroup":radioCase, "BleeckerStepper":stepperCase, "BleeckerLoadingSpinner": spinner,
                 "BleeckerSidebarItem":sidebarBrandCase, "BleeckerMetric":dataMetricsCase, "BleeckerStatCard":dataMetricsCase, "BleeckerKbd":dataMetricsCase, "BleeckerIconBadge":dataMetricsCase,"BleeckerBrandMark":sidebarBrandCase,"BleeckerBrandLockup":sidebarBrandCase,"BleeckerPageHeader":navigationCase,"BleeckerBreadcrumb":navigationCase,"BleeckerAlert":alert,"BleeckerEmptyState":emptyState,"BleeckerErrorState":errorState,"BleeckerLoadingOverlay":loadingOverlay,
                 "BleeckerTextField": textField, "BleeckerTextArea": textArea,
                 "BleeckerField": field, "BleeckerSwitchStyle": switchControl,
@@ -75,6 +75,7 @@ Window {
     Component {id:radioCase;RadioGroupCase {definition:window.definition}}
     Component {id:activityCase;ActivityItemCase {definition:window.definition}}
     Component {id:surfaceModifierCase;SurfaceModifierCase {definition:window.definition}}
+    Component {id:chartsCase;ChartsCase {definition:Object.assign({},window.definition,{width:window.definition.chartWidth,height:window.definition.chartHeight})}}
     Component {id:pillModifierCase;PillModifierCase {definition:window.definition}}
     Component {id:fontModifierCase;FontModifierCase {definition:window.definition;baselineParent:window.definition.baselineParent}}
     Component {id:buttonStyleCase;ButtonStyleCase {definition:window.definition}}

@@ -31,6 +31,13 @@ bundled font registration. Loading suppression must hold even when a consumer
 explicitly sets `enabled: true`; an internal native Button template enforces it.
 It currently has no accepted overlay implementation.
 
+The [chart matrix](charts.md#linux-candidate) adds all five public families and
+their complete closed/edge/history corpus. `--fixture charts` opens the installed
+gallery. Package checks run `--charts --charts-observe`, preserve source geometry
+failures and check real Qt data-row interfaces and read-only pointer/keyboard
+behavior. All 1,744 native/candidate image pairs are compared separately by
+`scripts/compare-chart-captures.py`; its strict failures remain visible in CI.
+
 Every Linux capture links an environment record with source revision, dirty-tree
 state, exact source/resource hashes, compiler, Qt, CMake, and installed package
 versions. The image metadata also records the actual renderer API and resolved
@@ -52,14 +59,17 @@ describes how its X11 backend composites Wayland surfaces into the parent output
 Each configuration runs the base fixture, `--controls`, `--composition`,
 `--selection`, `--checkbox`, `--secure-field`, `--search-field`, `--collection-filters`, `--slider`, `--tabs`, `--pagination`, `--pagination-integers`, `--accordion`, `--presentation-states`, `--spinner`, `--alert`, `--clipping`, `--navigation`, `--sidebar-brand` and
 `--data-metrics`, `--stepper`, `--radio-group`, `--otp-input`, `--activity-item`,
-`--modal`, `--tooltip` and `--button-style` independently. The configured matrix has 216
+`--modal`, `--tooltip`, `--button-style`, `--font-modifier`, `--surface-modifier`,
+`--surface-baseline`, `--surface-input`, `--pill-modifier` and `--charts`
+independently. The configured matrix has 264
 parent-window/full-output pairs; Modal and Tooltip also record their separate
 popup windows in each configuration. The harness reports live producers every
 30 seconds while waiting for their evidence; it does not kill them after a fixed
 poll count. Producer exit without metadata still reports the actual exit status
 and fails. Consumer assertions and the CI runner's job deadline remain in effect.
 The catalog galleries are `--fixture foundations`, `surfaces`, `data-display`,
-`controls`, `composition`, `selection`, `checkbox`, `secure-field`, `search-field`, `collection-filters`, `slider`, `tabs`, `pagination`, `pagination-integers`, `accordion`, `presentation-states`, `spinner`, `alert`, `clipping`, `navigation`, `sidebar-brand`, `data-metrics`, `stepper`, `radio-group`, `otp-input`, `activity-item`, `modal`, `tooltip` and `button-style`; their native
+`controls`, `composition`, `selection`, `checkbox`, `secure-field`, `search-field`, `collection-filters`, `slider`, `tabs`, `pagination`, `pagination-integers`, `accordion`, `presentation-states`, `spinner`, `alert`, `clipping`, `navigation`, `sidebar-brand`, `data-metrics`, `stepper`, `radio-group`, `otp-input`, `activity-item`, `modal`, `tooltip`, `button-style`, `font-modifier`, `surface-modifier`,
+`pill-modifier` and `charts`; their native
 comparisons remain pending.
 
 The [ActivityItem fixture](activity-item.md#linux-candidate) checks caller-owned
@@ -256,8 +266,8 @@ facts and the independent consumer witnesses against the preserved source.
 
 The [ButtonStyle candidate](button-style.md#candidate-evidence) adds the 27th
 consumer mode, four gallery images and a strict 704-case matrix. Local virtual
-evidence covers eight focused ButtonStyle profiles; CI's configured complete
-matrix has 216 parent-window/full-output pairs. The consumer checks that actual
+evidence covers eight focused ButtonStyle profiles; that checkpoint configured
+216 parent-window/full-output pairs in CI. The consumer checks that actual
 paint grows and shrinks with text scale, beyond metadata and input assertions.
 `RoundedContent.clipsInput` defaults to true; ButtonStyle separates rounded paint
 from its rectangular input. Both continuous background and clipping shapes use
