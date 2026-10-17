@@ -73433,9 +73433,14 @@
           "src/Avelino/surfacedecorator.cpp",
           "src/Avelino/surfacedecorator.h",
           "tests/consumer/SurfaceModifier.qml",
-          "tests/consumer/SurfaceModifierCase.qml"
+          "tests/consumer/SurfaceModifierCase.qml",
+          "src/Avelino/surfaceborderinput.cpp",
+          "src/Avelino/surfaceborderinput.h",
+          "tests/consumer/SurfaceInputCase.qml",
+          "tests/consumer/SurfaceSupplement.qml",
+          "tests/consumer/surfacesupplementchecks.h"
         ],
-        "caseDiscovery": "52 closed native fixtures across 416 contexts: 36 exact pixel/frame matches, 376 exact frame sets and all 416 caller states matching. Eight surface virtual profiles retain five six-step source histories; ten actual toolbar controls pass eleven exact Qt viewports. A separate native supplement measures 440 first-baseline groups and 288 synthetic input profiles; comparison against the Linux candidate remains pending. Native raster/shadow, system fonts/button, physical displays/input and readers remain pending.",
+        "caseDiscovery": "52 closed native fixtures across 416 contexts remain preserved. The Linux supplement compares 440 first-baseline contexts, 288 public/bare input profiles and 57,792 samples: 400 baseline frame sets, 424 guide sets and all 576 input frame sets match; 112 activations and 3,456 cumulative counter samples differ. Of 1,016 raw images, 258 match exactly. All 27 Qt targets, 31 independent modes, 127 catalogs and 32 focused virtual profiles pass structural checks. Strict default commands and independent native comparison fail. Fonts/raster, curved boundary input, physical displays/input and readers remain pending.",
         "cases": [
           {
             "id": "BleeckerSurfaceModifier-native-content-button",
@@ -74270,9 +74275,50 @@
           "nativeInputProfiles": 288,
           "inputModes": 7,
           "cleanReplayFiles": 3778,
-          "linuxComparison": "pending",
+          "linuxComparison": {
+            "status": "failed",
+            "accepted": false,
+            "evidence": "evidence/development/surface-supplement-20261016/candidate.json",
+            "strictComparison": {
+              "baselineContexts": 440,
+              "baselineFrameMatches": 400,
+              "baselineGuideMatches": 424,
+              "inputProfiles": 288,
+              "inputModes": 576,
+              "inputFrameMatches": 576,
+              "inputPoints": 57792,
+              "activationMismatches": 112,
+              "sequenceMismatches": 3456,
+              "exactPixelMatches": 258,
+              "exactCombinedMatches": 258,
+              "images": 1016
+            }
+          },
           "physicalInput": "pending",
           "screenReader": "pending"
+        },
+        "linuxSupplementCandidate": {
+          "status": "verification-pending",
+          "accepted": false,
+          "evidence": "evidence/development/surface-supplement-20261016/candidate.json",
+          "independentModes": 31,
+          "catalogCaptures": 127,
+          "virtualProfiles": 32,
+          "qtFullTargets": 27,
+          "strictComparison": {
+            "baselineContexts": 440,
+            "baselineFrameMatches": 400,
+            "baselineGuideMatches": 424,
+            "inputProfiles": 288,
+            "inputModes": 576,
+            "inputFrameMatches": 576,
+            "inputPoints": 57792,
+            "activationMismatches": 112,
+            "sequenceMismatches": 3456,
+            "exactPixelMatches": 258,
+            "exactCombinedMatches": 258,
+            "images": 1016
+          }
         }
       },
       {
@@ -81192,9 +81238,14 @@
           "src/Avelino/surfacedecorator.cpp",
           "src/Avelino/surfacedecorator.h",
           "tests/consumer/SurfaceModifier.qml",
-          "tests/consumer/SurfaceModifierCase.qml"
+          "tests/consumer/SurfaceModifierCase.qml",
+          "src/Avelino/surfaceborderinput.cpp",
+          "src/Avelino/surfaceborderinput.h",
+          "tests/consumer/SurfaceInputCase.qml",
+          "tests/consumer/SurfaceSupplement.qml",
+          "tests/consumer/surfacesupplementchecks.h"
         ],
-        "caseDiscovery": "52 closed native fixtures across 416 contexts: 36 exact pixel/frame matches, 376 exact frame sets and all 416 caller states matching. Eight surface virtual profiles retain five six-step source histories; ten actual toolbar controls pass eleven exact Qt viewports. A separate native supplement measures 440 first-baseline groups and 288 synthetic input profiles; comparison against the Linux candidate remains pending. Native raster/shadow, system fonts/button, physical displays/input and readers remain pending.",
+        "caseDiscovery": "52 closed native fixtures across 416 contexts remain preserved. The Linux supplement compares 440 first-baseline contexts, 288 public/bare input profiles and 57,792 samples: 400 baseline frame sets, 424 guide sets and all 576 input frame sets match; 112 activations and 3,456 cumulative counter samples differ. Of 1,016 raw images, 258 match exactly. All 27 Qt targets, 31 independent modes, 127 catalogs and 32 focused virtual profiles pass structural checks. Strict default commands and independent native comparison fail. Fonts/raster, curved boundary input, physical displays/input and readers remain pending.",
         "cases": [
           {
             "id": "View.bleeckerSurface-default-light",
@@ -82223,9 +82274,50 @@
           "nativeInputProfiles": 288,
           "inputModes": 7,
           "cleanReplayFiles": 3778,
-          "linuxComparison": "pending",
+          "linuxComparison": {
+            "status": "failed",
+            "accepted": false,
+            "evidence": "evidence/development/surface-supplement-20261016/candidate.json",
+            "strictComparison": {
+              "baselineContexts": 440,
+              "baselineFrameMatches": 400,
+              "baselineGuideMatches": 424,
+              "inputProfiles": 288,
+              "inputModes": 576,
+              "inputFrameMatches": 576,
+              "inputPoints": 57792,
+              "activationMismatches": 112,
+              "sequenceMismatches": 3456,
+              "exactPixelMatches": 258,
+              "exactCombinedMatches": 258,
+              "images": 1016
+            }
+          },
           "physicalInput": "pending",
           "screenReader": "pending"
+        },
+        "linuxSupplementCandidate": {
+          "status": "verification-pending",
+          "accepted": false,
+          "evidence": "evidence/development/surface-supplement-20261016/candidate.json",
+          "independentModes": 31,
+          "catalogCaptures": 127,
+          "virtualProfiles": 32,
+          "qtFullTargets": 27,
+          "strictComparison": {
+            "baselineContexts": 440,
+            "baselineFrameMatches": 400,
+            "baselineGuideMatches": 424,
+            "inputProfiles": 288,
+            "inputModes": 576,
+            "inputFrameMatches": 576,
+            "inputPoints": 57792,
+            "activationMismatches": 112,
+            "sequenceMismatches": 3456,
+            "exactPixelMatches": 258,
+            "exactCombinedMatches": 258,
+            "images": 1016
+          }
         }
       }
     ]

@@ -1243,6 +1243,32 @@ outside the Linux repository; tracked archives contain only PNG/JSON/log data.
 Actual native event counters show sampled caller overflow remains reachable
 through paint clipping, while the border overlay blocks some edge points.
 Direct NSEvent delivery to an inactive hosted window does not establish physical
-input, timing or reader acceptance. The Linux candidate is unchanged and its
-comparison to these new guide/input observations remains pending. Coverage stays
+input, timing or reader acceptance. At source publication the Linux comparison
+was pending; the subsequent comparison is recorded below. Coverage stays
 65/80 desktop candidates, 15 pending and zero accepted; TV remains separate.
+
+## Linux surface guide and input candidate
+
+The [candidate](../evidence/development/surface-supplement-20261016/candidate.json)
+retains 440 baseline contexts, 288 public/bare input profiles, 57,792 fractional
+samples and 1,016 raw images. Frames match 400/440 baseline contexts; guides
+match 424/440; input frames match all 576 branches. Input correction reduces
+420 differences per context to 14, leaving 112 activation and 3,456 cumulative
+counter differences. Exactly 258 image/geometry comparisons match. Strict
+baseline/input commands and the full native comparison each fail as recorded.
+No expected capture, tolerance or approved exception changes.
+
+All 27 Qt targets, 31 independent package modes, 127 catalogs and 32 focused
+virtual profiles pass structural checks. The explicit observation switch records
+native failures without accepting them. The 125 installed files match across
+producer/package/runtime, and the post-run consumer hash matches its pre-run
+runtime digest. Capture-start executable hashing was not performed by that driver.
+
+Eighty legacy PNGs change: native changed-pixel counts improve in 24, remain
+equal in 50 and worsen in six font/text cases. Eight Button metadata files change
+with actual label baseline forwarding. Two catalog PNGs change; all metadata
+and 125 other catalog PNGs remain identical. SDK-only path diagnostics preserve
+the rejected curved-fill shortcut separately from native library rebuild evidence.
+The integrity verifier replays all raw comparisons and retains failed attempts.
+Physical display/input, hardware acceleration, native raster/font parity and
+readers remain pending; inventory acceptance and coverage counts are unchanged.

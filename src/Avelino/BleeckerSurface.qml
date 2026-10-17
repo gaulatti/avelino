@@ -15,7 +15,7 @@ Item {
     }
     RoundedContent {
         id: body
-        anchors.fill: parent; radius: control.radius
+        anchors.fill: parent; radius: control.radius;clipsInput:false
         Item {
             id:background;objectName:"bleeckerSurfaceBackground"
             anchors.fill:parent
@@ -27,9 +27,15 @@ Item {
         Item { id: host; objectName: "bleeckerSurfaceContent"; anchors.fill: parent }
     }
     ContinuousSurface {
+        id:border
         objectName: "bleeckerSurfaceBorder"
         anchors.fill: parent; radius: control.radius
         borderColor: BleeckerTheme.palette.border
         Accessible.ignored: true
+    }
+    SurfaceBorderInput {
+        objectName:"bleeckerSurfaceBorderInput"
+        anchors.fill:parent;outline:border.strokeOutline;strokeWidth:border.borderWidth
+        Accessible.ignored:true
     }
 }

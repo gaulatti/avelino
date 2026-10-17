@@ -81,6 +81,8 @@ cmake --build "$stage/build" --parallel 2
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --button-style)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --font-modifier)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --surface-modifier)
+(cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --surface-baseline --surface-supplement-observe)
+(cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --surface-input --surface-supplement-observe)
 format_report="$PWD/artifacts/linux/number-formatting.json"
 set +e
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --data-metrics --format-diagnostics "$format_report")
@@ -306,3 +308,11 @@ python3 scripts/capture-surface-modifier-cases.py \
 if [[ -e artifacts/linux/surface-modifier-source-candidates ]]; then mv artifacts/linux/surface-modifier-source-candidates "$stage/previous-surface-modifier-candidates"; fi
 mv "$surface_modifier_attempt/captures" artifacts/linux/surface-modifier-source-candidates
 rmdir "$surface_modifier_attempt"
+
+# Preserve all native guide/input observations separately from strict acceptance.
+surface_supplement_attempt="$(mktemp -d "$PWD/artifacts/linux/surface-supplement-attempt.XXXXXX")"
+python3 scripts/capture-surface-supplement.py \
+  "$stage/build/InstalledConsumer" "$surface_supplement_attempt/captures"
+if [[ -e artifacts/linux/surface-supplement-source-candidates ]]; then mv artifacts/linux/surface-supplement-source-candidates "$stage/previous-surface-supplement-candidates"; fi
+mv "$surface_supplement_attempt/captures" artifacts/linux/surface-supplement-source-candidates
+rmdir "$surface_supplement_attempt"

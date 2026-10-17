@@ -1,0 +1,20 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--rm",
+    "-v",
+    "/Users/gaulatti/.codex/tmp/avelino-surface-stroke-geometry-20261016-v1:/diag:rw",
+    "-w",
+    "/diag",
+    "avelino-toolchain:data-metrics-qt6.8.3",
+    "bash",
+    "-lc",
+    "g++ ProbeQt.cpp -o ProbeQt -std=c++17 $(/opt/qt/bin/qtpaths --query QT_INSTALL_PREFIX | xargs -I{} echo -I{}/include -I{}/include/QtGui -I{}/include/QtCore -L{}/lib) -lQt6Gui -lQt6Core -Wl,-rpath,/opt/qt/lib && QT_QPA_PLATFORM=offscreen ./ProbeQt"
+  ],
+  "sourceSha256": "648cbbc47723bc966a9a4b8baad17d178c2bbc8a5e035a5d7940c6a2be8cf5b1",
+  "exitCode": 1,
+  "seconds": 0.18894525000359863
+}

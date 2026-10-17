@@ -1,0 +1,44 @@
+[
+  {
+    "command": [
+      "bash",
+      "check-installed.sh"
+    ],
+    "expectedExitCode": 0,
+    "exitCode": 0,
+    "seconds": 206.43011909000052,
+    "log": "0.log"
+  },
+  {
+    "command": [
+      "python3",
+      "capture-surface-supplement.py",
+      "consumer-build/InstalledConsumer",
+      "captures"
+    ],
+    "expectedExitCode": 0,
+    "exitCode": 0,
+    "seconds": 57.522956152002735,
+    "log": "1.log"
+  },
+  {
+    "command": [
+      "consumer-build/InstalledConsumer",
+      "--surface-baseline"
+    ],
+    "expectedExitCode": 1,
+    "exitCode": 1,
+    "seconds": 3.238868528002058,
+    "log": "2.log"
+  },
+  {
+    "command": [
+      "consumer-build/InstalledConsumer",
+      "--surface-input"
+    ],
+    "expectedExitCode": 1,
+    "exitCode": 1,
+    "seconds": 3.2169228959974134,
+    "log": "3.log"
+  }
+]

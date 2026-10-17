@@ -1,0 +1,31 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--rm",
+    "--init",
+    "--ulimit",
+    "core=0",
+    "--name",
+    "avelino-surface-supplement-legacy-capture-v1",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino:/work:ro",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/surface-supplement-package-final-v1:/package:ro",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/surface-supplement-legacy-capture-v1:/result:rw",
+    "-w",
+    "/work",
+    "avelino-toolchain:clipping-qt6.8.3",
+    "python3",
+    "scripts/capture-surface-modifier-cases.py",
+    "/package/install/bin/AvelinoCatalog",
+    "/result/captures",
+    "--jobs",
+    "2"
+  ],
+  "exitCode": 0,
+  "seconds": 180.48560229106806
+}

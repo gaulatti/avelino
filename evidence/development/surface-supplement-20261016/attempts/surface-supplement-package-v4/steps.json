@@ -1,0 +1,60 @@
+[
+  {
+    "command": [
+      "cmake",
+      "-S",
+      "consumer",
+      "-B",
+      "consumer-build",
+      "-G",
+      "Ninja",
+      "-DCMAKE_PREFIX_PATH=/package/install;/opt/qt"
+    ],
+    "exitCode": 0,
+    "seconds": 0.3774627090024296,
+    "log": "0.log"
+  },
+  {
+    "command": [
+      "cmake",
+      "--build",
+      "consumer-build",
+      "--parallel",
+      "2"
+    ],
+    "exitCode": 0,
+    "seconds": 5.935429367000324,
+    "log": "1.log"
+  },
+  {
+    "command": [
+      "consumer-build/InstalledConsumer",
+      "--surface-baseline",
+      "--surface-supplement-report",
+      "/package/results/baseline"
+    ],
+    "exitCode": 1,
+    "seconds": 3.1795405709999613,
+    "log": "2.log"
+  },
+  {
+    "command": [
+      "consumer-build/InstalledConsumer",
+      "--surface-input",
+      "--surface-supplement-report",
+      "/package/results/input"
+    ],
+    "exitCode": 1,
+    "seconds": 3.416744842998014,
+    "log": "3.log"
+  },
+  {
+    "command": [
+      "consumer-build/InstalledConsumer",
+      "--surface-modifier"
+    ],
+    "exitCode": 0,
+    "seconds": 5.1054809850029415,
+    "log": "4.log"
+  }
+]

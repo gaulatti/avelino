@@ -12,6 +12,7 @@ Shape {
     property real borderWidth: 1
     property real radius: 7
     property alias fillGradient: fillPath.fillGradient
+    readonly property QtObject strokeOutline:strokePath
     readonly property string outerPath: Corners.svg(width, height, radius, 0)
     readonly property string borderPath: Corners.svg(width, height, radius, borderWidth / 2)
     antialiasing: true
@@ -26,9 +27,11 @@ Shape {
         PathSvg { path: surface.outerPath }
     }
     ShapePath {
+        id:strokePath
         fillColor: "transparent"
         strokeColor: surface.borderColor
         strokeWidth: surface.borderWidth
+        joinStyle:ShapePath.MiterJoin
         PathSvg { path: surface.borderPath }
     }
 }

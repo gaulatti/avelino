@@ -1,0 +1,87 @@
+# Preserve the checksummed CMake transcript, including emitted trailing spaces.
+evidence/reference-investigations/radio-20261016/qt-identity-build.log -text -whitespace
+
+# Preserve raw candidate build/test transcripts, including emitted spaces.
+evidence/development/radio/logs/*.log -text -whitespace
+evidence/development/radio/sessions/capture-tool-version.txt -text -whitespace
+evidence/development/radio/keyboard-settlement/capture-tool-version.txt -text -whitespace
+
+# Preserve raw source-investigation build transcripts.
+evidence/reference-investigations/otp-20261016/logs/*.log -text -whitespace
+evidence/reference-investigations/activity-item-20261016/logs/*.log -text -whitespace
+evidence/reference-investigations/activity-text-20261016/**/*.log -text -whitespace
+evidence/reference-investigations/activity-layout-mechanics-20261016/logs/*.log -text -whitespace
+evidence/reference-investigations/activity-text-alignment-20261016/logs/*.log -text -whitespace
+evidence/reference-investigations/activity-text-alignment-20261016/qt/*.log -text -whitespace
+# Preserve the exact upstream Unicode data bytes and their checksums.
+evidence/reference-investigations/otp-20261016/unicode17/GraphemeBreakTest.txt -text -whitespace
+evidence/reference-investigations/otp-20261016/unicode17/emoji-data.txt -text -whitespace
+
+# Preserve raw Linux OTP transformation validation transcripts.
+evidence/development/otp-transformation/*.log -text -whitespace
+
+# Preserve the exact candidate test, capture and virtual-session transcripts.
+evidence/development/otp/**/*.log -text -whitespace
+evidence/development/otp/sessions/capture-tool-version.txt -text -whitespace
+
+# Preserve ActivityItem candidate, failed-attempt and display transcripts.
+evidence/development/activity/**/*.log -text -whitespace
+evidence/development/activity/sessions/capture-tool-version.txt -text -whitespace
+evidence/development/activity/failed-sessions/capture-tool-version.txt -text -whitespace
+evidence/development/activity/diagnostics/**/capture-tool-version.txt -text -whitespace
+
+# Preserve aligned-text regression, package and virtual-session transcripts.
+evidence/development/text-alignment/**/*.log -text -whitespace
+evidence/development/text-alignment/sessions/capture-tool-version.txt -text -whitespace
+
+# Preserve exact Modal build, input, failed-attempt and compositor transcripts.
+evidence/development/modal/**/*.log -text -whitespace
+evidence/development/modal/**/capture-tool-version.txt -text -whitespace
+
+# Preserve native Tooltip builds and incomplete popup-harness transcripts.
+evidence/reference-investigations/tooltip-20261016/**/*.log -text -whitespace
+evidence/reference-investigations/tooltip-20261016/*.log -text -whitespace
+
+# Preserve exact Tooltip candidate builds, failures and session transcripts.
+evidence/development/tooltip/**/*.log -text -whitespace
+evidence/development/tooltip/**/capture-tool-version.txt -text -whitespace
+
+# Preserve exact delayed-producer and failed-session diagnostics.
+evidence/development/display-readiness-20261016/**/*.log -text -whitespace
+evidence/development/display-readiness-20261016/**/capture-tool-version.txt -text -whitespace
+
+# Preserve exact ButtonStyle source build and diagnostic transcripts.
+evidence/reference-investigations/button-style-20261016/**/*.log -text -whitespace
+evidence/development/button-style-source-20261016/*.log -text -whitespace
+evidence/development/button-style/**/*.log -text -whitespace
+evidence/development/button-style/**/capture-tool-version.txt -text -whitespace
+# Keep generated diagnostic module descriptors byte-exact.
+evidence/development/button-style/diagnostics/curve-resize/**/qmldir -text -whitespace
+evidence/development/button-style/platform-colors/colors.json -text -whitespace
+evidence/development/button-style/platform-colors/replay-colors.json -text -whitespace
+
+# Preserve exact font-modifier source build and replay transcripts.
+evidence/reference-investigations/font-modifier-20261016/**/*.log -text -whitespace
+evidence/development/font-modifier-source-20261016/*.log -text -whitespace
+evidence/reference-investigations/font-baseline-20261016/**/*.log -text -whitespace
+evidence/development/font-baseline-source-20261016/*.log -text -whitespace
+
+# Preserve raw font candidate transcripts, generated diff and exact tested script snapshot.
+evidence/development/font-modifier/**/*.log -text -whitespace
+evidence/development/font-modifier/**/capture-tool-version.txt -text -whitespace
+evidence/development/font-modifier/rcc-continuity.diff -text -whitespace
+evidence/development/font-modifier/implementation-inputs/scripts/capture-font-modifier-cases.py -text -whitespace
+
+# Preserve raw tooltip pointer diagnostics and capture-tool transcripts.
+evidence/development/tooltip-pointer-isolation-20261016/**/*.log -text -whitespace
+evidence/development/tooltip-pointer-isolation-20261016/**/capture-tool-version.txt -text -whitespace
+
+# Preserve exact native surface source-build, API and replay diagnostics.
+evidence/reference-investigations/surface-modifier-20261016/**/*.log -text -whitespace
+
+# Preserve complete surface paint and async-frame verification transcripts.
+evidence/development/surface-border-20261016/**/*.log -text -whitespace
+
+# Preserve surface guide/input capture, compiler and virtual-session transcripts.
+evidence/development/surface-supplement-20261016/**/*.log -text -whitespace
+evidence/development/surface-supplement-20261016/**/capture-tool-version.txt -text -whitespace

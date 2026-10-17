@@ -289,3 +289,19 @@ producer sources/builds absent. The package still has 125 installed files and
 unchanged. Its 96 module files match the published kernel exactly. Ten actual
 XTest toolbar clicks produce eleven exact Qt caller viewports. These checks do
 not accept native pixels, first-baseline/hit tests or physical/reader behavior.
+
+The [surface guide/input candidate](../evidence/development/surface-supplement-20261016/candidate.json)
+adds two installed modes, for 31 total, and keeps 127 catalog captures. The
+default baseline/input modes fail strictly on native differences. Package and
+display readiness use the explicit `--surface-supplement-observe` switch while
+recording all failures; CI compares the complete native corpus independently.
+All 125 installed files match producer, independent package and executable-only
+runtime copies. The final consumer was compiled from separately frozen inputs.
+Its post-run package digest matches the pre-run runtime digest; the capture
+driver itself did not hash the executable at start.
+
+All 32 focused virtual profiles pass structural checks. Native comparison still
+has 112 activation differences, 16 guide and 40 baseline-frame failures, and
+758 nonmatching images. Two catalog PNGs change; all other PNGs and all catalog
+metadata remain identical. Physical display/input, hardware acceleration and
+readers remain pending.

@@ -115,10 +115,9 @@ delivery, retained caller state, diagnostic failures and both source-only replay
 The application was inactive/prohibited; NSEvent was delivered directly to its
 hosted offscreen NSWindow. Requested bitmap DPR one/two is distinct from actual
 window backing DPR two. This is native synthetic input evidence; physical input,
-timing, readers and Linux equivalence remain pending. The existing Linux
-candidate still clips input through RoundedContent and does not yet have a
-comparison against these guide/hit samples. This supplement changes no library
-behavior, expected capture, tolerance, reference pin or approved exception.
+timing, readers and Linux equivalence remain pending. The source supplement
+changes no expected capture, tolerance, reference pin or approved exception.
+The subsequent Linux comparison and partial input correction are recorded below.
 
 ## Linux surface border
 
@@ -227,3 +226,55 @@ Desktop coverage is 65/80 candidates, with 15 pending and zero accepted. Native
 raster/shadow calibration, system-font/native-button presentation, native first
 baselines/hit testing, physical displays/input and readers remain open. TV remains
 separate with 46 pending entries.
+
+## Linux guide and input comparison
+
+The [supplement candidate](../evidence/development/surface-supplement-20261016/candidate.json)
+captures all 440 baseline contexts and both public/bare branches of 288 input
+profiles. The 57,792 fractional input samples retain all four down/up/settled
+counters. Baseline geometry matches 400/440 contexts and requested guides
+424/440. The diagnostic Button now forwards its actual label baseline; the two
+remaining guide failures per context are system-font callers. Five frame failures
+per context remain in system-font/button and Unicode/bidi cases. Explicit guides
+-5, 0 and 42 are preserved without clamping; nested unrequested guides stay absent.
+
+`BleeckerSurface` now clips painting while allowing caller input overflow. Its
+border borrows the rendered continuous path and blocks primary pointer events in
+the stroked ring. It creates no focus or accessibility target. Paint and hit
+stroking use the native default miter join. Closed axis-aligned rectangular paths
+use an exact half-open rectangular ring, avoiding numerical stroker fragments;
+curved paths retain the real Qt stroker. Other RoundedContent users keep their
+existing input policy.
+
+The initial installed comparison had 420 activation differences per context;
+the partial correction reduces this to 14. All bare and disabled samples match.
+Across eight contexts, 112 public activations still differ at saturated-radius
+curve tangencies, and cumulative counters differ at 3,456 samples. SDK-only path
+diagnostics show different boundary containment even when Qt receives the native
+stroke outline. A dense native grid rejects the curved outer-fill-minus-inner-fill
+shortcut; no epsilon, point exclusion or new exception hides these differences.
+
+Strict comparison retains all 1,016 images: 258 match raw native RGBA bytes and
+all their geometry/guides. Default `--surface-baseline` and `--surface-input`
+commands exit one for the recorded native differences. The explicit
+`--surface-supplement-observe` switch allows package/display structural checks
+to finish while reporting the failures. Independent CI still runs the strict
+comparison and fails on any difference.
+
+All 27 Qt targets pass (5,319/5,547 component checks at DPR one/two). The final
+independent package passes 31 modes and 127 catalogs. All 125 installed files
+match the producer, package and executable-only runtime copies. Thirty-two
+focused X11/Wayland software/OpenGL profiles pass, covering base, prior surface,
+baseline and input modes. These virtual profiles use software rendering and
+synthetic input; physical display/input, accelerated hardware and readers remain
+pending. Final consumer CLI/evidence changes were compiled separately after the
+producer suite, with unchanged library and component-test inputs.
+
+The miter change alters 80/416 legacy PNGs and eight Button baseline metadata
+files. Compared with the same native images, changed-pixel counts improve in 24,
+stay equal in 50 and worsen in six font/text cases. Two catalog PNGs change in a
+single narrow column; the other 125 and all 127 metadata files remain identical.
+All failures, setup/compiler attempts and actual exits remain in the sealed
+evidence. `verify-surface-supplement-candidate.py` recomputes raw comparisons and
+checks complete profiles, counters, hashes and package bindings. Acceptance and
+the desktop/TV inventory counts remain unchanged.
