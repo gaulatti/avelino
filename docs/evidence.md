@@ -1385,3 +1385,32 @@ boundary. Desktop candidate coverage is now 73/80, with zero fully accepted.
 Native symbols, fonts, narrow-label fitting, raster stability, sizing, broader
 identity, input timing, accessibility, physical displays, readers and independent
 replay remain pending. TV/playback remains a later hardware-dependent phase.
+
+## AppTabBar retained badge correction
+
+The [supplemental raster record](../evidence/development/app-tabs-raster-20261017/candidate.json)
+keeps the original candidate unchanged and records the before/after disabled
+regression at DPR 1 and 2. All 28 final gallery states equal independently started
+fresh processes, and XTest delivery through the installed gallery also produces
+28/28 exact viewports. All 26 previously passing viewports are byte-identical.
+An independent enabled-badge visibility assertion rejects the discarded ordinary
+Qt layer builds, whose badges disappear at DPR 2.
+
+The final package passes all 35 installed modes and 143 catalog captures. All 139
+legacy PNGs and complete metadata remain unchanged. All 1,208 native comparisons
+remain strict: 56 exact images, 940 matching frame sets and 1,208 matching states.
+The supplemental opaque badge masks have 304 unchanged and eight improved cases;
+they do not replace the unmasked comparison. Native disabled colors still differ.
+
+Eight fresh virtual profiles retain 42/48 exact restore images. The six scaled
+Wayland software failures each change 600 transparent pixels on the initial
+bottom row into the opaque card background on restore. The smaller reproduction
+did not reproduce this full-corpus failure, and no fix is claimed. The frozen
+diagnostic sources, inputs, failed compiler/repaint/layer attempts and raw logs
+remain available through content-addressed payloads with logical-path boundary
+inspection. Desktop coverage stays 73/80 with zero accepted; TV/playback stays
+separate.
+
+The final supplemental build passes all 37 Qt targets, including the two new
+retained-raster targets. References CI runs `scripts/verify-app-tabs-raster.py`
+and the six additional evidence guard contracts.

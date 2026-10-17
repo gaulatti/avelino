@@ -125,3 +125,25 @@ add_test(NAME app-tabs-invalid-config COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR
     $<TARGET_FILE:AvelinoComponentTests> ${CMAKE_BINARY_DIR}/qml)
 add_test(NAME app-tabs-catalog-metadata COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/check-app-tabs-catalog.py
     $<TARGET_FILE:AvelinoCatalog> ${CMAKE_BINARY_DIR}/qml ${PROJECT_SOURCE_DIR})
+
+qt_add_executable(AvelinoAppTabRasterTests app-tabs-raster.cpp)
+set(app_tab_raster_qml)
+foreach(name AppTabs.qml AppTabsCase.qml AppTabGlyph.qml apptabfixturemetrics.js)
+    set(path "${PROJECT_SOURCE_DIR}/tests/consumer/${name}")
+    set_source_files_properties("${path}" PROPERTIES QT_RESOURCE_ALIAS "${name}")
+    list(APPEND app_tab_raster_qml "${path}")
+endforeach()
+qt_add_qml_module(AvelinoAppTabRasterTests URI AvelinoAppTabRasterTests VERSION 0.1
+    OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/qml/AvelinoAppTabRasterTests QML_FILES ${app_tab_raster_qml})
+qt_add_resources(AvelinoAppTabRasterTests app_tab_raster_metrics PREFIX "/avelino/fixtures"
+    BASE "${PROJECT_SOURCE_DIR}/tests/consumer" FILES "${PROJECT_SOURCE_DIR}/tests/consumer/native-app-tab-icon-metrics.json")
+qt_add_resources(AvelinoAppTabRasterTests app_tab_raster_sequence PREFIX "/avelino/fixtures"
+    BASE "${CMAKE_CURRENT_SOURCE_DIR}" FILES app-tabs-raster-sequence.json)
+target_link_libraries(AvelinoAppTabRasterTests PRIVATE Avelino Qt6::Quick Qt6::Test)
+target_compile_definitions(AvelinoAppTabRasterTests PRIVATE
+    AVELINO_APP_TABS_IMPORT_PATH="${CMAKE_BINARY_DIR}/qml"
+    AVELINO_APP_TABS_RASTER_EVIDENCE_ROOT="${PROJECT_SOURCE_DIR}/artifacts/linux/app-tabs-raster")
+add_test(NAME app-tabs-retained-raster COMMAND AvelinoAppTabRasterTests)
+add_test(NAME app-tabs-retained-raster-dpr2 COMMAND AvelinoAppTabRasterTests)
+set_tests_properties(app-tabs-retained-raster PROPERTIES ENVIRONMENT "QT_QPA_PLATFORM=offscreen;QT_QUICK_BACKEND=software;QT_SCALE_FACTOR=1")
+set_tests_properties(app-tabs-retained-raster-dpr2 PROPERTIES ENVIRONMENT "QT_QPA_PLATFORM=offscreen;QT_QUICK_BACKEND=software;QT_SCALE_FACTOR=2")

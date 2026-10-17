@@ -47,8 +47,11 @@ consumer mode and `--fixture app-tabs`. Its 1,208 closed/history comparisons kee
 all native differences visible. The gallery exercises caller-owned selection,
 delayed acknowledgement, reorder, empty/restore, widths, badges, disabled state,
 RTL, appearance and text scale. Eight focused virtual profiles are recorded
-separately from physical displays and readers. Two retained disabled gallery
-states still differ from fresh instances and remain failed.
+separately from physical displays and readers. The subsequent badge correction
+makes all 28 retained gallery states match fresh processes at DPR 1 and 2.
+`app-tabs-retained-raster` and `app-tabs-retained-raster-dpr2` also require visible
+badge pixels, independently of fresh-versus-retained equality. The original
+disabled failures and discarded ordinary-layer attempts remain preserved.
 
 Every Linux capture links an environment record with source revision, dirty-tree
 state, exact source/resource hashes, compiler, Qt, CMake, and installed package

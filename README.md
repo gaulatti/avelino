@@ -138,8 +138,9 @@ physical displays and readers remain pending; no mirror acceptance is claimed.
 The [desktop app tab bar candidate](docs/app-tabs.md) preserves caller-owned
 selection requests, retained typed identities, integer badges and narrow overflow.
 All 1,208 native state observations agree; 940 frame sets and 56 images match.
-The installed gallery has 26/28 exact operator states, with two retained disabled
-rasters still failed. Native symbols, label fitting, sizing, keyboard timing,
+The [badge raster correction](docs/app-tabs.md#retained-badge-raster-correction)
+brings the installed gallery to 28/28 exact operator states and preserves visible
+badges at both pixel ratios. Native symbols, label fitting, sizing, keyboard timing,
 accessibility, physical displays and readers remain pending.
 
 The [surface modifier](docs/surface-modifier.md) decorates flat callers separately

@@ -172,12 +172,12 @@ restores differ in the scaled Wayland software profile, on the same bottom
 physical pixel row with bounds `(340, 459, 940, 460)` in its 1280 by 800 images.
 Those strict failures remain preserved separately from the passing state checks.
 
-Real XTest input through the installed gallery exercises 14 controls, 27 clicks
+Real XTest input through the original installed gallery exercises 14 controls, 27 clicks
 and 28 states. Twenty-six viewport images equal their separately mounted
 candidates. Two retained disabled states differ by 109 pixels, with maximum
 per-channel difference one. Fresh offscreen and X11 instances agree, while
 resizing and remapping the retained window leave the difference present. Its
-cause remains unresolved; all observations stay failed without a tolerance.
+failed observations remain unchanged. The subsequent correction is described below.
 This gate is separate from the larger native symbol, narrow-label and raster
 differences. Physical displays/input, reader behavior and independent-machine
 replay remain pending.
@@ -187,3 +187,40 @@ comparisons, artifact bindings, legacy regression results, operator observations
 archive contents and complete frozen input reconstruction. References CI runs
 the same verifier. `scripts/verify-app-tab-offset.py` independently measures the
 native badge paint bounds; its full opaque masks remain unequal after translation.
+
+## Retained badge raster correction
+
+The original candidate above remains immutable. A subsequent fix isolates each
+software-rendered badge through the existing alpha-capable `SoftwareContentMask`
+renderer. Its rectangular outline covers the complete capsule and raster gutter;
+the badge's public layout box, RTL offset and text placement stay unchanged.
+Other Qt renderer paths keep the original child presentation. Icon, label,
+capsule and badge text each retain their own disabled opacity. Applying opacity
+after composing the complete badge changes the native disabled glyph colors.
+
+Qt 6.8.3's ordinary item layer is unsuitable here: the diagnostic builds lose
+the badge at DPR 2. Fractional layer extents also change capsule pixels at DPR 1.
+Those discarded attempts remain diagnostic evidence. The alpha-capable renderer
+uses a bounded transparent gutter and redraws its complete small image, avoiding
+the retained window's partial repaint clip without introducing another renderer.
+
+The `app-tabs-retained-raster` and `app-tabs-retained-raster-dpr2` CTest targets
+click through all 28 gallery states and compare each complete caller viewport
+with a newly started process. They also require visible enabled badge pixels;
+equality between two missing badges is a failure. The original candidate fails
+both targets at `disabled` and `disabled-home`. Native mirror comparison remains
+separate from this local fresh-versus-retained regression.
+
+All 26 previously matching operator viewports remain byte-identical. Across the
+312 positive native badge contexts, 304 opaque sunset masks are unchanged and
+eight improve, with no mask regressions. These are supplemental diagnostics,
+not a replacement for full unmasked comparison. Native disabled colors and the
+larger font, symbol, fitting and raster differences remain unaccepted.
+
+The final supplemental module passes all 37 Qt targets, all 35 installed consumer
+modes and 143 catalog captures. All 139 legacy PNGs and complete metadata are
+unchanged. Eight fresh virtual profiles retain 42/48 exact restores; the six
+scaled Wayland software failures remain separate. Run
+`python3 scripts/verify-app-tabs-raster.py` to audit the complete supplemental
+[record](../evidence/development/app-tabs-raster-20261017/candidate.json), frozen
+inputs, discarded attempts, pixel pairs and installed artifact bindings.

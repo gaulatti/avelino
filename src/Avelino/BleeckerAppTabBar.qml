@@ -74,9 +74,9 @@ T.Control {
                         visible:button.visualFocus;Accessible.ignored:true
                     }
                     contentItem:Item {
-                        opacity:button.enabled ? 1:0.5
                         Loader {
                             id:glyph;objectName:"bleeckerAppTabIcon"
+                            opacity:button.enabled ? 1:0.5
                             readonly property string systemImage:button.tabSystemImage
                             readonly property var tabValue:button.tabValue
                             readonly property bool selected:button.selected
@@ -89,23 +89,56 @@ T.Control {
                             Accessible.ignored:true
 
                         }
-                        Rectangle {
+                        Item {
                             id:badge;objectName:"bleeckerAppTabBadge"
                             visible:button.tabBadgeVisible
                             width:Math.max(15,badgeLabel.unwrappedWidth+8);height:Math.max(15,badgeLabel.height)
                             x:glyph.x+(control.mirrored ? 0:glyph.width-width);y:glyph.y
                             transform:Translate{x:control.mirrored ? -10:10;y:-7}
-                            radius:height/2;color:BleeckerTheme.palette.sunset
+                            // Keep partial software-window repaint clips from
+                            // changing the badge's translucent pixels. Opacity
+                            // belongs to each element inside this small raster.
                             Accessible.ignored:true
-                            OwnedText {
-                                id:badgeLabel;anchors.centerIn:parent
-                                text:button.tabBadgeText;color:"white"
-                                font.family:BleeckerTheme.primaryFont;font.pointSize:BleeckerFonts.pointSizeForPixels(8);font.weight:Font.Bold
+                            readonly property bool softwareRaster:GraphicsInfo.api===GraphicsInfo.Software
+                            Item {
+                                id:badgeContents;anchors.fill:parent
+                                Rectangle {
+                                    anchors.fill:parent;radius:height/2
+                                    color:BleeckerTheme.palette.sunset
+                                    opacity:button.enabled ? 1:0.5
+                                    Accessible.ignored:true
+                                }
+                                OwnedText {
+                                    id:badgeLabel;anchors.centerIn:parent
+                                    opacity:button.enabled ? 1:0.5
+                                    text:button.tabBadgeText;color:"white"
+                                    font.family:BleeckerTheme.primaryFont;font.pointSize:BleeckerFonts.pointSizeForPixels(8);font.weight:Font.Bold
+                                }
+                            }
+                            ShaderEffectSource {
+                                id:badgeTexture;sourceItem:badgeContents
+                                sourceRect:Qt.rect(0,0,badge.width,badge.height)
+                                hideSource:badge.softwareRaster;visible:false
+                                textureMirroring:ShaderEffectSource.NoMirroring
+                            }
+                            SoftwareContentMask {
+                                anchors.fill:parent;visible:badge.softwareRaster
+                                source:badgeTexture;outline:badgeOutline
+                            }
+                            // The rectangle covers the raster gutter as well as
+                            // the capsule. It introduces no additional clipping.
+                            Path {
+                                id:badgeOutline;startX:-1;startY:-1
+                                PathLine {x:badge.width+1;y:-1}
+                                PathLine {x:badge.width+1;y:badge.height+1}
+                                PathLine {x:-1;y:badge.height+1}
+                                PathLine {x:-1;y:-1}
                             }
                         }
                         OwnedText {id:naturalLabel;visible:false;text:button.tabLabel;font:button.font}
                         Item {
                             id:label;objectName:"bleeckerAppTabLabel"
+                            opacity:button.enabled ? 1:0.5
                             readonly property bool naturalFits:naturalLabel.unwrappedWidth<=button.width &&naturalLabel.linePositions.length<=2
                             width:naturalFits ? naturalLabel.unwrappedWidth:Math.ceil(Math.min(fitted.contentWidth,button.width)*pixel.devicePixelRatio)/pixel.devicePixelRatio
                             height:naturalFits ? naturalLabel.height:fitted.implicitHeight

@@ -1,0 +1,24 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--rm",
+    "--init",
+    "--ulimit",
+    "core=0",
+    "--name",
+    "avelino-app-tabs-raster-readiness-v4",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/app-tabs-raster-readiness-v4:/package:rw",
+    "-w",
+    "/package",
+    "avelino-toolchain:clipping-qt6.8.3",
+    "bash",
+    "-lc",
+    "python3 collect-environment.py && bash check-installed.sh"
+  ],
+  "exitCode": 0,
+  "seconds": 285.8686722499551
+}
