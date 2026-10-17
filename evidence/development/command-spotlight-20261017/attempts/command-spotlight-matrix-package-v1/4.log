@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/package/driver/scripts/compare-command-spotlight.py", line 58, in <module>
+    raise SystemExit(compare(args.candidate.resolve(), args.output.resolve()))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/package/driver/scripts/compare-command-spotlight.py", line 20, in compare
+    strict = module('strict_compare', ROOT / 'scripts/compare-captures.py')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/package/driver/scripts/compare-command-spotlight.py", line 14, in module
+    spec.loader.exec_module(value)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/package/driver/scripts/compare-captures.py", line 8, in <module>
+    from PIL import Image, ImageChops
+ModuleNotFoundError: No module named 'PIL'

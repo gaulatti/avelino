@@ -147,3 +147,9 @@ add_test(NAME app-tabs-retained-raster COMMAND AvelinoAppTabRasterTests)
 add_test(NAME app-tabs-retained-raster-dpr2 COMMAND AvelinoAppTabRasterTests)
 set_tests_properties(app-tabs-retained-raster PROPERTIES ENVIRONMENT "QT_QPA_PLATFORM=offscreen;QT_QUICK_BACKEND=software;QT_SCALE_FACTOR=1")
 set_tests_properties(app-tabs-retained-raster-dpr2 PROPERTIES ENVIRONMENT "QT_QPA_PLATFORM=offscreen;QT_QUICK_BACKEND=software;QT_SCALE_FACTOR=2")
+
+add_test(NAME command-spotlight-invalid-config COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/check-invalid-command-spotlight.py
+    $<TARGET_FILE:AvelinoComponentTests> ${CMAKE_BINARY_DIR}/qml)
+
+add_test(NAME command-spotlight-catalog-metadata COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/check-command-spotlight-catalog.py
+    $<TARGET_FILE:AvelinoCatalog> ${CMAKE_BINARY_DIR}/qml ${PROJECT_SOURCE_DIR})

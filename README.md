@@ -106,7 +106,7 @@ closed source contexts remain in strict comparison: 76 exact pixel/frame matches
 1,168 frame matches and all produced states matching. Full Qt tests, independent
 packaging, eight virtual display profiles and actual gallery toolbar input pass.
 Native fonts/raster, complete contexts, physical displays and readers remain open.
-Desktop candidate coverage is 73/80; none are accepted.
+Desktop candidate coverage is 74/80; none are accepted.
 
 The [pill candidate](docs/pill-modifier.md) retains a single text caller, fixed mono 9
 font and 7/4 capsule padding, caller formatting and baseline guides. All 2,112
@@ -143,11 +143,15 @@ brings the installed gallery to 28/28 exact operator states and preserves visibl
 badges at both pixel ratios. Native symbols, label fitting, sizing, keyboard timing,
 accessibility, physical displays and readers remain pending.
 
-The [command spotlight native record](docs/command-spotlight.md) preserves its
+The [command spotlight candidate](docs/command-spotlight.md) preserves its
 fixed 520 by 380 surface, caller-owned query and lazy rows. Its public, probed and
 literal witnesses agree at 256 closed contexts and 1,536 retained steps. The
-source-only replay reproduces all 5,381 outputs. Linux implementation is pending;
-desktop candidate coverage remains 73/80 with zero accepted APIs.
+source-only replay reproduces all 5,381 outputs. The Linux candidate retains all
+1,792 strict native comparisons and caller-owned query/row state. All 23 actual
+gallery states pass, and all 143 prior catalog PNGs and metadata stay unchanged.
+Native fonts/raster, builder and callback timing, lazy eviction, sizing, physical
+input and readers remain pending. Desktop candidate coverage is 74/80 with zero
+accepted APIs.
 
 The [surface modifier](docs/surface-modifier.md) decorates flat callers separately
 and explicit stacks as one caller, preserving caller state, font inheritance and

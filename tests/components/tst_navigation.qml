@@ -72,7 +72,7 @@ Item {
             item.enabled=false;mouseClick(findChild(item,"bleeckerBreadcrumbItem0"));compare(item.requests.length,3)
             item.enabled=true;item.items=[{title:"Only"}];wait(20)
             mouseClick(findChild(item,"bleeckerBreadcrumbItem0"));compare(item.requests.join(","),"2,2,2,0")
-            item.items=[];wait(20);compare(item.implicitWidth,0);compare(item.implicitHeight,0)
+            item.items=[];tryCompare(item,"implicitWidth",0);tryCompare(item,"implicitHeight",0)
         }
         function test_breadcrumb_keyboard_and_canceled_press(){
             const item=createTemporaryObject(breadcrumb,root);wait(20)

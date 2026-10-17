@@ -65,5 +65,95 @@ with actual backing scale two. Requested display scale, bitmap scale, local
 window events and native subview observations are recorded separately from
 physical displays, accessibility hierarchy and reader behavior.
 
-Linux implementation and comparison remain pending. Desktop candidate coverage
-stays 73/80 with zero fully accepted APIs. TV and playback remain a separate phase.
+The Linux candidate exposes `query`, `items`, `itemIdentity`, `row` and
+`queryRequested`. The owner receives edit requests and decides whether to accept,
+observe, delay or redirect them. The control retains the editor's local text
+until the owner is synchronized or the editor loses focus. It never filters the
+supplied data or installs a command action. A caller row can declare required
+`rowData`, `rowIndex` and `rowActive` properties. The creation context also exposes
+`rowFont` and `rowForeground` for explicit presentation inheritance.
+
+```qml
+BleeckerCommandSpotlight {
+    query: page.query
+    items: page.commands
+    onQueryRequested: value => page.query = value
+    row: Component {
+        BleeckerText {
+            required property var rowData
+            text: rowData.title
+            font: rowFont
+            color: rowForeground
+        }
+    }
+}
+```
+
+Rows use their primitive `id` by default. Custom caller records require an
+`itemIdentity` function returning a supported primitive key. Canonically
+equivalent strings share identity. Missing, unsupported or duplicate identifiers
+and invalid row builders fail explicitly. The independent fixture preserves full
+signed 64-bit identifiers as canonical wire strings; that adapter does not prove
+native integer or general Hashable equivalence.
+
+The lazy row container instantiates viewport intersections and retains created
+objects across updates and reorders. Removed visible rows are destroyed; removed
+offscreen rows are retained for reuse. This reproduces the recorded row-state
+sequences. Broader native eviction and memory-pressure behavior remain pending.
+The component reports its instantiated, active and retired counts and preserves
+row context until deferred destruction, including removal from a row action.
+
+The installed `--command-spotlight` consumer runs 32 closed fixtures and eight
+24-step histories per appearance/text-scale/DPR context. `--command-spotlight-report`
+requires a fresh prefix. `--command-spotlight-observe` preserves differences while
+requiring structural checks to pass; the default comparison exits unsuccessfully
+while strict acceptance remains open. All 1,792 public native comparisons retain
+unmasked PNGs, raw frame probes, query requests, editor text, row counters and
+lifecycle observations. Sizing records preserve all 3,840 public native queries;
+Qt implicit measurements are recorded separately from direct-proposal equivalence.
+
+Native callback duplicates during focus and blur remain comparison failures.
+Native fonts, symbols, raster, generic identity, lazy measurement/eviction, input
+timing, accessibility, physical displays and readers remain unaccepted. TV and
+playback remain a separate phase.
+
+Strict comparison has zero exact native PNG matches across 1,792 observations;
+1,736 complete frame sets and 512 state records match. Callback differences
+affect 1,280 records, row-count differences affect 224, and editor text and
+pending-query differences each affect eight. Two long-list scroll steps differ
+by two points. The original observations remain visible in the comparison.
+
+The sealed Linux record is in
+[evidence/development/command-spotlight-20261017](../evidence/development/command-spotlight-20261017/report.json).
+It preserves the first failed tests, earlier focus-ring restores, original
+comparison environment failures and corrected full PNG comparison. No expected
+images, pins, tolerances or exceptions changed. The clear action preserves the
+existing responder and then synchronizes editor text with the owner query.
+
+The final package has 147 catalog captures; all 143 earlier PNGs and metadata
+remain byte-identical. The actual XTest gallery exercise passes 23 states across
+15 toolbar controls, including the final eight rows and an exact return to the
+top. Both pixel ratios pass the 11 focused checks. The full Qt run passed 37 of 39
+targets, with failures in a navigation timing assertion and malformed-input
+fixture syntax. Corrected navigation tests pass 249 checks at each pixel ratio;
+the malformed-input and catalog fixture targets also pass. These runs cover all
+39 unique targets on byte-identical installed module files; the original failures
+remain preserved. The existing 730 contracts and the eight additional candidate guards
+are verified separately. Virtual sessions cover X11 and Wayland with software
+and OpenGL rendering at standard and scaled configurations; these use software
+rendering and do not establish physical display or hardware acceptance.
+Of 64 retained restores, 61 agree with the native initial-pixel relationship.
+Three OpenGL observations differ by 5, 11 and 54 RGB pixels, with maximum
+channel differences two or three. Their original PNGs remain failed with no
+tolerance; retained raster stability is a separate open gate.
+
+Run `python3 scripts/generate-command-spotlight-witnesses.py --check` to check the
+native projection and `python3 scripts/verify-command-spotlight-candidate.py` to
+recompute the sealed evidence. Fresh installed captures use
+`python3 scripts/capture-command-spotlight.py /path/to/InstalledConsumer /new/captures --jobs 2`;
+strict comparison uses
+`python3 scripts/compare-command-spotlight.py /new/captures /new/comparison`.
+Diagnostic and runtime PNG archives expand relative to the evidence directory.
+The source replay identifies immutable base Git objects plus exact changed
+source blobs; the complete frozen input manifests and failed attempts remain
+reviewable. Independent machine replay remains pending.

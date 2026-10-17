@@ -1,0 +1,28 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--rm",
+    "--init",
+    "--ulimit",
+    "core=0",
+    "--name",
+    "avelino-command-spotlight-comparison-v3",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/command-spotlight-comparison-v3:/analysis:rw",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/command-spotlight-matrix-package-v2/captures:/captures:ro",
+    "-w",
+    "/analysis",
+    "avelino-toolchain:clipping-qt6.8.3",
+    "python3",
+    "driver/scripts/compare-command-spotlight.py",
+    "/captures",
+    "/analysis/comparison"
+  ],
+  "exitCode": 1,
+  "expectedExitCode": 1,
+  "seconds": 0.9598022500285879
+}

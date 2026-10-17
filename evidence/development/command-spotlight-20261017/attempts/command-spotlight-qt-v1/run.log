@@ -1,0 +1,124 @@
+********* Start testing of avelino *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : avelino::CommandSpotlight::initTestCase()
+PASS   : avelino::CommandSpotlight::test_disabled_input_and_removal_during_action()
+PASS   : avelino::CommandSpotlight::test_echo_and_clear_request()
+PASS   : avelino::CommandSpotlight::test_fixed_surface_and_scaled_header()
+PASS   : avelino::CommandSpotlight::test_intrinsic_flexible_tall_and_rtl_rows()
+PASS   : avelino::CommandSpotlight::test_lazy_offscreen_removal_preserves_local_state()
+PASS   : avelino::CommandSpotlight::test_query_does_not_filter_or_write_its_owner()
+PASS   : avelino::CommandSpotlight::test_unicode_and_typed_identifiers()
+PASS   : avelino::CommandSpotlight::test_visible_removal_recreates_local_state()
+PASS   : avelino::CommandSpotlight::cleanupTestCase()
+Totals: 10 passed, 0 failed, 0 skipped, 0 blacklisted, 1791ms
+********* Finished testing of avelino *********
+Internal ctest changing into directory: /result/build
+Test project /result/build
+      Start  1: components
+      Start  2: components-dpr2
+ 1/39 Test  #1: components ...........................   Passed  397.63 sec
+      Start  3: slider-invalid-config
+ 2/39 Test  #3: slider-invalid-config ................   Passed    8.93 sec
+      Start  4: pagination-invalid-config
+ 3/39 Test  #4: pagination-invalid-config ............   Passed   14.75 sec
+      Start  5: presentation-invalid-config
+ 4/39 Test  #5: presentation-invalid-config ..........   Passed   29.53 sec
+      Start  6: navigation-invalid-config
+ 5/39 Test  #2: components-dpr2 ......................   Passed  456.19 sec
+      Start  7: sidebar-brand-invalid-config
+ 6/39 Test  #6: navigation-invalid-config ............   Passed   15.78 sec
+      Start  8: data-metrics-invalid-config
+ 7/39 Test  #7: sidebar-brand-invalid-config .........   Passed   15.98 sec
+      Start  9: stepper-invalid-config
+ 8/39 Test  #8: data-metrics-invalid-config ..........   Passed   24.11 sec
+      Start 10: radio-invalid-config
+ 9/39 Test #10: radio-invalid-config .................   Passed   59.43 sec
+      Start 11: radio-catalog-metadata
+10/39 Test  #9: stepper-invalid-config ...............   Passed   91.43 sec
+      Start 12: otp-native-transformation
+11/39 Test #11: radio-catalog-metadata ...............   Passed   14.34 sec
+      Start 13: otp-invalid-transformation
+12/39 Test #12: otp-native-transformation ............   Passed   18.33 sec
+      Start 14: otp-invalid-input
+13/39 Test #14: otp-invalid-input ....................   Passed   31.96 sec
+      Start 15: otp-catalog-metadata
+14/39 Test #15: otp-catalog-metadata .................   Passed   11.18 sec
+      Start 16: activity-invalid-config
+15/39 Test #13: otp-invalid-transformation ...........   Passed   71.25 sec
+      Start 17: activity-catalog-metadata
+16/39 Test #16: activity-invalid-config ..............   Passed   12.98 sec
+      Start 18: modal-invalid-config
+17/39 Test #17: activity-catalog-metadata ............   Passed   21.81 sec
+      Start 19: modal-catalog-metadata
+18/39 Test #18: modal-invalid-config .................   Passed   26.95 sec
+      Start 20: tooltip-invalid-config
+19/39 Test #20: tooltip-invalid-config ...............   Passed   16.04 sec
+      Start 21: tooltip-catalog-metadata
+20/39 Test #21: tooltip-catalog-metadata .............   Passed   28.27 sec
+      Start 22: button-style-invalid-config
+21/39 Test #19: modal-catalog-metadata ...............   Passed   73.53 sec
+      Start 23: button-style-catalog-metadata
+22/39 Test #22: button-style-invalid-config ..........   Passed   44.50 sec
+      Start 24: font-modifier-invalid-config
+23/39 Test #24: font-modifier-invalid-config .........   Passed   39.91 sec
+      Start 25: font-modifier-catalog-metadata
+24/39 Test #23: button-style-catalog-metadata ........   Passed  193.44 sec
+      Start 26: surface-modifier-invalid-config
+25/39 Test #25: font-modifier-catalog-metadata .......   Passed  138.29 sec
+      Start 27: surface-modifier-catalog-metadata
+26/39 Test #26: surface-modifier-invalid-config ......   Passed   29.13 sec
+      Start 28: pill-modifier-invalid-config
+27/39 Test #27: surface-modifier-catalog-metadata ....   Passed   33.34 sec
+      Start 29: pill-modifier-catalog-metadata
+28/39 Test #29: pill-modifier-catalog-metadata .......   Passed   57.91 sec
+      Start 30: charts-invalid-config
+29/39 Test #28: pill-modifier-invalid-config .........   Passed   76.06 sec
+      Start 31: charts-catalog-metadata
+30/39 Test #30: charts-invalid-config ................   Passed   39.62 sec
+      Start 32: media-library-invalid-config
+31/39 Test #32: media-library-invalid-config .........   Passed   42.11 sec
+      Start 33: media-library-catalog-metadata
+32/39 Test #31: charts-catalog-metadata ..............   Passed   75.26 sec
+      Start 34: app-tabs-invalid-config
+33/39 Test #33: media-library-catalog-metadata .......   Passed   30.16 sec
+      Start 35: app-tabs-catalog-metadata
+34/39 Test #35: app-tabs-catalog-metadata ............   Passed   24.16 sec
+      Start 36: app-tabs-retained-raster
+35/39 Test #34: app-tabs-invalid-config ..............   Passed   67.75 sec
+      Start 37: app-tabs-retained-raster-dpr2
+36/39 Test #36: app-tabs-retained-raster .............   Passed   35.00 sec
+      Start 38: command-spotlight-invalid-config
+37/39 Test #38: command-spotlight-invalid-config .....***Failed    8.81 sec
+Traceback (most recent call last):
+  File "/work/tests/components/check-invalid-command-spotlight.py", line 29, in <module>
+    assert result.returncode != 0 and 'CommandSpotlight' in log, (index, result.returncode, log)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (0, 1, "********* Start testing of avelino *********\nConfig: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04\nQWARN  : avelino::tst_invalid_0::compile() \n  /tmp/avelino-command-spotlight-invalid-h0w5_v2w/tst_invalid_0.qml produced 1 error(s):\n    /tmp/avelino-command-spotlight-invalid-h0w5_v2w/tst_invalid_0.qml:4,154: Unexpected token `;'\n  Working directory: /result/build/tests/components\n  Import paths:\n    '/result/build/qml'\n    '/result/build/tests/components'\n    'qrc:/qt-project.org/imports'\n    'qrc:/qt/qml'\n    '/opt/Qt/6.8.3/gcc_arm64/qml'\n  Plugin paths:\n    '.'\n\nFAIL!  : avelino::tst_invalid_0::compile() Unexpected token `;'\n   Loc: [/tmp/avelino-command-spotlight-invalid-h0w5_v2w/tst_invalid_0.qml(4)]\nTotals: 0 passed, 1 failed, 0 skipped, 0 blacklisted, 1785ms\n********* Finished testing of avelino *********\n")
+
+      Start 39: command-spotlight-catalog-metadata
+38/39 Test #39: command-spotlight-catalog-metadata ...***Failed    0.34 sec
+Traceback (most recent call last):
+  File "/work/tests/components/check-command-spotlight-catalog.py", line 16, in <module>
+    definitions = capture.definitions()['fixtures']
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/work/scripts/capture-command-spotlight.py", line 51, in definitions
+    data = projection if projection is not None else json.loads(PROJECTION.read_text())
+                                                                ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1029, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1015, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/work/tests/consumer/native-command-spotlights-witnesses.json'
+
+39/39 Test #37: app-tabs-retained-raster-dpr2 ........   Passed   42.35 sec
+
+95% tests passed, 2 tests failed out of 39
+
+Total Test time (real) = 1215.54 sec
+
+The following tests FAILED:
+	 38 - command-spotlight-invalid-config (Failed)
+	 39 - command-spotlight-catalog-metadata (Failed)
+Errors while running CTest

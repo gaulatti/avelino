@@ -1,0 +1,92 @@
+[
+  {
+    "command": [
+      "cmake",
+      "-S",
+      "consumer",
+      "-B",
+      "consumer-build",
+      "-G",
+      "Ninja",
+      "-DCMAKE_PREFIX_PATH=/package/install;/opt/qt"
+    ],
+    "exitCode": 0,
+    "expectedExitCode": 0,
+    "seconds": 0.5766042180039221,
+    "log": "0.log"
+  },
+  {
+    "command": [
+      "cmake",
+      "--build",
+      "consumer-build",
+      "--parallel",
+      "2"
+    ],
+    "exitCode": 0,
+    "expectedExitCode": 0,
+    "seconds": 0.09215232299175113,
+    "log": "1.log"
+  },
+  {
+    "command": [
+      "bash",
+      "check-installed.sh"
+    ],
+    "exitCode": 0,
+    "expectedExitCode": 0,
+    "seconds": 322.4136490920064,
+    "log": "2.log"
+  },
+  {
+    "command": [
+      "python3",
+      "driver/scripts/capture-command-spotlight.py",
+      "consumer-build/InstalledConsumer",
+      "captures",
+      "--jobs",
+      "2"
+    ],
+    "exitCode": 0,
+    "expectedExitCode": 0,
+    "seconds": 371.36672481799906,
+    "log": "3.log"
+  },
+  {
+    "command": [
+      "python3",
+      "driver/scripts/compare-command-spotlight.py",
+      "captures",
+      "comparison"
+    ],
+    "exitCode": 1,
+    "expectedExitCode": 1,
+    "seconds": 0.40520188699883875,
+    "log": "4.log"
+  },
+  {
+    "command": [
+      "consumer-build/InstalledConsumer",
+      "--command-spotlight",
+      "--command-spotlight-report",
+      "/package/strict"
+    ],
+    "exitCode": 1,
+    "expectedExitCode": 1,
+    "seconds": 95.00225716500427,
+    "log": "5.log"
+  },
+  {
+    "command": [
+      "install/bin/AvelinoCatalog",
+      "--fixture",
+      "command-spotlight",
+      "--capture",
+      "/package/gallery.png"
+    ],
+    "exitCode": 0,
+    "expectedExitCode": 0,
+    "seconds": 2.175371614008327,
+    "log": "6.log"
+  }
+]
