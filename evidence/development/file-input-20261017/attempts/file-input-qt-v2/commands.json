@@ -1,0 +1,81 @@
+[
+  {
+    "name": "configure",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino:/work",
+      "-w",
+      "/work/artifacts/resumed-avelino-20261016/file-input-qt-v2/source",
+      "avelino-toolchain:data-metrics-qt6.8.3",
+      "cmake",
+      "-S",
+      ".",
+      "-B",
+      "../build",
+      "-G",
+      "Ninja",
+      "-DCMAKE_BUILD_TYPE=Debug",
+      "-DBUILD_TESTING=ON"
+    ],
+    "exitCode": 0,
+    "seconds": 2.4781365420203656
+  },
+  {
+    "name": "build",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino:/work",
+      "-w",
+      "/work/artifacts/resumed-avelino-20261016/file-input-qt-v2/source",
+      "avelino-toolchain:data-metrics-qt6.8.3",
+      "cmake",
+      "--build",
+      "../build",
+      "--target",
+      "AvelinoFileChooserTests",
+      "--parallel",
+      "2"
+    ],
+    "exitCode": 0,
+    "seconds": 4.513796124956571
+  },
+  {
+    "name": "filesystem-tests",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino:/work",
+      "-w",
+      "/work/artifacts/resumed-avelino-20261016/file-input-qt-v2/source",
+      "avelino-toolchain:data-metrics-qt6.8.3",
+      "ctest",
+      "--test-dir",
+      "../build",
+      "-R",
+      "^file-chooser-filesystem$",
+      "--output-on-failure"
+    ],
+    "exitCode": 0,
+    "seconds": 0.23810183303430676
+  }
+]

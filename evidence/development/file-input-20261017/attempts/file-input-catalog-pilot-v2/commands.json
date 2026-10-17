@@ -1,0 +1,33 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--rm",
+    "--ulimit",
+    "core=0",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino:/work",
+    "--env",
+    "QT_QPA_PLATFORM=offscreen",
+    "--env",
+    "QT_QUICK_BACKEND=software",
+    "--env",
+    "XDG_RUNTIME_DIR=/tmp/avelino-file-input-runtime",
+    "--env",
+    "QML_IMPORT_PATH=/work/artifacts/resumed-avelino-20261016/file-input-build/build/qml",
+    "avelino-toolchain:data-metrics-qt6.8.3",
+    "/work/artifacts/resumed-avelino-20261016/file-input-build/build/samples/AvelinoCatalog/AvelinoCatalog",
+    "--fixture",
+    "reference-case",
+    "--case",
+    "file-input-default",
+    "--case-definitions",
+    "/work/artifacts/resumed-avelino-20261016/file-input-qt-v8/source/tests/consumer/native-file-input-witnesses.json",
+    "--capture",
+    "/work/artifacts/resumed-avelino-20261016/file-input-catalog-pilot-v2/default.png"
+  ],
+  "exitCode": 0,
+  "seconds": 1.2788233339088038
+}

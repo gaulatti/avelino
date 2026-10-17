@@ -1,0 +1,163 @@
+#pragma once
+#include <QAbstractItemModel>
+#include <QDir>
+#include <QQuickItemGrabResult>
+#include <QTemporaryDir>
+
+static void runFileInputConsumer(QQuickWindow *window,QGuiApplication &app,const QCommandLineParser &parser,double textScale){
+    auto check=[&](bool value,const char *message){if(!value){qCritical("FileInput: %s",message);app.exit(99);}return value;};
+    QFile reference(":/avelino/fixtures/native-file-input-witnesses.json");
+    if(!check(reference.open(QIODevice::ReadOnly),"Native observations missing"))return;
+    const auto native=QJsonDocument::fromJson(reference.readAll()).object();
+    if(!check(native["reference"]=="fe8a1d462fbd793d883fb92086a16aa2947e32c9"&&native["accepted"]==false
+        &&native["closed"].toArray().size()==256&&native["sizing"].toArray().size()==256,"Incomplete native source matrix"))return;
+    const auto prefix=parser.isSet("evidence")?parser.value("evidence"):parser.value("file-input-report");
+    if(!prefix.isEmpty()&&!check(!QFile::exists(prefix+".json"),"Report path already exists"))return;
+    auto fixture=[&]{return window->property("primaryFixture").value<QQuickItem*>();};
+    auto control=[&]{return fixture()?fixture()->property("control").value<QQuickItem*>():nullptr;};
+    auto browser=[&]{return control()?control()->property("browser").value<QObject*>():nullptr;};
+    auto chooser=[&]{return control()?control()->property("chooser").value<QObject*>():nullptr;};
+    auto content=[&]{return chooser()?chooser()->property("contentItem").value<QQuickItem*>():nullptr;};
+    auto state=[&]{return chartMap(fixture(),"state");};
+    auto selected=[&](const QJsonObject &row){return row["appearance"]==(parser.isSet("dark")?"dark":"light")
+        &&row["textScale"].toDouble()==textScale&&row["dpr"].toDouble()==window->devicePixelRatio();};
+    auto configure=[&](const QJsonObject &configuration,const QJsonArray &types){
+        fixture()->setProperty("mounted",false);if(!check(waitForShapeFrame(window),"Unmounted frame missing"))return false;
+        if(!check(QMetaObject::invokeMethod(window,"configure",Q_ARG(QVariant,configuration.toVariantMap()),Q_ARG(QVariant,types.toVariantList())),"Configuration did not reach the caller"))return false;
+        return check(waitForShapeFrame(window)&&control(),"Configured FileInput missing");
+    };
+    auto popupPixels=[&](QQuickWindow *target){
+        if(!target||!target->isExposed())return QImage();
+        // Capture the complete owned popup scene through Qt's asynchronous item
+        // API. Direct native-window GL readback invalidates the Wayland popup
+        // surface in the pinned SDK; external compositor captures are separate.
+        auto result=target->contentItem()->grabToImage();if(!result)return QImage();
+        QSignalSpy ready(result.data(),&QQuickItemGrabResult::ready);
+        if(result->image().isNull()&&!ready.wait(5000))return QImage();
+        const auto pixels=result->image();
+        if(pixels.size()!=QSize(qRound(target->width()*target->devicePixelRatio()),qRound(target->height()*target->devicePixelRatio())))return QImage();
+        return pixels;
+    };
+    auto popupReady=[&](QQuickWindow *target){
+        QElapsedTimer elapsed;elapsed.start();QImage previous;
+        while(elapsed.elapsed()<5000){
+            const auto pixels=popupPixels(target);
+            if(!pixels.isNull()&&pixels==previous)return true;
+            previous=pixels;QTest::qWait(16);
+        }
+        return false;
+    };
+    auto save=[&](QQuickWindow *target,const QString &name){
+        if(prefix.isEmpty())return true;
+        if(!check(target&&!QFile::exists(prefix+"-"+name+".png"),"Capture already exists or window missing"))return false;
+        const auto pixels=target==window?target->grabWindow():popupPixels(target);
+        return check(!pixels.isNull()&&pixels.save(prefix+"-"+name+".png"),"Capture failed");
+    };
+    int frames=0,states=0,pointers=0,keys=0;QJsonArray closed,sizing,actions,accessibility;QJsonObject standard;
+    for(const auto &value:native["closed"].toArray()){
+        const auto row=value.toObject();if(!selected(row))continue;
+        const auto configuration=row["configuration"].toObject();if(!configure(configuration,row["linuxContentTypes"].toArray()))return;
+        const auto actual=state(),frame=chartMap(fixture(),"frame");
+        const auto expectedTitle=configuration["title"].isString()?configuration["title"].toString():QString::fromUtf8("Choose file…");
+        const bool frameMatch=frame==row["frames"];
+        const bool stateMatch=actual["mounted"]==true&&actual["title"]==expectedTitle
+            &&actual["enabled"].toBool()==!configuration["disabled"].toBool()&&actual["results"]==QJsonArray{}
+            &&actual["pickerVisible"]==false&&actual["sourceTypes"]==configuration["types"];
+        frames+=frameMatch;states+=stateMatch;
+        closed.append(QJsonObject{{"configuration",configuration},{"linuxContentTypes",row["linuxContentTypes"]},{"reference",row["reference"]},
+            {"frames",frame},{"nativeFrames",row["frames"]},{"nativeState",row["nativeState"]},{"state",actual},{"nativeCompleteFramesMatch",frameMatch},{"nativeContractStateMatch",stateMatch}});
+        if(!save(window,configuration["id"].toString()))return;
+        if(configuration["id"]=="default")standard=configuration;
+    }
+    for(const auto &value:native["sizing"].toArray()){
+        const auto row=value.toObject();if(!selected(row))continue;
+        if(!configure(row["configuration"].toObject(),row["linuxContentTypes"].toArray()))return;
+        sizing.append(QJsonObject{{"configuration",row["configuration"]},{"nativeProposals",row["proposals"]},
+            {"qtImplicitSize",QJsonObject{{"width",control()->implicitWidth()},{"height",control()->implicitHeight()}}},
+            {"status","Direct Qt/native proposal equivalence pending"}});
+    }
+    if(!check(closed.size()==32&&sizing.size()==32&&!standard.isEmpty()&&states==32,"Incomplete selected native context or changed contract state"))return;
+    QTemporaryDir root;if(!check(root.isValid(),"Controlled fixture directory unavailable"))return;
+    QDir directory(root.path());
+    for(const auto &name:{"one.txt","two.txt","photo.png","spaces in name.txt"}){
+        QFile file(directory.filePath(name));if(!check(file.open(QIODevice::WriteOnly)&&file.write("Avelino controlled file-input fixture\n")>0,"Controlled fixture write failed"))return;
+    }
+    if(!check(directory.mkdir("folder"),"Controlled folder missing"))return;
+    {QFile file(directory.filePath("folder/child.txt"));if(!check(file.open(QIODevice::WriteOnly)&&file.write("Avelino child fixture\n")>0,"Controlled child missing"))return;}
+    if(!check(QFile::link(directory.filePath("one.txt"),directory.filePath("symlink.txt")),"Controlled alias missing"))return;
+    window->setProperty("fixtureFolder",QUrl::fromLocalFile(root.path()));
+    auto click=[&](QQuickItem *item,Qt::KeyboardModifiers modifiers=Qt::NoModifier){
+        if(!check(item&&item->window(),"Pointer target missing"))return false;
+        QTest::mouseClick(item->window(),Qt::LeftButton,modifiers,item->mapToScene(item->boundingRect().center()).toPoint());++pointers;
+        QTest::qWait(40);return true;
+    };
+    auto open=[&]{
+        if(!click(control()->property("inputItem").value<QQuickItem*>()))return false;
+        QElapsedTimer timer;timer.start();while(timer.elapsed()<1000&&(!content()||!content()->window()||!chooser()->property("visible").toBool()))QTest::qWait(10);
+        if(!check(content()&&content()->window()!=window&&chooser()->property("visible").toBool(),"Owned chooser window missing"))return false;
+        // A popup's QQuickWindow can exist before Wayland configures its native
+        // surface. Do not request GL frame readbacks from an unexposed window.
+        auto popup=content()->window();
+        if(!check(QTest::qWaitForWindowExposed(popup,5000),"Owned chooser window did not become exposed"))return false;
+        return check(popupReady(popup),"Owned chooser frame did not stabilize");
+    };
+    auto row=[&](int column,const QString &name){
+        auto columns=qobject_cast<QAbstractItemModel*>(browser());if(!columns)return -1;
+        const auto role=columns->roleNames().key("directoryModel",-1);
+        auto model=qobject_cast<QAbstractItemModel*>(columns->data(columns->index(column,0),role).value<QObject*>());if(!model)return -1;
+        const auto nameRole=model->roleNames().key("fileName",-1);
+        for(int i=0;i<model->rowCount();++i)if(model->data(model->index(i,0),nameRole).toString()==name)return i;
+        return -1;
+    };
+    auto selectRow=[&](int column,const QString &name,Qt::KeyboardModifiers modifiers=Qt::NoModifier){
+        const auto index=row(column,name);if(!check(index>=0,"Controlled row not listed"))return false;
+        return click(findVisualItem(content(),"bleeckerFileChooserRow"+QString::number(column)+"_"+QString::number(index)),modifiers);
+    };
+    auto record=[&](const QString &phase){actions.append(QJsonObject{{"phase",phase},{"state",state()},{"browserActive",browser()?browser()->property("active").toBool():false}});};
+    if(!configure(standard,QJsonArray{"text/plain"})||!open()||!selectRow(0,"one.txt"))return;
+    if(!selectRow(0,"photo.png")||!check(browser()->property("selectedUrls").toList().size()==1,"Ineligible file changed selection"))return;
+    QTest::keyPress(content()->window(),Qt::Key_Control);++keys;
+    if(!selectRow(0,"two.txt",Qt::ControlModifier))return;
+    QTest::keyRelease(content()->window(),Qt::Key_Control);++keys;
+    if(!check(browser()->property("selectedUrls").toList().size()==2,"Actual modifier did not reach multiple selection")||!save(content()->window(),"multiple-files"))return;
+    auto accept=findVisualItem(content(),"bleeckerFileChooserOpen");auto accessible=QAccessible::queryAccessibleInterface(accept);
+    if(!check(accessible&&accessible->role()==QAccessible::Button&&accessible->text(QAccessible::Name)=="Open","Open accessibility interface missing"))return;
+    accessibility.append(QJsonObject{{"name",accessible->text(QAccessible::Name)},{"role",int(accessible->role())},{"readerAcceptance","pending"}});
+    if(!click(accept)||!check(state()["results"].toArray().size()==1&&state()["visibleAtCallback"]==true&&!browser()->property("active").toBool(),"Owner multiple-selection callback failed"))return;
+    const auto urls=state()["results"].toArray()[0].toObject()["urls"].toArray();
+    if(!check(urls.size()==2&&QUrl(urls[0].toString()).toLocalFile()==directory.filePath("one.txt")&&QUrl(urls[1].toString()).toLocalFile()==directory.filePath("two.txt"),"Owner URL order changed"))return;
+    record("multiple-owner-result");
+    if(!open()||!click(findVisualItem(content(),"bleeckerFileChooserCancel"))||!check(state()["results"].toArray().size()==1,"Cancel called the owner"))return;record("cancel-no-result");
+    if(!open())return;QTest::keyClick(content()->window(),Qt::Key_Escape);++keys;QTest::qWait(40);
+    if(!check(!browser()->property("active").toBool()&&state()["results"].toArray().size()==1,"Escape did not cancel without result"))return;record("escape-no-result");
+    if(!configure(standard,QJsonArray{"text/plain"})||!open()||!selectRow(0,"symlink.txt")||!click(findVisualItem(content(),"bleeckerFileChooserOpen")))return;
+    if(!check(QUrl(state()["results"].toArray()[0].toObject()["urls"].toArray()[0].toString()).toLocalFile()==directory.filePath("one.txt"),"Alias URL was not resolved"))return;record("alias-result");
+    if(!configure(standard,QJsonArray{"text/plain"})||!open()||!selectRow(0,"folder")||!check(browser()->property("count").toInt()==2&&!browser()->property("canAccept").toBool(),"Directory navigation selected an ineligible directory")||!selectRow(1,"child.txt"))return;
+    if(!save(content()->window(),"directory-columns"))return;
+    record("child-selected");
+    fixture()->setProperty("removeOnResult",true);QPointer<QObject> oldBrowser=browser(),oldChooser=chooser();
+    if(!click(findVisualItem(content(),"bleeckerFileChooserOpen"))||!check(waitForShapeFrame(window),"Removed-owner frame missing"))return;
+    if(!check(!control()&&oldBrowser.isNull()&&oldChooser.isNull()&&state()["results"].toArray().size()==1,"Callback removal left an owned chooser alive"))return;record("removed-in-result");
+    if(!save(window,"removed-in-result"))return;
+    QJsonObject report{{"accepted",false},{"reference",native["reference"]},{"fixture","file-input"},{"qt",qVersion()},{"platform",QGuiApplication::platformName()},
+        {"graphicsApi",int(window->rendererInterface()->graphicsApi())},{"width",window->width()},{"height",window->height()},
+        {"popupCaptureMethod","QQuickItem::grabToImage of the entire popup window content item at native DPR; no cropping or resizing"},
+        {"structuralChecks","passed"},{"images",35},{"closedImages",32},{"popupImages",2},{"ownerResultImages",1},
+        {"appearance",parser.isSet("dark")?"dark":"light"},{"textScale",textScale},{"dpr",window->devicePixelRatio()},
+        {"closed",closed},{"sizing",sizing},{"nativeCompleteFramesMatch",frames},{"nativeContractStatesMatch",states},
+        {"applicationActive",QGuiApplication::applicationState()==Qt::ApplicationActive},{"windowActive",window->isActive()},
+        {"observationOnly",parser.isSet("file-input-observe")},
+        {"nativeRasterAcceptance","pending"},{"physicalInputAcceptance","pending"},{"readerAcceptance","pending"},{"nativeAccessibilityAcceptance","unobserved"},
+        {"nativeFrameComparisonStatus",frames==32?"passed":"failed"},
+        {"actions",actions},{"accessibility",accessibility},{"pointerEvents",pointers},{"keyEvents",keys},
+        {"inputMethod","QTest actual owned controls; physical input and reader acceptance pending"}};
+    if(parser.isSet("evidence")&&!check(window->grabWindow().save(prefix+".png"),"Session window capture failed"))return;
+    if(!prefix.isEmpty()){QFile output(prefix+".json");if(!check(output.open(QIODevice::WriteOnly|QIODevice::NewOnly),"Report destination unavailable"))return;output.write(QJsonDocument(report).toJson());}
+    if(!parser.isSet("file-input-observe")&&frames!=32){qCritical("FileInput native frame parity remains pending");app.exit(99);return;}
+    qInfo("Installed FileInput: 32 native closed contexts, six owner/input traces; frames %d/32, states %d/32; acceptance pending",frames,states);
+    if(parser.isSet("evidence")){
+        auto timer=new QTimer(&app);QObject::connect(timer,&QTimer::timeout,&app,[&app,prefix]{if(QFile::exists(prefix+".captured"))app.exit(0);});timer->start(100);
+        QTimer::singleShot(10000,&app,[&app]{app.exit(93);});return;
+    }
+    app.exit(0);
+}

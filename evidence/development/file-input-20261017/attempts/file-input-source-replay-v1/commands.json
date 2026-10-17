@@ -1,0 +1,36 @@
+[
+  {
+    "name": "source-isolation",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/file-input-source-replay-v1:/replay",
+      "-w",
+      "/replay/source",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/evidence:/replay/source/evidence:ro",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/reference:/replay/source/reference:ro",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/scripts:/replay/source/scripts:ro",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/tools:/replay/source/tools:ro",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/tokens:/replay/source/tokens:ro",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/docs:/replay/source/docs:ro",
+      "avelino-toolchain:data-metrics-qt6.8.3",
+      "python3",
+      "-c",
+      "from pathlib import Path; assert not Path('/work').exists(); assert not Path('/replay/build').exists(); assert not Path('/consumer-check').exists(); print('Fresh build and no original library/build checkout')"
+    ],
+    "exitCode": 1,
+    "seconds": 0.7941285000415519
+  }
+]

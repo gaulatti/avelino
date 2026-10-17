@@ -42,4 +42,5 @@ QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software consumer-build/InstalledCons
 # fail strictly and are separate from package/runtime readiness.
 QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software consumer-build/InstalledConsumer --surface-baseline --surface-supplement-observe
 QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software consumer-build/InstalledConsumer --surface-input --surface-supplement-observe
+QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software consumer-build/InstalledConsumer --file-input --file-input-observe
 bash check-installed-catalog.sh

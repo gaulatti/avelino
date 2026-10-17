@@ -1,0 +1,40 @@
+{
+  "accepted": false,
+  "status": "failed",
+  "error": "AssertionError(('Folders', 'one.txt', []))",
+  "phases": [
+    {
+      "phase": "operator-initial",
+      "time": 1792270008.0242043,
+      "observations": {},
+      "readerLogBytes": 142982
+    },
+    {
+      "phase": "types-text",
+      "time": 1792270010.6963582,
+      "observations": {
+        "eligible": [
+          "one.txt",
+          "two.txt"
+        ],
+        "selection": [
+          "one.txt"
+        ]
+      },
+      "readerLogBytes": 142982
+    },
+    {
+      "phase": "types-images",
+      "time": 1792270014.6735246,
+      "observations": {
+        "eligible": [
+          "photo.png"
+        ],
+        "selection": [
+          "photo.png"
+        ]
+      },
+      "readerLogBytes": 142982
+    }
+  ]
+}

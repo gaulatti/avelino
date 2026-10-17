@@ -1,0 +1,40 @@
+{
+  "accepted": false,
+  "status": "passed",
+  "phases": [
+    {
+      "phase": "location-error",
+      "time": 1792270418.8483195,
+      "observations": {
+        "error": "No such file or directory"
+      },
+      "readerLogBytes": 3670028
+    },
+    {
+      "phase": "child-column-selected",
+      "time": 1792270422.2077498,
+      "observations": {
+        "selection": [
+          "child.txt"
+        ]
+      },
+      "readerLogBytes": 4000817
+    },
+    {
+      "phase": "child-owner-result",
+      "time": 1792270423.4695354,
+      "observations": {
+        "owner": "Selected URLs: file:///probe/fixtures/one.txt, file:///probe/fixtures/two.txt \u2192 file:///probe/fixtures/one.txt \u2192 file:///probe/fixtures/one.txt \u2192 file:///probe/fixtures/Folder/child.txt \u2192 file:///probe/fixtures/Folder/child.txt"
+      },
+      "readerLogBytes": 4058414
+    },
+    {
+      "phase": "retained-folder",
+      "time": 1792270424.6211157,
+      "observations": {},
+      "readerLogBytes": 4133084
+    }
+  ],
+  "physicalDisplay": false,
+  "physicalReaderAcceptance": "pending"
+}

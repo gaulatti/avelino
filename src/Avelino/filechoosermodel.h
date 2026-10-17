@@ -1,0 +1,89 @@
+#pragma once
+#include <QAbstractListModel>
+#include <QFileInfo>
+#include <QFileSystemWatcher>
+#include <QSet>
+#include <QUrl>
+#include <QVariantList>
+#include <QtQml/qqmlregistration.h>
+
+// Filesystem and selection semantics for the owned chooser. No file is opened
+// for content inspection, and this object never writes to the selected tree.
+class FileChooserModel : public QAbstractListModel {
+    Q_OBJECT
+    QML_ELEMENT
+    Q_PROPERTY(QVariantList allowedContentTypes READ allowedContentTypes WRITE setAllowedContentTypes NOTIFY allowedContentTypesChanged)
+    Q_PROPERTY(QUrl folder READ folder NOTIFY folderChanged)
+    Q_PROPERTY(QString folderPath READ folderPath NOTIFY folderChanged)
+    Q_PROPERTY(bool active READ active NOTIFY activeChanged)
+    Q_PROPERTY(bool canChooseFiles READ canChooseFiles NOTIFY allowedContentTypesChanged)
+    Q_PROPERTY(bool canChooseDirectories READ canChooseDirectories NOTIFY allowedContentTypesChanged)
+    Q_PROPERTY(bool canAccept READ canAccept NOTIFY selectionChanged)
+    Q_PROPERTY(QVariantList selectedUrls READ selectedUrls NOTIFY selectionChanged)
+    Q_PROPERTY(int currentIndex READ currentIndex NOTIFY selectionChanged)
+    Q_PROPERTY(QString error READ error NOTIFY errorChanged)
+    Q_PROPERTY(int errorCode READ errorCode NOTIFY errorChanged)
+    Q_PROPERTY(int count READ count NOTIFY listingChanged)
+public:
+    explicit FileChooserModel(QObject *parent=nullptr);
+    enum Role {NameRole=Qt::UserRole+1, UrlRole, DirectoryRole, EligibleRole, SelectedRole};
+    int rowCount(const QModelIndex &parent={}) const override {return parent.isValid()?0:m_rows.size();}
+    QVariant data(const QModelIndex &index,int role) const override;
+    QHash<int,QByteArray> roleNames() const override;
+    QVariantList allowedContentTypes() const{return m_types;}
+    void setAllowedContentTypes(const QVariantList &value);
+    QUrl folder() const{return m_folder;}
+    QString folderPath() const{return m_folder.toLocalFile();}
+    bool active() const{return m_active;}
+    bool canChooseFiles() const;
+    bool canChooseDirectories() const;
+    bool canAccept() const;
+    QVariantList selectedUrls() const;
+    int currentIndex() const{return m_current;}
+    QString error() const{return m_error;}
+    int errorCode() const{return m_errorCode;}
+    int count() const{return m_rows.size();}
+    Q_INVOKABLE QUrl defaultFolder() const;
+    Q_INVOKABLE bool open(const QUrl &initialFolder);
+    Q_INVOKABLE void cancel();
+    Q_INVOKABLE bool navigate(const QUrl &folder);
+    Q_INVOKABLE bool goUp();
+    Q_INVOKABLE void refresh();
+    Q_INVOKABLE QVariantMap entry(int index) const;
+    Q_INVOKABLE void select(int index,int modifiers=0);
+    Q_INVOKABLE void clearSelection();
+    Q_INVOKABLE void focusIndex(int index);
+    Q_INVOKABLE void selectAll();
+    Q_INVOKABLE void moveCurrent(int offset,int modifiers=0);
+    Q_INVOKABLE void activate(int index);
+    Q_INVOKABLE void acceptSelection();
+    Q_INVOKABLE bool eligible(const QUrl &url) const;
+    static QString contentTypeError(const QVariantList &value);
+signals:
+    void allowedContentTypesChanged();
+    void folderChanged();
+    void activeChanged();
+    void selectionChanged();
+    void listingChanged();
+    void errorChanged();
+    void result(const QVariantMap &value);
+private:
+    struct Type {QStringList mimeTypes,extensions;bool directories=false,allFiles=false;};
+    struct Row {QFileInfo info;QUrl url;bool eligible=false;};
+    static bool compileTypes(const QVariantList &value,QList<Type> &output,QString &error);
+    bool matches(const QFileInfo &info) const;
+    // The caller may supply a URL stored in a row invalidated by the reset.
+    bool reload(QUrl folder,bool keepSelection);
+    void setError(const QString &message,int code=0);
+    void selectionUpdated();
+    static QUrl localUrl(const QFileInfo &info,bool canonical);
+    QVariantList m_types;
+    QList<Type> m_rules;
+    QList<Row> m_rows;
+    QSet<QString> m_selected;
+    QUrl m_folder;
+    QFileSystemWatcher m_watcher;
+    int m_current=-1,m_anchor=-1,m_errorCode=0;
+    QString m_error,m_typeError;
+    bool m_active=false,m_completing=false;
+};

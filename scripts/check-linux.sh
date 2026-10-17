@@ -87,6 +87,7 @@ cmake --build "$stage/build" --parallel 2
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --app-tabs --app-tabs-observe)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --surface-baseline --surface-supplement-observe)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --surface-input --surface-supplement-observe)
+(cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --file-input --file-input-observe)
 format_report="$PWD/artifacts/linux/number-formatting.json"
 set +e
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --data-metrics --format-diagnostics "$format_report")

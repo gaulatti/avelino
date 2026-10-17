@@ -2,6 +2,7 @@
 #include "apptabfixtures.h"
 #include "commandspotlightfixtures.h"
 #include "dropdownmenufixtures.h"
+#include "fileinputfixtures.h"
 #include <QLocale>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
@@ -72,8 +73,9 @@ int main(int argc, char *argv[]) {
     parser.addHelpOption();
     parser.addOptions({QCommandLineOption("capture", "Save the displayed fixture to PNG and exit", "path"),
                        QCommandLineOption("dark", "Use dark reference appearance"),
-                       QCommandLineOption("fixture", "Render a fixture (button, foundations, surfaces, data-display, controls, composition, selection, checkbox, secure-field, search-field, collection-filters, slider, tabs, pagination, pagination-integers, accordion, presentation-states, spinner, alert, clipping, navigation, sidebar-brand, data-metrics, stepper, radio-group, otp-input, activity-item, modal, tooltip, button-style, font-modifier, surface-modifier, pill-modifier, charts, media-library, app-tabs, command-spotlight, dropdown-menu or reference-case)", "name"),
+                       QCommandLineOption("fixture", "Render a fixture (button, foundations, surfaces, data-display, controls, composition, selection, checkbox, secure-field, search-field, collection-filters, slider, tabs, pagination, pagination-integers, accordion, presentation-states, spinner, alert, clipping, navigation, sidebar-brand, data-metrics, stepper, radio-group, otp-input, activity-item, modal, tooltip, button-style, font-modifier, surface-modifier, pill-modifier, charts, media-library, app-tabs, command-spotlight, dropdown-menu, file-input or reference-case)", "name"),
                        QCommandLineOption("case", "Isolated reference fixture identifier", "id"),
+                       QCommandLineOption("file-input-folder", "Initial absolute folder for the FileInput gallery", "path"),
                        QCommandLineOption("case-definitions", "JSON file containing the isolated fixture definitions", "path"),
                        QCommandLineOption("variant", "Button variant", "name", "primary"),
                        QCommandLineOption("size", "Button size", "name", "md"),
@@ -100,6 +102,7 @@ int main(int argc, char *argv[]) {
         }
         if (matches != 1 || definition.value("width").toDouble() <= 0 || definition.value("height").toDouble() <= 0) return 6;
         if(definition["api"]=="BleeckerDropdownMenu"&&!validDropdownMenuFixture(definition))return 6;
+        if(definition["api"]=="BleeckerFileInput"&&!validFileInputFixture(definition))return 6;
         if(definition["api"]=="BleeckerCommandSpotlight"&&!validCommandSpotlightFixture(definition))return 6;
         if(definition["api"]=="BleeckerAppTabBar"&&!validAppTabFixture(definition))return 6;
         if(definition.value("api").toString()=="BleeckerMediaLibrary") {
@@ -232,12 +235,13 @@ int main(int argc, char *argv[]) {
     engine.rootContext()->setContextProperty("captureSize", parser.value("size"));
     engine.rootContext()->setContextProperty("captureDisabled", parser.isSet("disabled"));
     engine.rootContext()->setContextProperty("captureTextScale", textScale);
-    if(fixture=="button-style" || fixture=="stepper" || fixture=="data-metrics")QLocale::setDefault(QLocale("en_US"));
+    if(fixture=="file-input" || (isolated&&definition["api"]=="BleeckerFileInput") || fixture=="button-style" || fixture=="stepper" || fixture=="data-metrics")QLocale::setDefault(QLocale("en_US"));
     if(isolated && definition.contains("processLocale"))QLocale::setDefault(QLocale(definition.value("processLocale").toString()));
     engine.rootContext()->setContextProperty("captureDefinition", definition.toVariantMap());
+    engine.rootContext()->setContextProperty("fileInputFolder",parser.isSet("file-input-folder") ? QUrl::fromLocalFile(parser.value("file-input-folder")):QUrl());
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreationFailed, &app, [] { QCoreApplication::exit(1); }, Qt::QueuedConnection);
-    if (parser.isSet("fixture") && fixture != "button" && fixture != "foundations" && fixture != "surfaces" && fixture != "data-display" && fixture != "controls" && fixture != "composition" && fixture != "selection" && fixture != "checkbox" && fixture != "secure-field" && fixture != "search-field" && fixture != "collection-filters" && fixture != "slider" && fixture != "tabs" && fixture != "pagination" && fixture != "pagination-integers" && fixture != "accordion" && fixture != "presentation-states" && fixture != "spinner" && fixture != "alert" && fixture != "clipping" && fixture != "navigation" && fixture != "sidebar-brand" && fixture != "data-metrics" && fixture != "stepper" && fixture != "radio-group" && fixture != "otp-input" && fixture != "activity-item" && fixture != "modal" && fixture != "tooltip" && fixture != "button-style" && fixture != "font-modifier" && fixture != "surface-modifier" && fixture != "pill-modifier" && fixture != "charts" && fixture != "media-library" && fixture != "app-tabs" && fixture != "command-spotlight" && fixture != "dropdown-menu" && !isolated) return 4;
-    engine.loadFromModule("AvelinoCatalog", isolated ? "ReferenceCaseFixture" : fixture == "dropdown-menu" ? "DropdownMenu" : fixture == "command-spotlight" ? "CommandSpotlight" : fixture == "app-tabs" ? "AppTabs" : fixture == "media-library" ? "MediaLibrary" : fixture == "charts" ? "Charts" : fixture == "pill-modifier" ? "PillModifier" : fixture == "surface-modifier" ? "SurfaceModifier" : fixture == "font-modifier" ? "FontModifier" : fixture == "button-style" ? "ButtonStyle" : fixture == "tooltip" ? "Tooltip" : fixture == "modal" ? "Modal" : fixture == "activity-item" ? "ActivityItem" : fixture == "otp-input" ? "OTPInput" : fixture == "radio-group" ? "RadioGroup" : fixture == "stepper" ? "Stepper" : fixture == "data-metrics" ? "DataMetrics" : fixture == "sidebar-brand" ? "SidebarBrand" : fixture == "navigation" ? "Navigation" : fixture == "clipping" ? "Clipping" : fixture == "alert" ? "AlertFixture" : fixture == "spinner" ? "SpinnerFixture" : fixture == "presentation-states" ? "PresentationStatesFixture" : fixture == "accordion" ? "AccordionFixture" : fixture == "pagination-integers" ? "PaginationIntegerFixture" : fixture == "pagination" ? "PaginationFixture" : fixture == "tabs" ? "TabsFixture" : fixture == "slider" ? "SliderFixture" : fixture == "collection-filters" ? "CollectionFiltersFixture" : fixture == "search-field" ? "SearchFieldFixture" : fixture == "secure-field" ? "SecureFieldFixture" : fixture == "checkbox" ? "CheckboxFixture" : fixture == "selection" ? "SelectionFixture" : fixture == "composition" ? "CompositionFixture" : fixture == "controls" ? "ControlsFixture" : fixture == "data-display" ? "DataDisplayFixture" : fixture == "surfaces" ? "SurfacesFixture" : fixture == "foundations" ? "FoundationsFixture"
+    if (parser.isSet("fixture") && fixture != "button" && fixture != "foundations" && fixture != "surfaces" && fixture != "data-display" && fixture != "controls" && fixture != "composition" && fixture != "selection" && fixture != "checkbox" && fixture != "secure-field" && fixture != "search-field" && fixture != "collection-filters" && fixture != "slider" && fixture != "tabs" && fixture != "pagination" && fixture != "pagination-integers" && fixture != "accordion" && fixture != "presentation-states" && fixture != "spinner" && fixture != "alert" && fixture != "clipping" && fixture != "navigation" && fixture != "sidebar-brand" && fixture != "data-metrics" && fixture != "stepper" && fixture != "radio-group" && fixture != "otp-input" && fixture != "activity-item" && fixture != "modal" && fixture != "tooltip" && fixture != "button-style" && fixture != "font-modifier" && fixture != "surface-modifier" && fixture != "pill-modifier" && fixture != "charts" && fixture != "media-library" && fixture != "app-tabs" && fixture != "command-spotlight" && fixture != "dropdown-menu" && fixture != "file-input" && !isolated) return 4;
+    engine.loadFromModule("AvelinoCatalog", isolated ? "ReferenceCaseFixture" : fixture == "file-input" ? "FileInput" : fixture == "dropdown-menu" ? "DropdownMenu" : fixture == "command-spotlight" ? "CommandSpotlight" : fixture == "app-tabs" ? "AppTabs" : fixture == "media-library" ? "MediaLibrary" : fixture == "charts" ? "Charts" : fixture == "pill-modifier" ? "PillModifier" : fixture == "surface-modifier" ? "SurfaceModifier" : fixture == "font-modifier" ? "FontModifier" : fixture == "button-style" ? "ButtonStyle" : fixture == "tooltip" ? "Tooltip" : fixture == "modal" ? "Modal" : fixture == "activity-item" ? "ActivityItem" : fixture == "otp-input" ? "OTPInput" : fixture == "radio-group" ? "RadioGroup" : fixture == "stepper" ? "Stepper" : fixture == "data-metrics" ? "DataMetrics" : fixture == "sidebar-brand" ? "SidebarBrand" : fixture == "navigation" ? "Navigation" : fixture == "clipping" ? "Clipping" : fixture == "alert" ? "AlertFixture" : fixture == "spinner" ? "SpinnerFixture" : fixture == "presentation-states" ? "PresentationStatesFixture" : fixture == "accordion" ? "AccordionFixture" : fixture == "pagination-integers" ? "PaginationIntegerFixture" : fixture == "pagination" ? "PaginationFixture" : fixture == "tabs" ? "TabsFixture" : fixture == "slider" ? "SliderFixture" : fixture == "collection-filters" ? "CollectionFiltersFixture" : fixture == "search-field" ? "SearchFieldFixture" : fixture == "secure-field" ? "SecureFieldFixture" : fixture == "checkbox" ? "CheckboxFixture" : fixture == "selection" ? "SelectionFixture" : fixture == "composition" ? "CompositionFixture" : fixture == "controls" ? "ControlsFixture" : fixture == "data-display" ? "DataDisplayFixture" : fixture == "surfaces" ? "SurfacesFixture" : fixture == "foundations" ? "FoundationsFixture"
         : fixture == "button" ? "ButtonFixture" : "Main");
     if (parser.isSet("capture")) {
         const auto path = parser.value("capture");
@@ -496,6 +500,12 @@ int main(int argc, char *argv[]) {
                 meta.insert("overlayCoverage","Open owned Popup.Item is inside the captured window; compositor/session evidence is separate");
                 meta.insert("symbolAcceptance","pending; original chevron/checkmark candidates");
                 QJsonArray labels; recordLabels(window->contentItem(),labels); meta.insert("labels",labels);
+            }
+            if(api=="BleeckerFileInput" || parser.value("fixture")=="file-input") {
+                const auto input=isolated ? component:window->property("primaryFixture").value<QQuickItem*>();
+                if(!input){app.exit(96);return;}
+                meta.insert("fileInputFrame",surfaceModifierMap(input,"frame"));
+                meta.insert("fileInputState",surfaceModifierMap(input,"state"));
             }
             if(api=="BleeckerDropdownMenu" || parser.value("fixture")=="dropdown-menu") {
                 const auto dropdown=isolated ? component:window->property("primaryFixture").value<QQuickItem*>();

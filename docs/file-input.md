@@ -37,6 +37,8 @@ Before Linux implementation, establish these observable criteria:
 
 Desktop candidate coverage remains 75/80; FileInput is pending. The native
 helpers, Apple source archives and build products remain outside Avelino.
+The current Linux implementation checkpoint and its unresolved presentation,
+visual and accessibility gates are documented in [file-input-linux.md](file-input-linux.md).
 
 ## Native source investigation
 

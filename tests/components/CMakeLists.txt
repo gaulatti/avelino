@@ -160,6 +160,38 @@ add_test(NAME dropdown-menu-invalid-config COMMAND python3 ${CMAKE_CURRENT_SOURC
 add_test(NAME dropdown-menu-catalog-metadata COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/check-dropdown-menu-catalog.py
     $<TARGET_FILE:AvelinoCatalog> ${CMAKE_BINARY_DIR}/qml ${PROJECT_SOURCE_DIR})
 
+qt_add_executable(AvelinoFileChooserTests filechoosermodel.cpp
+    ${PROJECT_SOURCE_DIR}/src/Avelino/filechoosermodel.cpp
+    ${PROJECT_SOURCE_DIR}/src/Avelino/filechoosermodel.h)
+target_link_libraries(AvelinoFileChooserTests PRIVATE Qt6::Qml Qt6::Test)
+target_include_directories(AvelinoFileChooserTests PRIVATE ${PROJECT_SOURCE_DIR}/src/Avelino)
+add_test(NAME file-chooser-filesystem COMMAND AvelinoFileChooserTests)
+
+qt_add_executable(AvelinoFileBrowserTests filechooserbrowser.cpp
+    ${PROJECT_SOURCE_DIR}/src/Avelino/filechooserbrowser.cpp
+    ${PROJECT_SOURCE_DIR}/src/Avelino/filechooserbrowser.h
+    ${PROJECT_SOURCE_DIR}/src/Avelino/filechoosermodel.cpp
+    ${PROJECT_SOURCE_DIR}/src/Avelino/filechoosermodel.h)
+target_link_libraries(AvelinoFileBrowserTests PRIVATE Qt6::Gui Qt6::Qml Qt6::Test)
+target_include_directories(AvelinoFileBrowserTests PRIVATE ${PROJECT_SOURCE_DIR}/src/Avelino)
+add_test(NAME file-chooser-columns COMMAND AvelinoFileBrowserTests)
+
+qt_add_executable(AvelinoFileInputUiTests fileinput-ui.cpp)
+qt_add_resources(AvelinoFileInputUiTests file_input_ui_fixtures PREFIX "/file-input-tests"
+    FILES fileinput-fixture.qml)
+target_link_libraries(AvelinoFileInputUiTests PRIVATE Avelino Qt6::Quick Qt6::Test)
+target_include_directories(AvelinoFileInputUiTests PRIVATE ${PROJECT_SOURCE_DIR}/src/Avelino)
+target_compile_definitions(AvelinoFileInputUiTests PRIVATE AVELINO_FILE_INPUT_IMPORT_PATH="${CMAKE_BINARY_DIR}/qml")
+if(NOT DEFINED AVELINO_FILE_INPUT_EVIDENCE_DIR)
+    set(AVELINO_FILE_INPUT_EVIDENCE_DIR "${CMAKE_CURRENT_BINARY_DIR}/file-input-evidence")
+endif()
+target_compile_definitions(AvelinoFileInputUiTests PRIVATE AVELINO_FILE_INPUT_EVIDENCE_DIR="${AVELINO_FILE_INPUT_EVIDENCE_DIR}")
+add_dependencies(AvelinoFileInputUiTests Avelinoplugin)
+add_test(NAME file-input-owned-ui COMMAND AvelinoFileInputUiTests)
+set_tests_properties(file-input-owned-ui PROPERTIES ENVIRONMENT "QT_QPA_PLATFORM=offscreen;QT_QUICK_BACKEND=software;XDG_RUNTIME_DIR=/tmp/avelino-file-input-runtime")
+add_test(NAME file-input-owned-ui-dpr2 COMMAND AvelinoFileInputUiTests)
+set_tests_properties(file-input-owned-ui-dpr2 PROPERTIES ENVIRONMENT "QT_QPA_PLATFORM=offscreen;QT_QUICK_BACKEND=software;QT_SCALE_FACTOR=2;XDG_RUNTIME_DIR=/tmp/avelino-file-input-runtime")
+
 # Teardown regression for attached derived items, including disabled ancestry.
 qt_add_executable(AvelinoItemLifetimeTests itemlifetime.cpp)
 target_include_directories(AvelinoItemLifetimeTests PRIVATE "${PROJECT_SOURCE_DIR}/src/Avelino")
