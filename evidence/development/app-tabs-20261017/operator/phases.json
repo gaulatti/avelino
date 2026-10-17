@@ -1,0 +1,1233 @@
+[
+  {
+    "name": "initial",
+    "control": null,
+    "scaleBefore": 1,
+    "dark": false,
+    "textScale": 1,
+    "selection": "a",
+    "pending": null,
+    "definition": {
+      "id": "operator-initial",
+      "tabs": [
+        {
+          "value": "a",
+          "label": "Home",
+          "systemImage": "house"
+        },
+        {
+          "value": "b",
+          "label": "Inbox",
+          "systemImage": "tray",
+          "badge": "7"
+        },
+        {
+          "value": "c",
+          "label": "Settings",
+          "systemImage": "gearshape"
+        }
+      ],
+      "selection": "a",
+      "valueKind": "string",
+      "width": 640,
+      "height": 400,
+      "rtl": false,
+      "disabled": false,
+      "parentFont": false,
+      "parentRed": false,
+      "owner": "echo",
+      "fixture": "app-tabs-operator-initial",
+      "api": "BleeckerAppTabBar",
+      "source": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+      "tabWidth": 300,
+      "tabHeight": null
+    }
+  },
+  {
+    "name": "inbox",
+    "control": "tab-b",
+    "scaleBefore": 1,
+    "dark": false,
+    "textScale": 1,
+    "selection": "b",
+    "pending": null,
+    "definition": {
+      "id": "operator-inbox",
+      "tabs": [
+        {
+          "value": "a",
+          "label": "Home",
+          "systemImage": "house"
+        },
+        {
+          "value": "b",
+          "label": "Inbox",
+          "systemImage": "tray",
+          "badge": "7"
+        },
+        {
+          "value": "c",
+          "label": "Settings",
+          "systemImage": "gearshape"
+        }
+      ],
+      "selection": "b",
+      "valueKind": "string",
+      "width": 640,
+      "height": 400,
+      "rtl": false,
+      "disabled": false,
+      "parentFont": false,
+      "parentRed": false,
+      "owner": "echo",
+      "fixture": "app-tabs-operator-inbox",
+      "api": "BleeckerAppTabBar",
+      "source": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+      "tabWidth": 300,
+      "tabHeight": null
+    }
+  },
+  {
+    "name": "observe",
+    "control": "owner-observe",
+    "scaleBefore": 1,
+    "dark": false,
+    "textScale": 1,
+    "selection": "b",
+    "pending": null,
+    "definition": {
+      "id": "operator-observe",
+      "tabs": [
+        {
+          "value": "a",
+          "label": "Home",
+          "systemImage": "house"
+        },
+        {
+          "value": "b",
+          "label": "Inbox",
+          "systemImage": "tray",
+          "badge": "7"
+        },
+        {
+          "value": "c",
+          "label": "Settings",
+          "systemImage": "gearshape"
+        }
+      ],
+      "selection": "b",
+      "valueKind": "string",
+      "width": 640,
+      "height": 400,
+      "rtl": false,
+      "disabled": false,
+      "parentFont": false,
+      "parentRed": false,
+      "owner": "observe",
+      "fixture": "app-tabs-operator-observe",
+      "api": "BleeckerAppTabBar",
+      "source": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+      "tabWidth": 300,
+      "tabHeight": null
+    }
+  },
+  {
+    "name": "observe-home",
+    "control": "tab-a",
+    "scaleBefore": 1,
+    "dark": false,
+    "textScale": 1,
+    "selection": "b",
+    "pending": null,
+    "definition": {
+      "id": "operator-observe-home",
+      "tabs": [
+        {
+          "value": "a",
+          "label": "Home",
+          "systemImage": "house"
+        },
+        {
+          "value": "b",
+          "label": "Inbox",
+          "systemImage": "tray",
+          "badge": "7"
+        },
+        {
+          "value": "c",
+          "label": "Settings",
+          "systemImage": "gearshape"
+        }
+      ],
+      "selection": "b",
+      "valueKind": "string",
+      "width": 640,
+      "height": 400,
+      "rtl": false,
+      "disabled": false,
+      "parentFont": false,
+      "parentRed": false,
+      "owner": "observe",
+      "fixture": "app-tabs-operator-observe-home",
+      "api": "BleeckerAppTabBar",
+      "source": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+      "tabWidth": 300,
+      "tabHeight": null
+    }
+  },
+  {
+    "name": "delayed",
+    "control": "owner-delayed",
+    "scaleBefore": 1,
+    "dark": false,
+    "textScale": 1,
+    "selection": "b",
+    "pending": null,
+    "definition": {
+      "id": "operator-delayed",
+      "tabs": [
+        {
+          "value": "a",
+          "label": "Home",
+          "systemImage": "house"
+        },
+        {
+          "value": "b",
+          "label": "Inbox",
+          "systemImage": "tray",
+          "badge": "7"
+        },
+        {
+          "value": "c",
+          "label": "Settings",
+          "systemImage": "gearshape"
+        }
+      ],
+      "selection": "b",
+      "valueKind": "string",
+      "width": 640,
+      "height": 400,
+      "rtl": false,
+      "disabled": false,
+      "parentFont": false,
+      "parentRed": false,
+      "owner": "delayed",
+      "fixture": "app-tabs-operator-delayed",
+      "api": "BleeckerAppTabBar",
+      "source": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+      "tabWidth": 300,
+      "tabHeight": null
+    }
+  },
+  {
+    "name": "delayed-settings",
+    "control": "tab-c",
+    "scaleBefore": 1,
+    "dark": false,
+    "textScale": 1,
+    "selection": "b",
+    "pending": "c",
+    "definition": {
+      "id": "operator-delayed-settings",
+      "tabs": [
+        {
+          "value": "a",
+          "label": "Home",
+          "systemImage": "house"
+        },
+        {
+          "value": "b",
+          "label": "Inbox",
+          "systemImage": "tray",
+          "badge": "7"
+        },
+        {
+          "value": "c",
+          "label": "Settings",
+          "systemImage": "gearshape"
+        }
+      ],
+      "selection": "b",
+      "valueKind": "string",
+      "width": 640,
+      "height": 400,
+      "rtl": false,
+      "disabled": false,
+      "parentFont": false,
+      "parentRed": false,
+      "owner": "delayed",
+      "fixture": "app-tabs-operator-delayed-settings",
+      "api": "BleeckerAppTabBar",
+      "source": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+      "tabWidth": 300,
+      "tabHeight": null
+    }
+  },
+  {
+    "name": "flush",
+    "control": "flush",
+    "scaleBefore": 1,
+    "dark": false,
+    "textScale": 1,
+    "selection": "c",
+    "pending": null,
+    "definition": {
+      "id": "operator-flush",
+      "tabs": [
+        {
+          "value": "a",
+          "label": "Home",
+          "systemImage": "house"
+        },
+        {
+          "value": "b",
+          "label": "Inbox",
+          "systemImage": "tray",
+          "badge": "7"
+        },
+        {
+          "value": "c",
+          "label": "Settings",
+          "systemImage": "gearshape"
+        }
+      ],
+      "selection": "c",
+      "valueKind": "string",
+      "width": 640,
+      "height": 400,
+      "rtl": false,
+      "disabled": false,
+      "parentFont": false,
+      "parentRed": false,
+      "owner": "delayed",
+      "fixture": "app-tabs-operator-flush",
+      "api": "BleeckerAppTabBar",
+      "source": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+      "tabWidth": 300,
+      "tabHeight": null
+    }
+  },
+  {
+    "name": "redirect",
+    "control": "owner-redirect",
+    "scaleBefore": 1,
+    "dark": false,
+    "textScale": 1,
+    "selection": "c",
+    "pending": null,
+    "definition": {
+      "id": "operator-redirect",
+      "tabs": [
+        {
+          "value": "a",
+          "label": "Home",
+          "systemImage": "house"
+        },
+        {
+          "value": "b",
+          "label": "Inbox",
+          "systemImage": "tray",
+          "badge": "7"
+        },
+        {
+          "value": "c",
+          "label": "Settings",
+          "systemImage": "gearshape"
+        }
+      ],
+      "selection": "c",
+      "valueKind": "string",
+      "width": 640,
+      "height": 400,
+      "rtl": false,
+      "disabled": false,
+      "parentFont": false,
+      "parentRed": false,
+      "owner": "redirect",
+      "fixture": "app-tabs-operator-redirect",
+      "api": "BleeckerAppTabBar",
+      "source": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+      "tabWidth": 300,
+      "tabHeight": null
+    }
+  },
+  {
+    "name": "redirect-inbox",
+    "control": "tab-b",
+    "scaleBefore": 1,
+    "dark": false,
+    "textScale": 1,
+    "selection": "a",
+    "pending": null,
+    "definition": {
+      "id": "operator-redirect-inbox",
+      "tabs": [
+        {
+          "value": "a",
+          "label": "Home",
+          "systemImage": "house"
+        },
+        {
+          "value": "b",
+          "label": "Inbox",
+          "systemImage": "tray",
+          "badge": "7"
+        },
+        {
+          "value": "c",
+          "label": "Settings",
+          "systemImage": "gearshape"
+        }
+      ],
+      "selection": "a",
+      "valueKind": "string",
+      "width": 640,
+      "height": 400,
+      "rtl": false,
+      "disabled": false,
+      "parentFont": false,
+      "parentRed": false,
+      "owner": "redirect",
+      "fixture": "app-tabs-operator-redirect-inbox",
+      "api": "BleeckerAppTabBar",
+      "source": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+      "tabWidth": 300,
+      "tabHeight": null
+    }
+  },
+  {
+    "name": "external",
+    "control": "external",
+    "scaleBefore": 1,
+    "dark": false,
+    "textScale": 1,
+    "selection": "c",
+    "pending": null,
+    "definition": {
+      "id": "operator-external",
+      "tabs": [
+        {
+          "value": "a",
+          "label": "Home",
+          "systemImage": "house"
+        },
+        {
+          "value": "b",
+          "label": "Inbox",
+          "systemImage": "tray",
+          "badge": "7"
+        },
+        {
+          "value": "c",
+          "label": "Settings",
+          "systemImage": "gearshape"
+        }
+      ],
+      "selection": "c",
+      "valueKind": "string",
+      "width": 640,
+      "height": 400,
+      "rtl": false,
+      "disabled": false,
+      "parentFont": false,
+      "parentRed": false,
+      "owner": "redirect",
+      "fixture": "app-tabs-operator-external",
+      "api": "BleeckerAppTabBar",
+      "source": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+      "tabWidth": 300,
+      "tabHeight": null
+    }
+  },
+  {
+    "name": "echo",
+    "control": "owner-echo",
+    "scaleBefore": 1,
+    "dark": false,
+    "textScale": 1,
+    "selection": "c",
+    "pending": null,
+    "definition": {
+      "id": "operator-echo",
+      "tabs": [
+        {
+          "value": "a",
+          "label": "Home",
+          "systemImage": "house"
+        },
+        {
+          "value": "b",
+          "label": "Inbox",
+          "systemImage": "tray",
+          "badge": "7"
+        },
+        {
+          "value": "c",
+          "label": "Settings",
+          "systemImage": "gearshape"
+        }
+      ],
+      "selection": "c",
+      "valueKind": "string",
+      "width": 640,
+      "height": 400,
+      "rtl": false,
+      "disabled": false,
+      "parentFont": false,
+      "parentRed": false,
+      "owner": "echo",
+      "fixture": "app-tabs-operator-echo",
+      "api": "BleeckerAppTabBar",
+      "source": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+      "tabWidth": 300,
+      "tabHeight": null
+    }
+  },
+  {
+    "name": "echo-inbox",
+    "control": "tab-b",
+    "scaleBefore": 1,
+    "dark": false,
+    "textScale": 1,
+    "selection": "b",
+    "pending": null,
+    "definition": {
+      "id": "operator-echo-inbox",
+      "tabs": [
+        {
+          "value": "a",
+          "label": "Home",
+          "systemImage": "house"
+        },
+        {
+          "value": "b",
+          "label": "Inbox",
+          "systemImage": "tray",
+          "badge": "7"
+        },
+        {
+          "value": "c",
+          "label": "Settings",
+          "systemImage": "gearshape"
+        }
+      ],
+      "selection": "b",
+      "valueKind": "string",
+      "width": 640,
+      "height": 400,
+      "rtl": false,
+      "disabled": false,
+      "parentFont": false,
+      "parentRed": false,
+      "owner": "echo",
+      "fixture": "app-tabs-operator-echo-inbox",
+      "api": "BleeckerAppTabBar",
+      "source": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+      "tabWidth": 300,
+      "tabHeight": null
+    }
+  },
+  {
+    "name": "reverse",
+    "control": "reorder",
+    "scaleBefore": 1,
+    "dark": false,
+    "textScale": 1,
+    "selection": "b",
+    "pending": null,
+    "definition": {
+      "id": "operator-reverse",
+      "tabs": [
+        {
+          "value": "c",
+          "label": "Settings",
+          "systemImage": "gearshape"
+        },
+        {
+          "value": "b",
+          "label": "Inbox",
+          "systemImage": "tray",
+          "badge": "7"
+        },
+        {
+          "value": "a",
+          "label": "Home",
+          "systemImage": "house"
+        }
+      ],
+      "selection": "b",
+      "valueKind": "string",
+      "width": 640,
+      "height": 400,
+      "rtl": false,
+      "disabled": false,
+      "parentFont": false,
+      "parentRed": false,
+      "owner": "echo",
+      "fixture": "app-tabs-operator-reverse",
+      "api": "BleeckerAppTabBar",
+      "source": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+      "tabWidth": 300,
+      "tabHeight": null
+    }
+  },
+  {
+    "name": "badges",
+    "control": "badges",
+    "scaleBefore": 1,
+    "dark": false,
+    "textScale": 1,
+    "selection": "b",
+    "pending": null,
+    "definition": {
+      "id": "operator-badges",
+      "tabs": [
+        {
+          "value": "c",
+          "label": "Settings",
+          "systemImage": "gearshape",
+          "badge": "100"
+        },
+        {
+          "value": "b",
+          "label": "Inbox",
+          "systemImage": "tray",
+          "badge": "100"
+        },
+        {
+          "value": "a",
+          "label": "Home",
+          "systemImage": "house",
+          "badge": "100"
+        }
+      ],
+      "selection": "b",
+      "valueKind": "string",
+      "width": 640,
+      "height": 400,
+      "rtl": false,
+      "disabled": false,
+      "parentFont": false,
+      "parentRed": false,
+      "owner": "echo",
+      "fixture": "app-tabs-operator-badges",
+      "api": "BleeckerAppTabBar",
+      "source": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+      "tabWidth": 300,
+      "tabHeight": null
+    }
+  },
+  {
+    "name": "narrow",
+    "control": "width",
+    "scaleBefore": 1,
+    "dark": false,
+    "textScale": 1,
+    "selection": "b",
+    "pending": null,
+    "definition": {
+      "id": "operator-narrow",
+      "tabs": [
+        {
+          "value": "c",
+          "label": "Settings",
+          "systemImage": "gearshape",
+          "badge": "100"
+        },
+        {
+          "value": "b",
+          "label": "Inbox",
+          "systemImage": "tray",
+          "badge": "100"
+        },
+        {
+          "value": "a",
+          "label": "Home",
+          "systemImage": "house",
+          "badge": "100"
+        }
+      ],
+      "selection": "b",
+      "valueKind": "string",
+      "width": 640,
+      "height": 400,
+      "rtl": false,
+      "disabled": false,
+      "parentFont": false,
+      "parentRed": false,
+      "owner": "echo",
+      "fixture": "app-tabs-operator-narrow",
+      "api": "BleeckerAppTabBar",
+      "source": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+      "tabWidth": 30,
+      "tabHeight": null
+    }
+  },
+  {
+    "name": "rtl",
+    "control": "rtl",
+    "scaleBefore": 1,
+    "dark": false,
+    "textScale": 1,
+    "selection": "b",
+    "pending": null,
+    "definition": {
+      "id": "operator-rtl",
+      "tabs": [
+        {
+          "value": "c",
+          "label": "Settings",
+          "systemImage": "gearshape",
+          "badge": "100"
+        },
+        {
+          "value": "b",
+          "label": "Inbox",
+          "systemImage": "tray",
+          "badge": "100"
+        },
+        {
+          "value": "a",
+          "label": "Home",
+          "systemImage": "house",
+          "badge": "100"
+        }
+      ],
+      "selection": "b",
+      "valueKind": "string",
+      "width": 640,
+      "height": 400,
+      "rtl": true,
+      "disabled": false,
+      "parentFont": false,
+      "parentRed": false,
+      "owner": "echo",
+      "fixture": "app-tabs-operator-rtl",
+      "api": "BleeckerAppTabBar",
+      "source": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+      "tabWidth": 30,
+      "tabHeight": null
+    }
+  },
+  {
+    "name": "dark",
+    "control": "theme",
+    "scaleBefore": 1,
+    "dark": true,
+    "textScale": 1,
+    "selection": "b",
+    "pending": null,
+    "definition": {
+      "id": "operator-dark",
+      "tabs": [
+        {
+          "value": "c",
+          "label": "Settings",
+          "systemImage": "gearshape",
+          "badge": "100"
+        },
+        {
+          "value": "b",
+          "label": "Inbox",
+          "systemImage": "tray",
+          "badge": "100"
+        },
+        {
+          "value": "a",
+          "label": "Home",
+          "systemImage": "house",
+          "badge": "100"
+        }
+      ],
+      "selection": "b",
+      "valueKind": "string",
+      "width": 640,
+      "height": 400,
+      "rtl": true,
+      "disabled": false,
+      "parentFont": false,
+      "parentRed": false,
+      "owner": "echo",
+      "fixture": "app-tabs-operator-dark",
+      "api": "BleeckerAppTabBar",
+      "source": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+      "tabWidth": 30,
+      "tabHeight": null
+    }
+  },
+  {
+    "name": "scaled",
+    "control": "scale",
+    "scaleBefore": 1,
+    "dark": true,
+    "textScale": 1.5,
+    "selection": "b",
+    "pending": null,
+    "definition": {
+      "id": "operator-scaled",
+      "tabs": [
+        {
+          "value": "c",
+          "label": "Settings",
+          "systemImage": "gearshape",
+          "badge": "100"
+        },
+        {
+          "value": "b",
+          "label": "Inbox",
+          "systemImage": "tray",
+          "badge": "100"
+        },
+        {
+          "value": "a",
+          "label": "Home",
+          "systemImage": "house",
+          "badge": "100"
+        }
+      ],
+      "selection": "b",
+      "valueKind": "string",
+      "width": 640,
+      "height": 400,
+      "rtl": true,
+      "disabled": false,
+      "parentFont": false,
+      "parentRed": false,
+      "owner": "echo",
+      "fixture": "app-tabs-operator-scaled",
+      "api": "BleeckerAppTabBar",
+      "source": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+      "tabWidth": 30,
+      "tabHeight": null
+    }
+  },
+  {
+    "name": "disabled",
+    "control": "disabled",
+    "scaleBefore": 1.5,
+    "dark": true,
+    "textScale": 1.5,
+    "selection": "b",
+    "pending": null,
+    "definition": {
+      "id": "operator-disabled",
+      "tabs": [
+        {
+          "value": "c",
+          "label": "Settings",
+          "systemImage": "gearshape",
+          "badge": "100"
+        },
+        {
+          "value": "b",
+          "label": "Inbox",
+          "systemImage": "tray",
+          "badge": "100"
+        },
+        {
+          "value": "a",
+          "label": "Home",
+          "systemImage": "house",
+          "badge": "100"
+        }
+      ],
+      "selection": "b",
+      "valueKind": "string",
+      "width": 640,
+      "height": 400,
+      "rtl": true,
+      "disabled": true,
+      "parentFont": false,
+      "parentRed": false,
+      "owner": "echo",
+      "fixture": "app-tabs-operator-disabled",
+      "api": "BleeckerAppTabBar",
+      "source": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+      "tabWidth": 30,
+      "tabHeight": null
+    }
+  },
+  {
+    "name": "disabled-home",
+    "control": "tab-a",
+    "scaleBefore": 1.5,
+    "dark": true,
+    "textScale": 1.5,
+    "selection": "b",
+    "pending": null,
+    "definition": {
+      "id": "operator-disabled-home",
+      "tabs": [
+        {
+          "value": "c",
+          "label": "Settings",
+          "systemImage": "gearshape",
+          "badge": "100"
+        },
+        {
+          "value": "b",
+          "label": "Inbox",
+          "systemImage": "tray",
+          "badge": "100"
+        },
+        {
+          "value": "a",
+          "label": "Home",
+          "systemImage": "house",
+          "badge": "100"
+        }
+      ],
+      "selection": "b",
+      "valueKind": "string",
+      "width": 640,
+      "height": 400,
+      "rtl": true,
+      "disabled": true,
+      "parentFont": false,
+      "parentRed": false,
+      "owner": "echo",
+      "fixture": "app-tabs-operator-disabled-home",
+      "api": "BleeckerAppTabBar",
+      "source": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+      "tabWidth": 30,
+      "tabHeight": null
+    }
+  },
+  {
+    "name": "enabled",
+    "control": "disabled",
+    "scaleBefore": 1.5,
+    "dark": true,
+    "textScale": 1.5,
+    "selection": "b",
+    "pending": null,
+    "definition": {
+      "id": "operator-enabled",
+      "tabs": [
+        {
+          "value": "c",
+          "label": "Settings",
+          "systemImage": "gearshape",
+          "badge": "100"
+        },
+        {
+          "value": "b",
+          "label": "Inbox",
+          "systemImage": "tray",
+          "badge": "100"
+        },
+        {
+          "value": "a",
+          "label": "Home",
+          "systemImage": "house",
+          "badge": "100"
+        }
+      ],
+      "selection": "b",
+      "valueKind": "string",
+      "width": 640,
+      "height": 400,
+      "rtl": true,
+      "disabled": false,
+      "parentFont": false,
+      "parentRed": false,
+      "owner": "echo",
+      "fixture": "app-tabs-operator-enabled",
+      "api": "BleeckerAppTabBar",
+      "source": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+      "tabWidth": 30,
+      "tabHeight": null
+    }
+  },
+  {
+    "name": "empty",
+    "control": "empty",
+    "scaleBefore": 1.5,
+    "dark": true,
+    "textScale": 1.5,
+    "selection": "b",
+    "pending": null,
+    "definition": {
+      "id": "operator-empty",
+      "tabs": [],
+      "selection": "b",
+      "valueKind": "string",
+      "width": 640,
+      "height": 400,
+      "rtl": true,
+      "disabled": false,
+      "parentFont": false,
+      "parentRed": false,
+      "owner": "echo",
+      "fixture": "app-tabs-operator-empty",
+      "api": "BleeckerAppTabBar",
+      "source": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+      "tabWidth": 30,
+      "tabHeight": null
+    }
+  },
+  {
+    "name": "restore",
+    "control": "empty",
+    "scaleBefore": 1.5,
+    "dark": true,
+    "textScale": 1.5,
+    "selection": "b",
+    "pending": null,
+    "definition": {
+      "id": "operator-restore",
+      "tabs": [
+        {
+          "value": "a",
+          "label": "Home",
+          "systemImage": "house"
+        },
+        {
+          "value": "b",
+          "label": "Inbox",
+          "systemImage": "tray",
+          "badge": "7"
+        },
+        {
+          "value": "c",
+          "label": "Settings",
+          "systemImage": "gearshape"
+        }
+      ],
+      "selection": "b",
+      "valueKind": "string",
+      "width": 640,
+      "height": 400,
+      "rtl": true,
+      "disabled": false,
+      "parentFont": false,
+      "parentRed": false,
+      "owner": "echo",
+      "fixture": "app-tabs-operator-restore",
+      "api": "BleeckerAppTabBar",
+      "source": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+      "tabWidth": 30,
+      "tabHeight": null
+    }
+  },
+  {
+    "name": "width150",
+    "control": "width",
+    "scaleBefore": 1.5,
+    "dark": true,
+    "textScale": 1.5,
+    "selection": "b",
+    "pending": null,
+    "definition": {
+      "id": "operator-width150",
+      "tabs": [
+        {
+          "value": "a",
+          "label": "Home",
+          "systemImage": "house"
+        },
+        {
+          "value": "b",
+          "label": "Inbox",
+          "systemImage": "tray",
+          "badge": "7"
+        },
+        {
+          "value": "c",
+          "label": "Settings",
+          "systemImage": "gearshape"
+        }
+      ],
+      "selection": "b",
+      "valueKind": "string",
+      "width": 640,
+      "height": 400,
+      "rtl": true,
+      "disabled": false,
+      "parentFont": false,
+      "parentRed": false,
+      "owner": "echo",
+      "fixture": "app-tabs-operator-width150",
+      "api": "BleeckerAppTabBar",
+      "source": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+      "tabWidth": 150,
+      "tabHeight": null
+    }
+  },
+  {
+    "name": "width300",
+    "control": "width",
+    "scaleBefore": 1.5,
+    "dark": true,
+    "textScale": 1.5,
+    "selection": "b",
+    "pending": null,
+    "definition": {
+      "id": "operator-width300",
+      "tabs": [
+        {
+          "value": "a",
+          "label": "Home",
+          "systemImage": "house"
+        },
+        {
+          "value": "b",
+          "label": "Inbox",
+          "systemImage": "tray",
+          "badge": "7"
+        },
+        {
+          "value": "c",
+          "label": "Settings",
+          "systemImage": "gearshape"
+        }
+      ],
+      "selection": "b",
+      "valueKind": "string",
+      "width": 640,
+      "height": 400,
+      "rtl": true,
+      "disabled": false,
+      "parentFont": false,
+      "parentRed": false,
+      "owner": "echo",
+      "fixture": "app-tabs-operator-width300",
+      "api": "BleeckerAppTabBar",
+      "source": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+      "tabWidth": 300,
+      "tabHeight": null
+    }
+  },
+  {
+    "name": "ltr",
+    "control": "rtl",
+    "scaleBefore": 1.5,
+    "dark": true,
+    "textScale": 1.5,
+    "selection": "b",
+    "pending": null,
+    "definition": {
+      "id": "operator-ltr",
+      "tabs": [
+        {
+          "value": "a",
+          "label": "Home",
+          "systemImage": "house"
+        },
+        {
+          "value": "b",
+          "label": "Inbox",
+          "systemImage": "tray",
+          "badge": "7"
+        },
+        {
+          "value": "c",
+          "label": "Settings",
+          "systemImage": "gearshape"
+        }
+      ],
+      "selection": "b",
+      "valueKind": "string",
+      "width": 640,
+      "height": 400,
+      "rtl": false,
+      "disabled": false,
+      "parentFont": false,
+      "parentRed": false,
+      "owner": "echo",
+      "fixture": "app-tabs-operator-ltr",
+      "api": "BleeckerAppTabBar",
+      "source": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+      "tabWidth": 300,
+      "tabHeight": null
+    }
+  },
+  {
+    "name": "light",
+    "control": "theme",
+    "scaleBefore": 1.5,
+    "dark": false,
+    "textScale": 1.5,
+    "selection": "b",
+    "pending": null,
+    "definition": {
+      "id": "operator-light",
+      "tabs": [
+        {
+          "value": "a",
+          "label": "Home",
+          "systemImage": "house"
+        },
+        {
+          "value": "b",
+          "label": "Inbox",
+          "systemImage": "tray",
+          "badge": "7"
+        },
+        {
+          "value": "c",
+          "label": "Settings",
+          "systemImage": "gearshape"
+        }
+      ],
+      "selection": "b",
+      "valueKind": "string",
+      "width": 640,
+      "height": 400,
+      "rtl": false,
+      "disabled": false,
+      "parentFont": false,
+      "parentRed": false,
+      "owner": "echo",
+      "fixture": "app-tabs-operator-light",
+      "api": "BleeckerAppTabBar",
+      "source": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+      "tabWidth": 300,
+      "tabHeight": null
+    }
+  },
+  {
+    "name": "scale-restored",
+    "control": "scale",
+    "scaleBefore": 1.5,
+    "dark": false,
+    "textScale": 1,
+    "selection": "b",
+    "pending": null,
+    "definition": {
+      "id": "operator-scale-restored",
+      "tabs": [
+        {
+          "value": "a",
+          "label": "Home",
+          "systemImage": "house"
+        },
+        {
+          "value": "b",
+          "label": "Inbox",
+          "systemImage": "tray",
+          "badge": "7"
+        },
+        {
+          "value": "c",
+          "label": "Settings",
+          "systemImage": "gearshape"
+        }
+      ],
+      "selection": "b",
+      "valueKind": "string",
+      "width": 640,
+      "height": 400,
+      "rtl": false,
+      "disabled": false,
+      "parentFont": false,
+      "parentRed": false,
+      "owner": "echo",
+      "fixture": "app-tabs-operator-scale-restored",
+      "api": "BleeckerAppTabBar",
+      "source": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+      "tabWidth": 300,
+      "tabHeight": null
+    }
+  }
+]

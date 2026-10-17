@@ -1,0 +1,44 @@
+[1/134] Copying InstalledConsumer qml sources into build dir
+[2/134] Running qmlimportscanner for InstalledConsumer
+[3/134] Automatic MOC and UIC for target InstalledConsumer
+[4/133] Running AUTOMOC file extraction for target InstalledConsumer
+[5/133] Running moc --collect-json for target InstalledConsumer
+[6/13] Running rcc for resource InstalledConsumer_raw_qml_0
+[7/13] Generating .rcc/qmlcache/InstalledConsumer_AppTabGlyph_qml.cpp, .rcc/qmlcache/InstalledConsumer_AppTabGlyph_qml.cpp.aotstats
+[8/13] Generating .rcc/qmlcache/InstalledConsumer_apptabfixturemetrics_js.cpp
+[9/13] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_AppTabGlyph_qml.cpp.o
+[10/13] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_apptabfixturemetrics_js.cpp.o
+[11/13] Building CXX object CMakeFiles/InstalledConsumer.dir/.qt/rcc/qrc_InstalledConsumer_raw_qml_0.cpp.o
+[12/13] Building CXX object CMakeFiles/InstalledConsumer.dir/main.cpp.o
+In file included from /package/consumer/main.cpp:35:
+/package/consumer/tabschecks.h: In function ‘void runTabsConsumer(QQuickWindow*, QGuiApplication&, const QCommandLineParser&, double)’:
+/package/consumer/tabschecks.h:13:75: warning: format ‘%d’ expects argument of type ‘int’, but argument 7 has type ‘long long unsigned int’ [-Wformat=]
+   13 |     qInfo("Tabs interface: present=%d role=%d name=%s action=%d disabled=%d",bool(accessible),accessible ? int(accessible->role()) : -1,accessible ? qPrintable(accessible->text(QAccessible::Name)) : "missing",bool(accessible && accessible->actionInterface()),middleAccessible ? middleAccessible->state().disabled : -1);
+      |                                                                          ~^                                                                                                                                                                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                                           |                                                                                                                                                                                                         |
+      |                                                                           int                                                                                                                                                                                                       long long unsigned int
+      |                                                                          %lld
+/package/consumer/main.cpp: In function ‘void runCheckboxConsumer(QQuickWindow*, QGuiApplication&, const QCommandLineParser&, double)’:
+/package/consumer/main.cpp:75:86: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long long unsigned int’ [-Wformat=]
+   75 |         qCritical("Installed checkbox accessibility: interface=%d role=%d checkable=%d checked=%d name=%s",
+      |                                                                                     ~^
+      |                                                                                      |
+      |                                                                                      int
+      |                                                                                     %lld
+   76 |             accessible!=nullptr, accessible ? int(accessible->role()) : -1,
+   77 |             accessible ? accessible->state().checkable : -1,
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~                           
+      |                        |
+      |                        long long unsigned int
+/package/consumer/main.cpp:75:97: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘long long unsigned int’ [-Wformat=]
+   75 |         qCritical("Installed checkbox accessibility: interface=%d role=%d checkable=%d checked=%d name=%s",
+      |                                                                                                ~^
+      |                                                                                                 |
+      |                                                                                                 int
+      |                                                                                                %lld
+......
+   78 |             accessible ? accessible->state().checked : -1,
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~                                        
+      |                        |
+      |                        long long unsigned int
+[13/13] Linking CXX executable InstalledConsumer

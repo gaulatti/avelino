@@ -54,6 +54,7 @@ jobs:
       - run: python3 scripts/verify-charts-source.py
       - run: python3 scripts/verify-media-library-source.py
       - run: python3 scripts/verify-app-tabs-source.py
+      - run: python3 scripts/verify-app-tabs-candidate.py
       - run: python3 scripts/generate-app-tabs-witnesses.py --check
       - run: python3 scripts/generate-media-library-witnesses.py --check
       - run: python3 scripts/verify-pill-modifier-candidate.py

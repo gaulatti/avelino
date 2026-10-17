@@ -1,0 +1,7 @@
+# AppTabBar Linux candidate
+
+All 1,208 native/candidate pairs remain in strict comparison: 1,208 state observations and 940 frame sets agree; 56 empty-state images match exactly. All 48 retained restore images reproduce their initial candidate pixels. All 5,160 public sizing responses are retained, with Linux direct sizing still unobserved.
+
+The module passes 17 focused checks at DPR 1 and 2, 34 full Qt targets, one additional catalog target, 18 malformed configurations, 43 isolated catalog definitions and 26 refusals. All 35 installed modes and 143 catalog captures run from the installed package. All 139 prior PNGs and full metadata remain unchanged. Eight virtual X11/Wayland profiles pass structural checks using software rendering; 42/48 virtual restores match. All six scaled Wayland software restores differ on their bottom pixel row and remain failed. These profiles do not establish physical displays, hardware acceleration or reader acceptance.
+
+Actual XTest gallery input exercises 14 controls through 28 states. Two retained disabled states differ from fresh candidates; their exact failures and repaint diagnostics remain preserved. Native labels, symbols, raster, broader identities, sizing, timing, accessibility, physical displays, readers and independent-machine replay remain pending. Expected images, pins, tolerances and exceptions are unchanged. See [the contract](../../../docs/app-tabs.md) and candidate.json.

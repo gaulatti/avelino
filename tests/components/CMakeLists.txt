@@ -120,3 +120,8 @@ add_test(NAME media-library-invalid-config COMMAND python3 ${CMAKE_CURRENT_SOURC
     $<TARGET_FILE:AvelinoComponentTests> ${CMAKE_BINARY_DIR}/qml)
 add_test(NAME media-library-catalog-metadata COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/check-media-library-catalog.py
     $<TARGET_FILE:AvelinoCatalog> ${CMAKE_BINARY_DIR}/qml ${PROJECT_SOURCE_DIR})
+
+add_test(NAME app-tabs-invalid-config COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/check-invalid-app-tabs.py
+    $<TARGET_FILE:AvelinoComponentTests> ${CMAKE_BINARY_DIR}/qml)
+add_test(NAME app-tabs-catalog-metadata COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/check-app-tabs-catalog.py
+    $<TARGET_FILE:AvelinoCatalog> ${CMAKE_BINARY_DIR}/qml ${PROJECT_SOURCE_DIR})

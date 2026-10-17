@@ -1,0 +1,32 @@
+test_cannot_add_tolerance (test_app_tabs_candidate.AppTabsCandidate.test_cannot_add_tolerance) ... ok
+test_cannot_approve_exception (test_app_tabs_candidate.AppTabsCandidate.test_cannot_approve_exception) ... ok
+test_cannot_change_base (test_app_tabs_candidate.AppTabsCandidate.test_cannot_change_base) ... ok
+test_cannot_change_expected_images (test_app_tabs_candidate.AppTabsCandidate.test_cannot_change_expected_images) ... ok
+test_cannot_change_reference (test_app_tabs_candidate.AppTabsCandidate.test_cannot_change_reference) ... ok
+test_cannot_claim_acceptance (test_app_tabs_candidate.AppTabsCandidate.test_cannot_claim_acceptance) ... ok
+test_cannot_claim_operator_success (test_app_tabs_candidate.AppTabsCandidate.test_cannot_claim_operator_success) ... ok
+test_cannot_claim_physical_display (test_app_tabs_candidate.AppTabsCandidate.test_cannot_claim_physical_display) ... ok
+test_cannot_claim_sizing (test_app_tabs_candidate.AppTabsCandidate.test_cannot_claim_sizing) ... ok
+test_cannot_drop_native_accessibility_gate (test_app_tabs_candidate.AppTabsCandidate.test_cannot_drop_native_accessibility_gate) ... ok
+test_cannot_drop_native_contexts (test_app_tabs_candidate.AppTabsCandidate.test_cannot_drop_native_contexts) ... ok
+test_cannot_drop_retained_raster_gate (test_app_tabs_candidate.AppTabsCandidate.test_cannot_drop_retained_raster_gate) ... ok
+test_cannot_hide_strict_failures (test_app_tabs_candidate.AppTabsCandidate.test_cannot_hide_strict_failures) ... ok
+test_cannot_omit_frozen_producer_input (test_app_tabs_candidate.AppTabsCandidate.test_cannot_omit_frozen_producer_input) ... ok
+test_complete_candidate_recomputes (test_app_tabs_candidate.AppTabsCandidate.test_complete_candidate_recomputes) ... FAIL
+
+======================================================================
+FAIL: test_complete_candidate_recomputes (test_app_tabs_candidate.AppTabsCandidate.test_complete_candidate_recomputes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/gaulatti/source/gaulatti/avelino/tests/contracts/test_app_tabs_candidate.py", line 23, in test_complete_candidate_recomputes
+    candidate.verify()
+    ~~~~~~~~~~~~~~~~^^
+  File "/Users/gaulatti/source/gaulatti/avelino/scripts/verify-app-tabs-candidate.py", line 182, in verify
+    assert row['pointerDeliveries'] == 24 and row['retainedRestores'] == 6
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+----------------------------------------------------------------------
+Ran 15 tests in 13.409s
+
+FAILED (failures=1)

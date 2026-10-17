@@ -31,6 +31,21 @@ public slots:
         if(!interface)qFatal("Tooltip reader check requires an actual Qt accessibility interface");
         return interface->text(QAccessible::Name);
     }
+    QString accessibleValue(QQuickItem *item) {
+        const auto interface=QAccessible::queryAccessibleInterface(item);
+        if(!interface)qFatal("App-tab check requires an actual Qt accessibility interface");
+        return interface->text(QAccessible::Value);
+    }
+    bool accessibleSelected(QQuickItem *item) {
+        const auto interface=QAccessible::queryAccessibleInterface(item);
+        if(!interface)qFatal("App-tab check requires an actual Qt accessibility interface");
+        return interface->state().selected;
+    }
+    void accessiblePress(QQuickItem *item) {
+        const auto interface=QAccessible::queryAccessibleInterface(item);
+        if(!interface ||!interface->actionInterface())qFatal("App-tab check requires an actual Qt action interface");
+        interface->actionInterface()->doAction(QAccessibleActionInterface::pressAction());
+    }
     void clickModalPoint(QQuickItem *item,qreal x,qreal y) {
         if(!item || !item->window() || !item->window()->isVisible())qFatal("Modal pointer test requires a visible owned window");
         auto window=item->window();const auto point=item->mapToScene(QPointF(x,y));

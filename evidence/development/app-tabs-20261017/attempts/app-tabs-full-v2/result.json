@@ -1,0 +1,28 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--rm",
+    "--init",
+    "--ulimit",
+    "core=0",
+    "--name",
+    "avelino-app-tabs-full-v2",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/app-tabs-build-v7/source:/work:ro",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/app-tabs-build-v7:/result:rw",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/app-tabs-build-v7/qt-artifacts:/work/artifacts:rw",
+    "-w",
+    "/work",
+    "avelino-toolchain:data-metrics-qt6.8.3",
+    "bash",
+    "-lc",
+    "QT_SCALE_FACTOR=2 QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software /result/build/tests/components/AvelinoComponentTests -input /work/tests/components/tst_app_tabs.qml -import /result/build/qml && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software ctest --test-dir /result/build -R \"^app-tabs-\" --output-on-failure && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software ctest --test-dir /result/build --output-on-failure"
+  ],
+  "exitCode": 0,
+  "seconds": 1037.2990585840307
+}

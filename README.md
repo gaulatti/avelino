@@ -106,7 +106,7 @@ closed source contexts remain in strict comparison: 76 exact pixel/frame matches
 1,168 frame matches and all produced states matching. Full Qt tests, independent
 packaging, eight virtual display profiles and actual gallery toolbar input pass.
 Native fonts/raster, complete contexts, physical displays and readers remain open.
-Desktop candidate coverage is 72/80; none are accepted.
+Desktop candidate coverage is 73/80; none are accepted.
 
 The [pill candidate](docs/pill-modifier.md) retains a single text caller, fixed mono 9
 font and 7/4 capsule padding, caller formatting and baseline guides. All 2,112
@@ -135,9 +135,12 @@ difference; Linux direct sizing remains unobserved. Fractional/text geometry,
 lazy height estimates, fonts/raster, native input timing,
 physical displays and readers remain pending; no mirror acceptance is claimed.
 
-The [desktop app tab bar reference](docs/app-tabs.md) records compact icon/label
-layout and caller-owned selection before Linux implementation. Native accessibility
-children and focused keyboard behavior remain unobserved. Coverage is unchanged.
+The [desktop app tab bar candidate](docs/app-tabs.md) preserves caller-owned
+selection requests, retained typed identities, integer badges and narrow overflow.
+All 1,208 native state observations agree; 940 frame sets and 56 images match.
+The installed gallery has 26/28 exact operator states, with two retained disabled
+rasters still failed. Native symbols, label fitting, sizing, keyboard timing,
+accessibility, physical displays and readers remain pending.
 
 The [surface modifier](docs/surface-modifier.md) decorates flat callers separately
 and explicit stacks as one caller, preserving caller state, font inheritance and

@@ -1,0 +1,25 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--rm",
+    "--init",
+    "--ulimit",
+    "core=0",
+    "--name",
+    "avelino-app-tabs-runtime-v2",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/app-tabs-runtime-v2:/package:rw",
+    "-w",
+    "/package",
+    "avelino-toolchain:clipping-qt6.8.3",
+    "bash",
+    "-lc",
+    "python3 collect-environment.py && bash replay.sh"
+  ],
+  "exitCode": 0,
+  "seconds": 126.0418867910048,
+  "expectedSessions": 8
+}

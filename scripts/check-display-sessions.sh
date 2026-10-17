@@ -63,7 +63,7 @@ INI
   fi
   for backend in software opengl; do
     for configuration in standard scaled; do
-    for fixture in base controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper radio-group otp-input activity-item modal tooltip button-style font-modifier surface-modifier surface-baseline surface-input pill-modifier charts media-library; do
+    for fixture in base controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper radio-group otp-input activity-item modal tooltip button-style font-modifier surface-modifier surface-baseline surface-input pill-modifier charts media-library app-tabs; do
       prefix="$evidence/$protocol-$backend-$configuration"
       if [[ "$fixture" == controls ]]; then prefix="$evidence/controls-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == composition ]]; then prefix="$evidence/composition-$protocol-$backend-$configuration"; fi
@@ -82,6 +82,7 @@ INI
       if [[ "$fixture" == surface-modifier ]]; then prefix="$evidence/surface-modifier-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == pill-modifier ]]; then prefix="$evidence/pill-modifier-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == media-library ]]; then prefix="$evidence/media-library-$protocol-$backend-$configuration"; fi
+      if [[ "$fixture" == app-tabs ]]; then prefix="$evidence/app-tabs-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == charts ]]; then prefix="$evidence/charts-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == font-modifier ]]; then prefix="$evidence/font-modifier-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == button-style ]]; then prefix="$evidence/button-style-$protocol-$backend-$configuration"; fi
@@ -115,6 +116,7 @@ INI
       if [[ "$fixture" == surface-modifier ]]; then args+=(--surface-modifier); fi
       if [[ "$fixture" == pill-modifier ]]; then args+=(--pill-modifier --pill-observe); fi
       if [[ "$fixture" == media-library ]]; then args+=(--media-library --media-library-observe); fi
+      if [[ "$fixture" == app-tabs ]]; then args+=(--app-tabs --app-tabs-observe); fi
       if [[ "$fixture" == charts ]]; then args+=(--charts --charts-observe); fi
       if [[ "$fixture" == font-modifier ]]; then args+=(--font-modifier); fi
       if [[ "$fixture" == button-style ]]; then args+=(--button-style); fi
@@ -213,6 +215,14 @@ elif fixture in ['surface-baseline','surface-input']:
     assert record['nativeComparisonStatus'] in ['passed','failed'],record
     assert len(record['rows'])==(55 if fixture=='surface-baseline' else 36),record
     assert record['physicalInputAcceptance']==record['readerAcceptance']==record['rasterAcceptance']=='pending',record
+elif fixture == 'app-tabs':
+    assert record['structuralChecks']=='passed' and record['accepted'] is False,record
+    assert len(record['closed'])==43 and len(record['histories'])==6 and len(record['sizing'])==43 and record['images']==151,record
+    assert record['pointerDeliveries']==24 and record['stateMatches']==151 and record['qtButtonInterfaces']>0,record
+    assert all(len(h['steps'])==18 for h in record['histories']),record
+    assert record['retainedRestores']==sum(h['steps'][16]['matchesInitialPixels'] for h in record['histories']),record
+    assert record['nativeRasterAcceptance']==record['physicalInputAcceptance']==record['readerAcceptance']=='pending',record
+    assert record['nativeAccessibilityAcceptance']=='unobserved',record
 elif fixture == 'media-library':
     assert record['structuralChecks']=='passed' and record['accepted'] is False,record
     assert len(record['closed'])==62 and len(record['edges'])==14 and len(record['histories'])==6 and record['images']==201,record

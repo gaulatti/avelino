@@ -42,6 +42,14 @@ requested-scale, tiny-frame, RTL-category and long-legend inputs through the
 installed catalog. Its separate strict CI comparison retains native fractional
 font/layout/raster differences; actual native backing scale stays two.
 
+The [AppTabBar candidate](app-tabs.md#linux-candidate-api) adds the 35th installed
+consumer mode and `--fixture app-tabs`. Its 1,208 closed/history comparisons keep
+all native differences visible. The gallery exercises caller-owned selection,
+delayed acknowledgement, reorder, empty/restore, widths, badges, disabled state,
+RTL, appearance and text scale. Eight focused virtual profiles are recorded
+separately from physical displays and readers. Two retained disabled gallery
+states still differ from fresh instances and remain failed.
+
 Every Linux capture links an environment record with source revision, dirty-tree
 state, exact source/resource hashes, compiler, Qt, CMake, and installed package
 versions. The image metadata also records the actual renderer API and resolved
@@ -64,8 +72,8 @@ Each configuration runs the base fixture, `--controls`, `--composition`,
 `--selection`, `--checkbox`, `--secure-field`, `--search-field`, `--collection-filters`, `--slider`, `--tabs`, `--pagination`, `--pagination-integers`, `--accordion`, `--presentation-states`, `--spinner`, `--alert`, `--clipping`, `--navigation`, `--sidebar-brand` and
 `--data-metrics`, `--stepper`, `--radio-group`, `--otp-input`, `--activity-item`,
 `--modal`, `--tooltip`, `--button-style`, `--font-modifier`, `--surface-modifier`,
-`--surface-baseline`, `--surface-input`, `--pill-modifier` and `--charts`
-independently. The configured matrix has 264
+`--surface-baseline`, `--surface-input`, `--pill-modifier`, `--charts`,
+`--media-library` and `--app-tabs` independently. The configured matrix has 280
 parent-window/full-output pairs; Modal and Tooltip also record their separate
 popup windows in each configuration. The harness reports live producers every
 30 seconds while waiting for their evidence; it does not kill them after a fixed
@@ -73,7 +81,7 @@ poll count. Producer exit without metadata still reports the actual exit status
 and fails. Consumer assertions and the CI runner's job deadline remain in effect.
 The catalog galleries are `--fixture foundations`, `surfaces`, `data-display`,
 `controls`, `composition`, `selection`, `checkbox`, `secure-field`, `search-field`, `collection-filters`, `slider`, `tabs`, `pagination`, `pagination-integers`, `accordion`, `presentation-states`, `spinner`, `alert`, `clipping`, `navigation`, `sidebar-brand`, `data-metrics`, `stepper`, `radio-group`, `otp-input`, `activity-item`, `modal`, `tooltip`, `button-style`, `font-modifier`, `surface-modifier`,
-`pill-modifier` and `charts`; their native
+`pill-modifier`, `charts`, `media-library` and `app-tabs`; their native
 comparisons remain pending.
 
 The [ActivityItem fixture](activity-item.md#linux-candidate) checks caller-owned

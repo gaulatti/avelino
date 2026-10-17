@@ -1,0 +1,39 @@
+********* Start testing of avelino *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : avelino::AppTabBar::initTestCase()
+PASS   : avelino::AppTabBar::test_actualAccessibility()
+PASS   : avelino::AppTabBar::test_badgePaintOffset(ltr)
+PASS   : avelino::AppTabBar::test_badgePaintOffset(rtl)
+PASS   : avelino::AppTabBar::test_boundOwners(echo)
+PASS   : avelino::AppTabBar::test_boundOwners(observe)
+PASS   : avelino::AppTabBar::test_boundOwners(delayed)
+PASS   : avelino::AppTabBar::test_boundOwners(redirect)
+PASS   : avelino::AppTabBar::test_canonicalAndTypedValues()
+PASS   : avelino::AppTabBar::test_disabledAndUnmatched()
+PASS   : avelino::AppTabBar::test_exactBadgesAndLabels()
+PASS   : avelino::AppTabBar::test_keyboard()
+PASS   : avelino::AppTabBar::test_requestOnlyAndReselection()
+PASS   : avelino::AppTabBar::test_retainedReorderAndEmpty()
+PASS   : avelino::AppTabBar::test_unspecifiedWidthKeepsNaturalCells()
+PASS   : avelino::AppTabBar::test_widthAndRtl()
+PASS   : avelino::AppTabBar::cleanupTestCase()
+Totals: 17 passed, 0 failed, 0 skipped, 0 blacklisted, 3054ms
+********* Finished testing of avelino *********
+Internal ctest changing into directory: /result/build
+Test project /result/build
+    Start 34: app-tabs-invalid-config
+1/1 Test #34: app-tabs-invalid-config ..........***Failed   13.00 sec
+Traceback (most recent call last):
+  File "/work/tests/components/check-invalid-app-tabs.py", line 41, in <module>
+    assert result.returncode != 0 and 'AppTabBar' in log, (index, result.returncode, log)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (15, 1, "********* Start testing of avelino *********\nConfig: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04\nQWARN  : avelino::tst_invalid_15::compile() \n  /tmp/avelino-app-tabs-invalid-oo_3nuu1/tst_invalid_15.qml produced 1 error(s):\n    /tmp/avelino-app-tabs-invalid-oo_3nuu1/tst_invalid_15.qml:4,133: Unexpected token `;'\n  Working directory: /result/build/tests/components\n  Import paths:\n    '/result/build/qml'\n    '/result/build/tests/components'\n    'qrc:/qt-project.org/imports'\n    'qrc:/qt/qml'\n    '/opt/Qt/6.8.3/gcc_arm64/qml'\n  Plugin paths:\n    '.'\n\nFAIL!  : avelino::tst_invalid_15::compile() Unexpected token `;'\n   Loc: [/tmp/avelino-app-tabs-invalid-oo_3nuu1/tst_invalid_15.qml(4)]\nTotals: 0 passed, 1 failed, 0 skipped, 0 blacklisted, 203ms\n********* Finished testing of avelino *********\n")
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =  13.01 sec
+
+The following tests FAILED:
+	 34 - app-tabs-invalid-config (Failed)
+Errors while running CTest

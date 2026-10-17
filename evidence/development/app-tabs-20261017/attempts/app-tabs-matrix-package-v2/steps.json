@@ -1,0 +1,70 @@
+[
+  {
+    "command": [
+      "cmake",
+      "-S",
+      "consumer",
+      "-B",
+      "consumer-build",
+      "-G",
+      "Ninja",
+      "-DCMAKE_PREFIX_PATH=/package/install;/opt/qt"
+    ],
+    "exitCode": 0,
+    "expectedExitCode": 0,
+    "seconds": 0.5068757119952352,
+    "log": "0.log"
+  },
+  {
+    "command": [
+      "cmake",
+      "--build",
+      "consumer-build",
+      "--parallel",
+      "2"
+    ],
+    "exitCode": 0,
+    "expectedExitCode": 0,
+    "seconds": 6.987328349001473,
+    "log": "1.log"
+  },
+  {
+    "command": [
+      "python3",
+      "driver/scripts/capture-app-tabs.py",
+      "consumer-build/InstalledConsumer",
+      "captures",
+      "--jobs",
+      "2"
+    ],
+    "exitCode": 0,
+    "expectedExitCode": 0,
+    "seconds": 35.026649918996554,
+    "log": "2.log"
+  },
+  {
+    "command": [
+      "consumer-build/InstalledConsumer",
+      "--app-tabs",
+      "--app-tabs-report",
+      "/package/strict"
+    ],
+    "exitCode": 1,
+    "expectedExitCode": 1,
+    "seconds": 6.187547317997087,
+    "log": "3.log"
+  },
+  {
+    "command": [
+      "install/bin/AvelinoCatalog",
+      "--fixture",
+      "app-tabs",
+      "--capture",
+      "/package/gallery.png"
+    ],
+    "exitCode": 0,
+    "expectedExitCode": 0,
+    "seconds": 0.8274565120009356,
+    "log": "4.log"
+  }
+]

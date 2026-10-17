@@ -115,6 +115,13 @@ qint64 stepperSubtract(qint64 value, qint64 step) {
 }
 }
 
+QVariantMap BleeckerValueTools::appTabBadge(const QVariant &input) const {
+    const auto value=signedInteger(input,"AppTabBar badge");
+    const auto raw=QString::number(value);
+    return {{"visible",value>0},{"text",value>0 ? (value>99 ? QStringLiteral("99+"):raw):QString()},
+        {"accessibilityValue",raw+QStringLiteral(" notifications")}};
+}
+
 QVariantMap BleeckerValueTools::pagination(const QVariant &pageValue,const QVariant &countValue,const QLocale &locale) const {
     const auto page=signedInteger(pageValue,"Pagination"),count=signedInteger(countValue,"Pagination");
     const bool previous=page>1,next=page<count;

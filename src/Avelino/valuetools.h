@@ -22,6 +22,7 @@ public:
                                    const QVariant &step, const QVariant &offset, const QLocale &locale) const;
     Q_INVOKABLE QVariant stepperRequest(const QVariant &value, const QVariant &lower, const QVariant &upper,
                                        const QVariant &step, bool increment) const;
+    Q_INVOKABLE QVariantMap appTabBadge(const QVariant &value) const;
     Q_INVOKABLE void select(QObject *control, const QVariant &value) const;
     Q_INVOKABLE void setValue(QObject *control, qreal value) const;
     Q_INVOKABLE void moveSlider(QObject *control, qreal value) const;

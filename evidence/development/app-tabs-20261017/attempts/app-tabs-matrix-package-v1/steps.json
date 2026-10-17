@@ -1,0 +1,31 @@
+[
+  {
+    "command": [
+      "cmake",
+      "-S",
+      "consumer",
+      "-B",
+      "consumer-build",
+      "-G",
+      "Ninja",
+      "-DCMAKE_PREFIX_PATH=/package/install;/opt/qt"
+    ],
+    "exitCode": 0,
+    "expectedExitCode": 0,
+    "seconds": 0.4813548339952831,
+    "log": "0.log"
+  },
+  {
+    "command": [
+      "cmake",
+      "--build",
+      "consumer-build",
+      "--parallel",
+      "2"
+    ],
+    "exitCode": 1,
+    "expectedExitCode": 0,
+    "seconds": 3.135949409006571,
+    "log": "1.log"
+  }
+]

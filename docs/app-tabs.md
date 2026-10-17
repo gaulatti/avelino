@@ -4,8 +4,8 @@ The pinned `Mobile.swift:87` implements `BleeckerAppTabBar` as a compact row of
 native plain buttons on macOS. It is separate from the segmented `BleeckerTabs`
 and from `BleeckerMobileAppShell`, which uses a toolbar picker on macOS. The
 [reference investigation](../evidence/reference-investigations/app-tabs-20261017/investigation.json)
-is source evidence; the Linux component remains pending. Desktop candidate
-coverage stays 72/80, with zero APIs fully accepted.
+is source evidence for the Linux candidate now under verification. Desktop
+candidate coverage is 73/80, with zero APIs fully accepted.
 
 All 344 closed contexts and 864 retained history steps have identical public,
 probed and literal-body pixels. All 344 sizing contexts agree across the three
@@ -62,7 +62,9 @@ The complete closed matrix also records 24 exact hidden-badge pairs, eight
 `99+` cap pairs, 16 inherited font/color pairs and 172 text-scale pairs. The custom
 Bleecker text-scale key does not change this public component's pixels: its fonts
 use direct sizes. RTL reverses button placement and resolves the badge overlay
-alignment; the literal horizontal offset remains positive ten.
+alignment. Its logical horizontal offset of ten paints to the left in RTL. The
+badge frame probe reports the layout box before the `(10, -7)` paint transform,
+so that frame and the capsule's painted bounds must remain separate.
 
 The closed definitions also instantiate native `Bool` and a custom `Hashable`
 record type. They cover empty data, count and width changes, caller height,
@@ -84,7 +86,104 @@ inputs. Independent-machine availability remains pending. Run
 `python3 scripts/verify-app-tabs-source.py` to audit the sealed observations;
 References CI runs the same audit. This does not execute a macOS build on Linux.
 
-Linux implementation, label fitting, exact system symbols/fonts/raster, broader
+Label fitting, exact system symbols/fonts/raster, broader
 identity and duplicate-ID behavior, keyboard/input timing, native accessibility,
 physical display/input and reader checks remain separate acceptance gates.
 TV rendering and playback remain a later phase requiring selected Linux hardware.
+
+
+# Linux candidate API
+
+`BleeckerAppTabBar` takes `selection`, a `tabs` array and a required caller-owned
+`icon: Component`. Each tab retains the source fields `value`, `label`,
+`systemImage`, optional `badge`, optional `accessibilityLabel` and `disabled`.
+The bar emits `selectionRequested(value)` for every enabled activation, including
+reselection; the caller owns the resulting selection. This preserves observe-only,
+delayed and redirecting bindings without a local selection write.
+
+```qml
+BleeckerAppTabBar {
+    width: 300
+    selection: model.currentTab
+    tabs: [{value: "home", label: "Home", systemImage: "house", badge: "7"}]
+    icon: Component {
+        MyApplicationIcon {
+            symbol: parent.systemImage
+            color: parent.foregroundColor
+            font: parent.font
+        }
+    }
+    onSelectionRequested: value => model.currentTab = value
+}
+```
+
+The icon creation context provides `systemImage`, `tabValue`, `selected`,
+`pixelSize` (18), `font` and `foregroundColor`. It must create an Item with finite,
+nonnegative implicit dimensions. An empty Item can represent an explicitly empty
+symbol. Icon presentation belongs to the Linux caller; the catalog's original
+fixture artwork and 22 measured native view boxes are unaccepted SF-symbol
+candidates. An unknown fixture combination fails explicitly.
+
+Primitive identities keep their types and canonical Unicode equality. A
+`valueIdentity: value => value.id` callback supplies stable primitive identity for
+custom values. Assign a new array to update the data. Reorder and edits retain
+button objects by identity; removing a tab removes its button. Duplicate keys,
+invalid callbacks and malformed data fail explicitly. Broader native identity and
+duplicate-ID behavior remain an acceptance gate.
+
+Badges accept safe JavaScript integers or canonical decimal strings. Native
+producers should also use decimal strings beyond JavaScript's safe integer range. Their accessibility value retains the raw integer, including zero and
+negative counts, while visual text is hidden or capped according to the source.
+The owned Qt button adapter exposes the explicit title and notification value
+through actual Qt accessibility interfaces and retains Qt pointer, keyboard and
+press-action behavior. Native accessibility and reader equivalence remain pending.
+
+The row shares offered space while preserving each icon's minimum width and may
+overflow a narrow caller. Without an explicit width proposal, cells retain natural
+widths. The empty bar has intrinsic size zero by five. Natural labels use the
+existing measured text renderer; the two-line fitting path remains under strict
+native comparison. The badge layout box and its paint transform are recorded
+separately, including the mirrored horizontal offset in RTL.
+
+Use `AvelinoCatalog --fixture app-tabs` for owner modes, pending acknowledgement,
+external selection, reorder, empty/reset, width, badges, disabled state, RTL,
+theme and text scale. The installed consumer exposes `--app-tabs` for strict
+comparison and `--app-tabs-observe` to record differences while retaining
+structural failures. The replay adapter keeps all 344 closed contexts and 864
+retained steps; direct Linux sizing remains unobserved. Package, session,
+physical input and reader checks remain separate from candidate registration.
+
+The [sealed Linux candidate](../evidence/development/app-tabs-20261017/candidate.json)
+retains all 1,208 image/frame/state comparisons. All binding and selected-state
+observations agree, 940 frame sets agree, and 56 images match exactly, all empty
+states. All 48 retained restores reproduce their initial candidate pixels. The
+5,160 public native sizing responses remain preserved, with Linux direct sizing
+unobserved. These results keep visual parity failed.
+
+The candidate passes 17 focused checks at DPR 1 and 2, 34 full Qt targets and an
+additional isolated-catalog target. It rejects 18 malformed configurations and
+26 malformed catalog definitions; all 43 valid catalog definitions load. The
+installed package runs 35 consumer modes and 143 catalog captures, leaving all
+139 earlier PNGs and complete metadata unchanged. Eight virtual X11/Wayland
+profiles pass structural checks with fresh environment records and the exact
+installed artifact hashes. Their OpenGL paths use software rendering.
+Seven profiles reproduce all six initial history images after restore. All six
+restores differ in the scaled Wayland software profile, on the same bottom
+physical pixel row with bounds `(340, 459, 940, 460)` in its 1280 by 800 images.
+Those strict failures remain preserved separately from the passing state checks.
+
+Real XTest input through the installed gallery exercises 14 controls, 27 clicks
+and 28 states. Twenty-six viewport images equal their separately mounted
+candidates. Two retained disabled states differ by 109 pixels, with maximum
+per-channel difference one. Fresh offscreen and X11 instances agree, while
+resizing and remapping the retained window leave the difference present. Its
+cause remains unresolved; all observations stay failed without a tolerance.
+This gate is separate from the larger native symbol, narrow-label and raster
+differences. Physical displays/input, reader behavior and independent-machine
+replay remain pending.
+
+Run `python3 scripts/verify-app-tabs-candidate.py` to recompute sealed strict
+comparisons, artifact bindings, legacy regression results, operator observations,
+archive contents and complete frozen input reconstruction. References CI runs
+the same verifier. `scripts/verify-app-tab-offset.py` independently measures the
+native badge paint bounds; its full opaque masks remain unequal after translation.

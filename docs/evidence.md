@@ -1352,5 +1352,36 @@ remain a source contract without runtime or reader acceptance. Pinned source and
 native tooling remain external; the Linux verifier audits rendered output,
 geometry, state and the fresh source-only replay. Linux implementation, symbols,
 fonts, fitting, broader identities, keyboard timing, accessibility, physical
-sessions and reader checks remain pending. Desktop coverage stays 72/80 candidates
-and zero accepted; expected images, pins, tolerances and exceptions are unchanged.
+sessions and reader checks remain pending at this source checkpoint. Desktop coverage
+was 72/80 candidates and zero accepted; expected images, pins, tolerances and
+exceptions are unchanged.
+
+
+## AppTabBar Linux candidate
+
+The [sealed candidate](../evidence/development/app-tabs-20261017/candidate.json)
+adds the public Linux component, caller-owned binding requests, stable typed
+identity, integer badges, measured intrinsic/overflow layout and a Qt button
+accessibility adapter. All 1,208 native/candidate image, frame and state pairs
+remain reviewable: 56 images, 940 frame sets and all 1,208 state observations
+agree. All 48 restores reproduce their initial candidate pixels. Direct Linux
+sizing remains unobserved for all 5,160 public source queries.
+
+Sealed validation includes 17 focused checks at DPR 1/2, 34 full Qt targets, an
+additional catalog target, 18 malformed configurations, 43 isolated catalog
+definitions and 26 refusals. The installed package runs 35 modes and 143 catalog
+captures; all 139 earlier PNGs and metadata are identical. Eight virtual profiles
+have fresh actual environment and artifact hashes. XTest gallery input produces
+26/28 exact viewport states; the two retained disabled failures, fresh-instance
+protocol diagnostic and unsuccessful resize/remap diagnostic are preserved.
+Virtual restore pixels match in 42/48 histories. The six scaled Wayland software
+restores differ on the bottom physical pixel row and remain failed; all virtual
+state observations pass. These results are recorded separately.
+
+Complete frozen producer inputs reconstruct from immutable Git files and archived
+content-addressed deltas, including all failed attempts. Each archive stays below
+48 MiB expanded; the verifier also inspects logical source paths for the Linux
+boundary. Desktop candidate coverage is now 73/80, with zero fully accepted.
+Native symbols, fonts, narrow-label fitting, raster stability, sizing, broader
+identity, input timing, accessibility, physical displays, readers and independent
+replay remain pending. TV/playback remains a later hardware-dependent phase.
