@@ -106,7 +106,7 @@ closed source contexts remain in strict comparison: 76 exact pixel/frame matches
 1,168 frame matches and all produced states matching. Full Qt tests, independent
 packaging, eight virtual display profiles and actual gallery toolbar input pass.
 Native fonts/raster, complete contexts, physical displays and readers remain open.
-Desktop candidate coverage is 71/80; none are accepted.
+Desktop candidate coverage is 72/80; none are accepted.
 
 The [pill candidate](docs/pill-modifier.md) retains a single text caller, fixed mono 9
 font and 7/4 capsule padding, caller formatting and baseline guides. All 2,112
@@ -124,10 +124,14 @@ charts. Another 125 scale/size/category/legend pairs remain strict. Native fonts
 fractional layout, geometry/raster, intrinsic proposals, non-finite behavior,
 physical input and readers remain pending.
 
-The [MediaLibrary source investigation](docs/media-library.md) preserves 496
-closed contexts and 1,008 retained steps, including lazy row creation, Unicode
-identity, zero-width state retention and empty-data reset. One native sizing
-witness differs and remains open. Linux implementation is pending.
+The [MediaLibrary candidate](docs/media-library.md) supplies an adaptive lazy grid
+with retained caller tiles and generic primitive identities. Its complete 1,608
+pixel/frame/lifecycle comparisons have 864 exact observed pairs; eight isolated
+fatal inputs remain preserved. Strict acceptance still fails.
+The native record also preserves 7,440 public sizing queries and one witness
+difference; Linux direct sizing remains unobserved. Fractional/text geometry,
+lazy height estimates, retained RTL captions, fonts/raster, native input timing,
+physical displays and readers remain pending; no mirror acceptance is claimed.
 
 The [surface modifier](docs/surface-modifier.md) decorates flat callers separately
 and explicit stacks as one caller, preserving caller state, font inheritance and

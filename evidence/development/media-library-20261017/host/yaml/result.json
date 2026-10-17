@@ -1,0 +1,11 @@
+{
+  "command": [
+    "ruby",
+    "-e",
+    "require 'yaml'; ARGV.each { |p| YAML.load_file(p) }",
+    ".github/workflows/linux.yml",
+    ".github/workflows/references.yml"
+  ],
+  "exitCode": 0,
+  "seconds": 0.15112137503456324
+}

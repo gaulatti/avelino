@@ -42222,772 +42222,966 @@
       },
       {
         "id": "BleeckerMediaLibrary",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Extended.swift",
           "line": 84
         },
-        "implementation": [],
-        "caseDiscovery": "62 definitions across 496 closed contexts, 15 direct proposals in three branches, six retained definitions with 21 steps and 112 isolated edge processes. Native zero-width state retention, empty/reset, Unicode identity, adaptive thresholds and lazy viewport estimates are observed. One sizing witness disagrees; Linux implementation, generic identity breadth, timing, physical and reader acceptance remain pending.",
+        "implementation": [
+          "src/Avelino/BleeckerMediaLibrary.qml",
+          "src/Avelino/medialibrarybase.h",
+          "src/Avelino/medialibrarybase.cpp",
+          "src/Avelino/selectionidentity.cpp"
+        ],
+        "caseDiscovery": "62 native definitions across 496 closed contexts, 104 successful edges and eight native traps, six retained definitions with 21 steps, and 7440 public direct proposals. The Linux candidate retains identity and creates tiles by viewport, with all 1608 pixel/frame/lifecycle pairs compared strictly. Direct proposals remain unobserved. Fractional/text geometry, lazy height estimates, retained RTL caption raster, native generic identities, timing, physical input and readers remain pending. Of 1608 observed pairs, 864 match pixels/frame/lifecycle together, 992 match pixels, 1288 match frames and 1488 match native lifecycle. None establishes complete component acceptance.",
         "cases": [
           {
             "id": "BleeckerMediaLibrary-native-width-0",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/width-0-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-width-0.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-width-0.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-width-1",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/width-1-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-width-1.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-width-1.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-width-40",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/width-40-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-width-40.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-width-40.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-width-159",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/width-159-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-width-159.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-width-159.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-width-160",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/width-160-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-width-160.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-width-160.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-width-175",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/width-175-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-width-175.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-width-175.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-width-176",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/width-176-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-width-176.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-width-176.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-width-335",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/width-335-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-width-335.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-width-335.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-width-336",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/width-336-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-width-336.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-width-336.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-width-337",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/width-337-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-width-337.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-width-337.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-width-512",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/width-512-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-width-512.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-width-512.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-width-700",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/width-700-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-width-700.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-width-700.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-minimum-0",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/minimum-0-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-minimum-0.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-minimum-0.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-minimum-1",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/minimum-1-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-minimum-1.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-minimum-1.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-minimum-10",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/minimum-10-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-minimum-10.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-minimum-10.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-minimum-80",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/minimum-80-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-minimum-80.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-minimum-80.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-minimum-240",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/minimum-240-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-minimum-240.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-minimum-240.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-minimum-800",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/minimum-800-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-minimum-800.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-minimum-800.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-fill-count-0",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/fill-count-0-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fill-count-0.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fill-count-0.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-fill-count-1",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/fill-count-1-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fill-count-1.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fill-count-1.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-fill-count-2",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/fill-count-2-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fill-count-2.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fill-count-2.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-fill-count-3",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/fill-count-3-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fill-count-3.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fill-count-3.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-fill-count-8",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/fill-count-8-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fill-count-8.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fill-count-8.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-fixed-count-0",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/fixed-count-0-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fixed-count-0.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fixed-count-0.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-fixed-count-1",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/fixed-count-1-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fixed-count-1.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fixed-count-1.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-fixed-count-2",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/fixed-count-2-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fixed-count-2.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fixed-count-2.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-fixed-count-3",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/fixed-count-3-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fixed-count-3.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fixed-count-3.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-fixed-count-8",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/fixed-count-8-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fixed-count-8.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fixed-count-8.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-text-count-0",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/text-count-0-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-text-count-0.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-text-count-0.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-text-count-1",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/text-count-1-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-text-count-1.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-text-count-1.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-text-count-2",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/text-count-2-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-text-count-2.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-text-count-2.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-text-count-3",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/text-count-3-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-text-count-3.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-text-count-3.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-text-count-8",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/text-count-8-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-text-count-8.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-text-count-8.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-button-count-0",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/button-count-0-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-button-count-0.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-button-count-0.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-button-count-1",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/button-count-1-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-button-count-1.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-button-count-1.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-button-count-2",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/button-count-2-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-button-count-2.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-button-count-2.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-button-count-3",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/button-count-3-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-button-count-3.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-button-count-3.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-button-count-8",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/button-count-8-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-button-count-8.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-button-count-8.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-rtl",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/rtl-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-rtl.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-rtl.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-constrained-height",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/constrained-height-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-constrained-height.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-constrained-height.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-scroll",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/scroll-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-scroll.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-scroll.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-fractional-335.5",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/fractional-335.5-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fractional-335.5.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fractional-335.5.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-fractional-335.999",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/fractional-335.999-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fractional-335.999.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fractional-335.999.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-fractional-336.001",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/fractional-336.001-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fractional-336.001.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fractional-336.001.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-fractional-511.5",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/fractional-511.5-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fractional-511.5.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fractional-511.5.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-fractional-511.999",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/fractional-511.999-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fractional-511.999.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fractional-511.999.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-fractional-512.001",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/fractional-512.001-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fractional-512.001.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fractional-512.001.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-fixed-overflow-40",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/fixed-overflow-40-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fixed-overflow-40.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fixed-overflow-40.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-fixed-overflow-160",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/fixed-overflow-160-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fixed-overflow-160.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fixed-overflow-160.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-fixed-overflow-336",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/fixed-overflow-336-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fixed-overflow-336.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fixed-overflow-336.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-zero-heights",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/zero-heights-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-zero-heights.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-zero-heights.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-mixed-zero-heights",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/mixed-zero-heights-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-mixed-zero-heights.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-mixed-zero-heights.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-text-long",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/text-long-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-text-long.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-text-long.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-text-font28",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/text-font28-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-text-font28.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-text-font28.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-text-red",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/text-red-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-text-red.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-text-red.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-text-disabled",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/text-disabled-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-text-disabled.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-text-disabled.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-button-long",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/button-long-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-button-long.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-button-long.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-button-font28",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/button-font28-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-button-font28.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-button-font28.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-button-red",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/button-red-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-button-red.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-button-red.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-button-disabled",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/button-disabled-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-button-disabled.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-button-disabled.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-scroll-dense",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/scroll-dense-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-scroll-dense.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-scroll-dense.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-unicode",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/output/unicode-light-text1.0-dpr1.0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
-              "evidence/reference-investigations/media-library-20261017/fixtures.json"
+              "evidence/reference-investigations/media-library-20261017/fixtures.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending."
+            "notes": "Native public/probed/literal pixels, frames and caller wrapper lifecycle agree in all eight contexts. Linux implementation and comparison remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-unicode.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-unicode.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-minimumTileWidth-edge-0",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
               "evidence/reference-investigations/media-library-20261017/edge-cases.json",
               "evidence/reference-investigations/media-library-20261017/edge-results.json",
-              "evidence/reference-investigations/media-library-20261017/edges/minimumTileWidth-edge-0/light-text1-dpr1.log"
+              "evidence/reference-investigations/media-library-20261017/edges/minimumTileWidth-edge-0/light-text1-dpr1.log",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
             "notes": "All eight isolated native process outcomes are preserved, including any warnings or traps. No Linux invalid-input equivalence is accepted.",
-            "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/edges/minimumTileWidth-edge-0/light-text1-dpr1/minimumTileWidth-edge-0-light-text1.0-dpr1.0-mode0.png"
+            "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/edges/minimumTileWidth-edge-0/light-text1-dpr1/minimumTileWidth-edge-0-light-text1.0-dpr1.0-mode0.png",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-edge-minimumTileWidth-edge-0.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-edge-minimumTileWidth-edge-0.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-minimumTileWidth-edge-1",
@@ -42998,255 +43192,310 @@
               "evidence/reference-investigations/media-library-20261017/investigation.json",
               "evidence/reference-investigations/media-library-20261017/edge-cases.json",
               "evidence/reference-investigations/media-library-20261017/edge-results.json",
-              "evidence/reference-investigations/media-library-20261017/edges/minimumTileWidth-edge-1/light-text1-dpr1.log"
+              "evidence/reference-investigations/media-library-20261017/edges/minimumTileWidth-edge-1/light-text1-dpr1.log",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
             "notes": "All eight isolated native process outcomes are preserved, including any warnings or traps. No Linux invalid-input equivalence is accepted. This minimum-width -16 process traps with signal 5 before a PNG is available."
           },
           {
             "id": "BleeckerMediaLibrary-native-minimumTileWidth-edge-2",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
               "evidence/reference-investigations/media-library-20261017/edge-cases.json",
               "evidence/reference-investigations/media-library-20261017/edge-results.json",
-              "evidence/reference-investigations/media-library-20261017/edges/minimumTileWidth-edge-2/light-text1-dpr1.log"
+              "evidence/reference-investigations/media-library-20261017/edges/minimumTileWidth-edge-2/light-text1-dpr1.log",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
             "notes": "All eight isolated native process outcomes are preserved, including any warnings or traps. No Linux invalid-input equivalence is accepted.",
-            "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/edges/minimumTileWidth-edge-2/light-text1-dpr1/minimumTileWidth-edge-2-light-text1.0-dpr1.0-mode0.png"
+            "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/edges/minimumTileWidth-edge-2/light-text1-dpr1/minimumTileWidth-edge-2-light-text1.0-dpr1.0-mode0.png",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-edge-minimumTileWidth-edge-2.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-edge-minimumTileWidth-edge-2.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-minimumTileWidth-edge-3",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
               "evidence/reference-investigations/media-library-20261017/edge-cases.json",
               "evidence/reference-investigations/media-library-20261017/edge-results.json",
-              "evidence/reference-investigations/media-library-20261017/edges/minimumTileWidth-edge-3/light-text1-dpr1.log"
+              "evidence/reference-investigations/media-library-20261017/edges/minimumTileWidth-edge-3/light-text1-dpr1.log",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
             "notes": "All eight isolated native process outcomes are preserved, including any warnings or traps. No Linux invalid-input equivalence is accepted.",
-            "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/edges/minimumTileWidth-edge-3/light-text1-dpr1/minimumTileWidth-edge-3-light-text1.0-dpr1.0-mode0.png"
+            "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/edges/minimumTileWidth-edge-3/light-text1-dpr1/minimumTileWidth-edge-3-light-text1.0-dpr1.0-mode0.png",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-edge-minimumTileWidth-edge-3.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-edge-minimumTileWidth-edge-3.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-minimumTileWidth-edge-4",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
               "evidence/reference-investigations/media-library-20261017/edge-cases.json",
               "evidence/reference-investigations/media-library-20261017/edge-results.json",
-              "evidence/reference-investigations/media-library-20261017/edges/minimumTileWidth-edge-4/light-text1-dpr1.log"
+              "evidence/reference-investigations/media-library-20261017/edges/minimumTileWidth-edge-4/light-text1-dpr1.log",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
             "notes": "All eight isolated native process outcomes are preserved, including any warnings or traps. No Linux invalid-input equivalence is accepted.",
-            "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/edges/minimumTileWidth-edge-4/light-text1-dpr1/minimumTileWidth-edge-4-light-text1.0-dpr1.0-mode0.png"
+            "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/edges/minimumTileWidth-edge-4/light-text1-dpr1/minimumTileWidth-edge-4-light-text1.0-dpr1.0-mode0.png",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-edge-minimumTileWidth-edge-4.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-edge-minimumTileWidth-edge-4.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-minimumTileWidth-edge-5",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
               "evidence/reference-investigations/media-library-20261017/edge-cases.json",
               "evidence/reference-investigations/media-library-20261017/edge-results.json",
-              "evidence/reference-investigations/media-library-20261017/edges/minimumTileWidth-edge-5/light-text1-dpr1.log"
+              "evidence/reference-investigations/media-library-20261017/edges/minimumTileWidth-edge-5/light-text1-dpr1.log",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
             "notes": "All eight isolated native process outcomes are preserved, including any warnings or traps. No Linux invalid-input equivalence is accepted.",
-            "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/edges/minimumTileWidth-edge-5/light-text1-dpr1/minimumTileWidth-edge-5-light-text1.0-dpr1.0-mode0.png"
+            "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/edges/minimumTileWidth-edge-5/light-text1-dpr1/minimumTileWidth-edge-5-light-text1.0-dpr1.0-mode0.png",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-edge-minimumTileWidth-edge-5.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-edge-minimumTileWidth-edge-5.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-width-edge-0",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
               "evidence/reference-investigations/media-library-20261017/edge-cases.json",
               "evidence/reference-investigations/media-library-20261017/edge-results.json",
-              "evidence/reference-investigations/media-library-20261017/edges/width-edge-0/light-text1-dpr1.log"
+              "evidence/reference-investigations/media-library-20261017/edges/width-edge-0/light-text1-dpr1.log",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
             "notes": "All eight isolated native process outcomes are preserved, including any warnings or traps. No Linux invalid-input equivalence is accepted.",
-            "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/edges/width-edge-0/light-text1-dpr1/width-edge-0-light-text1.0-dpr1.0-mode0.png"
+            "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/edges/width-edge-0/light-text1-dpr1/width-edge-0-light-text1.0-dpr1.0-mode0.png",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-edge-width-edge-0.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-edge-width-edge-0.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-width-edge-1",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
               "evidence/reference-investigations/media-library-20261017/edge-cases.json",
               "evidence/reference-investigations/media-library-20261017/edge-results.json",
-              "evidence/reference-investigations/media-library-20261017/edges/width-edge-1/light-text1-dpr1.log"
+              "evidence/reference-investigations/media-library-20261017/edges/width-edge-1/light-text1-dpr1.log",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
             "notes": "All eight isolated native process outcomes are preserved, including any warnings or traps. No Linux invalid-input equivalence is accepted.",
-            "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/edges/width-edge-1/light-text1-dpr1/width-edge-1-light-text1.0-dpr1.0-mode0.png"
+            "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/edges/width-edge-1/light-text1-dpr1/width-edge-1-light-text1.0-dpr1.0-mode0.png",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-edge-width-edge-1.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-edge-width-edge-1.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-width-edge-2",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
               "evidence/reference-investigations/media-library-20261017/edge-cases.json",
               "evidence/reference-investigations/media-library-20261017/edge-results.json",
-              "evidence/reference-investigations/media-library-20261017/edges/width-edge-2/light-text1-dpr1.log"
+              "evidence/reference-investigations/media-library-20261017/edges/width-edge-2/light-text1-dpr1.log",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
             "notes": "All eight isolated native process outcomes are preserved, including any warnings or traps. No Linux invalid-input equivalence is accepted.",
-            "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/edges/width-edge-2/light-text1-dpr1/width-edge-2-light-text1.0-dpr1.0-mode0.png"
+            "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/edges/width-edge-2/light-text1-dpr1/width-edge-2-light-text1.0-dpr1.0-mode0.png",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-edge-width-edge-2.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-edge-width-edge-2.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-width-edge-3",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
               "evidence/reference-investigations/media-library-20261017/edge-cases.json",
               "evidence/reference-investigations/media-library-20261017/edge-results.json",
-              "evidence/reference-investigations/media-library-20261017/edges/width-edge-3/light-text1-dpr1.log"
+              "evidence/reference-investigations/media-library-20261017/edges/width-edge-3/light-text1-dpr1.log",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
             "notes": "All eight isolated native process outcomes are preserved, including any warnings or traps. No Linux invalid-input equivalence is accepted.",
-            "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/edges/width-edge-3/light-text1-dpr1/width-edge-3-light-text1.0-dpr1.0-mode0.png"
+            "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/edges/width-edge-3/light-text1-dpr1/width-edge-3-light-text1.0-dpr1.0-mode0.png",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-edge-width-edge-3.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-edge-width-edge-3.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-height-edge-0",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
               "evidence/reference-investigations/media-library-20261017/edge-cases.json",
               "evidence/reference-investigations/media-library-20261017/edge-results.json",
-              "evidence/reference-investigations/media-library-20261017/edges/height-edge-0/light-text1-dpr1.log"
+              "evidence/reference-investigations/media-library-20261017/edges/height-edge-0/light-text1-dpr1.log",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
             "notes": "All eight isolated native process outcomes are preserved, including any warnings or traps. No Linux invalid-input equivalence is accepted.",
-            "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/edges/height-edge-0/light-text1-dpr1/height-edge-0-light-text1.0-dpr1.0-mode0.png"
+            "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/edges/height-edge-0/light-text1-dpr1/height-edge-0-light-text1.0-dpr1.0-mode0.png",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-edge-height-edge-0.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-edge-height-edge-0.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-height-edge-1",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
               "evidence/reference-investigations/media-library-20261017/edge-cases.json",
               "evidence/reference-investigations/media-library-20261017/edge-results.json",
-              "evidence/reference-investigations/media-library-20261017/edges/height-edge-1/light-text1-dpr1.log"
+              "evidence/reference-investigations/media-library-20261017/edges/height-edge-1/light-text1-dpr1.log",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
             "notes": "All eight isolated native process outcomes are preserved, including any warnings or traps. No Linux invalid-input equivalence is accepted.",
-            "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/edges/height-edge-1/light-text1-dpr1/height-edge-1-light-text1.0-dpr1.0-mode0.png"
+            "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/edges/height-edge-1/light-text1-dpr1/height-edge-1-light-text1.0-dpr1.0-mode0.png",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-edge-height-edge-1.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-edge-height-edge-1.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-height-edge-2",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
               "evidence/reference-investigations/media-library-20261017/edge-cases.json",
               "evidence/reference-investigations/media-library-20261017/edge-results.json",
-              "evidence/reference-investigations/media-library-20261017/edges/height-edge-2/light-text1-dpr1.log"
+              "evidence/reference-investigations/media-library-20261017/edges/height-edge-2/light-text1-dpr1.log",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
             "notes": "All eight isolated native process outcomes are preserved, including any warnings or traps. No Linux invalid-input equivalence is accepted.",
-            "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/edges/height-edge-2/light-text1-dpr1/height-edge-2-light-text1.0-dpr1.0-mode0.png"
+            "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/edges/height-edge-2/light-text1-dpr1/height-edge-2-light-text1.0-dpr1.0-mode0.png",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-edge-height-edge-2.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-edge-height-edge-2.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-native-height-edge-3",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
               "evidence/reference-investigations/media-library-20261017/edge-cases.json",
               "evidence/reference-investigations/media-library-20261017/edge-results.json",
-              "evidence/reference-investigations/media-library-20261017/edges/height-edge-3/light-text1-dpr1.log"
+              "evidence/reference-investigations/media-library-20261017/edges/height-edge-3/light-text1-dpr1.log",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
             "notes": "All eight isolated native process outcomes are preserved, including any warnings or traps. No Linux invalid-input equivalence is accepted.",
-            "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/edges/height-edge-3/light-text1-dpr1/height-edge-3-light-text1.0-dpr1.0-mode0.png"
+            "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/edges/height-edge-3/light-text1-dpr1/height-edge-3-light-text1.0-dpr1.0-mode0.png",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-edge-height-edge-3.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-edge-height-edge-3.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-history-width-337",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/history-output/width-337-light-text1.0-dpr1.0-step0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
               "evidence/reference-investigations/media-library-20261017/histories.json",
-              "evidence/reference-investigations/media-library-20261017/history-output/histories.json"
+              "evidence/reference-investigations/media-library-20261017/history-output/histories.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "All 21 retained steps and eight contexts preserve public/probed/literal pixels, geometry and lifecycle. Observed caller state is distinct from native internal storage. Linux implementation, scroll/input timing and reader acceptance remain pending."
+            "notes": "All 21 retained steps and eight contexts preserve public/probed/literal pixels, geometry and lifecycle. Observed caller state is distinct from native internal storage. Linux implementation, scroll/input timing and reader acceptance remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-width-337-history-step0.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-width-337-history-step0.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-history-fixed-count-8",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/history-output/fixed-count-8-light-text1.0-dpr1.0-step0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
               "evidence/reference-investigations/media-library-20261017/histories.json",
-              "evidence/reference-investigations/media-library-20261017/history-output/histories.json"
+              "evidence/reference-investigations/media-library-20261017/history-output/histories.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "All 21 retained steps and eight contexts preserve public/probed/literal pixels, geometry and lifecycle. Observed caller state is distinct from native internal storage. Linux implementation, scroll/input timing and reader acceptance remain pending."
+            "notes": "All 21 retained steps and eight contexts preserve public/probed/literal pixels, geometry and lifecycle. Observed caller state is distinct from native internal storage. Linux implementation, scroll/input timing and reader acceptance remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fixed-count-8-history-step0.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-fixed-count-8-history-step0.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-history-text-long",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/history-output/text-long-light-text1.0-dpr1.0-step0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
               "evidence/reference-investigations/media-library-20261017/histories.json",
-              "evidence/reference-investigations/media-library-20261017/history-output/histories.json"
+              "evidence/reference-investigations/media-library-20261017/history-output/histories.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "All 21 retained steps and eight contexts preserve public/probed/literal pixels, geometry and lifecycle. Observed caller state is distinct from native internal storage. Linux implementation, scroll/input timing and reader acceptance remain pending."
+            "notes": "All 21 retained steps and eight contexts preserve public/probed/literal pixels, geometry and lifecycle. Observed caller state is distinct from native internal storage. Linux implementation, scroll/input timing and reader acceptance remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-text-long-history-step0.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-text-long-history-step0.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-history-button-count-8",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/history-output/button-count-8-light-text1.0-dpr1.0-step0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
               "evidence/reference-investigations/media-library-20261017/histories.json",
-              "evidence/reference-investigations/media-library-20261017/history-output/histories.json"
+              "evidence/reference-investigations/media-library-20261017/history-output/histories.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "All 21 retained steps and eight contexts preserve public/probed/literal pixels, geometry and lifecycle. Observed caller state is distinct from native internal storage. Linux implementation, scroll/input timing and reader acceptance remain pending."
+            "notes": "All 21 retained steps and eight contexts preserve public/probed/literal pixels, geometry and lifecycle. Observed caller state is distinct from native internal storage. Linux implementation, scroll/input timing and reader acceptance remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-button-count-8-history-step0.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-button-count-8-history-step0.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-history-scroll-dense",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/history-output/scroll-dense-light-text1.0-dpr1.0-step0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
               "evidence/reference-investigations/media-library-20261017/histories.json",
-              "evidence/reference-investigations/media-library-20261017/history-output/histories.json"
+              "evidence/reference-investigations/media-library-20261017/history-output/histories.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "All 21 retained steps and eight contexts preserve public/probed/literal pixels, geometry and lifecycle. Observed caller state is distinct from native internal storage. Linux implementation, scroll/input timing and reader acceptance remain pending."
+            "notes": "All 21 retained steps and eight contexts preserve public/probed/literal pixels, geometry and lifecycle. Observed caller state is distinct from native internal storage. Linux implementation, scroll/input timing and reader acceptance remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-scroll-dense-history-step0.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-scroll-dense-history-step0.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-history-unicode",
-            "status": "pending",
+            "status": "verification-pending",
             "referenceCapture": null,
             "sourceInvestigationCapture": "evidence/reference-investigations/media-library-20261017/history-output/unicode-light-text1.0-dpr1.0-step0-mode0.png",
             "evidence": [
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
               "evidence/reference-investigations/media-library-20261017/histories.json",
-              "evidence/reference-investigations/media-library-20261017/history-output/histories.json"
+              "evidence/reference-investigations/media-library-20261017/history-output/histories.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "All 21 retained steps and eight contexts preserve public/probed/literal pixels, geometry and lifecycle. Observed caller state is distinct from native internal storage. Linux implementation, scroll/input timing and reader acceptance remain pending."
+            "notes": "All 21 retained steps and eight contexts preserve public/probed/literal pixels, geometry and lifecycle. Observed caller state is distinct from native internal storage. Linux implementation, scroll/input timing and reader acceptance remain pending.",
+            "candidateCapture": "evidence/development/media-library-20261017/captures/light-text1-dpr1-unicode-history-step0.png",
+            "candidateMetadata": "evidence/development/media-library-20261017/captures/light-text1-dpr1-unicode-history-step0.png.json"
           },
           {
             "id": "BleeckerMediaLibrary-sizing-text-red-light-text1-dpr1",
@@ -43256,74 +43505,87 @@
               "docs/media-library.md",
               "evidence/reference-investigations/media-library-20261017/investigation.json",
               "evidence/reference-investigations/media-library-20261017/sizing-output/sizing.json",
-              "evidence/reference-investigations/media-library-20261017/sizing-witness-differences.json"
+              "evidence/reference-investigations/media-library-20261017/sizing-witness-differences.json",
+              "evidence/development/media-library-20261017/candidate.json"
             ],
             "notes": "The public unspecified-width height is 208 while probed/literal witnesses return 264. All three query responses remain preserved; no witness value replaces the public result."
           }
         ],
         "tests": [
           "scripts/verify-media-library-source.py",
-          "tests/contracts/test_media_library_source.py"
+          "tests/contracts/test_media_library_source.py",
+          "tests/components/tst_media_library.qml",
+          "tests/components/check-invalid-media-library.py",
+          "tests/components/check-media-library-catalog.py",
+          "tests/consumer/medialibrarychecks.h",
+          "scripts/capture-media-library.py",
+          "scripts/compare-media-library-captures.py",
+          "scripts/verify-media-library-candidate.py",
+          "tests/contracts/test_media_library_candidate.py"
         ],
-        "captures": [],
-        "comparisonResults": [],
+        "captures": [
+          "evidence/development/media-library-20261017/captures/capture-results.json"
+        ],
+        "comparisonResults": [
+          "evidence/development/media-library-20261017/comparison/comparison.json"
+        ],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
-            "status": "pending",
+            "status": "verification-pending",
             "evidence": [
               "docs/media-library.md",
-              "evidence/reference-investigations/media-library-20261017/investigation.json"
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native macOS reference observations only. No Linux component, session, packaging, physical input/display or reader gate is closed."
+            "notes": "Eleven focused checks at DPR 1/2 and all 33 Qt targets pass. All 1608 candidate/native pairs remain strict; geometry, lifecycle, text and raster differences remain failed. Direct sizing is unobserved."
           },
           "x11": {
-            "status": "pending",
+            "status": "verification-pending",
             "evidence": [
               "docs/media-library.md",
-              "evidence/reference-investigations/media-library-20261017/investigation.json"
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native macOS reference observations only. No Linux component, session, packaging, physical input/display or reader gate is closed."
+            "notes": "Four virtual X11 software/OpenGL profiles and actual XTest gallery input are recorded. OpenGL uses software rendering. Five retained RTL caption states differ from fresh isolated candidates; exact raster and physical display/input remain pending."
           },
           "wayland": {
-            "status": "pending",
+            "status": "verification-pending",
             "evidence": [
               "docs/media-library.md",
-              "evidence/reference-investigations/media-library-20261017/investigation.json"
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native macOS reference observations only. No Linux component, session, packaging, physical input/display or reader gate is closed."
+            "notes": "Four nested virtual Wayland software/OpenGL profiles are recorded. They do not establish physical display, hardware acceleration, compositor-wide overlays or real input acceptance."
           },
           "keyboardPointer": {
-            "status": "pending",
+            "status": "verification-pending",
             "evidence": [
               "docs/media-library.md",
-              "evidence/reference-investigations/media-library-20261017/investigation.json"
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native macOS reference observations only. No Linux component, session, packaging, physical input/display or reader gate is closed."
+            "notes": "Caller buttons receive Qt pointer input and inherited disabled state. XTest exercises 14 gallery controls through 24 states; 19 exact candidate viewport matches and five retained RTL caption failures remain visible. Native keyboard/timing and physical input remain pending."
           },
           "focusAccessibility": {
-            "status": "pending",
+            "status": "verification-pending",
             "evidence": [
               "docs/media-library.md",
-              "evidence/reference-investigations/media-library-20261017/investigation.json"
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native macOS reference observations only. No Linux component, session, packaging, physical input/display or reader gate is closed."
+            "notes": "Actual Qt caller-button roles and names are checked. They do not establish reader announcements, physical keyboard navigation or native focus equivalence."
           },
           "displayTextScaling": {
-            "status": "pending",
+            "status": "verification-pending",
             "evidence": [
               "docs/media-library.md",
-              "evidence/reference-investigations/media-library-20261017/investigation.json"
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native macOS reference observations only. No Linux component, session, packaging, physical input/display or reader gate is closed."
+            "notes": "All eight appearance/text-scale/DPR capture contexts and eight virtual display profiles are retained. Fractional/text geometry, native glyphs/raster and physical display acceptance remain pending."
           },
           "installedConsumer": {
-            "status": "pending",
+            "status": "verification-pending",
             "evidence": [
               "docs/media-library.md",
-              "evidence/reference-investigations/media-library-20261017/investigation.json"
+              "evidence/development/media-library-20261017/candidate.json"
             ],
-            "notes": "Native macOS reference observations only. No Linux component, session, packaging, physical input/display or reader gate is closed."
+            "notes": "Thirty-four installed package modes and 139 catalog captures pass; all 135 previous catalog images and complete metadata remain identical. Strict native acceptance still fails and all sizing responses remain unobserved."
           }
         }
       },

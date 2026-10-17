@@ -29,7 +29,7 @@ public:
     bool fillsWidth=false;
     bool flattenChildren=false,participates=true;
     qreal proposedWidth() const {return m_proposal;}
-    void propose(qreal value) {if(m_proposal!=value){m_proposal=value;emit proposalChanged();}}
+    Q_INVOKABLE void propose(qreal value) {if(m_proposal!=value){m_proposal=value;emit proposalChanged();}}
 signals:
     void metricsChanged();
     void proposalChanged();

@@ -4,7 +4,74 @@ The pinned desktop `BleeckerMediaLibrary` takes identifiable items, a minimum ti
 width (default 160) and a caller-supplied tile view. Its body is a vertical lazy
 grid with one adaptive column specification and 16-point horizontal and vertical
 gaps. It adds no scroll view, tile presentation, selection, background or clipping.
-Those belong to its caller. The Linux implementation remains pending.
+Those belong to its caller. A Linux candidate uses retained caller components and
+viewport-driven creation. Native mirror acceptance remains pending.
+
+The QML API takes an `items` array and a required `tile: Component`. Each item
+normally has an `id`; `itemIdentity: value => value.key` can supply the identity
+for another data shape. Identities are typed primitives, with canonical Unicode
+string equality using the library's pinned normalization facts. Duplicate keys,
+unsupported identifier shapes and callback failures fail explicitly. Changing
+the array updates existing tiles by identity, while removing an item destroys
+its retained state. Mutate data by assigning a new array.
+
+Caller tiles receive `tileData`, `tileIndex` and `tileActive` through their
+creation context. They may declare these as required properties. `tileActive`
+tracks viewport participation; it does not override the caller's own `visible`
+property. `itemAt(index)` returns a previously created tile or null, and the
+read-only `itemCount`, `instantiatedCount` and `activeCount` distinguish data,
+creation and visibility. `contentHeight`, `columns` and `columnWidth` describe
+the current layout. The caller owns any surrounding `Flickable` and its clipping.
+
+```qml
+Flickable {
+    width: 460; height: 100; clip: true
+    contentWidth: width; contentHeight: library.contentHeight
+    BleeckerMediaLibrary {
+        id: library
+        width: parent.width
+        items: [{id: "first", title: "First edition"}]
+        tile: Component {
+            BleeckerText { required property var tileData; text: tileData.title }
+        }
+    }
+}
+```
+
+The minimum tile width defaults to 160 and the gaps remain 16. A caller's fixed
+width can overflow its column. Flexible tiles can use
+`BleeckerLayout.minimumWidth`, `idealWidth` and `fillsWidth`; composed text tiles
+can forward `BleeckerLayout.proposedWidth` to a nested label with
+`label.BleeckerLayout.propose(width)`. Width and height measurements must be
+finite and nonnegative. Invalid public data is rejected separately from the
+captured native numeric edge cases. The candidate preserves the observed
+single-column result for nonfinite minima and explicitly fails at minimum -16.
+
+`AvelinoCatalog --fixture media-library` exposes four caller tile types, edits,
+reordering, empty/reset, adaptive widths, the caller viewport, RTL, theme, text
+scale and disabled state. Isolated source definitions use `libraryWidth` and
+`libraryHeight` to keep caller proposals separate from the 640 by 400 capture
+window. The installed consumer's `--media-library` mode fails strict acceptance
+while sizing remains unobserved; `--media-library-observe` records differences
+while still failing structural errors. `scripts/capture-media-library.py` keeps
+all 496 closed contexts, 104 successful edges, eight isolated fatal edges and
+all 1,008 retained-history steps. The strict comparator adds no tolerance.
+
+The [sealed candidate record](../evidence/development/media-library-20261017/candidate.json)
+compares all 1,608 observed pairs: 864 match pixels, frames and lifecycle together;
+992 match pixels, 1,288 match frames and 1,488 match native lifecycle. All 48
+offscreen restore observations reproduce their initial candidate pixels. The
+7,440 direct public sizing queries remain unobserved on Linux. No complete
+component acceptance follows from these capture matches.
+
+The candidate evidence keeps failures as well as successful checks. Fractional
+column geometry, text measurement and lazy height estimates still differ from
+the source. Actual gallery input exercises 14 controls through 24 states;
+19 caller viewports match fresh isolated candidates, while five retained RTL
+caption states differ. Virtual Wayland software window grabs also differ after restoring the
+fractional-width fill case (`width-337`) at both standard and scaled settings. Observation mode saves those failed frames and
+continues; strict comparison remains failed. Raw Qt inactive-painter warnings
+remain preserved with their origin unresolved. These are open acceptance gates.
 
 The [native source record](../evidence/reference-investigations/media-library-20261017/investigation.json)
 uses the unchanged public component, a transparent geometry probe and the literal
@@ -80,4 +147,4 @@ download and independent-machine replay remain pending.
 Source pins, expected images and tolerances remain unchanged; no exception or
 mirror baseline is approved. Run `python3 scripts/verify-media-library-source.py`
 to recompute the source evidence. A native reference investigation is not an
-implemented or accepted Linux component.
+accepted Linux component.

@@ -43,8 +43,8 @@ struct Normalization {
     }
 };
 const Normalization &normalization(){static const Normalization data;return data;}
-QString primitiveKey(const QJSValue &value) {
-    if(value.isString())return QStringLiteral("s:")+SelectionIdentity::canonicalString(value.toString());
+QString primitiveKey(const QJSValue &value,const char *owner) {
+    if(value.isString())return QStringLiteral("s:")+SelectionIdentity::canonicalString(value.toString(),owner);
     if(value.isBool())return value.toBool() ? QStringLiteral("b:1"):QStringLiteral("b:0");
     if(value.isNull())return QStringLiteral("null:");
     if(value.isNumber()) {
@@ -52,29 +52,29 @@ QString primitiveKey(const QJSValue &value) {
         if(std::isnan(number))return QStringLiteral("n:nan");
         return QStringLiteral("n:")+QString::number(number==0 ? 0:number,'g',17);
     }
-    qFatal("RadioGroup values require primitive identity or a valueIdentity function returning a primitive key");
+    qFatal("%s values require primitive identity or a valueIdentity function returning a primitive key",owner);
 }
 }
 
-QString SelectionIdentity::canonicalString(const QString &value) {
+QString SelectionIdentity::canonicalString(const QString &value,const char *owner) {
     QList<char32_t> result;
     result.reserve(value.size());
     const auto &data=normalization();
     for(qsizetype i=0;i<value.size();++i) {
         char32_t scalar=value[i].unicode();
         if(QChar::isHighSurrogate(scalar)) {
-            if(i+1>=value.size() || !value[i+1].isLowSurrogate())qFatal("RadioGroup String identity requires valid Unicode scalars");
+            if(i+1>=value.size() || !value[i+1].isLowSurrogate())qFatal("%s String identity requires valid Unicode scalars",owner);
             scalar=QChar::surrogateToUcs4(value[i],value[i+1]);++i;
-        } else if(QChar::isLowSurrogate(scalar))qFatal("RadioGroup String identity requires valid Unicode scalars");
+        } else if(QChar::isLowSurrogate(scalar))qFatal("%s String identity requires valid Unicode scalars",owner);
         data.append(scalar,result);
     }
     return QString::fromUcs4(result.constData(),result.size());
 }
 
-QString SelectionIdentity::key(const QJSValue &value,const QJSValue &identity) {
-    if(identity.isUndefined() || identity.isNull())return primitiveKey(value);
-    if(!identity.isCallable())qFatal("RadioGroup valueIdentity must be a function or null");
+QString SelectionIdentity::key(const QJSValue &value,const QJSValue &identity,const char *owner) {
+    if(identity.isUndefined() || identity.isNull())return primitiveKey(value,owner);
+    if(!identity.isCallable())qFatal("%s valueIdentity must be a function or null",owner);
     const auto projected=identity.call({value});
-    if(projected.isError())qFatal("RadioGroup valueIdentity callback failed");
-    return primitiveKey(projected);
+    if(projected.isError())qFatal("%s valueIdentity callback failed",owner);
+    return primitiveKey(projected,owner);
 }

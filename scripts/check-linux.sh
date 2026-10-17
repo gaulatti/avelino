@@ -83,6 +83,7 @@ cmake --build "$stage/build" --parallel 2
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --surface-modifier)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --pill-modifier --pill-observe)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --charts --charts-observe)
+(cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --media-library --media-library-observe)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --surface-baseline --surface-supplement-observe)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --surface-input --surface-supplement-observe)
 format_report="$PWD/artifacts/linux/number-formatting.json"
@@ -108,7 +109,7 @@ cp artifacts/linux/environment.json artifacts/package/environment.json
 mkdir -p artifacts/linux
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --capture artifacts/linux/actions-light.png
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --dark --capture artifacts/linux/actions-dark.png
-for fixture in foundations surfaces data-display controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper radio-group otp-input activity-item modal tooltip button-style font-modifier surface-modifier pill-modifier charts; do
+for fixture in foundations surfaces data-display controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper radio-group otp-input activity-item modal tooltip button-style font-modifier surface-modifier pill-modifier charts media-library; do
 for appearance in light dark; do
   for dpr in 1 2; do
     args=(--fixture "$fixture")
@@ -342,3 +343,11 @@ python3 scripts/capture-chart-geometry-cases.py \
 if [[ -e artifacts/linux/chart-geometry-source-candidates ]]; then mv artifacts/linux/chart-geometry-source-candidates "$stage/previous-chart-geometry-candidates"; fi
 mv "$chart_geometry_attempt/captures" artifacts/linux/chart-geometry-source-candidates
 rmdir "$chart_geometry_attempt"
+
+# Preserve every media tile input, all 21 retained steps and isolated fatal runs.
+media_library_attempt="$(mktemp -d "$PWD/artifacts/linux/media-library-attempt.XXXXXX")"
+python3 scripts/capture-media-library.py \
+  "$stage/build/InstalledConsumer" "$media_library_attempt/captures" --jobs 2
+if [[ -e artifacts/linux/media-library-source-candidates ]]; then mv artifacts/linux/media-library-source-candidates "$stage/previous-media-library-candidates"; fi
+mv "$media_library_attempt/captures" artifacts/linux/media-library-source-candidates
+rmdir "$media_library_attempt"

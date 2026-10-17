@@ -1,0 +1,35 @@
+********* Start testing of avelino *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : avelino::MediaLibrary::initTestCase()
+PASS   : avelino::MediaLibrary::test_action_can_remove_its_own_tile()
+PASS   : avelino::MediaLibrary::test_adaptive_columns_and_variable_rows()
+PASS   : avelino::MediaLibrary::test_caller_button_input_and_disabled_inheritance()
+PASS   : avelino::MediaLibrary::test_fixed_overflow_and_rtl()
+PASS   : avelino::MediaLibrary::test_identity_updates_reorder_insert_remove_and_empty_reset()
+PASS   : avelino::MediaLibrary::test_initial_identity_projection()
+PASS   : avelino::MediaLibrary::test_lazy_viewport_scroll_and_state_restoration()
+PASS   : avelino::MediaLibrary::test_unicode_identity_and_typed_identifiers()
+PASS   : avelino::MediaLibrary::test_zero_width_retains_state_and_initial_zero_is_lazy()
+PASS   : avelino::MediaLibrary::cleanupTestCase()
+Totals: 11 passed, 0 failed, 0 skipped, 0 blacklisted, 646ms
+********* Finished testing of avelino *********
+Internal ctest changing into directory: /result/build
+Test project /result/build
+    Start 32: media-library-invalid-config
+1/2 Test #32: media-library-invalid-config .....***Failed    0.89 sec
+Traceback (most recent call last):
+  File "/work/tests/components/check-invalid-media-library.py", line 33, in <module>
+    assert result.returncode != 0 and 'MediaLibrary' in log, (index, result.returncode, log)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (0, 1, "********* Start testing of avelino *********\nConfig: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04\nQWARN  : avelino::tst_invalid_0::compile() \n  /tmp/avelino-media-invalid-ymeep0qj/tst_invalid_0.qml produced 1 error(s):\n    /tmp/avelino-media-invalid-ymeep0qj/tst_invalid_0.qml:4,152: Unexpected token `;'\n  Working directory: /result/build/tests/components\n  Import paths:\n    '/result/build/qml'\n    '/result/build/tests/components'\n    'qrc:/qt-project.org/imports'\n    'qrc:/qt/qml'\n    '/opt/Qt/6.8.3/gcc_arm64/qml'\n  Plugin paths:\n    '.'\n\nFAIL!  : avelino::tst_invalid_0::compile() Unexpected token `;'\n   Loc: [/tmp/avelino-media-invalid-ymeep0qj/tst_invalid_0.qml(4)]\nTotals: 0 passed, 1 failed, 0 skipped, 0 blacklisted, 206ms\n********* Finished testing of avelino *********\n")
+
+    Start 33: media-library-catalog-metadata
+2/2 Test #33: media-library-catalog-metadata ...   Passed   17.14 sec
+
+50% tests passed, 1 tests failed out of 2
+
+Total Test time (real) =  18.04 sec
+
+The following tests FAILED:
+	 32 - media-library-invalid-config (Failed)
+Errors while running CTest

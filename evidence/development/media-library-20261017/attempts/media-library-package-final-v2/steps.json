@@ -1,0 +1,38 @@
+[
+  {
+    "command": [
+      "bash",
+      "check-installed.sh"
+    ],
+    "exitCode": 0,
+    "expectedExitCode": 0,
+    "seconds": 243.80556069500017,
+    "log": "0.log"
+  },
+  {
+    "command": [
+      "python3",
+      "driver/scripts/capture-media-library.py",
+      "consumer-build/InstalledConsumer",
+      "captures",
+      "--jobs",
+      "2"
+    ],
+    "exitCode": 0,
+    "expectedExitCode": 0,
+    "seconds": 54.54282732700085,
+    "log": "1.log"
+  },
+  {
+    "command": [
+      "consumer-build/InstalledConsumer",
+      "--media-library",
+      "--media-library-report",
+      "/package/strict"
+    ],
+    "exitCode": 1,
+    "expectedExitCode": 1,
+    "seconds": 7.503061719995458,
+    "log": "2.log"
+  }
+]

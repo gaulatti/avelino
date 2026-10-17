@@ -53,6 +53,7 @@ jobs:
       - run: python3 scripts/verify-pill-modifier-source.py
       - run: python3 scripts/verify-charts-source.py
       - run: python3 scripts/verify-media-library-source.py
+      - run: python3 scripts/generate-media-library-witnesses.py --check
       - run: python3 scripts/verify-pill-modifier-candidate.py
       - run: python3 scripts/verify-pill-marker-raster.py evidence/development/pill-modifier-20261017/native-marker-raster.json --check
       - run: python3 scripts/generate-pill-witnesses.py --check
@@ -60,6 +61,7 @@ jobs:
       - run: python3 scripts/verify-chart-candidate.py
       - run: python3 scripts/verify-chart-geometry-source.py
       - run: python3 scripts/verify-chart-geometry-candidate.py
+      - run: python3 scripts/verify-media-library-candidate.py
       - run: python3 scripts/verify-font-modifier-candidate.py
       - run: python3 scripts/generate-otp-unicode.py --check
       - run: python3 scripts/generate-otp-witnesses.py --check

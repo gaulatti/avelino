@@ -114,3 +114,8 @@ add_test(NAME charts-invalid-config COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/
     $<TARGET_FILE:AvelinoComponentTests> ${CMAKE_BINARY_DIR}/qml)
 add_test(NAME charts-catalog-metadata COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/check-charts-catalog.py
     $<TARGET_FILE:AvelinoCatalog> ${CMAKE_BINARY_DIR}/qml ${PROJECT_SOURCE_DIR})
+
+add_test(NAME media-library-invalid-config COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/check-invalid-media-library.py
+    $<TARGET_FILE:AvelinoComponentTests> ${CMAKE_BINARY_DIR}/qml)
+add_test(NAME media-library-catalog-metadata COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/check-media-library-catalog.py
+    $<TARGET_FILE:AvelinoCatalog> ${CMAKE_BINARY_DIR}/qml ${PROJECT_SOURCE_DIR})

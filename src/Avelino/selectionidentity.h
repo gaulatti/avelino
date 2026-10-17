@@ -4,8 +4,8 @@
 #include <QtQml/qqmlregistration.h>
 
 namespace SelectionIdentity {
-QString canonicalString(const QString &value);
-QString key(const QJSValue &value, const QJSValue &identity = {});
+QString canonicalString(const QString &value, const char *owner="RadioGroup");
+QString key(const QJSValue &value, const QJSValue &identity = {}, const char *owner="RadioGroup");
 }
 
 class BleeckerSelectionTools final : public QObject {
