@@ -1,0 +1,23 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--rm",
+    "--name",
+    "avelino-pill-text-inheritance-v1",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/pill-text-inheritance-probe-v1:/probe:rw",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/surface-supplement-package-final-v1/install:/installed:ro",
+    "-w",
+    "/probe",
+    "avelino-toolchain:data-metrics-qt6.8.3",
+    "bash",
+    "-lc",
+    "g++ main.cpp -o Probe -std=c++17 -fPIC -I/opt/qt/include -I/opt/qt/include/QtGui -I/opt/qt/include/QtCore -I/opt/qt/include/QtQml -L/opt/qt/lib -lQt6Qml -lQt6Gui -lQt6Core -Wl,-rpath,/opt/qt/lib && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software ./Probe"
+  ],
+  "exitCode": 0,
+  "seconds": 2.077206833055243
+}

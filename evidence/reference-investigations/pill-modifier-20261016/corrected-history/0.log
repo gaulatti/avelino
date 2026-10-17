@@ -1,0 +1,17 @@
+/Users/gaulatti/.codex/tmp/avelino-pill-native-20261016-v4/tool/Common.swift:78:83: warning: '+' was deprecated in macOS 26.0: Use string interpolation on `Text` instead: `Text("Hello \(name)")` [#DeprecatedDeclaration]
+ 76 |         case "kerning":return base.kerning(2)
+ 77 |         case "baseline5":return base.baselineOffset(5)
+ 78 |         case "concat":return Text("Status ").font(BleeckerTypography.primary(17)) + Text(model.fixture.text).bold().foregroundColor(.red)
+    |                                                                                   `- warning: '+' was deprecated in macOS 26.0: Use string interpolation on `Text` instead: `Text("Hello \(name)")` [#DeprecatedDeclaration]
+ 79 |         case "attributed":var value=AttributedString("Ready");value.font=Font.system(size:20,weight:.light,design:.serif);value.foregroundColor = .red;return Text(value)
+ 80 |         case "markdown":return Text(LocalizedStringKey(model.fixture.text))
+
+/Users/gaulatti/.codex/tmp/avelino-pill-native-20261016-v4/tool/Common.swift:82:49: warning: '+' was deprecated in macOS 26.0: Use string interpolation on `Text` instead: `Text("Hello \(name)")` [#DeprecatedDeclaration]
+ 80 |         case "markdown":return Text(LocalizedStringKey(model.fixture.text))
+ 81 |         case "image":return Text(Image(systemName:"checkmark"))
+ 82 |         case "image-text":return Text("Ready ") + Text(Image(systemName:"checkmark"))
+    |                                                 `- warning: '+' was deprecated in macOS 26.0: Use string interpolation on `Text` instead: `Text("Hello \(name)")` [#DeprecatedDeclaration]
+ 83 |         default:fatalError("Unknown pill text style")
+ 84 |         }
+
+[#DeprecatedDeclaration]: <https://docs.swift.org/compiler/documentation/diagnostics/deprecated-declaration>

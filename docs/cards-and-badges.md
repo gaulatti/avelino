@@ -4,6 +4,11 @@ Six desktop APIs now have Linux candidates. Every entry remains
 verification-pending; the pinned native reference images for these cases,
 complete comparisons, accessibility, scaling, and session acceptance are missing.
 
+`Text.bleeckerPill` remains pending separately. Its [native source contract](pill-modifier.md)
+now covers caller-owned fonts/colors, rich text, inline images, constrained and
+baseline layouts, empty text and retained histories. These source observations
+do not add a Linux candidate or accept a font mapping.
+
 | Reference API | Linux interface and presentation |
 | --- | --- |
 | `BleeckerCard` | Default content slot; `paddingSize` none/sm/md/lg = 0/16/24/32; surface/outlined/elevated/subtle/transparent variants; continuous radius 12, border, and light-only surface/elevated shadows |

@@ -1282,3 +1282,21 @@ did not generalize. A clean SDK source-only replay is exact, and both Linux runs
 preserve identical dense masks. No library, expected image, tolerance or exception
 changes. The SDK-only path results remain distinct from public native input,
 physical/reader evidence and approved mirror behavior.
+
+## Native pill modifier source investigation
+
+The [pill source corpus](../evidence/reference-investigations/pill-modifier-20261016/investigation.json)
+preserves 111 fixtures, 888 closed contexts, 440 baseline groups and 56 six-step
+wrapper histories. Public/probed/literal pixels agree in every closed context
+and history step. Exact label/frame guide associations retain fixed padding 7/4,
+caller-owned fonts/colors, rich runs, inline images, constrained layouts and
+empty-text behavior. The custom text-scale key does not change public pixels.
+
+The corrected concat history changes actual rendered text. The original helper
+changed an unused string; its ineffective traces and exact 4,419-file replay
+remain diagnostic. All 3,552 closed/empty and 720 unrelated history PNGs remain
+unchanged. A clean source-only replay reproduces all 4,563 corrected outputs
+after a fresh unchanged reference build. Compiler probes preserve the public
+Text extension and expected private-type/non-Text errors. Apple sources stay
+external. Linux implementation and all target acceptance remain pending; no
+inventory status, source pin, expected image, tolerance or exception is approved.

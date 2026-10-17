@@ -89,3 +89,6 @@ evidence/development/surface-supplement-20261016/**/capture-tool-version.txt -te
 # Preserve SDK and Linux dense path diagnostic logs without rewriting their bytes.
 evidence/development/surface-stroke-dense-20261016/**/*.log -text -whitespace
 evidence/development/surface-stroke-dense-20261016/*.log -text -whitespace
+
+# Preserve pill source-build, API failure and replay transcripts exactly.
+evidence/reference-investigations/pill-modifier-20261016/**/*.log -text -whitespace

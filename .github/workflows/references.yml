@@ -50,6 +50,7 @@ jobs:
       - run: python3 scripts/verify-surface-modifier-candidate.py
       - run: python3 scripts/verify-surface-supplement-candidate.py
       - run: python3 scripts/verify-surface-stroke-dense.py
+      - run: python3 scripts/verify-pill-modifier-source.py
       - run: python3 scripts/verify-font-modifier-candidate.py
       - run: python3 scripts/generate-otp-unicode.py --check
       - run: python3 scripts/generate-otp-witnesses.py --check

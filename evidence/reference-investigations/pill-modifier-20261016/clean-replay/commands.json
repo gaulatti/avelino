@@ -1,0 +1,112 @@
+[
+  {
+    "command": [
+      "swift",
+      "build",
+      "--package-path",
+      "/Users/gaulatti/.codex/tmp/avelino-pill-native-clean-20261016-v4/source",
+      "--scratch-path",
+      "/Users/gaulatti/.codex/tmp/avelino-pill-native-clean-20261016-v4/build",
+      "--jobs",
+      "2",
+      "--target",
+      "Sabella",
+      "--disable-automatic-resolution",
+      "-Xswiftc",
+      "-target",
+      "-Xswiftc",
+      "arm64-apple-macosx26.0"
+    ],
+    "log": "library-build.log",
+    "exitCode": 0,
+    "durationSeconds": 24.412932749954052
+  },
+  {
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-pill-native-clean-20261016-v4/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-pill-native-clean-20261016-v4/tool/Common.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-pill-native-clean-20261016-v4/tool/ClosedMain.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-pill-native-clean-20261016-v4/build/out/Products/Debug/Sabella.o",
+      "-framework",
+      "Charts",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-pill-native-clean-20261016-v4/tool/NativeClosed"
+    ],
+    "log": "closed-build.log",
+    "exitCode": 0,
+    "durationSeconds": 1.4567123330198228
+  },
+  {
+    "command": [
+      "/usr/bin/time",
+      "-l",
+      "/Users/gaulatti/.codex/tmp/avelino-pill-native-clean-20261016-v4/tool/NativeClosed",
+      "/Users/gaulatti/.codex/tmp/avelino-pill-native-clean-20261016-v4/fixtures.json",
+      "/Users/gaulatti/.codex/tmp/avelino-pill-native-clean-20261016-v4/output/closed",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "closed-run.log",
+    "exitCode": 0,
+    "durationSeconds": 195.5302935410291
+  },
+  {
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-pill-native-clean-20261016-v4/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-pill-native-clean-20261016-v4/tool/Common.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-pill-native-clean-20261016-v4/tool/HistoryMain.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-pill-native-clean-20261016-v4/build/out/Products/Debug/Sabella.o",
+      "-framework",
+      "Charts",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-pill-native-clean-20261016-v4/tool/NativeHistory"
+    ],
+    "log": "history-build.log",
+    "exitCode": 0,
+    "durationSeconds": 1.4863747500348836
+  },
+  {
+    "command": [
+      "/usr/bin/time",
+      "-l",
+      "/Users/gaulatti/.codex/tmp/avelino-pill-native-clean-20261016-v4/tool/NativeHistory",
+      "/Users/gaulatti/.codex/tmp/avelino-pill-native-clean-20261016-v4/fixtures.json",
+      "/Users/gaulatti/.codex/tmp/avelino-pill-native-clean-20261016-v4/output/history",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "history-run.log",
+    "exitCode": 0,
+    "durationSeconds": 71.29748933401424
+  },
+  {
+    "command": [
+      "/usr/bin/time",
+      "-l",
+      "/Users/gaulatti/.codex/tmp/avelino-pill-native-clean-20261016-v4/tool/NativeClosed",
+      "/Users/gaulatti/.codex/tmp/avelino-pill-native-clean-20261016-v4/fixtures-empty.json",
+      "/Users/gaulatti/.codex/tmp/avelino-pill-native-clean-20261016-v4/output/empty",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "log": "empty-run.log",
+    "exitCode": 0,
+    "durationSeconds": 42.90759091696236
+  }
+]
