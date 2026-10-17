@@ -1,0 +1,30 @@
+[
+  {
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-O",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "/Users/gaulatti/.codex/tmp/avelino-surface-stroke-dense-20261016-v1/Probe.swift",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-surface-stroke-dense-20261016-v1/Probe"
+    ],
+    "exitCode": 0,
+    "seconds": 5.557670000009239,
+    "log": "0.log"
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-surface-stroke-dense-20261016-v1/Probe",
+      "/Users/gaulatti/.codex/tmp/avelino-surface-stroke-dense-20261016-v1/geometries.json",
+      "/Users/gaulatti/.codex/tmp/avelino-surface-stroke-dense-20261016-v1/paths.json"
+    ],
+    "exitCode": 0,
+    "seconds": 72.1718624169007,
+    "log": "1.log"
+  }
+]

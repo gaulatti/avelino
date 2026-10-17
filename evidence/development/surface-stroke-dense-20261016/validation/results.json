@@ -1,0 +1,39 @@
+[
+  {
+    "command": [
+      "python3",
+      "scripts/verify-references.py"
+    ],
+    "exitCode": 0,
+    "seconds": 0.20662258402444422,
+    "log": "0.log"
+  },
+  {
+    "command": [
+      "python3",
+      "scripts/discover-reference.py",
+      "--check"
+    ],
+    "exitCode": 0,
+    "seconds": 0.17844720801804215,
+    "log": "1.log"
+  },
+  {
+    "command": [
+      "python3",
+      "scripts/verify-proposals.py"
+    ],
+    "exitCode": 0,
+    "seconds": 1.048389041912742,
+    "log": "2.log"
+  },
+  {
+    "command": [
+      "python3",
+      "scripts/verify-surface-stroke-dense.py"
+    ],
+    "exitCode": 0,
+    "seconds": 0.7317837500013411,
+    "log": "3.log"
+  }
+]

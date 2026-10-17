@@ -1272,3 +1272,13 @@ the rejected curved-fill shortcut separately from native library rebuild evidenc
 The integrity verifier replays all raw comparisons and retains failed attempts.
 Physical display/input, hardware acceleration, native raster/font parity and
 readers remain pending; inventory acceptance and coverage counts are unchanged.
+
+The [dense path follow-up](../evidence/development/surface-stroke-dense-20261016/investigation.json)
+retains 6,355,228 samples across 32 geometries and 3,299 complete critical queries,
+including adjacent floating-point values. It rejects the preceding analytic
+containment prototype: 38,308 native-outline dense samples differ. All prior 995
+sparse classifications remain unchanged; their apparent curved-outline agreement
+did not generalize. A clean SDK source-only replay is exact, and both Linux runs
+preserve identical dense masks. No library, expected image, tolerance or exception
+changes. The SDK-only path results remain distinct from public native input,
+physical/reader evidence and approved mirror behavior.

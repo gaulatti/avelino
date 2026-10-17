@@ -1,0 +1,18 @@
+[
+  "docker",
+  "--context",
+  "colima-avelino-verify",
+  "run",
+  "--rm",
+  "--init",
+  "--name",
+  "avelino-surface-stroke-dense-v2",
+  "-v",
+  "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/surface-stroke-dense-v2:/diag:rw",
+  "-w",
+  "/diag",
+  "avelino-toolchain:data-metrics-qt6.8.3",
+  "bash",
+  "-lc",
+  "g++ ProbeQt.cpp -O2 -o ProbeQt -std=c++17 -fPIC -I/opt/qt/include -I/opt/qt/include/QtGui -I/opt/qt/include/QtCore -L/opt/qt/lib -lQt6Gui -lQt6Core -Wl,-rpath,/opt/qt/lib && QT_QPA_PLATFORM=offscreen ./ProbeQt"
+]

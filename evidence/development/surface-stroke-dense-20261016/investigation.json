@@ -1,0 +1,82 @@
+{
+  "accepted": false,
+  "status": "diagnostic-only",
+  "reference": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+  "scope": "SDK-only raw path containment, with no caller-frame hit clipping; not a public-view, physical, reader or Linux mirror acceptance result",
+  "implementationApplied": false,
+  "prototypeRejected": true,
+  "expectedImagesChanged": false,
+  "approvedExceptions": [],
+  "tolerance": "none",
+  "summary": {
+    "profiles": 32,
+    "denseSamples": 6355228,
+    "criticalQueries": 3299,
+    "methodNames": [
+      "analytic-native-stroke",
+      "analytic-Qt-stroke-native-centerline",
+      "analytic-Qt-stroke-Linux-centerline",
+      "Qt-contains-native-stroke",
+      "Qt-contains-Qt-stroke-Linux-centerline"
+    ],
+    "denseDifferences": [
+      38308,
+      37666,
+      37666,
+      38318,
+      37670
+    ],
+    "criticalDifferences": [
+      641,
+      724,
+      724,
+      652,
+      726
+    ],
+    "genericNativePathDifferences": 0,
+    "coreGraphicsDifferences": 60063,
+    "originalSparseQueriesPreserved": 995
+  },
+  "sourceOnlyReplayIdentical": true,
+  "linuxDenseMasksReproduced": true,
+  "qt": "6.8.3",
+  "platform": "offscreen",
+  "imageId": "sha256:48d88f958d93310bf887e4318b27713b7ecbb8b9f6a7d276087e599c9b6383d8",
+  "files": {
+    "ProbeQt.cpp": "523e8f18d7c36d1c2c20a90303c77843407bc1e4cbca7d0f4fb0d4c191fe6421",
+    "continuouscorners.js": "f8140ef5bec9c711015f965a38d0ead41cf0fd93a3340e9de323ccbb2d6931f6",
+    "first-linux-attempt-manifest.json": "6bb6e039e4acdaed1dcc64079cd22a705cf6aa577d64c89a470d20f02e9d74a1",
+    "first-linux-attempt.tar.gz": "84237eeae51a7eb29650a0b3c269e50f4fc0fcd5f8069d3e08b2ce3461ea8411",
+    "generate-centerlines.cjs": "5890ae0c1b8d7033ea683a6f07905fd71026b43091eb33f7a9b27e50426aec02",
+    "geometries.json": "1781929011d2afdc5be38ff976334c9d9f774a8c898eece7a84b8766abd9485f",
+    "linux-centerlines.json": "54a22b0ca2ddadcf64dbf7b158472f6adceeb90a69b0aa19b7f4d15d5ea8ac77",
+    "linux-command.json": "20893d3da0560b51da98115efc0e916bbfb902d0e7b16eeb4c9e81e847cdcc32",
+    "linux-dense-replay-comparison.json": "ae5f88d9fec9df6ca009179bf5d812749b6552bf36972525e66c08d8731e2248",
+    "linux-inputs.json": "b04ff5a35b4c181eb093fb86334d5099574e2a74fe4b4f7b9d09433105b1fe44",
+    "linux-result.json": "05b6829bb0528b5e75365636d84a6bcbd72b3dc8eb00cd048895f5fcc037da99",
+    "linux-results.json": "2ac15bdfbe17c33e7c0ef01b353daedfd1f35bd13e521709de622f1251aa9bbb",
+    "linux-run.log": "a108fb2e384851de8dd10a36d225c4281fa336f80c2bb4cd812764d10c462869",
+    "native-paths.json": "c7681b1cfdc9ebff2bdf287e144c592e1fa721bc6a6d5c8862f04068ad1d2f12",
+    "sdk-build.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sdk-commands.json": "61bb1a7d450078557071da1b1fab87da78cbc5df75f094c61162aeb741534b88",
+    "sdk-inputs.json": "5ea665141cf3805af9d66b84485558ce4881ca61e4fca67d9c7ed4bdcffa2e71",
+    "sdk-replay/0.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sdk-replay/1.log": "a108fb2e384851de8dd10a36d225c4281fa336f80c2bb4cd812764d10c462869",
+    "sdk-replay/commands.json": "b158e3ee5b675cf041a912e97ae80dad1527304c587ac6632fc635abb405e10c",
+    "sdk-replay-comparison.json": "cb77e238350a725542557e38ff314f9f6e83f297220199c90ae8d8ec66886df5",
+    "sdk-run.log": "a108fb2e384851de8dd10a36d225c4281fa336f80c2bb4cd812764d10c462869",
+    "source-provenance.json": "353216d2e6876c4c351f4b1d7210bde27d4a55add12a068e816b855764675359",
+    "validation/0.log": "4ac12ff776d768cb483b86473b1ffa8ababa598f9228cc39de5401998463d92c",
+    "validation/1.log": "b46122db81e931188a9fb4ceeac494288de7d5e78465b49594299027d4b89ebb",
+    "validation/2.log": "daba667751579b925f954896cf823ab9d9282f04a8becce1303f202651f6990e",
+    "validation/3.log": "b4c65579028289bdef76218596761342ea1b0a8fdc209a7989693614e566c989",
+    "validation/contracts.log": "c6dc01b365e97cebeb66b8b4eb28babb2937e1a685a3a034d804981d244e6460",
+    "validation/results.json": "b4f8df2a46b3bd8dfb33c0aebc7ce0735ab9df1702cf27dfc759b519d5e8a42b"
+  },
+  "pathGeneratorRevision": "350f377d0b6b4cae46ed6cc2d34fb902ee439bf1",
+  "validation": {
+    "integrityContracts": 9,
+    "commands": 4,
+    "libraryFilesChanged": 0
+  }
+}

@@ -278,3 +278,15 @@ All failures, setup/compiler attempts and actual exits remain in the sealed
 evidence. `verify-surface-supplement-candidate.py` recomputes raw comparisons and
 checks complete profiles, counters, hashes and package bindings. Acceptance and
 the desktop/TV inventory counts remain unchanged.
+
+The subsequent [dense SDK diagnostic](../evidence/development/surface-stroke-dense-20261016/investigation.json)
+rejects the analytic crossing prototype from that checkpoint. All 32 geometries,
+6,355,228 dense corner samples and 3,299 indexed critical queries remain in the
+comparison. The analytic calculation differs from SwiftUI in 38,308 dense
+samples even when given native stroke outlines. Qt containment on those outlines
+differs in 38,318; generic SwiftUI paths constructed from the same CGPath match
+all native samples. These measurements do not establish the internal cause.
+All 995 earlier sparse classifications remain unchanged. A clean same-host SDK
+source replay reproduces every native byte, and both Linux runs reproduce every
+dense mask. The prototype remains unapplied; this SDK-only diagnostic does not
+replace public-view event evidence or close any acceptance gate.
