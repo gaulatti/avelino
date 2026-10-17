@@ -1,0 +1,27 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--rm",
+    "--init",
+    "--ulimit",
+    "core=0",
+    "--name",
+    "avelino-charts-geometry-supplement-v1",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/charts-geometry-supplement-v1:/package:rw",
+    "-w",
+    "/package",
+    "avelino-toolchain:clipping-qt6.8.3",
+    "python3",
+    "driver/scripts/capture-chart-geometry-cases.py",
+    "install/bin/AvelinoCatalog",
+    "captures",
+    "--jobs",
+    "3"
+  ],
+  "exitCode": 0,
+  "seconds": 35.24012304202188
+}

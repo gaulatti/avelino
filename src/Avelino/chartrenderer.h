@@ -57,6 +57,8 @@ private:
     struct Point {QString id,series,label;double x=0,y=0,start=0,end=0;int color=0;};
     struct Draw {QPainterPath path;QColor color;double stroke=0;bool gradient=false;bool dashed=false;};
     void relayout();
+    void attachWindow(QQuickWindow *window);
+    void refreshSceneOrigin();
     QString m_kind="line",m_locale="en_US";
     QVariant m_points=QVariantList{},m_values=QVariantList{};
     QVariantList m_colors,m_accessibility;
@@ -67,4 +69,6 @@ private:
     QRectF m_bounds{0,0,100,100},m_plot;
     QVariantMap m_measurements;
     QVector<Draw> m_draws;
+    QPointF m_sceneOrigin;
+    QMetaObject::Connection m_frameConnection;
 };

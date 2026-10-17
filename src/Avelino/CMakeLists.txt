@@ -38,6 +38,9 @@ endforeach()
 set(brand_logo "${PROJECT_SOURCE_DIR}/assets/brand/BleeckerLogo.png")
 set_source_files_properties("${brand_logo}" PROPERTIES QT_RESOURCE_ALIAS "brand/BleeckerLogo.png")
 qt_add_library(Avelino SHARED)
+# Source plot-proxy arithmetic rounds each Double operation independently.
+# Fused multiply-add changes observable coordinates on supported Linux CPUs.
+set_source_files_properties(chartrenderer.cpp PROPERTIES COMPILE_OPTIONS "-ffp-contract=off")
 qt_add_qml_module(Avelino URI Avelino VERSION 0.1
     OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/qml/Avelino
     QML_FILES ${qml_files}

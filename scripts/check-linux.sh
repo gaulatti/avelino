@@ -334,3 +334,11 @@ python3 scripts/capture-charts.py \
 if [[ -e artifacts/linux/charts-source-candidates ]]; then mv artifacts/linux/charts-source-candidates "$stage/previous-charts-candidates"; fi
 mv "$chart_attempt/captures" artifacts/linux/charts-source-candidates
 rmdir "$chart_attempt"
+
+# Additional source probes retain tiny, fractional-scale and legend/category cases.
+chart_geometry_attempt="$(mktemp -d "$PWD/artifacts/linux/chart-geometry-attempt.XXXXXX")"
+python3 scripts/capture-chart-geometry-cases.py \
+  "$stage/install/bin/AvelinoCatalog" "$chart_geometry_attempt/captures" --jobs 2
+if [[ -e artifacts/linux/chart-geometry-source-candidates ]]; then mv artifacts/linux/chart-geometry-source-candidates "$stage/previous-chart-geometry-candidates"; fi
+mv "$chart_geometry_attempt/captures" artifacts/linux/chart-geometry-source-candidates
+rmdir "$chart_geometry_attempt"

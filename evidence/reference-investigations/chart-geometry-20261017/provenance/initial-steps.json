@@ -1,0 +1,54 @@
+[
+  {
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-geometry-native-20261017-v1/tool/Common.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-geometry-native-20261017-v1/tool/ClosedMain.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-geometry-native-20261017-v1/tool/History.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-native-20261017-v4/build/out/Products/Debug/Sabella.o",
+      "-framework",
+      "Charts",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-geometry-native-20261017-v1/tool/NativeGeometry"
+    ],
+    "exitCode": 0,
+    "seconds": 3.8351742919767275,
+    "log": "build.log"
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-geometry-native-20261017-v1/tool/NativeGeometry",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-geometry-native-20261017-v1/scales.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-geometry-native-20261017-v1/scales",
+      "--pilot",
+      "--dprs=1,1.25,1.5,1.75,2,2.5,3",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "exitCode": 0,
+    "seconds": 20.309621958062053,
+    "log": "scales.log"
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-charts-geometry-native-20261017-v1/tool/NativeGeometry",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-geometry-native-20261017-v1/tiny.json",
+      "/Users/gaulatti/.codex/tmp/avelino-charts-geometry-native-20261017-v1/tiny",
+      "--pilot",
+      "--dprs=1,2",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "exitCode": 0,
+    "seconds": 24.270829707966186,
+    "log": "tiny.log"
+  }
+]

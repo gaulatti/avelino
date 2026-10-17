@@ -1,0 +1,45 @@
+-- Could NOT find WrapVulkanHeaders (missing: Vulkan_INCLUDE_DIR) 
+-- Could NOT find WrapVulkanHeaders (missing: Vulkan_INCLUDE_DIR) 
+-- Found the following ICU libraries:
+--   i18n (required): /usr/lib/aarch64-linux-gnu/libicui18n.so.74
+--   uc (required): /usr/lib/aarch64-linux-gnu/libicuuc.so.74
+-- Configuring done (0.7s)
+-- Generating done (0.1s)
+-- Build files have been written to: /result/build
+[0/2] Re-checking globbed directories...
+[1/338] Automatic MOC and UIC for target Avelinoplugin
+[2/337] Automatic MOC and UIC for target Avelino
+[3/336] Running AUTOMOC file extraction for target Avelino
+[4/336] Running moc --collect-json for target Avelino
+[5/134] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/chartrenderer.cpp.o
+[6/134] Linking CXX shared library src/Avelino/libAvelino.so
+[7/134] Automatic MOC and UIC for target AvelinoCatalog
+[8/133] Running AUTOMOC file extraction for target AvelinoCatalog
+[9/133] Running moc --collect-json for target AvelinoCatalog
+[10/17] Linking CXX shared module qml/Avelino/libAvelinoplugin.so
+[11/17] Automatic MOC and UIC for target AvelinoComponentTests
+[12/16] Linking CXX executable tests/components/AvelinoComponentTests
+[13/16] Automatic MOC and UIC for target AvelinoOTPSemanticsTests
+[14/15] Linking CXX executable samples/AvelinoCatalog/AvelinoCatalog
+[15/15] Linking CXX executable tests/components/AvelinoOTPSemanticsTests
+********* Start testing of avelino *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : avelino::Charts::initTestCase()
+PASS   : avelino::Charts::test_area_and_live_restoration()
+PASS   : avelino::Charts::test_bar_signed_stack_and_categorical_order()
+PASS   : avelino::Charts::test_finite_extreme_domains_stay_finite()
+PASS   : avelino::Charts::test_minimum_plot_and_unclipped_legend()
+PASS   : avelino::Charts::test_native_continuous_domains()
+PASS   : avelino::Charts::test_native_reciprocal_point_and_inverse_values()
+FAIL!  : avelino::Charts::test_native_sector_inverse_and_rtl() Compared values are not the same
+   Actual   (): ,,,,
+   Expected (): [,,,,]
+   Loc: [/work/tests/components/tst_charts.qml(89)]
+PASS   : avelino::Charts::test_nonfinite_rows_keep_independent_channels()
+PASS   : avelino::Charts::test_pie_signed_values_and_radius_endpoints()
+PASS   : avelino::Charts::test_public_types_and_empty()
+PASS   : avelino::Charts::test_sparkline_keeps_legend_and_hides_axes()
+PASS   : avelino::Charts::test_theme_custom_scale_and_disabled()
+PASS   : avelino::Charts::cleanupTestCase()
+Totals: 13 passed, 1 failed, 0 skipped, 0 blacklisted, 228ms
+********* Finished testing of avelino *********

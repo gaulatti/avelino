@@ -118,9 +118,11 @@ The [native chart investigation](docs/charts.md) covers all five chart families,
 120 closed fixtures, 45 non-finite inputs and five finite controls. Ordinary
 source outputs reproduce exactly; NaN-bar replay differences remain failed and
 preserved. The five Linux chart candidates retain every closed/edge input and
-history step in 1,744 strict comparisons: 32 complete matches, all empty charts.
-Native geometry, fonts/raster, non-finite behavior, physical input and readers
-remain pending.
+history step in 1,744 strict comparisons. The geometry correction raises complete
+native metric matches from 120 to 624 of 1,344; 40 complete cases match, all empty
+charts. Another 125 scale/size/category/legend pairs remain strict. Native fonts,
+fractional layout, geometry/raster, intrinsic proposals, non-finite behavior,
+physical input and readers remain pending.
 
 The [surface modifier](docs/surface-modifier.md) decorates flat callers separately
 and explicit stacks as one caller, preserving caller state, font inheritance and

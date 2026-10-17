@@ -37,6 +37,10 @@ gallery. Package checks run `--charts --charts-observe`, preserve source geometr
 failures and check real Qt data-row interfaces and read-only pointer/keyboard
 behavior. All 1,744 native/candidate image pairs are compared separately by
 `scripts/compare-chart-captures.py`; its strict failures remain visible in CI.
+The [supplemental geometry matrix](charts.md#geometry-correction) adds 125
+requested-scale, tiny-frame, RTL-category and long-legend inputs through the
+installed catalog. Its separate strict CI comparison retains native fractional
+font/layout/raster differences; actual native backing scale stays two.
 
 Every Linux capture links an environment record with source revision, dirty-tree
 state, exact source/resource hashes, compiler, Qt, CMake, and installed package

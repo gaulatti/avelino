@@ -1,0 +1,35 @@
+Start testing: Oct 17 07:32 UTC
+----------------------------------------------------------
+30/31 Testing: charts-invalid-config
+30/31 Test: charts-invalid-config
+Command: "/usr/bin/python3" "/work/tests/components/check-invalid-charts.py" "/result/build/tests/components/AvelinoComponentTests" "/result/build/qml"
+Directory: /result/build/tests/components
+"charts-invalid-config" start time: Oct 17 07:32 UTC
+Output:
+----------------------------------------------------------
+Charts: eight invalid input shapes rejected; numeric NaN and infinities are separate source cases
+<end of output>
+Test time =   5.44 sec
+----------------------------------------------------------
+Test Passed.
+"charts-invalid-config" end time: Oct 17 07:32 UTC
+"charts-invalid-config" time elapsed: 00:00:05
+----------------------------------------------------------
+
+31/31 Testing: charts-catalog-metadata
+31/31 Test: charts-catalog-metadata
+Command: "/usr/bin/python3" "/work/tests/components/check-charts-catalog.py" "/result/build/samples/AvelinoCatalog/AvelinoCatalog" "/result/build/qml" "/work"
+Directory: /result/build/tests/components
+"charts-catalog-metadata" start time: Oct 17 07:32 UTC
+Output:
+----------------------------------------------------------
+Charts catalog: 170 source inputs and 27 malformed definitions; native parity pending
+<end of output>
+Test time =  37.58 sec
+----------------------------------------------------------
+Test Passed.
+"charts-catalog-metadata" end time: Oct 17 07:33 UTC
+"charts-catalog-metadata" time elapsed: 00:00:37
+----------------------------------------------------------
+
+End testing: Oct 17 07:33 UTC

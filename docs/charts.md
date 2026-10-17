@@ -129,29 +129,87 @@ No images are removed, resized, masked, recalibrated or accepted through these
 diagnostics. Native geometry, fonts/raster, non-finite behavior, input/timing,
 physical displays/input and reader acceptance remain open.
 
-Current Linux evidence passes all 31 Qt targets, including 5,341 component checks
-at DPR one and 5,569 at DPR two. The installed package passes 33 modes and 135
-catalog captures; all 131 earlier PNGs and their complete metadata are unchanged.
-Forty virtual profiles cover base, font, surface, pill and chart fixtures across
+The initial candidate at `4184245` passed all 31 Qt targets, including 5,341
+component checks at DPR one and 5,569 at DPR two. Its installed package passed
+33 modes and 135 catalog captures; all 131 earlier PNGs and their complete
+metadata were unchanged. Forty virtual profiles covered base, font, surface,
+pill and chart fixtures across
 X11/Wayland, software/OpenGL and two display/text scales. This includes eight
-complete chart profiles. Actual XTest input reaches all 14 gallery controls over
+complete chart profiles. Actual XTest input reached all 14 gallery controls over
 24 clicks and 25 states, with each entire caller viewport equal to a separate
 installed isolated Qt fixture. These are virtual implementation checks.
 
-The strict 1,744-case comparison has 32 complete matches, all empty line/bar/
+That initial strict 1,744-case comparison has 32 complete matches, all empty line/bar/
 scatter/sparkline charts. All 40 empty-chart pixels match, including pie, but
 pie metrics still differ. All 1,744 layout/state observations and all 1,344 native
 outer-frame sets match; 120 complete native metric sets match. Zero nonempty or
 retained-history cases pass the complete strict comparison. No acceptance follows
 from these counts.
 
-The [sealed candidate](../evidence/development/charts-20261017/candidate.json)
+The [initial sealed candidate](../evidence/development/charts-20261017/candidate.json)
 preserves every warning-producing earlier attempt, frozen source inputs,
 installed executables, runtime captures, arithmetic diagnostics and raw pixel
-differences. A read-only arithmetic experiment reproduces 2,696 continuous x/y
-positions exactly using a precomputed reciprocal. A separate native measurement
-finds a 0.5-point DPR-two plot-height change in 110 nonempty/nonzero cases. Both
-remain named geometry corrections after this captured implementation; the
-candidate and its expectations are preserved. Run
+differences. Its implementation and expectations remain preserved. Run
 `python3 scripts/verify-chart-candidate.py` to recompute the published evidence.
 Desktop coverage is 71/80 candidates and zero accepted entries.
+
+## Geometry correction
+
+The [supplemental native investigation](../evidence/reference-investigations/chart-geometry-20261017/investigation.json)
+adds 125 contexts across 45 definitions: seven common fixtures at requested
+display scales 1, 1.25, 1.5, 1.75, 2, 2.5 and 3; all five families at square
+caller sizes 0, 1, 10, 20, 40 and 60; two RTL bar widths; and six long single-word
+or multiword pie legends. The size/category/legend cases use requested DPR 1 and
+2. All contexts use light appearance and text scale one. The actual native window
+backing scale stays two. Requested environment/bitmap scales are separate from
+that backing scale and do not establish physical fractional-display behavior.
+
+All public/probed/literal pixels match in each new context; the 14 overlapping
+canonical public images are unchanged. A fresh source-only build reproduces all
+503 outputs: 500 PNGs and three observation files. The complete 89-file pinned
+source tree is unchanged. Apple tools and the source-only archive remain external,
+with checksummed provenance. Run `python3 scripts/verify-chart-geometry-source.py`
+to validate the source record.
+
+The correction preserves the native order of double operations: continuous
+positions normalize through a precomputed reciprocal, inverse queries divide by
+that reciprocal, and categorical upper bounds add one band to the lower bound.
+The chart compilation unit disables floating-point contraction to keep those
+observable roundings. Extreme finite domains retain the wider ratio when a
+double subtraction or reciprocal cannot represent the domain. Pie sectors and
+inverse angle queries mirror in RTL; empty inverse angles remain absent and
+all-zero data returns zero.
+
+Plots keep a minimum one-by-one size. Legend entries retain their full natural
+label outside narrow caller frames. Integer display scales use the observed
+five-point legend gap plus one physical pixel. Plot-frame edges round in window
+scene coordinates before returning to chart-local coordinates, preserving the
+half-point phase of tiny centered callers. Arbitrary ancestor transforms and
+intrinsic layout proposal negotiation remain unverified. The native fractional
+font/footer spacing varies by context; the integer gap rule does not resolve it.
+
+The [corrected sealed candidate](../evidence/development/chart-geometry-20261017/candidate.json)
+preserves all 1,744 canonical pairs and the 125 supplemental pairs. All 1,344
+canonical outer-frame observations match; 624 complete metric sets match, up from
+120. The supplemental comparison has 125 matching frames and 67 matching metric
+sets. Forty canonical cases match completely, all empty charts; zero nonempty,
+retained-history or supplemental cases pass the complete strict comparison.
+
+The changed module passed 15 chart component checks at each DPR 1 and 2 and both
+focused catalog targets: 170 isolated definitions and eight malformed-input
+shapes. It passed 33 installed-consumer modes, 135 catalog captures, eight chart
+virtual X11/Wayland software/OpenGL profiles, and 25 actual XTest gallery states
+over 24 clicks. All 131 earlier non-chart PNGs and complete metadata are
+byte-identical. Only the installed library changed; the independent consumer
+executable and other 132 installed files are unchanged. The 31-target full suite
+above belongs to the initial revision and is not claimed for this changed module.
+
+Run `python3 scripts/capture-chart-geometry-cases.py CATALOG OUTPUT` and
+`python3 scripts/compare-chart-geometry-captures.py CAPTURES OUTPUT` for the supplemental
+matrix; `python3 scripts/verify-chart-geometry-candidate.py` recomputes the sealed results.
+All pixels and observed geometry remain strict, without exclusions or tolerance.
+Native system fonts, axis formatting/density/adaptive layout, curves/areas/sector
+raster, fractional font layout, non-finite initialization, intrinsic proposals,
+input timing, physical displays/input, readers and independent-machine reference
+replay remain pending. No expected image, pin or exception changes. Candidate
+coverage remains 71/80; zero desktop entries are accepted.

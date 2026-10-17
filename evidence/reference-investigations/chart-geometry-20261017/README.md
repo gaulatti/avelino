@@ -1,0 +1,3 @@
+# Supplemental chart geometry probes
+
+125 native contexts, 45 configurations and 500 PNGs cover requested scales 1 through 3, tiny frames, overflowing legend labels and RTL categorical bands. The unchanged pinned source reproduces all 503 outputs exactly in a fresh source-only build. Fourteen earlier canonical public PNGs remain unchanged. Actual native backing scale is two; requested display/bitmap scales remain distinct from physical-display evidence. No source pin, existing expected image, tolerance or exception changes. Source and source-only archive remain outside the Linux tree; provenance records the checksummed artifact locator. Physical displays/input, native font/raster equivalence, readers and independent-machine replay remain pending.

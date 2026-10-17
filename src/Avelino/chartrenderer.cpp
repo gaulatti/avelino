@@ -4,6 +4,7 @@
 #include <QJSValue>
 #include <QLocale>
 #include <QPainter>
+#include <QQuickWindow>
 #include <algorithm>
 #include <cmath>
 #include <limits>
@@ -15,7 +16,24 @@ struct Scale {
     double low=0,high=0,step=0;bool valid=false;
     double position(double value,double extent) const {
         if(!valid || !std::isfinite(value))return std::numeric_limits<double>::quiet_NaN();
-        return low==high ? extent/2:double((static_cast<long double>(value)-low)/(static_cast<long double>(high)-low)*extent);
+        if(low==high)return extent/2;
+        const double span=high-low,reciprocal=1/span;
+        // The source normalizes through a precomputed Double reciprocal.
+        // Keep each operation's rounding: direct division and wider arithmetic
+        // change ordinary mark positions. Extreme finite domains retain a
+        // wider ratio when Double subtraction/reciprocation cannot represent it.
+        if(std::isfinite(span) &&std::isfinite(reciprocal) &&reciprocal>0)
+            return ((value-low)*reciprocal)*extent;
+        return double((static_cast<long double>(value)-low)/(static_cast<long double>(high)-low)*extent);
+    }
+    double value(double position,double extent,bool reversed) const {
+        if(!valid ||extent<=0)return std::numeric_limits<double>::quiet_NaN();
+        if(low==high)return low;
+        const double normalized=(position-(reversed ? extent:0))/(reversed ? -extent:extent);
+        const double span=high-low,reciprocal=1/span;
+        if(std::isfinite(span) &&std::isfinite(reciprocal) &&reciprocal>0)
+            return normalized/reciprocal+low;
+        return double(static_cast<long double>(normalized)*(static_cast<long double>(high)-low)+low);
     }
     QVariantList domain() const{return valid ? QVariantList{low,high}:QVariantList{};}
     QList<double> ticks() const {
@@ -41,7 +59,7 @@ Scale scaleFor(const QList<double> &values,bool nice) {
     if(!std::isfinite(step) ||step<=0)return scale;
     const double low=std::floor(scale.low/step)*step,high=std::ceil(scale.high/step)*step;
     // Preserve finite input handling even when extending a domain would
-    // overflow Double. Drawing uses long-double ratios rather than inf-inf.
+    // overflow Double. Those domains use a wider ratio rather than inf-inf.
     if(std::isfinite(low) &&std::isfinite(high)) {
         scale.step=step;scale.low=low;scale.high=high;
     }
@@ -147,8 +165,20 @@ QPainterPath sectorPath(QPointF center,double outer,double inner,double start,do
 
 ChartRenderer::ChartRenderer(QQuickItem *parent):QQuickPaintedItem(parent) {
     setOpaquePainting(false);setAntialiasing(true);setSmooth(false);
+    connect(this,&QQuickItem::windowChanged,this,&ChartRenderer::attachWindow);
 }
 void ChartRenderer::componentComplete(){QQuickPaintedItem::componentComplete();m_complete=true;relayout();}
+void ChartRenderer::attachWindow(QQuickWindow *window) {
+    disconnect(m_frameConnection);
+    if(window)m_frameConnection=connect(window,&QQuickWindow::afterAnimating,this,&ChartRenderer::refreshSceneOrigin);
+    refreshSceneOrigin();
+}
+void ChartRenderer::refreshSceneOrigin() {
+    if(!m_complete ||!window())return;
+    const auto origin=mapToScene(-m_bounds.topLeft());
+    if(origin==m_sceneOrigin)return;
+    m_sceneOrigin=origin;relayout();
+}
 #define CHART_SETTER(Type,Name,Member) void ChartRenderer::set##Name(Type value){if(Member==value)return;Member=value;emit configurationChanged();relayout();}
 CHART_SETTER(const QString &,Kind,m_kind)
 CHART_SETTER(const QVariant &,Points,m_points)
@@ -212,16 +242,30 @@ void ChartRenderer::relayout() {
     const bool yAxis=!pie &&!spark &&yScale.valid &&yScale.low!=yScale.high;
     QList<QVariantMap> legend;double cursor=0;int legendRows=series.isEmpty() ? 0:1;
     for(int i=0;i<series.size();++i) {
-        const QString label=legendMetrics.elidedText(series[i],Qt::ElideRight,std::max(0.,m_size.width()-13));
+        // Native legend entries keep their natural unbreakable label even
+        // when the chart's offered frame is narrower than a single entry.
+        const QString label=series[i];
         const double width=13+legendMetrics.horizontalAdvance(label);
         if(cursor>0 &&cursor+width>m_size.width()){++legendRows;cursor=0;}
         legend.append({{"series",series[i]},{"text",label},{"x",cursor},{"row",legendRows-1},{"width",width},{"color",palette[i%palette.size()].name(QColor::HexArgb)}});cursor+=width+10;
     }
-    const double legendHeight=legendRows ? 18.3203125+22*(legendRows-1):0;
+    // The integer-scale source probes retain a five-point gap plus one
+    // physical pixel. Fractional-scale native font layout remains unresolved.
+    const double legendPadding=5+1/m_pixelRatio;
+    const double legendHeight=legendRows ? 12.3203125+legendPadding+22*(legendRows-1):0;
     double axisWidth=0;
     if(yAxis)for(double tick:yScale.ticks())axisWidth=std::max(axisWidth,std::ceil(axisMetrics.horizontalAdvance(formatted(tick,yScale.step,locale)))+7);
-    m_plot=QRectF(m_mirrored ? axisWidth:0,0,std::max(0.,m_size.width()-axisWidth),std::max(0.,m_size.height()-legendHeight-(xAxis ? 18:0)));
-    auto px=[&](const Point &p){const double value=bar ? (categories.indexOf(p.label)+0.5)*m_plot.width()/std::max(qsizetype(1),categories.size()):xScale.position(p.x,m_plot.width());return m_plot.left()+(m_mirrored ? m_plot.width()-value:value);};
+    m_plot=QRectF(m_mirrored ? axisWidth:0,0,std::max(1.,m_size.width()-axisWidth),std::max(1.,m_size.height()-legendHeight-(xAxis ? 18:0)));
+    auto categoryRange=[&](const Point &p){
+        const double band=m_plot.width()/std::max(qsizetype(1),categories.size());
+        const double lower=categories.indexOf(p.label)*band;
+        return QPair<double,double>{lower,lower+band};
+    };
+    auto px=[&](const Point &p){
+        const auto range=bar ? categoryRange(p):QPair<double,double>{};
+        const double value=bar ? (range.first+range.second)/2:xScale.position(p.x,m_plot.width());
+        return m_plot.left()+(m_mirrored ? m_plot.width()-value:value);
+    };
     auto py=[&](double y){return m_plot.bottom()-yScale.position(y,m_plot.height());};
     const QColor foreground=m_labelColor,grid=m_gridColor;
     m_draws.clear();m_accessibility.clear();QVariantList pointRows,legendReport;
@@ -269,7 +313,7 @@ void ChartRenderer::relayout() {
         if(!pie) {
             observed.insert("xPosition",number(px(point)-m_plot.left()));
             observed.insert("yPosition",number(yScale.valid &&std::isfinite(point.y) ? m_plot.height()-yScale.position(point.y,m_plot.height()):std::numeric_limits<double>::quiet_NaN()));
-            if(bar){const double band=m_plot.width()/std::max(qsizetype(1),categories.size()),center=px(point)-m_plot.left();observed.insert("xRange",pair(center-band/2,center+band/2));}
+            if(bar){const auto range=categoryRange(point);observed.insert("xRange",m_mirrored ? pair(m_plot.width()-range.second,m_plot.width()-range.first):pair(range.first,range.second));}
             else observed.insert("xRange",pair(px(point)-m_plot.left(),px(point)-m_plot.left()));
             const double y=yScale.valid &&std::isfinite(point.y) ? m_plot.height()-yScale.position(point.y,m_plot.height()):std::numeric_limits<double>::quiet_NaN();observed.insert("yRange",pair(y,y));
         }
@@ -280,7 +324,9 @@ void ChartRenderer::relayout() {
             constexpr double radius=3.989422804014327;bounds={QPointF(px(point)-radius,py(point.y)-radius),QSizeF(2*radius,2*radius)};QPainterPath path;path.addEllipse(bounds);draw(path,palette[point.color%palette.size()]);rendered=true;
         }else if(pie &&angleExtent>0 &&std::isfinite(point.start)&&std::isfinite(point.end)&&!std::isnan(m_innerRadius)) {
             const double start=double((std::min(point.start,point.end)-negativeAngles)/angleExtent)*2*pi-pi/2,end=double((std::max(point.start,point.end)-negativeAngles)/angleExtent)*2*pi-pi/2;
-            const double outer=std::min(m_plot.width(),m_plot.height())/2,inner=outer*std::clamp(m_innerRadius,0.,1.);const auto path=sectorPath(m_plot.center(),outer,inner,start,end);bounds=path.boundingRect();draw(path,palette[point.color%palette.size()]);rendered=!path.isEmpty();observed.insert("angleRange",pair(start+pi/2,end+pi/2));
+            const double outer=std::min(m_plot.width(),m_plot.height())/2,inner=outer*std::clamp(m_innerRadius,0.,1.);auto path=sectorPath(m_plot.center(),outer,inner,start,end);
+            if(m_mirrored){QTransform mirror;mirror.translate(2*m_plot.center().x(),0);mirror.scale(-1,1);path=mirror.map(path);}
+            bounds=path.boundingRect();draw(path,palette[point.color%palette.size()]);rendered=!path.isEmpty();observed.insert("angleRange",pair(start+pi/2,end+pi/2));
         }else if((m_kind=="line"||spark)&&std::isfinite(point.x)&&std::isfinite(point.y)) {bounds={px(point)-1,py(point.y)-1,2,2};rendered=true;}
         observed.insert("rendered",rendered);observed.insert("bounds",rectangle(bounds));pointRows.append(observed);
         const QString description=bar ? QStringLiteral("%1, %2: %3").arg(point.series,point.label,formatted(point.y,0,locale)):pie ? QStringLiteral("%1: %2").arg(point.series,formatted(point.y,0,locale)):QStringLiteral("%1, X: %2, Y: %3").arg(point.series,formatted(point.x,0,locale),formatted(point.y,0,locale));
@@ -288,7 +334,7 @@ void ChartRenderer::relayout() {
     }
     for(const auto &entry:legend) {
         const double itemWidth=entry["width"].toDouble(),x=m_mirrored ? m_size.width()-entry["x"].toDouble()-itemWidth:entry["x"].toDouble();
-        const double y=m_plot.height()+(xAxis ? 18:0)+6+22*entry["row"].toInt();
+        const double y=m_plot.height()+(xAxis ? 18:0)+legendPadding+22*entry["row"].toInt();
         const double markerX=m_mirrored ? x+itemWidth-8:x;
         QPainterPath marker;marker.addEllipse(QRectF(markerX,y+(12.3203125-8)/2,8,8));draw(marker,QColor(entry["color"].toString()));
         label(entry["text"].toString(),legendFont,{m_mirrored ? x:x+13,y+(12.3203125-legendMetrics.height())/2+legendMetrics.ascent()},foreground);
@@ -298,11 +344,18 @@ void ChartRenderer::relayout() {
     for(const auto &entry:m_draws)bounds=bounds.united(entry.path.controlPointRect().adjusted(-entry.stroke/2-1,-entry.stroke/2-1,entry.stroke/2+1,entry.stroke/2+1));
     m_bounds=QRectF(std::floor(bounds.left()),std::floor(bounds.top()),std::ceil(bounds.right())-std::floor(bounds.left()),std::ceil(bounds.bottom())-std::floor(bounds.top()));
     const auto rounded=[&](double value){return std::round(value*m_pixelRatio)/m_pixelRatio;};
-    const QRectF plotFrame(rounded(m_plot.x()),rounded(m_plot.y()),rounded(m_plot.width()),rounded(m_plot.height()));
+    // Plot anchors round in the window's scene before returning local values.
+    // Rounding the width alone loses the half-point phase of a tiny centered
+    // caller and changes inverse-coordinate queries at fractional origins.
+    const QPointF first(rounded(m_sceneOrigin.x()+m_plot.left()),rounded(m_sceneOrigin.y()+m_plot.top()));
+    const QPointF last(rounded(m_sceneOrigin.x()+m_plot.right()),rounded(m_sceneOrigin.y()+m_plot.bottom()));
+    const QRectF plotFrame(first-m_sceneOrigin,QSizeF(last.x()-first.x(),last.y()-first.y()));
     m_measurements={{"kind",m_kind},{"plotFrame",rectangle(plotFrame)},{"plotSize",QVariantMap{{"width",m_plot.width()},{"height",m_plot.height()}}},{"xDomain",bar ? QVariant(categories):QVariant(xScale.domain())},{"yDomain",yScale.domain()},{"seriesDomain",series},{"points",pointRows},{"legend",legendReport},{"axisFontFamily",axisFont.family()},{"axisFontPixels",10},{"legendFontPixels",11},{"paintBounds",rectangle(m_bounds)},{"nativeNonfiniteDeterminism","pending; source bar NaN input yields varying initialized domains"},{"nativeRasterAcceptance","pending"}};
     if(pie) {
-        QVariantList samples;
-        for(int i=0;i<=4;++i)samples.append(double(negativeAngles+angleExtent*(i*90*pi/180)/(2*pi)));
+        QVariantList samples;Scale angleScale;
+        angleScale.low=double(negativeAngles);angleScale.high=double(positiveAngles);
+        angleScale.valid=std::any_of(points.begin(),points.end(),[](const Point &point){return std::isfinite(point.y);});
+        for(int i=0;i<=4;++i)samples.append(number(angleScale.value(i*90*pi/180,2*pi,m_mirrored)));
         m_measurements.insert("angleValues",samples);
         m_measurements.remove("xDomain");m_measurements.remove("yDomain");m_measurements.remove("points");
         // Keep independent point/sector and accessible data in a named report
@@ -317,9 +370,9 @@ void ChartRenderer::relayout() {
                 int index=std::clamp(int(std::floor(position)),0,std::max(0,int(categories.size())-1));
                 if(m_mirrored)index=categories.size()-1-index;
                 xValues.append(categories.isEmpty() ? QVariant():QVariant(categories[index]));
-            }else xValues.append(xScale.valid ? QVariant((m_mirrored ? xScale.high:xScale.low)+(m_mirrored ? -1:1)*(xScale.high-xScale.low)*fraction*plotFrame.width()/std::max(1.,m_plot.width())):QVariant());
-            yValues.append(yScale.valid ? QVariant(yScale.high-(yScale.high-yScale.low)*fraction*plotFrame.height()/std::max(1.,m_plot.height())):QVariant());
-            ySizes.append(yScale.valid ? QVariant(yScale.high-(yScale.high-yScale.low)*fraction):QVariant());
+            }else xValues.append(number(xScale.value(fraction*plotFrame.width(),m_plot.width(),m_mirrored)));
+            yValues.append(number(yScale.value(fraction*plotFrame.height(),m_plot.height(),true)));
+            ySizes.append(number(yScale.value(fraction*m_plot.height(),m_plot.height(),true)));
         }
         m_measurements.insert("xValues",xValues);m_measurements.insert("yValues",yValues);m_measurements.insert("yValuesAtPlotSize",ySizes);
     }
