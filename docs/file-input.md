@@ -158,3 +158,14 @@ Shift-clicking c after Back selects a,b,c in its controlled alphabetic fixture.
 The Linux history implementation follows those observations rather than retaining
 selected files across locations. Full selection/input context equivalence stays
 pending.
+
+The [views supplement](../evidence/reference-investigations/file-input-views-20261017/investigation.json)
+records inline List expansion, selection across root and child rows, pruning on
+collapse and view changes, Icons folder navigation through Open, and retained
+view/expansion state on reopening. Four callbacks preserve their exact observed
+URL order; general ordering across directories remains unresolved. List requires
+a hierarchy and selection shared with the other views. The Linux implementation
+still lacks List and Icons. The supplement's README explains a separate Return
+acceptance during a menu experiment and the native panel's asynchronous AX update;
+neither is treated as automatic submission by a view change. Run
+`python3 scripts/verify-file-input-views.py` to audit the native observations.

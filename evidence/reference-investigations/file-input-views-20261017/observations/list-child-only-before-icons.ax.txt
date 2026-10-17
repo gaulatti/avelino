@@ -1,0 +1,123 @@
+Window: "Open", App: Avelino FileInput initial types.
+0 sheet Description: open, ID: open-panel, Secondary Actions: Raise
+	1 split group
+		2 scroll area Secondary Actions: Scroll Up, Scroll Down
+			3 outline sidebar
+				4 row (selectable) Description: clock, Value: Recents
+				5 row (selectable) Description: Two people, Value: Shared
+				6 row (selectable, expanded) Value: Favorites, Secondary Actions: Collapse
+				7 row (selectable) Description: App Store letter A icon, Value: Applications
+				8 row (selectable) Description: Menu bar with dock on a rectangle, Value: Desktop
+				9 row (selectable) Description: Document page, Value: Documents
+				10 row (selectable) Description: Arrow Down Circle, Value: Downloads
+				11 row (selectable) Description: movie, Value: Movies
+				12 row (selectable) Description: Music note, Value: Music
+				13 row (selectable, expanded) Value: Locations, Secondary Actions: Collapse
+				14 row (selectable) Description: iCloud, Value: iCloud Drive
+				15 row (selectable) Description: home, Value: gaulatti
+				16 row (selectable) Description: Macbook, Value: Jack’s MacBook Pro
+				17 row (selectable) Description: Internal hard drive, Value: Macintosh HD
+				18 row (selectable) Eject, Value: ZoomLauncher, Description: External hard drive
+eject
+				19 row (selectable, expanded) Value: Tags, Secondary Actions: Collapse
+				20 row (selectable) Description: Small circle badge, filled, Value: Orange
+				21 row (selectable) Description: Small circle badge, filled, Value: Blue
+				22 row (selectable) Description: Small circle badge, filled, Value: Gris
+				23 row (selectable) Description: Small circle badge, Value: Important
+				24 row (selectable) Description: Small circle badge, filled, Value: Gray
+				25 row (selectable) Description: Small circle badge, filled, Value: Purple
+				26 row (selectable) Description: Small circle badge, filled, Value: Red
+				27 row (selectable) Description: Two small circle badges, Value: All Tags…
+			28 scroll bar (settable, float) 0
+				29 value indicator (settable, float) 0
+				30 increment arrow button
+				31 decrement arrow button
+				32 increment page button
+				33 decrement page button
+		34 splitter (disabled, settable, float) 159
+		35 scroll area
+			36 outline Description: list view, ID: ListView
+				37 row (selectable)
+					38 cell Secondary Actions: Open Finder item
+						39 image
+						40 text field (settable) URL: file:///Users/gaulatti/.codex/tmp/avelino-file-input-views-20261017-v1/fixtures/Alpha.txt, Value: Alpha.txt, Secondary Actions: Open Finder item
+					41 cell
+						42 text 50 bytes
+					43 cell
+						44 text Plain Text
+					45 cell
+						46 text Today at 19:14
+				47 row (selectable)
+					48 cell Secondary Actions: Open Finder item
+						49 image
+						50 text field (settable) URL: file:///Users/gaulatti/.codex/tmp/avelino-file-input-views-20261017-v1/fixtures/blocked.png, Value: blocked.png, Secondary Actions: Open Finder item
+					51 cell
+						52 text 52 bytes
+					53 cell
+						54 text PNG image
+					55 cell
+						56 text Today at 19:14
+				57 row (selectable)
+					58 cell Secondary Actions: Open Finder item
+						59 image
+						60 text field (settable) URL: file:///Users/gaulatti/.codex/tmp/avelino-file-input-views-20261017-v1/fixtures/Bravo.txt, Value: Bravo.txt, Secondary Actions: Open Finder item
+					61 cell
+						62 text 50 bytes
+					63 cell
+						64 text Plain Text
+					65 cell
+						66 text Today at 19:14
+				67 row (selectable)
+					68 cell Secondary Actions: Open Finder item
+						69 image
+						70 text field (settable) URL: file:///Users/gaulatti/.codex/tmp/avelino-file-input-views-20261017-v1/fixtures/Charlie.txt, Value: Charlie.txt, Secondary Actions: Open Finder item
+					71 cell
+						72 text 52 bytes
+					73 cell
+						74 text Plain Text
+					75 cell
+						76 text Today at 19:14
+				77 row (selectable, expanded) Secondary Actions: Collapse
+					78 cell Secondary Actions: Open Finder item
+						79 image
+						80 text field (settable) URL: file:///Users/gaulatti/.codex/tmp/avelino-file-input-views-20261017-v1/fixtures/Folder/, Value: Folder, Secondary Actions: Open Finder item
+						81 disclosure triangle 1
+					82 cell
+						83 text --
+					84 cell
+						85 text Folder
+					86 cell
+						87 text Today at 19:14
+				88 row (selected)
+					89 cell (selected) Secondary Actions: Open Finder item
+						90 image
+						91 text field (selected, settable) URL: file:///Users/gaulatti/.codex/tmp/avelino-file-input-views-20261017-v1/fixtures/Folder/Child.txt, Value: Child.txt, Secondary Actions: Open Finder item
+					92 cell (selected)
+						93 text 57 bytes
+					94 cell (selected)
+						95 text Plain Text
+					96 cell (selected)
+						97 text Today at 19:14
+				98 container ListViewHeader
+					99 button Description: Name, Value: AXAscendingSortDirection, ID: name
+					100 button Description: Size, ID: size
+					101 button Description: Kind, ID: kind
+					102 button Description: Date Added, ID: dateAdded
+		103 container
+			104 button (disabled) back
+			105 button (disabled) forward
+		106 menu button Description: List, Help: Show as Icons, List, or Columns, and hide/show the sidebar, ID: View Options
+		107 menu button Description: Three-by-one square grid below a one-by-two line grid, Help: Change the item grouping (hold down Option to change the sort), ID: Group or Sort By
+		108 pop up button Where:, Value: fixtures, ID: where popup
+		109 search text field Search
+			110 button search
+		111 button New Folder, ID: NewFolderButton
+		112 button Cancel, ID: CancelButton
+		113 button Open, ID: OKButton
+114 menu bar
+	115 Avelino FileInput initial types
+
+Selected:
+	88 row (selected)
+
+Note: Pay special attention to the content selected by the user. If the user asks a question or refers to the content they are looking at on-screen, they might be referring to the selected content (but they might be referring to something else that's visible, too).
