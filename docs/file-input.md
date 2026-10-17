@@ -98,8 +98,8 @@ reopened all three branches, but its Return events did not complete selection.
 Both attempts remain preserved. The panel's cached `directoryURL` property did
 not prove the remote chooser was displaying that folder; normal CUA Go To Folder
 navigation and controlled AX rows established the actual location. Filtered AX
-excerpts are diagnostic records, not full accessibility acceptance. No open-panel
-raster was captured or approved.
+excerpts are diagnostic records, not full accessibility acceptance. That initial
+record did not capture or approve open-panel raster.
 
 Fresh source builds use the same immutable 89-file archive with no prebuilt
 library inputs. Their closed/sizing outputs are compared byte-for-byte in
@@ -113,3 +113,25 @@ display/input and readers remain pending.
 Run `python3 scripts/verify-file-input-source.py` and
 `python3 -m unittest discover -s tests/contracts -p 'test_file_input_source.py' -v`
 to verify the sealed investigation and its acceptance guards.
+
+## Native open-panel presentation
+
+The [panel supplement](../evidence/reference-investigations/file-input-panel-20261017/investigation.json)
+adds three unmodified CUA JPEG screenshots: unselected, one selected file and two
+selected files. All show the 880-by-448 native panel at bitmap scale two. Go to
+Folder and the column scrollbar put controlled fixture files in view. Open
+returns both selected URLs in browser order while the panel remains visible.
+
+The native presentation includes a sidebar, back/forward and view controls,
+location menu, search and selection preview. The current Linux chooser lacks
+these surfaces; its path entry does not establish complete panel equivalence.
+The native OS supplies text/document previews even though the public component
+itself does not read the selected files. Host sidebar names and ancestor folders
+are observations of this configured host, not Linux defaults to hard-code.
+
+The supplement retains filtered AX text, source callback trace, panel flags,
+helper and binary hashes, and host versions. CUA supplies lossy JPEG bytes, so
+lossless panel captures for strict comparison remain pending. It reuses the recorded source-built
+library. Full context coverage, exact panel comparison, physical input/display,
+readers and independent behavior-source replay remain pending. Run
+`python3 scripts/verify-file-input-panel.py` to audit the supplement.

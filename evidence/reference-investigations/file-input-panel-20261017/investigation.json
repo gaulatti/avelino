@@ -1,0 +1,107 @@
+{
+  "reference": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+  "accepted": false,
+  "expectedImagesChanged": false,
+  "tolerance": "none",
+  "approvedExceptions": [],
+  "sourceLibrary": "Reuses recorded source-built native library, not an independent new behavior replay",
+  "helperInputs": "helper-inputs.json",
+  "appearance": "light",
+  "textScale": 1,
+  "windowFrame": {
+    "height": 448,
+    "width": 880,
+    "x": 0,
+    "y": 79
+  },
+  "panelFlags": {
+    "allowedContentTypes": [
+      "public.plain-text"
+    ],
+    "allowsMultipleSelection": true,
+    "allowsOtherFileTypes": true,
+    "applicationActive": true,
+    "canChooseDirectories": false,
+    "canChooseFiles": true,
+    "configuration": {
+      "controlSize": "regular",
+      "disabled": false,
+      "id": "controlled-open-panel",
+      "parentFont": false,
+      "parentRed": false,
+      "rtl": false,
+      "types": [
+        "public.plain-text"
+      ]
+    },
+    "directoryIsControlled": true,
+    "frame": {
+      "height": 448,
+      "width": 880,
+      "x": 0,
+      "y": 79
+    },
+    "mounted": true,
+    "phase": "panel-ready",
+    "resolvesAliases": true,
+    "results": [],
+    "showsHiddenFiles": false,
+    "treatsFilePackagesAsDirectories": false,
+    "visible": true,
+    "windowKey": true,
+    "windowNumber": 147115
+  },
+  "screenshots": [
+    {
+      "path": "output/open-panel-multiple.jpg",
+      "sha256": "76897776f091d5a85e0747ed76dbe245ca3be2a1e28c705c2d6b6d62edfac79a",
+      "pixelWidth": 1760,
+      "pixelHeight": 896,
+      "capture": "Unmodified native app-window screenshot from CUA",
+      "format": "JPEG",
+      "lossless": false
+    },
+    {
+      "path": "output/open-panel-selected.jpg",
+      "sha256": "c5e01f5784d42976b4b799dc5d48e6ab37b88c2f7a7e80b4eb656286d1085398",
+      "pixelWidth": 1760,
+      "pixelHeight": 896,
+      "capture": "Unmodified native app-window screenshot from CUA",
+      "format": "JPEG",
+      "lossless": false
+    },
+    {
+      "path": "output/open-panel-unselected.jpg",
+      "sha256": "3304ab4c3f76321cc1f0e764b104075ce5200f6cae56f90a4d3323a7c0d4340d",
+      "pixelWidth": 1760,
+      "pixelHeight": 896,
+      "capture": "Unmodified native app-window screenshot from CUA",
+      "format": "JPEG",
+      "lossless": false
+    }
+  ],
+  "filteredAX": "Only panel structure, controls and task-owned fixture entries retained as text",
+  "input": "CUA app-window click, Command-click, Go to Folder, and AX horizontal-scroll value; no physical-input claim",
+  "selectionResult": {
+    "kind": "success",
+    "ordinal": 0,
+    "panelVisibleAtCallback": true,
+    "urls": [
+      "file:///Users/gaulatti/.codex/tmp/avelino-file-input-open-panel-20261017-v1/fixtures/one.txt",
+      "file:///Users/gaulatti/.codex/tmp/avelino-file-input-open-panel-20261017-v1/fixtures/two.txt"
+    ]
+  },
+  "presentationGaps": [
+    "Linux sidebar and view controls",
+    "Linux location menu and search",
+    "Linux selected-file and multiple-item preview",
+    "Exact native fonts, artwork and materials",
+    "Full panel context matrix and sizing",
+    "Source and Linux accessibility hierarchy and reader equivalence"
+  ],
+  "physicalInputAcceptance": "pending",
+  "readerAcceptance": "pending",
+  "independentBehaviorSourceReplay": "pending",
+  "nativeOpenPanelRaster": "observed three lossy CUA states; lossless comparison acceptance pending",
+  "losslessPanelCaptureAcceptance": "pending"
+}
