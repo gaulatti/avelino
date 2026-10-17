@@ -74965,9 +74965,12 @@
           "src/Avelino/filechoosermodel.h",
           "src/Avelino/filechoosermodel.cpp",
           "src/Avelino/filechooserbrowser.h",
-          "src/Avelino/filechooserbrowser.cpp"
+          "src/Avelino/filechooserbrowser.cpp",
+          "src/Avelino/FileChooserNewFolder.qml",
+          "src/Avelino/filechooserdialogbase.h",
+          "src/Avelino/filechooserdialogbase.cpp"
         ],
-        "caseDiscovery": "Implementation checkpoint remains pending: 256 native closed contexts retain every strict mismatch (0 exact pixels, 232 complete frames, 256 contract states). Filesystem, column selection, owned trigger, installed consumer and AT-SPI/Orca software observations are retained. The source-21 announcement correction passes fresh focused Qt checks, eight installed contexts and actual X11/Wayland Orca exercises, retaining 256 unchanged closed images. Complete native panel surfaces, two-axis sizing, type conformance, native input/callback timing, native error-announcement equivalence, physical display/input, native readers and independent-machine replay remain pending. Desktop coverage stays at 75/80.",
+        "caseDiscovery": "Implementation checkpoint remains pending: all 256 native closed contexts retain their strict mismatches (0 exact pixels, 232 complete frames, 256 contract states). Owned New Folder and Back/Forward history, history clears file selections, fresh Shift range starts at the listing beginning in the measured fixture, explicit Qt/AT-SPI modal state, eight installed contexts, eight virtual display profiles and two full Orca software flows are verified against source 29. All 256 closed PNGs and complete closed/sizing metadata stay unchanged. Sidebar, view choices, location menu, search, selection preview, group/sort controls and the remaining native sizing/type/input/raster/accessibility/physical/independent-machine gates remain pending. Desktop candidate coverage stays 75/80.",
         "cases": [
           {
             "id": "BleeckerFileInput-default-light-text1-dpr1",
@@ -78824,12 +78827,16 @@
           "scripts/verify-file-input-linux.py",
           "tests/contracts/test_file_input_witnesses.py",
           "tests/contracts/test_file_input_pixels.py",
-          "scripts/verify-file-input-announcements.py"
+          "scripts/verify-file-input-announcements.py",
+          "scripts/verify-file-input-controls.py",
+          "scripts/verify-file-input-navigation.py"
         ],
         "captures": [
           "evidence/reference-investigations/file-input-20261017/output/captures.json",
           "evidence/development/file-input-20261017/validation.json",
-          "evidence/development/file-input-announcements-20261017/validation.json"
+          "evidence/development/file-input-announcements-20261017/validation.json",
+          "evidence/reference-investigations/file-input-controls-20261017/investigation.json",
+          "evidence/development/file-input-navigation-20261017/validation.json"
         ],
         "comparisonResults": [
           "evidence/reference-investigations/file-input-20261017/source-replay.json",
@@ -78842,63 +78849,70 @@
             "evidence": [
               "docs/file-input-linux.md",
               "evidence/development/file-input-20261017/validation.json",
-              "evidence/development/file-input-announcements-20261017/validation.json"
+              "evidence/development/file-input-announcements-20261017/validation.json",
+              "evidence/development/file-input-navigation-20261017/validation.json"
             ],
-            "notes": "Software location-error announcements are observed in the final X11/Wayland Orca exercises. Native panel/type/sizing parity, native error-announcement equivalence, physical displays/input and reader acceptance remain pending."
+            "notes": "Source-29 New Folder/history, named modal state, actual controls, virtual renderers and Orca output/backend commands are observed. The Wayland focus delay is measured, not accepted as native timing equivalence. Complete chooser, native types/sizing/raster/hierarchy/readers, engine audio, physical input/display and independent-machine acceptance remain pending."
           },
           "x11": {
             "status": "pending",
             "evidence": [
               "docs/file-input-linux.md",
               "evidence/development/file-input-20261017/validation.json",
-              "evidence/development/file-input-announcements-20261017/validation.json"
+              "evidence/development/file-input-announcements-20261017/validation.json",
+              "evidence/development/file-input-navigation-20261017/validation.json"
             ],
-            "notes": "Software location-error announcements are observed in the final X11/Wayland Orca exercises. Native panel/type/sizing parity, native error-announcement equivalence, physical displays/input and reader acceptance remain pending."
+            "notes": "Source-29 New Folder/history, named modal state, actual controls, virtual renderers and Orca output/backend commands are observed. The Wayland focus delay is measured, not accepted as native timing equivalence. Complete chooser, native types/sizing/raster/hierarchy/readers, engine audio, physical input/display and independent-machine acceptance remain pending."
           },
           "wayland": {
             "status": "pending",
             "evidence": [
               "docs/file-input-linux.md",
               "evidence/development/file-input-20261017/validation.json",
-              "evidence/development/file-input-announcements-20261017/validation.json"
+              "evidence/development/file-input-announcements-20261017/validation.json",
+              "evidence/development/file-input-navigation-20261017/validation.json"
             ],
-            "notes": "Software location-error announcements are observed in the final X11/Wayland Orca exercises. Native panel/type/sizing parity, native error-announcement equivalence, physical displays/input and reader acceptance remain pending."
+            "notes": "Source-29 New Folder/history, named modal state, actual controls, virtual renderers and Orca output/backend commands are observed. The Wayland focus delay is measured, not accepted as native timing equivalence. Complete chooser, native types/sizing/raster/hierarchy/readers, engine audio, physical input/display and independent-machine acceptance remain pending."
           },
           "keyboardPointer": {
             "status": "pending",
             "evidence": [
               "docs/file-input-linux.md",
               "evidence/development/file-input-20261017/validation.json",
-              "evidence/development/file-input-announcements-20261017/validation.json"
+              "evidence/development/file-input-announcements-20261017/validation.json",
+              "evidence/development/file-input-navigation-20261017/validation.json"
             ],
-            "notes": "Software location-error announcements are observed in the final X11/Wayland Orca exercises. Native panel/type/sizing parity, native error-announcement equivalence, physical displays/input and reader acceptance remain pending."
+            "notes": "Source-29 New Folder/history, named modal state, actual controls, virtual renderers and Orca output/backend commands are observed. The Wayland focus delay is measured, not accepted as native timing equivalence. Complete chooser, native types/sizing/raster/hierarchy/readers, engine audio, physical input/display and independent-machine acceptance remain pending."
           },
           "focusAccessibility": {
             "status": "pending",
             "evidence": [
               "docs/file-input-linux.md",
               "evidence/development/file-input-20261017/validation.json",
-              "evidence/development/file-input-announcements-20261017/validation.json"
+              "evidence/development/file-input-announcements-20261017/validation.json",
+              "evidence/development/file-input-navigation-20261017/validation.json"
             ],
-            "notes": "Software location-error announcements are observed in the final X11/Wayland Orca exercises. Native panel/type/sizing parity, native error-announcement equivalence, physical displays/input and reader acceptance remain pending."
+            "notes": "Source-29 New Folder/history, named modal state, actual controls, virtual renderers and Orca output/backend commands are observed. The Wayland focus delay is measured, not accepted as native timing equivalence. Complete chooser, native types/sizing/raster/hierarchy/readers, engine audio, physical input/display and independent-machine acceptance remain pending."
           },
           "displayTextScaling": {
             "status": "pending",
             "evidence": [
               "docs/file-input-linux.md",
               "evidence/development/file-input-20261017/validation.json",
-              "evidence/development/file-input-announcements-20261017/validation.json"
+              "evidence/development/file-input-announcements-20261017/validation.json",
+              "evidence/development/file-input-navigation-20261017/validation.json"
             ],
-            "notes": "Software location-error announcements are observed in the final X11/Wayland Orca exercises. Native panel/type/sizing parity, native error-announcement equivalence, physical displays/input and reader acceptance remain pending."
+            "notes": "Source-29 New Folder/history, named modal state, actual controls, virtual renderers and Orca output/backend commands are observed. The Wayland focus delay is measured, not accepted as native timing equivalence. Complete chooser, native types/sizing/raster/hierarchy/readers, engine audio, physical input/display and independent-machine acceptance remain pending."
           },
           "installedConsumer": {
             "status": "pending",
             "evidence": [
               "docs/file-input-linux.md",
               "evidence/development/file-input-20261017/validation.json",
-              "evidence/development/file-input-announcements-20261017/validation.json"
+              "evidence/development/file-input-announcements-20261017/validation.json",
+              "evidence/development/file-input-navigation-20261017/validation.json"
             ],
-            "notes": "Software location-error announcements are observed in the final X11/Wayland Orca exercises. Native panel/type/sizing parity, native error-announcement equivalence, physical displays/input and reader acceptance remain pending."
+            "notes": "Source-29 New Folder/history, named modal state, actual controls, virtual renderers and Orca output/backend commands are observed. The Wayland focus delay is measured, not accepted as native timing equivalence. Complete chooser, native types/sizing/raster/hierarchy/readers, engine audio, physical input/display and independent-machine acceptance remain pending."
           }
         }
       },

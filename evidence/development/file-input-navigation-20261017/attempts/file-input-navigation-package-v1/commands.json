@@ -1,0 +1,24 @@
+[
+  {
+    "name": "source-absence",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/file-input-navigation-package-v1:/consumer-check",
+      "-w",
+      "/consumer-check",
+      "avelino-toolchain:recovered-20261017-qt6.8.3",
+      "python3",
+      "-c",
+      "from pathlib import Path; assert not Path('/work').exists(); assert not Path('/Users/gaulatti/source/gaulatti/avelino').exists(); print('Library source and producer build absent')"
+    ],
+    "exitCode": 1,
+    "seconds": 0.2688516250345856
+  }
+]

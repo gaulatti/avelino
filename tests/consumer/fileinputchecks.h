@@ -82,7 +82,7 @@ static void runFileInputConsumer(QQuickWindow *window,QGuiApplication &app,const
     for(const auto &name:{"one.txt","two.txt","photo.png","spaces in name.txt"}){
         QFile file(directory.filePath(name));if(!check(file.open(QIODevice::WriteOnly)&&file.write("Avelino controlled file-input fixture\n")>0,"Controlled fixture write failed"))return;
     }
-    if(!check(directory.mkdir("folder"),"Controlled folder missing"))return;
+    if(!check(directory.mkdir("folder")&&directory.mkdir("untitled folder"),"Controlled folder missing"))return;
     {QFile file(directory.filePath("folder/child.txt"));if(!check(file.open(QIODevice::WriteOnly)&&file.write("Avelino child fixture\n")>0,"Controlled child missing"))return;}
     if(!check(QFile::link(directory.filePath("one.txt"),directory.filePath("symlink.txt")),"Controlled alias missing"))return;
     window->setProperty("fixtureFolder",QUrl::fromLocalFile(root.path()));
@@ -114,6 +114,7 @@ static void runFileInputConsumer(QQuickWindow *window,QGuiApplication &app,const
         return click(findVisualItem(content(),"bleeckerFileChooserRow"+QString::number(column)+"_"+QString::number(index)),modifiers);
     };
     auto record=[&](const QString &phase){actions.append(QJsonObject{{"phase",phase},{"state",state()},{"browserActive",browser()?browser()->property("active").toBool():false}});};
+    auto typeText=[&](QQuickWindow *target,const QString &value){for(const auto character:value.toLatin1()){QTest::keyClick(target,character);++keys;}};
     if(!configure(standard,QJsonArray{"text/plain"})||!open()||!selectRow(0,"one.txt"))return;
     if(!selectRow(0,"photo.png")||!check(browser()->property("selectedUrls").toList().size()==1,"Ineligible file changed selection"))return;
     QTest::keyPress(content()->window(),Qt::Key_Control);++keys;
@@ -132,6 +133,34 @@ static void runFileInputConsumer(QQuickWindow *window,QGuiApplication &app,const
     if(!check(!browser()->property("active").toBool()&&state()["results"].toArray().size()==1,"Escape did not cancel without result"))return;record("escape-no-result");
     if(!configure(standard,QJsonArray{"text/plain"})||!open()||!selectRow(0,"symlink.txt")||!click(findVisualItem(content(),"bleeckerFileChooserOpen")))return;
     if(!check(QUrl(state()["results"].toArray()[0].toObject()["urls"].toArray()[0].toString()).toLocalFile()==directory.filePath("one.txt"),"Alias URL was not resolved"))return;record("alias-result");
+    if(!configure(standard,QJsonArray{"text/plain"})||!open()||!selectRow(0,"one.txt")||!click(findVisualItem(content(),"bleeckerFileChooserNewFolder")))return;
+    auto folderPrompt=chooser()->property("newFolderDialog").value<QObject*>();
+    if(!check(folderPrompt&&folderPrompt->property("visible").toBool(),"Owned New Folder prompt missing"))return;
+    auto folderName=folderPrompt->property("nameInput").value<QQuickItem*>();
+    auto folderCreate=folderPrompt->property("createInput").value<QQuickItem*>();
+    if(!check(folderName&&folderCreate&&folderName->hasActiveFocus()&&folderName->property("text").toString()=="untitled folder 2","Native observed default folder name/focus missing"))return;
+    if(!save(content()->window(),"new-folder-prompt"))return;
+    typeText(folderName->window(),"one.txt");QTest::qWait(40);
+    if(!check(!folderCreate->isEnabled()&&folderPrompt->property("error").toString()=="This name is already taken.","Existing name did not disable Create")||!save(content()->window(),"new-folder-conflict"))return;
+    record("new-folder-conflict");
+    QTest::keyClick(folderName->window(),Qt::Key_Escape);++keys;QTest::qWait(40);
+    if(!check(!folderPrompt->property("visible").toBool()&&browser()->property("active").toBool()&&state()["results"].toArray().isEmpty()&&!QFileInfo::exists(directory.filePath("untitled folder 2")),"Nested Escape changed the owner or created a folder"))return;
+    record("new-folder-nested-escape");
+    QTest::keyClick(content()->window(),Qt::Key_N,Qt::ControlModifier|Qt::ShiftModifier);++keys;QTest::qWait(40);
+    if(!check(folderPrompt->property("visible").toBool()&&folderName->hasActiveFocus(),"New Folder keyboard shortcut failed"))return;
+    typeText(folderName->window(),"Created by consumer");
+    QTest::keyClick(folderName->window(),Qt::Key_Return);++keys;QTest::qWait(40);
+    const auto created=directory.filePath("Created by consumer");
+    if(!check(!folderPrompt->property("visible").toBool()&&browser()->property("folderPath").toString()==created&&QFileInfo(created).isDir()
+        &&!browser()->property("canAccept").toBool()&&state()["results"].toArray().isEmpty(),"New Folder did not create/navigate without an owner result")||!save(content()->window(),"new-folder-created"))return;
+    record("new-folder-created");
+    if(!click(findVisualItem(content(),"bleeckerFileChooserBack"))||!check(browser()->property("folderPath").toString()==root.path()&&browser()->property("canGoForward").toBool()
+        &&browser()->property("selectedUrls").toList().isEmpty()&&!browser()->property("canAccept").toBool(),"Back did not restore the parent with cleared native selection"))return;
+    record("history-back");
+    if(!click(findVisualItem(content(),"bleeckerFileChooserForward"))||!check(browser()->property("folderPath").toString()==created,"Forward did not restore the created folder"))return;
+    record("history-forward");
+    if(!click(findVisualItem(content(),"bleeckerFileChooserCancel"))||!check(state()["results"].toArray().isEmpty(),"Folder creation called the owner"))return;
+    record("new-folder-cancel-no-result");
     if(!configure(standard,QJsonArray{"text/plain"})||!open()||!selectRow(0,"folder")||!check(browser()->property("count").toInt()==2&&!browser()->property("canAccept").toBool(),"Directory navigation selected an ineligible directory")||!selectRow(1,"child.txt"))return;
     if(!save(content()->window(),"directory-columns"))return;
     record("child-selected");
@@ -142,7 +171,7 @@ static void runFileInputConsumer(QQuickWindow *window,QGuiApplication &app,const
     QJsonObject report{{"accepted",false},{"reference",native["reference"]},{"fixture","file-input"},{"qt",qVersion()},{"platform",QGuiApplication::platformName()},
         {"graphicsApi",int(window->rendererInterface()->graphicsApi())},{"width",window->width()},{"height",window->height()},
         {"popupCaptureMethod","QQuickItem::grabToImage of the entire popup window content item at native DPR; no cropping or resizing"},
-        {"structuralChecks","passed"},{"images",35},{"closedImages",32},{"popupImages",2},{"ownerResultImages",1},
+        {"structuralChecks","passed"},{"images",38},{"closedImages",32},{"popupImages",5},{"ownerResultImages",1},
         {"appearance",parser.isSet("dark")?"dark":"light"},{"textScale",textScale},{"dpr",window->devicePixelRatio()},
         {"closed",closed},{"sizing",sizing},{"nativeCompleteFramesMatch",frames},{"nativeContractStatesMatch",states},
         {"applicationActive",QGuiApplication::applicationState()==Qt::ApplicationActive},{"windowActive",window->isActive()},
@@ -154,7 +183,7 @@ static void runFileInputConsumer(QQuickWindow *window,QGuiApplication &app,const
     if(parser.isSet("evidence")&&!check(window->grabWindow().save(prefix+".png"),"Session window capture failed"))return;
     if(!prefix.isEmpty()){QFile output(prefix+".json");if(!check(output.open(QIODevice::WriteOnly|QIODevice::NewOnly),"Report destination unavailable"))return;output.write(QJsonDocument(report).toJson());}
     if(!parser.isSet("file-input-observe")&&frames!=32){qCritical("FileInput native frame parity remains pending");app.exit(99);return;}
-    qInfo("Installed FileInput: 32 native closed contexts, six owner/input traces; frames %d/32, states %d/32; acceptance pending",frames,states);
+    qInfo("Installed FileInput: 32 native closed contexts, %lld owner/input traces; frames %d/32, states %d/32; acceptance pending",qlonglong(actions.size()),frames,states);
     if(parser.isSet("evidence")){
         auto timer=new QTimer(&app);QObject::connect(timer,&QTimer::timeout,&app,[&app,prefix]{if(QFile::exists(prefix+".captured"))app.exit(0);});timer->start(100);
         QTimer::singleShot(10000,&app,[&app]{app.exit(93);});return;

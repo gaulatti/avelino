@@ -1,0 +1,76 @@
+import QtQuick
+import QtQuick.Templates as T
+
+T.Dialog {
+    id:prompt
+    required property FileChooserBrowser browser
+    readonly property bool dark:BleeckerTheme.dark
+    readonly property Item nameInput:name
+    readonly property Item createInput:create
+    property string parentPath:""
+    property string validation:""
+    readonly property string error:validation.length ? validation:browser.newFolderError
+    modal:true;dim:false;focus:true;popupType:T.Popup.Item
+    width:320;height:error.length ? 182:158
+    x:parent ? (parent.width-width)/2:0;y:parent ? (parent.height-height)/2:0
+    padding:0;margins:0;header:null;footer:null;title:"New Folder"
+    closePolicy:T.Popup.CloseOnEscape;enter:null;exit:null
+    background:Rectangle {radius:14;color:prompt.dark ? "#303030":"white";border.width:0.5;border.color:prompt.dark ? "#575757":"#dddddd"}
+    function validateName():void {validation=browser.folderNameError(name.text)}
+    function submit():void {
+        validateName()
+        if(name.text.length&&!validation.length&&browser.createFolder(name.text,parentPath))close()
+    }
+    onOpened:{parentPath=browser.folderPath;browser.clearNewFolderError();name.text=browser.suggestedFolderName();validateName();name.forceActiveFocus();name.selectAll()}
+    Connections {
+        target:prompt.browser
+        function onMetadataChanged(){if(prompt.visible)prompt.validateName()}
+        function onActiveChanged(){if(!prompt.browser.active)prompt.close()}
+    }
+    contentItem:Item {
+        Accessible.role:Accessible.Dialog;Accessible.name:"New Folder"
+        Keys.onEscapePressed:event=>{prompt.close();event.accepted=true}
+        Text {
+            x:20;y:20;text:"New Folder";color:prompt.dark ? "#eeeeee":"#222222"
+            font.family:Qt.application.font.family;font.pixelSize:13;font.weight:Font.Bold
+            Accessible.role:Accessible.Heading;Accessible.name:text
+        }
+        Text {
+            x:20;y:46;width:parent.width-40;elide:Text.ElideMiddle
+            text:"Name of new folder inside “"+(prompt.parentPath==="/" ? "/":prompt.parentPath.split('/').pop())+"”:"
+            textFormat:Text.PlainText;color:prompt.dark ? "#eeeeee":"#222222"
+            font.family:Qt.application.font.family;font.pixelSize:13
+            Accessible.name:text
+        }
+        T.TextField {
+            id:name;objectName:"bleeckerFileChooserFolderName";x:20;y:70;width:parent.width-40;height:24
+            leftPadding:7;rightPadding:7;topPadding:0;bottomPadding:0;selectByMouse:true;clip:true
+            font.family:Qt.application.font.family;font.pixelSize:13
+            color:prompt.dark ? "#eeeeee":"#222222";selectionColor:"#d7d7d7";selectedTextColor:color
+            Accessible.name:"New folder name"
+            background:Rectangle {radius:7;color:prompt.dark ? "#252525":"white";border.width:name.activeFocus ? 2:1;border.color:name.activeFocus ? "#80baff":prompt.dark ? "#575757":"#e5e5e5"}
+            onTextChanged:{prompt.browser.clearNewFolderError();prompt.validateName()}
+            onAccepted:prompt.submit()
+        }
+        Text {
+            id:errorMessage;objectName:"bleeckerFileChooserNewFolderError"
+            x:20;y:104;width:parent.width-40;height:16;visible:text.length>0;horizontalAlignment:Text.AlignHCenter
+            text:prompt.error;textFormat:Text.PlainText;wrapMode:Text.Wrap
+            color:prompt.dark ? "#eeeeee":"#222222";font.family:Qt.application.font.family;font.pixelSize:11
+            Accessible.role:Accessible.StaticText;Accessible.name:text
+            function announceError():void {if(prompt.visible&&text.length)Accessible.announce(text,Accessible.Assertive)}
+            onTextChanged:()=>{if(prompt.visible&&errorMessage.text.length)Qt.callLater(errorMessage.announceError)}
+        }
+        FileChooserButton {
+            objectName:"bleeckerFileChooserNewFolderCancel";x:parent.width-158;y:parent.height-44;width:66;text:"Cancel"
+            fillColor:prompt.dark ? "#555555":"#eeeeee";borderColor:"transparent"
+            onClicked:prompt.close()
+        }
+        FileChooserButton {
+            id:create;objectName:"bleeckerFileChooserCreate";x:parent.width-84;y:parent.height-44;width:64;text:"Create"
+            fillColor:prompt.dark ? "#555555":"#eeeeee";borderColor:"transparent"
+            enabled:prompt.browser.canCreateFolder&&name.text.length>0&&!prompt.validation.length
+            onClicked:prompt.submit()
+        }
+    }
+}

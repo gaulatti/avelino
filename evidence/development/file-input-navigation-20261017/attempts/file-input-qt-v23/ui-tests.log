@@ -1,0 +1,53 @@
+Internal ctest changing into directory: /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/build
+Test project /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/build
+    Start 44: file-input-owned-ui
+1/2 Test #44: file-input-owned-ui ..............***Failed   16.31 sec
+********* Start testing of FileInputUiTests *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : FileInputUiTests::initTestCase()
+PASS   : FileInputUiTests::actualClicksMultiSelectionCancelAndReopen()
+PASS   : FileInputUiTests::actualColumnNavigationAndCallbackRemoval()
+PASS   : FileInputUiTests::accessibleRowsSelectThroughTheChooser()
+QWARN  : FileInputUiTests::actualLocationErrorRecoveryAndKeyboardAccept() qt.qml.context: qrc:/qt/qml/Avelino/FileChooserDialog.qml:169:13 Parameter "text" is not declared. Injection of parameters into signal handlers is deprecated. Use JavaScript functions with formal parameters instead.
+PASS   : FileInputUiTests::actualLocationErrorRecoveryAndKeyboardAccept()
+QWARN  : FileInputUiTests::initialLocationErrorAndClosedAnnouncement() qt.qml.context: qrc:/qt/qml/Avelino/FileChooserDialog.qml:169:13 Parameter "text" is not declared. Injection of parameters into signal handlers is deprecated. Use JavaScript functions with formal parameters instead.
+PASS   : FileInputUiTests::initialLocationErrorAndClosedAnnouncement()
+QWARN  : FileInputUiTests::actualNewFolderValidationNestedEscapeAndHistory() qt.qml.context: qrc:/qt/qml/Avelino/FileChooserNewFolder.qml:62:13 Parameter "text" is not declared. Injection of parameters into signal handlers is deprecated. Use JavaScript functions with formal parameters instead.
+FAIL!  : FileInputUiTests::actualNewFolderValidationNestedEscapeAndHistory() 'prompt->property("visible").toBool()' returned FALSE. ()
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/tests/components/fileinput-ui.cpp(191)]
+PASS   : FileInputUiTests::removingOwnerClosesNestedFolderPrompt()
+PASS   : FileInputUiTests::typedCustomEmptyAndMixedFiltersReachActualControls()
+PASS   : FileInputUiTests::cleanupTestCase()
+Totals: 9 passed, 1 failed, 0 skipped, 0 blacklisted, 16267ms
+********* Finished testing of FileInputUiTests *********
+
+    Start 45: file-input-owned-ui-dpr2
+2/2 Test #45: file-input-owned-ui-dpr2 .........***Failed   16.37 sec
+********* Start testing of FileInputUiTests *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : FileInputUiTests::initTestCase()
+PASS   : FileInputUiTests::actualClicksMultiSelectionCancelAndReopen()
+PASS   : FileInputUiTests::actualColumnNavigationAndCallbackRemoval()
+PASS   : FileInputUiTests::accessibleRowsSelectThroughTheChooser()
+QWARN  : FileInputUiTests::actualLocationErrorRecoveryAndKeyboardAccept() qt.qml.context: qrc:/qt/qml/Avelino/FileChooserDialog.qml:169:13 Parameter "text" is not declared. Injection of parameters into signal handlers is deprecated. Use JavaScript functions with formal parameters instead.
+PASS   : FileInputUiTests::actualLocationErrorRecoveryAndKeyboardAccept()
+QWARN  : FileInputUiTests::initialLocationErrorAndClosedAnnouncement() qt.qml.context: qrc:/qt/qml/Avelino/FileChooserDialog.qml:169:13 Parameter "text" is not declared. Injection of parameters into signal handlers is deprecated. Use JavaScript functions with formal parameters instead.
+PASS   : FileInputUiTests::initialLocationErrorAndClosedAnnouncement()
+QWARN  : FileInputUiTests::actualNewFolderValidationNestedEscapeAndHistory() qt.qml.context: qrc:/qt/qml/Avelino/FileChooserNewFolder.qml:62:13 Parameter "text" is not declared. Injection of parameters into signal handlers is deprecated. Use JavaScript functions with formal parameters instead.
+FAIL!  : FileInputUiTests::actualNewFolderValidationNestedEscapeAndHistory() 'prompt->property("visible").toBool()' returned FALSE. ()
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/tests/components/fileinput-ui.cpp(191)]
+PASS   : FileInputUiTests::removingOwnerClosesNestedFolderPrompt()
+PASS   : FileInputUiTests::typedCustomEmptyAndMixedFiltersReachActualControls()
+PASS   : FileInputUiTests::cleanupTestCase()
+Totals: 9 passed, 1 failed, 0 skipped, 0 blacklisted, 16281ms
+********* Finished testing of FileInputUiTests *********
+
+
+0% tests passed, 2 tests failed out of 2
+
+Total Test time (real) =  32.70 sec
+
+The following tests FAILED:
+	 44 - file-input-owned-ui (Failed)
+	 45 - file-input-owned-ui-dpr2 (Failed)
+Errors while running CTest

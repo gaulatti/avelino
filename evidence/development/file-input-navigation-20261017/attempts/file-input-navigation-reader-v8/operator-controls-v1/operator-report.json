@@ -1,0 +1,107 @@
+{
+  "accepted": false,
+  "status": "running",
+  "phases": [
+    {
+      "phase": "new-folder-default-modal",
+      "time": 1792278328.4544199,
+      "observations": {
+        "defaultName": "untitled folder 2",
+        "modal": true
+      },
+      "readerLogBytes": 176372
+    },
+    {
+      "phase": "duplicate-name-disabled",
+      "time": 1792278330.1123137,
+      "observations": {
+        "announcements": [
+          {
+            "time": 1792278329.051147,
+            "event": "object:announcement",
+            "detail1": 2,
+            "detail2": 0,
+            "name": "This name is already taken.",
+            "role": "label",
+            "pid": 86,
+            "message": "This name is already taken."
+          }
+        ]
+      },
+      "readerLogBytes": 250919
+    },
+    {
+      "phase": "empty-name-disabled",
+      "time": 1792278331.809837,
+      "observations": {},
+      "readerLogBytes": 275606
+    },
+    {
+      "phase": "nested-escape-no-mutation",
+      "time": 1792278333.2020445,
+      "observations": {},
+      "readerLogBytes": 308975
+    },
+    {
+      "phase": "created-and-navigated",
+      "time": 1792278336.2858565,
+      "observations": {
+        "location": "/probe/fixtures/Created by reader",
+        "ownerResult": false
+      },
+      "readerLogBytes": 574107
+    },
+    {
+      "phase": "history-back",
+      "time": 1792278337.7935104,
+      "observations": {
+        "location": "/probe/fixtures"
+      },
+      "readerLogBytes": 640246
+    },
+    {
+      "phase": "history-forward",
+      "time": 1792278339.1355813,
+      "observations": {
+        "location": "/probe/fixtures/Created by reader"
+      },
+      "readerLogBytes": 698462
+    },
+    {
+      "phase": "invalid-location-announced",
+      "time": 1792278340.9402237,
+      "observations": {
+        "location": "/probe/fixtures/missing"
+      },
+      "readerLogBytes": 938747
+    },
+    {
+      "phase": "history-recovers-location-error",
+      "time": 1792278342.439779,
+      "observations": {
+        "location": "/probe/fixtures/Created by reader"
+      },
+      "readerLogBytes": 1005042
+    },
+    {
+      "phase": "cancel-no-owner-result",
+      "time": 1792278343.7860286,
+      "observations": {},
+      "readerLogBytes": 1054934
+    },
+    {
+      "phase": "reopen-retained-folder-fresh-history",
+      "time": 1792278345.1570134,
+      "observations": {
+        "location": "/probe/fixtures/Created by reader"
+      },
+      "readerLogBytes": 1146481
+    },
+    {
+      "phase": "final-cancel-no-owner-result",
+      "time": 1792278346.564859,
+      "observations": {},
+      "readerLogBytes": 1187718
+    }
+  ]
+}

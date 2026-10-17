@@ -1,0 +1,15 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "exec",
+    "bbbca22279966e07cacccebcaa7d79e776146cb7e9f3fa75f92b2d228fc3962d",
+    "python3",
+    "-c",
+    "from pathlib import Path;import json,os,subprocess;os.environ.update(json.loads(Path('/probe/session-env.json').read_text()));subprocess.run(['xdotool','windowfocus','--sync','0x200005'],check=True);print(subprocess.check_output(['xdotool','getwindowfocus','getwindowname'],text=True))"
+  ],
+  "observedWindow": "0x200005",
+  "title": "Weston Compositor - screen0",
+  "exitCode": 0
+}

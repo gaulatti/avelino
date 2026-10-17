@@ -1,0 +1,87 @@
+{
+  "accepted": false,
+  "status": "running",
+  "phases": [
+    {
+      "phase": "new-folder-default-modal",
+      "time": 1792276422.683683,
+      "observations": {
+        "defaultName": "untitled folder 2",
+        "modal": true
+      },
+      "readerLogBytes": 175616
+    },
+    {
+      "phase": "duplicate-name-disabled",
+      "time": 1792276424.6581678,
+      "observations": {
+        "announcements": [
+          {
+            "time": 1792276423.6710784,
+            "event": "object:announcement",
+            "detail1": 2,
+            "detail2": 0,
+            "name": "This name is already taken.",
+            "role": "label",
+            "pid": 90,
+            "message": "This name is already taken."
+          }
+        ]
+      },
+      "readerLogBytes": 250210
+    },
+    {
+      "phase": "empty-name-disabled",
+      "time": 1792276426.5264182,
+      "observations": {},
+      "readerLogBytes": 275188
+    },
+    {
+      "phase": "nested-escape-no-mutation",
+      "time": 1792276427.997463,
+      "observations": {},
+      "readerLogBytes": 308384
+    },
+    {
+      "phase": "created-and-navigated",
+      "time": 1792276431.0422263,
+      "observations": {
+        "location": "/probe/fixtures/Created by reader",
+        "ownerResult": false
+      },
+      "readerLogBytes": 573242
+    },
+    {
+      "phase": "history-back",
+      "time": 1792276432.4502294,
+      "observations": {
+        "location": "/probe/fixtures"
+      },
+      "readerLogBytes": 639839
+    },
+    {
+      "phase": "history-forward",
+      "time": 1792276433.9664483,
+      "observations": {
+        "location": "/probe/fixtures/Created by reader"
+      },
+      "readerLogBytes": 705884
+    },
+    {
+      "phase": "invalid-location-announced",
+      "time": 1792276436.0874238,
+      "observations": {
+        "location": "/probe/fixtures/missing"
+      },
+      "readerLogBytes": 946311
+    },
+    {
+      "phase": "history-recovers-location-error",
+      "time": 1792276437.6805446,
+      "observations": {
+        "location": "/probe/fixtures/Created by reader"
+      },
+      "readerLogBytes": 1021597
+    }
+  ]
+}

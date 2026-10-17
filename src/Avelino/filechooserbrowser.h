@@ -13,6 +13,10 @@ class FileChooserBrowser : public QAbstractListModel {
     Q_PROPERTY(QString error READ error NOTIFY metadataChanged)
     Q_PROPERTY(bool canAccept READ canAccept NOTIFY metadataChanged)
     Q_PROPERTY(QVariantList selectedUrls READ selectedUrls NOTIFY metadataChanged)
+    Q_PROPERTY(bool canGoBack READ canGoBack NOTIFY metadataChanged)
+    Q_PROPERTY(bool canGoForward READ canGoForward NOTIFY metadataChanged)
+    Q_PROPERTY(bool canCreateFolder READ canCreateFolder NOTIFY metadataChanged)
+    Q_PROPERTY(QString newFolderError READ newFolderError NOTIFY newFolderErrorChanged)
 public:
     using QAbstractListModel::QAbstractListModel;
     enum Role {ModelRole=Qt::UserRole+1,BranchRole};
@@ -29,6 +33,10 @@ public:
     QString error() const;
     bool canAccept() const;
     QVariantList selectedUrls() const;
+    bool canGoBack() const{return m_active&&m_historyIndex>0;}
+    bool canGoForward() const{return m_active&&m_historyIndex>=0&&m_historyIndex+1<m_history.size();}
+    bool canCreateFolder() const;
+    QString newFolderError() const{return m_newFolderError;}
     Q_INVOKABLE QUrl defaultFolder() const;
     Q_INVOKABLE FileChooserModel *modelAt(int column) const;
     Q_INVOKABLE bool open(const QUrl &initialFolder);
@@ -43,24 +51,40 @@ public:
     Q_INVOKABLE void selectAll();
     Q_INVOKABLE bool navigatePath(const QString &path);
     Q_INVOKABLE bool goUp();
+    Q_INVOKABLE void goBack();
+    Q_INVOKABLE void goForward();
+    Q_INVOKABLE QString suggestedFolderName() const;
+    Q_INVOKABLE QString folderNameError(const QString &name) const;
+    Q_INVOKABLE bool createFolder(const QString &name,const QString &parentPath);
+    Q_INVOKABLE void clearNewFolderError();
     Q_INVOKABLE void acceptSelection();
 signals:
     void allowedContentTypesChanged();
     void activeChanged();
     void countChanged();
     void metadataChanged();
+    void newFolderErrorChanged();
     void focusRequested(int column);
     void result(const QVariantMap &value);
 private:
     struct Column {FileChooserModel *model;QUrl branch;};
+    struct SavedColumn {QUrl folder,branch;};
+    struct Location {QList<SavedColumn> columns;};
+    Location location() const;
+    void rememberNavigation(const Location &before);
+    void restoreLocation(int index);
+    void setNewFolderError(const QString &message);
     void append(const QUrl &folder);
     void trimAfter(int column);
     void branch(int column,const QUrl &url);
     void clearOtherSelections(int column);
     FileChooserModel *selectionModel() const{return modelAt(m_selection);}
     QList<Column> m_columns;
+    QList<Location> m_history;
+    int m_historyIndex=-1;
     QVariantList m_types;
     QString m_typeError;
+    QString m_newFolderError;
     QUrl m_lastFolder;
     int m_focus=-1,m_selection=-1;
     bool m_active=false,m_completing=false;

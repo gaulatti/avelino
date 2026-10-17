@@ -169,9 +169,58 @@ See its evidence README and `python3 scripts/verify-file-input-announcements.py`
 for the final-source build, installed-package and actual reader checks. This
 correction does not close native reader or complete-chooser acceptance.
 
-The complete native panel also has a sidebar, back/forward and view controls,
-location menu, search and selection preview. These are missing from this Linux
-checkpoint. Its path field and columns must not be reported as the complete
-native presentation. Direct two-axis sizing, type conformance, source input and
+The [navigation checkpoint](../evidence/development/file-input-navigation-20261017/validation.json)
+adds Back/Forward location history and a
+nested New Folder prompt. History retains column locations and navigation
+branches, re-enumerating directories when restoring a location. Back and Forward
+clear file selection, matching the native observations. A fresh Shift range
+starts at the listing's beginning in the measured alphabetic fixture. A new
+navigation after Back replaces the forward branch.
+History is local to the open chooser; reopening retains its last folder and
+starts a fresh history. The existing typed-location error adapter remains in
+place; its complete native Go to Folder presentation and invalid-path/history
+equivalence are still pending.
+
+New Folder suggests the first available `untitled folder` name, disables Create
+for empty or existing names, and creates a directory only after explicit Create
+or Return. It then navigates into the directory without sending an owner result.
+Escape or Cancel in the nested prompt leaves the chooser open. The Linux input
+adapter preserves the entered name, including spaces and Unicode, and rejects
+path separators, NUL, `.` and `..` as folder names. It uses the actual filesystem's
+name/case rules and an atomic `mkdir`; failures stay visible without replacing
+an existing entry. A changed or vanished parent prevents creation. Directory
+enumeration and type matching stay read-only; this separate explicit user action
+is the filesystem mutation. Control+Shift+N is the Linux shortcut adapter for the
+observed native Command+Shift+N action. Exact names, filesystem behavior,
+history/input timing and native prompt artwork still require parity acceptance.
+
+The owned dialog subclass supplies the modal state omitted by Qt 6.8.3's Quick
+accessibility item. Its adapter is pinned to that exact Qt version and applies
+only to the subclass's popup item. Both dialogs expose their name, Dialog role
+and modal state without redundant inner dialog roles. Final Qt tests and live
+AT-SPI inspection verify those states; native hierarchy equivalence stays open.
+Navigable folder rows expose their current navigation selection separately from
+the URLs eligible for the owner's result.
+
+The final frozen source 29 passes six focused Qt targets, eight independent installed
+contexts and eight virtual X11/Wayland renderer profiles, with 12 owner/input
+traces per context. All 256 closed PNGs and complete closed/sizing metadata remain
+unchanged. The consumer was freshly built against source 28; its sources are
+byte-identical to source 29, and its verified binary is exercised with the final
+source-29 install. The complete installed package and consumer can be restored from
+bounded, checksummed chunks and run without their project sources. X11 and
+scaled Wayland/OpenGL Orca exercises verify modal input, errors, creation,
+history, cancellation and Space reopening. Wayland focus returns asynchronously,
+about a second after cancellation in this environment; its measured delay is
+retained and timing equivalence is pending. Orca output/backend commands are
+logged through ALSA null output; engine audio and physical listening remain
+unverified. Speech Dispatcher's level-3 dictionary errors are not evidence of
+utterance contents. Run `python3 scripts/verify-file-input-navigation.py` to audit
+this scoped checkpoint.
+
+The complete native panel also has a sidebar, view choices, location menu,
+search, selection preview and group/sort controls. These remain missing from the
+Linux implementation. Its path field and columns must not be reported as the
+complete native presentation. Direct two-axis sizing, type conformance, source input and
 callback timing, strict raster, physical display/input and independent-machine
 acceptance also remain pending.

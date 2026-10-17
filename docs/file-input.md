@@ -125,8 +125,9 @@ Folder and the column scrollbar put controlled fixture files in view. Open
 returns both selected URLs in browser order while the panel remains visible.
 
 The native presentation includes a sidebar, back/forward and view controls,
-location menu, search and selection preview. The current Linux chooser lacks
-these surfaces; its path entry does not establish complete panel equivalence.
+location menu, search, selection preview, New Folder and group/sort controls.
+The owned Linux implementation remains in progress; path entry and columns do
+not establish complete panel equivalence.
 The native OS supplies text/document previews even though the public component
 itself does not read the selected files. Host sidebar names and ancestor folders
 are observations of this configured host, not Linux defaults to hard-code.
@@ -137,3 +138,23 @@ lossless panel captures for strict comparison remain pending. It reuses the reco
 library. Full context coverage, exact panel comparison, physical input/display,
 readers and independent behavior-source replay remain pending. Run
 `python3 scripts/verify-file-input-panel.py` to audit the supplement.
+
+The [controls supplement](../evidence/reference-investigations/file-input-controls-20261017/investigation.json)
+records actual Columns/List/Icons changes, group and Option-sort menu entries,
+location menu entries, a no-match search and its scopes, and nested New Folder input.
+An existing default name changes the suggestion from `untitled folder` to
+`untitled folder 2`. Existing file or directory names immediately disable Create
+and show `This name is already taken.` Empty input also disables Create. Return
+creates the folder and navigates inside it; actual Back and Forward return to
+the parent and created directory. Command+Shift+N opens the nested prompt, and
+Escape closes that prompt while leaving the chooser open. None of those actions
+send an owner result. Positive search, grouping/sort behavior, menu artwork and
+lossless raster equivalence remain unverified. Run
+`python3 scripts/verify-file-input-controls.py` to audit these observations.
+
+The native history-selection probe also shows that Back clears a prior single
+or multiple file selection, and Forward clears a previously selected child.
+Shift-clicking c after Back selects a,b,c in its controlled alphabetic fixture.
+The Linux history implementation follows those observations rather than retaining
+selected files across locations. Full selection/input context equivalence stays
+pending.

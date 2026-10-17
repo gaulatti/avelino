@@ -209,7 +209,8 @@ void FileChooserModel::select(int index,int modifiers){
     if(!m_active||index<0||index>=m_rows.size()||!m_rows[index].eligible)return;
     const bool toggle=modifiers&(Qt::ControlModifier|Qt::MetaModifier),range=modifiers&Qt::ShiftModifier;
     if(!toggle)m_selected.clear();
-    if(range&&m_anchor>=0){
+    if(range){
+        if(m_anchor<0)m_anchor=0;
         for(int i=std::min(index,m_anchor);i<=std::max(index,m_anchor);++i)if(m_rows[i].eligible)m_selected.insert(m_rows[i].url.toString());
     }else{
         const auto key=m_rows[index].url.toString();

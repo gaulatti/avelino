@@ -1,11 +1,15 @@
 #include "filechooserbrowser.h"
 #include <QDir>
+#include <QFile>
 #include <QGuiApplication>
 #include <QJSEngine>
 #include <QPointer>
 #include <QQmlEngine>
 #include <QStandardPaths>
 #include <algorithm>
+#include <cerrno>
+#include <cstring>
+#include <sys/stat.h>
 
 QVariant FileChooserBrowser::data(const QModelIndex &index,int role) const {
     if(!index.isValid()||index.row()<0||index.row()>=m_columns.size())return {};
@@ -74,7 +78,8 @@ void FileChooserBrowser::branch(int column,const QUrl &url){
 bool FileChooserBrowser::open(const QUrl &initialFolder){
     if(m_active||m_completing)return false;
     trimAfter(-1);m_active=true;append(m_lastFolder.isEmpty()?initialFolder:m_lastFolder);
-    m_focus=m_selection=0;emit activeChanged();emit metadataChanged();emit focusRequested(0);return true;
+    m_focus=m_selection=0;m_history={location()};m_historyIndex=0;clearNewFolderError();
+    emit activeChanged();emit metadataChanged();emit focusRequested(0);return true;
 }
 void FileChooserBrowser::cancel(){
     if(!m_active||m_completing)return;
@@ -92,6 +97,7 @@ void FileChooserBrowser::choose(int column,int row,int modifiers){
     const auto value=model->entry(row);if(value.isEmpty())return;
     const auto directory=value["directory"].toBool(),eligible=value["eligible"].toBool();
     if(!directory&&!eligible)return;
+    const auto before=location();
     const auto url=value["url"].toUrl();
     clearOtherSelections(column);
     if(eligible)model->select(row,modifiers);else{model->clearSelection();model->focusIndex(row);}
@@ -101,7 +107,7 @@ void FileChooserBrowser::choose(int column,int row,int modifiers){
         branch(column,url);append(url);
         if(!eligible)m_selection=column+1;
     }
-    emit metadataChanged();emit focusRequested(column);
+    rememberNavigation(before);emit metadataChanged();emit focusRequested(column);
 }
 void FileChooserBrowser::chooseFromInput(int column,int row){choose(column,row,int(QGuiApplication::keyboardModifiers()));}
 void FileChooserBrowser::activate(int column,int row){
@@ -130,17 +136,81 @@ void FileChooserBrowser::focusRight(){
 }
 void FileChooserBrowser::selectAll(){
     auto model=modelAt(m_focus);if(!m_active||!model)return;
+    const auto before=location();
     clearOtherSelections(m_focus);model->selectAll();m_selection=m_focus;
-    trimAfter(m_focus);branch(m_focus,{});emit metadataChanged();
+    trimAfter(m_focus);branch(m_focus,{});rememberNavigation(before);emit metadataChanged();
 }
 bool FileChooserBrowser::navigatePath(const QString &path){
     if(!m_active)return false;
+    const auto before=location();
     trimAfter(-1);append(QUrl::fromLocalFile(path));m_focus=m_selection=0;
-    emit metadataChanged();emit focusRequested(0);return modelAt(0)->error().isEmpty();
+    rememberNavigation(before);emit metadataChanged();emit focusRequested(0);return modelAt(0)->error().isEmpty();
 }
 bool FileChooserBrowser::goUp(){
     if(!m_active||!QDir::isAbsolutePath(folderPath()))return false;
     QDir directory(folderPath());if(!directory.cdUp())return false;
     return navigatePath(directory.absolutePath());
+}
+FileChooserBrowser::Location FileChooserBrowser::location() const {
+    Location saved;
+    for(const auto &column:m_columns)saved.columns.append({column.model->folder(),column.branch});
+    return saved;
+}
+void FileChooserBrowser::rememberNavigation(const Location &before){
+    const auto after=location();
+    if(m_historyIndex<0||before.columns.isEmpty()||after.columns.isEmpty())return;
+    if(before.columns.last().folder==after.columns.last().folder){m_history[m_historyIndex]=after;return;}
+    m_history[m_historyIndex]=before;
+    m_history.resize(m_historyIndex+1);m_history.append(after);++m_historyIndex;
+}
+void FileChooserBrowser::restoreLocation(int index){
+    if(!m_active||index<0||index>=m_history.size())return;
+    m_history[m_historyIndex]=location();
+    const auto saved=m_history[index];trimAfter(-1);
+    for(const auto &column:saved.columns){
+        append(column.folder);branch(m_columns.size()-1,column.branch);
+    }
+    m_focus=m_selection=m_columns.size()-1;m_historyIndex=index;
+    emit metadataChanged();emit focusRequested(m_focus);
+}
+void FileChooserBrowser::goBack(){if(canGoBack())restoreLocation(m_historyIndex-1);}
+void FileChooserBrowser::goForward(){if(canGoForward())restoreLocation(m_historyIndex+1);}
+bool FileChooserBrowser::canCreateFolder() const {
+    return m_active&&m_typeError.isEmpty()&&!m_columns.isEmpty()&&m_columns.last().model->error().isEmpty()
+        &&QDir::isAbsolutePath(folderPath())&&QFileInfo(folderPath()).isDir();
+}
+QString FileChooserBrowser::suggestedFolderName() const {
+    if(!canCreateFolder())return {};
+    QString name=QStringLiteral("untitled folder");quint64 suffix=2;
+    while(QFileInfo::exists(QDir(folderPath()).filePath(name))||QFileInfo(QDir(folderPath()).filePath(name)).isSymLink())
+        name=QStringLiteral("untitled folder ")+QString::number(suffix++);
+    return name;
+}
+QString FileChooserBrowser::folderNameError(const QString &name) const {
+    if(name.isEmpty())return {};
+    if(!canCreateFolder())return QStringLiteral("The parent folder is no longer available.");
+    if(name=="."||name==".."||name.contains('/')||name.contains(QChar::Null))return QStringLiteral("Invalid folder name.");
+    const QFileInfo target(QDir(folderPath()).filePath(name));
+    if(target.exists()||target.isSymLink())return QStringLiteral("This name is already taken.");
+    return {};
+}
+void FileChooserBrowser::setNewFolderError(const QString &message){
+    if(m_newFolderError==message)return;m_newFolderError=message;emit newFolderErrorChanged();
+}
+void FileChooserBrowser::clearNewFolderError(){setNewFolderError({});}
+bool FileChooserBrowser::createFolder(const QString &name,const QString &parentPath){
+    clearNewFolderError();
+    if(!canCreateFolder()||parentPath!=folderPath()){setNewFolderError(QStringLiteral("The parent folder is no longer available."));return false;}
+    const auto validation=folderNameError(name);
+    if(name.isEmpty()||!validation.isEmpty()){setNewFolderError(validation.isEmpty()?QStringLiteral("Enter a folder name."):validation);return false;}
+    const auto target=QDir(parentPath).filePath(name);
+    if(::mkdir(QFile::encodeName(target).constData(),0777)!=0){
+        const auto code=errno;setNewFolderError(QString::fromLocal8Bit(std::strerror(code)));return false;
+    }
+    const auto before=location();const auto column=count()-1;
+    modelAt(column)->refresh();clearOtherSelections(-1);
+    branch(column,QUrl::fromLocalFile(target+'/'));append(QUrl::fromLocalFile(target));
+    m_focus=m_selection=count()-1;rememberNavigation(before);
+    emit metadataChanged();emit focusRequested(m_focus);return true;
 }
 void FileChooserBrowser::acceptSelection(){if(canAccept()&&!m_completing)selectionModel()->acceptSelection();}

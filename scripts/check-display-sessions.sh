@@ -231,9 +231,9 @@ elif fixture == 'command-spotlight':
     assert record['nativeAccessibilityAcceptance']=='unobserved',record
 elif fixture == 'file-input':
     assert record['structuralChecks']=='passed' and record['accepted'] is False,record
-    assert len(record['closed'])==len(record['sizing'])==32 and record['images']==35,record
-    assert record['nativeContractStatesMatch']==32 and len(record['actions'])==6,record
-    assert record['pointerEvents']==15 and record['keyEvents']==3,record
+    assert len(record['closed'])==len(record['sizing'])==32 and record['images']==38,record
+    assert record['nativeContractStatesMatch']==32 and len(record['actions'])==12,record
+    assert record['pointerEvents']==21 and record['keyEvents']==32,record
     assert record['nativeRasterAcceptance']==record['physicalInputAcceptance']==record['readerAcceptance']=='pending',record
     assert record['nativeAccessibilityAcceptance']=='unobserved',record
 elif fixture == 'dropdown-menu':
