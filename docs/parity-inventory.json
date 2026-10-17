@@ -74958,7 +74958,7 @@
           "line": 70
         },
         "implementation": [],
-        "caseDiscovery": "Native source investigation: 256 unchanged public/probed/literal closed contexts, 3840 sizing proposals per branch, and scoped native UI selection/cancel/removal diagnostics. Owned Linux chooser, exact type conformance, independent behavior replay and all Linux/physical/reader acceptance remain pending.",
+        "caseDiscovery": "Native source investigation: 256 unchanged public/probed/literal closed contexts and 3840 sizing proposals per branch. Fresh public.item, text/image, directory/text and undeclared custom-type probes supplement the preserved retained-update diagnostic. Owned Linux chooser, exact type conformance, independent behavior replay and all Linux/physical/reader acceptance remain pending.",
         "cases": [
           {
             "id": "BleeckerFileInput-default-light-text1-dpr1",
@@ -78291,7 +78291,9 @@
         ],
         "tests": [
           "scripts/verify-file-input-source.py",
-          "tests/contracts/test_file_input_source.py"
+          "tests/contracts/test_file_input_source.py",
+          "scripts/verify-file-input-types.py",
+          "tests/contracts/test_file_input_types.py"
         ],
         "captures": [
           "evidence/reference-investigations/file-input-20261017/output/captures.json"

@@ -71,9 +71,26 @@ returned. `public.folder` sets directory selection on and file selection off.
 The empty type list disables both file and directory selection and leaves the
 tested file unselectable. A subsequent retained
 instance update to `public.item` allows highlighting a file but leaves Open
-disabled. This last result requires isolated fresh-process investigation before
-choosing a Linux type policy. These observations do not establish a general
+disabled. Retained type-update behavior remains unresolved; fresh-process probes
+are recorded separately below. These observations do not establish a general
 UTType-to-extension or MIME mapping.
+
+The [fresh-process type supplement](../evidence/reference-investigations/file-input-types-20261017/investigation.json)
+records four separately started native processes. `public.item` successfully
+returns `one.txt` in a fresh process. A text/image union returns
+`[one.txt, photo.png]`; a separate folder/text union returns `[folder/, one.txt]`.
+The first union permits files; the second permits both files and directories.
+An undeclared `org.avelino.fixture` type reaches an empty native panel type list,
+while its file-choice flag remains true; clicking the controlled text file leaves
+Open disabled and Cancel returns no result. This differs from the original empty
+input array, which disables file choice itself.
+
+These processes reuse the recorded source-built FileInput library object.
+Their 16 filtered AX observations and three successful callbacks resolve the
+fresh-process broad-type question. The earlier retained-update failure remains
+preserved and unresolved; neither physical input nor an independent behavior
+source replay is claimed. Run `python3 scripts/verify-file-input-types.py` to
+recompute the supplemental record.
 
 The first own-process panel helper used an unsupported `ok(nil)` action and
 terminated with an AppKit exception. The corrected diagnostic canceled and
