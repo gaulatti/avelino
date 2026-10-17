@@ -1,0 +1,15 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--rm",
+    "avelino-toolchain:recovered-20261017-qt6.8.3",
+    "/opt/qt/bin/qmake",
+    "-query",
+    "QT_VERSION"
+  ],
+  "qt": "6.8.3",
+  "exitCode": 0
+}

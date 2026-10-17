@@ -1,0 +1,64 @@
+{
+  "accepted": false,
+  "status": "running",
+  "phases": [
+    {
+      "phase": "invalid-location-announced",
+      "time": 1792272216.881727,
+      "observations": {
+        "event": {
+          "time": 1792272215.5642405,
+          "event": "object:announcement",
+          "detail1": 2,
+          "detail2": 0,
+          "name": "No such file or directory",
+          "role": "label",
+          "pid": 87,
+          "message": "No such file or directory"
+        }
+      },
+      "readerLogBytes": 325415
+    },
+    {
+      "phase": "location-recovered",
+      "time": 1792272218.9050393,
+      "observations": {},
+      "readerLogBytes": 507877
+    },
+    {
+      "phase": "second-error-announced",
+      "time": 1792272220.7775793,
+      "observations": {
+        "events": [
+          {
+            "time": 1792272215.5642405,
+            "event": "object:announcement",
+            "detail1": 2,
+            "detail2": 0,
+            "name": "No such file or directory",
+            "role": "label",
+            "pid": 87,
+            "message": "No such file or directory"
+          },
+          {
+            "time": 1792272219.7917655,
+            "event": "object:announcement",
+            "detail1": 2,
+            "detail2": 0,
+            "name": "No such file or directory",
+            "role": "label",
+            "pid": 87,
+            "message": "No such file or directory"
+          }
+        ]
+      },
+      "readerLogBytes": 798245
+    },
+    {
+      "phase": "cancelled-no-extra-announcement",
+      "time": 1792272222.768337,
+      "observations": {},
+      "readerLogBytes": 848079
+    }
+  ]
+}

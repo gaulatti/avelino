@@ -11,6 +11,20 @@
 #include <QTemporaryDir>
 #include <QtTest>
 
+class FileInputAnnouncementCapture {
+    QAccessible::UpdateHandler previous;
+    static void receive(QAccessibleEvent *event){
+        if(event->type()!=QAccessible::Announcement)return;
+        auto announcement=static_cast<QAccessibleAnnouncementEvent*>(event);
+        messages.append({announcement->message(),announcement->politeness(),event->object()});
+    }
+public:
+    struct Message {QString text;QAccessible::AnnouncementPoliteness politeness;QPointer<QObject> source;};
+    inline static QList<Message> messages;
+    FileInputAnnouncementCapture(){messages.clear();previous=QAccessible::installUpdateHandler(receive);}
+    ~FileInputAnnouncementCapture(){QAccessible::installUpdateHandler(previous);}
+};
+
 class FileInputUiTests:public QObject {
     Q_OBJECT
     void put(const QString &path){QFile f(path);QVERIFY(f.open(QIODevice::WriteOnly));QVERIFY(f.write("Avelino owned UI fixture\n")>0);}
@@ -116,6 +130,7 @@ private slots:
         QCOMPARE(results(fixture)[0].toMap()["urls"].toList(),QVariantList{QUrl::fromLocalFile(root.filePath("one.txt"))});
     }
     void actualLocationErrorRecoveryAndKeyboardAccept(){
+        FileInputAnnouncementCapture announcements;
         QTemporaryDir directory;QDir root(directory.path());put(root.filePath("one.txt"));
         QQuickView view;load(view,directory);auto fixture=view.rootObject();auto control=fixture->findChild<QQuickItem*>("fileInput");QVERIFY(control);
         auto browser=control->property("browser").value<FileChooserBrowser*>();auto chooser=control->property("chooser").value<QObject*>();
@@ -129,10 +144,33 @@ private slots:
             QTest::keyClick(content->window(),Qt::Key_Return);QTest::qWait(30);
         };
         enterPath(directory.path()+"/missing");QVERIFY(browser->active());QVERIFY(!browser->error().isEmpty());QVERIFY(!browser->canAccept());QVERIFY(results(fixture).isEmpty());
+        QTRY_COMPARE(announcements.messages.size(),1);
+        QCOMPARE(announcements.messages[0].text,browser->error());
+        QVERIFY(announcements.messages[0].politeness==QAccessible::AnnouncementPoliteness::Assertive);
+        QVERIFY(announcements.messages[0].source);QCOMPARE(announcements.messages[0].source->objectName(),QString("bleeckerFileChooserError"));
+        browser->modelAt(0)->refresh();QTest::qWait(30);QCOMPARE(announcements.messages.size(),1);
+        enterPath(directory.path()+"/missing");QTRY_COMPARE(announcements.messages.size(),2);
+        QCOMPARE(announcements.messages[1].text,browser->error());
         capture(content->window(),"location-error");
         enterPath(directory.path());QVERIFY(browser->error().isEmpty());QTRY_VERIFY(find(content,"bleeckerFileChooserRow0_0"));
+        QCOMPARE(announcements.messages.size(),2);
         click(find(content,"bleeckerFileChooserRow0_0"));QVERIFY(browser->canAccept());QTest::keyClick(content->window(),Qt::Key_Return);
         QTRY_COMPARE(results(fixture).size(),1);QVERIFY(!browser->active());QVERIFY(fixture->property("visibleAtCallback").toBool());
+    }
+    void initialLocationErrorAndClosedAnnouncement(){
+        FileInputAnnouncementCapture announcements;QTemporaryDir directory;
+        QQuickView view;load(view,directory);auto fixture=view.rootObject();
+        const auto missing=QUrl::fromLocalFile(directory.path()+"/missing");fixture->setProperty("fixtureRoot",missing);
+        auto control=fixture->findChild<QQuickItem*>("fileInput");QVERIFY(control);
+        auto browser=control->property("browser").value<FileChooserBrowser*>();QVERIFY(browser);
+        click(control->property("inputItem").value<QQuickItem*>());QTRY_VERIFY(browser->active());
+        QTRY_COMPARE(announcements.messages.size(),1);QCOMPARE(announcements.messages[0].text,browser->error());
+        QVERIFY(browser->navigatePath(directory.path()));QVERIFY(browser->error().isEmpty());
+        QVERIFY(!browser->navigatePath(missing.toLocalFile()));browser->cancel();QTest::qWait(30);
+        QCOMPARE(announcements.messages.size(),1);
+        click(control->property("inputItem").value<QQuickItem*>());QTRY_VERIFY(browser->active());
+        QTRY_COMPARE(announcements.messages.size(),2);QCOMPARE(announcements.messages[1].text,browser->error());
+        QVERIFY(results(fixture).isEmpty());
     }
     void typedCustomEmptyAndMixedFiltersReachActualControls(){
         QTemporaryDir directory;QDir root(directory.path());put(root.filePath("one.txt"));QVERIFY(root.mkdir("folder"));

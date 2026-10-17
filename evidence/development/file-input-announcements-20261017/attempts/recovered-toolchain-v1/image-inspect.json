@@ -1,0 +1,120 @@
+{
+  "avelino-toolchain:recovered-20261017-qt6.8.3": {
+    "Id": "sha256:d302511c27237a9489aff2319e14aa0230954850eedee17a53d2d2c9e2545171",
+    "RepoTags": [
+      "avelino-toolchain:recovered-20261017-qt6.8.3"
+    ],
+    "RepoDigests": [
+      "avelino-toolchain@sha256:d302511c27237a9489aff2319e14aa0230954850eedee17a53d2d2c9e2545171"
+    ],
+    "Comment": "buildkit.dockerfile.v0",
+    "Created": "2026-10-17T17:43:45.747603269-04:00",
+    "Config": {
+      "Env": [
+        "PATH=/opt/qt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "DEBIAN_FRONTEND=noninteractive",
+        "LANG=C.UTF-8",
+        "LD_LIBRARY_PATH=/opt/qt/lib",
+        "CMAKE_PREFIX_PATH=/opt/qt"
+      ],
+      "Cmd": [
+        "/bin/bash"
+      ],
+      "WorkingDir": "/work",
+      "Labels": {
+        "org.opencontainers.image.version": "24.04"
+      }
+    },
+    "Architecture": "arm64",
+    "Os": "linux",
+    "Size": 720405011,
+    "RootFS": {
+      "Type": "layers",
+      "Layers": [
+        "sha256:1e9178dc90058fa454a60803300219ee8c17e515be8718817ed824b96fa1207b",
+        "sha256:490d84a93354eb60f592f2f2618e49ce456d78164114de9150f2fe77ade65924",
+        "sha256:67c99f460fa43056bf13a238bbf212f607db316b643f3d17daef665d3c9328db",
+        "sha256:c814e19f92c9aee8e00668045426ebcfdf17eaddc5c28d479574df38ed3720d3",
+        "sha256:e2e96ebd4d73dbf63ef94928f31b180149d7a1c50453c2cb88db169da445a38f"
+      ]
+    },
+    "Metadata": {
+      "LastTagTime": "2026-10-17T21:44:48.956290281Z"
+    },
+    "Descriptor": {
+      "mediaType": "application/vnd.oci.image.index.v1+json",
+      "digest": "sha256:d302511c27237a9489aff2319e14aa0230954850eedee17a53d2d2c9e2545171",
+      "size": 856
+    },
+    "Identity": {
+      "Pull": [
+        {
+          "Repository": "docker.io/library/avelino-toolchain"
+        }
+      ],
+      "Build": [
+        {
+          "Ref": "ucdo1is7pze2ulrqozwiak4h4",
+          "CreatedAt": "2026-10-17T17:45:22.398497069-04:00"
+        }
+      ]
+    }
+  },
+  "avelino-toolchain:recovered-a11y-20261017-qt6.8.3": {
+    "Id": "sha256:cd1a2db8b8d979077bc74f0d596dea780aa485e0439df80200e90078cd9e5d5f",
+    "RepoTags": [
+      "avelino-toolchain:recovered-a11y-20261017-qt6.8.3"
+    ],
+    "RepoDigests": [
+      "avelino-toolchain@sha256:cd1a2db8b8d979077bc74f0d596dea780aa485e0439df80200e90078cd9e5d5f"
+    ],
+    "Comment": "buildkit.dockerfile.v0",
+    "Created": "2026-10-17T17:48:49.601244156-04:00",
+    "Config": {
+      "Env": [
+        "PATH=/opt/qt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "DEBIAN_FRONTEND=noninteractive",
+        "LANG=C.UTF-8",
+        "LD_LIBRARY_PATH=/opt/qt/lib",
+        "CMAKE_PREFIX_PATH=/opt/qt"
+      ],
+      "Cmd": [
+        "/bin/bash"
+      ],
+      "WorkingDir": "/work",
+      "Labels": {
+        "org.opencontainers.image.version": "24.04"
+      }
+    },
+    "Architecture": "arm64",
+    "Os": "linux",
+    "Size": 765946698,
+    "RootFS": {
+      "Type": "layers",
+      "Layers": [
+        "sha256:1e9178dc90058fa454a60803300219ee8c17e515be8718817ed824b96fa1207b",
+        "sha256:490d84a93354eb60f592f2f2618e49ce456d78164114de9150f2fe77ade65924",
+        "sha256:67c99f460fa43056bf13a238bbf212f607db316b643f3d17daef665d3c9328db",
+        "sha256:c814e19f92c9aee8e00668045426ebcfdf17eaddc5c28d479574df38ed3720d3",
+        "sha256:e2e96ebd4d73dbf63ef94928f31b180149d7a1c50453c2cb88db169da445a38f",
+        "sha256:35079c6d671e2de9a45b265a76b240f2f7b2bc1eade682a86f8e42d815441658"
+      ]
+    },
+    "Metadata": {
+      "LastTagTime": "2026-10-17T21:48:55.936761867Z"
+    },
+    "Descriptor": {
+      "mediaType": "application/vnd.oci.image.index.v1+json",
+      "digest": "sha256:cd1a2db8b8d979077bc74f0d596dea780aa485e0439df80200e90078cd9e5d5f",
+      "size": 856
+    },
+    "Identity": {
+      "Build": [
+        {
+          "Ref": "k6k54n5efai1i0azg9j8fbvrl",
+          "CreatedAt": "2026-10-17T17:48:58.2585731-04:00"
+        }
+      ]
+    }
+  }
+}

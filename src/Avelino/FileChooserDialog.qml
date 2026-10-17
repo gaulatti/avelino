@@ -31,7 +31,7 @@ T.Dialog {
         if(left<columns.contentX)columns.contentX=left
         else if(right>columns.contentX+columns.width)columns.contentX=Math.min(Math.max(0,columns.contentWidth-columns.width),right-columns.width)
     }
-    onOpened:{path.text=browser.folderPath;focusColumn(browser.focusedColumn)}
+    onOpened:{path.text=browser.folderPath;focusColumn(browser.focusedColumn);Qt.callLater(errorMessage.announceError)}
     onClosed:if(browser.active)browser.cancel()
     Connections {
         target:dialog.browser
@@ -62,7 +62,7 @@ T.Dialog {
             font.family:Qt.application.font.family;font.pixelSize:13
             Accessible.name:"Folder location"
             background:Rectangle {radius:5;color:dialog.dark ? "#252525":"white";border.width:path.activeFocus ? 2:0.5;border.color:path.activeFocus ? "#80baff":dialog.border}
-            onAccepted:dialog.browser.navigatePath(text)
+            onAccepted:{dialog.browser.navigatePath(text);Qt.callLater(errorMessage.announceError)}
         }
         Rectangle {x:0;y:76;width:parent.width;height:1;color:dialog.border;Accessible.ignored:true}
         Flickable {
@@ -148,10 +148,15 @@ T.Dialog {
         }
         Rectangle {x:0;y:parent.height-62;width:parent.width;height:1;color:dialog.border;Accessible.ignored:true}
         Text {
+            id:errorMessage;objectName:"bleeckerFileChooserError"
             x:20;y:parent.height-51;width:Math.max(0,parent.width-215);height:42
             text:dialog.browser.error;textFormat:Text.PlainText;wrapMode:Text.Wrap;color:dialog.ink
             font.family:Qt.application.font.family;font.pixelSize:12
             Accessible.role:Accessible.StaticText;Accessible.name:text
+            function announceError():void {
+                if(dialog.visible&&text.length)Accessible.announce(text,Accessible.Assertive)
+            }
+            onTextChanged:if(dialog.visible&&text.length)Qt.callLater(announceError)
         }
         FileChooserButton {
             id:cancel;objectName:"bleeckerFileChooserCancel";x:parent.width-180;y:parent.height-42;width:72;text:"Cancel"

@@ -152,11 +152,22 @@ folder list, file names, document descriptions and location field. These are
 software observations through the installed catalog with ALSA's null output.
 The first reader attempts stalled after the container's absent PulseAudio server
 prevented audio initialization; their logs and reader stacks remain preserved.
-No physical listening acceptance is claimed. The visible invalid-location error
-was not announced in the observed reader log. Qt's location field exposes editable
+No physical listening acceptance is claimed. In that checkpoint the visible
+invalid-location error was not announced in the observed reader log. Qt's location field exposes editable
 state but not an AT-SPI EditableText interface in this environment; actual keyboard
-editing works. Native hierarchy, error announcements and reader equivalence
+editing works. Native hierarchy, native error-announcement and reader equivalence
 remain open requirements.
+
+The [announcement correction](../evidence/development/file-input-announcements-20261017/validation.json)
+uses Qt 6.8.3's public `Accessible.announce` API with assertive priority. A visible
+error is announced after the text binding updates, when reopening a retained
+invalid folder, and when Return explicitly retries the same invalid path.
+Deferred calls coalesce, metadata refresh stays quiet, and closing the chooser
+suppresses queued announcements without moving focus. The focused Qt regression
+covers initial errors, identical-path retries, recovery and cancellation.
+See its evidence README and `python3 scripts/verify-file-input-announcements.py`
+for the final-source build, installed-package and actual reader checks. This
+correction does not close native reader or complete-chooser acceptance.
 
 The complete native panel also has a sidebar, back/forward and view controls,
 location menu, search and selection preview. These are missing from this Linux

@@ -74967,7 +74967,7 @@
           "src/Avelino/filechooserbrowser.h",
           "src/Avelino/filechooserbrowser.cpp"
         ],
-        "caseDiscovery": "Implementation checkpoint remains pending: 256 native closed contexts retain every strict mismatch (0 exact pixels, 232 complete frames, 256 contract states). Filesystem, column selection, owned trigger, installed consumer and AT-SPI/Orca software observations are retained. Complete native panel surfaces, two-axis sizing, type conformance, native input/callback timing, error announcements, physical display/input, native readers and independent-machine replay remain pending. Desktop coverage stays at 75/80.",
+        "caseDiscovery": "Implementation checkpoint remains pending: 256 native closed contexts retain every strict mismatch (0 exact pixels, 232 complete frames, 256 contract states). Filesystem, column selection, owned trigger, installed consumer and AT-SPI/Orca software observations are retained. The source-21 announcement correction passes fresh focused Qt checks, eight installed contexts and actual X11/Wayland Orca exercises, retaining 256 unchanged closed images. Complete native panel surfaces, two-axis sizing, type conformance, native input/callback timing, native error-announcement equivalence, physical display/input, native readers and independent-machine replay remain pending. Desktop coverage stays at 75/80.",
         "cases": [
           {
             "id": "BleeckerFileInput-default-light-text1-dpr1",
@@ -78823,11 +78823,13 @@
           "scripts/compare-file-input-candidate.py",
           "scripts/verify-file-input-linux.py",
           "tests/contracts/test_file_input_witnesses.py",
-          "tests/contracts/test_file_input_pixels.py"
+          "tests/contracts/test_file_input_pixels.py",
+          "scripts/verify-file-input-announcements.py"
         ],
         "captures": [
           "evidence/reference-investigations/file-input-20261017/output/captures.json",
-          "evidence/development/file-input-20261017/validation.json"
+          "evidence/development/file-input-20261017/validation.json",
+          "evidence/development/file-input-announcements-20261017/validation.json"
         ],
         "comparisonResults": [
           "evidence/reference-investigations/file-input-20261017/source-replay.json",
@@ -78839,57 +78841,64 @@
             "status": "pending",
             "evidence": [
               "docs/file-input-linux.md",
-              "evidence/development/file-input-20261017/validation.json"
+              "evidence/development/file-input-20261017/validation.json",
+              "evidence/development/file-input-announcements-20261017/validation.json"
             ],
-            "notes": "Runtime observations remain separate from native panel/type/sizing parity, error announcements, physical displays/input and reader acceptance."
+            "notes": "Software location-error announcements are observed in the final X11/Wayland Orca exercises. Native panel/type/sizing parity, native error-announcement equivalence, physical displays/input and reader acceptance remain pending."
           },
           "x11": {
             "status": "pending",
             "evidence": [
               "docs/file-input-linux.md",
-              "evidence/development/file-input-20261017/validation.json"
+              "evidence/development/file-input-20261017/validation.json",
+              "evidence/development/file-input-announcements-20261017/validation.json"
             ],
-            "notes": "Runtime observations remain separate from native panel/type/sizing parity, error announcements, physical displays/input and reader acceptance."
+            "notes": "Software location-error announcements are observed in the final X11/Wayland Orca exercises. Native panel/type/sizing parity, native error-announcement equivalence, physical displays/input and reader acceptance remain pending."
           },
           "wayland": {
             "status": "pending",
             "evidence": [
               "docs/file-input-linux.md",
-              "evidence/development/file-input-20261017/validation.json"
+              "evidence/development/file-input-20261017/validation.json",
+              "evidence/development/file-input-announcements-20261017/validation.json"
             ],
-            "notes": "Runtime observations remain separate from native panel/type/sizing parity, error announcements, physical displays/input and reader acceptance."
+            "notes": "Software location-error announcements are observed in the final X11/Wayland Orca exercises. Native panel/type/sizing parity, native error-announcement equivalence, physical displays/input and reader acceptance remain pending."
           },
           "keyboardPointer": {
             "status": "pending",
             "evidence": [
               "docs/file-input-linux.md",
-              "evidence/development/file-input-20261017/validation.json"
+              "evidence/development/file-input-20261017/validation.json",
+              "evidence/development/file-input-announcements-20261017/validation.json"
             ],
-            "notes": "Runtime observations remain separate from native panel/type/sizing parity, error announcements, physical displays/input and reader acceptance."
+            "notes": "Software location-error announcements are observed in the final X11/Wayland Orca exercises. Native panel/type/sizing parity, native error-announcement equivalence, physical displays/input and reader acceptance remain pending."
           },
           "focusAccessibility": {
             "status": "pending",
             "evidence": [
               "docs/file-input-linux.md",
-              "evidence/development/file-input-20261017/validation.json"
+              "evidence/development/file-input-20261017/validation.json",
+              "evidence/development/file-input-announcements-20261017/validation.json"
             ],
-            "notes": "Runtime observations remain separate from native panel/type/sizing parity, error announcements, physical displays/input and reader acceptance."
+            "notes": "Software location-error announcements are observed in the final X11/Wayland Orca exercises. Native panel/type/sizing parity, native error-announcement equivalence, physical displays/input and reader acceptance remain pending."
           },
           "displayTextScaling": {
             "status": "pending",
             "evidence": [
               "docs/file-input-linux.md",
-              "evidence/development/file-input-20261017/validation.json"
+              "evidence/development/file-input-20261017/validation.json",
+              "evidence/development/file-input-announcements-20261017/validation.json"
             ],
-            "notes": "Runtime observations remain separate from native panel/type/sizing parity, error announcements, physical displays/input and reader acceptance."
+            "notes": "Software location-error announcements are observed in the final X11/Wayland Orca exercises. Native panel/type/sizing parity, native error-announcement equivalence, physical displays/input and reader acceptance remain pending."
           },
           "installedConsumer": {
             "status": "pending",
             "evidence": [
               "docs/file-input-linux.md",
-              "evidence/development/file-input-20261017/validation.json"
+              "evidence/development/file-input-20261017/validation.json",
+              "evidence/development/file-input-announcements-20261017/validation.json"
             ],
-            "notes": "Runtime observations remain separate from native panel/type/sizing parity, error announcements, physical displays/input and reader acceptance."
+            "notes": "Software location-error announcements are observed in the final X11/Wayland Orca exercises. Native panel/type/sizing parity, native error-announcement equivalence, physical displays/input and reader acceptance remain pending."
           }
         }
       },

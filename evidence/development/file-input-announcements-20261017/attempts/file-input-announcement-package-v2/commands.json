@@ -1,0 +1,32 @@
+[
+  {
+    "name": "light-text1-dpr1",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/file-input-announcement-package-v2:/consumer-check",
+      "-w",
+      "/consumer-check",
+      "--env",
+      "QT_QPA_PLATFORM=offscreen",
+      "--env",
+      "QT_QUICK_BACKEND=software",
+      "--env",
+      "XDG_RUNTIME_DIR=/tmp/avelino-error-package",
+      "--env",
+      "QT_SCALE_FACTOR=1",
+      "avelino-toolchain:recovered-20261017-qt6.8.3",
+      "python3",
+      "-c",
+      "from pathlib import Path; import os; assert not Path('/work/src/Avelino').exists(); assert not Path('/consumer-check/consumer').exists(); assert not Path('/consumer-check/src').exists(); os.execv('./consumer-build/InstalledConsumer',['./consumer-build/InstalledConsumer','--file-input','--file-input-observe','--text-scale','1','--file-input-report','/consumer-check/output/light-text1-dpr1'])"
+    ],
+    "exitCode": 99,
+    "seconds": 1.1151858329540119
+  }
+]
