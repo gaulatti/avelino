@@ -347,7 +347,7 @@ samples, independently of the edited date. This uses the active ICU calendar,
 locale and number-format overrides; the samples impose no allowed-date limit and
 do not assume a largest legal year. Native RTL literal measurement is applied
 before half-point rounding and the size-specific stepper allocation. Visible
-single-string editing and padding remain, so stable overall width does not prove
+single-string editing and padding remain in that checkpoint, so stable overall width does not prove
 correct segment positions, selection geometry or font/raster equivalence.
 
 The [implementation checkpoint](../evidence/development/date-range-reservation-20261018/README.md)
@@ -422,9 +422,57 @@ Image review exposed missing CJK fonts in the earlier verification toolchain.
 That run retains its missing-glyph captures. The toolchain now installs
 `fonts-noto-cjk` and `fontconfig`, and glyph-run checks cover all 72 source strings.
 Glyph coverage, native font metrics and exact raster acceptance remain separate.
-The joined text field can scroll a longer leap-month label and hide its prefix;
-native per-field clipping and selection must replace that whole-string behavior.
+That checkpoint's joined text field can scroll a longer leap-month label and hide
+its prefix. The next checkpoint replaces that whole-string presentation.
 
 Run `python3 scripts/generate-date-chinese-witnesses.py --check`,
 `python3 scripts/verify-date-chinese-source.py` and
 `python3 scripts/verify-date-chinese-checkpoint.py`.
+
+## Independent editor fields
+
+The editor uses one `DateRangeInput`, derived from Qt 6.8.3's template TextField,
+for logical text, UTF-16 selection, focus and input-method composition.
+The existing ICU calendar samples supply a separate reservation for every field
+and literal. Each field is shaped and clipped inside that reservation, so a long
+leap-month label keeps its prefix and does not move the day. Overall sizing and
+visible field positions use the same reservations. Locale direction determines
+field order independently of the caller's layout direction.
+The catalog's “Leap month” control loads the captured Chinese leap-month range
+directly, alongside the three Chinese-calendar locale choices.
+
+Hit testing, position-to-rectangle queries, composition cursor/anchor rectangles,
+and assistive character geometry use those field layouts. Pointer activation
+applies calendar selection after Qt's joined-text mouse path. Adjacent fields use
+half-open UTF-16 ranges so the first character of a day belongs to the day.
+Preedit pointer actions retain Qt's input-method click path. Assistive text edits
+enter through Qt input-method commits and the existing owner request path.
+
+This integration is pinned to the inspected
+[Qt 6.8.3 TextInput implementation](https://github.com/qt/qtdeclarative/blob/v6.8.3/src/quick/items/qquicktextinput.cpp)
+and [scene-graph text implementation](https://github.com/qt/qtdeclarative/blob/v6.8.3/src/quick/items/qsginternaltextnode.cpp).
+The latter consumes an inclusive selection end despite the public header's
+`selectionCount` parameter name. The compile-time version guard requires review
+of these details before a Qt upgrade. Text drawing uses Qt's text nodes rather
+than a second editable control.
+
+Regression coverage includes the leap prefix and fixed day position, pointer
+selection at the month/day boundary, composition and assistive-edit geometry,
+and field clicks across all 17 captured locale/calendar patterns with both
+caller directions. These checks do not grant native pixel, OS-input or reader
+acceptance. Font/bezel, full geometry/raster, physical display and reader checks,
+the remaining desktop controls and the separate TV phase remain pending.
+
+The [field presentation checkpoint](../evidence/development/date-range-fields-20261018/README.md)
+records three passing final Qt groups, 400 field clicks and public QML hit tests
+at each DPR, a fresh 149-input consumer, eight package/gallery profiles with 21
+operators, eight virtual-display profiles and four installed catalog captures.
+The original prefix failure, pointer-boundary failure and invalidated timestamp-
+cache run remain recorded. Corrected builds activate changed inputs before
+compilation and verify that the new test actually executes.
+
+All 437 exact whole-image comparisons still fail. Against the Chinese checkpoint,
+100 legacy changed-pixel counts are lower, 212 higher and 89 unchanged; the 36
+Chinese counts are 19 lower, 15 higher and 2 unchanged. These diagnostics do not
+grant acceptance. Reference pins, source images, masks and tolerance are unchanged.
+Run `python3 scripts/verify-date-range-fields-checkpoint.py` with Pillow installed.

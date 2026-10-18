@@ -2,10 +2,13 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QQmlError>
+#include <QQmlExpression>
 #include <QQuickItem>
 #include <QQuickWindow>
 #include <QJSValue>
 #include <QInputMethodEvent>
+#include <QInputMethodQueryEvent>
+#include <QAccessible>
 #include <QPointer>
 #include <QFile>
 #include <QJsonArray>
@@ -58,6 +61,9 @@ private slots:
     void widthsStayFixedAcrossNativeDates();
     void chinesePresentationReachesOwnedEditors();
     void chineseDayInputMethodCommit();
+    void leapMonthKeepsIndependentDayPosition();
+    void segmentedInputMethodAndAccessibility();
+    void fieldHitTestingAcrossLocaleDirections();
 };
 void DateRangeUiTests::fieldKeyboardOwners(){
     for(const QString policy:{"echo","ignore","delay"}){
@@ -306,6 +312,91 @@ void DateRangeUiTests::chineseDayInputMethodCommit(){
         QVERIFY2(f.warnings.isEmpty(),qPrintable(f.warnings.join('\n')));++compared;
     }
     QCOMPARE(compared,3);
+}
+void DateRangeUiTests::leapMonthKeepsIndependentDayPosition(){
+    Fixture f;QVERIFY(f.window&&f.picker);f.window->setProperty("localeName","zh_CN");f.picker->setProperty("calendar","chinese");
+    auto field=f.field("startField"),input=f.field("startInput");
+    auto rectangle=[&](int position){QRectF result;QMetaObject::invokeMethod(input,"positionToRectangle",Q_RETURN_ARG(QRectF,result),Q_ARG(int,position));return result;};
+    QCOMPARE(input->property("text").toString(),QString::fromUtf8("正月廿九"));
+    const auto ordinaryDay=rectangle(2);
+    // The pinned native ordinary and leap captures keep the day in its own
+    // reservation. Growing the month must not scroll away the leap prefix.
+    f.window->setProperty("sourceStart",1679832000.625);
+    QCOMPARE(input->property("text").toString(),QString::fromUtf8("闰二月初五"));
+    QCOMPARE(rectangle(3).x(),ordinaryDay.x());
+    QCOMPARE(rectangle(0).x(),input->property("leftPadding").toDouble());
+    input->forceActiveFocus(Qt::OtherFocusReason);QTRY_VERIFY(input->hasActiveFocus());
+    QVERIFY(QMetaObject::invokeMethod(field,"restoreSelection"));
+    QCOMPARE(input->property("selectionStart").toInt(),0);QCOMPARE(input->property("selectionEnd").toInt(),3);
+    QCOMPARE(rectangle(3).x(),ordinaryDay.x());
+    QCOMPARE(rectangle(0).x(),input->property("leftPadding").toDouble());
+    const auto point=ordinaryDay.center();
+    QTest::mouseClick(input->window(),Qt::LeftButton,Qt::NoModifier,input->mapToScene(point).toPoint());
+    QCOMPARE(field->property("selectedSegment").toInt(),1);
+    QCOMPARE(input->property("selectionStart").toInt(),3);QCOMPARE(input->property("selectionEnd").toInt(),5);
+    QCOMPARE(f.requests(),0);QVERIFY2(f.warnings.isEmpty(),qPrintable(f.warnings.join('\n')));
+}
+void DateRangeUiTests::segmentedInputMethodAndAccessibility(){
+    Fixture f;QVERIFY(f.window&&f.picker);f.window->setProperty("localeName","zh_CN");f.picker->setProperty("calendar","chinese");
+    f.window->setProperty("sourceStart",1679832000.625);const double end=f.window->property("sourceEnd").toDouble();
+    auto field=f.field("startField"),input=f.field("startInput");field->setProperty("selectedSegment",1);
+    input->forceActiveFocus(Qt::OtherFocusReason);QTRY_VERIFY(input->hasActiveFocus());QVERIFY(QMetaObject::invokeMethod(field,"restoreSelection"));
+    auto accessible=QAccessible::queryAccessibleInterface(input);QVERIFY(accessible);QCOMPARE(accessible->role(),QAccessible::EditableText);
+    auto text=accessible->textInterface();auto editable=accessible->editableTextInterface();QVERIFY(text&&editable);
+    QCOMPARE(text->characterCount(),5);int first=-1,last=-1;text->selection(0,&first,&last);QCOMPARE(first,3);QCOMPARE(last,5);
+    const auto prefix=text->characterRect(0);QVERIFY(!prefix.isEmpty());QCOMPARE(text->offsetAtPoint(prefix.center()),0);
+    const auto day=text->characterRect(3);QVERIFY(!day.isEmpty());QCOMPARE(text->offsetAtPoint(day.center()),3);
+    QInputMethodQueryEvent geometry(Qt::ImCursorRectangle|Qt::ImAnchorRectangle|Qt::ImSurroundingText);
+    QGuiApplication::sendEvent(input,&geometry);
+    QCOMPARE(geometry.value(Qt::ImSurroundingText).toString(),QString::fromUtf8("闰二月初五"));
+    const auto anchor=geometry.value(Qt::ImAnchorRectangle).toRectF();
+    QInputMethodEvent preedit(QString::fromUtf8("初十"),{{QInputMethodEvent::Cursor,2,1,{}}});
+    QGuiApplication::sendEvent(input,&preedit);QCOMPARE(input->property("preeditText").toString(),QString::fromUtf8("初十"));
+    QInputMethodQueryEvent composing(Qt::ImCursorRectangle|Qt::ImSurroundingText);QGuiApplication::sendEvent(input,&composing);
+    const auto cursor=composing.value(Qt::ImCursorRectangle).toRectF();
+    QVERIFY(cursor.x()>=anchor.x());QVERIFY(cursor.x()<=input->width()-input->property("rightPadding").toDouble());
+    QCOMPARE(f.requests(),0);QCOMPARE(f.window->property("sourceStart").toDouble(),1679832000.625);
+    QInputMethodEvent commit;commit.setCommitString(QString::fromUtf8("初十"));QGuiApplication::sendEvent(input,&commit);
+    QTRY_COMPARE(f.window->property("sourceStart").toDouble(),1680264000.625);QCOMPARE(f.window->property("sourceEnd").toDouble(),end);QCOMPARE(f.requests(),1);
+    // Assistive edits use the same Qt commit path and the same field geometry.
+    editable->replaceText(3,5,QString::fromUtf8("初五"));
+    QTRY_COMPARE(f.window->property("sourceStart").toDouble(),1679832000.625);QCOMPARE(f.requests(),2);
+    QVERIFY2(f.warnings.isEmpty(),qPrintable(f.warnings.join('\n')));
+}
+void DateRangeUiTests::fieldHitTestingAcrossLocaleDirections(){
+    QFile patterns(QStringLiteral(":/qt/qml/Avelino/date-editor-patterns.json"));QVERIFY(patterns.open(QIODevice::ReadOnly));
+    const auto keys=QJsonDocument::fromJson(patterns.readAll()).object()["patterns"].toObject().keys();QCOMPARE(keys.size(),17);int compared=0;
+    for(const auto &key:keys)for(const bool callerRtl:{false,true}){
+        const auto configuration=key.split('|');Fixture f;QVERIFY(f.window&&f.picker);
+        f.window->setProperty("localeName",configuration[0]);f.picker->setProperty("calendar",configuration[1]);f.window->setProperty("rtl",callerRtl);
+        QCoreApplication::processEvents();
+        for(const char *endpoint:{"start","end"}){
+            auto field=f.field(QByteArray(endpoint).append("Field").constData()),input=f.field(QByteArray(endpoint).append("Input").constData());
+            auto value=field->property("editorFormatted");const auto presentation=(value.metaType().id()==qMetaTypeId<QJSValue>()?value.value<QJSValue>().toVariant():value).toMap();
+            const auto segments=presentation["segments"].toList();int index=0;
+            auto accessible=QAccessible::queryAccessibleInterface(input);QVERIFY(accessible&&accessible->textInterface());
+            for(const auto &entry:segments){
+                const auto segment=entry.toMap();if(segment["kind"]=="literal")continue;
+                const int first=segment["first"].toInt(),last=segment["last"].toInt();
+                for(const int offset:{first,last-1}){
+                    const auto character=accessible->textInterface()->characterRect(offset);if(character.isEmpty())continue;
+                    const auto point=input->mapFromGlobal(character.center());
+                    const auto expression=QStringLiteral("positionAt(%1,%2,1)").arg(point.x(),0,'g',17).arg(point.y(),0,'g',17);
+                    QQmlExpression hit(QQmlEngine::contextForObject(input),input,expression);const auto position=hit.evaluate();
+                    QVERIFY2(!hit.hasError(),qPrintable(hit.error().toString()));QVERIFY(position.isValid());
+                    QVERIFY2(position.toInt()>=first&&position.toInt()<last,qPrintable(key+": "+expression));
+                    QTest::mouseClick(input->window(),Qt::LeftButton,Qt::NoModifier,input->mapToScene(point).toPoint());
+                    QCOMPARE(field->property("selectedSegment").toInt(),index);
+                    QCOMPARE(input->property("selectionStart").toInt(),first);QCOMPARE(input->property("selectionEnd").toInt(),last);++compared;
+                }
+                ++index;
+            }
+        }
+        QCOMPARE(f.requests(),0);QCOMPARE(f.window->property("sourceStart").toDouble(),1710000000.625);QCOMPARE(f.window->property("sourceEnd").toDouble(),1710864000.125);
+        QVERIFY2(f.warnings.isEmpty(),qPrintable(f.warnings.join('\n')));
+    }
+    QVERIFY(compared>150);
+    qInfo()<<"Calendar field endpoint clicks and QML hit tests:"<<compared;
 }
 QTEST_MAIN(DateRangeUiTests)
 #include "daterangeui.moc"

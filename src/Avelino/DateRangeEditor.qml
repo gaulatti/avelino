@@ -19,12 +19,13 @@ Item {
         id:editorContainer;objectName:"bleeckerDateEditorContainer"
         visible:!owner.dateStyle.graphical;width:field.width;height:field.height
         LayoutMirroring.enabled:false;LayoutMirroring.childrenInherit:true
-        T.TextField {
+        DateRangeInput {
             id:input;objectName:"bleeckerDateEditor"
             x:editor.dateMirrored ? owner.dateStyle.stepperWidth:0
             width:editorContainer.width-owner.dateStyle.stepperWidth;height:editorContainer.height
             padding:0;leftPadding:editor.dateMirrored ? 2:3;rightPadding:editor.dateMirrored ? 3:2;topPadding:0;bottomPadding:0
             font:field.editorFont;text:{field.textRevision;return field.currentText}
+            fields:field.editorFormatted.segments;reservedWidths:field.reservedWidths;activeSegment:field.selectedSegment
             color:field.enabled ? BleeckerTheme.nativeEditorText:BleeckerTheme.nativeEditorDisabledText
             horizontalAlignment:editor.dateMirrored ? TextInput.AlignRight:TextInput.AlignLeft
             selectionColor:"#1769db";selectedTextColor:"white";verticalAlignment:TextInput.AlignVCenter
@@ -34,7 +35,8 @@ Item {
                 border.width:panel.visible ? 0:1;border.color:BleeckerTheme.nativeSeparator
                 Rectangle {anchors.fill:parent;anchors.margins:-2;radius:5;color:"transparent";border.width:input.visualFocus&&!panel.visible ? 2:0;border.color:"#7eb4f1"}
             }
-            onPressed:event=>field.activate(positionAt(event.x,event.y))
+            onFieldActivated:position=>field.activate(position)
+            onFieldSelectionRequested:field.restoreSelection()
             onActiveFocusChanged:if(activeFocus)field.restoreSelection()
             onEditingFinished:if(!editor.retiring&&!field.restoring)field.commitTyping()
             onTextEdited:{

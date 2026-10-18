@@ -20,6 +20,7 @@ FocusScope {
     readonly property var selected:editable[Math.min(selectedSegment,Math.max(0,editable.length-1))]
     readonly property string currentText:isTyping &&selected ? editorFormatted.text.slice(0,selected.first)+typedText+editorFormatted.text.slice(selected.last):editorFormatted.text
     readonly property font editorFont:DateRangeTools.systemFont(owner.dateStyle.fontPixels)
+    readonly property var reservedWidths:owner.componentReady ? DateRangeTools.fieldWidths(owner.locale.name,owner.calendar,owner.timeZone,owner.dateStyle.fontPixels):[]
     readonly property Item editor:editorLoader.item
     readonly property Item input:editor ? editor.textInput:null
     readonly property Item inlineCalendar:editor ? editor.inlineCalendarItem:null
@@ -27,7 +28,7 @@ FocusScope {
     readonly property Item inputItem:editor ? editor.inputItem:null
     readonly property var panel:editor ? editor.calendarPanel:null
     readonly property var calendarPanel:panel
-    readonly property real naturalTextWidth:owner.componentReady ? DateRangeTools.fieldTextWidth(bufferValue,owner.locale.name,owner.calendar,owner.timeZone,owner.dateStyle.fontPixels):0
+    readonly property real naturalTextWidth:reservedWidths.reduce((total,width)=>total+width,0)
     implicitWidth:owner.dateStyle.graphical ? 138.5:Math.ceil((naturalTextWidth+5)*2)/2+owner.dateStyle.stepperWidth
     implicitHeight:owner.dateStyle.graphical ? 148:owner.dateStyle.fieldHeight
     width:implicitWidth;height:implicitHeight
@@ -52,7 +53,7 @@ FocusScope {
     function activate(position:int):void {
         if(!enabled)return
         commitTyping()
-        for(let i=0;i<editable.length;++i)if(position>=editable[i].first &&position<=editable[i].last){selectedSegment=i;break}
+        for(let i=0;i<editable.length;++i)if(position>=editable[i].first &&(position<editable[i].last ||i===editable.length-1&&position===editable[i].last)){selectedSegment=i;break}
         restoreSelection()
         if(owner.dateStyle.overlay&&!panel.visible)Qt.callLater(openCalendar)
     }

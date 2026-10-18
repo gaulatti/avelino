@@ -46,6 +46,7 @@ Window {
         Repeater {model:[{value:"en_US",name:"Chinese / English"},{value:"zh_CN",name:"Chinese / 中文"},{value:"ko_KR",name:"Chinese / 한국어"}]
             BleeckerButton {required property var modelData;objectName:"dateOperator-chinese-"+modelData.value;text:modelData.name;size:"xs";onClicked:window.update({locale:modelData.value,calendar:"chinese"})}
         }
+        BleeckerButton {objectName:"dateOperator-leap-month";text:"Leap month";size:"xs";onClicked:window.configure(Object.assign(window.defaults(),{id:"chinese-zh-cn-leap-regular",locale:"zh_CN",calendar:"chinese",start:1679832000.625,end:1680696000.125}))}
     }
     DateRangePickerCase {id:fixture;x:window.gallery ? 24:0;y:window.gallery ? 220:0}
     Text {

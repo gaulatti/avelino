@@ -29,6 +29,7 @@ public:
     Q_INVOKABLE QFont systemFont(int pixels) const;
     Q_INVOKABLE QVariantMap presentation(const QString &style,const QString &size) const;
     Q_INVOKABLE qreal fieldTextWidth(double value,const QString &locale,const QString &calendar,const QString &timeZone,int pixels) const;
+    Q_INVOKABLE QVariantList fieldWidths(const QString &locale,const QString &calendar,const QString &timeZone,int pixels) const;
     Q_INVOKABLE QVariantMap parsedField(double value,const QString &part,const QString &input,const QString &locale,const QString &calendar,const QString &timeZone) const;
     Q_INVOKABLE QVariantMap parsedDate(double value,const QString &input,const QString &locale,const QString &calendar,const QString &timeZone,const QVariant &range) const;
 };

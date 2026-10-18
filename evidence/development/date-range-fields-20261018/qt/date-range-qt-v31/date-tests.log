@@ -1,0 +1,10 @@
+********* Start testing of DateRangeUiTests *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : DateRangeUiTests::initTestCase()
+FAIL!  : DateRangeUiTests::leapMonthKeepsIndependentDayPosition() Compared values are not the same
+   Actual   (field->property("selectedSegment").toInt()): 0
+   Expected (1)                                         : 1
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/tests/components/daterangeui.cpp(330)]
+PASS   : DateRangeUiTests::cleanupTestCase()
+Totals: 2 passed, 1 failed, 0 skipped, 0 blacklisted, 267ms
+********* Finished testing of DateRangeUiTests *********

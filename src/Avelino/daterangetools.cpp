@@ -366,6 +366,9 @@ QVariantMap DateRangeTools::presentation(const QString &style,const QString &siz
 }
 qreal DateRangeTools::fieldTextWidth(double value,const QString &locale,const QString &calendar,const QString &timeZone,int pixels) const {
     canonical(value);
+    qreal width=0;for(const auto &reserved:fieldWidths(locale,calendar,timeZone,pixels))width+=reserved.toReal();return width;
+}
+QVariantList DateRangeTools::fieldWidths(const QString &locale,const QString &calendar,const QString &timeZone,int pixels) const {
     const QFontMetricsF metrics(systemFont(pixels));auto output=editorFormatter(locale,calendar,timeZone);
     auto native=calendarFor(locale,calendar,timeZone);const bool rtl=QLocale(locale).textDirection()==Qt::RightToLeft;
     std::vector<qreal> widths;QStringList kinds;
@@ -382,7 +385,7 @@ qreal DateRangeTools::fieldTextWidth(double value,const QString &locale,const QS
             widths[index]=std::max(widths[index],metrics.horizontalAdvance(measurementText(segment["text"].toString(),kind=="literal",rtl)));
         }
     }
-    qreal width=0;for(const auto reserved:widths)width+=reserved;return width;
+    QVariantList result;for(const auto reserved:widths)result.append(reserved);return result;
 }
 QVariantMap DateRangeTools::parsedField(double value,const QString &part,const QString &input,const QString &locale,const QString &calendar,const QString &timeZone) const {
     auto native=calendarFor(locale,calendar,timeZone);setTime(*native,canonical(value));

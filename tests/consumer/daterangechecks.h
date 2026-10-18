@@ -21,12 +21,25 @@ static void runDateRangeConsumer(QQuickWindow *window,QGuiApplication &app,const
         fixture->setProperty("mounted",true);return frame()&&check(fixture->property("picker").value<QQuickItem*>(),"Picker missing");
     };
     if(parser.isSet("date-range-gallery")){
-        for(const QString name:{"style-field","owner-ignore","owner-delay","apply","bounds","crossed","disabled","disabled","locale","calendar","timezone","size","rtl","narrow","theme","chinese-en_US","chinese-zh_CN","chinese-ko_KR","default","style-graphical"}){
+        for(const QString name:{"style-field","owner-ignore","owner-delay","apply","bounds","crossed","disabled","disabled","locale","calendar","timezone","size","rtl","narrow","theme","chinese-en_US","chinese-zh_CN","chinese-ko_KR","leap-month","default","style-graphical"}){
             auto button=findVisualItem(window->contentItem(),"dateOperator-"+name);
             if(!check(button&&button->isVisible()&&button->isEnabled(),"Gallery operator missing"))return;
             QTest::mouseClick(window,Qt::LeftButton,Qt::NoModifier,button->mapToScene(QPointF(button->width()/2,button->height()/2)).toPoint());
             if(!frame())return;
-            operators.append(QJsonObject{{"operator",name},{"actual",dateRangeSnapshot(fixture)}});
+            const auto actual=dateRangeSnapshot(fixture);
+            if(name=="leap-month"){
+                QFile source(":/avelino/fixtures/native-date-chinese-witnesses.json");if(!check(source.open(QIODevice::ReadOnly),"Leap source observation missing"))return;
+                QJsonObject expected;
+                for(const auto &entry:QJsonDocument::fromJson(source.readAll()).object()["cases"].toArray()){
+                    const auto row=entry.toObject();if(row["configuration"].toObject()["id"]=="chinese-zh-cn-leap-regular")expected=row;
+                }
+                if(!check(!expected.isEmpty()&&actual["displayed"]==expected["displayed"]&&actual["editorText"]==expected["editorText"]&&actual["editorRoles"]==expected["editableRoles"],"Leap fixture presentation differs from source"))return;
+                for(int index=0;index<2;++index){
+                    const auto parts=actual["calendarParts"].toArray()[index].toObject(),native=expected["calendarParts"].toArray()[index].toObject();
+                    for(const auto &key:native.keys())if(!check(parts[key]==native[key],"Leap fixture hidden calendar field differs"))return;
+                }
+            }
+            operators.append(QJsonObject{{"operator",name},{"actual",actual}});
             if(!save(QStringLiteral("gallery-%1-%2").arg(operators.size()).arg(name)))return;
         }
     }else{
