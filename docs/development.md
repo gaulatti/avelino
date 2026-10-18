@@ -85,6 +85,8 @@ failure without loading Avelino; the same executable survives on 13.0.4. Qt
 remains pinned to 6.8.3. The compositor build provides X11, nested Wayland and
 headless backends for verification; physical display and DRM acceptance remain
 separate gates.
+The Docker context explicitly includes both `tools/Dockerfile` and
+`tools/install-weston.sh`; repository sources and evidence remain excluded.
 Each configuration runs the base fixture, `--controls`, `--composition`,
 `--selection`, `--checkbox`, `--secure-field`, `--search-field`, `--collection-filters`, `--slider`, `--tabs`, `--pagination`, `--pagination-integers`, `--accordion`, `--presentation-states`, `--spinner`, `--alert`, `--clipping`, `--navigation`, `--sidebar-brand` and
 `--data-metrics`, `--stepper`, `--radio-group`, `--otp-input`, `--activity-item`,
