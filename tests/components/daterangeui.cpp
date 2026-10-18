@@ -6,6 +6,10 @@
 #include <QQuickWindow>
 #include <QJSValue>
 #include <QPointer>
+#include <QFile>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QtTest>
 
 namespace {
@@ -49,6 +53,7 @@ private slots:
     void numericYearAfterDayEdit();
     void ownerRemovalWhileCommittingTypedField();
     void localeDirectionInsideCallerLayout();
+    void nativeChromeProfilesReachOwnedEditors();
 };
 void DateRangeUiTests::fieldKeyboardOwners(){
     for(const QString policy:{"echo","ignore","delay"}){
@@ -184,6 +189,39 @@ void DateRangeUiTests::localeDirectionInsideCallerLayout(){
         QCOMPARE(f.picker->property("mirrored").toBool(),rtl);QCOMPARE(f.requests(),0);
         QVERIFY2(f.warnings.isEmpty(),qPrintable(f.warnings.join('\n')));
     }
+}
+void DateRangeUiTests::nativeChromeProfilesReachOwnedEditors(){
+    QFile file(QStringLiteral(NATIVE_DATE_WIDTH_DIRECTORY "/chrome/output/bounds.json"));QVERIFY(file.open(QIODevice::ReadOnly));
+    QJsonParseError error;const auto document=QJsonDocument::fromJson(file.readAll(),&error);QCOMPARE(error.error,QJsonParseError::NoError);
+    const auto rows=document.object()["rows"].toArray();QCOMPARE(rows.size(),36);int compared=0;
+    for(const auto &item:rows){
+        const auto row=item.toObject(),configuration=row["configuration"].toObject();
+        QJsonArray fields;
+        for(const auto &candidate:rows){
+            const auto other=candidate.toObject()["configuration"].toObject();
+            if(other["locale"]==configuration["locale"]&&other["calendar"]==configuration["calendar"]&&other["controlSize"]==configuration["controlSize"]&&other["pickerStyle"]=="field")fields=candidate.toObject()["editors"].toArray();
+        }
+        QCOMPARE(fields.size(),2);
+        Fixture f;QVERIFY(f.window&&f.picker);
+        f.window->setProperty("pickerStyle",configuration["pickerStyle"].toString());
+        f.window->setProperty("localeName",configuration["locale"].toString());
+        f.picker->setProperty("calendar",configuration["calendar"].toString());
+        f.picker->setProperty("controlSize",configuration["controlSize"].toString());
+        const auto editors=row["editors"].toArray();QCOMPARE(editors.size(),2);
+        for(int index=0;index<2;++index){
+            auto field=f.field(index==0?"startField":"endField"),input=f.field(index==0?"startInput":"endInput");
+            auto stepper=visual(field,"bleeckerDateStepper");QVERIFY(input&&stepper);
+            const auto native=editors[index].toObject()["intrinsic"].toObject(),withoutStepper=fields[index].toObject()["intrinsic"].toObject();
+            const auto extraWidth=native["width"].toDouble()-withoutStepper["width"].toDouble();
+            QTRY_VERIFY(field->height()==native["height"].toDouble());
+            QCOMPARE(input->height(),native["height"].toDouble());
+            QCOMPARE(field->width()-input->width(),extraWidth);
+            QCOMPARE(stepper->isVisible(),extraWidth>0);
+            ++compared;
+        }
+        QCOMPARE(f.requests(),0);QVERIFY2(f.warnings.isEmpty(),qPrintable(f.warnings.join('\n')));
+    }
+    QCOMPARE(compared,72);
 }
 QTEST_MAIN(DateRangeUiTests)
 #include "daterangeui.moc"

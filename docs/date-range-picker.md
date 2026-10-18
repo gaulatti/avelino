@@ -307,5 +307,23 @@ intrinsic width differences and heights are:
 
 These differences agree across all three calendars; compact matches stepperField intrinsic dimensions.
 Regular and large field-style captures are byte-identical in all three calendars.
-The current constant 17-point stepper and universal extra field-style height point
-therefore need correction independently of the pending reserved-column/font work.
+The owned presentation now uses these size-specific stepper widths and field
+heights. Backend tests derive each width delta from the native field/stepper pair;
+owned-editor tests verify both endpoint heights, input width allocation and
+stepper visibility across all 36 profiles at DPR 1 and 2. Reserved-column, font,
+complete geometry, raster and reader work remains pending.
+
+The [chrome correction checkpoint](../evidence/development/date-range-chrome-correction-20261018/README.md)
+retains the old-code regression failure (17 against native small width delta 15)
+and three passing corrected Qt test runs. All 384 closed model/date observations
+and 17 history model, identity, calendar and environment observations remain
+exact. All 401 strict raster comparisons still fail: 23 changed-pixel counts are
+lower, six are higher and 372 are unchanged from the editor-presentation
+checkpoint. The six increases are large-control captures; complete Qt fields
+remain 100 points against native 98 despite the corrected stepper allocation.
+Font, text reservation and bezel presentation remain open.
+
+The package/session checks reuse the prior consumer ELF with byte-identical
+148-file source inputs and unchanged CMake/QML public package contracts. The
+updated installed module is from producer20; this is a compatibility replay,
+not a new consumer compilation. Both project source trees are absent at runtime.

@@ -35,6 +35,7 @@ private slots:
     void editableFieldParsing();
     void editorPresentationAndRoundTrip();
     void nativeNumericFontContract();
+    void nativeChromeProfiles();
 };
 void DateRangeToolsTests::sourceDateConstructionAndDisplayClamp() {
     DateRangeTools tools;
@@ -151,6 +152,31 @@ void DateRangeToolsTests::editableFieldParsing(){
     QVERIFY(date.value("valid").toBool());EXACT_DATE(date.value("instant").toDouble(),1710259200.625);
     QVERIFY(!tools.parsedDate(value,"2/29/2025","en_US","gregorian","UTC",{}).value("valid").toBool());
     QVERIFY(!tools.parsedField(value,"month","99","en_US","gregorian","UTC").value("valid").toBool());
+}
+
+void DateRangeToolsTests::nativeChromeProfiles(){
+    DateRangeTools tools;
+    const auto rows=read(QStringLiteral(NATIVE_DATE_WIDTH_DIRECTORY "/chrome/output/bounds.json"))["rows"].toArray();
+    QCOMPARE(rows.size(),36);int compared=0;
+    for(const auto &item:rows){
+        const auto row=item.toObject(),configuration=row["configuration"].toObject();
+        const auto style=configuration["pickerStyle"].toString(),size=configuration["controlSize"].toString();
+        const auto actual=tools.presentation(style,size);
+        QJsonArray fields;
+        for(const auto &candidate:rows){
+            const auto other=candidate.toObject()["configuration"].toObject();
+            if(other["locale"]==configuration["locale"]&&other["calendar"]==configuration["calendar"]&&other["controlSize"]==configuration["controlSize"]&&other["pickerStyle"]=="field")fields=candidate.toObject()["editors"].toArray();
+        }
+        QCOMPARE(fields.size(),2);
+        const auto editors=row["editors"].toArray();QCOMPARE(editors.size(),2);
+        for(int index=0;index<2;++index){
+            const auto native=editors[index].toObject()["intrinsic"].toObject(),field=fields[index].toObject()["intrinsic"].toObject();
+            QCOMPARE(actual["fieldHeight"].toDouble(),native["height"].toDouble());
+            QCOMPARE(actual["stepperWidth"].toDouble(),native["width"].toDouble()-field["width"].toDouble());
+            ++compared;
+        }
+    }
+    QCOMPARE(compared,72);
 }
 
 void DateRangeToolsTests::nativeNumericFontContract(){

@@ -1,0 +1,22 @@
+[
+  {
+    "name": "installed-date-range-catalog",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/date-range-catalog-v3:/catalog-check",
+      "-w",
+      "/catalog-check",
+      "avelino-toolchain:recovered-weston13-v2-20261017-qt6.8.3",
+      "bash",
+      "check.sh",
+      "/catalog-check/output"
+    ],
+    "exitCode": 0,
+    "seconds": 5.371525708003901
+  }
+]

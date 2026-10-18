@@ -3,7 +3,9 @@ qt_add_executable(AvelinoDateRangeToolsTests daterangetools.cpp)
 qt_add_executable(AvelinoDateRangeUiTests daterangeui.cpp)
 qt_add_resources(AvelinoDateRangeUiTests date_range_fixtures PREFIX "/date-range-tests" FILES date-range-fixture.qml)
 target_link_libraries(AvelinoDateRangeUiTests PRIVATE Avelino Qt6::Quick Qt6::Test)
-target_compile_definitions(AvelinoDateRangeUiTests PRIVATE AVELINO_DATE_IMPORT_PATH="${CMAKE_BINARY_DIR}/qml")
+target_compile_definitions(AvelinoDateRangeUiTests PRIVATE
+    AVELINO_DATE_IMPORT_PATH="${CMAKE_BINARY_DIR}/qml"
+    NATIVE_DATE_WIDTH_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/date-range-width-20261018")
 add_dependencies(AvelinoDateRangeUiTests Avelinoplugin)
 add_test(NAME date-range-owned-input COMMAND AvelinoDateRangeUiTests)
 add_test(NAME date-range-owned-input-dpr2 COMMAND AvelinoDateRangeUiTests)
@@ -14,7 +16,8 @@ target_include_directories(AvelinoDateRangeToolsTests PRIVATE ${PROJECT_SOURCE_D
 target_compile_definitions(AvelinoDateRangeToolsTests PRIVATE
     NATIVE_DATE_RANGE_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/date-range-20261018"
     NATIVE_DATE_INPUT_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/date-range-input-20261018"
-    NATIVE_DATE_FONT_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/date-range-font-20261018")
+    NATIVE_DATE_FONT_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/date-range-font-20261018"
+    NATIVE_DATE_WIDTH_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/date-range-width-20261018")
 add_test(NAME date-range-calendar-components COMMAND AvelinoDateRangeToolsTests)
 set_tests_properties(date-range-calendar-components PROPERTIES ENVIRONMENT "QT_QPA_PLATFORM=offscreen;QT_QUICK_BACKEND=software")
 qt_add_executable(AvelinoHeroCarouselTests herocarousel.cpp)

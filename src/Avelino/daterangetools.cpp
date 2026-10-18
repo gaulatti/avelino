@@ -304,13 +304,13 @@ QFont DateRangeTools::systemFont(int pixels) const {
 }
 QVariantMap DateRangeTools::presentation(const QString &style,const QString &size) const {
     if(style!="inherit" && style!="automatic" && style!="compact" && style!="stepperField" && style!="field" && style!="graphical")qFatal("Unknown DateRange picker style");
-    int pixels=13,height=20;
-    if(size=="mini"){pixels=9;height=16;}
-    else if(size=="small"){pixels=11;height=18;}
-    else if(size=="large")height=24;
+    int pixels=13,fieldHeight=21,stepperHeight=20,stepperWidth=17;
+    if(size=="mini"){pixels=9;fieldHeight=16;stepperHeight=16;stepperWidth=11;}
+    else if(size=="small"){pixels=11;fieldHeight=19;stepperHeight=18;stepperWidth=15;}
+    else if(size=="large"){stepperHeight=24;stepperWidth=20;}
     else if(size!="regular")qFatal("Unknown DateRange control size");
-    return {{"fontPixels",pixels},{"fieldHeight",height+(style=="field" ? 1:0)},
-        {"stepperWidth",style=="field" ? 0:17},{"overlay",style!="field" && style!="graphical"},
+    return {{"fontPixels",pixels},{"fieldHeight",style=="field" ? fieldHeight:stepperHeight},
+        {"stepperWidth",style=="field" ? 0:stepperWidth},{"overlay",style!="field" && style!="graphical"},
         {"graphical",style=="graphical"},{"calendarWidth",138.5},{"calendarHeight",148}};
 }
 qreal DateRangeTools::fieldTextWidth(double value,const QString &locale,const QString &calendar,const QString &timeZone,int pixels) const {

@@ -160,7 +160,8 @@ number formatting and locale-directed steppers; its new font/format source-only
 probe reproduces all 97 outputs exactly. A further 1,848-update native investigation
 finds stable intrinsic widths in 23 contexts, while the current Qt label advances
 vary in ten; its fresh source-only replay reproduces all 355 width/bounds/style files.
-Full sizing, font, raster and reader acceptance remain open.
+The owned control now applies the measured size-specific stepper widths and field
+heights. Reserved-column sizing, font, raster and reader acceptance remain open.
 
 The [desktop app tab bar candidate](docs/app-tabs.md) preserves caller-owned
 selection requests, retained typed identities, integer badges and narrow overflow.
