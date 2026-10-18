@@ -133,7 +133,7 @@ CUA input. Current builds, test results, package execution, strict capture
 comparisons and display-session evidence must each be reported separately.
 
 Parsing/cancellation and traversal beyond the retained native histories,
-non-finite/extreme behavior, complete native history/lifecycle replay, arbitrary
+non-finite/extreme behavior, complete native history geometry/raster acceptance, arbitrary
 caller fonts, strict raster/geometry equality, reader and physical acceptance
 remain pending. The original four pending desktop inventory entries and all 46 TV
 entries remain pending; registration does not change candidate coverage.
@@ -159,3 +159,30 @@ The relocated consumer repeats all 560 package output files exactly after the
 import-path repair. The earlier missing-module display run is preserved. Xvfb,
 Weston and software-rendered OpenGL sessions are virtual runtime evidence;
 physical display/input, hardware acceleration and reader acceptance remain pending.
+
+## Retained history replay
+
+The installed consumer projects the 17 typed native caller updates into explicit
+initial, external-date, configuration, appearance and restore actions. The helper
+checksum is retained with those actions; Apple source stays outside this repo.
+The fixture replaces complete configurations when the source removes optional
+bounds, and patch-style gallery updates still merge caller values.
+
+The replay assigns editor IDs from actual weak Qt object pointers. It records
+model/lifecycle, displayed dates, calendar parts, locale/calendar/time zone,
+control size, enabled/RTL/appearance, and complete geometry separately. The native
+source's final restore has current 95-by-20 editors but retains a 148-point outer
+probe height from the preceding graphical step. Both native observations remain
+unchanged. Raw outer frames do not establish current outer layout; raster and
+complete geometry acceptance remain separate and pending.
+
+The owned-input test also removes the caller while Up, Left or Tab commits a
+partially typed field, requiring one request, actual destruction and no QML
+warnings. This is synthetic Qt input and does not establish additional native OS
+input or physical/reader acceptance.
+
+The [history checkpoint](../evidence/development/date-range-history-20261018/README.md)
+records exact model/lifecycle, editor identity, calendar and environment matches
+at all 17 steps. Complete geometry matches at none of those steps. All 401 strict
+closed/history image comparisons execute and fail; all 544 earlier package images
+are unchanged. The native pins, reference PNGs, masks and tolerances are unchanged.

@@ -1,6 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+#include <QQmlError>
 #include <QQuickItem>
 #include <QQuickWindow>
 #include <QJSValue>
@@ -9,10 +10,12 @@
 
 namespace {
 struct Fixture {
+    QStringList warnings;
     QQmlApplicationEngine engine;
     QQuickWindow *window=nullptr;
     QQuickItem *picker=nullptr;
     Fixture(){
+        QObject::connect(&engine,&QQmlEngine::warnings,&engine,[this](const QList<QQmlError> &errors){for(const auto &error:errors)warnings.append(error.toString());});
         engine.addImportPath(QStringLiteral(AVELINO_DATE_IMPORT_PATH));
         engine.load(QUrl("qrc:/date-range-tests/date-range-fixture.qml"));
         if(engine.rootObjects().size()!=1)return;
@@ -44,6 +47,7 @@ private slots:
     void ownerRemovalDuringRequest();
     void independentEndpointsAndExactBounds();
     void numericYearAfterDayEdit();
+    void ownerRemovalWhileCommittingTypedField();
 };
 void DateRangeUiTests::fieldKeyboardOwners(){
     for(const QString policy:{"echo","ignore","delay"}){
@@ -153,6 +157,18 @@ void DateRangeUiTests::numericYearAfterDayEdit(){
     QTest::keyClick(input->window(),Qt::Key_Right);for(auto key:{Qt::Key_2,Qt::Key_0,Qt::Key_2,Qt::Key_6})QTest::keyClick(input->window(),key);
     QTRY_VERIFY(f.window->property("sourceStart").toDouble()==1773158400.625);
     QVERIFY(f.window->property("sourceEnd").toDouble()==1710864000.125);QCOMPARE(f.requests(),3);
+}
+
+void DateRangeUiTests::ownerRemovalWhileCommittingTypedField(){
+    for(auto ending:{Qt::Key_Up,Qt::Key_Left,Qt::Key_Tab}){
+        Fixture f;QVERIFY(f.window&&f.picker);f.window->setProperty("removeOnRequest",true);
+        QPointer<QQuickItem> picker=f.picker;auto input=f.field("startInput");input->forceActiveFocus(Qt::OtherFocusReason);
+        QTest::keyClick(input->window(),Qt::Key_Right);QTest::keyClick(input->window(),Qt::Key_Right);
+        QTest::keyClick(input->window(),Qt::Key_2);QCOMPARE(f.requests(),0);
+        QTest::keyClick(input->window(),ending);
+        QTRY_VERIFY(picker.isNull());QCOMPARE(f.requests(),1);
+        QVERIFY2(f.warnings.isEmpty(),qPrintable(f.warnings.join('\n')));
+    }
 }
 QTEST_MAIN(DateRangeUiTests)
 #include "daterangeui.moc"

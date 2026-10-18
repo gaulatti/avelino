@@ -152,8 +152,9 @@ graphical preview/Space-commit differences. The owned Qt editors now run in the
 catalog and independent consumer. Eight source-absent package/gallery profiles
 match all 384 native model/displayed-date observations; complete geometry matches
 in 8, and all 384 strict raster comparisons fail. Eight virtual display profiles
-pass structural/input checks. Complete native histories, geometry/raster, reader
-and physical acceptance remain pending. Desktop candidate coverage remains 76/80,
+pass structural/input checks. All 17 typed caller-history steps now match model,
+editor identity, calendar and environment observations. Complete native input,
+geometry/raster, reader and physical acceptance remain pending. Desktop candidate coverage remains 76/80,
 with zero accepted APIs.
 
 The [desktop app tab bar candidate](docs/app-tabs.md) preserves caller-owned

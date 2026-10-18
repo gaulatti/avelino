@@ -98,6 +98,9 @@ standard = configuration == 'standard'
 assert record['dpr'] == (1 if standard else 2) and record['textScale'] == (1 if standard else 1.5)
 assert record['appearance'] == ('light' if standard else 'dark')
 assert len(record['input']) == 3
+assert len(record['histories']) == (17 if standard else 0)
+if standard:
+    assert record['historyModelMatches'] == record['historyEditorInstanceMatches'] == record['historyCalendarMatches'] == record['historyEnvironmentMatches'] == 17
 assert record['visualAcceptance'] == record['readerPhysicalAcceptance'] == 'pending'
 assert all(not row['actual']['model']['requests'] for row in record['closed'])
 final_image = Path(prefix + '-input-delay.png')

@@ -21,8 +21,11 @@ Item {
     }
     function resetCounters():void {appearances=0;disappearances=0;instances=0}
     function updateConfiguration(value):void {
+        replaceConfiguration(Object.assign({},definition,value))
+    }
+    function replaceConfiguration(value):void {
         const style=definition.pickerStyle
-        definition=Object.assign({},definition,value)
+        definition=Object.assign({},value)
         if(style!==definition.pickerStyle){mounted=false;mounted=true}
         else Qt.callLater(function(){if(fixture.picker)fixture.picker.synchronize()})
     }
@@ -49,8 +52,10 @@ Item {
         return {ready:true,model:{start:modelStart,end:modelEnd,requests:requests,pending:pending,appearances:appearances,disappearances:disappearances,wrapperInstances:instances},
             frames:{caller:box(picker),picker:box(picker.presentationItem),start:box(picker.startField),end:box(picker.endField),arrow:box(arrow)},
             displayed:[picker.startField.bufferValue,picker.endField.bufferValue],
+            calendarParts:[DateRangeTools.parts(picker.startField.bufferValue,picker.locale.name,picker.calendar,picker.timeZone),DateRangeTools.parts(picker.endField.bufferValue,picker.locale.name,picker.calendar,picker.timeZone)],
             startText:picker.startField.formatted.text,endText:picker.endField.formatted.text,
-            style:definition.pickerStyle,locale:picker.locale.name,calendar:picker.calendar,timeZone:picker.timeZone}
+            enabled:picker.enabled,mirrored:picker.mirrored,controlSize:picker.controlSize,
+            style:picker.pickerStyle,locale:picker.locale.name,calendar:picker.calendar,timeZone:picker.timeZone}
     }
     Component.onCompleted:configure(definition)
     Rectangle {anchors.fill:parent;color:BleeckerTheme.palette.background;Accessible.ignored:true}

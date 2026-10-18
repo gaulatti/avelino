@@ -24,19 +24,24 @@ def main():
         report = json.loads(report_path.read_text())
         assert report['fixture'] == 'date-range' and report['accepted'] is False
         assert len(report['closed']) == 48
-        for row in report['closed']:
+        pairs = [(row, 'output', report_path.stem + '-' + row['configuration']['id'] + '.png') for row in report['closed']]
+        pairs += [(row, 'history-output', report_path.stem + '-history-' + row['step'] + '.png') for row in report.get('histories', [])]
+        for row, directory, name in pairs:
             native = row['native']
-            assert native['configuration'] == row['configuration']
-            name = report_path.stem + '-' + row['configuration']['id'] + '.png'
-            original = ROOT / 'evidence/reference-investigations/date-range-20261018/output' / native['referenceCapture']
+            if directory == 'output': assert native['configuration'] == row['configuration']
+            original = ROOT / 'evidence/reference-investigations/date-range-20261018' / directory / native['referenceCapture']
             actual = report_path.with_name(name)
             assert original.is_file() and actual.is_file()
             (reference / name).symlink_to(original.resolve())
             (candidate / name).symlink_to(actual.resolve())
             metadata = {key: report[key] for key in ('width', 'height', 'dpr', 'textScale', 'appearance')}
             metadata['api'] = 'BleeckerDateRangePicker'
+            expected_metadata = dict(metadata)
+            if directory == 'history-output':
+                metadata['appearance'] = 'dark' if row['actualDark'] else 'light'
+                expected_metadata['appearance'] = 'dark' if native['dark'] else 'light'
             (candidate / (name + '.json')).write_text(json.dumps(metadata) + '\n')
-            captures.append(dict(path=name, source=report['reference'], sha256=sealed['output/'+native['referenceCapture']]['sha256'], **metadata))
+            captures.append(dict(path=name, source=report['reference'], sha256=sealed[directory+'/'+native['referenceCapture']]['sha256'], **expected_metadata))
             originals.append(dict(path=name, native=str(original), actual=str(actual),
                 exactModelMatches=row['modelMatches'], exactGeometryMatches=row['geometryMatches']))
     spec = importlib.util.spec_from_file_location('avelino_compare', ROOT / 'scripts/compare-captures.py')

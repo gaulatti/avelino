@@ -68140,7 +68140,7 @@
           "src/Avelino/daterangetools.h",
           "src/Avelino/daterangetools.cpp"
         ],
-        "caseDiscovery": "pending: 384 native closed contexts, 17280 sizing queries, 17 typed history steps and 21 input milestones; owned Linux checkpoint records 384 exact models, 8 exact geometries and 384 strict raster failures; full histories, parsing, extreme inputs, reader and physical acceptance remain pending",
+        "caseDiscovery": "pending: 384 native closed contexts, 17280 sizing queries and 21 input milestones; 17 typed caller updates now match Qt model/lifecycle, actual editor identity, calendar parts and caller environment; closed geometry matches 8/384, history geometry 0/17 and strict rasters 0/401; complete input, extreme behavior, reader and physical acceptance remain pending",
         "cases": [
           {
             "id": "default-light-text1-dpr1",
@@ -71796,7 +71796,8 @@
           "tests/consumer/daterangechecks.h",
           "scripts/generate-date-range-witnesses.py",
           "scripts/verify-date-range-owned-editors.py",
-          "scripts/compare-date-range-captures.py"
+          "scripts/compare-date-range-captures.py",
+          "scripts/verify-date-range-retained-history.py"
         ],
         "captures": [
           "evidence/reference-investigations/date-range-20261018/output",
@@ -71809,32 +71810,37 @@
           "evidence/reference-investigations/date-range-20261018/source-only-replay/comparison.json",
           "evidence/reference-investigations/date-range-input-20261018/investigation.json",
           "evidence/reference-investigations/date-range-input-20261018/owner-comparisons.json",
-          "evidence/development/date-range-owned-editors-20261018/strict/comparison.json"
+          "evidence/development/date-range-owned-editors-20261018/strict/comparison.json",
+          "evidence/development/date-range-history-20261018/strict/comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
             "evidence": [
-              "evidence/development/date-range-owned-editors-20261018/package/result.json"
+              "evidence/development/date-range-owned-editors-20261018/package/result.json",
+              "evidence/development/date-range-history-20261018/package/result.json"
             ]
           },
           "x11": {
             "status": "pending",
             "evidence": [
-              "evidence/development/date-range-owned-editors-20261018/display/result.json"
+              "evidence/development/date-range-owned-editors-20261018/display/result.json",
+              "evidence/development/date-range-history-20261018/display/result.json"
             ]
           },
           "wayland": {
             "status": "pending",
             "evidence": [
-              "evidence/development/date-range-owned-editors-20261018/display/result.json"
+              "evidence/development/date-range-owned-editors-20261018/display/result.json",
+              "evidence/development/date-range-history-20261018/display/result.json"
             ]
           },
           "keyboardPointer": {
             "status": "pending",
             "evidence": [
-              "evidence/development/date-range-owned-editors-20261018/qt/date-range-qt-v12/result.json"
+              "evidence/development/date-range-owned-editors-20261018/qt/date-range-qt-v12/result.json",
+              "evidence/development/date-range-history-20261018/qt/date-range-qt-v14/result.json"
             ]
           },
           "focusAccessibility": {
@@ -71844,13 +71850,15 @@
           "displayTextScaling": {
             "status": "pending",
             "evidence": [
-              "evidence/development/date-range-owned-editors-20261018/display/result.json"
+              "evidence/development/date-range-owned-editors-20261018/display/result.json",
+              "evidence/development/date-range-history-20261018/display/result.json"
             ]
           },
           "installedConsumer": {
             "status": "pending",
             "evidence": [
-              "evidence/development/date-range-owned-editors-20261018/package/result.json"
+              "evidence/development/date-range-owned-editors-20261018/package/result.json",
+              "evidence/development/date-range-history-20261018/package/result.json"
             ]
           }
         }
