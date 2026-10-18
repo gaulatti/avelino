@@ -1,0 +1,122 @@
+/Users/gaulatti/.codex/tmp/avelino-hero-carousel-ui-20261018-v1/tool/HeroInteractive.swift:50:17: warning: capture of 'append' with non-Sendable type '([String : Any], String) -> ()' in a '@Sendable' closure [#SendableClosureCaptures]
+48 |                 }
+49 |                 visit(host)
+50 |                 append(["time":Date().timeIntervalSince1970,"configuration":model.fixture.json,"carouselFrame":model.carouselFrame,"slideFrames":model.frames,"lifecycle":model.lifecycle,"windowKey":window.isKeyWindow,"applicationActive":app.isActive,"backingDpr":window.backingScaleFactor,"scrollViews":scrolls,"accessibility":accessibilitySnapshot(host)],"states.jsonl")
+   |                 |- warning: capture of 'append' with non-Sendable type '([String : Any], String) -> ()' in a '@Sendable' closure [#SendableClosureCaptures]
+   |                 `- note: a function type must be marked '@Sendable' to conform to 'Sendable'
+51 |             }
+52 |         }
+
+/Users/gaulatti/.codex/tmp/avelino-hero-carousel-ui-20261018-v1/tool/HeroInteractive.swift:46:93: warning: main actor-isolated property 'frame' can not be referenced from a nonisolated context
+44 |                 var scrolls:[[String:Any]]=[]
+45 |                 func visit(_ view:NSView){
+46 |                     if let scroll=view as? NSScrollView{scrolls.append(["frame":rect(scroll.frame),"visibleRect":rect(scroll.documentVisibleRect),"documentFrame":scroll.documentView.map{rect($0.frame)} ?? [:],"horizontalScroller":scroll.hasHorizontalScroller,"verticalScroller":scroll.hasVerticalScroller])}
+   |                                                                                             `- warning: main actor-isolated property 'frame' can not be referenced from a nonisolated context
+47 |                     for child in view.subviews{visit(child)}
+48 |                 }
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSView.h:129:18: note: property declared here
+127 | - (void)setFrameOrigin:(NSPoint)newOrigin;
+128 | - (void)setFrameSize:(NSSize)newSize;
+129 | @property NSRect frame;
+    |                  `- note: property declared here
+130 | @property CGFloat frameRotation;
+131 | @property CGFloat frameCenterRotation API_AVAILABLE(macos(10.5));
+
+/Users/gaulatti/.codex/tmp/avelino-hero-carousel-ui-20261018-v1/tool/HeroInteractive.swift:46:126: warning: main actor-isolated property 'documentVisibleRect' can not be referenced from a nonisolated context
+44 |                 var scrolls:[[String:Any]]=[]
+45 |                 func visit(_ view:NSView){
+46 |                     if let scroll=view as? NSScrollView{scrolls.append(["frame":rect(scroll.frame),"visibleRect":rect(scroll.documentVisibleRect),"documentFrame":scroll.documentView.map{rect($0.frame)} ?? [:],"horizontalScroller":scroll.hasHorizontalScroller,"verticalScroller":scroll.hasVerticalScroller])}
+   |                                                                                                                              `- warning: main actor-isolated property 'documentVisibleRect' can not be referenced from a nonisolated context
+47 |                     for child in view.subviews{visit(child)}
+48 |                 }
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSScrollView.h:47:29: note: property declared here
+ 45 | + (NSSize)contentSizeForFrameSize:(NSSize)fSize hasHorizontalScroller:(BOOL)hFlag hasVerticalScroller:(BOOL)vFlag borderType:(NSBorderType)type API_DEPRECATED("+contentSizeForFrameSize:horizontalScrollerClass:verticalScrollerClass:borderType:controlSize:scrollerStyle: instead", macos(10.0,10.7));
+ 46 | 
+ 47 | @property (readonly) NSRect documentVisibleRect;
+    |                             `- note: property declared here
+ 48 | @property (readonly) NSSize contentSize;
+ 49 | @property (nullable, strong) __kindof NSView *documentView;
+
+/Users/gaulatti/.codex/tmp/avelino-hero-carousel-ui-20261018-v1/tool/HeroInteractive.swift:46:170: warning: main actor-isolated property 'documentView' can not be referenced from a nonisolated context
+44 |                 var scrolls:[[String:Any]]=[]
+45 |                 func visit(_ view:NSView){
+46 |                     if let scroll=view as? NSScrollView{scrolls.append(["frame":rect(scroll.frame),"visibleRect":rect(scroll.documentVisibleRect),"documentFrame":scroll.documentView.map{rect($0.frame)} ?? [:],"horizontalScroller":scroll.hasHorizontalScroller,"verticalScroller":scroll.hasVerticalScroller])}
+   |                                                                                                                                                                          `- warning: main actor-isolated property 'documentView' can not be referenced from a nonisolated context
+47 |                     for child in view.subviews{visit(child)}
+48 |                 }
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSScrollView.h:49:47: note: property declared here
+ 47 | @property (readonly) NSRect documentVisibleRect;
+ 48 | @property (readonly) NSSize contentSize;
+ 49 | @property (nullable, strong) __kindof NSView *documentView;
+    |                                               `- note: property declared here
+ 50 | @property (strong) NSClipView *contentView;
+ 51 | @property (nullable, strong) NSCursor *documentCursor;
+
+/Users/gaulatti/.codex/tmp/avelino-hero-carousel-ui-20261018-v1/tool/HeroInteractive.swift:46:195: warning: main actor-isolated property 'frame' can not be referenced from a nonisolated context
+44 |                 var scrolls:[[String:Any]]=[]
+45 |                 func visit(_ view:NSView){
+46 |                     if let scroll=view as? NSScrollView{scrolls.append(["frame":rect(scroll.frame),"visibleRect":rect(scroll.documentVisibleRect),"documentFrame":scroll.documentView.map{rect($0.frame)} ?? [:],"horizontalScroller":scroll.hasHorizontalScroller,"verticalScroller":scroll.hasVerticalScroller])}
+   |                                                                                                                                                                                                   `- warning: main actor-isolated property 'frame' can not be referenced from a nonisolated context
+47 |                     for child in view.subviews{visit(child)}
+48 |                 }
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSView.h:129:18: note: property declared here
+127 | - (void)setFrameOrigin:(NSPoint)newOrigin;
+128 | - (void)setFrameSize:(NSSize)newSize;
+129 | @property NSRect frame;
+    |                  `- note: property declared here
+130 | @property CGFloat frameRotation;
+131 | @property CGFloat frameCenterRotation API_AVAILABLE(macos(10.5));
+
+/Users/gaulatti/.codex/tmp/avelino-hero-carousel-ui-20261018-v1/tool/HeroInteractive.swift:46:238: warning: main actor-isolated property 'hasHorizontalScroller' can not be referenced from a nonisolated context
+44 |                 var scrolls:[[String:Any]]=[]
+45 |                 func visit(_ view:NSView){
+46 |                     if let scroll=view as? NSScrollView{scrolls.append(["frame":rect(scroll.frame),"visibleRect":rect(scroll.documentVisibleRect),"documentFrame":scroll.documentView.map{rect($0.frame)} ?? [:],"horizontalScroller":scroll.hasHorizontalScroller,"verticalScroller":scroll.hasVerticalScroller])}
+   |                                                                                                                                                                                                                                              `- warning: main actor-isolated property 'hasHorizontalScroller' can not be referenced from a nonisolated context
+47 |                     for child in view.subviews{visit(child)}
+48 |                 }
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSScrollView.h:56:16: note: property declared here
+ 54 | @property BOOL drawsBackground;
+ 55 | @property BOOL hasVerticalScroller;
+ 56 | @property BOOL hasHorizontalScroller;
+    |                `- note: property declared here
+ 57 | @property (nullable, strong) NSScroller *verticalScroller;
+ 58 | @property (nullable, strong) NSScroller *horizontalScroller;
+
+/Users/gaulatti/.codex/tmp/avelino-hero-carousel-ui-20261018-v1/tool/HeroInteractive.swift:46:286: warning: main actor-isolated property 'hasVerticalScroller' can not be referenced from a nonisolated context
+44 |                 var scrolls:[[String:Any]]=[]
+45 |                 func visit(_ view:NSView){
+46 |                     if let scroll=view as? NSScrollView{scrolls.append(["frame":rect(scroll.frame),"visibleRect":rect(scroll.documentVisibleRect),"documentFrame":scroll.documentView.map{rect($0.frame)} ?? [:],"horizontalScroller":scroll.hasHorizontalScroller,"verticalScroller":scroll.hasVerticalScroller])}
+   |                                                                                                                                                                                                                                                                                              `- warning: main actor-isolated property 'hasVerticalScroller' can not be referenced from a nonisolated context
+47 |                     for child in view.subviews{visit(child)}
+48 |                 }
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSScrollView.h:55:16: note: property declared here
+ 53 | @property (copy) NSColor *backgroundColor;
+ 54 | @property BOOL drawsBackground;
+ 55 | @property BOOL hasVerticalScroller;
+    |                `- note: property declared here
+ 56 | @property BOOL hasHorizontalScroller;
+ 57 | @property (nullable, strong) NSScroller *verticalScroller;
+
+/Users/gaulatti/.codex/tmp/avelino-hero-carousel-ui-20261018-v1/tool/HeroInteractive.swift:47:39: warning: main actor-isolated property 'subviews' can not be referenced from a nonisolated context
+45 |                 func visit(_ view:NSView){
+46 |                     if let scroll=view as? NSScrollView{scrolls.append(["frame":rect(scroll.frame),"visibleRect":rect(scroll.documentVisibleRect),"documentFrame":scroll.documentView.map{rect($0.frame)} ?? [:],"horizontalScroller":scroll.hasHorizontalScroller,"verticalScroller":scroll.hasVerticalScroller])}
+47 |                     for child in view.subviews{visit(child)}
+   |                                       `- warning: main actor-isolated property 'subviews' can not be referenced from a nonisolated context
+48 |                 }
+49 |                 visit(host)
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSView.h:88:46: note: property declared here
+ 86 | @property (nullable, readonly, unsafe_unretained) NSWindow *window;
+ 87 | @property (nullable, readonly, unsafe_unretained) NSView *superview;
+ 88 | @property (copy) NSArray<__kindof NSView *> *subviews;
+    |                                              `- note: property declared here
+ 89 | - (BOOL)isDescendantOf:(NSView *)view;
+ 90 | - (nullable NSView *)ancestorSharedWithView:(NSView *)view;
+
+[#SendableClosureCaptures]: <https://docs.swift.org/compiler/documentation/diagnostics/sendable-closure-captures>

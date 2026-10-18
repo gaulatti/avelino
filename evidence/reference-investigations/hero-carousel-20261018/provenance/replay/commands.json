@@ -1,0 +1,71 @@
+[
+  {
+    "command": [
+      "swift",
+      "build",
+      "--package-path",
+      "/Users/gaulatti/.codex/tmp/avelino-hero-carousel-source-replay-20261018-v1/source",
+      "--scratch-path",
+      "/Users/gaulatti/.codex/tmp/avelino-hero-carousel-source-replay-20261018-v1/build",
+      "--jobs",
+      "2",
+      "--target",
+      "Sabella",
+      "--disable-automatic-resolution",
+      "-Xswiftc",
+      "-target",
+      "-Xswiftc",
+      "arm64-apple-macosx26.0"
+    ],
+    "exitCode": 0,
+    "seconds": 35.34822520799935,
+    "log": "library-build.log"
+  },
+  {
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-hero-carousel-source-replay-20261018-v1/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-hero-carousel-source-replay-20261018-v1/tool/HeroCommon.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-hero-carousel-source-replay-20261018-v1/tool/HeroMain.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-hero-carousel-source-replay-20261018-v1/tool/HeroSizing.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-hero-carousel-source-replay-20261018-v1/build/out/Products/Debug/Sabella.o",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-hero-carousel-source-replay-20261018-v1/tool/NativeHeroCapture"
+    ],
+    "exitCode": 0,
+    "seconds": 2.027901249937713,
+    "log": "helper-build.log"
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-hero-carousel-source-replay-20261018-v1/tool/NativeHeroCapture",
+      "/Users/gaulatti/.codex/tmp/avelino-hero-carousel-source-replay-20261018-v1/fixtures.json",
+      "/Users/gaulatti/.codex/tmp/avelino-hero-carousel-source-replay-20261018-v1/output",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "exitCode": 0,
+    "seconds": 39.36115470796358,
+    "log": "closed-captures.log"
+  },
+  {
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-hero-carousel-source-replay-20261018-v1/tool/NativeHeroCapture",
+      "/Users/gaulatti/.codex/tmp/avelino-hero-carousel-source-replay-20261018-v1/fixtures.json",
+      "/Users/gaulatti/.codex/tmp/avelino-hero-carousel-source-replay-20261018-v1/sizing-output",
+      "--sizing",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "exitCode": 0,
+    "seconds": 38.15580733306706,
+    "log": "sizing.log"
+  }
+]
