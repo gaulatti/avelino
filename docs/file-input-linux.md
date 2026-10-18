@@ -403,19 +403,51 @@ edits, while navigation and file selection retain the same owner-result boundary
 The implementation follows the pinned
 [Quick accessibility interfaces](https://github.com/qt/qtdeclarative/blob/v6.8.3/src/quick/accessible/qaccessiblequickitem.cpp)
 and [AT-SPI adaptor](https://github.com/qt/qtbase/blob/v6.8.3/src/gui/accessible/linux/atspiadaptor.cpp).
-Complete native hierarchy, suggestion announcements, reader equivalence and
-physical listening remain separate pending gates.
+Complete native hierarchy, native reader equivalence and physical listening
+remain separate pending gates.
 
 The [source61 editing checkpoint](../evidence/development/file-input-go-to-editing-20261018/README.md)
 retains the missing-interface probes and the corrected twenty-phase X11/software
 and scaled dark Wayland/OpenGL runs. Direct AT-SPI replacement, insertion,
 deletion and Unicode navigation work, and actual keyboard undo/redo is exercised.
 Earlier probe assumptions about undo units and a net-zero edit remain recorded;
-the library was not changed to accommodate them. The arrow interval still exposes
-no selection event for the changing highlighted proposal. Suggestion events and
-reader announcements therefore remain open alongside complete native hierarchy
-and reader comparison. The eight-target Qt, fresh installed-consumer, virtual
+the library was not changed to accommodate them. That snapshot's arrow interval
+exposed no selection event for the changing highlighted proposal, leaving Linux
+suggestion events and reader announcements open at source61. Complete native
+hierarchy and reader comparison remain pending. The eight-target Qt, fresh installed-consumer, virtual
 display and restored-runtime evidence remains scoped Linux verification.
+
+The [source64 suggestion checkpoint](../evidence/development/file-input-go-to-suggestions-20261018/README.md)
+adds an owned list selection interface and explicit selected/removed notifications.
+Qt 6.8.3's [AT-SPI adaptor](https://github.com/qt/qtbase/blob/v6.8.3/src/gui/accessible/linux/atspiadaptor.cpp)
+forwards these notifications; its generic state-change path ignores the selected
+bit. Assistive selection queries return the current single proposal and selection
+commands use the same chooser model as arrow keys. Headings and unsupported
+multi-selection or deselection commands cannot invent a different selection policy.
+Raw input and keyboard focus stay in the path field until navigation. When the
+list becomes empty, the list reports its cleared selection and then reports the
+actual focused editor, keeping the reader's logical focus on a live object.
+
+Both final X11/software and scaled dark Wayland/OpenGL probes pass 21 phases.
+Their measured arrow intervals contain the selected-state changes and parent
+selection events. Separate byte windows prove actual Orca destination output and
+speech-dispatcher commands before Return for both arrow navigation and AT-SPI
+`Selection.selectChild`. Editable text, native undo/redo, Unicode, cancellation
+and owner delivery through the main Open action are exercised again. The probe
+flushes Orca's original debug file after actual speech/backend diagnostic messages;
+it does not change the reader's speech policy or synthesize output. The ten-second
+observation limit is unchanged. Null audio output is not physical listening.
+
+Source62's teardown failure remains recorded: a base list destructor emitted a
+signal after the derived class was gone. Source63 disconnects callbacks before
+base destruction. Source64 additionally reports the real editor focus after an
+empty selection. Qt regressions cover closing or deleting the owner during a
+selection notification, single-choice queries/commands and quiet closed updates.
+Earlier reader11/12 failures remain intact; Wayland's actual destination speech
+was buffered beyond its live log snapshot. The final diagnostic flush makes those
+messages observable at the time of the check. Native hierarchy, object identity,
+timing, reader comparison, engine audio, physical and independent-machine
+acceptance remain pending, including raw accessibility warnings in these runs.
 
 Visual QA found that the owned scrollbar thumbs were drawn even when their
 content fit. Source60 makes the existing AsNeeded policy control visibility in

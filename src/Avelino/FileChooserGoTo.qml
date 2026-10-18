@@ -59,16 +59,17 @@ FileChooserDialogBase {
             onClicked:{if(!path.text.length){prompt.close();return}path.clear();prompt.suggestions.input="";path.forceActiveFocus()}
         }
         Rectangle {x:0;y:35;width:parent.width;height:0.5;color:prompt.dark ? "#575757":"#dedede";Accessible.ignored:true}
-        ListView {
+        FileChooserSuggestions {
             id:targets;objectName:"bleeckerFileChooserGoToTargets"
             x:10;y:46;width:parent.width-20;height:Math.max(0,parent.height-y-12-(error.visible ? 28:0))
-            clip:true;model:prompt.suggestions.entries;currentIndex:prompt.suggestions.currentIndex
+            clip:true;pathModel:prompt.suggestions;model:prompt.suggestions.entries;currentIndex:prompt.suggestions.currentIndex
             boundsBehavior:Flickable.StopAtBounds;highlightMoveDuration:0;highlightResizeDuration:0
             Accessible.role:Accessible.List;Accessible.name:"Folder suggestions"
-            delegate:T.ItemDelegate {
+            delegate:FileChooserSuggestionRow {
                 id:entry
                 required property int index
                 required property var modelData
+                choiceIndex:index
                 objectName:"bleeckerFileChooserGoToTarget_"+index
                 width:targets.width;height:22;padding:0;focusPolicy:Qt.NoFocus
                 enabled:!modelData.heading&&modelData.available

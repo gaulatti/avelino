@@ -12,6 +12,7 @@
 #include <QSettings>
 #include <QTemporaryDir>
 #include <QtTest>
+#include <functional>
 
 class FileInputAnnouncementCapture {
     QAccessible::UpdateHandler previous;
@@ -25,6 +26,34 @@ public:
     inline static QList<Message> messages;
     FileInputAnnouncementCapture(){messages.clear();previous=QAccessible::installUpdateHandler(receive);}
     ~FileInputAnnouncementCapture(){QAccessible::installUpdateHandler(previous);}
+};
+
+class FileInputSelectionCapture {
+    QAccessible::UpdateHandler previous;
+    static void receive(QAccessibleEvent *event){
+        if(event->type()!=QAccessible::Selection&&event->type()!=QAccessible::SelectionRemove&&event->type()!=QAccessible::SelectionWithin&&event->type()!=QAccessible::Focus)return;
+        const auto accessible=event->accessibleInterface();
+        events.append({event->type(),accessible?accessible->text(QAccessible::Name):QString(),event->object()?event->object()->objectName():QString(),accessible&&accessible->state().selected,accessible&&accessible->state().focused});
+        const auto observer=callback;if(observer)observer(event);
+    }
+public:
+    struct Event {QAccessible::Event type;QString name,objectName;bool selected,focused;};
+    inline static QList<Event> events;
+    inline static std::function<void(QAccessibleEvent*)> callback;
+    static bool saw(QAccessible::Event type,const QString &name,bool selected){
+        for(const auto &event:events)if(event.type==type&&event.name==name&&event.selected==selected)return true;return false;
+    }
+    static int suggestionEvents(){
+        int count=0;for(const auto &event:events)if(event.objectName=="bleeckerFileChooserGoToTargets"||event.objectName.startsWith("bleeckerFileChooserGoToTarget_"))++count;return count;
+    }
+    static bool focusFollowsClearedSuggestions(){
+        bool cleared=false;for(const auto &event:events){
+            if(event.type==QAccessible::SelectionWithin&&event.objectName=="bleeckerFileChooserGoToTargets")cleared=true;
+            if(cleared&&event.type==QAccessible::Focus&&event.objectName=="bleeckerFileChooserGoToPath"&&event.focused)return true;
+        }return false;
+    }
+    FileInputSelectionCapture(){events.clear();callback={};previous=QAccessible::installUpdateHandler(receive);}
+    ~FileInputSelectionCapture(){callback={};QAccessible::installUpdateHandler(previous);}
 };
 
 class FileInputUiTests:public QObject {
@@ -364,6 +393,63 @@ private slots:
         QVERIFY(results(fixture).isEmpty());QCOMPARE(browser->folderPath(),directory.path());
         path->forceActiveFocus();QTest::keyClick(path->window(),Qt::Key_Return);QTRY_VERIFY(!prompt->property("visible").toBool());QCOMPARE(browser->folderPath(),unicode);QVERIFY(results(fixture).isEmpty());
         click(find(content,"bleeckerFileChooserCancel"));QTRY_VERIFY(!browser->active());QVERIFY(results(fixture).isEmpty());
+    }
+    void actualGoToAccessibleSelectionEventsKeepTextFocusAndRespectSingleChoice(){
+        FileInputSelectionCapture events;QTemporaryDir directory;QDir root(directory.path());
+        for(const auto name:{"Alpha","Alphabet","Alpine"})QVERIFY(root.mkdir(name));
+        QQuickView view;QVERIFY(load(view,directory));auto fixture=view.rootObject();auto control=fixture->findChild<QQuickItem*>("fileInput");QVERIFY(control);
+        auto browser=control->property("browser").value<FileChooserBrowser*>();auto chooser=control->property("chooser").value<QObject*>();
+        click(control->property("inputItem").value<QQuickItem*>());auto content=chooser->property("contentItem").value<QQuickItem*>();
+        QTest::keyClick(content->window(),Qt::Key_L,Qt::ControlModifier);auto prompt=chooser->property("goToDialog").value<QObject*>();QTRY_VERIFY(prompt->property("visible").toBool());
+        auto path=chooser->property("pathInput").value<QQuickItem*>();auto suggestions=prompt->property("suggestions").value<FileChooserPaths*>();
+        auto list=find(prompt->property("contentItem").value<QQuickItem*>(),"bleeckerFileChooserGoToTargets");QVERIFY(list);
+        auto accessible=QAccessible::queryAccessibleInterface(list);QVERIFY(accessible&&accessible->selectionInterface());auto selection=accessible->selectionInterface();
+        auto text=QAccessible::queryAccessibleInterface(path);QVERIFY(text&&text->editableTextInterface());const auto prefix=root.filePath("Al");
+        text->editableTextInterface()->replaceText(0,text->textInterface()->characterCount(),prefix);
+        auto choice=[&](const QString &name)->QAccessibleInterface*{for(int i=0;i<accessible->childCount();++i)if(auto child=accessible->child(i);child&&child->text(QAccessible::Name)==name)return child;return nullptr;};
+        QTRY_VERIFY(choice(root.filePath("Alpha")));QTRY_VERIFY(FileInputSelectionCapture::saw(QAccessible::Selection,root.filePath("Alpha"),true));
+        QCOMPARE(selection->selectedItemCount(),1);QCOMPARE(selection->selectedItem(0)->text(QAccessible::Name),root.filePath("Alpha"));
+        FileInputSelectionCapture::events.clear();QTest::keyClick(path->window(),Qt::Key_Down);
+        QTRY_VERIFY(FileInputSelectionCapture::saw(QAccessible::Selection,root.filePath("Alpine"),true));
+        QVERIFY(FileInputSelectionCapture::saw(QAccessible::SelectionRemove,root.filePath("Alpha"),false));
+        QCOMPARE(selection->selectedItem(0)->text(QAccessible::Name),root.filePath("Alpine"));QCOMPARE(path->property("text").toString(),prefix);QVERIFY(path->hasActiveFocus());
+        QVERIFY(selection->select(choice(root.filePath("Alphabet"))));QTRY_VERIFY(FileInputSelectionCapture::saw(QAccessible::Selection,root.filePath("Alphabet"),true));
+        QCOMPARE(selection->selectedItemCount(),1);QCOMPARE(selection->selectedItem(0)->text(QAccessible::Name),root.filePath("Alphabet"));
+        QVERIFY(!selection->select(choice("Go to:")));QVERIFY(!selection->selectAll());QVERIFY(!selection->clear());QVERIFY(!selection->unselect(selection->selectedItem(0)));
+        QCOMPARE(path->property("text").toString(),prefix);QVERIFY(path->hasActiveFocus());QVERIFY(results(fixture).isEmpty());capture(path->window(),"go-to-accessible-selection");
+        FileInputSelectionCapture::events.clear();auto clear=QAccessible::queryAccessibleInterface(find(prompt->property("contentItem").value<QQuickItem*>(),"bleeckerFileChooserGoToClear"));QVERIFY(clear&&clear->actionInterface());
+        clear->actionInterface()->doAction(QAccessibleActionInterface::pressAction());QTRY_COMPARE(selection->selectedItemCount(),0);QVERIFY(selection->clear());QTRY_VERIFY(FileInputSelectionCapture::focusFollowsClearedSuggestions());
+        QTest::keyClick(path->window(),Qt::Key_Escape);QTRY_VERIFY(!prompt->property("visible").toBool());FileInputSelectionCapture::events.clear();
+        suggestions->setInput(prefix);QTest::qWait(30);QCOMPARE(FileInputSelectionCapture::suggestionEvents(),0);
+        QTRY_VERIFY(find(content,"bleeckerFileChooserColumn0")->hasActiveFocus());QTest::keyClick(content->window(),Qt::Key_L,Qt::ControlModifier);QTRY_VERIFY(prompt->property("visible").toBool());
+        text->editableTextInterface()->replaceText(0,text->textInterface()->characterCount(),prefix);QTRY_VERIFY(choice(root.filePath("Alphabet")));QVERIFY(selection->select(choice(root.filePath("Alphabet"))));
+        QTest::keyClick(path->window(),Qt::Key_Return);QTRY_VERIFY(!prompt->property("visible").toBool());QCOMPARE(browser->folderPath(),root.filePath("Alphabet"));QVERIFY(results(fixture).isEmpty());
+        click(find(content,"bleeckerFileChooserCancel"));QTRY_VERIFY(!browser->active());QVERIFY(results(fixture).isEmpty());
+    }
+    void closingGoToDuringSelectionNotificationKeepsOwner(){
+        FileInputSelectionCapture events;QTemporaryDir directory;QDir root(directory.path());QVERIFY(root.mkdir("Alpha"));QVERIFY(root.mkdir("Alpine"));
+        QQuickView view;QVERIFY(load(view,directory));auto fixture=view.rootObject();auto control=fixture->findChild<QQuickItem*>("fileInput");QVERIFY(control);
+        auto browser=control->property("browser").value<FileChooserBrowser*>();auto chooser=control->property("chooser").value<QObject*>();click(control->property("inputItem").value<QQuickItem*>());auto content=chooser->property("contentItem").value<QQuickItem*>();
+        QTest::keyClick(content->window(),Qt::Key_L,Qt::ControlModifier);auto prompt=chooser->property("goToDialog").value<QObject*>();QTRY_VERIFY(prompt->property("visible").toBool());
+        auto path=chooser->property("pathInput").value<QQuickItem*>();auto suggestions=prompt->property("suggestions").value<FileChooserPaths*>();
+        auto text=QAccessible::queryAccessibleInterface(path);QVERIFY(text&&text->editableTextInterface());text->editableTextInterface()->replaceText(0,text->textInterface()->characterCount(),root.filePath("Al"));
+        QTRY_VERIFY(FileInputSelectionCapture::saw(QAccessible::Selection,root.filePath("Alpha"),true));FileInputSelectionCapture::events.clear();bool closed=false;
+        FileInputSelectionCapture::callback=[&](QAccessibleEvent *event){if(!closed&&event->type()==QAccessible::SelectionRemove&&event->object()&&event->object()->objectName().startsWith("bleeckerFileChooserGoToTarget_")){closed=true;QMetaObject::invokeMethod(prompt,"close");}};
+        suggestions->select(2);QTRY_VERIFY(closed);QTRY_VERIFY(!prompt->property("visible").toBool());QTest::qWait(30);
+        QVERIFY(!FileInputSelectionCapture::saw(QAccessible::Selection,root.filePath("Alpine"),true));QVERIFY(browser->active());QVERIFY(results(fixture).isEmpty());
+        click(find(content,"bleeckerFileChooserCancel"));QTRY_VERIFY(!browser->active());
+    }
+    void removingGoToOwnerDuringSelectionNotification(){
+        FileInputSelectionCapture events;QTemporaryDir directory;QDir root(directory.path());QVERIFY(root.mkdir("Alpha"));QVERIFY(root.mkdir("Alpine"));
+        QQuickView view;QVERIFY(load(view,directory));auto fixture=view.rootObject();auto control=fixture->findChild<QQuickItem*>("fileInput");QVERIFY(control);
+        auto chooser=control->property("chooser").value<QObject*>();click(control->property("inputItem").value<QQuickItem*>());auto content=chooser->property("contentItem").value<QQuickItem*>();
+        QTest::keyClick(content->window(),Qt::Key_L,Qt::ControlModifier);QPointer<QObject> prompt=chooser->property("goToDialog").value<QObject*>();QTRY_VERIFY(prompt->property("visible").toBool());
+        auto path=chooser->property("pathInput").value<QQuickItem*>();auto suggestions=prompt->property("suggestions").value<FileChooserPaths*>();
+        QPointer<QQuickItem> list=find(prompt->property("contentItem").value<QQuickItem*>(),"bleeckerFileChooserGoToTargets");
+        auto text=QAccessible::queryAccessibleInterface(path);QVERIFY(text&&text->editableTextInterface());text->editableTextInterface()->replaceText(0,text->textInterface()->characterCount(),root.filePath("Al"));
+        QTRY_VERIFY(FileInputSelectionCapture::saw(QAccessible::Selection,root.filePath("Alpha"),true));bool removed=false;
+        FileInputSelectionCapture::callback=[&](QAccessibleEvent *event){if(!removed&&event->type()==QAccessible::SelectionRemove&&event->object()&&event->object()->objectName().startsWith("bleeckerFileChooserGoToTarget_")){removed=true;fixture->setProperty("mounted",false);}};
+        suggestions->select(2);QTRY_VERIFY(removed);QTRY_VERIFY(prompt.isNull());QTRY_VERIFY(list.isNull());QVERIFY(results(fixture).isEmpty());
     }
     void removingOwnerClosesGoToWindow(){
         QTemporaryDir directory;QQuickView view;QVERIFY(load(view,directory));auto fixture=view.rootObject();auto control=fixture->findChild<QQuickItem*>("fileInput");QVERIFY(control);

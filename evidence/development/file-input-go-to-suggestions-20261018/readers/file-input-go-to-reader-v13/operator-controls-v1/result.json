@@ -1,0 +1,270 @@
+{
+  "accepted": false,
+  "status": "passed",
+  "profile": {
+    "platform": "xcb",
+    "renderer": "software",
+    "dark": false,
+    "textScale": 1,
+    "dpr": 1
+  },
+  "phases": [
+    {
+      "phase": "go-to-modal-reachable",
+      "time": 1792298714.250843,
+      "observations": {
+        "raw": "/probe/fixtures",
+        "location": "/probe/fixtures",
+        "selected": [
+          "one.txt"
+        ],
+        "owner": ""
+      },
+      "readerLogBytes": 319815
+    },
+    {
+      "phase": "go-to-nonempty-close-clears",
+      "time": 1792298716.7591531,
+      "observations": {
+        "raw": "",
+        "proposals": [],
+        "selected": [
+          "one.txt"
+        ]
+      },
+      "readerLogBytes": 354705
+    },
+    {
+      "phase": "go-to-empty-close-dismisses",
+      "time": 1792298718.8380313,
+      "observations": {
+        "location": "/probe/fixtures",
+        "selected": [
+          "one.txt"
+        ]
+      },
+      "readerLogBytes": 400799
+    },
+    {
+      "phase": "go-to-native-prefix",
+      "time": 1792298721.9377534,
+      "observations": {
+        "raw": "/probe/fixtures/Al",
+        "proposals": [
+          "/probe/fixtures/Alpha",
+          "/probe/fixtures/Alpine",
+          "/probe/fixtures/Alphabet"
+        ],
+        "selected": [
+          "/probe/fixtures/Alpha"
+        ],
+        "method": "XTest keyboard"
+      },
+      "readerLogBytes": 679177
+    },
+    {
+      "phase": "go-to-native-arrows-preserve-input",
+      "time": 1792298725.2623255,
+      "observations": {
+        "raw": "/probe/fixtures/Al",
+        "selected": [
+          "/probe/fixtures/Alpine"
+        ],
+        "assistiveSelected": [
+          "/probe/fixtures/Alpine"
+        ],
+        "pathHasKeyboardFocus": true,
+        "arrowReaderStartBytes": 761537,
+        "arrowStartTime": 1792298722.3057551,
+        "arrowSpeechObserved": true
+      },
+      "readerLogBytes": 951741
+    },
+    {
+      "phase": "go-to-assistive-selection-keeps-input",
+      "time": 1792298728.2917955,
+      "observations": {
+        "raw": "/probe/fixtures/Al",
+        "assistiveSelected": [
+          "/probe/fixtures/Alphabet"
+        ],
+        "pathHasKeyboardFocus": true,
+        "owner": "",
+        "method": "AT-SPI Selection.selectChild",
+        "readerStartBytes": 951741,
+        "readerSpeechObserved": true
+      },
+      "readerLogBytes": 971195
+    },
+    {
+      "phase": "go-to-return-navigates-without-owner",
+      "time": 1792298731.0408337,
+      "observations": {
+        "location": "/probe/fixtures/Alpine",
+        "selected": [],
+        "owner": ""
+      },
+      "readerLogBytes": 1087727
+    },
+    {
+      "phase": "go-to-missing-remains-modal",
+      "time": 1792298735.3150764,
+      "observations": {
+        "raw": "/probe/fixtures/missing",
+        "location": "/probe/fixtures/Alpine",
+        "selected": [],
+        "owner": ""
+      },
+      "readerLogBytes": 1591877
+    },
+    {
+      "phase": "go-to-tab-common-prefix",
+      "time": 1792298739.8446007,
+      "observations": {
+        "raw": "/probe/fixtures/Alp",
+        "proposals": [
+          "/probe/fixtures/Alpha",
+          "/probe/fixtures/Alpine",
+          "/probe/fixtures/Alphabet"
+        ]
+      },
+      "readerLogBytes": 2139205
+    },
+    {
+      "phase": "go-to-recent-select-keeps-empty-input",
+      "time": 1792298744.0126994,
+      "observations": {
+        "raw": "",
+        "selected": [
+          "/probe/fixtures/Alpine"
+        ],
+        "location": "/probe/fixtures/Alpine"
+      },
+      "readerLogBytes": 2414561
+    },
+    {
+      "phase": "go-to-path-selects-nonmatching-file",
+      "time": 1792298749.2201707,
+      "observations": {
+        "location": "/probe/fixtures",
+        "selected": [
+          "photo.png"
+        ],
+        "owner": ""
+      },
+      "readerLogBytes": 2993169
+    },
+    {
+      "phase": "go-to-main-open-delivers-owner",
+      "time": 1792298751.0532877,
+      "observations": {
+        "owner": "Selected URLs: file:///probe/fixtures/photo.png"
+      },
+      "readerLogBytes": 3096206
+    },
+    {
+      "phase": "go-to-remount-retains-last-input",
+      "time": 1792298753.4529138,
+      "observations": {
+        "raw": "/probe/fixtures/photo.png",
+        "owner": "Selected URLs: file:///probe/fixtures/photo.png"
+      },
+      "readerLogBytes": 3297313
+    },
+    {
+      "phase": "go-to-editable-text-prefix",
+      "time": 1792298756.4345818,
+      "observations": {
+        "raw": "/probe/fixtures/Al",
+        "proposals": [
+          "/probe/fixtures/Alpha",
+          "/probe/fixtures/Alpine",
+          "/probe/fixtures/Alphabet"
+        ],
+        "interfaceResult": true,
+        "method": "AT-SPI EditableText.setTextContents"
+      },
+      "readerLogBytes": 3371944
+    },
+    {
+      "phase": "go-to-editable-text-single-replacement-undo-redo",
+      "time": 1792298758.9054146,
+      "observations": {
+        "undo": "",
+        "redo": "/probe/fixtures/Al"
+      },
+      "readerLogBytes": 3469622
+    },
+    {
+      "phase": "go-to-editable-text-insert-delete",
+      "time": 1792298761.647953,
+      "observations": {
+        "raw": "/probe/fixtures/Al",
+        "proposals": [
+          "/probe/fixtures/Alpha",
+          "/probe/fixtures/Alpine",
+          "/probe/fixtures/Alphabet"
+        ],
+        "method": "AT-SPI EditableText InsertText/DeleteText"
+      },
+      "readerLogBytes": 3477899
+    },
+    {
+      "phase": "go-to-editable-text-native-undo-redo",
+      "time": 1792298764.8018737,
+      "observations": {
+        "before": "/probe/fixtures/Alpha",
+        "undo": "/probe/fixtures/Al",
+        "redo": "/probe/fixtures/Alpha",
+        "method": "Native Qt undo grouping; exact redo roundtrip"
+      },
+      "readerLogBytes": 3615194
+    },
+    {
+      "phase": "go-to-editable-text-navigates-without-owner",
+      "time": 1792298766.8283165,
+      "observations": {
+        "location": "/probe/fixtures/Alpha",
+        "owner": "Selected URLs: file:///probe/fixtures/photo.png"
+      },
+      "readerLogBytes": 3724338
+    },
+    {
+      "phase": "go-to-editable-text-unicode-proposal",
+      "time": 1792298769.6382277,
+      "observations": {
+        "raw": "/probe/fixtures/Caf\u00e9",
+        "proposals": [
+          "/probe/fixtures/Caf\u00e9"
+        ]
+      },
+      "readerLogBytes": 3887534
+    },
+    {
+      "phase": "go-to-editable-text-missing-stays-modal",
+      "time": 1792298773.6949298,
+      "observations": {
+        "raw": "/probe/fixtures/missing",
+        "location": "/probe/fixtures/Caf\u00e9",
+        "owner": "Selected URLs: file:///probe/fixtures/photo.png"
+      },
+      "readerLogBytes": 4128615
+    },
+    {
+      "phase": "go-to-final-cancel-restores-caller",
+      "time": 1792298776.2199554,
+      "observations": {
+        "owner": "Selected URLs: file:///probe/fixtures/photo.png"
+      },
+      "readerLogBytes": 4248094
+    }
+  ],
+  "nativeKeyFlow": "passed",
+  "directAssistiveTextEdit": "passed",
+  "modalStateExposed": true,
+  "libraryProjectSourcesMounted": false,
+  "physicalInput": false,
+  "physicalListening": false,
+  "nativeAccessibilityAcceptance": "pending",
+  "nativeReaderComparison": "pending"
+}

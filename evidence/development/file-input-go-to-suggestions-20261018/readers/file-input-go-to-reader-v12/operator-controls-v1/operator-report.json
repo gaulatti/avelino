@@ -1,0 +1,67 @@
+{
+  "accepted": false,
+  "status": "running",
+  "phases": [
+    {
+      "phase": "go-to-modal-reachable",
+      "time": 1792297995.4503427,
+      "observations": {
+        "raw": "/probe/fixtures",
+        "location": "/probe/fixtures",
+        "selected": [
+          "one.txt"
+        ],
+        "owner": ""
+      },
+      "readerLogBytes": 183987
+    },
+    {
+      "phase": "go-to-nonempty-close-clears",
+      "time": 1792298002.0919929,
+      "observations": {
+        "raw": "",
+        "proposals": [],
+        "selected": [
+          "one.txt"
+        ]
+      },
+      "readerLogBytes": 267623
+    },
+    {
+      "phase": "go-to-empty-close-dismisses",
+      "time": 1792298007.1114476,
+      "observations": {
+        "location": "/probe/fixtures",
+        "selected": [
+          "one.txt"
+        ]
+      },
+      "readerLogBytes": 309504
+    },
+    {
+      "phase": "go-to-native-prefix",
+      "time": 1792298018.2208807,
+      "observations": {
+        "raw": "/probe/fixtures/Al",
+        "proposals": [
+          "/probe/fixtures/Alpha",
+          "/probe/fixtures/Alpine",
+          "/probe/fixtures/Alphabet"
+        ],
+        "selected": [
+          "/probe/fixtures/Alpha"
+        ],
+        "method": "XTest keyboard"
+      },
+      "readerLogBytes": 507732
+    },
+    {
+      "phase": "operator-failure",
+      "time": 1792298034.4516501,
+      "observations": {
+        "error": "Traceback (most recent call last):\n  File \"/probe/exercise.py\", line 165, in <module>\n    wait_for(lambda:reader_spoke_after(arrow_reader_start,'Alpine'))\n  File \"/probe/exercise.py\", line 90, in wait_for\n    if time.monotonic()>end:raise AssertionError('Expected AT-SPI/Orca observation did not arrive')\n                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Expected AT-SPI/Orca observation did not arrive\n"
+      },
+      "readerLogBytes": 788758
+    }
+  ]
+}
