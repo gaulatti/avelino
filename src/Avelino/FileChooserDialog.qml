@@ -11,7 +11,9 @@ FileChooserDialogBase {
     readonly property color border:dark ? "#575757":"#c6c6c6"
     readonly property Item acceptInput:accept
     readonly property Item cancelInput:cancel
-    readonly property Item pathInput:path
+    readonly property Item pathInput:goTo.pathInput
+    readonly property QtObject goToDialog:goTo
+    accessibilityDialog:goTo
     readonly property Item columnHost:columns
     readonly property QtObject newFolderDialog:newFolder
     property real columnWidth:220
@@ -33,23 +35,33 @@ FileChooserDialogBase {
         if(left<columns.contentX)columns.contentX=left
         else if(right>columns.contentX+columns.width)columns.contentX=Math.min(Math.max(0,columns.contentWidth-columns.width),right-columns.width)
     }
-    onOpened:{path.text=browser.folderPath;focusColumn(browser.focusedColumn);Qt.callLater(errorMessage.announceError)}
+    function restoreChooserFocus():void {
+        if(!visible||!browser.active)return
+        const window=contentItem.Window.window
+        if(window)window.requestActivate()
+        focusColumn(browser.focusedColumn)
+    }
+    onOpened:{focusColumn(browser.focusedColumn);Qt.callLater(errorMessage.announceError)}
     onClosed:if(browser.active)browser.cancel()
     Connections {
         target:dialog.browser
         function onFocusRequested(index:int){Qt.callLater(dialog.focusColumn,index)}
-        function onMetadataChanged(){if(!path.activeFocus)path.text=dialog.browser.folderPath}
     }
     contentItem:Item {
+        Shortcut {
+            sequence:"Ctrl+Shift+G";context:Qt.WindowShortcut
+            enabled:dialog.visible&&!goTo.visible&&!newFolder.visible
+            onActivated:goTo.open()
+        }
         Keys.onPressed:event=>{
             if(event.key===Qt.Key_Escape){dialog.browser.cancel();event.accepted=true}
             else if(event.key===Qt.Key_L&&(event.modifiers&Qt.ControlModifier)){
-                path.forceActiveFocus();path.selectAll();event.accepted=true
+                goTo.open();event.accepted=true
             }
         }
         Shortcut {
             sequence:"Ctrl+Shift+N";context:Qt.WindowShortcut
-            enabled:dialog.visible&&dialog.browser.canCreateFolder&&!newFolder.visible
+            enabled:dialog.visible&&dialog.browser.canCreateFolder&&!newFolder.visible&&!goTo.visible
             onActivated:newFolder.open()
         }
         Text {
@@ -109,16 +121,6 @@ FileChooserDialogBase {
             id:location;browser:dialog.browser;x:218;y:38
             width:Math.min(190,Math.max(76,(parent.width-238)*0.42));implicitWidth:190
         }
-        T.TextField {
-            id:path;objectName:"bleeckerFileChooserPath";x:location.x+location.width+8;y:38;width:Math.max(0,parent.width-x-20);height:24
-            leftPadding:8;rightPadding:8;topPadding:0;bottomPadding:0
-            text:dialog.browser.folderPath;selectByMouse:true;clip:true
-            color:dialog.ink;selectionColor:"#0063e1";selectedTextColor:"white"
-            font.family:Qt.application.font.family;font.pixelSize:13
-            Accessible.name:"Folder location"
-            background:Rectangle {radius:5;color:dialog.dark ? "#252525":"white";border.width:path.activeFocus ? 2:0.5;border.color:path.activeFocus ? "#80baff":dialog.border}
-            onAccepted:{dialog.browser.navigatePath(text);Qt.callLater(errorMessage.announceError)}
-        }
         Rectangle {x:0;y:76;width:parent.width;height:1;color:dialog.border;Accessible.ignored:true}
         Flickable {
             id:columns;objectName:"bleeckerFileChooserColumns"
@@ -154,7 +156,7 @@ FileChooserDialogBase {
                             Keys.onEnterPressed:dialog.browser.acceptSelection()
                             Keys.onPressed:event=>{
                                 if(event.key===Qt.Key_A&&(event.modifiers&Qt.ControlModifier)){dialog.browser.selectAll();event.accepted=true}
-                                else if(event.key===Qt.Key_L&&(event.modifiers&Qt.ControlModifier)){path.forceActiveFocus();path.selectAll();event.accepted=true}
+                                else if(event.key===Qt.Key_L&&(event.modifiers&Qt.ControlModifier)){goTo.open();event.accepted=true}
                             }
                             delegate:T.ItemDelegate {
                                 id:entry
@@ -188,7 +190,7 @@ FileChooserDialogBase {
                                 }
                             }
                             T.ScrollBar.vertical:T.ScrollBar {
-                                width:7;policy:T.ScrollBar.AsNeeded
+                                width:7;policy:T.ScrollBar.AsNeeded;visible:policy===T.ScrollBar.AlwaysOn||(policy===T.ScrollBar.AsNeeded&&size<1)
                                 contentItem:Rectangle {radius:3;color:dialog.dark ? "#999999":"#999999";implicitWidth:5;implicitHeight:24}
                                 background:null
                             }
@@ -197,7 +199,7 @@ FileChooserDialogBase {
                 }
             }
             T.ScrollBar.horizontal:T.ScrollBar {
-                height:7;policy:T.ScrollBar.AsNeeded
+                height:7;policy:T.ScrollBar.AsNeeded;visible:policy===T.ScrollBar.AlwaysOn||(policy===T.ScrollBar.AsNeeded&&size<1)
                 contentItem:Rectangle {radius:3;color:"#999999";implicitWidth:24;implicitHeight:5}
                 background:null
             }
@@ -210,7 +212,7 @@ FileChooserDialogBase {
         Text {
             id:errorMessage;objectName:"bleeckerFileChooserError"
             x:128;y:parent.height-51;width:Math.max(0,parent.width-323);height:42
-            text:dialog.browser.error;textFormat:Text.PlainText;wrapMode:Text.Wrap;color:dialog.ink
+            text:dialog.browser.error.length ? dialog.browser.error:dialog.browser.places.error;textFormat:Text.PlainText;wrapMode:Text.Wrap;color:dialog.ink
             font.family:Qt.application.font.family;font.pixelSize:12
             Accessible.role:Accessible.StaticText;Accessible.name:text
             function announceError():void {
@@ -230,6 +232,10 @@ FileChooserDialogBase {
             id:accept;objectName:"bleeckerFileChooserOpen";x:parent.width-98;y:parent.height-42;width:78;text:"Open"
             accent:true;enabled:dialog.browser.canAccept;onClicked:dialog.browser.acceptSelection()
         }
+    }
+    FileChooserGoTo {
+        id:goTo;browser:dialog.browser;parent:dialog.contentItem
+        onClosed:Qt.callLater(dialog.restoreChooserFocus)
     }
     FileChooserNewFolder {
         id:newFolder;browser:dialog.browser;parent:dialog.contentItem

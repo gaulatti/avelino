@@ -238,6 +238,13 @@ general storage capacity and suggestion ranking remain pending. The earlier
 twelve-sibling capture is headed "Go to:", so it does not prove recent-history
 capacity. Run `python3 scripts/verify-file-input-go-to-history.py`.
 
+The [empty-field Close supplement](../evidence/reference-investigations/file-input-go-to-empty-close-20261018/README.md)
+adds its second behavior: Close dismisses the nested sheet when the field is
+empty. The nonempty-field action still clears it. The attempted relative setup
+and later keyboard retry are retained as excluded diagnostics; they establish
+no new resolution or input-timing rule. Audit the bounded transition with
+`python3 scripts/verify-file-input-go-to-close.py`.
+
 The [owned Linux location checkpoint](../evidence/development/file-input-location-20261017/validation.json)
 adds the Where menu and shared ten-folder Recent Places store. Current-folder
 choice preserves selection/history; ancestor/recent navigation clears selection
@@ -245,3 +252,11 @@ without submitting. Its Qt, independent installed-consumer, virtual-display and
 AT-SPI/Orca evidence is scoped in [the Linux implementation notes](file-input-linux.md).
 FileInput and strict native parity remain pending, including the separate Go to
 Folder presentation and its path-selected file rules.
+
+The [owned Linux GoTo checkpoint](../evidence/development/file-input-go-to-20261018/README.md)
+now implements the separate sheet, independent recent targets/raw input and
+path-selected-file route. Source60 passes eight focused Qt targets, fresh
+source-free consumer checks in eight contexts and eight virtual display profiles.
+The new actual AT-SPI/Orca flow, general ranking/history capacity/relative rules,
+all native type/context/sizing/artwork and physical acceptance remain pending.
+FileInput stays pending; no closed expectation or reference pin changes.

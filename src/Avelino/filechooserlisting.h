@@ -29,7 +29,9 @@ public:
     QString error()const{return m_error;}
     int currentIndex()const;
     QVariantList selection()const;
-    void setSelection(const QVariantList &urls);
+    void setSelection(const QVariantList &urls,const QUrl &pathSelected={});
+    bool selectPath(const QUrl &url);
+    QUrl pathSelectedUrl()const{return m_selected.contains(m_pathSelected.toString())?m_pathSelected:QUrl();}
     QVariantList selectedUrls()const;
     bool canOpen()const;
     Q_INVOKABLE QVariantMap entry(int row)const;
@@ -57,6 +59,7 @@ private:
     void setExpanded(int row,bool expanded);
     QUrl navigationTarget()const;
     QPointer<FileChooserModel> m_root;
+    QUrl m_pathSelected;
     QMetaObject::Connection m_listingConnection,m_typeConnection,m_destroyConnection;
     QHash<QString,FileChooserModel*> m_children;
     QList<Row> m_rows;

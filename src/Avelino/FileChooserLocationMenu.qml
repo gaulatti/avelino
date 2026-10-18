@@ -43,7 +43,7 @@ FileChooserButton {
             implicitHeight:contentHeight;model:locationPopup.contentModel;clip:true
             boundsBehavior:Flickable.StopAtBounds
             T.ScrollBar.vertical:T.ScrollBar {
-                width:7;policy:T.ScrollBar.AsNeeded
+                width:7;policy:T.ScrollBar.AsNeeded;visible:policy===T.ScrollBar.AlwaysOn||(policy===T.ScrollBar.AsNeeded&&size<1)
                 contentItem:Rectangle {radius:3;color:"#999999";implicitWidth:5;implicitHeight:24}
                 background:null
             }

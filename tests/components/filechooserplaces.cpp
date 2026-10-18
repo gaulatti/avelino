@@ -62,6 +62,24 @@ private slots:
         FileChooserPlaces places;places.refresh(root.path());QVERIFY(!places.error().isEmpty());QVERIFY(!places.rememberAcceptedFolder(root.path()));
         QVERIFY(file.open(QIODevice::ReadOnly));QCOMPARE(file.readAll(),before);QVERIFY(recentPaths(places).isEmpty());
     }
+    void pathTargetsHaveTheirOwnNavigationAndRawInputTransaction(){
+        QTemporaryDir root;FileChooserPlaces places;QStringList expected;
+        for(int i=1;i<=12;++i){
+            const auto folder=root.filePath(QString("History-%1").arg(i,2,10,QChar('0')));QVERIFY(QDir().mkdir(folder));
+            QVERIFY(places.rememberPathNavigation("literal input "+QString::number(i),QUrl::fromLocalFile(folder)));expected.prepend(folder);
+        }
+        expected.resize(5);QStringList actual;
+        for(const auto &value:places.pathTargets())actual.append(value.toMap()["path"].toString());
+        QCOMPARE(actual,expected);QVERIFY(recentPaths(places).isEmpty());QCOMPARE(places.lastPathInput(),QString("literal input 12"));
+        QProcess other;other.start(QCoreApplication::applicationFilePath(),{"--path-helper",config.path(),expected[2],""});
+        QVERIFY(other.waitForFinished());QCOMPARE(other.exitCode(),0);places.refresh(root.path());
+        const auto promoted=expected[2];expected.removeAll(promoted);expected.prepend(promoted);actual.clear();
+        for(const auto &value:places.pathTargets())actual.append(value.toMap()["path"].toString());
+        QCOMPARE(actual,expected);QVERIFY(places.hasPathInput());QVERIFY(places.lastPathInput().isEmpty());QVERIFY(recentPaths(places).isEmpty());
+        const auto before=places.pathTargets();QVERIFY(!places.rememberPathNavigation("invalid",QUrl::fromLocalFile(root.filePath("missing"))));
+        places.refresh(root.path());QCOMPARE(places.pathTargets(),before);QVERIFY(places.lastPathInput().isEmpty());
+        QVERIFY(places.rememberAcceptedFolder(root.path()));QCOMPARE(places.pathTargets(),before);QCOMPARE(recentPaths(places),QStringList{root.path()});
+    }
 };
 int main(int argc,char **argv){
     QCoreApplication app(argc,argv);const auto args=app.arguments();
@@ -69,6 +87,11 @@ int main(int argc,char **argv){
         if(args.size()!=5)return 2;
         QSettings::setPath(QSettings::NativeFormat,QSettings::UserScope,args[2]);FileChooserPlaces places;
         return places.rememberAcceptedFolder(args[3])&&places.rememberPathInput(args[4])?0:1;
+    }
+    if(args.value(1)=="--path-helper"){
+        if(args.size()!=5)return 2;
+        QSettings::setPath(QSettings::NativeFormat,QSettings::UserScope,args[2]);FileChooserPlaces places;
+        return places.rememberPathNavigation(args[4],QUrl::fromLocalFile(args[3]))?0:1;
     }
     PlacesTests tests;return QTest::qExec(&tests,argc,argv);
 }

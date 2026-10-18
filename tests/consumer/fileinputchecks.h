@@ -82,7 +82,7 @@ static void runFileInputConsumer(QQuickWindow *window,QGuiApplication &app,const
     for(const auto &name:{"one.txt","two.txt","photo.png","spaces in name.txt"}){
         QFile file(directory.filePath(name));if(!check(file.open(QIODevice::WriteOnly)&&file.write("Avelino controlled file-input fixture\n")>0,"Controlled fixture write failed"))return;
     }
-    if(!check(directory.mkdir("folder")&&directory.mkdir("untitled folder"),"Controlled folder missing"))return;
+    if(!check(directory.mkdir("folder")&&directory.mkdir("untitled folder")&&directory.mkpath("Alpha/Child")&&directory.mkdir("Alphabet")&&directory.mkdir("Alpine"),"Controlled folder missing"))return;
     {QFile file(directory.filePath("folder/child.txt"));if(!check(file.open(QIODevice::WriteOnly)&&file.write("Avelino child fixture\n")>0,"Controlled child missing"))return;}
     if(!check(QFile::link(directory.filePath("one.txt"),directory.filePath("symlink.txt")),"Controlled alias missing"))return;
     window->setProperty("fixtureFolder",QUrl::fromLocalFile(root.path()));
@@ -254,6 +254,51 @@ static void runFileInputConsumer(QQuickWindow *window,QGuiApplication &app,const
     QTest::keyClick(visibleLocationEntry(0)->window(),Qt::Key_Escape);++keys;QTest::qWait(40);
     if(!click(findVisualItem(content(),"bleeckerFileChooserCancel"))||!check(state()["results"].toArray().size()==1,"Location cancellation changed the owner"))return;
     record("location-history-owner-and-cancel");
+    auto goTo=[&]{return chooser()->property("goToDialog").value<QObject*>();};
+    auto goToPath=[&]{return chooser()->property("pathInput").value<QQuickItem*>();};
+    auto openGoTo=[&]{
+        QElapsedTimer focus;focus.start();while(focus.elapsed()<5000&&(!content()->window()->isActive()||!content()->window()->activeFocusItem()))QTest::qWait(10);
+        if(!check(content()->window()->isActive()&&content()->window()->activeFocusItem(),"Chooser focus was not restored before GoTo keyboard input"))return false;
+        QTest::keyClick(content()->window(),Qt::Key_G,Qt::ControlModifier|Qt::ShiftModifier);++keys;
+        QElapsedTimer elapsed;elapsed.start();while(elapsed.elapsed()<5000&&(!goTo()->property("visible").toBool()||!goToPath()->hasActiveFocus()))QTest::qWait(10);
+        return check(goTo()->property("visible").toBool()&&goToPath()->hasActiveFocus()&&goToPath()->window()!=content()->window(),"Separate GoTo window/focus missing")
+            &&check(QTest::qWaitForWindowExposed(goToPath()->window(),5000)&&popupReady(goToPath()->window()),"GoTo window did not expose a stable frame");
+    };
+    auto enterGoTo=[&](const QString &input){
+        QTest::keyClick(goToPath()->window(),Qt::Key_A,Qt::ControlModifier);++keys;
+        for(const auto key:input.toLatin1()){QTest::keyClick(goToPath()->window(),key);++keys;}
+        return check(goToPath()->property("text").toString()==input,"GoTo raw input did not reach the field");
+    };
+    auto submitGoTo=[&]{QTest::keyClick(goToPath()->window(),Qt::Key_Return);++keys;QTest::qWait(40);};
+    if(!configure(standard,QJsonArray{"text/plain"})||!open()||!selectRow(0,"one.txt"))return;
+    const auto goToSelection=browser()->property("selectedUrls").toList();
+    if(!selectRow(0,"photo.png")||!check(browser()->property("selectedUrls").toList()==goToSelection,"Ordinary PNG click changed the text-only selection")||!openGoTo()||!enterGoTo(directory.filePath("missing")))return;
+    submitGoTo();
+    if(!check(goTo()->property("visible").toBool()&&browser()->property("selectedUrls").toList()==goToSelection&&browser()->property("error").toString().isEmpty(),"Invalid GoTo changed the owner selection or folder error")||!save(goToPath()->window(),"go-to-invalid"))return;
+    QTest::keyClick(goToPath()->window(),Qt::Key_Escape);++keys;QTest::qWait(40);
+    if(!check(!goTo()->property("visible").toBool()&&browser()->property("active").toBool()&&browser()->property("selectedUrls").toList()==goToSelection&&state()["results"].toArray().isEmpty(),"GoTo Escape submitted or cancelled its owner"))return;
+    record("go-to-invalid-cancel-keeps-selection");
+    if(!openGoTo()||!enterGoTo(directory.filePath("Al")))return;
+    QTest::keyClick(goToPath()->window(),Qt::Key_Down);++keys;
+    auto suggestions=goTo()->property("suggestions").value<QObject*>();
+    if(!check(suggestions&&suggestions->property("selectedUrl").toUrl()==QUrl::fromLocalFile(directory.filePath("Alpine"))&&goToPath()->property("text").toString()==directory.filePath("Al"),"GoTo Down rewrote raw text or selected the wrong proposal")||!save(goToPath()->window(),"go-to-prefix"))return;
+    submitGoTo();
+    auto places=browser()->property("places").value<QObject*>();
+    if(!check(!goTo()->property("visible").toBool()&&browser()->property("folderPath").toString()==directory.filePath("Alpine")&&state()["results"].toArray().isEmpty()&&places->property("lastPathInput").toString()==directory.filePath("Al"),"GoTo navigation did not retain literal input independently of its selected target"))return;
+    record("go-to-suggestion-navigation");
+    if(!openGoTo()||!check(goToPath()->property("text").toString()==directory.filePath("Al"),"GoTo raw input did not persist")||!click(findVisualItem(goTo()->property("contentItem").value<QQuickItem*>(),"bleeckerFileChooserGoToClear"))||!check(goTo()->property("visible").toBool()&&goToPath()->property("text").toString().isEmpty(),"Nonempty GoTo clear dismissed the sheet")||!save(goToPath()->window(),"go-to-recents"))return;
+    QTest::keyClick(goToPath()->window(),Qt::Key_Down);++keys;submitGoTo();
+    if(!check(!goTo()->property("visible").toBool()&&places->property("hasPathInput").toBool()&&places->property("lastPathInput").toString().isEmpty()&&places->property("pathTargets").toList().first().toMap()["url"].toUrl()==QUrl::fromLocalFile(directory.filePath("Alpine")),"Selected recent target did not persist empty input independently"))return;
+    record("go-to-empty-input-recent-navigation");
+    if(!openGoTo()||!enterGoTo(directory.filePath("photo.png")))return;submitGoTo();
+    if(!check(!goTo()->property("visible").toBool()&&browser()->property("canAccept").toBool()&&browser()->property("selectedUrls").toList()==QVariantList{QUrl::fromLocalFile(directory.filePath("photo.png"))}&&state()["results"].toArray().isEmpty(),"GoTo PNG route did not select without submitting")||!save(content()->window(),"go-to-file-selected"))return;
+    record("go-to-nonmatching-file-selected");
+    if(!click(findVisualItem(content(),"bleeckerFileChooserOpen"))||!check(state()["results"].toArray().size()==1&&QUrl(state()["results"].toArray()[0].toObject()["urls"].toArray()[0].toString()).toLocalFile()==directory.filePath("photo.png"),"GoTo path-selected result changed at owner acceptance"))return;
+    record("go-to-file-owner-result");
+    if(!configure(standard,QJsonArray{"text/plain"})||!open()||!openGoTo()||!check(goToPath()->property("text").toString()==directory.filePath("photo.png"),"Fresh consumer did not load the last GoTo raw input")||!click(findVisualItem(goTo()->property("contentItem").value<QQuickItem*>(),"bleeckerFileChooserGoToClear"))||!save(goToPath()->window(),"go-to-persisted-targets"))return;
+    QTest::keyClick(goToPath()->window(),Qt::Key_Escape);++keys;QTest::qWait(40);
+    if(!click(findVisualItem(content(),"bleeckerFileChooserCancel"))||!check(state()["results"].toArray().isEmpty(),"Fresh GoTo cancellation changed owner results"))return;
+    record("go-to-remount-and-cancel");
     if(!configure(standard,QJsonArray{"text/plain"})||!open()||!selectRow(0,"folder")||!check(browser()->property("count").toInt()==2&&!browser()->property("canAccept").toBool(),"Directory navigation selected an ineligible directory")||!selectRow(1,"child.txt"))return;
     if(!save(content()->window(),"directory-columns"))return;
     record("child-selected");
@@ -264,7 +309,7 @@ static void runFileInputConsumer(QQuickWindow *window,QGuiApplication &app,const
     QJsonObject report{{"accepted",false},{"reference",native["reference"]},{"fixture","file-input"},{"qt",qVersion()},{"platform",QGuiApplication::platformName()},
         {"graphicsApi",int(window->rendererInterface()->graphicsApi())},{"width",window->width()},{"height",window->height()},
         {"popupCaptureMethod","QQuickItem::grabToImage of the entire popup window content item at native DPR; no cropping or resizing"},
-        {"structuralChecks","passed"},{"images",44},{"closedImages",32},{"popupImages",11},{"ownerResultImages",1},
+        {"structuralChecks","passed"},{"images",49},{"closedImages",32},{"popupImages",16},{"ownerResultImages",1},
         {"appearance",parser.isSet("dark")?"dark":"light"},{"textScale",textScale},{"dpr",window->devicePixelRatio()},
         {"closed",closed},{"sizing",sizing},{"nativeCompleteFramesMatch",frames},{"nativeContractStatesMatch",states},
         {"applicationActive",QGuiApplication::applicationState()==Qt::ApplicationActive},{"windowActive",window->isActive()},
@@ -272,6 +317,7 @@ static void runFileInputConsumer(QQuickWindow *window,QGuiApplication &app,const
         {"nativeRasterAcceptance","pending"},{"physicalInputAcceptance","pending"},{"readerAcceptance","pending"},{"nativeAccessibilityAcceptance","unobserved"},
         {"nativeFrameComparisonStatus",frames==32?"passed":"failed"},
         {"actions",actions},{"accessibility",accessibility},{"pointerEvents",pointers},{"keyEvents",keys},
+        {"goToRankingAcceptance","pending"},{"goToRelativeResolutionAcceptance","pending"},{"goToHistoryCapacityAcceptance","pending"},
         {"inputMethod","QTest actual owned controls; physical input and reader acceptance pending"}};
     if(parser.isSet("evidence")&&!check(window->grabWindow().save(prefix+".png"),"Session window capture failed"))return;
     if(!prefix.isEmpty()){QFile output(prefix+".json");if(!check(output.open(QIODevice::WriteOnly|QIODevice::NewOnly),"Report destination unavailable"))return;output.write(QJsonDocument(report).toJson());}

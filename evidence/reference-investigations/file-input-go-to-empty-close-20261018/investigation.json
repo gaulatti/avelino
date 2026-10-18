@@ -1,0 +1,48 @@
+{
+  "accepted": false,
+  "reference": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+  "baseGit": "78708f69205379cc858f596a913bb32063c16b9e",
+  "helperSha256": "974408b4e601503878562482be61f605d12bd82f0b8d8f2e005c1576f57fc025",
+  "reusedExecutable": true,
+  "independentBehaviorSourceReplay": false,
+  "physicalInput": false,
+  "strictRasterAcceptance": "pending",
+  "nativeReaderAcceptance": "pending",
+  "completeContextCoverage": "pending",
+  "excludedSetupImages": {
+    "bare-child-slash-proposal.jpg": {
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-go-to-relative-20261018-v1/output/bare-child-slash-proposal.jpg",
+      "sha256": "1c0c4f42be0f9d3c778a381172cc7a6c2fc016b9d202b01c1af3b7b6af924a90",
+      "bytes": 19701
+    },
+    "dot-child-proposal.jpg": {
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-go-to-relative-20261018-v1/output/dot-child-proposal.jpg",
+      "sha256": "ab79270ecd87118ddbee0016b1a6e59f76c6492c946df4fbb894b7575b4c8557",
+      "bytes": 19880
+    },
+    "nested-proposal.jpg": {
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-go-to-relative-20261018-v1/output/nested-proposal.jpg",
+      "sha256": "d7069f804c011a06bff4714a592a8e9512dd7ec0f8907df24fbbc9d63b23bebc",
+      "bytes": 20973
+    },
+    "root-retry-current.jpg": {
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-go-to-relative-20261018-v1/output/root-retry-current.jpg",
+      "sha256": "4c351edaae540c5411186fa4f58e64d84d9f3b5f3a20312103dd4b336869c8c5",
+      "bytes": 25992
+    }
+  },
+  "expectedImagesChanged": false,
+  "tolerance": "none",
+  "approvedExceptions": [],
+  "observations": {
+    "emptyCloseDismisses": true,
+    "relativeResolution": "unproven",
+    "retryReturnTarget": "unproven"
+  },
+  "diagnostics": [
+    "The first setup clicks Close while the input is empty, dismissing the prompt. Subsequent typed input does not establish the intended absolute folder; its prefix is lost before a partial path appears in a reopened prompt.",
+    "Relative trials from this setup do not establish their intended starting folder and are excluded.",
+    "The retry captures the intended full absolute proposal, but Return does not produce a verified target-folder state; a later capture shows slash. No path-resolution conclusion is drawn."
+  ],
+  "scope": "One reused-helper terminal process, 17 complete AX captures, zero callbacks. Only the initial empty-field Close transition is asserted. Four images of the excluded setup remain external with raw hashes."
+}

@@ -58,6 +58,9 @@ public:
     Q_INVOKABLE void activate(int index);
     Q_INVOKABLE void acceptSelection();
     Q_INVOKABLE bool eligible(const QUrl &url) const;
+    bool selectPath(const QUrl &url);
+    QUrl pathSelectedUrl()const{return m_selected.contains(m_pathSelected.toString())?m_pathSelected:QUrl();}
+    bool pathFileAvailable(const QUrl &url)const;
     static QString contentTypeError(const QVariantList &value);
 signals:
     void allowedContentTypesChanged();
@@ -82,6 +85,7 @@ private:
     QList<Row> m_rows;
     QSet<QString> m_selected;
     QUrl m_folder;
+    QUrl m_pathSelected;
     QFileSystemWatcher m_watcher;
     int m_current=-1,m_anchor=-1,m_errorCode=0;
     QString m_error,m_typeError;

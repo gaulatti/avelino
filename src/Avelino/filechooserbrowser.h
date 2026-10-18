@@ -50,6 +50,7 @@ public:
     FileChooserPlaces *places()const{return m_places;}
     Q_INVOKABLE void refreshPlaces();
     Q_INVOKABLE bool chooseLocation(const QUrl &url);
+    Q_INVOKABLE bool choosePath(const QUrl &url);
     Q_INVOKABLE QUrl defaultFolder() const;
     Q_INVOKABLE FileChooserModel *modelAt(int column) const;
     Q_INVOKABLE bool open(const QUrl &initialFolder);

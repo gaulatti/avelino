@@ -187,6 +187,13 @@ target_link_libraries(AvelinoFilePlacesTests PRIVATE Qt6::Qml Qt6::Test)
 target_include_directories(AvelinoFilePlacesTests PRIVATE ${PROJECT_SOURCE_DIR}/src/Avelino)
 add_test(NAME file-chooser-places COMMAND AvelinoFilePlacesTests)
 
+qt_add_executable(AvelinoFilePathTests filechooserpaths.cpp
+    ${PROJECT_SOURCE_DIR}/src/Avelino/filechooserpaths.cpp
+    ${PROJECT_SOURCE_DIR}/src/Avelino/filechooserpaths.h)
+target_link_libraries(AvelinoFilePathTests PRIVATE Qt6::Qml Qt6::Test)
+target_include_directories(AvelinoFilePathTests PRIVATE ${PROJECT_SOURCE_DIR}/src/Avelino)
+add_test(NAME file-chooser-paths COMMAND AvelinoFilePathTests)
+
 qt_add_executable(AvelinoFileInputUiTests fileinput-ui.cpp)
 qt_add_resources(AvelinoFileInputUiTests file_input_ui_fixtures PREFIX "/file-input-tests"
     FILES fileinput-fixture.qml)

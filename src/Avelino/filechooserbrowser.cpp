@@ -37,22 +37,43 @@ bool FileChooserBrowser::chooseLocation(const QUrl &url){
     if(path==QDir::cleanPath(folderPath())&&error().isEmpty()){emit focusRequested(m_focus);return true;}
     return navigatePath(path);
 }
+bool FileChooserBrowser::choosePath(const QUrl &url){
+    if(!m_active||!m_typeError.isEmpty()||!url.isValid()||!url.isLocalFile()||url.hasQuery()||url.hasFragment()
+        ||!QDir::isAbsolutePath(url.toLocalFile()))return false;
+    const QFileInfo target(QDir::cleanPath(url.toLocalFile()));
+    if(!target.exists()||(!target.isDir()&&!target.isFile()))return false;
+    const auto folder=target.isDir()?target.absoluteFilePath():target.absolutePath();
+    // Invalid GoTo targets must not replace the visible folder or its selection.
+    FileChooserModel probe;probe.setAllowedContentTypes(m_types);
+    if(!probe.open(QUrl::fromLocalFile(folder))||!probe.error().isEmpty()||(!target.isDir()&&!probe.canChooseFiles()))return false;
+    const auto location=QUrl::fromLocalFile(folder);
+    if(!chooseLocation(location))return false;
+    if(target.isDir())return true;
+    const auto file=QUrl::fromLocalFile(target.absoluteFilePath());
+    if(m_viewMode!="columns")return m_listing->selectPath(file);
+    clearOtherSelections(count()-1);m_focus=m_selection=count()-1;
+    return modelAt(m_selection)->selectPath(file);
+}
 void FileChooserBrowser::setViewMode(const QString &mode){
     if(mode==m_viewMode)return;
     if(mode!="columns"&&mode!="list"&&mode!="icons"){
         if(auto engine=qjsEngine(this))engine->throwError(QStringLiteral("File chooser view must be columns, list or icons"));
         else qWarning("File chooser view must be columns, list or icons");return;
     }
-    QVariantList selected;
-    if(m_viewMode!="columns")selected=m_listing->selection();
+    QVariantList selected;QUrl pathSelected;
+    if(m_viewMode!="columns"){selected=m_listing->selection();pathSelected=m_listing->pathSelectedUrl();}
     else if(auto model=selectionModel())for(int i=0;i<model->count();++i){auto value=model->entry(i);if(value["selected"].toBool())selected.append(value["url"]);}
+    if(m_viewMode=="columns"&&selectionModel())pathSelected=selectionModel()->pathSelectedUrl();
     const auto previous=m_viewMode;m_viewMode=mode;
     if(mode!="columns"){
         m_listing->setTreeMode(mode=="list");m_listing->setRoot(m_active?modelAt(count()-1):nullptr);
-        if(previous=="columns")m_listing->setSelection(selected);
+        if(previous=="columns")m_listing->setSelection(selected,pathSelected);
     }else{
         clearOtherSelections(-1);m_focus=m_selection=count()-1;
-        if(auto model=selectionModel())for(int i=0;i<model->count();++i){const auto value=model->entry(i);if(value["eligible"].toBool()&&selected.contains(value["url"]))model->select(i,Qt::ControlModifier);}
+        if(auto model=selectionModel()){
+            if(!pathSelected.isEmpty())model->selectPath(pathSelected);
+            for(int i=0;i<model->count();++i){const auto value=model->entry(i);if(value["eligible"].toBool()&&selected.contains(value["url"]))model->select(i,Qt::ControlModifier);}
+        }
         m_listing->setRoot(nullptr);
     }
     emit viewModeChanged();emit metadataChanged();emit focusRequested(m_focus);

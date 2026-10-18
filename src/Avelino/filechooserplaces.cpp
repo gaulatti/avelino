@@ -9,7 +9,10 @@
 
 namespace {
 constexpr int recentLimit=10;
-struct SavedPlaces {QStringList folders;QString input;bool hasInput=false;};
+// The observed empty GoTo field exposes five recent targets, independently of
+// the ten success-only Where folders. General native history capacity is pending.
+constexpr int pathTargetLimit=5;
+struct SavedPlaces {QStringList folders,targets;QString input;bool hasInput=false;};
 void configure(QSettings &settings){settings.setFallbacksEnabled(false);settings.sync();}
 QString settingsError(QSettings &settings){
     return settings.status()==QSettings::NoError?QString():QStringLiteral("Recent places could not be read.");
@@ -43,6 +46,19 @@ QString load(QSettings &settings,SavedPlaces &saved){
         if(input.metaType().id()!=QMetaType::QString)return QStringLiteral("The saved folder input is invalid.");
         saved.input=input.toString();
     }
+    const auto targets=settings.value("recentPathTargets");
+    if(targets.isValid()){
+        if(targets.metaType().id()!=QMetaType::QStringList&&targets.metaType().id()!=QMetaType::QString)
+            return QStringLiteral("Saved folder targets are invalid.");
+        saved.targets=targets.toStringList();
+        if(saved.targets.size()>pathTargetLimit)return QStringLiteral("Saved folder targets are invalid.");
+        QSet<QString> seen;
+        for(auto &target:saved.targets){
+            const auto path=localPath(QUrl(target));
+            if(path.isEmpty()||seen.contains(path))return QStringLiteral("Saved folder targets are invalid.");
+            seen.insert(path);target=QUrl::fromLocalFile(path).toString(QUrl::FullyEncoded);
+        }
+    }
     return {};
 }
 QString label(const QString &path){
@@ -57,7 +73,12 @@ void FileChooserPlaces::refresh(const QString &currentFolder){
     m_currentFolder=currentFolder;
     QSettings settings(QSettings::NativeFormat,QSettings::UserScope,"Avelino","FileChooser");configure(settings);
     SavedPlaces saved;m_readError=load(settings,saved);m_hasPathInput=m_readError.isEmpty()&&saved.hasInput;
-    m_lastPathInput=m_hasPathInput?saved.input:QString();m_entries.clear();
+    m_lastPathInput=m_hasPathInput?saved.input:QString();m_entries.clear();m_pathTargets.clear();
+    if(m_readError.isEmpty())for(const auto &target:saved.targets){
+        const auto path=localPath(QUrl(target));
+        m_pathTargets.append(QVariantMap{{"label",QFileInfo(path).fileName()},{"path",path},
+            {"url",QUrl::fromLocalFile(path)},{"available",QFileInfo::exists(path)}});
+    }
     if(QDir::isAbsolutePath(currentFolder)){
         auto path=QDir::cleanPath(currentFolder);
         for(;;){
@@ -72,7 +93,7 @@ void FileChooserPlaces::refresh(const QString &currentFolder){
     }
     emit changed();
 }
-bool FileChooserPlaces::save(const QString *folder,const QString *input){
+bool FileChooserPlaces::save(const QString *folder,const QString *input,const QString *target){
     QSettings settings(QSettings::NativeFormat,QSettings::UserScope,"Avelino","FileChooser");
     settings.setFallbacksEnabled(false);
     const QFileInfo location(settings.fileName());
@@ -94,6 +115,12 @@ bool FileChooserPlaces::save(const QString *folder,const QString *input){
         settings.setValue("recentFolders",saved.folders);
     }
     if(input)settings.setValue("lastPathInput",*input);
+    if(target){
+        const auto encoded=QUrl::fromLocalFile(*target).toString(QUrl::FullyEncoded);
+        saved.targets.removeAll(encoded);saved.targets.prepend(encoded);
+        if(saved.targets.size()>pathTargetLimit)saved.targets.resize(pathTargetLimit);
+        settings.setValue("recentPathTargets",saved.targets);
+    }
     settings.setValue("version",1);settings.sync();
     const bool success=settings.status()==QSettings::NoError;
     m_writeError=success?QString():QStringLiteral("Recent places could not be saved.");
@@ -107,3 +134,8 @@ bool FileChooserPlaces::rememberAcceptedFolder(const QString &folder){
     return save(&path,nullptr);
 }
 bool FileChooserPlaces::rememberPathInput(const QString &input){return save(nullptr,&input);}
+bool FileChooserPlaces::rememberPathNavigation(const QString &input,const QUrl &target){
+    const auto path=localPath(target);
+    if(path.isEmpty()||!QFileInfo::exists(path))return false;
+    return save(nullptr,&input,&path);
+}

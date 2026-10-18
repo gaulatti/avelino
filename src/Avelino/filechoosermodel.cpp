@@ -126,6 +126,22 @@ QUrl FileChooserModel::localUrl(const QFileInfo &info,bool canonical){
 bool FileChooserModel::eligible(const QUrl &url) const {
     return url.isLocalFile()&&!url.hasQuery()&&!url.hasFragment()&&matches(QFileInfo(url.toLocalFile()));
 }
+bool FileChooserModel::pathFileAvailable(const QUrl &url)const{
+    return m_active&&m_typeError.isEmpty()&&canChooseFiles()&&url.isLocalFile()
+        &&!url.hasQuery()&&!url.hasFragment()&&QDir::isAbsolutePath(url.toLocalFile())&&QFileInfo(url.toLocalFile()).isFile();
+}
+bool FileChooserModel::selectPath(const QUrl &url){
+    if(!pathFileAvailable(url))return false;
+    const QFileInfo info(url.toLocalFile());
+    if(QDir::cleanPath(info.absolutePath())!=QDir::cleanPath(folderPath()))return false;
+    m_pathSelected=QUrl::fromLocalFile(info.absoluteFilePath());
+    m_selected={m_pathSelected.toString()};
+    // A deliberately addressed hidden file must have a visible selection too.
+    // Ordinary listing/filter eligibility remains unchanged.
+    refresh();
+    for(int i=0;i<m_rows.size();++i)if(m_rows[i].url==m_pathSelected){m_current=m_anchor=i;selectionUpdated();return true;}
+    return false;
+}
 QUrl FileChooserModel::defaultFolder() const {
     return QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation));
 }
@@ -147,7 +163,8 @@ bool FileChooserModel::reload(QUrl folder,bool keepSelection){
             errno=0;
             while(auto entry=readdir(directory)){
                 const auto name=QFile::decodeName(entry->d_name);
-                if(name.startsWith('.'))continue;
+                if(name=="."||name=="..")continue;
+                if(name.startsWith('.')&&QDir(folder.toLocalFile()).filePath(name)!=m_pathSelected.toLocalFile())continue;
                 QFileInfo info(QDir(folder.toLocalFile()).filePath(name));
                 rows.append({info,localUrl(info,false),matches(info)});
                 errno=0;
@@ -163,14 +180,14 @@ bool FileChooserModel::reload(QUrl folder,bool keepSelection){
     });
     const auto oldCurrent=m_current>=0&&m_current<m_rows.size()?m_rows[m_current].url:QUrl();
     beginResetModel();m_rows=rows;m_current=-1;m_anchor=-1;
-    if(!keepSelection)m_selected.clear();
+    if(!keepSelection){m_selected.clear();m_pathSelected=QUrl();}
     QSet<QString> retained;
     for(int i=0;i<m_rows.size();++i){
         const auto &row=m_rows[i];
-        if(row.eligible&&m_selected.contains(row.url.toString()))retained.insert(row.url.toString());
+        if((row.eligible||(row.url==m_pathSelected&&pathFileAvailable(row.url)))&&m_selected.contains(row.url.toString()))retained.insert(row.url.toString());
         if(row.url==oldCurrent)m_current=i;
     }
-    m_selected=retained;endResetModel();
+    m_selected=retained;if(!m_selected.contains(m_pathSelected.toString()))m_pathSelected=QUrl();endResetModel();
     const auto oldWatch=m_watcher.directories();if(!oldWatch.isEmpty())m_watcher.removePaths(oldWatch);
     const auto location=folder.isLocalFile()&&QDir::isAbsolutePath(folder.toLocalFile())
         ?QUrl::fromLocalFile(QDir::cleanPath(folder.toLocalFile())):folder;
@@ -184,7 +201,7 @@ bool FileChooserModel::open(const QUrl &initialFolder){
 }
 void FileChooserModel::cancel(){
     if(!m_active||m_completing)return;
-    m_active=false;m_selected.clear();m_current=m_anchor=-1;
+    m_active=false;m_selected.clear();m_pathSelected=QUrl();m_current=m_anchor=-1;
     const auto watch=m_watcher.directories();if(!watch.isEmpty())m_watcher.removePaths(watch);
     emit activeChanged();selectionUpdated();
 }
@@ -217,14 +234,15 @@ void FileChooserModel::select(int index,int modifiers){
         if(toggle&&m_selected.contains(key))m_selected.remove(key);else m_selected.insert(key);
         m_anchor=index;
     }
+    if(!m_selected.contains(m_pathSelected.toString()))m_pathSelected=QUrl();
     m_current=index;selectionUpdated();
 }
 void FileChooserModel::selectAll(){
-    if(!m_active)return;
+    if(!m_active)return;m_selected.clear();m_pathSelected=QUrl();
     for(const auto &row:m_rows)if(row.eligible)m_selected.insert(row.url.toString());
     selectionUpdated();
 }
-void FileChooserModel::clearSelection(){m_selected.clear();m_anchor=-1;selectionUpdated();}
+void FileChooserModel::clearSelection(){m_selected.clear();m_pathSelected=QUrl();m_anchor=-1;selectionUpdated();}
 void FileChooserModel::focusIndex(int index){
     if(index<0||index>=m_rows.size())return;
     m_current=index;emit selectionChanged();
@@ -254,7 +272,7 @@ void FileChooserModel::acceptSelection(){
     QVariantList urls;
     for(const auto &row:m_rows)if(m_selected.contains(row.url.toString())){
         const QFileInfo current(row.info.absoluteFilePath());
-        if(!matches(current)){setError("A selected item is no longer available for this file type",ENOENT);emit selectionChanged();return;}
+        if(row.url==m_pathSelected?!pathFileAvailable(row.url):!matches(current)){setError("A selected item is no longer available for this file type",ENOENT);emit selectionChanged();return;}
         const auto url=localUrl(current,true);
         if(url.isEmpty()){setError("A selected item could not be resolved",ENOENT);emit selectionChanged();return;}
         urls.append(url);

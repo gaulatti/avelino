@@ -21,6 +21,32 @@ class BrowserTests:public QObject {
     }
 private slots:
     void initTestCase(){QVERIFY(config.isValid());QSettings::setPath(QSettings::NativeFormat,QSettings::UserScope,config.path());}
+    void pathSelectedFilesKeepOrdinaryFilteringAcrossViewsAndRevalidateAtAccept(){
+        QTemporaryDir root;put(root.filePath("Alpha.txt"));put(root.filePath("Other.png"));
+        for(const auto &mode:{QString("columns"),QString("list"),QString("icons")}){
+            FileChooserBrowser browser;browser.setAllowedContentTypes({"text/plain"});QVERIFY(browser.open(QUrl::fromLocalFile(root.path())));browser.setViewMode(mode);
+            QSignalSpy result(&browser,&FileChooserBrowser::result);
+            const auto file=QUrl::fromLocalFile(root.filePath("Other.png"));
+            if(mode=="columns")browser.choose(0,row(browser.modelAt(0),"Other.png"));else browser.listing()->select(listed(browser.listing(),"Other.png"));
+            QVERIFY(browser.selectedUrls().isEmpty());QVERIFY(!browser.canAccept());QVERIFY(browser.choosePath(file));QCOMPARE(browser.selectedUrls(),QVariantList{file});QVERIFY(browser.canAccept());QVERIFY(result.isEmpty());
+            QVERIFY(!browser.modelAt(0)->entry(row(browser.modelAt(0),"Other.png"))["eligible"].toBool());
+            for(const auto &next:{QString("list"),QString("icons"),QString("columns")}){browser.setViewMode(next);QCOMPARE(browser.selectedUrls(),QVariantList{file});QVERIFY(browser.canAccept());}
+            browser.selectAll();QVERIFY(!browser.selectedUrls().contains(file));QVERIFY(browser.choosePath(file));
+            const auto selected=browser.selectedUrls();QVERIFY(!browser.choosePath(QUrl::fromLocalFile(root.filePath("missing"))));QCOMPARE(browser.selectedUrls(),selected);QCOMPARE(browser.folderPath(),root.path());QVERIFY(!browser.canGoBack());
+            browser.acceptSelection();QCOMPARE(result.size(),1);QCOMPARE(result[0][0].toMap()["urls"].toList(),QVariantList{file});
+        }
+        FileChooserBrowser removed;removed.setAllowedContentTypes({"text/plain"});QVERIFY(removed.open(QUrl::fromLocalFile(root.path())));removed.setViewMode("list");QSignalSpy result(&removed,&FileChooserBrowser::result);
+        QVERIFY(removed.choosePath(QUrl::fromLocalFile(root.filePath("Other.png"))));QVERIFY(QFile::remove(root.filePath("Other.png")));removed.acceptSelection();QVERIFY(result.isEmpty());QVERIFY(!removed.error().isEmpty());
+    }
+    void pathNavigationPreservesCurrentSelectionAndDirectoryOnlyRules(){
+        QTemporaryDir root;QVERIFY(QDir().mkdir(root.filePath("Folder")));put(root.filePath("Alpha.txt"));
+        FileChooserBrowser browser;browser.setAllowedContentTypes({"text/plain"});QVERIFY(browser.open(QUrl::fromLocalFile(root.path())));
+        browser.choose(0,row(browser.modelAt(0),"Alpha.txt"));const auto selected=browser.selectedUrls();
+        QVERIFY(browser.choosePath(QUrl::fromLocalFile(root.path())));QCOMPARE(browser.selectedUrls(),selected);QVERIFY(!browser.canGoBack());
+        QVERIFY(browser.choosePath(QUrl::fromLocalFile(root.filePath("Folder"))));QVERIFY(browser.selectedUrls().isEmpty());QVERIFY(browser.canGoBack());
+        FileChooserBrowser directories;directories.setAllowedContentTypes({"inode/directory"});QVERIFY(directories.open(QUrl::fromLocalFile(root.path())));
+        QVERIFY(!directories.choosePath(QUrl::fromLocalFile(root.filePath("Alpha.txt"))));QCOMPARE(directories.folderPath(),root.path());QVERIFY(directories.selectedUrls().isEmpty());
+    }
     void locationChoiceKeepsCurrentSelectionAndRecordsOnlySuccessfulLocation(){
         QTemporaryDir root;QVERIFY(QDir().mkdir(root.filePath("Folder")));put(root.filePath("Alpha.txt"));put(root.filePath("Folder/Child.txt"));
         QSettings settings("Avelino","FileChooser");settings.clear();settings.sync();

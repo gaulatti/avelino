@@ -33,7 +33,7 @@ void FileChooserListing::setRoot(FileChooserModel *root){
     if(root==m_root)return;
     disconnect(m_listingConnection);disconnect(m_typeConnection);disconnect(m_destroyConnection);
     for(auto model:m_children){disconnect(model,nullptr,this,nullptr);model->cancel();model->deleteLater();}
-    m_children.clear();m_root=root;m_selected.clear();m_current.clear();m_anchor.clear();m_error.clear();
+    m_children.clear();m_root=root;m_selected.clear();m_pathSelected=QUrl();m_current.clear();m_anchor.clear();m_error.clear();
     if(root){
         m_listingConnection=connect(root,&FileChooserModel::listingChanged,this,&FileChooserListing::scheduleRebuild);
         m_typeConnection=connect(root,&FileChooserModel::allowedContentTypesChanged,this,[this]{
@@ -91,8 +91,12 @@ void FileChooserListing::rebuild(){
     if(m_building)return;m_building=true;beginResetModel();m_rows.clear();
     if(m_root&&m_root->active())appendRows(m_root,0,{});
     QSet<QString> visible;
-    for(const auto &row:m_rows)if(row.value["eligible"].toBool()||row.value["directory"].toBool())visible.insert(row.value["url"].toUrl().toString());
+    for(const auto &row:m_rows){
+        const auto url=row.value["url"].toUrl();
+        if(row.value["eligible"].toBool()||row.value["directory"].toBool()||(url==m_pathSelected&&m_root->pathFileAvailable(url)))visible.insert(url.toString());
+    }
     m_selected.intersect(visible);
+    if(!m_selected.contains(m_pathSelected.toString()))m_pathSelected=QUrl();
     if(!visible.contains(m_current))m_current.clear();
     if(!visible.contains(m_anchor))m_anchor.clear();
     endResetModel();m_building=false;emit changed();
@@ -110,12 +114,20 @@ QVariantMap FileChooserListing::entry(int row)const{
 QVariantList FileChooserListing::selection()const{
     QVariantList result;for(const auto &row:m_rows)if(m_selected.contains(row.value["url"].toUrl().toString()))result.append(row.value["url"]);return result;
 }
-void FileChooserListing::setSelection(const QVariantList &urls){
+void FileChooserListing::setSelection(const QVariantList &urls,const QUrl &pathSelected){
+    m_pathSelected=QUrl();
+    if(!pathSelected.isEmpty())selectPath(pathSelected);
     m_selected.clear();for(const auto &url:urls)m_selected.insert(url.toUrl().toString());rebuild();
     for(const auto &row:m_rows)if(m_selected.contains(row.value["url"].toUrl().toString())){m_current=m_anchor=row.value["url"].toUrl().toString();break;}
     selectionChanged();
 }
+bool FileChooserListing::selectPath(const QUrl &url){
+    if(!m_root||!m_root->selectPath(url))return false;
+    m_pathSelected=m_root->pathSelectedUrl();m_selected={m_pathSelected.toString()};
+    m_current=m_anchor=m_pathSelected.toString();m_error.clear();rebuild();selectionChanged();return true;
+}
 void FileChooserListing::selectionChanged(){
+    if(!m_selected.contains(m_pathSelected.toString()))m_pathSelected=QUrl();
     if(!m_rows.isEmpty())emit dataChanged(index(0),index(m_rows.size()-1),{SelectedRole});emit changed();
 }
 void FileChooserListing::select(int row,int modifiers){
@@ -174,7 +186,7 @@ void FileChooserListing::sortBy(const QString &key){
 }
 QVariantList FileChooserListing::selectedUrls()const{
     QList<Row> selected;
-    for(const auto &row:m_rows)if(row.value["eligible"].toBool()&&m_selected.contains(row.value["url"].toUrl().toString()))selected.append(row);
+    for(const auto &row:m_rows)if((row.value["eligible"].toBool()||row.value["url"].toUrl()==m_pathSelected)&&m_selected.contains(row.value["url"].toUrl().toString()))selected.append(row);
     // The measured native cross-level case returns its child group first.
     // Broader cross-directory ordering remains an explicit parity gate.
     std::stable_sort(selected.begin(),selected.end(),[](const Row &a,const Row &b){return a.depth>b.depth;});
@@ -202,7 +214,7 @@ void FileChooserListing::activate(int row){
 void FileChooserListing::acceptSelection(){
     if(!canOpen()||m_completing)return;
     const auto navigation=navigationTarget();if(!navigation.isEmpty()){emit navigateRequested(navigation);return;}
-    for(const auto &url:selection())if(!m_root->eligible(url.toUrl())||QFileInfo(url.toUrl().toLocalFile()).canonicalFilePath().isEmpty()){
+    for(const auto &url:selection())if((url.toUrl()==m_pathSelected?!m_root->pathFileAvailable(url.toUrl()):!m_root->eligible(url.toUrl()))||QFileInfo(url.toUrl().toLocalFile()).canonicalFilePath().isEmpty()){
         m_error="A selected item is no longer available for this file type";emit changed();return;
     }
     auto urls=selectedUrls();

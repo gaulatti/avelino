@@ -1,0 +1,24 @@
+{
+  "accepted": false,
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--rm",
+    "--ulimit",
+    "core=0",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/file-input-go-to-package-v2/runtime:/consumer-check",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/file-input-go-to-display-v2:/display-driver",
+    "-w",
+    "/consumer-check",
+    "avelino-toolchain:recovered-weston13-v2-20261017-qt6.8.3",
+    "python3",
+    "-c",
+    "from pathlib import Path; import os; assert not Path('/work/src/Avelino').exists(); assert not Path('/consumer-check/consumer').exists(); assert not Path('/consumer-check/consumer-build/CMakeCache.txt').exists(); os.execv('/bin/bash',['bash','/display-driver/check-display-sessions-file-input.sh','/display-driver/output'])"
+  ],
+  "exitCode": 0,
+  "seconds": 91.98952925007325
+}

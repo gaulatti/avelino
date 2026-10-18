@@ -1,4 +1,5 @@
 #include "filechooserbrowser.h"
+#include "filechooserpaths.h"
 #include <QAccessible>
 #include <QDir>
 #include <QFile>
@@ -114,7 +115,7 @@ private slots:
         click(find(content,"bleeckerFileChooserLocation"));QQuickItem *first=nullptr;QTRY_VERIFY((first=findVisible("bleeckerFileChooserLocation_0")));
         QTest::keyClick(first->window(),Qt::Key_Escape);QTRY_VERIFY(!findVisible("bleeckerFileChooserLocation_0"));QVERIFY(browser->active());
         click(find(content,"bleeckerFileChooserLocation"));QTRY_VERIFY(findVisible("bleeckerFileChooserLocation_0"));
-        click(chooser->property("pathInput").value<QQuickItem*>());
+        click(find(content,"bleeckerFileChooserError"));
         QTRY_VERIFY(!findVisible("bleeckerFileChooserLocation_0"));QVERIFY(browser->active());QVERIFY(results(fixture).isEmpty());
         click(find(content,"bleeckerFileChooserRow0_"+QString::number(row(browser->modelAt(0),"Alpha.txt"))));click(find(content,"bleeckerFileChooserOpen"));QTRY_COMPARE(results(fixture).size(),1);
         fixture->setProperty("mounted",false);QTRY_VERIFY(!fixture->findChild<QQuickItem*>("fileInput"));fixture->setProperty("mounted",true);
@@ -297,33 +298,55 @@ private slots:
         accept->actionInterface()->doAction(QAccessibleActionInterface::pressAction());QTRY_COMPARE(results(fixture).size(),1);QVERIFY(!browser->active());
         QCOMPARE(results(fixture)[0].toMap()["urls"].toList(),QVariantList{QUrl::fromLocalFile(root.filePath("one.txt"))});
     }
-    void actualLocationErrorRecoveryAndKeyboardAccept(){
+    void actualGoToInvalidCancelClearSuggestionsAndPathSelectedFile(){
         FileInputAnnouncementCapture announcements;
-        QTemporaryDir directory;QDir root(directory.path());put(root.filePath("one.txt"));
+        QTemporaryDir directory;QDir root(directory.path());put(root.filePath("one.txt"));put(root.filePath("Other.png"));
+        QVERIFY(root.mkpath("Alpha/Child"));QVERIFY(root.mkdir("Alphabet"));QVERIFY(root.mkdir("Alpine"));
         QQuickView view;QVERIFY(load(view,directory));auto fixture=view.rootObject();auto control=fixture->findChild<QQuickItem*>("fileInput");QVERIFY(control);
         auto browser=control->property("browser").value<FileChooserBrowser*>();auto chooser=control->property("chooser").value<QObject*>();
         click(control->property("inputItem").value<QQuickItem*>());QTRY_VERIFY(browser->active());
         auto content=chooser->property("contentItem").value<QQuickItem*>();QTRY_VERIFY(content&&content->window());
-        auto path=chooser->property("pathInput").value<QQuickItem*>();QVERIFY(path);
-        auto enterPath=[&](const QString &text){
-            QTest::keyClick(content->window(),Qt::Key_L,Qt::ControlModifier);QVERIFY(path->hasActiveFocus());
-            QTest::keyClick(content->window(),Qt::Key_A,Qt::ControlModifier);
-            for(const auto character:text.toLatin1())QTest::keyClick(content->window(),character);
-            QTest::keyClick(content->window(),Qt::Key_Return);QTest::qWait(30);
-        };
-        enterPath(directory.path()+"/missing");QVERIFY(browser->active());QVERIFY(!browser->error().isEmpty());QVERIFY(!browser->canAccept());QVERIFY(results(fixture).isEmpty());
-        QTRY_COMPARE(announcements.messages.size(),1);
-        QCOMPARE(announcements.messages[0].text,browser->error());
-        QVERIFY(announcements.messages[0].politeness==QAccessible::AnnouncementPoliteness::Assertive);
-        QVERIFY(announcements.messages[0].source);QCOMPARE(announcements.messages[0].source->objectName(),QString("bleeckerFileChooserError"));
-        browser->modelAt(0)->refresh();QTest::qWait(30);QCOMPARE(announcements.messages.size(),1);
-        enterPath(directory.path()+"/missing");QTRY_COMPARE(announcements.messages.size(),2);
-        QCOMPARE(announcements.messages[1].text,browser->error());
-        capture(content->window(),"location-error");
-        enterPath(directory.path());QVERIFY(browser->error().isEmpty());QTRY_VERIFY(find(content,"bleeckerFileChooserRow0_0"));
-        QCOMPARE(announcements.messages.size(),2);
-        click(find(content,"bleeckerFileChooserRow0_0"));QVERIFY(browser->canAccept());QTest::keyClick(content->window(),Qt::Key_Return);
-        QTRY_COMPARE(results(fixture).size(),1);QVERIFY(!browser->active());QVERIFY(fixture->property("visibleAtCallback").toBool());
+        auto prompt=chooser->property("goToDialog").value<QObject*>();QVERIFY(prompt);auto path=chooser->property("pathInput").value<QQuickItem*>();QVERIFY(path);
+        auto suggestions=prompt->property("suggestions").value<FileChooserPaths*>();QVERIFY(suggestions);
+        click(find(content,"bleeckerFileChooserRow0_"+QString::number(row(browser->modelAt(0),"one.txt"))));const auto before=browser->selectedUrls();
+        QTest::keyClick(content->window(),Qt::Key_G,Qt::ControlModifier|Qt::ShiftModifier);QTRY_VERIFY(prompt->property("visible").toBool());QTRY_VERIFY(path->hasActiveFocus());
+        QVERIFY(path->window()!=content->window());auto promptContent=prompt->property("contentItem").value<QQuickItem*>();QVERIFY(promptContent);
+        auto accessible=QAccessible::queryAccessibleInterface(promptContent->parentItem());QVERIFY(accessible);QCOMPARE(accessible->role(),QAccessible::Dialog);QCOMPARE(accessible->text(QAccessible::Name),QString("Go to Folder"));QVERIFY(accessible->state().modal);
+        auto outer=QAccessible::queryAccessibleInterface(content->parentItem());QVERIFY(outer);QAccessibleInterface *reachable=nullptr;
+        for(int i=0;i<outer->childCount();++i)if(auto child=outer->child(i);child&&child->object()==accessible->object())reachable=child;
+        QVERIFY2(reachable,"The nested GoTo window must remain reachable through its owning dialog");QCOMPARE(reachable->parent()->object(),outer->object());QVERIFY(outer->indexOfChild(reachable)>=0);
+        auto enter=[&](const QString &text){QTest::keyClick(path->window(),Qt::Key_A,Qt::ControlModifier);typeText(path->window(),text);};
+        enter(root.filePath("missing"));QCOMPARE(path->property("text").toString(),root.filePath("missing"));QTest::keyClick(path->window(),Qt::Key_Return);
+        QVERIFY(prompt->property("visible").toBool());QCOMPARE(browser->selectedUrls(),before);QCOMPARE(browser->folderPath(),directory.path());QVERIFY(browser->error().isEmpty());QVERIFY(results(fixture).isEmpty());QVERIFY(announcements.messages.isEmpty());
+        capture(path->window(),"go-to-missing");QTest::keyClick(path->window(),Qt::Key_Escape);QTRY_VERIFY(!prompt->property("visible").toBool());QVERIFY(browser->active());QCOMPARE(browser->selectedUrls(),before);
+        QTRY_VERIFY(find(content,"bleeckerFileChooserColumn0")->hasActiveFocus());
+        QTRY_VERIFY(find(content,"bleeckerFileChooserColumn0")->hasActiveFocus());
+        QTest::keyClick(content->window(),Qt::Key_L,Qt::ControlModifier);QTRY_VERIFY(prompt->property("visible").toBool());QCOMPARE(path->property("text").toString(),directory.path());
+        click(find(promptContent,"bleeckerFileChooserGoToClear"));QVERIFY(prompt->property("visible").toBool());QVERIFY(path->property("text").toString().isEmpty());
+        click(find(promptContent,"bleeckerFileChooserGoToClear"));QTRY_VERIFY(!prompt->property("visible").toBool());QVERIFY(browser->active());QCOMPARE(browser->selectedUrls(),before);
+        QTRY_VERIFY(find(content,"bleeckerFileChooserColumn0")->hasActiveFocus());
+        QTest::keyClick(content->window(),Qt::Key_L,Qt::ControlModifier);QTRY_VERIFY(prompt->property("visible").toBool());
+        const auto prefix=root.filePath("Al");enter(prefix);QTRY_COMPARE(suggestions->entries().size(),4);QTRY_VERIFY(!find(promptContent,"bleeckerFileChooserGoToScrollBar")->isVisible());capture(path->window(),"go-to-prefix");
+        QTest::keyClick(path->window(),Qt::Key_Tab);QCOMPARE(path->property("text").toString(),prefix+"p");
+        enter(prefix);QTest::keyClick(path->window(),Qt::Key_Down);QCOMPARE(suggestions->selectedUrl(),QUrl::fromLocalFile(root.filePath("Alpine")));QCOMPARE(path->property("text").toString(),prefix);
+        QTest::keyClick(path->window(),Qt::Key_Return);QTRY_VERIFY(!prompt->property("visible").toBool());QCOMPARE(browser->folderPath(),root.filePath("Alpine"));QVERIFY(results(fixture).isEmpty());
+        QCOMPARE(browser->places()->lastPathInput(),prefix);QCOMPARE(browser->places()->pathTargets().first().toMap()["url"].toUrl(),QUrl::fromLocalFile(root.filePath("Alpine")));
+        for(const auto &value:browser->places()->entries())QVERIFY(!value.toMap()["recent"].toBool());
+        QTRY_VERIFY(find(content,"bleeckerFileChooserColumn0")->hasActiveFocus());
+        QTest::keyClick(content->window(),Qt::Key_L,Qt::ControlModifier);QTRY_VERIFY(prompt->property("visible").toBool());QCOMPARE(path->property("text").toString(),prefix);
+        enter(root.filePath("Other.png"));capture(path->window(),"go-to-file-proposal");QTest::keyClick(path->window(),Qt::Key_Return);QTRY_VERIFY(!prompt->property("visible").toBool());
+        QCOMPARE(browser->selectedUrls(),QVariantList{QUrl::fromLocalFile(root.filePath("Other.png"))});QVERIFY(browser->canAccept());QVERIFY(results(fixture).isEmpty());
+        QVERIFY(!browser->modelAt(0)->entry(row(browser->modelAt(0),"Other.png"))["eligible"].toBool());capture(content->window(),"go-to-file-selected");
+        click(find(content,"bleeckerFileChooserOpen"));QTRY_COMPARE(results(fixture).size(),1);QVERIFY(!browser->active());QVERIFY(fixture->property("visibleAtCallback").toBool());
+        QCOMPARE(results(fixture)[0].toMap()["urls"].toList(),QVariantList{QUrl::fromLocalFile(root.filePath("Other.png"))});
+    }
+    void removingOwnerClosesGoToWindow(){
+        QTemporaryDir directory;QQuickView view;QVERIFY(load(view,directory));auto fixture=view.rootObject();auto control=fixture->findChild<QQuickItem*>("fileInput");QVERIFY(control);
+        auto chooser=control->property("chooser").value<QObject*>();click(control->property("inputItem").value<QQuickItem*>());QTRY_VERIFY(chooser->property("visible").toBool());
+        auto content=chooser->property("contentItem").value<QQuickItem*>();QPointer<QObject> prompt=chooser->property("goToDialog").value<QObject*>();QVERIFY(prompt);
+        QTest::keyClick(content->window(),Qt::Key_G,Qt::ControlModifier|Qt::ShiftModifier);QTRY_VERIFY(prompt->property("visible").toBool());
+        QPointer<QQuickWindow> popup=chooser->property("pathInput").value<QQuickItem*>()->window();
+        fixture->setProperty("mounted",false);QTRY_VERIFY(prompt.isNull());QTRY_VERIFY(popup.isNull()||!popup->isVisible());QVERIFY(results(fixture).isEmpty());
     }
     void initialLocationErrorAndClosedAnnouncement(){
         FileInputAnnouncementCapture announcements;QTemporaryDir directory;

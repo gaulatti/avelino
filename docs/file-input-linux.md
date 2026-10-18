@@ -265,7 +265,7 @@ Cross-directory file acceptance and selected-directory acceptance record the
 visible folder. A directory chooser can also accept that folder without a selected
 row. Linux locations have the scoped implementation described below.
 The native Go to Folder sheet has its own path field and suggestions. Its missing-
-path Escape preserves the underlying selected file. The current always-visible
+path Escape preserves the underlying selected file. The source54 always-visible
 Linux path field does not establish equivalence to that nested presentation, and
 the earlier file-path input/dismissal experiments remain diagnostic. The later
 helper with normal Edit menus confirms existing-file selection without owner
@@ -274,19 +274,19 @@ navigation and successful raw path-input retention. Cancelled invalid input does
 not replace that retained input. A path-selected PNG is accepted under the
 text-only configuration while ordinary selection of the same row is disabled;
 other type arrays, relative-input resolution and suggestion timing remain pending.
-The inline directory field does not implement those native path-selection rules.
+The source54 inline directory field does not implement those native path-selection rules.
 
 The [later Go to Folder lifecycle trials](../evidence/reference-investigations/file-input-go-to-20261018/README.md)
 also require separate state for the raw field, selected proposal and underlying
-chooser selection. The native AX Close button clears the field, Escape cancels
+chooser selection. The native AX Close button clears a nonempty field, Escape cancels
 the nested sheet, and Return or a completed pointer double-click navigates to
 the selected proposal. Down changes that proposal without rewriting raw input;
 Tab can extend a shared prefix. Invalid input/cancellation must not mutate the
 owner selection or remembered successful input. The observed `..`, `../` and
 `../A.txt` outcomes do not justify applying an assumed POSIX normalization rule
 or claiming complete relative-path equivalence. Suggestion ranking/history,
-native timing and atomic paste remain unproven. The separate Linux sheet,
-suggestion model and path-selected file route are still missing.
+native timing and atomic paste remain unproven. These requirements were missing from the source54 path adapter; the new candidate
+is described below.
 
 The [navigation-only history trials](../evidence/reference-investigations/file-input-go-to-history-20261018/README.md)
 distinguish two more persistence boundaries. Go to Folder shows five observed
@@ -294,9 +294,8 @@ recent targets shared across consumer identities, promotes a chosen target on
 successful navigation before any owner acceptance, and separately retains the
 literal successful field, including empty input. Ordinary ancestor/row browsing
 does not change that observed pool. Where Recent Places remains success-only
-and unchanged by twelve such navigation-only folders. The current Linux store
-has only Where folders and saved raw input; a separate target history is still
-required. General history capacity, suggestion ranking and unavailable-target
+and unchanged by twelve such navigation-only folders. The source54 Linux store
+has only Where folders and saved raw input; the new candidate adds target history. General history capacity, suggestion ranking and unavailable-target
 handling remain pending.
 
 The [owned location checkpoint](../evidence/development/file-input-location-20261017/validation.json)
@@ -350,3 +349,56 @@ complete native presentation. Location-menu artwork, the separate Go to Folder
 sheet and its path-selected file rules also remain pending. Direct two-axis sizing, type conformance, source input and
 callback timing, strict raster, physical display/input and independent-machine
 acceptance also remain pending.
+
+The Go to Folder candidate replaces the inline path editor with a separate owned
+Qt popup window. Ctrl+Shift+G and Ctrl+L open it. It keeps raw text, highlighted
+proposal and the underlying chooser selection separate. Return or double-click
+uses the selected destination; Up/Down preserve the raw field, and Tab applies
+common-prefix completion. Escape cancels only this sheet. Close clears a nonempty
+field; when empty it dismisses the sheet. No file-selection owner result is sent
+until the main Open action. Removing the input owner removes the nested window.
+
+The shared version-1 QSettings record now also has recentPathTargets, maintained
+under the same transaction lock as lastPathInput. Successful GoTo navigation
+promotes its selected absolute target and writes the literal input, including an
+empty string. This candidate keeps five targets to reproduce the observed empty
+Recents presentation; it does not close the native general-capacity gate. Where
+recentFolders remains a separate ten-folder, successful-owner-result pool. A
+persistence error is exposed by the existing main chooser status and Where menu.
+
+The selected-file route retains a separate path-selected identity in Columns,
+List and Icons. Its row keeps ordinary fileEligible false when the MIME filter
+excludes it; pointer selection and Select All still use ordinary eligibility.
+The path-selected identity survives view changes and is revalidated for existence,
+file/directory mode and URL resolution at owner acceptance. Directory-only
+consumers cannot receive a file through this route. Successful directory input
+navigates without submitting, and the current-folder case preserves selection.
+
+FileChooserPaths ranks exact names, prefixes, contained text and common-prefix
+edit-distance candidates. The recorded Alpha/Alpine/Alphabet and current-location
+cases are regression inputs; this owned ranking is not accepted as the complete
+AppKit algorithm. General ranking, relative components, timing, unavailable
+targets, other type-array path rules, sheet geometry/artwork, complete hierarchy,
+native reader, physical and independent-machine acceptance remain pending. The
+[Linux GoTo checkpoint](../evidence/development/file-input-go-to-20261018/validation.json)
+records final source60: eight focused Qt targets, a fresh source-free consumer in
+eight contexts, eight virtual display profiles and an exact restored-runtime
+replay. All 256 prior closed PNGs and complete closed/sizing metadata are unchanged.
+Its actual new AT-SPI/Orca GoTo flow remains pending; source54 reader evidence
+does not prove the new flow. No expected image, pin, mask or tolerance
+is changed.
+
+The popup and editing integration was checked against the official Qt 6.8.3
+[Popup source documentation](https://github.com/qt/qtdeclarative/blob/v6.8.3/src/quicktemplates/qquickpopup.cpp)
+and [TextInput signal documentation](https://github.com/qt/qtdeclarative/blob/v6.8.3/src/quick/items/qquicktextinput.cpp).
+It uses Qt templates for input/focus with the existing owned dialog accessibility
+base; the platform's native file chooser is not substituted.
+
+Visual QA found that the owned scrollbar thumbs were drawn even when their
+content fit. Source60 makes the existing AsNeeded policy control visibility in
+GoTo, Columns, List/Icons and the Where menu. The final three-suggestion view is
+checked without a scrollbar. Original source59 UI images retain that earlier
+state; no image is edited. The [Qt 6.8.3 ScrollBar documentation](https://github.com/qt/qtdeclarative/blob/v6.8.3/src/quicktemplates/qquickscrollbar.cpp)
+defines that policy. A native empty-field Close transition is separately retained
+in the [diagnostic supplement](../evidence/reference-investigations/file-input-go-to-empty-close-20261018/README.md);
+its failed relative/setup retry adds no path-resolution claim.
