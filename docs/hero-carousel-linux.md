@@ -7,7 +7,10 @@ for raw captures, sizing queries, source-rebuild receipts and input limitations.
 
 The reference takes identifiable items and arbitrary caller-supplied slides. Its
 horizontal lazy stack allocates viewport width per slide with a 16-point gap,
-hides scroll indicators and aligns scrolling to one view at a time. Fixed-width
+hides scroll indicators and uses view-aligned scrolling with `.always` limit
+behavior. The exact per-interaction limit remains pending; Apple's
+[single-view guarantee](https://developer.apple.com/documentation/swiftui/viewalignedscrolltargetbehavior/limitbehavior/alwaysbyone)
+belongs to `.alwaysByOne`, which the pinned source does not use. Fixed-width
 content remains centered within its allocation. Preserve caller identity,
 appearance, font, foreground and disabled state; add no autoplay or navigation UI.
 

@@ -9,8 +9,13 @@ is changed.
 The public API accepts identifiable items and a caller-supplied slide builder.
 The pinned body uses a horizontal ScrollView, LazyHStack with a 16-point gap,
 horizontal container-relative frames, a scroll target layout, view-aligned
-behavior with an always-one-view limit, and hidden scroll indicators. It supplies
-no autoplay, navigation buttons or page indicators.
+behavior with `.always` limit behavior, and hidden scroll indicators. The exact
+per-interaction limit remains pending. Apple's
+[`.always` documentation](https://developer.apple.com/documentation/swiftui/viewalignedscrolltargetbehavior/limitbehavior/always)
+does not specify a single-view limit; that guarantee belongs to the separately
+documented [`.alwaysByOne` setting](https://developer.apple.com/documentation/swiftui/viewalignedscrolltargetbehavior/limitbehavior/alwaysbyone).
+The pinned source uses `.always`. It supplies no autoplay, navigation buttons or
+page indicators.
 
 Twenty fixtures cover empty/single/multiple/dense lists, fill/fixed/text/button
 slides, narrow/zero dimensions, inherited font/foreground, disabled content,
