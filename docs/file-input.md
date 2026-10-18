@@ -226,6 +226,18 @@ AX double-click and screenshot attempts remain visible with corrected trials;
 their actions do not count as completed input. Audit it with
 `python3 scripts/verify-file-input-go-to.py`.
 
+The [navigation-only history supplement](../evidence/reference-investigations/file-input-go-to-history-20261018/README.md)
+adds twelve successful Go to Folder navigations, three terminal processes and
+76 complete capture receipts without an owner callback. Its empty field shows
+five recent paths shared across two consumer identities; choosing an existing
+recent target promotes it without duplication and can retain empty raw input.
+Ordinary ancestor/folder-row browsing leaves that pool unchanged. Where Recent
+Places does not promote the navigation-only folders. These different update
+boundaries need separate persistence. Five is the observed displayed pool;
+general storage capacity and suggestion ranking remain pending. The earlier
+twelve-sibling capture is headed "Go to:", so it does not prove recent-history
+capacity. Run `python3 scripts/verify-file-input-go-to-history.py`.
+
 The [owned Linux location checkpoint](../evidence/development/file-input-location-20261017/validation.json)
 adds the Where menu and shared ten-folder Recent Places store. Current-folder
 choice preserves selection/history; ancestor/recent navigation clears selection

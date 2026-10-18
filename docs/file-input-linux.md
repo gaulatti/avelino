@@ -288,6 +288,17 @@ or claiming complete relative-path equivalence. Suggestion ranking/history,
 native timing and atomic paste remain unproven. The separate Linux sheet,
 suggestion model and path-selected file route are still missing.
 
+The [navigation-only history trials](../evidence/reference-investigations/file-input-go-to-history-20261018/README.md)
+distinguish two more persistence boundaries. Go to Folder shows five observed
+recent targets shared across consumer identities, promotes a chosen target on
+successful navigation before any owner acceptance, and separately retains the
+literal successful field, including empty input. Ordinary ancestor/row browsing
+does not change that observed pool. Where Recent Places remains success-only
+and unchanged by twelve such navigation-only folders. The current Linux store
+has only Where folders and saved raw input; a separate target history is still
+required. General history capacity, suggestion ranking and unavailable-target
+handling remain pending.
+
 The [owned location checkpoint](../evidence/development/file-input-location-20261017/validation.json)
 adds a Where menu with the current folder, its ancestors and Recent
 Places in a separate menu window. Choosing the current folder preserves file
