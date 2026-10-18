@@ -1,0 +1,30 @@
+{
+  "beforeExit": 1,
+  "afterExit": 0,
+  "bytesUnchanged": true,
+  "filesystem": "container Linux filesystem",
+  "execution": "root container; sudo prefix omitted; exact workflow chmod loop",
+  "paths": [
+    {
+      "tree": "artifacts/linux",
+      "beforeExit": 1,
+      "beforeError": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/lib/python3.12/pathlib.py\", line 1021, in read_bytes\n    with self.open(mode='rb') as f:\n         ^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/pathlib.py\", line 1015, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nPermissionError: [Errno 13] Permission denied: '/tmp/avelino-ci-permissions-il4qx063/artifacts/linux/private/report.json'\n",
+      "afterExit": 0,
+      "sha256": "b781ca4e3efcbf31178927825de855f45b7e52f0d652af03cfb236785de2fe48"
+    },
+    {
+      "tree": "artifacts/package",
+      "beforeExit": 1,
+      "beforeError": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/lib/python3.12/pathlib.py\", line 1021, in read_bytes\n    with self.open(mode='rb') as f:\n         ^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/pathlib.py\", line 1015, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nPermissionError: [Errno 13] Permission denied: '/tmp/avelino-ci-permissions-il4qx063/artifacts/package/private/report.json'\n",
+      "afterExit": 0,
+      "sha256": "b781ca4e3efcbf31178927825de855f45b7e52f0d652af03cfb236785de2fe48"
+    },
+    {
+      "tree": "build/linux/Testing/Temporary",
+      "beforeExit": 1,
+      "beforeError": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/lib/python3.12/pathlib.py\", line 1021, in read_bytes\n    with self.open(mode='rb') as f:\n         ^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/pathlib.py\", line 1015, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nPermissionError: [Errno 13] Permission denied: '/tmp/avelino-ci-permissions-il4qx063/build/linux/Testing/Temporary/private/report.json'\n",
+      "afterExit": 0,
+      "sha256": "b781ca4e3efcbf31178927825de855f45b7e52f0d652af03cfb236785de2fe48"
+    }
+  ]
+}

@@ -38,6 +38,12 @@ jobs:
           test ! -d artifacts/package/consumer/consumer
       - name: Consumer with source and build trees absent
         run: docker run --rm -v "$PWD/artifacts/package:/package" -w /package avelino-toolchain:qt6.8.3 bash -c 'bash check-installed.sh && bash check-display-sessions.sh && bash check-display-sessions-hero-carousel.sh "$PWD/display-evidence/hero-carousel"'
+      - name: Expose generated evidence to the artifact uploader
+        if: always()
+        run: |
+          for artifact_path in artifacts/linux artifacts/package build/linux/Testing/Temporary; do
+            if [[ -d "$artifact_path" ]]; then sudo chmod -R a+rX -- "$artifact_path"; fi
+          done
       - uses: actions/upload-artifact@v4
         with:
           name: desktop-button-candidates-${{ matrix.runner }}
