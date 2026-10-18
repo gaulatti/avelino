@@ -1,0 +1,8 @@
+/Users/gaulatti/.codex/tmp/avelino-hero-carousel-history-20261018-v1/tool/History.swift:10:103: error: cannot convert value of type 'Double?' to expected argument type 'CGFloat?'
+ 8 |     @ViewBuilder var carousel:some View {
+ 9 |         if fit{HeroCarousel(model:model,mode:mode).frame(width:model.fixture.width).fixedSize(horizontal:false,vertical:true)}
+10 |         else{HeroCarousel(model:model,mode:mode).frame(width:model.fixture.width,height:model.fixture.height)}
+   |                                                                                                       |- error: cannot convert value of type 'Double?' to expected argument type 'CGFloat?'
+   |                                                                                                       `- note: arguments to generic parameter 'Wrapped' ('Double' and 'CGFloat') are expected to be equal
+11 |     }
+12 |     var body:some View {

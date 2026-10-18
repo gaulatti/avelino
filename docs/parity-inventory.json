@@ -81239,7 +81239,7 @@
           "line": 90
         },
         "implementation": [],
-        "caseDiscovery": "Native source investigation: 20 fixtures and 160 closed contexts, 7200 direct sizing queries, 1080 window/placement diagnostic queries, and exact 482-file same-machine source-package replay. Public/probed/literal pixels, instrumented geometry and normalized caller lifecycle agree. Unspecified sizing depends on prior placement. Native accessible scroll reaches document ends and preserves caller state; wheel/momentum/settling, dynamic identity/lazy timing, other sizing histories, generic IDs, readers, physical input/display and independent-machine availability remain pending. Linux library/catalog/installed-consumer implementation is pending. Desktop coverage remains 75/80 candidates, 0/80 accepted.",
+        "caseDiscovery": "Native source investigation: 20 fixtures and 160 closed contexts, 7200 direct sizing queries, 1080 window/placement diagnostic queries, and exact 482-file same-machine source-package replay. Public/probed/literal pixels, instrumented geometry and normalized caller lifecycle agree. A supplementary 32-step typed history preserves 96 identical witness images: caller instance 1 survives empty data, consecutive 1- and 3-second idle intervals, restoration and subsequent scrolling; fitted height follows the logical first slide. Raw cached hidden/removed frames remain intact beside a labeled active-frame projection; caller wrapper geometry is unobserved in the history helper. On macOS 27.0 build 26A428 the safe public-value probe finds always equal to alwaysByOne, distinct from alwaysByFew; this is not gesture acceptance. Unspecified sizing depends on prior placement. Wheel/momentum/settling, complete dynamic identity/lazy timing and sizing histories, generic IDs, readers, physical input/display and supplementary helper independent availability remain pending. Linux library/catalog/installed-consumer implementation is pending. Desktop coverage remains 75/80 candidates, 0/80 accepted.",
         "cases": [
           {
             "id": "BleeckerHeroCarousel-empty-light-text1-dpr1",
@@ -83323,10 +83323,13 @@
           }
         ],
         "tests": [
-          "scripts/verify-hero-carousel-source.py"
+          "scripts/verify-hero-carousel-source.py",
+          "scripts/verify-hero-carousel-history.py",
+          "scripts/generate-hero-carousel-witnesses.py --check"
         ],
         "captures": [
-          "evidence/reference-investigations/hero-carousel-20261018/investigation.json"
+          "evidence/reference-investigations/hero-carousel-20261018/investigation.json",
+          "evidence/reference-investigations/hero-carousel-history-20261018/investigation.json"
         ],
         "comparisonResults": [],
         "exceptions": [],
