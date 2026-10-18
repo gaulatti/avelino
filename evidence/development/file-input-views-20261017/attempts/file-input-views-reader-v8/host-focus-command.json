@@ -1,0 +1,16 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "exec",
+    "avelino-file-input-views-reader-8",
+    "env",
+    "DISPLAY=:0",
+    "xdotool",
+    "windowfocus",
+    "--sync",
+    "0x200005"
+  ],
+  "observedWindow": "0x200005"
+}

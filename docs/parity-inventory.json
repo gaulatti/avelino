@@ -74968,9 +74968,14 @@
           "src/Avelino/filechooserbrowser.cpp",
           "src/Avelino/FileChooserNewFolder.qml",
           "src/Avelino/filechooserdialogbase.h",
-          "src/Avelino/filechooserdialogbase.cpp"
+          "src/Avelino/filechooserdialogbase.cpp",
+          "src/Avelino/FileChooserViews.qml",
+          "src/Avelino/filechooserlisting.h",
+          "src/Avelino/filechooserlisting.cpp",
+          "src/Avelino/filechooserrow.h",
+          "src/Avelino/filechooserrow.cpp"
         ],
-        "caseDiscovery": "Implementation checkpoint remains pending: all 256 native closed contexts retain their strict mismatches (0 exact pixels, 232 complete frames, 256 contract states). Owned New Folder and Back/Forward history, history clears file selections, fresh Shift range starts at the listing beginning in the measured fixture, explicit Qt/AT-SPI modal state, eight installed contexts, eight virtual display profiles and two full Orca software flows are verified against source 29. All 256 closed PNGs and complete closed/sizing metadata stay unchanged. Sidebar, view choices, location menu, search, selection preview, group/sort controls and the remaining native sizing/type/input/raster/accessibility/physical/independent-machine gates remain pending. Desktop candidate coverage stays 75/80. Native view observations additionally require inline List hierarchy, cross-directory selection and selection pruning when changing views; List and Icons implementation remains pending.",
+        "caseDiscovery": "Implementation checkpoint remains pending: all 256 native closed contexts retain their strict mismatches (0 exact pixels, 232 complete frames, 256 contract states). Owned New Folder/history and List/Icons now have six focused Qt targets, eight installed contexts, eight virtual display profiles and two 17-phase Orca software flows against frozen source 45. All 256 closed PNGs and complete closed/sizing metadata remain unchanged. URL-based visible selection, inline disclosure, view changes, sorting, folder navigation, keyboard results, modal state, four-column accessible table/header relationships and lifetime cleanup are observed. The mixed XTest modifier plus AT-SPI Press route failed; final assistive multiselection uses Selection.selectChild. Date Added metadata, column resizing, native metadata formatting, glyphs/thumbnails, remaining sort/group modes, sidebar, location menu, search, preview, full native hierarchy/input/sizing/type/raster/timing/reader/physical/independent-machine acceptance remain pending. Desktop candidate coverage stays 75/80.",
         "cases": [
           {
             "id": "BleeckerFileInput-default-light-text1-dpr1",
@@ -78830,19 +78835,22 @@
           "scripts/verify-file-input-announcements.py",
           "scripts/verify-file-input-controls.py",
           "scripts/verify-file-input-navigation.py",
-          "scripts/verify-file-input-views.py"
+          "scripts/verify-file-input-views.py",
+          "scripts/verify-file-input-views-linux.py"
         ],
         "captures": [
           "evidence/reference-investigations/file-input-20261017/output/captures.json",
           "evidence/development/file-input-20261017/validation.json",
           "evidence/development/file-input-announcements-20261017/validation.json",
           "evidence/reference-investigations/file-input-controls-20261017/investigation.json",
-          "evidence/development/file-input-navigation-20261017/validation.json"
+          "evidence/development/file-input-navigation-20261017/validation.json",
+          "evidence/development/file-input-views-20261017/validation.json"
         ],
         "comparisonResults": [
           "evidence/reference-investigations/file-input-20261017/source-replay.json",
           "evidence/development/file-input-20261017/comparison/observations.json",
-          "evidence/reference-investigations/file-input-views-20261017/investigation.json"
+          "evidence/reference-investigations/file-input-views-20261017/investigation.json",
+          "evidence/development/file-input-views-20261017/validation.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -78852,9 +78860,10 @@
               "docs/file-input-linux.md",
               "evidence/development/file-input-20261017/validation.json",
               "evidence/development/file-input-announcements-20261017/validation.json",
-              "evidence/development/file-input-navigation-20261017/validation.json"
+              "evidence/development/file-input-navigation-20261017/validation.json",
+              "evidence/development/file-input-views-20261017/validation.json"
             ],
-            "notes": "Source-29 New Folder/history, named modal state, actual controls, virtual renderers and Orca output/backend commands are observed. The Wayland focus delay is measured, not accepted as native timing equivalence. Complete chooser, native types/sizing/raster/hierarchy/readers, engine audio, physical input/display and independent-machine acceptance remain pending."
+            "notes": "Source-45 List/Icons has scoped Qt, installed package, virtual display and 17-phase AT-SPI/Orca evidence; source-29 history/New Folder evidence remains historical. Final assistive multiselection uses Selection.selectChild; the mixed XTest modifier/Press route failed and stays unresolved. Complete chooser and native visual/type/sizing/input/hierarchy/reader/timing, engine audio, physical and independent-machine acceptance remain pending."
           },
           "x11": {
             "status": "pending",
@@ -78862,9 +78871,10 @@
               "docs/file-input-linux.md",
               "evidence/development/file-input-20261017/validation.json",
               "evidence/development/file-input-announcements-20261017/validation.json",
-              "evidence/development/file-input-navigation-20261017/validation.json"
+              "evidence/development/file-input-navigation-20261017/validation.json",
+              "evidence/development/file-input-views-20261017/validation.json"
             ],
-            "notes": "Source-29 New Folder/history, named modal state, actual controls, virtual renderers and Orca output/backend commands are observed. The Wayland focus delay is measured, not accepted as native timing equivalence. Complete chooser, native types/sizing/raster/hierarchy/readers, engine audio, physical input/display and independent-machine acceptance remain pending."
+            "notes": "Source-45 List/Icons has scoped Qt, installed package, virtual display and 17-phase AT-SPI/Orca evidence; source-29 history/New Folder evidence remains historical. Final assistive multiselection uses Selection.selectChild; the mixed XTest modifier/Press route failed and stays unresolved. Complete chooser and native visual/type/sizing/input/hierarchy/reader/timing, engine audio, physical and independent-machine acceptance remain pending."
           },
           "wayland": {
             "status": "pending",
@@ -78872,9 +78882,10 @@
               "docs/file-input-linux.md",
               "evidence/development/file-input-20261017/validation.json",
               "evidence/development/file-input-announcements-20261017/validation.json",
-              "evidence/development/file-input-navigation-20261017/validation.json"
+              "evidence/development/file-input-navigation-20261017/validation.json",
+              "evidence/development/file-input-views-20261017/validation.json"
             ],
-            "notes": "Source-29 New Folder/history, named modal state, actual controls, virtual renderers and Orca output/backend commands are observed. The Wayland focus delay is measured, not accepted as native timing equivalence. Complete chooser, native types/sizing/raster/hierarchy/readers, engine audio, physical input/display and independent-machine acceptance remain pending."
+            "notes": "Source-45 List/Icons has scoped Qt, installed package, virtual display and 17-phase AT-SPI/Orca evidence; source-29 history/New Folder evidence remains historical. Final assistive multiselection uses Selection.selectChild; the mixed XTest modifier/Press route failed and stays unresolved. Complete chooser and native visual/type/sizing/input/hierarchy/reader/timing, engine audio, physical and independent-machine acceptance remain pending."
           },
           "keyboardPointer": {
             "status": "pending",
@@ -78882,9 +78893,10 @@
               "docs/file-input-linux.md",
               "evidence/development/file-input-20261017/validation.json",
               "evidence/development/file-input-announcements-20261017/validation.json",
-              "evidence/development/file-input-navigation-20261017/validation.json"
+              "evidence/development/file-input-navigation-20261017/validation.json",
+              "evidence/development/file-input-views-20261017/validation.json"
             ],
-            "notes": "Source-29 New Folder/history, named modal state, actual controls, virtual renderers and Orca output/backend commands are observed. The Wayland focus delay is measured, not accepted as native timing equivalence. Complete chooser, native types/sizing/raster/hierarchy/readers, engine audio, physical input/display and independent-machine acceptance remain pending."
+            "notes": "Source-45 List/Icons has scoped Qt, installed package, virtual display and 17-phase AT-SPI/Orca evidence; source-29 history/New Folder evidence remains historical. Final assistive multiselection uses Selection.selectChild; the mixed XTest modifier/Press route failed and stays unresolved. Complete chooser and native visual/type/sizing/input/hierarchy/reader/timing, engine audio, physical and independent-machine acceptance remain pending."
           },
           "focusAccessibility": {
             "status": "pending",
@@ -78892,9 +78904,10 @@
               "docs/file-input-linux.md",
               "evidence/development/file-input-20261017/validation.json",
               "evidence/development/file-input-announcements-20261017/validation.json",
-              "evidence/development/file-input-navigation-20261017/validation.json"
+              "evidence/development/file-input-navigation-20261017/validation.json",
+              "evidence/development/file-input-views-20261017/validation.json"
             ],
-            "notes": "Source-29 New Folder/history, named modal state, actual controls, virtual renderers and Orca output/backend commands are observed. The Wayland focus delay is measured, not accepted as native timing equivalence. Complete chooser, native types/sizing/raster/hierarchy/readers, engine audio, physical input/display and independent-machine acceptance remain pending."
+            "notes": "Source-45 List/Icons has scoped Qt, installed package, virtual display and 17-phase AT-SPI/Orca evidence; source-29 history/New Folder evidence remains historical. Final assistive multiselection uses Selection.selectChild; the mixed XTest modifier/Press route failed and stays unresolved. Complete chooser and native visual/type/sizing/input/hierarchy/reader/timing, engine audio, physical and independent-machine acceptance remain pending."
           },
           "displayTextScaling": {
             "status": "pending",
@@ -78902,9 +78915,10 @@
               "docs/file-input-linux.md",
               "evidence/development/file-input-20261017/validation.json",
               "evidence/development/file-input-announcements-20261017/validation.json",
-              "evidence/development/file-input-navigation-20261017/validation.json"
+              "evidence/development/file-input-navigation-20261017/validation.json",
+              "evidence/development/file-input-views-20261017/validation.json"
             ],
-            "notes": "Source-29 New Folder/history, named modal state, actual controls, virtual renderers and Orca output/backend commands are observed. The Wayland focus delay is measured, not accepted as native timing equivalence. Complete chooser, native types/sizing/raster/hierarchy/readers, engine audio, physical input/display and independent-machine acceptance remain pending."
+            "notes": "Source-45 List/Icons has scoped Qt, installed package, virtual display and 17-phase AT-SPI/Orca evidence; source-29 history/New Folder evidence remains historical. Final assistive multiselection uses Selection.selectChild; the mixed XTest modifier/Press route failed and stays unresolved. Complete chooser and native visual/type/sizing/input/hierarchy/reader/timing, engine audio, physical and independent-machine acceptance remain pending."
           },
           "installedConsumer": {
             "status": "pending",
@@ -78912,9 +78926,10 @@
               "docs/file-input-linux.md",
               "evidence/development/file-input-20261017/validation.json",
               "evidence/development/file-input-announcements-20261017/validation.json",
-              "evidence/development/file-input-navigation-20261017/validation.json"
+              "evidence/development/file-input-navigation-20261017/validation.json",
+              "evidence/development/file-input-views-20261017/validation.json"
             ],
-            "notes": "Source-29 New Folder/history, named modal state, actual controls, virtual renderers and Orca output/backend commands are observed. The Wayland focus delay is measured, not accepted as native timing equivalence. Complete chooser, native types/sizing/raster/hierarchy/readers, engine audio, physical input/display and independent-machine acceptance remain pending."
+            "notes": "Source-45 List/Icons has scoped Qt, installed package, virtual display and 17-phase AT-SPI/Orca evidence; source-29 history/New Folder evidence remains historical. Final assistive multiselection uses Selection.selectChild; the mixed XTest modifier/Press route failed and stays unresolved. Complete chooser and native visual/type/sizing/input/hierarchy/reader/timing, engine audio, physical and independent-machine acceptance remain pending."
           }
         }
       },

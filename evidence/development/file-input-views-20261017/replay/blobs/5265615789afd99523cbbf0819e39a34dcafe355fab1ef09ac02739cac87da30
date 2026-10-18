@@ -1,0 +1,44 @@
+#include "filechooserrow.h"
+#include <QtQuick/private/qaccessiblequickitem_p.h>
+#include <QAccessible>
+
+static_assert(QT_VERSION==QT_VERSION_CHECK(6,8,3),"Revalidate chooser disclosure accessibility before upgrading Qt");
+namespace {
+class RowAccessible final : public QAccessibleQuickItem {
+    FileChooserRow *row()const{return qobject_cast<FileChooserRow*>(object());}
+public:
+    using QAccessibleQuickItem::QAccessibleQuickItem;
+    QAccessible::Role role()const override{return row()&&row()->m_hierarchical?QAccessible::TreeItem:QAccessible::ListItem;}
+    QAccessible::State state()const override{
+        auto result=QAccessibleQuickItem::state();
+        if(const auto item=row()){
+            result.expandable=item->m_hierarchical&&item->m_folder;
+            result.expanded=result.expandable&&item->m_expanded;
+            result.collapsed=result.expandable&&!item->m_expanded;
+        }
+        return result;
+    }
+    QStringList actionNames()const override{
+        auto actions=QAccessibleQuickItem::actionNames();
+        if(const auto item=row();item&&item->m_hierarchical&&item->m_folder)actions.append(QAccessibleActionInterface::toggleAction());
+        return actions;
+    }
+    void doAction(const QString &name)override{
+        if(const auto item=row();item&&item->m_hierarchical&&item->m_folder&&name==QAccessibleActionInterface::toggleAction()){
+            emit item->disclosureRequested();return;
+        }
+        QAccessibleQuickItem::doAction(name);
+    }
+};
+QAccessibleInterface *rowFactory(const QString &,QObject *object){
+    if(auto row=qobject_cast<FileChooserRow*>(object))return new RowAccessible(row);
+    return nullptr;
+}
+}
+FileChooserRow::FileChooserRow(QQuickItem *parent):QQuickItemDelegate(parent){
+    static const bool registered=[] {QAccessible::installFactory(rowFactory);return true;}();Q_UNUSED(registered);
+    connect(this,&FileChooserRow::disclosureChanged,this,[this]{
+        QAccessible::State changed;changed.expandable=changed.expanded=changed.collapsed=true;
+        QAccessibleStateChangeEvent event(this,changed);QAccessible::updateAccessibility(&event);
+    });
+}

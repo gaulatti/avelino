@@ -1,0 +1,61 @@
+Internal ctest changing into directory: /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/build
+Test project /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/build
+    Start 44: file-input-owned-ui
+1/2 Test #44: file-input-owned-ui ..............***Failed   16.51 sec
+********* Start testing of FileInputUiTests *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : FileInputUiTests::initTestCase()
+FAIL!  : FileInputUiTests::actualViewMenuListDisclosureAndIconsNavigation() Compared values are not the same
+   Actual   (browser->viewMode()): "columns"
+   Expected (mode)               : "list"
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/tests/components/fileinput-ui.cpp(77)]
+FAIL!  : FileInputUiTests::actualViewMenuListDisclosureAndIconsNavigation() 'listing->count()==4' returned FALSE. ()
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/tests/components/fileinput-ui.cpp(79)]
+PASS   : FileInputUiTests::actualClicksMultiSelectionCancelAndReopen()
+PASS   : FileInputUiTests::actualColumnNavigationAndCallbackRemoval()
+PASS   : FileInputUiTests::accessibleRowsSelectThroughTheChooser()
+PASS   : FileInputUiTests::actualLocationErrorRecoveryAndKeyboardAccept()
+PASS   : FileInputUiTests::initialLocationErrorAndClosedAnnouncement()
+PASS   : FileInputUiTests::actualNewFolderValidationNestedEscapeAndHistory()
+PASS   : FileInputUiTests::removingOwnerClosesNestedFolderPrompt()
+PASS   : FileInputUiTests::actualBackClearsSelectionAndStartsFreshShiftRange()
+PASS   : FileInputUiTests::directoryFilterKeepsReturnInsideNewFolderPrompt()
+PASS   : FileInputUiTests::typedCustomEmptyAndMixedFiltersReachActualControls()
+PASS   : FileInputUiTests::cleanupTestCase()
+Totals: 12 passed, 1 failed, 0 skipped, 0 blacklisted, 16476ms
+********* Finished testing of FileInputUiTests *********
+
+    Start 45: file-input-owned-ui-dpr2
+2/2 Test #45: file-input-owned-ui-dpr2 .........***Failed   16.58 sec
+********* Start testing of FileInputUiTests *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : FileInputUiTests::initTestCase()
+FAIL!  : FileInputUiTests::actualViewMenuListDisclosureAndIconsNavigation() Compared values are not the same
+   Actual   (browser->viewMode()): "columns"
+   Expected (mode)               : "list"
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/tests/components/fileinput-ui.cpp(77)]
+FAIL!  : FileInputUiTests::actualViewMenuListDisclosureAndIconsNavigation() 'listing->count()==4' returned FALSE. ()
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/tests/components/fileinput-ui.cpp(79)]
+PASS   : FileInputUiTests::actualClicksMultiSelectionCancelAndReopen()
+PASS   : FileInputUiTests::actualColumnNavigationAndCallbackRemoval()
+PASS   : FileInputUiTests::accessibleRowsSelectThroughTheChooser()
+PASS   : FileInputUiTests::actualLocationErrorRecoveryAndKeyboardAccept()
+PASS   : FileInputUiTests::initialLocationErrorAndClosedAnnouncement()
+PASS   : FileInputUiTests::actualNewFolderValidationNestedEscapeAndHistory()
+PASS   : FileInputUiTests::removingOwnerClosesNestedFolderPrompt()
+PASS   : FileInputUiTests::actualBackClearsSelectionAndStartsFreshShiftRange()
+PASS   : FileInputUiTests::directoryFilterKeepsReturnInsideNewFolderPrompt()
+PASS   : FileInputUiTests::typedCustomEmptyAndMixedFiltersReachActualControls()
+PASS   : FileInputUiTests::cleanupTestCase()
+Totals: 12 passed, 1 failed, 0 skipped, 0 blacklisted, 16548ms
+********* Finished testing of FileInputUiTests *********
+
+
+0% tests passed, 2 tests failed out of 2
+
+Total Test time (real) =  33.10 sec
+
+The following tests FAILED:
+	 44 - file-input-owned-ui (Failed)
+	 45 - file-input-owned-ui-dpr2 (Failed)
+Errors while running CTest

@@ -168,6 +168,8 @@ target_include_directories(AvelinoFileChooserTests PRIVATE ${PROJECT_SOURCE_DIR}
 add_test(NAME file-chooser-filesystem COMMAND AvelinoFileChooserTests)
 
 qt_add_executable(AvelinoFileBrowserTests filechooserbrowser.cpp
+    ${PROJECT_SOURCE_DIR}/src/Avelino/filechooserlisting.cpp
+    ${PROJECT_SOURCE_DIR}/src/Avelino/filechooserlisting.h
     ${PROJECT_SOURCE_DIR}/src/Avelino/filechooserbrowser.cpp
     ${PROJECT_SOURCE_DIR}/src/Avelino/filechooserbrowser.h
     ${PROJECT_SOURCE_DIR}/src/Avelino/filechoosermodel.cpp

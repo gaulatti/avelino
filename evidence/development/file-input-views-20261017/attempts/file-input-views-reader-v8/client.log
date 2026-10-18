@@ -1,0 +1,1081 @@
+[1322567.884]  -> wl_display@1.get_registry(new id wl_registry@2)
+[1322568.818]  -> wl_display@1.sync(new id wl_callback@3)
+[1322580.989] wl_display@1.delete_id(3)
+[1322581.841] wl_registry@2.global(1, "wl_compositor", 5)
+[1322582.080]  -> wl_registry@2.bind(1, "wl_compositor", 5, new id [unknown]@4)
+[1322582.176] wl_registry@2.global(2, "wl_subcompositor", 1)
+[1322582.297]  -> wl_registry@2.bind(2, "wl_subcompositor", 1, new id [unknown]@5)
+[1322582.385] wl_registry@2.global(3, "wp_viewporter", 1)
+[1322582.493]  -> wl_registry@2.bind(3, "wp_viewporter", 1, new id [unknown]@6)
+[1322582.569] wl_registry@2.global(4, "zxdg_output_manager_v1", 2)
+[1322582.690]  -> wl_registry@2.bind(4, "zxdg_output_manager_v1", 2, new id [unknown]@7)
+[1322582.755] wl_registry@2.global(5, "wp_presentation", 1)
+[1322582.839] wl_registry@2.global(6, "wp_single_pixel_buffer_manager_v1", 1)
+[1322582.904] wl_registry@2.global(7, "wp_tearing_control_manager_v1", 1)
+[1322582.996] wl_registry@2.global(8, "zwp_relative_pointer_manager_v1", 1)
+[1322583.215] wl_registry@2.global(9, "zwp_pointer_constraints_v1", 1)
+[1322583.370] wl_registry@2.global(10, "zwp_input_timestamps_manager_v1", 1)
+[1322583.445] wl_registry@2.global(11, "weston_capture_v1", 1)
+[1322583.517] wl_registry@2.global(12, "wl_data_device_manager", 3)
+[1322583.604]  -> wl_registry@2.bind(12, "wl_data_device_manager", 3, new id [unknown]@8)
+[1322583.673] wl_registry@2.global(13, "wl_shm", 1)
+[1322583.865]  -> wl_registry@2.bind(13, "wl_shm", 1, new id [unknown]@9)
+[1322583.940] wl_registry@2.global(14, "wl_seat", 7)
+[1322584.073]  -> wl_registry@2.bind(14, "wl_seat", 7, new id [unknown]@10)
+[1322584.184]  -> wl_data_device_manager@8.get_data_device(new id wl_data_device@11, wl_seat@10)
+[1322584.259] wl_registry@2.global(15, "wl_output", 4)
+[1322584.338]  -> wl_registry@2.bind(15, "wl_output", 3, new id [unknown]@12)
+[1322584.412]  -> zxdg_output_manager_v1@7.get_xdg_output(new id zxdg_output_v1@13, wl_output@12)
+[1322584.480] wl_registry@2.global(16, "zwp_input_panel_v1", 1)
+[1322584.552] wl_registry@2.global(17, "zwp_input_method_v1", 1)
+[1322584.628] wl_registry@2.global(18, "zwp_text_input_manager_v1", 1)
+[1322584.706]  -> wl_registry@2.bind(18, "zwp_text_input_manager_v1", 1, new id [unknown]@14)
+[1322584.835]  -> zwp_text_input_manager_v1@14.create_text_input(new id zwp_text_input_v1@15)
+[1322584.981] wl_registry@2.global(19, "xdg_wm_base", 5)
+[1322585.075] wl_registry@2.global(20, "weston_desktop_shell", 1)
+[1322585.149] wl_callback@3.done(1)
+[1322585.275]  -> wl_display@1.sync(new id wl_callback@3)
+[1322591.523] wl_display@1.delete_id(3)
+[1322591.649] wl_shm@9.format(0)
+[1322591.745] wl_shm@9.format(1)
+[1322591.903] wl_shm@9.format(909199186)
+[1322592.022] wl_shm@9.format(875709016)
+[1322592.112] wl_shm@9.format(875708993)
+[1322592.190] wl_shm@9.format(875714642)
+[1322592.287] wl_shm@9.format(875708754)
+[1322592.380] wl_shm@9.format(875714626)
+[1322592.457] wl_shm@9.format(875708738)
+[1322592.553] wl_shm@9.format(808669784)
+[1322592.673] wl_shm@9.format(808669761)
+[1322592.797] wl_shm@9.format(808665688)
+[1322592.955] wl_shm@9.format(808665665)
+[1322593.035] wl_seat@10.capabilities(3)
+[1322593.129]  -> wl_seat@10.get_keyboard(new id wl_keyboard@16)
+[1322593.218]  -> wl_seat@10.get_pointer(new id wl_pointer@17)
+[1322593.298] wl_seat@10.name("default")
+[1322593.395] wl_output@12.geometry(0, 0, 609, 457, 0, "weston-X11", "none", 0)
+[1322593.498] wl_output@12.scale(1)
+[1322593.585] wl_output@12.mode(3, 2400, 1800, 60000)
+[1322593.710] wl_output@12.done()
+[1322593.820] zxdg_output_v1@13.logical_position(0, 0)
+[1322593.893] zxdg_output_v1@13.logical_size(2400, 1800)
+[1322593.990] zxdg_output_v1@13.name("screen0")
+[1322594.898] zxdg_output_v1@13.done()
+[1322595.058] wl_callback@3.done(1)
+[1322597.368]  -> wl_registry@2.bind(19, "xdg_wm_base", 5, new id [unknown]@3)
+[1322679.856]  -> wl_display@1.get_registry(new id wl_registry@18)
+[1322680.380]  -> wl_display@1.sync(new id wl_callback@19)
+[1322684.451] wl_display@1.delete_id(19)
+[1322684.461] wl_registry@18.global(1, "wl_compositor", 5)
+[1322684.750] wl_registry@18.global(2, "wl_subcompositor", 1)
+[1322684.931] wl_registry@18.global(3, "wp_viewporter", 1)
+[1322685.040] wl_registry@18.global(4, "zxdg_output_manager_v1", 2)
+[1322685.154] wl_registry@18.global(5, "wp_presentation", 1)
+[1322685.319]  -> wl_registry@18.bind(5, "wp_presentation", 1, new id [unknown]@20)
+[1322686.996] wl_registry@18.global(6, "wp_single_pixel_buffer_manager_v1", 1)
+[1322687.264] wl_registry@18.global(7, "wp_tearing_control_manager_v1", 1)
+[1322687.463] wl_registry@18.global(8, "zwp_relative_pointer_manager_v1", 1)
+[1322687.658] wl_registry@18.global(9, "zwp_pointer_constraints_v1", 1)
+[1322687.854] wl_registry@18.global(10, "zwp_input_timestamps_manager_v1", 1)
+[1322688.003] wl_registry@18.global(11, "weston_capture_v1", 1)
+[1322688.234] wl_registry@18.global(12, "wl_data_device_manager", 3)
+[1322688.359] wl_registry@18.global(13, "wl_shm", 1)
+[1322688.567]  -> wl_registry@18.bind(13, "wl_shm", 1, new id [unknown]@21)
+[1322688.736] wl_registry@18.global(14, "wl_seat", 7)
+[1322689.014] wl_registry@18.global(15, "wl_output", 4)
+[1322689.164] wl_registry@18.global(16, "zwp_input_panel_v1", 1)
+[1322689.253] wl_registry@18.global(17, "zwp_input_method_v1", 1)
+[1322689.389] wl_registry@18.global(18, "zwp_text_input_manager_v1", 1)
+[1322689.552] wl_registry@18.global(19, "xdg_wm_base", 5)
+[1322689.739] wl_registry@18.global(20, "weston_desktop_shell", 1)
+[1322689.857] wl_callback@19.done(1)
+[1322690.031]  -> wl_display@1.sync(new id wl_callback@19)
+[1322692.510] wl_display@1.delete_id(19)
+[1322692.520] wp_presentation@20.clock_id(4)
+[1322692.942] wl_shm@21.format(0)
+[1322693.087] wl_shm@21.format(1)
+[1322693.229] wl_shm@21.format(909199186)
+[1322693.382] wl_shm@21.format(875709016)
+[1322693.499] wl_shm@21.format(875708993)
+[1322693.604] wl_shm@21.format(875714642)
+[1322693.693] wl_shm@21.format(875708754)
+[1322693.835] wl_shm@21.format(875714626)
+[1322695.207] wl_shm@21.format(875708738)
+[1322695.415] wl_shm@21.format(808669784)
+[1322695.567] wl_shm@21.format(808669761)
+[1322695.716] wl_shm@21.format(808665688)
+[1322695.849] wl_shm@21.format(808665665)
+[1322695.951] wl_callback@19.done(1)
+qt.scenegraph.general: threaded render loop
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.67 ms
+[1322759.768]  -> wl_compositor@4.create_surface(new id wl_surface@19)
+[1322760.148]  -> xdg_wm_base@3.get_xdg_surface(new id xdg_surface@22, wl_surface@19)
+[1322760.466]  -> xdg_surface@22.get_toplevel(new id xdg_toplevel@23)
+[1322760.647]  -> xdg_toplevel@23.set_min_size(0, 0)
+[1322760.837]  -> xdg_toplevel@23.set_max_size(0, 0)
+[1322761.007]  -> xdg_toplevel@23.set_title("Avelino file input")
+[1322761.177]  -> xdg_toplevel@23.set_app_id("AvelinoCatalog")
+[1322761.282]  -> wl_surface@19.set_buffer_scale(1)
+[1322762.213]  -> wl_compositor@4.create_region(new id wl_region@24)
+[1322762.405]  -> wl_region@24.add(3, 30, 2240, 1440)
+[1322762.552]  -> wl_surface@19.set_opaque_region(wl_region@24)
+[1322762.704]  -> wl_region@24.destroy()
+[1322762.836]  -> xdg_toplevel@23.set_min_size(6, 33)
+[1322762.994]  -> xdg_toplevel@23.set_max_size(16777221, 16777248)
+[1322763.138]  -> wl_surface@19.set_buffer_transform(0)
+[1322763.260]  -> wl_surface@19.commit()
+[1322766.862] wl_keyboard@16.repeat_info(40, 400)
+[1322767.061] wl_keyboard@16.keymap(1, fd 12, 64756)
+qt.accessibility.atspi: Subscription string not handled: "Window:Destroy:"
+[1322773.223] wl_display@1.delete_id(24)
+[1322773.375] xdg_toplevel@23.wm_capabilities(array[12])
+[1322773.545] xdg_toplevel@23.configure(0, 0, array[0])
+[1322773.987] xdg_surface@22.configure(2)
+[1322774.711]  -> xdg_surface@22.ack_configure(2)
+[1322774.909]  -> xdg_surface@22.set_window_geometry(0, 0, 2246, 1473)
+[1322808.068]  -> wl_compositor@4.create_surface(new id wl_surface@24)
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.67 ms
+qt.scenegraph.general: Creating QRhi with backend OpenGL for window 0xb99a20650130 (wflags 0x1)
+  Graphics API debug/validation layers: 0
+  Debug markers: 0
+  Timestamps: 0
+  Prefer software device: 0
+  Shader/pipeline cache collection: 1
+qt.rhi.general: Created OpenGL context QSurfaceFormat(version 4.5, options QFlags<QSurfaceFormat::FormatOption>(DeprecatedFunctions), depthBufferSize 24, redBufferSize 8, greenBufferSize 8, blueBufferSize 8, alphaBufferSize 8, stencilBufferSize 8, samples 0, swapBehavior QSurfaceFormat::DefaultSwapBehavior, swapInterval 1, colorSpace QColorSpace(), profile  QSurfaceFormat::CompatibilityProfile)
+[1322825.462]  -> wl_shm@21.create_pool(new id wl_shm_pool@25, fd 21, 13233432)
+[1322825.599]  -> wl_shm_pool@25.create_buffer(new id wl_buffer@26, 0, 2246, 1473, 8984, 0)
+[1322825.727]  -> wl_shm_pool@25.destroy()
+qt.rhi.general: OpenGL VENDOR: Mesa RENDERER: llvmpipe (LLVM 20.1.2, 128 bits) VERSION: 4.5 (Compatibility Profile) Mesa 25.2.8-0ubuntu0.24.04.4
+qt.scenegraph.general: Created QRhi 0xf3ad7c001cf0 for window 0xb99a20650130
+qt.scenegraph.general: MSAA sample count for the swapchain is 1. Alpha channel requested = no.
+qt.scenegraph.general: rhi texture atlas dimensions: 4096x2048
+[1322988.623]  -> wl_surface@19.damage_buffer(0, 0, 2246, 30)
+[1322988.825]  -> wl_surface@19.damage_buffer(0, 30, 3, 1440)
+[1322988.919]  -> wl_surface@19.damage_buffer(2243, 30, 3, 1440)
+[1322989.114]  -> wl_surface@19.damage_buffer(0, 1470, 2246, 3)
+[1322989.196]  -> wl_surface@19.damage_buffer(0, 1473, 3, 30)
+[1323112.091]  -> wl_surface@19.frame(new id wl_callback@27)
+[1323112.446]  -> wl_surface@19.attach(wl_buffer@26, 0, 0)
+[1323112.586]  -> wl_surface@19.damage_buffer(0, 0, 2147483647, 2147483647)
+[1323126.979]  -> wl_surface@19.commit()
+[1323127.446]  -> wl_display@1.sync(new id wl_callback@28)
+[1323145.158] wl_display@1.delete_id(25)
+[1323145.208] wl_display@1.delete_id(28)
+[1323145.393] wl_surface@19.enter(wl_output@12)
+[1323145.513] wl_keyboard@16.enter(3, wl_surface@19, array[0])
+[1323145.635]  -> wl_display@1.sync(new id wl_callback@25)
+[1323145.741] wl_keyboard@16.modifiers(3, 0, 0, 0, 0)
+[1323145.898] wl_data_device@11.selection(nil)
+[1323146.096] xdg_toplevel@23.configure(0, 0, array[4])
+[1323146.302] xdg_surface@22.configure(4)
+[1323146.488]  -> xdg_surface@22.set_window_geometry(0, 0, 2246, 1473)
+[1323146.618]  -> xdg_surface@22.ack_configure(4)
+[1323146.728]  -> xdg_surface@22.set_window_geometry(0, 0, 2246, 1473)
+[1323147.175] wl_display@1.delete_id(25)
+[1323162.102] wl_display@1.delete_id(27)
+[1323162.193] wl_callback@27.done(103176731)
+[1323343.844] wl_callback@28.done(3)
+[1323344.662]  -> wl_shm@21.create_pool(new id wl_shm_pool@28, fd 21, 13233432)
+[1323345.236]  -> wl_shm_pool@28.create_buffer(new id wl_buffer@27, 0, 2246, 1473, 8984, 0)
+[1323345.334]  -> wl_shm_pool@28.destroy()
+[1323350.551]  -> wl_surface@19.damage_buffer(0, 0, 2246, 30)
+[1323352.925]  -> wl_surface@19.damage_buffer(0, 30, 3, 1440)
+[1323353.246]  -> wl_surface@19.damage_buffer(2243, 30, 3, 1440)
+[1323353.350]  -> wl_surface@19.damage_buffer(0, 1470, 2246, 3)
+[1323353.463]  -> wl_surface@19.damage_buffer(0, 1473, 3, 30)
+[1323371.745]  -> wl_surface@19.frame(new id wl_callback@29)
+[1323375.951]  -> wl_surface@19.attach(wl_buffer@27, 0, 0)
+[1323376.062]  -> wl_surface@19.damage_buffer(0, 0, 2147483647, 2147483647)
+[1323389.162]  -> wl_surface@19.commit()
+[1323389.537]  -> wl_display@1.sync(new id wl_callback@30)
+[1323389.965] wl_callback@25.done(4)
+[1323390.218] wl_pointer@17.enter(6, wl_surface@19, 1153.00000000, 728.00000000)
+[1323390.830]  -> wl_shm@9.create_pool(new id wl_shm_pool@25, fd 21, 2304)
+[1323391.258]  -> wl_shm_pool@25.resize(6912)
+[1323391.468]  -> wl_shm_pool@25.resize(16128)
+[1323391.683]  -> wl_shm_pool@25.resize(34560)
+[1323391.964]  -> wl_shm_pool@25.resize(71424)
+[1323392.706]  -> wl_shm_pool@25.resize(145152)
+[1323392.861]  -> wl_shm_pool@25.resize(292608)
+[1323393.781]  -> wl_shm_pool@25.resize(587520)
+[1323398.540] wl_display@1.delete_id(28)
+[1323398.592]  -> wl_shm_pool@25.create_buffer(new id wl_buffer@31, 382464, 24, 24, 96, 0)
+[1323398.756]  -> wl_compositor@4.create_surface(new id wl_surface@32)
+[1323398.856]  -> wl_pointer@17.set_cursor(6, wl_surface@32, 3, 1)
+[1323398.975]  -> wl_surface@32.set_buffer_scale(1)
+[1323399.048]  -> wl_surface@32.attach(wl_buffer@31, 0, 0)
+[1323399.186]  -> wl_surface@32.damage(0, 0, 24, 24)
+[1323399.275]  -> wl_surface@32.commit()
+[1323399.390] wl_pointer@17.frame()
+[1323399.592] xdg_wm_base@3.ping(7)
+[1323399.732]  -> xdg_wm_base@3.pong(7)
+[1323399.398] wl_display@1.delete_id(30)
+[1323402.759]  -> zwp_text_input_v1@15.deactivate(wl_seat@10)
+[1323403.127] wl_surface@32.enter(wl_output@12)
+[1323406.823]  -> wl_surface@32.set_buffer_scale(1)
+[1323407.083]  -> wl_surface@32.attach(wl_buffer@31, 0, 0)
+[1323407.180]  -> wl_surface@32.damage(0, 0, 24, 24)
+[1323407.255]  -> wl_surface@32.commit()
+[1323408.994] wl_buffer@26.release()
+[1323409.223] wl_callback@30.done(7)
+[1323422.008] wl_display@1.delete_id(29)
+[1323422.097] wl_callback@29.done(103176985)
+[1323438.483]  -> wl_surface@19.frame(new id wl_callback@29)
+[1323440.948]  -> wl_surface@19.attach(wl_buffer@26, 0, 0)
+[1323441.887]  -> wl_surface@19.damage_buffer(0, 0, 2147483647, 2147483647)
+[1323458.245]  -> wl_surface@19.commit()
+[1323458.691]  -> wl_display@1.sync(new id wl_callback@30)
+[1323460.760] wl_display@1.delete_id(30)
+[1323475.705] wl_display@1.delete_id(29)
+[1323475.723] wl_callback@29.done(103177047)
+[1335792.400]  -> wl_compositor@4.create_surface(new id wl_surface@29)
+[1335793.882]  -> xdg_wm_base@3.get_xdg_surface(new id xdg_surface@28, wl_surface@29)
+[1335794.051]  -> xdg_surface@28.get_toplevel(new id xdg_toplevel@33)
+[1335794.129]  -> xdg_toplevel@33.set_parent(xdg_toplevel@23)
+[1335794.196]  -> xdg_toplevel@33.set_min_size(0, 0)
+[1335794.255]  -> xdg_toplevel@33.set_max_size(0, 0)
+[1335794.306]  -> xdg_toplevel@33.set_title("Open")
+[1335794.353]  -> xdg_toplevel@33.set_app_id("AvelinoCatalog")
+[1335794.396]  -> wl_surface@29.set_buffer_scale(1)
+[1335794.469]  -> xdg_toplevel@33.set_min_size(6, 33)
+[1335794.516]  -> xdg_toplevel@33.set_max_size(16777221, 16777248)
+[1335794.560]  -> wl_surface@29.set_buffer_transform(0)
+[1335794.609]  -> wl_surface@29.commit()
+[1335800.125] xdg_toplevel@33.wm_capabilities(array[12])
+[1335800.204] xdg_toplevel@33.configure(0, 0, array[0])
+[1335800.273] xdg_surface@28.configure(9)
+[1335800.356]  -> xdg_surface@28.ack_configure(9)
+[1335800.430]  -> xdg_surface@28.set_window_geometry(0, 0, 1766, 929)
+[1335803.635] wl_buffer@27.release()
+[1335808.641] wl_callback@30.done(7)
+[1335813.199]  -> wl_compositor@4.create_surface(new id wl_surface@30)
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.67 ms
+qt.scenegraph.general: Creating QRhi with backend OpenGL for window 0xb99a2238a030 (wflags 0x3)
+  Graphics API debug/validation layers: 0
+  Debug markers: 0
+  Timestamps: 0
+  Prefer software device: 0
+  Shader/pipeline cache collection: 0
+qt.rhi.general: Created OpenGL context QSurfaceFormat(version 4.5, options QFlags<QSurfaceFormat::FormatOption>(DeprecatedFunctions), depthBufferSize 24, redBufferSize 8, greenBufferSize 8, blueBufferSize 8, alphaBufferSize 8, stencilBufferSize 8, samples 0, swapBehavior QSurfaceFormat::DefaultSwapBehavior, swapInterval 1, colorSpace QColorSpace(), profile  QSurfaceFormat::CompatibilityProfile)
+[1335832.236]  -> wl_shm@21.create_pool(new id wl_shm_pool@34, fd 24, 6562456)
+[1335832.322]  -> wl_shm_pool@34.create_buffer(new id wl_buffer@35, 0, 1766, 929, 7064, 0)
+[1335832.396]  -> wl_shm_pool@34.destroy()
+qt.rhi.general: OpenGL VENDOR: Mesa RENDERER: llvmpipe (LLVM 20.1.2, 128 bits) VERSION: 4.5 (Compatibility Profile) Mesa 25.2.8-0ubuntu0.24.04.4
+qt.scenegraph.general: Created QRhi 0xb99a245ad0d0 for window 0xb99a2238a030
+qt.scenegraph.general: MSAA sample count for the swapchain is 1. Alpha channel requested = yes.
+qt.scenegraph.general: rhi texture atlas dimensions: 2048x1024
+[1335864.145]  -> wl_surface@19.frame(new id wl_callback@36)
+[1335865.050]  -> wl_surface@19.attach(wl_buffer@27, 0, 0)
+[1335865.188]  -> wl_surface@19.damage_buffer(0, 0, 2147483647, 2147483647)
+[1335890.931]  -> wl_surface@19.commit()
+[1335891.141]  -> wl_display@1.sync(new id wl_callback@37)
+[1335894.157] wl_display@1.delete_id(34)
+[1335894.396] wl_display@1.delete_id(37)
+[1335920.562] wl_display@1.delete_id(36)
+[1335920.780] wl_callback@36.done(103189480)
+[1336158.377]  -> wl_surface@29.damage_buffer(0, 0, 1766, 30)
+[1336162.972]  -> wl_surface@29.damage_buffer(0, 30, 3, 896)
+[1336163.154]  -> wl_surface@29.damage_buffer(1763, 30, 3, 896)
+[1336163.208]  -> wl_surface@29.damage_buffer(0, 926, 1766, 3)
+[1336163.273]  -> wl_surface@29.damage_buffer(0, 929, 3, 30)
+[1336198.826]  -> wl_surface@29.frame(new id wl_callback@36)
+[1336200.203]  -> wl_surface@29.attach(wl_buffer@35, 0, 0)
+[1336200.449]  -> wl_surface@29.damage_buffer(0, 0, 2147483647, 2147483647)
+[1336214.030]  -> wl_surface@29.commit()
+[1336214.258]  -> wl_display@1.sync(new id wl_callback@34)
+[1336218.783] wl_buffer@26.release()
+[1336218.956] wl_callback@37.done(9)
+[1336222.018] wl_display@1.delete_id(34)
+[1336222.903] wl_surface@29.enter(wl_output@12)
+[1336224.348] wl_keyboard@16.leave(10, wl_surface@19)
+[1336224.949]  -> wl_display@1.sync(new id wl_callback@37)
+[1336225.069] wl_keyboard@16.enter(11, wl_surface@29, array[0])
+[1336225.173] wl_keyboard@16.modifiers(11, 0, 0, 0, 0)
+[1336226.915] wl_data_device@11.selection(nil)
+[1336227.086] xdg_toplevel@23.configure(0, 0, array[0])
+[1336227.210] xdg_surface@22.configure(12)
+[1336227.478] xdg_toplevel@33.configure(0, 0, array[4])
+[1336227.596] xdg_surface@28.configure(13)
+[1336227.919]  -> xdg_surface@22.set_window_geometry(0, 0, 2246, 1473)
+[1336228.346]  -> xdg_surface@22.ack_configure(12)
+[1336228.425]  -> xdg_surface@22.set_window_geometry(0, 0, 2246, 1473)
+[1336229.185] wl_display@1.delete_id(37)
+[1336246.865] wl_display@1.delete_id(36)
+[1336247.056] wl_callback@36.done(103189806)
+[1336273.346]  -> wl_surface@19.frame(new id wl_callback@36)
+[1336273.969]  -> wl_surface@19.attach(wl_buffer@26, 0, 0)
+[1336274.098]  -> wl_surface@19.damage_buffer(0, 0, 2147483647, 2147483647)
+[1336286.933]  -> wl_surface@19.commit()
+[1336287.244]  -> wl_display@1.sync(new id wl_callback@38)
+[1336288.618] wl_display@1.delete_id(38)
+[1336288.915] wl_buffer@27.release()
+[1336291.010] wl_callback@38.done(16)
+[1336297.218]  -> wl_surface@19.damage_buffer(0, 0, 2246, 30)
+[1336297.459]  -> wl_surface@19.damage_buffer(0, 30, 3, 1440)
+[1336299.649]  -> wl_surface@19.damage_buffer(2243, 30, 3, 1440)
+[1336299.798]  -> wl_surface@19.damage_buffer(0, 1470, 2246, 3)
+[1336299.860]  -> wl_surface@19.damage_buffer(0, 1473, 3, 30)
+[1336315.242] wl_display@1.delete_id(36)
+[1336320.904] wl_callback@36.done(103189875)
+[1336331.422]  -> wl_surface@19.frame(new id wl_callback@36)
+[1336331.670]  -> wl_surface@19.attach(wl_buffer@27, 0, 0)
+[1336335.872]  -> wl_surface@19.damage_buffer(0, 0, 2147483647, 2147483647)
+[1336354.716]  -> wl_surface@19.commit()
+[1336354.936]  -> wl_display@1.sync(new id wl_callback@38)
+[1336355.305]  -> xdg_surface@28.set_window_geometry(0, 0, 1766, 929)
+[1336355.395]  -> xdg_surface@28.ack_configure(13)
+[1336355.449]  -> xdg_surface@28.set_window_geometry(0, 0, 1766, 929)
+[1336356.397] wl_callback@34.done(11)
+[1336358.601] wl_display@1.delete_id(38)
+[1336358.934]  -> wl_shm@21.create_pool(new id wl_shm_pool@34, fd 24, 6562456)
+[1336360.431]  -> wl_shm_pool@34.create_buffer(new id wl_buffer@39, 0, 1766, 929, 7064, 0)
+[1336360.539]  -> wl_shm_pool@34.destroy()
+[1336369.549]  -> wl_surface@29.damage_buffer(0, 0, 1766, 30)
+[1336370.293]  -> wl_surface@29.damage_buffer(0, 30, 3, 896)
+[1336370.630]  -> wl_surface@29.damage_buffer(1763, 30, 3, 896)
+[1336370.802]  -> wl_surface@29.damage_buffer(0, 926, 1766, 3)
+[1336370.995]  -> wl_surface@29.damage_buffer(0, 929, 3, 30)
+[1336382.050] wl_display@1.delete_id(34)
+[1336382.203] wl_display@1.delete_id(36)
+[1336383.320] wl_callback@36.done(103189945)
+[1336389.908]  -> wl_surface@29.frame(new id wl_callback@36)
+[1336390.229]  -> wl_surface@29.attach(wl_buffer@39, 0, 0)
+[1336390.367]  -> wl_surface@29.damage_buffer(0, 0, 2147483647, 2147483647)
+[1336400.019]  -> wl_surface@29.commit()
+[1336400.371]  -> wl_display@1.sync(new id wl_callback@34)
+[1336400.708] wl_callback@37.done(13)
+[1336401.070] wl_pointer@17.leave(14, wl_surface@19)
+[1336401.241] wl_pointer@17.frame()
+[1336401.847] wl_pointer@17.enter(15, wl_surface@29, 1111.00000000, 709.00000000)
+[1336402.253]  -> wl_pointer@17.set_cursor(15, wl_surface@32, 3, 1)
+[1336402.501]  -> wl_surface@32.set_buffer_scale(1)
+[1336402.603]  -> wl_surface@32.attach(wl_buffer@31, 0, 0)
+[1336402.821]  -> wl_surface@32.damage(0, 0, 24, 24)
+[1336402.957] wl_display@1.delete_id(34)
+[1336402.968]  -> wl_surface@32.commit()
+[1336403.367] wl_pointer@17.frame()
+[1336403.567] xdg_wm_base@3.ping(16)
+[1336403.739]  -> xdg_wm_base@3.pong(16)
+[1336404.690]  -> zwp_text_input_v1@15.deactivate(wl_seat@10)
+[1336405.165]  -> zwp_text_input_v1@15.deactivate(wl_seat@10)
+[1336406.691]  -> wl_surface@32.set_buffer_scale(1)
+[1336406.925]  -> wl_surface@32.attach(wl_buffer@31, 0, 0)
+[1336407.160]  -> wl_surface@32.damage(0, 0, 24, 24)
+[1336407.290] wl_buffer@35.release()
+[1336407.335]  -> wl_surface@32.commit()
+[1336407.667] wl_callback@34.done(16)
+[1336423.938] wl_display@1.delete_id(36)
+[1336424.277] wl_callback@36.done(103189989)
+[1336441.690]  -> wl_surface@29.frame(new id wl_callback@36)
+[1336442.212]  -> wl_surface@29.attach(wl_buffer@35, 0, 0)
+[1336442.578]  -> wl_surface@29.damage_buffer(0, 0, 2147483647, 2147483647)
+[1336453.893]  -> wl_surface@29.commit()
+[1336454.495]  -> wl_display@1.sync(new id wl_callback@34)
+[1336455.756] wl_display@1.delete_id(34)
+[1336469.026] wl_display@1.delete_id(36)
+[1336469.135] wl_callback@36.done(103190041)
+[1336640.242]  -> zwp_text_input_v1@15.deactivate(wl_seat@10)
+[1336641.977] wl_buffer@39.release()
+[1336642.871] wl_callback@34.done(16)
+[1336661.360]  -> wl_surface@29.frame(new id wl_callback@34)
+[1336661.955]  -> wl_surface@29.attach(wl_buffer@39, 0, 0)
+[1336662.223]  -> wl_surface@29.damage_buffer(0, 0, 2147483647, 2147483647)
+[1336670.517]  -> wl_surface@29.commit()
+[1336670.954]  -> wl_display@1.sync(new id wl_callback@36)
+[1336671.324] wl_display@1.delete_id(36)
+[1336685.728] wl_display@1.delete_id(34)
+[1336685.850] wl_callback@34.done(103190257)
+[1337042.372]  -> zwp_text_input_v1@15.deactivate(wl_seat@10)
+[1337044.157]  -> zwp_text_input_v1@15.deactivate(wl_seat@10)
+[1337045.846] wl_buffer@35.release()
+[1337047.961] wl_callback@36.done(16)
+[1337071.976]  -> wl_surface@29.frame(new id wl_callback@36)
+[1337072.161]  -> wl_surface@29.attach(wl_buffer@35, 0, 0)
+[1337072.292]  -> wl_surface@29.damage_buffer(0, 0, 2147483647, 2147483647)
+[1337081.269]  -> wl_surface@29.commit()
+[1337081.496]  -> wl_display@1.sync(new id wl_callback@34)
+[1337082.418] wl_display@1.delete_id(34)
+[1337096.171] wl_display@1.delete_id(36)
+[1337096.351] wl_callback@36.done(103190668)
+[1337559.235]  -> zwp_text_input_v1@15.deactivate(wl_seat@10)
+[1337574.118]  -> zwp_text_input_v1@15.deactivate(wl_seat@10)
+[1337577.392] wl_buffer@39.release()
+[1337578.171] wl_callback@34.done(16)
+[1337578.652]  -> zwp_text_input_v1@15.deactivate(wl_seat@10)
+[1337608.697]  -> wl_surface@29.frame(new id wl_callback@34)
+[1337610.991]  -> wl_surface@29.attach(wl_buffer@39, 0, 0)
+[1337611.125]  -> wl_surface@29.damage_buffer(0, 0, 2147483647, 2147483647)
+[1337615.535]  -> wl_surface@29.commit()
+[1337615.844]  -> wl_display@1.sync(new id wl_callback@36)
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483908"
+[1337618.158]  -> wl_shm@21.create_pool(new id wl_shm_pool@37, fd 24, 6562456)
+[1337618.894]  -> wl_shm_pool@37.create_buffer(new id wl_buffer@40, 0, 1766, 929, 7064, 0)
+[1337619.031]  -> wl_shm_pool@37.destroy()
+[1337619.199] wl_display@1.delete_id(36)
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483910"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483917"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483919"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483908"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483908"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483908"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483908"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483908"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483908"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483908"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483908"
+[1337636.836] wl_display@1.delete_id(34)
+[1337636.827] wl_display@1.delete_id(37)
+[1337636.968] wl_callback@34.done(103191204)
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483926"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483908"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483908"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483928"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483908"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483908"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483937"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483908"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483944"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483908"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483946"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483908"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483908"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483908"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483908"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483908"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483908"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483908"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483913"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483913"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483913"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483913"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483913"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483913"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483913"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483913"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483910"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483910"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483910"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483910"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483910"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483910"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483910"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483910"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483910"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483910"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483910"
+[1337655.578]  -> wl_surface@29.frame(new id wl_callback@34)
+[1337655.964] wl_buffer@35.release()
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483910"
+[1337656.063] wl_callback@36.done(16)
+[1337656.897]  -> wl_surface@29.attach(wl_buffer@40, 0, 0)
+[1337656.963]  -> wl_surface@29.damage_buffer(0, 0, 2147483647, 2147483647)
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483910"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483917"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483917"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483917"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483917"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483917"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483917"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483917"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483917"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483917"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483917"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483917"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483917"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483917"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483917"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483917"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483917"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483917"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483917"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483917"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483917"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483917"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483922"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483922"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483922"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483922"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483922"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483922"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483922"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483922"
+[1337672.776]  -> wl_surface@29.commit()
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483919"
+[1337673.180]  -> wl_display@1.sync(new id wl_callback@36)
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483919"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483919"
+[1337674.399] wl_display@1.delete_id(36)
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483919"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483919"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483919"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483919"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483919"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483919"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483919"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483919"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483919"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483919"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483926"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483926"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483926"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483926"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483926"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483926"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483926"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483926"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483926"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483926"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483926"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483926"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483926"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483926"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483926"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483926"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483926"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483926"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483926"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483926"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483926"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483926"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483926"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483926"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483926"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483926"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483926"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483931"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483931"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483931"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483931"
+[1337693.533] wl_display@1.delete_id(34)
+[1337693.826] wl_callback@34.done(103191260)
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483931"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483931"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483931"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483931"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483931"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483931"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483931"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483931"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483931"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483931"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483931"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483931"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483928"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483928"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483928"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483928"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483928"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483928"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483928"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483928"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483928"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483928"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483928"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483928"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483928"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483940"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483940"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483940"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483940"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483940"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483940"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483940"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483940"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483937"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483937"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483937"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483937"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483937"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483937"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483937"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483937"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483937"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483937"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483937"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483937"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483937"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483944"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483944"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483944"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483944"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483944"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483944"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483944"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483944"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483944"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483944"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483944"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483944"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483944"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483944"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483944"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483944"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483944"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483944"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483944"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483944"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483944"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483949"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483949"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483949"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483949"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483949"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483949"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483949"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483949"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483946"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483946"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483946"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483946"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483946"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483946"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483946"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483946"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483946"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483946"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483946"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483946"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483946"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483931"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483931"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483931"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483931"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483931"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483931"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483931"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483931"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483908"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483908"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483908"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483908"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483908"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483908"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483908"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483908"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483910"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483910"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483910"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483910"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483910"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483910"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483910"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483910"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483917"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483917"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483917"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483917"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483917"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483917"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483917"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483917"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483919"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483919"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483919"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483919"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483919"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483919"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483919"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483919"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483926"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483926"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483926"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483926"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483926"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483926"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483926"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483926"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483928"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483928"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483928"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483928"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483928"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483928"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483928"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483928"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483937"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483937"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483937"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483937"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483937"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483937"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483937"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483937"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483944"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483944"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483944"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483944"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483944"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483944"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483944"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483944"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483946"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483946"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483946"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483946"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483946"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483946"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483946"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483946"
+[1339654.173]  -> zwp_text_input_v1@15.deactivate(wl_seat@10)
+[1339659.889]  -> zwp_text_input_v1@15.deactivate(wl_seat@10)
+[1339660.193]  -> zwp_text_input_v1@15.deactivate(wl_seat@10)
+[1339662.972] wl_buffer@39.release()
+[1339666.843] wl_callback@36.done(16)
+[1339697.543]  -> wl_surface@29.frame(new id wl_callback@36)
+[1339697.746]  -> wl_surface@29.attach(wl_buffer@35, 0, 0)
+[1339697.803]  -> wl_surface@29.damage_buffer(0, 0, 2147483647, 2147483647)
+[1339705.974]  -> wl_surface@29.commit()
+[1339706.169]  -> wl_display@1.sync(new id wl_callback@34)
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+[1339713.831] wl_display@1.delete_id(34)
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483953"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483953"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483953"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483953"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483953"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483953"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483953"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483953"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483971"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483971"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483971"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483971"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483971"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483971"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483971"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483971"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483980"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483980"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483980"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483980"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483980"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483980"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+[1339733.182] wl_display@1.delete_id(36)
+[1339733.468] wl_callback@36.done(103193295)
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483980"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483980"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483989"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483989"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483989"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483989"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483989"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483989"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483989"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483989"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+[1339751.860]  -> wl_surface@29.frame(new id wl_callback@36)
+[1339752.025] wl_buffer@40.release()
+[1339752.114] wl_callback@34.done(16)
+[1339752.328]  -> wl_surface@29.attach(wl_buffer@39, 0, 0)
+[1339752.479]  -> wl_surface@29.damage_buffer(0, 0, 2147483647, 2147483647)
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+[1339760.565]  -> wl_surface@29.commit()
+[1339760.726]  -> wl_display@1.sync(new id wl_callback@34)
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+[1339761.954] wl_display@1.delete_id(34)
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+[1339777.276] wl_display@1.delete_id(36)
+[1339777.381] wl_callback@36.done(103193348)
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483971"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483971"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483971"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483962"
+[1341420.582]  -> zwp_text_input_v1@15.deactivate(wl_seat@10)
+[1341422.248] wl_buffer@35.release()
+[1341424.886] wl_callback@34.done(16)
+[1341456.961]  -> wl_surface@29.frame(new id wl_callback@34)
+[1341457.540]  -> wl_surface@29.attach(wl_buffer@35, 0, 0)
+[1341457.774]  -> wl_surface@29.damage_buffer(0, 0, 2147483647, 2147483647)
+[1341467.586]  -> wl_surface@29.commit()
+[1341467.833]  -> wl_display@1.sync(new id wl_callback@36)
+[1341468.817] wl_display@1.delete_id(36)
+[1341481.774] wl_display@1.delete_id(34)
+[1341481.891] wl_callback@34.done(103195055)
+[1341787.875] wl_keyboard@16.key(17, 1281242041, 29, 1)
+[1341788.209] wl_keyboard@16.modifiers(18, 4, 0, 0, 0)
+[1342008.060]  -> zwp_text_input_v1@15.deactivate(wl_seat@10)
+[1342019.829] wl_buffer@39.release()
+[1342021.827] wl_callback@36.done(16)
+[1342045.972]  -> wl_surface@29.frame(new id wl_callback@36)
+[1342051.856]  -> wl_surface@29.attach(wl_buffer@39, 0, 0)
+[1342054.442]  -> wl_surface@29.damage_buffer(0, 0, 2147483647, 2147483647)
+[1342058.313]  -> wl_surface@29.commit()
+[1342061.446]  -> wl_display@1.sync(new id wl_callback@34)
+[1342077.496] wl_display@1.delete_id(34)
+[1342091.678] wl_display@1.delete_id(36)
+[1342091.980] wl_callback@36.done(103195663)
+[1342392.106] wl_keyboard@16.key(19, 1281242645, 29, 0)
+[1342395.092] wl_keyboard@16.modifiers(20, 0, 0, 0, 0)
+qt.accessibility.atspi: Subscription string not handled: "Window:Destroy:"

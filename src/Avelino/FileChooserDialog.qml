@@ -26,6 +26,7 @@ FileChooserDialogBase {
     title:"Open"
     background:Rectangle {color:dialog.surface;radius:10;border.width:0.5;border.color:dialog.border}
     function focusColumn(index:int):void {
+        if(browser.viewMode!=="columns"){views.focusFiles();return}
         const column=columnItems.itemAt(index)
         if(column)column.view.forceActiveFocus()
         const left=index*columnWidth,right=(index+2)*columnWidth
@@ -67,8 +68,45 @@ FileChooserDialogBase {
             id:up;objectName:"bleeckerFileChooserUp";x:76;y:38;width:32;implicitWidth:32;text:"↑"
             Accessible.name:"Enclosing folder";onClicked:dialog.browser.goUp()
         }
+        FileChooserButton {
+            id:viewChoice;objectName:"bleeckerFileChooserViewOptions";x:116;y:38;width:94
+            text:dialog.browser.viewMode==="icons" ? "Icons ▾":dialog.browser.viewMode==="list" ? "List ▾":"Columns ▾"
+            Accessible.role:Accessible.ButtonMenu;Accessible.name:"View Options"
+            Accessible.onPressAction:viewChoice.click()
+            onClicked:viewMenu.open()
+            T.Menu {
+                id:viewMenu;objectName:"bleeckerFileChooserViewMenu";parent:viewChoice;y:26;width:142;padding:5
+                implicitHeight:contentItem.implicitHeight+topPadding+bottomPadding
+                popupType:T.Popup.Item;enter:null;exit:null
+                background:Rectangle {radius:7;color:dialog.dark ? "#303030":"white";border.width:0.5;border.color:dialog.border}
+                contentItem:ListView {implicitHeight:contentHeight;model:viewMenu.contentModel;interactive:false;clip:true}
+                component ViewOption:T.MenuItem {
+                        id:option
+                        required property string mode
+                        objectName:"bleeckerFileChooserView_"+mode
+                        width:132;height:26;implicitHeight:26;padding:0
+                        text:mode==="icons" ? "Icons":mode==="list" ? "List":"Columns"
+                        Accessible.role:Accessible.MenuItem;Accessible.name:text
+                        Accessible.checkable:true;Accessible.checked:checked
+                        Accessible.onPressAction:option.click()
+                        checkable:true;autoExclusive:true;checked:dialog.browser.viewMode===mode
+                        onTriggered:dialog.browser.viewMode=mode
+                        background:Rectangle {radius:4;color:option.highlighted ? "#0063e1":"transparent"}
+                        contentItem:Text {
+                            leftPadding:8;text:(option.checked ? "✓  ":"    ")+option.text
+                            textFormat:Text.PlainText;verticalAlignment:Text.AlignVCenter
+                            color:option.highlighted ? "white":dialog.ink;font.family:Qt.application.font.family;font.pixelSize:13
+                            Accessible.ignored:true
+                        }
+                        indicator:null
+                }
+                ViewOption {mode:"icons"}
+                ViewOption {mode:"list"}
+                ViewOption {mode:"columns"}
+            }
+        }
         T.TextField {
-            id:path;objectName:"bleeckerFileChooserPath";x:116;y:38;width:Math.max(0,parent.width-136);height:24
+            id:path;objectName:"bleeckerFileChooserPath";x:218;y:38;width:Math.max(0,parent.width-238);height:24
             leftPadding:8;rightPadding:8;topPadding:0;bottomPadding:0
             text:dialog.browser.folderPath;selectByMouse:true;clip:true
             color:dialog.ink;selectionColor:"#0063e1";selectedTextColor:"white"
@@ -80,6 +118,7 @@ FileChooserDialogBase {
         Rectangle {x:0;y:76;width:parent.width;height:1;color:dialog.border;Accessible.ignored:true}
         Flickable {
             id:columns;objectName:"bleeckerFileChooserColumns"
+            visible:dialog.browser.viewMode==="columns"
             x:0;y:77;width:parent.width;height:Math.max(0,parent.height-139)
             contentWidth:Math.max(width,(dialog.browser.count+1)*dialog.columnWidth);contentHeight:height
             clip:true;boundsBehavior:Flickable.StopAtBounds
@@ -158,6 +197,10 @@ FileChooserDialogBase {
                 contentItem:Rectangle {radius:3;color:"#999999";implicitWidth:24;implicitHeight:5}
                 background:null
             }
+        }
+        FileChooserViews {
+            id:views;browser:dialog.browser;visible:dialog.browser.viewMode!=="columns"
+            x:0;y:77;width:parent.width;height:Math.max(0,parent.height-139)
         }
         Rectangle {x:0;y:parent.height-62;width:parent.width;height:1;color:dialog.border;Accessible.ignored:true}
         Text {

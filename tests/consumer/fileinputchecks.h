@@ -161,6 +161,59 @@ static void runFileInputConsumer(QQuickWindow *window,QGuiApplication &app,const
     record("history-forward");
     if(!click(findVisualItem(content(),"bleeckerFileChooserCancel"))||!check(state()["results"].toArray().isEmpty(),"Folder creation called the owner"))return;
     record("new-folder-cancel-no-result");
+    // Exercise the installed view menu, hierarchy and selection without Avelino
+    // C++ headers or library sources in this independent consumer.
+    if(!configure(standard,QJsonArray{"text/plain"})||!open()||!selectRow(0,"one.txt"))return;
+    auto viewMenu=[&](const QString &mode){
+        if(!click(findVisualItem(content(),"bleeckerFileChooserViewOptions")))return false;
+        auto item=findVisualItem(content()->window()->contentItem(),"bleeckerFileChooserView_"+mode);
+        if(!check(item&&item->isVisible(),"Owned view menu item missing")||!click(item))return false;
+        return check(browser()->property("viewMode").toString()==mode,"View menu did not change presentation");
+    };
+    auto listing=[&]{return qobject_cast<QAbstractItemModel*>(browser()->property("listing").value<QObject*>());};
+    auto listingRow=[&](const QString &name){
+        auto model=listing();if(!model)return -1;const auto role=model->roleNames().key("fileName",-1);
+        for(int i=0;i<model->rowCount();++i)if(model->data(model->index(i,0),role).toString()==name)return i;
+        return -1;
+    };
+    auto listedItem=[&](const QString &name){
+        const auto index=listingRow(name);
+        return findVisualItem(content(),(browser()->property("viewMode").toString()=="icons"?"bleeckerFileChooserIcon_":"bleeckerFileChooserListRow_")+QString::number(index));
+    };
+    if(!viewMenu("list")||!check(browser()->property("selectedUrls").toList().size()==1,"List did not retain the column file selection")||!save(content()->window(),"list-root-selection"))return;
+    record("view-list-root-selection");
+    const auto folderRow=listingRow("folder");
+    if(!check(folderRow>=0,"List folder missing")||!click(findVisualItem(content(),"bleeckerFileChooserDisclosure_"+QString::number(folderRow)))
+        ||!check(listingRow("child.txt")>=0,"List disclosure did not enumerate child rows")||!click(listedItem("child.txt")))return;
+    QTest::keyPress(content()->window(),Qt::Key_Control);++keys;
+    if(!click(listedItem("one.txt"),Qt::ControlModifier))return;
+    QTest::keyRelease(content()->window(),Qt::Key_Control);++keys;
+    if(!check(browser()->property("selectedUrls").toList().size()==2,"List selection did not span root and child")||!save(content()->window(),"list-root-and-child"))return;
+    record("view-list-expanded-selection");
+    if(!viewMenu("icons")||!check(listingRow("child.txt")==-1&&browser()->property("selectedUrls").toList().size()==1
+        &&state()["results"].toArray().isEmpty(),"Icons did not prune the hidden child selection")||!save(content()->window(),"icons-root-retained"))return;
+    record("view-icons-prunes-child");
+    if(!click(listedItem("folder"))||!check(browser()->property("selectedUrls").toList().isEmpty()&&browser()->property("canAccept").toBool(),"Icons folder did not enable navigation Open")
+        ||!click(findVisualItem(content(),"bleeckerFileChooserOpen"))||!check(browser()->property("folderPath").toString()==directory.filePath("folder")
+        &&state()["results"].toArray().isEmpty()&&browser()->property("active").toBool(),"Icons folder Open submitted an owner result"))return;
+    record("view-icons-folder-navigation");
+    if(!click(findVisualItem(content(),"bleeckerFileChooserBack"))||!check(browser()->property("folderPath").toString()==root.path()
+        &&browser()->property("selectedUrls").toList().isEmpty()&&!browser()->property("canAccept").toBool(),"View history retained file selection"))return;
+    record("view-history-clears-selection");
+    if(!viewMenu("list")||!check(listingRow("child.txt")>=0,"List did not retain disclosure state")||!click(listedItem("folder")))return;
+    QTest::keyClick(content()->window(),Qt::Key_Left);++keys;QTest::qWait(40);
+    if(!check(listingRow("child.txt")==-1,"List Left did not collapse"))return;
+    QTest::keyClick(content()->window(),Qt::Key_Right);++keys;QTest::qWait(40);
+    if(!check(listingRow("child.txt")>=0,"List Right did not expand"))return;
+    QTest::keyClick(content()->window(),Qt::Key_Down);++keys;QTest::qWait(40);
+    if(!check(browser()->property("selectedUrls").toList()==QVariantList{QUrl::fromLocalFile(directory.filePath("folder/child.txt"))},"List Down did not select the child")||!save(content()->window(),"list-keyboard-child"))return;
+    record("view-list-keyboard-child");
+    QTest::keyClick(content()->window(),Qt::Key_Return);++keys;QTest::qWait(40);
+    if(!check(!browser()->property("active").toBool()&&state()["results"].toArray().size()==1,"List keyboard acceptance failed"))return;
+    record("view-child-owner-result");
+    if(!open()||!check(browser()->property("viewMode").toString()=="list"&&browser()->property("selectedUrls").toList().isEmpty()
+        &&!browser()->property("canGoBack").toBool(),"Reopened List did not clear selection/history")||!click(findVisualItem(content(),"bleeckerFileChooserCancel")))return;
+    record("view-retained-cancel");
     if(!configure(standard,QJsonArray{"text/plain"})||!open()||!selectRow(0,"folder")||!check(browser()->property("count").toInt()==2&&!browser()->property("canAccept").toBool(),"Directory navigation selected an ineligible directory")||!selectRow(1,"child.txt"))return;
     if(!save(content()->window(),"directory-columns"))return;
     record("child-selected");
@@ -171,7 +224,7 @@ static void runFileInputConsumer(QQuickWindow *window,QGuiApplication &app,const
     QJsonObject report{{"accepted",false},{"reference",native["reference"]},{"fixture","file-input"},{"qt",qVersion()},{"platform",QGuiApplication::platformName()},
         {"graphicsApi",int(window->rendererInterface()->graphicsApi())},{"width",window->width()},{"height",window->height()},
         {"popupCaptureMethod","QQuickItem::grabToImage of the entire popup window content item at native DPR; no cropping or resizing"},
-        {"structuralChecks","passed"},{"images",38},{"closedImages",32},{"popupImages",5},{"ownerResultImages",1},
+        {"structuralChecks","passed"},{"images",42},{"closedImages",32},{"popupImages",9},{"ownerResultImages",1},
         {"appearance",parser.isSet("dark")?"dark":"light"},{"textScale",textScale},{"dpr",window->devicePixelRatio()},
         {"closed",closed},{"sizing",sizing},{"nativeCompleteFramesMatch",frames},{"nativeContractStatesMatch",states},
         {"applicationActive",QGuiApplication::applicationState()==Qt::ApplicationActive},{"windowActive",window->isActive()},

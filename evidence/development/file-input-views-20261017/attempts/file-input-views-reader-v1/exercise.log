@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/probe/exercise.py", line 138, in <module>
+    choose_view('List','tree item')
+  File "/probe/exercise.py", line 123, in choose_view
+    press_any('View Options')
+  File "/probe/exercise.py", line 120, in press_any
+    assert action(obj,'Press'),name
+           ^^^^^^^^^^^^^^^^^^^
+  File "/probe/exercise.py", line 38, in action
+    return interface.doAction(next(i for i in range(interface.nActions) if interface.getName(i) == name))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+StopIteration

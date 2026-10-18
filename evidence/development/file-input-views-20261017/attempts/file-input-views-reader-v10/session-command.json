@@ -1,0 +1,23 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--detach",
+    "--name",
+    "avelino-file-input-views-reader-10",
+    "--ulimit",
+    "core=0",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/file-input-views-reader-v10:/probe",
+    "-w",
+    "/probe",
+    "avelino-toolchain:recovered-a11y-20261017-qt6.8.3",
+    "dbus-run-session",
+    "--",
+    "python3",
+    "/probe/session.py"
+  ],
+  "containerId": "5554e29501fe337cc76afa8ccbb14d803c6fdcfbdefef4f24a6f3fc87caea459"
+}

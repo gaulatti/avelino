@@ -1,0 +1,26 @@
+{
+  "accepted": false,
+  "status": "running",
+  "phases": [
+    {
+      "phase": "list-retains-column-selection",
+      "time": 1792282412.6377428,
+      "observations": {
+        "selected": [
+          "one.txt"
+        ],
+        "dateAdded": "unavailable",
+        "modal": true
+      },
+      "readerLogBytes": 283611
+    },
+    {
+      "phase": "operator-failure",
+      "time": 1792282413.543338,
+      "observations": {
+        "error": "Traceback (most recent call last):\n  File \"/probe/exercise.py\", line 166, in <module>\n    assert [h.name for h in cell.columnHeaderCells]==['Name']\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+      },
+      "readerLogBytes": 283611
+    }
+  ]
+}

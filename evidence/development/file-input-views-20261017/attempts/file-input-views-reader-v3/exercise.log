@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/probe/exercise.py", line 138, in <module>
+    choose_view('List','tree item')
+  File "/probe/exercise.py", line 126, in choose_view
+    wait_for(lambda:present('one.txt',role))
+  File "/probe/exercise.py", line 90, in wait_for
+    if time.monotonic()>end:raise AssertionError('Expected AT-SPI/Orca observation did not arrive')
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected AT-SPI/Orca observation did not arrive

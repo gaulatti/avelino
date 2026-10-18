@@ -1,0 +1,35 @@
+{
+  "accepted": false,
+  "status": "running",
+  "phases": [
+    {
+      "phase": "list-retains-column-selection",
+      "time": 1792282601.6789587,
+      "observations": {
+        "selected": [
+          "one.txt"
+        ],
+        "dateAdded": "unavailable",
+        "modal": true
+      },
+      "readerLogBytes": 300148
+    },
+    {
+      "phase": "list-accessible-disclosure",
+      "time": 1792282603.4157693,
+      "observations": {
+        "expanded": true,
+        "location": "/probe/fixtures"
+      },
+      "readerLogBytes": 399549
+    },
+    {
+      "phase": "operator-failure",
+      "time": 1792282605.7351701,
+      "observations": {
+        "error": "Traceback (most recent call last):\n  File \"/probe/exercise.py\", line 177, in <module>\n    assert selected_rows()==['child.txt','one.txt']\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+      },
+      "readerLogBytes": 474188
+    }
+  ]
+}

@@ -11,6 +11,39 @@
 #include <cstring>
 #include <sys/stat.h>
 
+FileChooserBrowser::FileChooserBrowser(QObject *parent):QAbstractListModel(parent),m_listing(new FileChooserListing(this)){
+    connect(this,&FileChooserBrowser::metadataChanged,this,[this]{
+        m_listing->setRoot(m_active&&m_viewMode!="columns"?modelAt(count()-1):nullptr);
+    });
+    connect(m_listing,&FileChooserListing::changed,this,&FileChooserBrowser::metadataChanged);
+    connect(m_listing,&FileChooserListing::navigateRequested,this,[this](const QUrl &url){navigatePath(url.toLocalFile());});
+    connect(m_listing,&FileChooserListing::result,this,&FileChooserBrowser::completeResult);
+}
+void FileChooserBrowser::completeResult(const QVariantMap &value){
+    if(!m_active||m_completing)return;
+    m_completing=true;QPointer<FileChooserBrowser> guard(this);emit result(value);
+    if(!guard)return;m_completing=false;cancel();
+}
+void FileChooserBrowser::setViewMode(const QString &mode){
+    if(mode==m_viewMode)return;
+    if(mode!="columns"&&mode!="list"&&mode!="icons"){
+        if(auto engine=qjsEngine(this))engine->throwError(QStringLiteral("File chooser view must be columns, list or icons"));
+        else qWarning("File chooser view must be columns, list or icons");return;
+    }
+    QVariantList selected;
+    if(m_viewMode!="columns")selected=m_listing->selection();
+    else if(auto model=selectionModel())for(int i=0;i<model->count();++i){auto value=model->entry(i);if(value["selected"].toBool())selected.append(value["url"]);}
+    const auto previous=m_viewMode;m_viewMode=mode;
+    if(mode!="columns"){
+        m_listing->setTreeMode(mode=="list");m_listing->setRoot(m_active?modelAt(count()-1):nullptr);
+        if(previous=="columns")m_listing->setSelection(selected);
+    }else{
+        clearOtherSelections(-1);m_focus=m_selection=count()-1;
+        if(auto model=selectionModel())for(int i=0;i<model->count();++i){const auto value=model->entry(i);if(value["eligible"].toBool()&&selected.contains(value["url"]))model->select(i,Qt::ControlModifier);}
+        m_listing->setRoot(nullptr);
+    }
+    emit viewModeChanged();emit metadataChanged();emit focusRequested(m_focus);
+}
 QVariant FileChooserBrowser::data(const QModelIndex &index,int role) const {
     if(!index.isValid()||index.row()<0||index.row()>=m_columns.size())return {};
     const auto &column=m_columns[index.row()];
@@ -35,12 +68,15 @@ QString FileChooserBrowser::folderPath() const {
 }
 QString FileChooserBrowser::error() const {
     if(!m_typeError.isEmpty())return m_typeError;
+    if(m_viewMode!="columns"&&!m_listing->error().isEmpty())return m_listing->error();
     return m_columns.isEmpty()?QString():m_columns.last().model->error();
 }
 bool FileChooserBrowser::canAccept() const {
+    if(m_viewMode!="columns")return m_active&&m_typeError.isEmpty()&&m_listing->canOpen();
     const auto model=selectionModel();return m_active&&m_typeError.isEmpty()&&model&&model->canAccept();
 }
 QVariantList FileChooserBrowser::selectedUrls() const {
+    if(m_viewMode!="columns")return m_listing->selectedUrls();
     const auto model=selectionModel();return model?model->selectedUrls():QVariantList{};
 }
 QUrl FileChooserBrowser::defaultFolder() const {
@@ -53,13 +89,7 @@ void FileChooserBrowser::append(const QUrl &folder){
     connect(model,&FileChooserModel::selectionChanged,this,&FileChooserBrowser::metadataChanged);
     connect(model,&FileChooserModel::errorChanged,this,&FileChooserBrowser::metadataChanged);
     connect(model,&FileChooserModel::folderChanged,this,&FileChooserBrowser::metadataChanged);
-    connect(model,&FileChooserModel::result,this,[this](const QVariantMap &value){
-        if(!m_active||m_completing)return;
-        m_completing=true;QPointer<FileChooserBrowser> guard(this);
-        emit result(value);
-        if(!guard)return;
-        m_completing=false;cancel();
-    });
+    connect(model,&FileChooserModel::result,this,&FileChooserBrowser::completeResult);
     const auto next=int(m_columns.size());beginInsertRows({},next,next);m_columns.append(Column{model,QUrl{}});endInsertRows();emit countChanged();
 }
 void FileChooserBrowser::trimAfter(int column){
@@ -135,6 +165,7 @@ void FileChooserBrowser::focusRight(){
     ++m_focus;emit metadataChanged();emit focusRequested(m_focus);
 }
 void FileChooserBrowser::selectAll(){
+    if(m_viewMode!="columns"){m_listing->selectAll();return;}
     auto model=modelAt(m_focus);if(!m_active||!model)return;
     const auto before=location();
     clearOtherSelections(m_focus);model->selectAll();m_selection=m_focus;
@@ -213,4 +244,7 @@ bool FileChooserBrowser::createFolder(const QString &name,const QString &parentP
     m_focus=m_selection=count()-1;rememberNavigation(before);
     emit metadataChanged();emit focusRequested(m_focus);return true;
 }
-void FileChooserBrowser::acceptSelection(){if(canAccept()&&!m_completing)selectionModel()->acceptSelection();}
+void FileChooserBrowser::acceptSelection(){
+    if(!canAccept()||m_completing)return;
+    if(m_viewMode!="columns")m_listing->acceptSelection();else selectionModel()->acceptSelection();
+}

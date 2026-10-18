@@ -218,9 +218,44 @@ unverified. Speech Dispatcher's level-3 dictionary errors are not evidence of
 utterance contents. Run `python3 scripts/verify-file-input-navigation.py` to audit
 this scoped checkpoint.
 
-The complete native panel also has a sidebar, view choices, location menu,
-search, selection preview and group/sort controls. These remain missing from the
-Linux implementation. Its path field and columns must not be reported as the
+The [owned List/Icons checkpoint](../evidence/development/file-input-views-20261017/validation.json)
+adds a shared model for inline List hierarchy and root-only Icons. Selection is
+identified by URL across sorting and refresh; changing views prunes hidden child
+selection and retains visible root selections. List disclosure survives view
+changes, history and reopening, while reopening clears selection/history. Open
+on a noneligible selected folder navigates without sending an owner result.
+
+Frozen source 45 passes six focused Qt targets, including accessible menu
+activation, four-column Table/TableCell and header relationships, metadata hit
+testing, hierarchy levels, selection and virtual-cell cleanup during owner
+removal. The consumer was freshly built against source 36; its sources remain
+byte-identical to source 45, and the verified binary runs with the final install.
+Eight source-free package contexts and eight virtual display profiles each
+exercise 20 owner/input traces and retain 42 PNGs. All 256 closed PNGs and their
+complete closed/sizing metadata remain byte-identical to the earlier checkpoint.
+A restored package independently repeats one source-free context and its 32
+unchanged closed images. The full 47-target suite was not rerun for this change.
+
+X11 and scaled Wayland/OpenGL Orca runs each pass 17 phases, including disclosure,
+cross-level selection through AT-SPI Selection, sorting, view changes, keyboard
+acceptance, reopening, errors, history and folder creation. Four metadata cells
+belong to each List row; names expose hierarchy levels and folders expose Toggle.
+Visual disclosure controls are excluded from the accessible row's children.
+Earlier failures, including missing header relationships and the mixed XTest
+Control-plus-AT-SPI-Press selection route, remain preserved. The latter route is
+unresolved; the final assistive multiselection uses Selection.selectChild.
+Orca output and backend commands are observed after session exit with ALSA null
+output. Native reader hierarchy, timing and engine/physical audio remain pending.
+
+Date Added metadata is unavailable; its column shows `--` and disables sorting
+without substituting creation or modification time. Name/Size/Kind sorting,
+metadata formatting, exact glyphs/thumbnails, column resizing, complete native
+hierarchy and broader view/input equivalence still require parity acceptance.
+Run `python3 scripts/verify-file-input-views-linux.py` to audit this checkpoint.
+
+The complete native panel also has a sidebar, location menu, search, selection
+preview and group/sort controls. These remain missing from the Linux
+implementation. Its path field and columns must not be reported as the
 complete native presentation. Direct two-axis sizing, type conformance, source input and
 callback timing, strict raster, physical display/input and independent-machine
 acceptance also remain pending.

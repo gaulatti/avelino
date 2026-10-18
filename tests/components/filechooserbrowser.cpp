@@ -13,6 +13,10 @@ class BrowserTests:public QObject {
         for(int i=0;i<model->count();++i)if(model->entry(i)["name"]==name)return i;
         return -1;
     }
+    int listed(FileChooserListing *model,const QString &name){
+        for(int i=0;i<model->count();++i)if(model->entry(i)["name"]==name)return i;
+        return -1;
+    }
 private slots:
     void columnNavigationAndSelectionAreSeparate(){
         QTemporaryDir root;QDir directory(root.path());QVERIFY(directory.mkdir("folder"));
@@ -93,6 +97,60 @@ private slots:
         QPointer<FileChooserModel> parent=browser->modelAt(0),child=browser->modelAt(1);
         connect(browser.data(),&FileChooserBrowser::result,this,[&]{delete browser.data();});browser->acceptSelection();
         QVERIFY(browser.isNull());QVERIFY(parent.isNull());QVERIFY(child.isNull());
+    }
+    void listHierarchySelectionAndCollapseFollowNativeCases(){
+        QTemporaryDir root;QDir directory(root.path());QVERIFY(directory.mkdir("Folder"));
+        put(directory.filePath("Alpha.txt"));put(directory.filePath("Bravo.txt"));put(directory.filePath("Folder/Child.txt"));
+        FileChooserBrowser browser;browser.setAllowedContentTypes({"text/plain"});QVERIFY(browser.open(QUrl::fromLocalFile(root.path())));
+        browser.choose(0,row(browser.modelAt(0),"Alpha.txt"));browser.choose(0,row(browser.modelAt(0),"Bravo.txt"),Qt::ControlModifier);
+        browser.setViewMode("list");auto listing=browser.listing();QCOMPARE(listing->count(),3);QCOMPARE(browser.selectedUrls().size(),2);
+        listing->select(listed(listing,"Folder"));QCOMPARE(browser.folderPath(),root.path());QVERIFY(browser.canAccept());QVERIFY(browser.selectedUrls().isEmpty());
+        listing->right();QCOMPARE(listing->count(),4);QCOMPARE(listing->entry(listed(listing,"Child.txt"))["depth"].toInt(),1);
+        listing->select(listed(listing,"Child.txt"));listing->select(listed(listing,"Alpha.txt"),Qt::ControlModifier);
+        QCOMPARE(browser.selectedUrls(),(QVariantList{QUrl::fromLocalFile(directory.filePath("Folder/Child.txt")),QUrl::fromLocalFile(directory.filePath("Alpha.txt"))}));
+        listing->toggleExpanded(listed(listing,"Folder"));QCOMPARE(listing->count(),3);
+        QCOMPARE(browser.selectedUrls(),QVariantList{QUrl::fromLocalFile(directory.filePath("Alpha.txt"))});
+        listing->toggleExpanded(listed(listing,"Folder"));listing->select(listed(listing,"Child.txt"));
+        listing->toggleExpanded(listed(listing,"Folder"));QVERIFY(browser.selectedUrls().isEmpty());QVERIFY(!browser.canAccept());
+    }
+    void iconNavigationAndViewChangesDoNotSubmitOwnerResults(){
+        QTemporaryDir root;QDir directory(root.path());QVERIFY(directory.mkdir("Folder"));
+        put(directory.filePath("Alpha.txt"));put(directory.filePath("Bravo.txt"));put(directory.filePath("Folder/Child.txt"));
+        FileChooserBrowser browser;browser.setAllowedContentTypes({"text/plain"});QSignalSpy result(&browser,&FileChooserBrowser::result);
+        QVERIFY(browser.open(QUrl::fromLocalFile(root.path())));browser.setViewMode("list");auto listing=browser.listing();
+        listing->toggleExpanded(listed(listing,"Folder"));listing->select(listed(listing,"Child.txt"));listing->select(listed(listing,"Alpha.txt"),Qt::ControlModifier);
+        browser.setViewMode("icons");QCOMPARE(listing->count(),3);QCOMPARE(browser.folderPath(),root.path());
+        QCOMPARE(browser.selectedUrls(),QVariantList{QUrl::fromLocalFile(directory.filePath("Alpha.txt"))});
+        listing->select(listed(listing,"Folder"),Qt::ControlModifier);QCOMPARE(browser.selectedUrls().size(),1);
+        browser.setViewMode("columns");QCOMPARE(browser.selectedUrls().size(),1);
+        browser.setViewMode("icons");listing->select(listed(listing,"Folder"));QVERIFY(browser.canAccept());QVERIFY(browser.selectedUrls().isEmpty());
+        browser.acceptSelection();QCOMPARE(browser.folderPath(),directory.filePath("Folder"));QVERIFY(result.isEmpty());QVERIFY(browser.active());
+        QVERIFY(!browser.canAccept());browser.goBack();QCOMPARE(browser.folderPath(),root.path());QVERIFY(browser.selectedUrls().isEmpty());
+        browser.setViewMode("list");QVERIFY(listing->entry(listed(listing,"Folder"))["expanded"].toBool());
+        listing->select(listed(listing,"Child.txt"));browser.cancel();QVERIFY(!listing->count());
+        QVERIFY(browser.open(QUrl::fromLocalFile(root.path())));QCOMPARE(browser.viewMode(),QString("list"));
+        QVERIFY(listed(listing,"Child.txt")>=0);QVERIFY(browser.selectedUrls().isEmpty());QVERIFY(result.isEmpty());
+    }
+    void listSortRefreshAndTypesPreserveOnlyValidIdentities(){
+        QTemporaryDir root;QDir directory(root.path());put(directory.filePath("Alpha.txt"));put(directory.filePath("Bravo.txt"));put(directory.filePath("blocked.png"));
+        FileChooserBrowser browser;browser.setAllowedContentTypes({"text/plain"});QVERIFY(browser.open(QUrl::fromLocalFile(root.path())));browser.setViewMode("list");auto listing=browser.listing();
+        listing->select(listed(listing,"Bravo.txt"));const auto selected=browser.selectedUrls();
+        listing->sortBy("name");QVERIFY(!listing->ascending());QCOMPARE(browser.selectedUrls(),selected);QCOMPARE(listing->entry(listing->currentIndex())["name"].toString(),QString("Bravo.txt"));
+        listing->select(listed(listing,"blocked.png"));QCOMPARE(browser.selectedUrls(),selected);
+        put(directory.filePath("Aardvark.txt"));QTRY_VERIFY(listed(listing,"Aardvark.txt")>=0);QCOMPARE(browser.selectedUrls(),selected);
+        browser.setAllowedContentTypes({"image/*"});QTRY_VERIFY(browser.selectedUrls().isEmpty());
+        listing->select(listed(listing,"blocked.png"));QCOMPARE(browser.selectedUrls().size(),1);
+        QVERIFY(QFile::remove(directory.filePath("blocked.png")));QTRY_VERIFY(browser.selectedUrls().isEmpty());
+        listing->selectAll();QVERIFY(browser.selectedUrls().isEmpty());
+    }
+    void listCrossLevelResultCanRemoveItsOwner(){
+        QTemporaryDir root;QDir directory(root.path());QVERIFY(directory.mkdir("Folder"));put(directory.filePath("Alpha.txt"));put(directory.filePath("Folder/Child.txt"));
+        QPointer<FileChooserBrowser> browser=new FileChooserBrowser;browser->setAllowedContentTypes({"text/plain"});QVERIFY(browser->open(QUrl::fromLocalFile(root.path())));browser->setViewMode("list");
+        QPointer<FileChooserListing> listing=browser->listing();listing->toggleExpanded(listed(listing,"Folder"));
+        listing->select(listed(listing,"Alpha.txt"));listing->select(listed(listing,"Child.txt"),Qt::ControlModifier);
+        QVariantList urls;bool activeAtCallback=false;
+        connect(browser.data(),&FileChooserBrowser::result,this,[&](const QVariantMap &result){urls=result["urls"].toList();activeAtCallback=browser->active();delete browser.data();});
+        browser->acceptSelection();QVERIFY(activeAtCallback);QVERIFY(browser.isNull());QVERIFY(listing.isNull());QCOMPARE(urls.size(),2);
     }
 };
 QTEST_GUILESS_MAIN(BrowserTests)

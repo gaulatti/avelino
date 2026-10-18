@@ -1,5 +1,6 @@
 #pragma once
 #include "filechoosermodel.h"
+#include "filechooserlisting.h"
 
 class FileChooserBrowser : public QAbstractListModel {
     Q_OBJECT
@@ -17,8 +18,10 @@ class FileChooserBrowser : public QAbstractListModel {
     Q_PROPERTY(bool canGoForward READ canGoForward NOTIFY metadataChanged)
     Q_PROPERTY(bool canCreateFolder READ canCreateFolder NOTIFY metadataChanged)
     Q_PROPERTY(QString newFolderError READ newFolderError NOTIFY newFolderErrorChanged)
+    Q_PROPERTY(QString viewMode READ viewMode WRITE setViewMode NOTIFY viewModeChanged)
+    Q_PROPERTY(FileChooserListing *listing READ listing CONSTANT)
 public:
-    using QAbstractListModel::QAbstractListModel;
+    explicit FileChooserBrowser(QObject *parent=nullptr);
     enum Role {ModelRole=Qt::UserRole+1,BranchRole};
     int rowCount(const QModelIndex &parent={}) const override{return parent.isValid()?0:m_columns.size();}
     QVariant data(const QModelIndex &index,int role) const override;
@@ -37,6 +40,9 @@ public:
     bool canGoForward() const{return m_active&&m_historyIndex>=0&&m_historyIndex+1<m_history.size();}
     bool canCreateFolder() const;
     QString newFolderError() const{return m_newFolderError;}
+    QString viewMode()const{return m_viewMode;}
+    void setViewMode(const QString &mode);
+    FileChooserListing *listing()const{return m_listing;}
     Q_INVOKABLE QUrl defaultFolder() const;
     Q_INVOKABLE FileChooserModel *modelAt(int column) const;
     Q_INVOKABLE bool open(const QUrl &initialFolder);
@@ -64,6 +70,7 @@ signals:
     void countChanged();
     void metadataChanged();
     void newFolderErrorChanged();
+    void viewModeChanged();
     void focusRequested(int column);
     void result(const QVariantMap &value);
 private:
@@ -78,6 +85,7 @@ private:
     void trimAfter(int column);
     void branch(int column,const QUrl &url);
     void clearOtherSelections(int column);
+    void completeResult(const QVariantMap &value);
     FileChooserModel *selectionModel() const{return modelAt(m_selection);}
     QList<Column> m_columns;
     QList<Location> m_history;
@@ -85,6 +93,8 @@ private:
     QVariantList m_types;
     QString m_typeError;
     QString m_newFolderError;
+    QString m_viewMode="columns";
+    FileChooserListing *m_listing;
     QUrl m_lastFolder;
     int m_focus=-1,m_selection=-1;
     bool m_active=false,m_completing=false;

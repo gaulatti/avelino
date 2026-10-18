@@ -164,8 +164,9 @@ records inline List expansion, selection across root and child rows, pruning on
 collapse and view changes, Icons folder navigation through Open, and retained
 view/expansion state on reopening. Four callbacks preserve their exact observed
 URL order; general ordering across directories remains unresolved. List requires
-a hierarchy and selection shared with the other views. The Linux implementation
-still lacks List and Icons. The supplement's README explains a separate Return
+a hierarchy and selection shared with the other views. Owned Linux List and Icons
+have a scoped implementation; complete presentation, metadata and input parity
+remain pending. The supplement's README explains a separate Return
 acceptance during a menu experiment and the native panel's asynchronous AX update;
 neither is treated as automatic submission by a view change. Run
 `python3 scripts/verify-file-input-views.py` to audit the native observations.

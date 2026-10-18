@@ -38,6 +38,10 @@ class FileInputUiTests:public QObject {
         for(int i=0;i<model->count();++i)if(model->entry(i)["name"]==name)return i;
         return -1;
     }
+    int listed(FileChooserListing *model,const QString &name){
+        for(int i=0;i<model->count();++i)if(model->entry(i)["name"]==name)return i;
+        return -1;
+    }
     void click(QQuickItem *item,Qt::KeyboardModifiers modifiers={}){
         QVERIFY(item);QVERIFY(item->window());
         QTest::mouseClick(item->window(),Qt::LeftButton,modifiers,item->mapToScene(item->boundingRect().center()).toPoint());
@@ -59,7 +63,108 @@ class FileInputUiTests:public QObject {
     }
 private slots:
     void initTestCase(){QAccessible::setActive(true);}
-    void init(){QTest::failOnWarning(QRegularExpression(".*(FileInput requires|Unable to assign|should be coerced).*"));}
+    void init(){QTest::failOnWarning(QRegularExpression(".*(FileInput requires|Unable to assign|should be coerced|ReferenceError|TypeError).*"));}
+    void actualViewMenuListDisclosureAndIconsNavigation(){
+        QTemporaryDir directory;QDir root(directory.path());QVERIFY(root.mkdir("Folder"));
+        put(root.filePath("Alpha.txt"));put(root.filePath("Bravo.txt"));put(root.filePath("Folder/Child.txt"));put(root.filePath("blocked.png"));
+        QQuickView view;load(view,directory);auto fixture=view.rootObject();auto control=fixture->findChild<QQuickItem*>("fileInput");QVERIFY(control);
+        auto browser=control->property("browser").value<FileChooserBrowser*>();auto chooser=control->property("chooser").value<QObject*>();
+        click(control->property("inputItem").value<QQuickItem*>());QTRY_VERIFY(chooser->property("visible").toBool());
+        auto content=chooser->property("contentItem").value<QQuickItem*>();QTRY_VERIFY(content&&content->window());
+        int viewChanges=0;
+        auto selectView=[&](const QString &mode){
+            auto viewButton=find(content,"bleeckerFileChooserViewOptions");QVERIFY(viewButton);
+            auto viewAccessible=QAccessible::queryAccessibleInterface(viewButton);QVERIFY(viewAccessible&&viewAccessible->actionInterface());
+            QVERIFY(viewAccessible->actionInterface()->actionNames().contains(QAccessibleActionInterface::pressAction()));
+            if(!viewChanges)viewAccessible->actionInterface()->doAction(QAccessibleActionInterface::pressAction());else click(viewButton);
+            QQuickItem *option=nullptr;QTRY_VERIFY((option=find(content->window()->contentItem(),"bleeckerFileChooserView_"+mode))&&option->isVisible());
+            if(!viewChanges){
+                QTest::keyClick(content->window(),Qt::Key_Escape);QTRY_VERIFY(!option->isVisible());QVERIFY(browser->active());
+                viewAccessible->actionInterface()->doAction(QAccessibleActionInterface::pressAction());QTRY_VERIFY(option->isVisible());
+            }
+            auto menuAccessible=QAccessible::queryAccessibleInterface(option);QVERIFY(menuAccessible);
+            QCOMPARE(menuAccessible->role(),QAccessible::MenuItem);
+            QVERIFY(menuAccessible->actionInterface()&&menuAccessible->actionInterface()->actionNames().contains(QAccessibleActionInterface::pressAction()));
+            QCOMPARE(menuAccessible->text(QAccessible::Name),mode=="list"?QString("List"):mode=="icons"?QString("Icons"):QString("Columns"));
+            capture(content->window(),"view-menu-"+QString::number(++viewChanges)+"-"+mode);
+            if(viewChanges==1)menuAccessible->actionInterface()->doAction(QAccessibleActionInterface::pressAction());else click(option);
+            QTRY_COMPARE(browser->viewMode(),mode);
+            QVERIFY(option->property("checked").toBool());QVERIFY(menuAccessible->state().checked);
+        };
+        selectView("list");selectView("list");auto listing=browser->listing();QTRY_VERIFY(listing->count()==4);
+        click(find(content,"bleeckerFileChooserListRow_"+QString::number(listed(listing,"Alpha.txt"))));
+        const auto selectedBeforeSort=browser->selectedUrls();
+        click(find(content,"bleeckerFileChooserSort_name"));QVERIFY(!listing->ascending());QCOMPARE(browser->selectedUrls(),selectedBeforeSort);
+        click(find(content,"bleeckerFileChooserSort_size"));QCOMPARE(listing->sortKey(),QString("size"));QCOMPARE(browser->selectedUrls(),selectedBeforeSort);
+        click(find(content,"bleeckerFileChooserSort_name"));QVERIFY(listing->ascending());QCOMPARE(browser->selectedUrls(),selectedBeforeSort);
+        auto treeInterface=QAccessible::queryAccessibleInterface(find(content,"bleeckerFileChooserList"));QVERIFY(treeInterface);
+        auto table=treeInterface->tableInterface();QVERIFY(table);QCOMPARE(table->columnCount(),4);QCOMPARE(table->rowCount(),4);
+        QVERIFY(treeInterface->state().multiSelectable);QVERIFY(treeInterface->selectionInterface());QCOMPARE(table->selectedCellCount(),4);
+        const auto alpha=listed(listing,"Alpha.txt");
+        auto nameCell=table->cellAt(alpha,0);QVERIFY(nameCell&&nameCell->tableCellInterface());
+        QCOMPARE(nameCell->tableCellInterface()->table(),treeInterface);QCOMPARE(nameCell->tableCellInterface()->rowIndex(),alpha);
+        const QStringList headers={"Name","Size","Kind","Date Added"};
+        for(int column=0;column<headers.size();++column){
+            const auto cell=table->cellAt(alpha,column);QVERIFY(cell&&cell->tableCellInterface());
+            const auto actual=cell->tableCellInterface()->columnHeaderCells();QCOMPARE(actual.size(),1);
+            QCOMPARE(actual.first()->text(QAccessible::Name),headers[column]);
+        }
+        auto sizeCell=table->cellAt(alpha,1);QVERIFY(sizeCell&&sizeCell->tableCellInterface());
+        QCOMPARE(sizeCell->text(QAccessible::Name),listing->entry(alpha)["size"].toString());QCOMPARE(sizeCell->tableCellInterface()->columnIndex(),1);
+        QVERIFY(!sizeCell->rect().isEmpty());QCOMPARE(treeInterface->childAt(sizeCell->rect().center().x(),sizeCell->rect().center().y()),sizeCell);
+        QCOMPARE(table->cellAt(alpha,3)->text(QAccessible::Description),QString("Date Added is unavailable"));
+        const auto oldSizeId=QAccessible::uniqueId(sizeCell);
+        auto folder=listed(listing,"Folder");QVERIFY(folder>=0);
+        QTRY_VERIFY(find(content,"bleeckerFileChooserListRow_"+QString::number(folder)));
+        auto folderItem=find(content,"bleeckerFileChooserListRow_"+QString::number(folder));
+        auto accessible=QAccessible::queryAccessibleInterface(folderItem);QVERIFY(accessible);QCOMPARE(accessible->role(),QAccessible::TreeItem);QVERIFY(accessible->state().focusable);QVERIFY(accessible->state().expandable);QVERIFY(accessible->state().collapsed);
+        auto actions=accessible->actionInterface();QVERIFY(actions);QVERIFY(actions->actionNames().contains(QAccessibleActionInterface::toggleAction()));
+        actions->doAction(QAccessibleActionInterface::toggleAction());QTRY_VERIFY(listed(listing,"Child.txt")>=0);
+        QCOMPARE(table->rowCount(),5);QVERIFY(!QAccessible::accessibleInterface(oldSizeId));
+        const auto childCell=table->cellAt(listed(listing,"Child.txt"),0);QVERIFY(childCell&&childCell->attributesInterface());
+        QCOMPARE(childCell->attributesInterface()->attributeValue(QAccessible::Attribute::Level).toInt(),2);
+        auto expandedItem=find(content,"bleeckerFileChooserListRow_"+QString::number(listed(listing,"Folder")));
+        QVERIFY(expandedItem);QVERIFY(QAccessible::queryAccessibleInterface(expandedItem)->state().expanded);
+        const auto child=listed(listing,"Child.txt");QTRY_VERIFY(find(content,"bleeckerFileChooserListRow_"+QString::number(child)));
+        click(find(content,"bleeckerFileChooserListRow_"+QString::number(child)));
+        QTest::keyPress(content->window(),Qt::Key_Control);
+        click(find(content,"bleeckerFileChooserListRow_"+QString::number(listed(listing,"Alpha.txt"))),Qt::ControlModifier);
+        QTest::keyRelease(content->window(),Qt::Key_Control);QCOMPARE(browser->selectedUrls().size(),2);capture(content->window(),"list-root-and-child");
+        selectView("icons");QTRY_COMPARE(browser->selectedUrls().size(),1);QVERIFY(results(fixture).isEmpty());
+        auto gridInterface=QAccessible::queryAccessibleInterface(find(content,"bleeckerFileChooserIcons"));QVERIFY(gridInterface&&gridInterface->selectionInterface());
+        QVERIFY(gridInterface->state().multiSelectable);QCOMPARE(gridInterface->selectionInterface()->selectedItemCount(),1);
+        folder=listed(listing,"Folder");QTRY_VERIFY(find(content,"bleeckerFileChooserIcon_"+QString::number(folder)));
+        click(find(content,"bleeckerFileChooserIcon_"+QString::number(folder)));QVERIFY(browser->selectedUrls().isEmpty());QVERIFY(browser->canAccept());
+        capture(content->window(),"icons-folder-navigation");click(find(content,"bleeckerFileChooserOpen"));
+        QTRY_COMPARE(browser->folderPath(),root.filePath("Folder"));QVERIFY(browser->active());QVERIFY(results(fixture).isEmpty());QVERIFY(!browser->canAccept());
+        click(find(content,"bleeckerFileChooserBack"));QTRY_COMPARE(browser->folderPath(),directory.path());QVERIFY(browser->selectedUrls().isEmpty());
+        selectView("list");QTRY_VERIFY(listed(listing,"Child.txt")>=0);folder=listed(listing,"Folder");
+        click(find(content,"bleeckerFileChooserListRow_"+QString::number(folder)));QTest::keyClick(content->window(),Qt::Key_Left);
+        QTRY_COMPARE(listed(listing,"Child.txt"),-1);QTest::keyClick(content->window(),Qt::Key_Right);QTRY_VERIFY(listed(listing,"Child.txt")>=0);
+        QTest::keyClick(content->window(),Qt::Key_Down);QCOMPARE(listing->entry(listing->currentIndex())["name"].toString(),QString("Child.txt"));
+        QTest::keyClick(content->window(),Qt::Key_Return);QTRY_VERIFY(!browser->active());QCOMPARE(results(fixture).size(),1);
+        QCOMPARE(results(fixture)[0].toMap()["urls"].toList(),QVariantList{QUrl::fromLocalFile(root.filePath("Folder/Child.txt"))});
+    }
+    void removingListOwnerDuringAccessibleAccept(){
+        QTemporaryDir directory;QDir root(directory.path());QVERIFY(root.mkdir("Folder"));put(root.filePath("Folder/Child.txt"));
+        QQuickView view;load(view,directory);auto fixture=view.rootObject();fixture->setProperty("removeOnResult",true);
+        auto control=fixture->findChild<QQuickItem*>("fileInput");QVERIFY(control);
+        QPointer<FileChooserBrowser> browser=control->property("browser").value<FileChooserBrowser*>();
+        QPointer<QObject> chooser=control->property("chooser").value<QObject*>();QPointer<FileChooserListing> listing=browser->listing();
+        click(control->property("inputItem").value<QQuickItem*>());browser->setViewMode("list");
+        auto content=chooser->property("contentItem").value<QQuickItem*>();QTRY_VERIFY(content&&content->window());
+        const auto folder=listed(listing,"Folder");QTRY_VERIFY(find(content,"bleeckerFileChooserDisclosure_"+QString::number(folder)));
+        click(find(content,"bleeckerFileChooserDisclosure_"+QString::number(folder)));
+        const auto child=listed(listing,"Child.txt");QVERIFY(child>=0);QTRY_VERIFY(find(content,"bleeckerFileChooserListRow_"+QString::number(child)));
+        click(find(content,"bleeckerFileChooserListRow_"+QString::number(child)));
+        auto tree=QAccessible::queryAccessibleInterface(find(content,"bleeckerFileChooserList"));QVERIFY(tree&&tree->tableInterface());
+        auto cachedCell=tree->tableInterface()->cellAt(child,1);QVERIFY(cachedCell);const auto cachedId=QAccessible::uniqueId(cachedCell);
+        auto open=QAccessible::queryAccessibleInterface(find(content,"bleeckerFileChooserOpen"));QVERIFY(open&&open->actionInterface());
+        open->actionInterface()->doAction(QAccessibleActionInterface::pressAction());
+        QTRY_VERIFY(browser.isNull());QVERIFY(chooser.isNull());QVERIFY(listing.isNull());QVERIFY(fixture->property("visibleAtCallback").toBool());
+        QTRY_VERIFY(!QAccessible::accessibleInterface(cachedId));
+        QCOMPARE(results(fixture).size(),1);capture(&view,"list-removed-in-result");
+    }
     void actualClicksMultiSelectionCancelAndReopen(){
         QTemporaryDir directory;QDir root(directory.path());put(root.filePath("a.txt"));put(root.filePath("b.txt"));put(root.filePath("photo.png"));
         QQuickView view;load(view,directory);auto fixture=view.rootObject();QVERIFY(fixture);
