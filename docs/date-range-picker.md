@@ -55,17 +55,42 @@ their checksums, locators and command receipts are retained. Independent-machine
 availability remains pending. Resource-bundle, actor-isolation and interactive
 helper failures remain documented alongside the successful attempts.
 
-The visible interactive helper could not be acquired through CUA:
-`cgWindowNotFound`. It remained inactive/non-key, and no native keyboard, stepper,
-calendar, owner echo/ignore/delay or reader acceptance is claimed. Native editing
-and time preservation after edits, non-finite/extreme inputs, further calendar
-and style combinations, the owned Linux presentation, catalog, installed consumer,
-strict comparisons, display sessions, input, scaling, readers and physical
-acceptance remain required. No mask, tolerance, reference-pin change or approved
-exception is introduced.
+The first two visible helpers could not be acquired through CUA:
+`cgWindowNotFound`. A third uses matching app/executable names, explicit desktop
+space presentation and the current activation API; CUA can acquire it. These
+changes were made together, so the recovery is not attributed to one cause.
+
+The [native input supplement](../evidence/reference-investigations/date-range-input-20261018/README.md)
+retains 116 state observations, 82 OS events and 168 root/popup images. Twenty-one
+milestones cover default keyboard/numeric/stepper/calendar input, independent
+endpoint edits, owner echo/ignore/delay, bounds, disabled input, graphical preview
+and field style. Ignore and delay each produce identical source images and binding
+values across the public, probed and literal variants. These observations use
+light appearance, text scale 1, logical DPR 1, actual DPR 2, en_US/Gregorian/UTC;
+they do not establish other contexts or reader/physical acceptance.
+
+The native display can advance while an ignoring/delayed owner retains its old
+model. A caller configuration update restores the ignored value; applying a
+delayed value commits it. Default keyboard, stepper, pointer-calendar and field
+edits preserve the observed hidden time/fraction. An out-of-range year edit clamps
+to the exact bound, replacing hidden time. Graphical Right-arrow navigation
+previews the next day at midnight without a binding request; Space commits it.
+Graphical pointer selection preserves hidden time. An end-date edit can cross
+start without reordering. Disabled pointer/Up input emits no additional request.
+
+CUA's compact AX date string can differ from the UTC visual day at midnight;
+retain and compare raw NSDate values and source images. The interactive helper
+also has a source-only extraction and fresh library/app build, without prebuilt
+inputs; that rebuild does not replay OS input. Complete traversal, parsing and
+cancellation, additional locale/calendar/time-zone/owner/style histories,
+non-finite/extreme inputs, the owned Linux presentation, catalog, installed
+consumer, strict comparisons, display sessions, input, scaling, readers and
+physical acceptance remain required. No mask, tolerance, reference-pin change or
+approved exception is introduced.
 
 Recompute the retained source observations with:
 
 ```sh
 python3 scripts/verify-date-range-source.py
+python3 scripts/verify-date-range-input.py
 ```

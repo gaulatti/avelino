@@ -145,10 +145,12 @@ font/raster, reader, physical and independent-machine acceptance remain pending.
 
 The [DateRangePicker reference investigation](docs/date-range-picker.md) preserves
 384 closed contexts, 17,280 sizing queries and 17 matching typed history steps.
-Its source-only rebuild replays all 1,206 files exactly on this machine. Native
-editing, binding-owner input responses and the complete Linux component, catalog,
-consumer and runtime acceptance remain pending; CUA could not acquire the visible
-reference window. Desktop candidate coverage remains 76/80, with zero accepted APIs.
+Its source-only rebuild replays all 1,206 files exactly on this machine. A native
+input supplement retains 82 OS events and 21 milestones, including identical
+ignore/delay images across three source variants, exact range clamping and
+graphical preview/Space-commit differences. Complete native input and the Linux
+component, catalog, consumer and runtime acceptance remain pending. Desktop
+candidate coverage remains 76/80, with zero accepted APIs.
 
 The [desktop app tab bar candidate](docs/app-tabs.md) preserves caller-owned
 selection requests, retained typed identities, integer badges and narrow overflow.

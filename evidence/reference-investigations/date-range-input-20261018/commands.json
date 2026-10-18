@@ -1,0 +1,23 @@
+[
+  {
+    "name": "build",
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-native-20261018-v4/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-interactive-20261018-v3/tool/DateCommon.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-interactive-20261018-v3/tool/DateInteractive.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-native-20261018-v4/build/out/Products/Debug/Sabella.o",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-interactive-20261018-v3/NativeDateRangeReferenceV3.app/Contents/MacOS/NativeDateRangeReferenceV3"
+    ],
+    "exitCode": 0,
+    "seconds": 3.4609395409934223
+  }
+]
