@@ -180,8 +180,8 @@ Recent Places records the containing folder; browsing and cancellation do not ad
 those entries. Reaccepting an older folder promotes it without duplication, and
 the observed order survives a fresh same-bundle process. Three successful
 callbacks preserve exact controlled URLs; the fresh process finishes without an
-owner result. General capacity, cross-application scope and recent updates for cross-directory
-or directory selections remain pending.
+owner result. These single-file observations leave capacity, cross-application
+scope and recent updates for cross-directory or directory selections unresolved.
 
 Go to Folder is a separate native sheet with path entry and suggestions. A
 verified missing path leaves it open without a candidate; Escape preserves the
@@ -191,3 +191,25 @@ The initial narrow-root callback redaction and snapshot-output binding limitatio
 are retained explicitly. Original JPEGs and filtered AX records do not establish
 menu artwork, complete hierarchy, physical input, readers, timing or strict raster
 acceptance. Run `python3 scripts/verify-file-input-location.py` to audit the record.
+
+The later [recent-policy and path-input supplement](../evidence/reference-investigations/file-input-location-policy-20261017/investigation.json)
+records sixteen successful callbacks across three processes. Twelve accepted
+folder locations leave the latest ten Recent Places entries, newest first. A
+second consumer with a different bundle identifier sees that pool before making
+any selection. Cross-directory file selection and selected-directory acceptance
+record the visible folder, rather than each returned URL's parent. A directory
+chooser with no selected row can accept its current folder.
+
+With normal Edit responder menus, Go to Folder selects an existing file without
+calling the owner and preserves selection when the current folder is submitted.
+Successful path input persists as entered across openings and these consumer
+processes; cancelling invalid input keeps the previous saved input. The text-only
+configuration accepts a path-selected `Blocked.png`, while ordinary pointer
+selection of that same row remains disabled. This route-specific observation
+does not establish the path-selection rule for other type arrays. Explicit
+hidden-folder navigation succeeds; relative-input resolution and suggestion
+timing remain unresolved. The source library object is reused, and the initial
+missing-resource startup failure is preserved. This supplement does not establish
+an independent source rebuild, native artwork, reader or physical acceptance.
+Run `python3 scripts/verify-file-input-location-policy.py` to audit its bounded
+observations, capture provenance and exact callback URLs.

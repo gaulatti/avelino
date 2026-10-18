@@ -258,13 +258,23 @@ also distinguish three states the Linux location controls must preserve: current
 folder choice is a selection-preserving no-op; ancestor/recent navigation enters
 open-panel history and clears file selection; persistent Recent Places changes
 only after successful selection and promotes an existing folder without duplication.
-The observed order survives a fresh same-bundle process. General recent capacity,
-cross-application scope, cross-directory/directory selection updates and Linux
-persistence integration remain unresolved.
+The observed order survives a fresh same-bundle process. The later
+[native policy supplement](../evidence/reference-investigations/file-input-location-policy-20261017/investigation.json)
+records a ten-folder pool shared by two distinct consumer bundle identifiers.
+Cross-directory file acceptance and selected-directory acceptance record the
+visible folder. A directory chooser can also accept that folder without a selected
+row. Linux integration of the location menu and shared persistence is in progress.
 The native Go to Folder sheet has its own path field and suggestions. Its missing-
 path Escape preserves the underlying selected file. The current always-visible
 Linux path field does not establish equivalence to that nested presentation, and
-the supplemental file-path input/dismissal experiments remain diagnostic.
+the earlier file-path input/dismissal experiments remain diagnostic. The later
+helper with normal Edit menus confirms existing-file selection without owner
+submission, selection retention for same-folder submission, explicit hidden-folder
+navigation and successful raw path-input retention. Cancelled invalid input does
+not replace that retained input. A path-selected PNG is accepted under the
+text-only configuration while ordinary selection of the same row is disabled;
+other type arrays, relative-input resolution and suggestion timing remain pending.
+The inline directory field does not implement those native path-selection rules.
 
 The complete native panel also has a sidebar, location menu, search, selection
 preview and group/sort controls. These remain missing from the Linux
