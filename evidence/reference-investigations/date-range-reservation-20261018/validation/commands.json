@@ -1,0 +1,34 @@
+[
+  {
+    "name": "build",
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-native-20261018-v4/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-reserve-validation-20261018-v3/DateCommon.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-reserve-validation-20261018-v3/DateReserveValidation.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-native-20261018-v4/build/out/Products/Debug/Sabella.o",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-reserve-validation-20261018-v3/DateReserveValidation"
+    ],
+    "exitCode": 0,
+    "seconds": 3.4187071250053123
+  },
+  {
+    "name": "capture",
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-reserve-validation-20261018-v3/DateReserveValidation",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-reserve-validation-20261018-v3/fixtures.json",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-reserve-validation-20261018-v3/output",
+      "/Users/gaulatti/source/gaulatti/avelino/src/Avelino/date-editor-patterns.json"
+    ],
+    "exitCode": 0,
+    "seconds": 18.33441812498495
+  }
+]

@@ -5,6 +5,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QtTest>
+#include <algorithm>
 #include <cmath>
 
 #define EXACT_DATE(actual,expected) do {const double dateActual=(actual),dateExpected=(expected); \
@@ -36,6 +37,8 @@ private slots:
     void editorPresentationAndRoundTrip();
     void nativeNumericFontContract();
     void nativeChromeProfiles();
+    void widthsStayFixedAcrossNativeDates();
+    void reservedWidthsUseNativeFontSamples();
 };
 void DateRangeToolsTests::sourceDateConstructionAndDisplayClamp() {
     DateRangeTools tools;
@@ -195,6 +198,50 @@ void DateRangeToolsTests::nativeNumericFontContract(){
         ++compared;
     }
     QCOMPARE(compared,96);
+}
+void DateRangeToolsTests::widthsStayFixedAcrossNativeDates(){
+    DateRangeTools tools;int compared=0;
+    const auto contexts=read(QStringLiteral(NATIVE_DATE_WIDTH_DIRECTORY "/output/widths.json"))["contexts"].toArray();
+    QCOMPARE(contexts.size(),23);
+    for(const auto &item:contexts){
+        const auto context=item.toObject(),configuration=context["configuration"].toObject();
+        const auto locale=configuration["locale"].toString(),calendar=configuration["calendar"].toString(),zone=configuration["timeZone"].toString();
+        const auto profile=tools.presentation(configuration["pickerStyle"].toString(),configuration["controlSize"].toString());
+        const int pixels=profile["fontPixels"].toInt();
+        const auto initial=tools.fieldTextWidth(configuration["start"].toDouble(),locale,calendar,zone,pixels);
+        const auto nativeWidth=context["initialEditors"].toArray()[0].toObject()["intrinsic"].toObject()["width"].toDouble();
+        for(const auto &value:context["updates"].toArray()){
+            const auto update=value.toObject();
+            for(const auto &editor:update["editors"].toArray())QVERIFY(editor.toObject()["intrinsic"].toObject()["width"].toDouble()==nativeWidth);
+            const auto actual=tools.fieldTextWidth(update["requestedDate"].toDouble(),locale,calendar,zone,pixels);
+            QVERIFY2(actual==initial,qPrintable(QStringLiteral("%1: %2 != %3").arg(configuration["id"].toString()).arg(actual,0,'g',17).arg(initial,0,'g',17)));
+            ++compared;
+        }
+    }
+    QCOMPARE(compared,1848);
+}
+void DateRangeToolsTests::reservedWidthsUseNativeFontSamples(){
+    DateRangeTools tools;int compared=0;
+    const auto rows=read(QStringLiteral(NATIVE_DATE_RESERVATION_DIRECTORY "/validation/output/validation.json"))["rows"].toArray();
+    QCOMPARE(rows.size(),59);
+    for(const auto &item:rows){
+        const auto row=item.toObject(),configuration=row["configuration"].toObject();
+        for(const auto &entry:row["observations"].toArray()){
+            const auto observation=entry.toObject();if(observation["fontProfile"]!="source")continue;
+            const QFontMetricsF metrics(tools.systemFont(observation["fontSize"].toInt()));qreal expected=0;
+            for(const auto &value:observation["fields"].toArray()){
+                qreal maximum=0;
+                for(const auto &label:value.toObject()["labels"].toArray()){
+                    auto text=label.toString();if(text.isRightToLeft())while(!text.isEmpty()&&text.back().isSpace())text.chop(1);
+                    maximum=std::max(maximum,metrics.horizontalAdvance(text));
+                }
+                expected+=maximum;
+            }
+            const auto actual=tools.fieldTextWidth(configuration["start"].toDouble(),configuration["locale"].toString(),configuration["calendar"].toString(),configuration["timeZone"].toString(),observation["fontSize"].toInt());
+            QVERIFY2(actual==expected,qPrintable(QStringLiteral("%1: %2 != %3").arg(configuration["id"].toString()).arg(actual,0,'g',17).arg(expected,0,'g',17)));++compared;
+        }
+    }
+    QCOMPARE(compared,118);
 }
 void DateRangeToolsTests::editorPresentationAndRoundTrip(){
     DateRangeTools tools;

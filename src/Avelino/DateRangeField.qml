@@ -28,7 +28,7 @@ FocusScope {
     readonly property var panel:editor ? editor.calendarPanel:null
     readonly property var calendarPanel:panel
     readonly property real naturalTextWidth:owner.componentReady ? DateRangeTools.fieldTextWidth(bufferValue,owner.locale.name,owner.calendar,owner.timeZone,owner.dateStyle.fontPixels):0
-    implicitWidth:owner.dateStyle.graphical ? 138.5:Math.ceil(naturalTextWidth+5)+owner.dateStyle.stepperWidth
+    implicitWidth:owner.dateStyle.graphical ? 138.5:Math.ceil((naturalTextWidth+5)*2)/2+owner.dateStyle.stepperWidth
     implicitHeight:owner.dateStyle.graphical ? 148:owner.dateStyle.fieldHeight
     width:implicitWidth;height:implicitHeight
     Accessible.ignored:true

@@ -54,6 +54,7 @@ private slots:
     void ownerRemovalWhileCommittingTypedField();
     void localeDirectionInsideCallerLayout();
     void nativeChromeProfilesReachOwnedEditors();
+    void widthsStayFixedAcrossNativeDates();
 };
 void DateRangeUiTests::fieldKeyboardOwners(){
     for(const QString policy:{"echo","ignore","delay"}){
@@ -222,6 +223,49 @@ void DateRangeUiTests::nativeChromeProfilesReachOwnedEditors(){
         QCOMPARE(f.requests(),0);QVERIFY2(f.warnings.isEmpty(),qPrintable(f.warnings.join('\n')));
     }
     QCOMPARE(compared,72);
+}
+void DateRangeUiTests::widthsStayFixedAcrossNativeDates(){
+    QFile file(QStringLiteral(NATIVE_DATE_WIDTH_DIRECTORY "/output/widths.json"));QVERIFY(file.open(QIODevice::ReadOnly));
+    QJsonParseError error;const auto document=QJsonDocument::fromJson(file.readAll(),&error);QCOMPARE(error.error,QJsonParseError::NoError);
+    const auto contexts=document.object()["contexts"].toArray();QCOMPARE(contexts.size(),23);int compared=0,coldCompared=0;
+    const auto configure=[](Fixture &f,const QJsonObject &configuration){
+        f.window->setProperty("localeName",configuration["locale"].toString());
+        f.window->setProperty("pickerStyle",configuration["pickerStyle"].toString());
+        f.picker->setProperty("calendar",configuration["calendar"].toString());
+        f.picker->setProperty("timeZone",configuration["timeZone"].toString());
+        f.picker->setProperty("controlSize",configuration["controlSize"].toString());
+    };
+    for(const auto &item:contexts){
+        const auto context=item.toObject(),configuration=context["configuration"].toObject();
+        Fixture f;QVERIFY(f.window&&f.picker);configure(f,configuration);
+        QQuickItem *fields[]={f.field("startField"),f.field("endField")};
+        QPointer<QQuickItem> inputs[]={f.field("startInput"),f.field("endInput")};
+        const qreal widths[]={fields[0]->width(),fields[1]->width()};
+        for(const auto &value:context["updates"].toArray()){
+            const auto update=value.toObject();const double date=update["requestedDate"].toDouble();
+            f.window->setProperty("sourceStart",date);f.window->setProperty("sourceEnd",date);
+            QCoreApplication::processEvents();
+            for(int index=0;index<2;++index){
+                QVERIFY(fields[index]->property("bufferValue").toDouble()==update["editors"].toArray()[index].toObject()["date"].toDouble());
+                QVERIFY2(fields[index]->width()==widths[index],qPrintable(configuration["id"].toString()));
+                QCOMPARE(f.field(index==0?"startInput":"endInput"),inputs[index].data());++compared;
+            }
+        }
+        for(const auto &value:context["coldExtremes"].toArray()){
+            const auto cold=value.toObject();Fixture fresh;QVERIFY(fresh.window&&fresh.picker);
+            fresh.window->setProperty("mounted",false);QCoreApplication::processEvents();
+            fresh.window->setProperty("sourceStart",cold["requestedDate"].toDouble());fresh.window->setProperty("sourceEnd",cold["requestedDate"].toDouble());
+            fresh.window->setProperty("mounted",true);QCoreApplication::processEvents();fresh.picker=fresh.window->property("picker").value<QQuickItem*>();QVERIFY(fresh.picker);configure(fresh,configuration);
+            for(int index=0;index<2;++index){
+                auto field=fresh.field(index==0?"startField":"endField");
+                QVERIFY2(field->width()==widths[index],qPrintable(configuration["id"].toString()));
+                QVERIFY(field->property("bufferValue").toDouble()==cold["editors"].toArray()[index].toObject()["date"].toDouble());++coldCompared;
+            }
+            QCOMPARE(fresh.requests(),0);QVERIFY2(fresh.warnings.isEmpty(),qPrintable(fresh.warnings.join('\n')));
+        }
+        QCOMPARE(f.requests(),0);QVERIFY2(f.warnings.isEmpty(),qPrintable(f.warnings.join('\n')));
+    }
+    QCOMPARE(compared,3696);QCOMPARE(coldCompared,92);
 }
 QTEST_MAIN(DateRangeUiTests)
 #include "daterangeui.moc"

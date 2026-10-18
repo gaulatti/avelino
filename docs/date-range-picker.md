@@ -216,9 +216,10 @@ Stepper placement and text alignment follow the date locale's direction while
 the caller's layout direction still governs the enclosing row. Native English
 editors keep their right-side steppers inside an RTL caller; Hebrew editors put
 their steppers on the left inside an LTR caller. Qt tests exercise both locale
-directions inside both caller directions. Current-label font measurements replace
-the earlier artificial future-year/month maximum; complete native intrinsic
-sizing, named-month widths and font/raster equivalence remain open.
+directions inside both caller directions. The editor-presentation checkpoint
+replaced the earlier artificial future-year/month maximum with current-label
+measurements. The fixed reservation recipe below now replaces those measurements;
+complete segment positions and font/raster equivalence remain open.
 
 Repeated Linux-check publication now moves each earlier date catalog tree to a
 unique sibling directory before copying the fresh tree. The archive stays outside
@@ -327,3 +328,54 @@ The package/session checks reuse the prior consumer ELF with byte-identical
 148-file source inputs and unchanged CMake/QML public package contracts. The
 updated installed module is from producer20; this is a compatibility replay,
 not a new consumer compilation. Both project source trees are absent at runtime.
+
+## Fixed field-width reservations
+
+The [reservation supplement](../evidence/reference-investigations/date-range-reservation-20261018/README.md)
+calibrates 118 isolated AppKit endpoints against 59 pinned-source configurations.
+All intrinsic sizes, cell sizes and alignment insets agree; every before/after
+image agrees with the earlier width/style capture. Separately labelled
+implementation diagnostics identify a fixed set of sizing samples. Public
+Calendar, DateFormatter, font-measurement and NSDatePicker checks predict all 472
+intrinsic widths across four font profiles. Original-font raw cell widths match
+all 118 endpoints. Sixteen extra-font raw cell last-bit differences are retained;
+they are not accepted through an epsilon or exception.
+
+The owned field reserves the largest advance of each segment across those sizing
+samples, independently of the edited date. This uses the active ICU calendar,
+locale and number-format overrides; the samples impose no allowed-date limit and
+do not assume a largest legal year. Native RTL literal measurement is applied
+before half-point rounding and the size-specific stepper allocation. Visible
+single-string editing and padding remain, so stable overall width does not prove
+correct segment positions, selection geometry or font/raster equivalence.
+
+The [implementation checkpoint](../evidence/development/date-range-reservation-20261018/README.md)
+retains the old-code width-jitter failure and three passing final Qt runs. Exact
+checks cover 1,848 native caller date updates, 3,696 retained endpoint widths and
+92 fresh endpoint widths at each DPR, plus 118 independently captured native
+font-sample sets through the Linux measurement path. Editor identities, displayed
+dates, zero requests and QML warnings remain checked alongside existing input,
+owner, teardown, calendar and chrome tests.
+
+Eight source-absent package/gallery profiles, eight virtual-display profiles and
+four installed catalog captures pass. The prior independently compiled consumer
+ELF is reused with all 148 source hashes and public package contracts unchanged;
+this does not claim fresh consumer compilation. All 384 closed model/date values
+and 17 history model, identity, calendar and environment observations still match.
+All 401 exact image comparisons fail: 16 changed-pixel counts are lower, 46 are
+higher and 339 are unchanged from the chrome checkpoint. Every failure remains.
+
+A fresh 102-file source-only extraction/build reproduces all 380 public probe
+files exactly. The earlier replay's vocabulary JSON key-order mismatch and the
+forward deterministic writer are both retained; every value and original image
+is unchanged. Private diagnostic addresses are excluded from the replay oracle,
+not normalized into a passing comparison. All Apple code and products stay
+outside this repository.
+
+The broader Chinese/Dangi helper run starts and completes, but Chinese related-
+year presentation and sizing require pinned-source captures before that calendar
+can be accepted. Complete segment layout, native font/bezel rendering, parsing
+histories, geometry/raster, physical display/input and reader gates remain open.
+Desktop coverage remains 76/80 candidates and 0/80 accepted; TV remains a separate
+pending phase. Run `python3 scripts/verify-date-range-reservation.py` and
+`python3 scripts/verify-date-range-reservation-checkpoint.py`.

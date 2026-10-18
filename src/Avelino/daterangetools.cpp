@@ -3,10 +3,12 @@
 #include <QFile>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QLocale>
 #include <QTimeZone>
 #include <QFontDatabase>
 #include <QFontMetricsF>
 #include <algorithm>
+#include <array>
 #include <cmath>
 #include <climits>
 #include <memory>
@@ -207,6 +209,39 @@ QVariantMap datePresentation(icu::SimpleDateFormat &native,double value,bool pad
     if(offset<string.size()){const auto literal=string.mid(offset);segments.append(QVariantMap{{"kind","literal"},{"text",literal}});displayed+=literal;}
     return {{"text",displayed},{"segments",segments}};
 }
+std::vector<double> sizingDates(icu::Calendar &calendar) {
+    // The native field reserves representative calendar samples, independently
+    // of the edited date. Public sizing/font probes validate this recipe; these
+    // are neither allowed-date bounds nor an assumed longest year/month.
+    static constexpr std::array<std::array<int,7>,15> samples={{
+        {1,2066,10,26,12,26,26},{1,2000,10,30,12,59,59},
+        {1,4444,10,30,10,44,44},{1,2000,10,30,23,59,59},
+        {1,4444,4,4,0,44,44},{1,4444,4,4,4,44,44},
+        {1,3920,6,25,12,59,59},{1,3920,6,25,20,44,44},
+        {1,8204,7,27,20,44,44},{1,8204,7,29,20,44,44},
+        {1,5761,1,6,0,0,0},{0,1435,9,6,16,20,44},
+        {0,1435,9,10,12,44,44},{0,7777,12,12,12,57,57},
+        {0,7777,7,7,7,7,7}
+    }};
+    const int positiveEra=calendar.getMaximum(UCAL_ERA);
+    std::vector<double> dates={978307200.0};
+    for(const auto &sample:samples){
+        calendar.clear();calendar.set(UCAL_ERA,sample[0] ? positiveEra:0);
+        calendar.set(sample[1],sample[2]-1,sample[3],sample[4],sample[5],sample[6]);
+        dates.push_back(seconds(calendar));
+    }
+    return dates;
+}
+QString measurementText(QString value,bool literal,bool rtl) {
+    if(literal&&rtl){
+        auto points=value.toUcs4();std::reverse(points.begin(),points.end());
+        value=QString::fromUcs4(points.constData(),points.size());
+    }
+    // Native NSString measurement excludes trailing whitespace in an RTL
+    // paragraph, while Latin/neutral and all-space literals retain it.
+    if(value.isRightToLeft())while(!value.isEmpty()&&value.back().isSpace())value.chop(1);
+    return value;
+}
 
 }
 
@@ -314,10 +349,24 @@ QVariantMap DateRangeTools::presentation(const QString &style,const QString &siz
         {"graphical",style=="graphical"},{"calendarWidth",138.5},{"calendarHeight",148}};
 }
 qreal DateRangeTools::fieldTextWidth(double value,const QString &locale,const QString &calendar,const QString &timeZone,int pixels) const {
+    canonical(value);
     const QFontMetricsF metrics(systemFont(pixels));auto output=editorFormatter(locale,calendar,timeZone);
-    // Numeric labels reserve two/four columns. Measure named/algorithmic labels
-    // in the active font; complete native field sizing remains a separate gate.
-    return metrics.horizontalAdvance(datePresentation(*output,canonical(value),true).value("text").toString());
+    auto native=calendarFor(locale,calendar,timeZone);const bool rtl=QLocale(locale).textDirection()==Qt::RightToLeft;
+    std::vector<qreal> widths;QStringList kinds;
+    for(const auto date:sizingDates(*native)){
+        const auto segments=datePresentation(*output,date,false)["segments"].toList();
+        if(widths.empty()){
+            widths.resize(segments.size(),0);
+            for(const auto &segment:segments)kinds.append(segment.toMap()["kind"].toString());
+        }
+        if(segments.size()!=qsizetype(widths.size()))qFatal("DateRange sizing samples changed field structure");
+        for(qsizetype index=0;index<segments.size();++index){
+            const auto segment=segments[index].toMap();const auto kind=segment["kind"].toString();
+            if(kind!=kinds[index])qFatal("DateRange sizing samples changed field kind");
+            widths[index]=std::max(widths[index],metrics.horizontalAdvance(measurementText(segment["text"].toString(),kind=="literal",rtl)));
+        }
+    }
+    qreal width=0;for(const auto reserved:widths)width+=reserved;return width;
 }
 QVariantMap DateRangeTools::parsedField(double value,const QString &part,const QString &input,const QString &locale,const QString &calendar,const QString &timeZone) const {
     auto native=calendarFor(locale,calendar,timeZone);setTime(*native,canonical(value));

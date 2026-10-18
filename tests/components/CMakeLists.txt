@@ -17,7 +17,8 @@ target_compile_definitions(AvelinoDateRangeToolsTests PRIVATE
     NATIVE_DATE_RANGE_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/date-range-20261018"
     NATIVE_DATE_INPUT_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/date-range-input-20261018"
     NATIVE_DATE_FONT_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/date-range-font-20261018"
-    NATIVE_DATE_WIDTH_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/date-range-width-20261018")
+    NATIVE_DATE_WIDTH_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/date-range-width-20261018"
+    NATIVE_DATE_RESERVATION_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/date-range-reservation-20261018")
 add_test(NAME date-range-calendar-components COMMAND AvelinoDateRangeToolsTests)
 set_tests_properties(date-range-calendar-components PROPERTIES ENVIRONMENT "QT_QPA_PLATFORM=offscreen;QT_QUICK_BACKEND=software")
 qt_add_executable(AvelinoHeroCarouselTests herocarousel.cpp)
