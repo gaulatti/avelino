@@ -14,14 +14,14 @@ static void runDateRangeConsumer(QQuickWindow *window,QGuiApplication &app,const
     auto call=[&](QObject *target,const char *method,const QJsonObject &value){return check(QMetaObject::invokeMethod(target,method,Q_ARG(QVariant,value.toVariantMap())),"Caller update failed");};
     auto frame=[&](){return check(waitForShapeFrame(window)&&waitForShapeFrame(window),"Rendered frame missing");};
     auto save=[&](const QString &name){return prefix.isEmpty()||check(!QFile::exists(prefix+"-"+name+".png")&&window->grabWindow().save(prefix+"-"+name+".png"),"Capture exists or failed");};
-    QJsonArray closed,inputs,operators,histories;int modelMatches=0,geometryMatches=0,historyModels=0,historyGeometry=0,historyInstances=0,historyCalendars=0,historyEnvironment=0;
+    QJsonArray closed,inputs,operators,histories,chinese;int modelMatches=0,geometryMatches=0,historyModels=0,historyGeometry=0,historyInstances=0,historyCalendars=0,historyEnvironment=0,chineseModels=0,chineseTexts=0,chineseCalendars=0,chineseIntrinsic=0;
     auto configure=[&](const QJsonObject &configuration){
         fixture->setProperty("mounted",false);if(!frame())return false;
         if(!check(QMetaObject::invokeMethod(fixture,"resetCounters"),"Counter reset missing")||!call(window,"configure",configuration))return false;
         fixture->setProperty("mounted",true);return frame()&&check(fixture->property("picker").value<QQuickItem*>(),"Picker missing");
     };
     if(parser.isSet("date-range-gallery")){
-        for(const QString name:{"style-field","owner-ignore","owner-delay","apply","bounds","crossed","disabled","disabled","locale","calendar","timezone","size","rtl","narrow","theme","default","style-graphical"}){
+        for(const QString name:{"style-field","owner-ignore","owner-delay","apply","bounds","crossed","disabled","disabled","locale","calendar","timezone","size","rtl","narrow","theme","chinese-en_US","chinese-zh_CN","chinese-ko_KR","default","style-graphical"}){
             auto button=findVisualItem(window->contentItem(),"dateOperator-"+name);
             if(!check(button&&button->isVisible()&&button->isEnabled(),"Gallery operator missing"))return;
             QTest::mouseClick(window,Qt::LeftButton,Qt::NoModifier,button->mapToScene(QPointF(button->width()/2,button->height()/2)).toPoint());
@@ -91,6 +91,26 @@ static void runDateRangeConsumer(QQuickWindow *window,QGuiApplication &app,const
             }
         }
         if(!check(histories.size()==(historySupported?17:0),"Typed history context incomplete"))return;
+        QFile chineseSource(":/avelino/fixtures/native-date-chinese-witnesses.json");if(!check(chineseSource.open(QIODevice::ReadOnly),"Chinese native observations missing"))return;
+        const auto supplement=QJsonDocument::fromJson(chineseSource.readAll()).object();
+        if(!check(supplement["reference"]==native["reference"]&&supplement["accepted"]==false&&supplement["cases"].toArray().size()==36,"Chinese native observations incomplete"))return;
+        for(const auto &item:supplement["cases"].toArray()){
+            const auto row=item.toObject(),configuration=row["configuration"].toObject();if(!configure(configuration))return;
+            const auto actual=dateRangeSnapshot(fixture);
+            const bool sameModel=actual["model"]==row["model"]&&actual["displayed"]==row["displayed"];
+            const bool sameText=actual["editorText"]==row["editorText"]&&actual["editorRoles"]==row["editableRoles"];
+            bool sameCalendar=true,sameIntrinsic=true;
+            for(int index=0;index<2;++index){
+                const auto expected=row["calendarParts"].toArray()[index].toObject(),parts=actual["calendarParts"].toArray()[index].toObject();
+                for(const auto &key:expected.keys())sameCalendar&=parts[key]==expected[key];
+                const auto size=row["intrinsic"].toArray()[index].toObject(),frame=actual["frames"].toObject()[index==0?"start":"end"].toObject();
+                sameIntrinsic&=frame["width"]==size["width"]&&frame["height"]==size["height"];
+            }
+            if(!check(sameModel&&sameText&&sameCalendar,"Chinese model, field strings or calendar parts differ"))return;
+            chineseModels+=sameModel;chineseTexts+=sameText;chineseCalendars+=sameCalendar;chineseIntrinsic+=sameIntrinsic;
+            chinese.append(QJsonObject{{"configuration",configuration},{"actual",actual},{"native",row},{"modelMatches",sameModel},{"textMatches",sameText},{"calendarMatches",sameCalendar},{"intrinsicSizeMatches",sameIntrinsic}});
+            if(!save(configuration["id"].toString()))return;
+        }
         // These are actual Qt template input events. Native OS input is retained
         // separately; this does not establish platform reader/physical acceptance.
         const QJsonObject base{{"id","input"},{"start",1710000000.625},{"end",1710864000.125},{"locale","en_US"},{"calendar","gregorian"},{"timeZone","UTC"},{"pickerStyle","field"},{"controlSize","regular"},{"owner","echo"}};
@@ -106,9 +126,9 @@ static void runDateRangeConsumer(QQuickWindow *window,QGuiApplication &app,const
             inputs.append(QJsonObject{{"owner",policy},{"actual",actual}});if(!save("input-"+policy))return;
         }
     }
-    const bool strict=closed.isEmpty()||(modelMatches==closed.size()&&geometryMatches==closed.size()&&historyModels==histories.size()&&historyGeometry==histories.size()&&historyInstances==histories.size()&&historyCalendars==histories.size()&&historyEnvironment==histories.size());
+    const bool strict=closed.isEmpty()||(modelMatches==closed.size()&&geometryMatches==closed.size()&&historyModels==histories.size()&&historyGeometry==histories.size()&&historyInstances==histories.size()&&historyCalendars==histories.size()&&historyEnvironment==histories.size()&&chineseModels==chinese.size()&&chineseTexts==chinese.size()&&chineseCalendars==chinese.size()&&chineseIntrinsic==chinese.size());
     if(!prefix.isEmpty()){
-        const QJsonObject report{{"fixture","date-range"},{"structuralChecks","passed"},{"platform",QGuiApplication::platformName()},{"graphicsApi",int(window->rendererInterface()->graphicsApi())},{"width",window->width()},{"height",window->height()},{"appearance",parser.isSet("dark")?"dark":"light"},{"accepted",false},{"reference","fe8a1d462fbd793d883fb92086a16aa2947e32c9"},{"textScale",textScale},{"dpr",window->devicePixelRatio()},{"closed",closed},{"input",inputs},{"gallery",operators},{"histories",histories},{"historyModelMatches",historyModels},{"historyGeometryMatches",historyGeometry},{"historyEditorInstanceMatches",historyInstances},{"historyCalendarMatches",historyCalendars},{"historyEnvironmentMatches",historyEnvironment},{"modelMatches",modelMatches},{"geometryMatches",geometryMatches},{"strictObservationsMatch",strict},{"visualAcceptance","pending"},{"readerPhysicalAcceptance","pending"}};
+        const QJsonObject report{{"fixture","date-range"},{"structuralChecks","passed"},{"platform",QGuiApplication::platformName()},{"graphicsApi",int(window->rendererInterface()->graphicsApi())},{"width",window->width()},{"height",window->height()},{"appearance",parser.isSet("dark")?"dark":"light"},{"accepted",false},{"reference","fe8a1d462fbd793d883fb92086a16aa2947e32c9"},{"textScale",textScale},{"dpr",window->devicePixelRatio()},{"closed",closed},{"input",inputs},{"gallery",operators},{"histories",histories},{"chinese",chinese},{"chineseModelMatches",chineseModels},{"chineseTextMatches",chineseTexts},{"chineseCalendarMatches",chineseCalendars},{"chineseIntrinsicSizeMatches",chineseIntrinsic},{"historyModelMatches",historyModels},{"historyGeometryMatches",historyGeometry},{"historyEditorInstanceMatches",historyInstances},{"historyCalendarMatches",historyCalendars},{"historyEnvironmentMatches",historyEnvironment},{"modelMatches",modelMatches},{"geometryMatches",geometryMatches},{"strictObservationsMatch",strict},{"visualAcceptance","pending"},{"readerPhysicalAcceptance","pending"}};
         QFile output(prefix+".json");if(!check(output.open(QIODevice::WriteOnly|QIODevice::NewOnly)&&output.write(QJsonDocument(report).toJson())>0,"Report write failed"))return;
     }
     qInfo("DateRangePicker typed history: %lld steps, %d model/lifecycle, %d raw geometry, %d editor identity and %d calendar matches",histories.size(),historyModels,historyGeometry,historyInstances,historyCalendars);

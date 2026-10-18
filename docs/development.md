@@ -11,6 +11,12 @@ mask also builds against Qt QuickPrivate; the image provides `libxkbcommon-dev`
 for its private dependency graph. Installed consumers use public dependencies.
 See [content clipping](content-clipping.md) before changing the Qt pin.
 
+System-font date editors require CJK glyph coverage for Chinese lunar labels and
+Korean leap-month labels. On Ubuntu 24.04, install `fonts-noto-cjk` and
+`fontconfig`; the checked-in toolchain installs both. Glyph-run regression checks
+reject missing-glyph boxes in all 72 Chinese source endpoint strings. This
+coverage check is separate from native font metrics and raster acceptance.
+
 Keep the tracked tree Linux-only. `.gitignore` excludes Swift/Apple project files
 and the reference source cache. Before committing, run
 `python3 scripts/check-linux-boundary.py`; the References CI job also rejects

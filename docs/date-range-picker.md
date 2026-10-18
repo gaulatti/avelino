@@ -202,8 +202,9 @@ separate. Parsing removes the padding and retains hidden hours, minutes, seconds
 and fractions. Named and algorithmic calendar fields retain their locale number
 format; the tests round-trip all 96 observed native editor dates and fields.
 
-The bundled pattern resource is generated from the 14 observed locale/calendar
-date-style patterns together with original visible-image observations. Foundation
+The editor-presentation checkpoint's pattern resource was generated from 14
+observed locale/calendar date-style patterns and original visible images. The
+current resource also includes the three Chinese-calendar presentations below. Foundation
 short-date patterns alone do not describe NSDatePicker rendering: Japanese
 Gregorian visibly uses blank-padded month/day fields, whereas the Japanese
 calendar uses leading zeroes. The recorded override is bound to both original
@@ -379,3 +380,51 @@ histories, geometry/raster, physical display/input and reader gates remain open.
 Desktop coverage remains 76/80 candidates and 0/80 accepted; TV remains a separate
 pending phase. Run `python3 scripts/verify-date-range-reservation.py` and
 `python3 scripts/verify-date-range-reservation-checkpoint.py`.
+
+## Chinese-calendar presentation
+
+The [Chinese source supplement](../evidence/reference-investigations/date-range-chinese-20261018/README.md)
+retains 36 pinned-source configurations: English, Chinese and Korean locales,
+ordinary/leap-month/new-year dates, and four control sizes. All 72 source endpoints
+agree with isolated AppKit controls in intrinsic/cell sizes and insets; every
+before/after source image is unchanged. Public font/sizing validation matches all
+864 observations exactly. A fresh 99-file source-only extraction/build reproduces
+all 153 public files exactly, with the 89-file library unchanged. Diagnostic
+addresses remain outside the replay oracle.
+
+English Chinese-calendar fields show a literal `r` after month/day; Chinese and
+Korean omit the year. The recorded editor patterns are `M/d/'r'`, `MMMddd` and
+`M. d.`. Chinese day fields use CLDR's `hanidays` numbering through ICU's per-field
+number-format API. The resource's second schema version records both patterns
+and numbering overrides. Other fields retain their date-style number formats,
+including Hebrew year/day rules. Cyclic-calendar sizing samples use the current
+era instead of ICU's astronomical maximum era, independently of the edited date.
+
+Backend and owned-editor tests check all 72 source dates and strings, both
+editable month/day roles, leap-month/year/time/fraction preservation, full-date
+and field parsing, and native font-sample width reservations. Synthetic Qt input-
+method commits cover three Chinese date roles at both DPRs; they do not establish
+native OS-input or reader acceptance. Full logical leap labels can exceed a
+native reserved slot, so string agreement does not establish clipping or
+selection geometry.
+
+The shared catalog/consumer gallery adds Chinese-calendar controls for the three
+locales. A fresh independent consumer embeds the generated observations and
+checks all 36 cases in each package/display profile. It records models, padded
+logical field strings, editable roles, calendar parts and intrinsic sizes
+separately. The original 48-case/17-history comparisons remain separate from the
+36 new light/text1/DPR1 whole-image comparisons. No reference, mask, resize,
+tolerance or approved exception is changed. Complete geometry/raster, field
+positions, font/bezel drawing, native input, physical displays and reader gates
+remain pending; the full desktop and later TV objective remains active.
+
+Image review exposed missing CJK fonts in the earlier verification toolchain.
+That run retains its missing-glyph captures. The toolchain now installs
+`fonts-noto-cjk` and `fontconfig`, and glyph-run checks cover all 72 source strings.
+Glyph coverage, native font metrics and exact raster acceptance remain separate.
+The joined text field can scroll a longer leap-month label and hide its prefix;
+native per-field clipping and selection must replace that whole-string behavior.
+
+Run `python3 scripts/generate-date-chinese-witnesses.py --check`,
+`python3 scripts/verify-date-chinese-source.py` and
+`python3 scripts/verify-date-chinese-checkpoint.py`.

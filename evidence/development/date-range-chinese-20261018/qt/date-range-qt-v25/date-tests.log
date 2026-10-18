@@ -1,0 +1,37 @@
+Internal ctest changing into directory: /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/build
+Test project /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/build
+    Start 1: date-range-owned-input
+1/3 Test #1: date-range-owned-input ...........   Passed   43.11 sec
+    Start 2: date-range-owned-input-dpr2
+2/3 Test #2: date-range-owned-input-dpr2 ......   Passed   40.55 sec
+    Start 3: date-range-calendar-components
+3/3 Test #3: date-range-calendar-components ...***Failed    2.02 sec
+********* Start testing of DateRangeToolsTests *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : DateRangeToolsTests::initTestCase()
+PASS   : DateRangeToolsTests::sourceDateConstructionAndDisplayClamp()
+PASS   : DateRangeToolsTests::sourceCalendarHistoryComponents()
+PASS   : DateRangeToolsTests::nativeInputArithmetic()
+PASS   : DateRangeToolsTests::localizedSegmentBoundaries()
+PASS   : DateRangeToolsTests::ownedCalendarGrid()
+PASS   : DateRangeToolsTests::editableFieldParsing()
+PASS   : DateRangeToolsTests::editorPresentationAndRoundTrip()
+PASS   : DateRangeToolsTests::nativeNumericFontContract()
+PASS   : DateRangeToolsTests::nativeChromeProfiles()
+PASS   : DateRangeToolsTests::widthsStayFixedAcrossNativeDates()
+PASS   : DateRangeToolsTests::reservedWidthsUseNativeFontSamples()
+PASS   : DateRangeToolsTests::chineseEditorPresentationAndParsing()
+FAIL!  : DateRangeToolsTests::chineseWidthsUseNativeFontSamples() 'tools.fieldTextWidth(configuration["start"].toDouble(),configuration["locale"].toString(),"chinese","UTC",observation["fontSize"].toInt())==expected' returned FALSE. ()
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/tests/components/daterangetools.cpp(311)]
+PASS   : DateRangeToolsTests::cleanupTestCase()
+Totals: 14 passed, 1 failed, 0 skipped, 0 blacklisted, 1953ms
+********* Finished testing of DateRangeToolsTests *********
+
+
+67% tests passed, 1 tests failed out of 3
+
+Total Test time (real) =  85.72 sec
+
+The following tests FAILED:
+	  3 - date-range-calendar-components (Failed)
+Errors while running CTest

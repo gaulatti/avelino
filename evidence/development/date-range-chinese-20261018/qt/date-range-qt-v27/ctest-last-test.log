@@ -1,0 +1,39 @@
+Start testing: Oct 18 20:24 UTC
+----------------------------------------------------------
+3/55 Testing: date-range-calendar-components
+3/55 Test: date-range-calendar-components
+Command: "/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/build/tests/components/AvelinoDateRangeToolsTests"
+Directory: /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/build/tests/components
+"date-range-calendar-components" start time: Oct 18 20:24 UTC
+Output:
+----------------------------------------------------------
+********* Start testing of DateRangeToolsTests *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : DateRangeToolsTests::initTestCase()
+PASS   : DateRangeToolsTests::sourceDateConstructionAndDisplayClamp()
+PASS   : DateRangeToolsTests::sourceCalendarHistoryComponents()
+PASS   : DateRangeToolsTests::nativeInputArithmetic()
+PASS   : DateRangeToolsTests::localizedSegmentBoundaries()
+PASS   : DateRangeToolsTests::ownedCalendarGrid()
+PASS   : DateRangeToolsTests::editableFieldParsing()
+PASS   : DateRangeToolsTests::editorPresentationAndRoundTrip()
+PASS   : DateRangeToolsTests::nativeNumericFontContract()
+PASS   : DateRangeToolsTests::nativeChromeProfiles()
+PASS   : DateRangeToolsTests::widthsStayFixedAcrossNativeDates()
+PASS   : DateRangeToolsTests::reservedWidthsUseNativeFontSamples()
+PASS   : DateRangeToolsTests::chineseEditorPresentationAndParsing()
+PASS   : DateRangeToolsTests::chineseWidthsUseNativeFontSamples()
+FAIL!  : DateRangeToolsTests::chineseGlyphCoverage() 'glyph!=0' returned FALSE. (chinese-zh-cn-ordinary-regular: missing glyph in 正月廿九)
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/tests/components/daterangetools.cpp(329)]
+PASS   : DateRangeToolsTests::cleanupTestCase()
+Totals: 15 passed, 1 failed, 0 skipped, 0 blacklisted, 4028ms
+********* Finished testing of DateRangeToolsTests *********
+<end of output>
+Test time =   4.43 sec
+----------------------------------------------------------
+Test Failed.
+"date-range-calendar-components" end time: Oct 18 20:25 UTC
+"date-range-calendar-components" time elapsed: 00:00:04
+----------------------------------------------------------
+
+End testing: Oct 18 20:25 UTC

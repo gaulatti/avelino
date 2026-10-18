@@ -1,6 +1,8 @@
 #include "daterangetools.h"
 #include <QFile>
 #include <QFontMetricsF>
+#include <QTextLayout>
+#include <QGlyphRun>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -39,6 +41,9 @@ private slots:
     void nativeChromeProfiles();
     void widthsStayFixedAcrossNativeDates();
     void reservedWidthsUseNativeFontSamples();
+    void chineseEditorPresentationAndParsing();
+    void chineseWidthsUseNativeFontSamples();
+    void chineseGlyphCoverage();
 };
 void DateRangeToolsTests::sourceDateConstructionAndDisplayClamp() {
     DateRangeTools tools;
@@ -271,6 +276,61 @@ void DateRangeToolsTests::editorPresentationAndRoundTrip(){
         }
     }
     QCOMPARE(compared,96);
+}
+void DateRangeToolsTests::chineseEditorPresentationAndParsing(){
+    DateRangeTools tools;int compared=0;
+    const auto rows=read(QStringLiteral(NATIVE_DATE_CHINESE_DIRECTORY "/samples/output/samples.json"))["rows"].toArray();QCOMPARE(rows.size(),36);
+    for(const auto &item:rows){
+        const auto row=item.toObject(),configuration=row["configuration"].toObject();const auto locale=configuration["locale"].toString();
+        for(const auto &value:row["editors"].toArray()){
+            const auto editor=value.toObject();const double date=editor["date"].toDouble();const auto presentation=tools.editorFormatted(date,locale,"chinese","UTC");
+            QCOMPARE(QString(presentation["text"].toString()).remove(QChar(0x2007)),editor["candidateText"].toString());
+            QStringList roles;
+            for(const auto &entry:presentation["segments"].toList()){
+                const auto segment=entry.toMap();const auto kind=segment["kind"].toString();if(kind=="literal")continue;roles.append(kind);
+                const auto parsed=tools.parsedField(date,kind,QString(segment["text"].toString()).remove(QChar(0x2007)),locale,"chinese","UTC");
+                QVERIFY2(parsed["valid"].toBool(),qPrintable(configuration["id"].toString()+" "+segment["text"].toString()));
+                QCOMPARE(parsed["number"].toInt(),editor["components"].toObject()[kind].toInt());
+            }
+            QCOMPARE(roles,QStringList({"month","day"}));
+            const auto parsed=tools.parsedDate(date,presentation["text"].toString(),locale,"chinese","UTC",{});QVERIFY(parsed["valid"].toBool());EXACT_DATE(parsed["instant"].toDouble(),date);
+            const auto parts=tools.parts(date,locale,"chinese","UTC");for(const auto &key:editor["components"].toObject().keys())QCOMPARE(parts[key],editor["components"].toObject()[key].toVariant());
+            ++compared;
+        }
+    }
+    QCOMPARE(compared,72);
+}
+void DateRangeToolsTests::chineseWidthsUseNativeFontSamples(){
+    DateRangeTools tools;int compared=0;
+    const auto rows=read(QStringLiteral(NATIVE_DATE_CHINESE_DIRECTORY "/validation/output/validation.json"))["rows"].toArray();QCOMPARE(rows.size(),36);
+    for(const auto &item:rows){
+        const auto row=item.toObject(),configuration=row["configuration"].toObject();
+        for(const auto &value:row["observations"].toArray()){
+            const auto observation=value.toObject();if(observation["strategy"]!="maximum"||observation["fontProfile"]!="source")continue;
+            const QFontMetricsF metrics(tools.systemFont(observation["fontSize"].toInt()));qreal expected=0;
+            for(const auto &entry:observation["fields"].toArray()){
+                qreal maximum=0;for(const auto &label:entry.toObject()["labels"].toArray())maximum=std::max(maximum,metrics.horizontalAdvance(label.toString()));expected+=maximum;
+            }
+            const auto actual=tools.fieldTextWidth(configuration["start"].toDouble(),configuration["locale"].toString(),"chinese","UTC",observation["fontSize"].toInt());
+            QVERIFY2(actual==expected,qPrintable(QStringLiteral("%1: %2 != %3").arg(configuration["id"].toString()).arg(actual,0,'g',17).arg(expected,0,'g',17)));++compared;
+        }
+    }
+    QCOMPARE(compared,72);
+}
+void DateRangeToolsTests::chineseGlyphCoverage(){
+    DateRangeTools tools;int compared=0;
+    const auto rows=read(QStringLiteral(NATIVE_DATE_CHINESE_DIRECTORY "/samples/output/samples.json"))["rows"].toArray();QCOMPARE(rows.size(),36);
+    for(const auto &value:rows){
+        const auto row=value.toObject(),configuration=row["configuration"].toObject();
+        for(const auto &item:row["editors"].toArray()){
+            const auto editor=item.toObject();QTextLayout layout(editor["candidateText"].toString(),tools.systemFont(editor["font"].toObject()["pointSize"].toInt()));
+            layout.beginLayout();auto line=layout.createLine();QVERIFY(line.isValid());line.setLineWidth(10000);layout.endLayout();
+            const auto runs=layout.glyphRuns();QVERIFY(!runs.isEmpty());
+            for(const auto &run:runs)for(auto glyph:run.glyphIndexes())QVERIFY2(glyph!=0,qPrintable(configuration["id"].toString()+": missing glyph in "+editor["candidateText"].toString()));
+            ++compared;
+        }
+    }
+    QCOMPARE(compared,72);
 }
 QTEST_MAIN(DateRangeToolsTests)
 #include "daterangetools.moc"

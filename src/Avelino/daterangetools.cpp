@@ -21,6 +21,7 @@
 #include <unicode/fpositer.h>
 #include <unicode/gregocal.h>
 #include <unicode/locid.h>
+#include <unicode/numfmt.h>
 #include <unicode/smpdtfmt.h>
 #include <unicode/strenum.h>
 #include <unicode/timezone.h>
@@ -136,14 +137,15 @@ std::unique_ptr<icu::SimpleDateFormat> editorFormatter(const QString &locale,con
     std::unique_ptr<icu::DateFormat> base(icu::DateFormat::createDateInstance(icu::DateFormat::kShort,localeFor(locale,calendar)));
     auto simple=dynamic_cast<icu::SimpleDateFormat*>(base.get());
     if(!simple)qFatal("DateRange short-date formatter is unavailable");
-    static const QJsonObject patterns=[](){
+    static const QJsonObject presentation=[](){
         QFile file(QStringLiteral(":/qt/qml/Avelino/date-editor-patterns.json"));
         if(!file.open(QIODevice::ReadOnly))qFatal("Pinned date editor patterns are unavailable");
         QJsonParseError error;const auto document=QJsonDocument::fromJson(file.readAll(),&error);
         const auto object=document.object();
-        if(error.error!=QJsonParseError::NoError||object["schemaVersion"]!=1||object["reference"]!="fe8a1d462fbd793d883fb92086a16aa2947e32c9"||!object["patterns"].isObject())qFatal("Invalid pinned date editor patterns");
-        return object["patterns"].toObject();
+        if(error.error!=QJsonParseError::NoError||object["schemaVersion"]!=2||object["reference"]!="fe8a1d462fbd793d883fb92086a16aa2947e32c9"||!object["patterns"].isObject()||!object["numberingOverrides"].isObject())qFatal("Invalid pinned date editor patterns");
+        return object;
     }();
+    const auto patterns=presentation["patterns"].toObject();
     icu::UnicodeString pattern;simple->toPattern(pattern);
     const auto key=QString::fromLatin1(localeFor(locale,calendar).getBaseName())+"|"+calendarName(calendar);
     if(patterns.contains(key)){
@@ -161,6 +163,18 @@ std::unique_ptr<icu::SimpleDateFormat> editorFormatter(const QString &locale,con
     // Preserve the locale's date-style number-format overrides (for example
     // Hebrew numerals); reconstructing a formatter from its pattern loses them.
     simple->applyPattern(fullYear);simple->adoptCalendar(calendarFor(locale,calendar,zone).release());
+    const auto overrides=presentation["numberingOverrides"].toObject();
+    if(overrides.contains(key)){
+        if(!overrides[key].isObject())qFatal("Invalid native date field numbering");
+        const auto fields=overrides[key].toObject();
+        for(auto field=fields.begin();field!=fields.end();++field){
+            if(field.key().size()!=1||!field.value().isString()||field.value().toString().isEmpty())qFatal("Invalid native date field numbering rule");
+            auto numberLocale=localeFor(locale,calendar);UErrorCode status=U_ZERO_ERROR;
+            numberLocale.setKeywordValue("numbers",field.value().toString().toUtf8().constData(),status);checked(status,"date field numbering locale");
+            auto numbers=icu::NumberFormat::createInstance(numberLocale,status);checked(status,"date field numbering formatter");
+            simple->adoptNumberFormat(unicode(field.key()),numbers,status);checked(status,"date field numbering override");
+        }
+    }
     base.release();return std::unique_ptr<icu::SimpleDateFormat>(simple);
 }
 QString dateFieldText(const QString &part,const QString &input) {
@@ -223,7 +237,9 @@ std::vector<double> sizingDates(icu::Calendar &calendar) {
         {0,1435,9,10,12,44,44},{0,7777,12,12,12,57,57},
         {0,7777,7,7,7,7,7}
     }};
-    const int positiveEra=calendar.getMaximum(UCAL_ERA);
+    // Cyclic calendars have astronomical maximum eras. Build the sizing
+    // samples in the current era, independently of the edited date's era.
+    const int positiveEra=field(calendar,UCAL_ERA);
     std::vector<double> dates={978307200.0};
     for(const auto &sample:samples){
         calendar.clear();calendar.set(UCAL_ERA,sample[0] ? positiveEra:0);

@@ -1,0 +1,27 @@
+[0/2] Re-checking globbed directories...
+[1/413] Automatic MOC and UIC for target Avelino
+[2/412] Running AUTOMOC file extraction for target Avelino
+[3/412] Running moc --collect-json for target Avelino
+[4/174] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/daterangetools.cpp.o
+/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/src/Avelino/daterangetools.cpp: In function ‘QString {anonymous}::measurementText(QString, bool, bool)’:
+/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/src/Avelino/daterangetools.cpp:254:32: warning: ‘static QString QString::fromUcs4(const uint*, qsizetype)’ is deprecated: Use char32_t* overload. [-Wdeprecated-declarations]
+  254 |         value=QString::fromUcs4(points.constData(),points.size());
+      |               ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /opt/qt/include/QtCore/qobject.h:11,
+                 from /opt/qt/include/QtCore/QObject:1,
+                 from /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/src/Avelino/daterangetools.h:2,
+                 from /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/src/Avelino/daterangetools.cpp:1:
+/opt/qt/include/QtCore/qstring.h:696:20: note: declared here
+  696 |     static QString fromUcs4(const uint *str, qsizetype size = -1)
+      |                    ^~~~~~~~
+[5/174] Linking CXX shared library src/Avelino/libAvelino.so
+[6/174] Automatic MOC and UIC for target AvelinoCatalog
+[7/173] Running AUTOMOC file extraction for target AvelinoCatalog
+[8/173] Running moc --collect-json for target AvelinoCatalog
+[9/17] Linking CXX shared module qml/Avelino/libAvelinoplugin.so
+[10/17] Automatic MOC and UIC for target AvelinoDateRangeUiTests
+[11/16] Automatic MOC and UIC for target AvelinoDateRangeToolsTests
+[12/15] Linking CXX executable tests/components/AvelinoDateRangeUiTests
+[13/15] Linking CXX executable samples/AvelinoCatalog/AvelinoCatalog
+[14/15] Building CXX object tests/components/CMakeFiles/AvelinoDateRangeToolsTests.dir/daterangetools.cpp.o
+[15/15] Linking CXX executable tests/components/AvelinoDateRangeToolsTests

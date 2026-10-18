@@ -5,6 +5,7 @@
 #include <QQuickItem>
 #include <QQuickWindow>
 #include <QJSValue>
+#include <QInputMethodEvent>
 #include <QPointer>
 #include <QFile>
 #include <QJsonArray>
@@ -55,6 +56,8 @@ private slots:
     void localeDirectionInsideCallerLayout();
     void nativeChromeProfilesReachOwnedEditors();
     void widthsStayFixedAcrossNativeDates();
+    void chinesePresentationReachesOwnedEditors();
+    void chineseDayInputMethodCommit();
 };
 void DateRangeUiTests::fieldKeyboardOwners(){
     for(const QString policy:{"echo","ignore","delay"}){
@@ -266,6 +269,43 @@ void DateRangeUiTests::widthsStayFixedAcrossNativeDates(){
         QCOMPARE(f.requests(),0);QVERIFY2(f.warnings.isEmpty(),qPrintable(f.warnings.join('\n')));
     }
     QCOMPARE(compared,3696);QCOMPARE(coldCompared,92);
+}
+void DateRangeUiTests::chinesePresentationReachesOwnedEditors(){
+    QFile file(QStringLiteral(NATIVE_DATE_CHINESE_DIRECTORY "/samples/output/samples.json"));QVERIFY(file.open(QIODevice::ReadOnly));
+    const auto rows=QJsonDocument::fromJson(file.readAll()).object()["rows"].toArray();QCOMPARE(rows.size(),36);int compared=0;
+    for(const auto &value:rows){
+        const auto row=value.toObject(),configuration=row["configuration"].toObject();Fixture f;QVERIFY(f.window&&f.picker);
+        f.window->setProperty("localeName",configuration["locale"].toString());f.window->setProperty("pickerStyle",configuration["pickerStyle"].toString());
+        f.picker->setProperty("calendar","chinese");f.picker->setProperty("controlSize",configuration["controlSize"].toString());
+        f.window->setProperty("sourceStart",configuration["start"].toDouble());f.window->setProperty("sourceEnd",configuration["end"].toDouble());
+        for(int index=0;index<2;++index){
+            auto field=f.field(index==0?"startField":"endField"),input=f.field(index==0?"startInput":"endInput");
+            const auto native=row["editors"].toArray()[index].toObject();
+            QCOMPARE(QString(input->property("text").toString()).remove(QChar(0x2007)),native["candidateText"].toString());
+            QVERIFY(field->property("bufferValue").toDouble()==native["date"].toDouble());++compared;
+        }
+        QCOMPARE(f.requests(),0);QVERIFY2(f.warnings.isEmpty(),qPrintable(f.warnings.join('\n')));
+    }
+    QCOMPARE(compared,72);
+}
+void DateRangeUiTests::chineseDayInputMethodCommit(){
+    QFile file(QStringLiteral(NATIVE_DATE_CHINESE_DIRECTORY "/samples/output/samples.json"));QVERIFY(file.open(QIODevice::ReadOnly));
+    const auto rows=QJsonDocument::fromJson(file.readAll()).object()["rows"].toArray();int compared=0;
+    for(const auto &value:rows){
+        const auto row=value.toObject(),configuration=row["configuration"].toObject();
+        if(configuration["locale"]!="zh_CN"||configuration["controlSize"]!="regular")continue;
+        Fixture f;QVERIFY(f.window&&f.picker);f.window->setProperty("localeName","zh_CN");f.picker->setProperty("calendar","chinese");
+        const double initial=configuration["start"].toDouble(),end=configuration["end"].toDouble();
+        f.window->setProperty("sourceStart",initial);f.window->setProperty("sourceEnd",end);
+        auto field=f.field("startField"),input=f.field("startInput");field->setProperty("selectedSegment",1);input->forceActiveFocus(Qt::OtherFocusReason);QTRY_VERIFY(input->hasActiveFocus());
+        QVERIFY(QMetaObject::invokeMethod(field,"restoreSelection"));
+        QInputMethodEvent event;event.setCommitString(QString::fromUtf8("初十"));QGuiApplication::sendEvent(input,&event);
+        const int day=row["editors"].toArray()[0].toObject()["components"].toObject()["day"].toInt();
+        QVERIFY(f.window->property("sourceStart").toDouble()==initial+(10-day)*86400.0);
+        QVERIFY(f.window->property("sourceEnd").toDouble()==end);QCOMPARE(f.requests(),1);
+        QVERIFY2(f.warnings.isEmpty(),qPrintable(f.warnings.join('\n')));++compared;
+    }
+    QCOMPARE(compared,3);
 }
 QTEST_MAIN(DateRangeUiTests)
 #include "daterangeui.moc"

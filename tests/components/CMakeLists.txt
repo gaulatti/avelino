@@ -5,7 +5,8 @@ qt_add_resources(AvelinoDateRangeUiTests date_range_fixtures PREFIX "/date-range
 target_link_libraries(AvelinoDateRangeUiTests PRIVATE Avelino Qt6::Quick Qt6::Test)
 target_compile_definitions(AvelinoDateRangeUiTests PRIVATE
     AVELINO_DATE_IMPORT_PATH="${CMAKE_BINARY_DIR}/qml"
-    NATIVE_DATE_WIDTH_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/date-range-width-20261018")
+    NATIVE_DATE_WIDTH_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/date-range-width-20261018"
+    NATIVE_DATE_CHINESE_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/date-range-chinese-20261018")
 add_dependencies(AvelinoDateRangeUiTests Avelinoplugin)
 add_test(NAME date-range-owned-input COMMAND AvelinoDateRangeUiTests)
 add_test(NAME date-range-owned-input-dpr2 COMMAND AvelinoDateRangeUiTests)
@@ -18,7 +19,8 @@ target_compile_definitions(AvelinoDateRangeToolsTests PRIVATE
     NATIVE_DATE_INPUT_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/date-range-input-20261018"
     NATIVE_DATE_FONT_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/date-range-font-20261018"
     NATIVE_DATE_WIDTH_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/date-range-width-20261018"
-    NATIVE_DATE_RESERVATION_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/date-range-reservation-20261018")
+    NATIVE_DATE_RESERVATION_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/date-range-reservation-20261018"
+    NATIVE_DATE_CHINESE_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/date-range-chinese-20261018")
 add_test(NAME date-range-calendar-components COMMAND AvelinoDateRangeToolsTests)
 set_tests_properties(date-range-calendar-components PROPERTIES ENVIRONMENT "QT_QPA_PLATFORM=offscreen;QT_QUICK_BACKEND=software")
 qt_add_executable(AvelinoHeroCarouselTests herocarousel.cpp)

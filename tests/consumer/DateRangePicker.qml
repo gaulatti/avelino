@@ -41,6 +41,12 @@ Window {
         BleeckerButton {objectName:"dateOperator-narrow";text:"Narrow caller";size:"xs";onClicked:window.update({width:fixture.definition.width===100 ? undefined:100})}
         BleeckerButton {objectName:"dateOperator-theme";text:"Theme";size:"xs";onClicked:BleeckerTheme.dark=!BleeckerTheme.dark}
     }
+    ProposalRow {
+        x:24;y:186;spacing:8;visible:window.gallery
+        Repeater {model:[{value:"en_US",name:"Chinese / English"},{value:"zh_CN",name:"Chinese / 中文"},{value:"ko_KR",name:"Chinese / 한국어"}]
+            BleeckerButton {required property var modelData;objectName:"dateOperator-chinese-"+modelData.value;text:modelData.name;size:"xs";onClicked:window.update({locale:modelData.value,calendar:"chinese"})}
+        }
+    }
     DateRangePickerCase {id:fixture;x:window.gallery ? 24:0;y:window.gallery ? 220:0}
     Text {
         x:720;y:250;width:345;visible:window.gallery;wrapMode:Text.WordWrap

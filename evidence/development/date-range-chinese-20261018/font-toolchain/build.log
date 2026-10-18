@@ -1,0 +1,81 @@
+#0 building with "colima-avelino-verify" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 DONE 0.0s
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 223B done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/avelino-toolchain:recovered-weston13-v2-20261017-qt6.8.3
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.1s
+
+#4 [1/2] FROM docker.io/library/avelino-toolchain:recovered-weston13-v2-20261017-qt6.8.3@sha256:2fdc6216ef3446ebd904a1999d3e0c909c7b667e844149ad2830d68d069e77f8
+#4 resolve docker.io/library/avelino-toolchain:recovered-weston13-v2-20261017-qt6.8.3@sha256:2fdc6216ef3446ebd904a1999d3e0c909c7b667e844149ad2830d68d069e77f8 0.0s done
+#4 DONE 0.1s
+
+#4 [1/2] FROM docker.io/library/avelino-toolchain:recovered-weston13-v2-20261017-qt6.8.3@sha256:2fdc6216ef3446ebd904a1999d3e0c909c7b667e844149ad2830d68d069e77f8
+#4 DONE 0.3s
+
+#5 [2/2] RUN apt-get update && apt-get install -y --no-install-recommends fontconfig fonts-noto-cjk && rm -rf /var/lib/apt/lists/*
+#5 1.349 Get:1 http://ports.ubuntu.com/ubuntu-ports noble InRelease [256 kB]
+#5 2.058 Get:2 http://ports.ubuntu.com/ubuntu-ports noble-updates InRelease [126 kB]
+#5 2.323 Get:3 http://ports.ubuntu.com/ubuntu-ports noble-backports InRelease [126 kB]
+#5 2.474 Get:4 http://ports.ubuntu.com/ubuntu-ports noble-security InRelease [126 kB]
+#5 2.724 Get:5 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 Packages [1776 kB]
+#5 3.183 Get:6 http://ports.ubuntu.com/ubuntu-ports noble/universe arm64 Packages [19.0 MB]
+#5 4.433 Get:7 http://ports.ubuntu.com/ubuntu-ports noble/multiverse arm64 Packages [274 kB]
+#5 4.433 Get:8 http://ports.ubuntu.com/ubuntu-ports noble/restricted arm64 Packages [113 kB]
+#5 4.433 Get:9 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 Packages [1786 kB]
+#5 4.533 Get:10 http://ports.ubuntu.com/ubuntu-ports noble-updates/restricted arm64 Packages [3251 kB]
+#5 4.895 Get:11 http://ports.ubuntu.com/ubuntu-ports noble-updates/universe arm64 Packages [2214 kB]
+#5 4.926 Get:12 http://ports.ubuntu.com/ubuntu-ports noble-updates/multiverse arm64 Packages [104 kB]
+#5 4.927 Get:13 http://ports.ubuntu.com/ubuntu-ports noble-backports/universe arm64 Packages [36.3 kB]
+#5 4.927 Get:14 http://ports.ubuntu.com/ubuntu-ports noble-backports/main arm64 Packages [49.0 kB]
+#5 4.927 Get:15 http://ports.ubuntu.com/ubuntu-ports noble-backports/multiverse arm64 Packages [669 B]
+#5 4.927 Get:16 http://ports.ubuntu.com/ubuntu-ports noble-security/multiverse arm64 Packages [99.1 kB]
+#5 4.927 Get:17 http://ports.ubuntu.com/ubuntu-ports noble-security/restricted arm64 Packages [3129 kB]
+#5 5.096 Get:18 http://ports.ubuntu.com/ubuntu-ports noble-security/main arm64 Packages [1475 kB]
+#5 5.117 Get:19 http://ports.ubuntu.com/ubuntu-ports noble-security/universe arm64 Packages [1638 kB]
+#5 8.729 Fetched 35.6 MB in 8s (4597 kB/s)
+#5 8.729 Reading package lists...
+#5 11.42 Reading package lists...
+#5 13.16 Building dependency tree...
+#5 13.40 Reading state information...
+#5 14.18 fontconfig is already the newest version (2.15.0-1.1ubuntu2).
+#5 14.18 fontconfig set to manually installed.
+#5 14.18 Suggested packages:
+#5 14.18   fonts-noto-cjk-extra
+#5 14.34 The following NEW packages will be installed:
+#5 14.34   fonts-noto-cjk
+#5 14.53 0 upgraded, 1 newly installed, 0 to remove and 2 not upgraded.
+#5 14.53 Need to get 61.2 MB of archives.
+#5 14.53 After this operation, 93.2 MB of additional disk space will be used.
+#5 14.53 Get:1 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 fonts-noto-cjk all 1:20230817+repack1-3 [61.2 MB]
+#5 18.21 debconf: delaying package configuration, since apt-utils is not installed
+#5 18.49 Fetched 61.2 MB in 3s (19.5 MB/s)
+#5 18.61 Selecting previously unselected package fonts-noto-cjk.
+#5 18.61 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 42620 files and directories currently installed.)
+#5 19.50 Preparing to unpack .../fonts-noto-cjk_1%3a20230817+repack1-3_all.deb ...
+#5 19.52 Unpacking fonts-noto-cjk (1:20230817+repack1-3) ...
+#5 21.22 Setting up fonts-noto-cjk (1:20230817+repack1-3) ...
+#5 21.28 Processing triggers for fontconfig (2.15.0-1.1ubuntu2) ...
+#5 DONE 21.9s
+
+#6 exporting to image
+#6 exporting layers
+#6 exporting layers 5.0s done
+#6 exporting manifest sha256:9c7f5254ed836e1419249a29556e58f5ef31c35bdac96a292c0b5fe19af01407 0.1s done
+#6 exporting config sha256:f93989530a3acf9bef3e07f47a1c9b63e6430748f513cd9fdc38d438e15907da
+#6 exporting config sha256:f93989530a3acf9bef3e07f47a1c9b63e6430748f513cd9fdc38d438e15907da 0.1s done
+#6 exporting attestation manifest sha256:ac2197df5b9697d98f1e0b06bce779af4ff2f68c8c6847a83ba3c0489c3010a0 0.1s done
+#6 exporting manifest list sha256:05ed336701790c156dc6f59b48c195d6ac36144205c0eb75696001e9c9893fc6 0.0s done
+#6 naming to docker.io/library/avelino-toolchain:recovered-weston13-cjk-v1-20261018-qt6.8.3
+#6 naming to docker.io/library/avelino-toolchain:recovered-weston13-cjk-v1-20261018-qt6.8.3 done
+#6 unpacking to docker.io/library/avelino-toolchain:recovered-weston13-cjk-v1-20261018-qt6.8.3
+#6 unpacking to docker.io/library/avelino-toolchain:recovered-weston13-cjk-v1-20261018-qt6.8.3 1.9s done
+#6 DONE 7.7s

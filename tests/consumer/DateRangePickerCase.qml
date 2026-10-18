@@ -53,6 +53,7 @@ Item {
             frames:{caller:box(picker),picker:box(picker.presentationItem),start:box(picker.startField),end:box(picker.endField),arrow:box(arrow)},
             displayed:[picker.startField.bufferValue,picker.endField.bufferValue],
             editorText:[picker.startField.input.text,picker.endField.input.text],
+            editorRoles:[picker.startField.editable.map(segment=>segment.kind),picker.endField.editable.map(segment=>segment.kind)],
             editorVisible:!picker.dateStyle.graphical,
             calendarParts:[DateRangeTools.parts(picker.startField.bufferValue,picker.locale.name,picker.calendar,picker.timeZone),DateRangeTools.parts(picker.endField.bufferValue,picker.locale.name,picker.calendar,picker.timeZone)],
             startText:picker.startField.formatted.text,endText:picker.endField.formatted.text,

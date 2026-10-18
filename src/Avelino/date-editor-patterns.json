@@ -1,14 +1,17 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "reference": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
   "source": "evidence/reference-investigations/date-range-font-20261018/metrics.json",
   "sourceSha256": "e32a11aab4a29259200738f6cd00afbf65fd9222e13196f17ad3834ed97d1fce",
   "visibleObservations": "evidence/reference-investigations/date-range-font-20261018/visible-pattern-observations.json",
   "visibleObservationsSha256": "3012a6201c1ef57542430bb122a9b5e38ecebff8c10dd8779f0c9aee5b6d2b30",
+  "chineseObservations": "evidence/reference-investigations/date-range-chinese-20261018/presentation-observations.json",
+  "chineseObservationsSha256": "5724b23564197ea02db87c4d9c1006d11a48f501eb9ef015f85aa5d52b4591a5",
   "patterns": {
     "ar_EG|gregorian": "d‏/M‏/y",
     "ar_SA|islamic-umalqura": "d MMM، y G",
     "en_GB|gregorian": "dd/MM/y",
+    "en_US|chinese": "M/d/'r'",
     "en_US|gregorian": "M/d/yy",
     "en_US|iso8601": "y-MM-dd",
     "es_AR|gregorian": "d/M/yy",
@@ -18,7 +21,14 @@
     "it_IT|gregorian": "dd/MM/yy",
     "ja_JP|gregorian": "y/M/d",
     "ja_JP|japanese": "GGGGGy/MM/dd",
+    "ko_KR|chinese": "M. d.",
     "th_TH|buddhist": "d/M/yy",
-    "th_TH|gregorian": "d/M/yy"
+    "th_TH|gregorian": "d/M/yy",
+    "zh_CN|chinese": "MMMddd"
+  },
+  "numberingOverrides": {
+    "zh_CN|chinese": {
+      "d": "hanidays"
+    }
   }
 }
