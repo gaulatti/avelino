@@ -1,0 +1,199 @@
+{
+  "accepted": false,
+  "status": "failed",
+  "profile": {
+    "platform": "wayland",
+    "renderer": "OpenGL llvmpipe",
+    "dark": true,
+    "textScale": 1.5,
+    "dpr": 2
+  },
+  "phases": [
+    {
+      "phase": "go-to-modal-reachable",
+      "time": 1792295862.012611,
+      "observations": {
+        "raw": "/probe/fixtures",
+        "location": "/probe/fixtures",
+        "selected": [
+          "one.txt"
+        ],
+        "owner": ""
+      },
+      "readerLogBytes": 267304
+    },
+    {
+      "phase": "go-to-nonempty-close-clears",
+      "time": 1792295864.1797972,
+      "observations": {
+        "raw": "",
+        "proposals": [],
+        "selected": [
+          "one.txt"
+        ]
+      },
+      "readerLogBytes": 275740
+    },
+    {
+      "phase": "go-to-empty-close-dismisses",
+      "time": 1792295866.0574749,
+      "observations": {
+        "location": "/probe/fixtures",
+        "selected": [
+          "one.txt"
+        ]
+      },
+      "readerLogBytes": 317092
+    },
+    {
+      "phase": "go-to-native-prefix",
+      "time": 1792295870.0872002,
+      "observations": {
+        "raw": "/probe/fixtures/Al",
+        "proposals": [
+          "/probe/fixtures/Alpha",
+          "/probe/fixtures/Alpine",
+          "/probe/fixtures/Alphabet"
+        ],
+        "selected": [
+          "/probe/fixtures/Alpha"
+        ],
+        "method": "XTest keyboard"
+      },
+      "readerLogBytes": 731325
+    },
+    {
+      "phase": "go-to-native-arrows-preserve-input",
+      "time": 1792295872.632333,
+      "observations": {
+        "raw": "/probe/fixtures/Al",
+        "selected": [
+          "/probe/fixtures/Alpine"
+        ]
+      },
+      "readerLogBytes": 747947
+    },
+    {
+      "phase": "go-to-return-navigates-without-owner",
+      "time": 1792295874.5428314,
+      "observations": {
+        "location": "/probe/fixtures/Alpine",
+        "selected": [],
+        "owner": ""
+      },
+      "readerLogBytes": 847385
+    },
+    {
+      "phase": "go-to-missing-remains-modal",
+      "time": 1792295878.979989,
+      "observations": {
+        "raw": "/probe/fixtures/missing",
+        "location": "/probe/fixtures/Alpine",
+        "selected": [],
+        "owner": ""
+      },
+      "readerLogBytes": 1210252
+    },
+    {
+      "phase": "go-to-tab-common-prefix",
+      "time": 1792295883.446524,
+      "observations": {
+        "raw": "/probe/fixtures/Alp",
+        "proposals": [
+          "/probe/fixtures/Alpha",
+          "/probe/fixtures/Alpine",
+          "/probe/fixtures/Alphabet"
+        ]
+      },
+      "readerLogBytes": 1705375
+    },
+    {
+      "phase": "go-to-recent-select-keeps-empty-input",
+      "time": 1792295887.5592897,
+      "observations": {
+        "raw": "",
+        "selected": [
+          "/probe/fixtures/Alpine"
+        ],
+        "location": "/probe/fixtures/Alpine"
+      },
+      "readerLogBytes": 1961790
+    },
+    {
+      "phase": "go-to-path-selects-nonmatching-file",
+      "time": 1792295892.3776762,
+      "observations": {
+        "location": "/probe/fixtures",
+        "selected": [
+          "photo.png"
+        ],
+        "owner": ""
+      },
+      "readerLogBytes": 2515910
+    },
+    {
+      "phase": "go-to-main-open-delivers-owner",
+      "time": 1792295894.440945,
+      "observations": {
+        "owner": "Selected URLs: file:///probe/fixtures/photo.png"
+      },
+      "readerLogBytes": 2698812
+    },
+    {
+      "phase": "go-to-remount-retains-last-input",
+      "time": 1792295896.9992383,
+      "observations": {
+        "raw": "/probe/fixtures/photo.png",
+        "owner": "Selected URLs: file:///probe/fixtures/photo.png"
+      },
+      "readerLogBytes": 2814137
+    },
+    {
+      "phase": "go-to-editable-text-prefix",
+      "time": 1792295899.7410154,
+      "observations": {
+        "raw": "/probe/fixtures/Al",
+        "proposals": [
+          "/probe/fixtures/Alpha",
+          "/probe/fixtures/Alpine",
+          "/probe/fixtures/Alphabet"
+        ],
+        "interfaceResult": true,
+        "method": "AT-SPI EditableText.setTextContents"
+      },
+      "readerLogBytes": 2839016
+    },
+    {
+      "phase": "go-to-editable-text-single-replacement-undo-redo",
+      "time": 1792295902.2368915,
+      "observations": {
+        "undo": "",
+        "redo": "/probe/fixtures/Al"
+      },
+      "readerLogBytes": 2896875
+    },
+    {
+      "phase": "go-to-editable-text-insert-delete",
+      "time": 1792295904.6233888,
+      "observations": {
+        "raw": "/probe/fixtures/Al",
+        "proposals": [
+          "/probe/fixtures/Alpha",
+          "/probe/fixtures/Alpine",
+          "/probe/fixtures/Alphabet"
+        ],
+        "method": "AT-SPI EditableText InsertText/DeleteText"
+      },
+      "readerLogBytes": 2905115
+    },
+    {
+      "phase": "operator-failure",
+      "time": 1792295906.326738,
+      "observations": {
+        "error": "Traceback (most recent call last):\n  File \"/probe/exercise.py\", line 204, in <module>\n    assert undone!=before_undo,('mixed edit undo did not change text',undone)\n           ^^^^^^^^^^^^^^^^^^^\nAssertionError: ('mixed edit undo did not change text', '/probe/fixtures/Al')\n"
+      },
+      "readerLogBytes": 2913315
+    }
+  ],
+  "error": "Traceback (most recent call last):\n  File \"/probe/exercise.py\", line 204, in <module>\n    assert undone!=before_undo,('mixed edit undo did not change text',undone)\n           ^^^^^^^^^^^^^^^^^^^\nAssertionError: ('mixed edit undo did not change text', '/probe/fixtures/Al')\n"
+}

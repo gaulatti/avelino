@@ -34,7 +34,7 @@ FileChooserDialogBase {
     }
     contentItem:Item {
         Keys.onEscapePressed:event=>{prompt.close();event.accepted=true}
-        T.TextField {
+        FileChooserPathInput {
             id:path;objectName:"bleeckerFileChooserGoToPath"
             x:16;y:3;width:Math.max(0,parent.width-60);height:30
             padding:0;selectByMouse:true;clip:true;placeholderText:"Go to Folder"
@@ -42,7 +42,7 @@ FileChooserDialogBase {
             color:prompt.dark ? "#eeeeee":"#222222";placeholderTextColor:prompt.dark ? "#999999":"#b7b7b7"
             selectionColor:"#b9d9ff";selectedTextColor:color;background:null
             Accessible.name:"Go to Folder";Accessible.description:"Folder or file path"
-            onTextEdited:prompt.suggestions.input=text
+            onTextChanged:prompt.suggestions.input=text
             onAccepted:prompt.submit()
             Keys.onPressed:event=>{
                 if(event.key===Qt.Key_Escape){prompt.close();event.accepted=true}

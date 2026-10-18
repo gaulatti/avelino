@@ -1,0 +1,232 @@
+{
+  "accepted": false,
+  "status": "running",
+  "phases": [
+    {
+      "phase": "go-to-modal-reachable",
+      "time": 1792295978.3576205,
+      "observations": {
+        "raw": "/probe/fixtures",
+        "location": "/probe/fixtures",
+        "selected": [
+          "one.txt"
+        ],
+        "owner": ""
+      },
+      "readerLogBytes": 267204
+    },
+    {
+      "phase": "go-to-nonempty-close-clears",
+      "time": 1792295980.5143514,
+      "observations": {
+        "raw": "",
+        "proposals": [],
+        "selected": [
+          "one.txt"
+        ]
+      },
+      "readerLogBytes": 275491
+    },
+    {
+      "phase": "go-to-empty-close-dismisses",
+      "time": 1792295982.43757,
+      "observations": {
+        "location": "/probe/fixtures",
+        "selected": [
+          "one.txt"
+        ]
+      },
+      "readerLogBytes": 317092
+    },
+    {
+      "phase": "go-to-native-prefix",
+      "time": 1792295985.799457,
+      "observations": {
+        "raw": "/probe/fixtures/Al",
+        "proposals": [
+          "/probe/fixtures/Alpha",
+          "/probe/fixtures/Alpine",
+          "/probe/fixtures/Alphabet"
+        ],
+        "selected": [
+          "/probe/fixtures/Alpha"
+        ],
+        "method": "XTest keyboard"
+      },
+      "readerLogBytes": 672701
+    },
+    {
+      "phase": "go-to-native-arrows-preserve-input",
+      "time": 1792295988.7428553,
+      "observations": {
+        "raw": "/probe/fixtures/Al",
+        "selected": [
+          "/probe/fixtures/Alpine"
+        ]
+      },
+      "readerLogBytes": 846151
+    },
+    {
+      "phase": "go-to-return-navigates-without-owner",
+      "time": 1792295990.421059,
+      "observations": {
+        "location": "/probe/fixtures/Alpine",
+        "selected": [],
+        "owner": ""
+      },
+      "readerLogBytes": 945851
+    },
+    {
+      "phase": "go-to-missing-remains-modal",
+      "time": 1792295995.2130609,
+      "observations": {
+        "raw": "/probe/fixtures/missing",
+        "location": "/probe/fixtures/Alpine",
+        "selected": [],
+        "owner": ""
+      },
+      "readerLogBytes": 1392595
+    },
+    {
+      "phase": "go-to-tab-common-prefix",
+      "time": 1792295999.273571,
+      "observations": {
+        "raw": "/probe/fixtures/Alp",
+        "proposals": [
+          "/probe/fixtures/Alpha",
+          "/probe/fixtures/Alpine",
+          "/probe/fixtures/Alphabet"
+        ]
+      },
+      "readerLogBytes": 1888213
+    },
+    {
+      "phase": "go-to-recent-select-keeps-empty-input",
+      "time": 1792296004.592881,
+      "observations": {
+        "raw": "",
+        "selected": [
+          "/probe/fixtures/Alpine"
+        ],
+        "location": "/probe/fixtures/Alpine"
+      },
+      "readerLogBytes": 2053226
+    },
+    {
+      "phase": "go-to-path-selects-nonmatching-file",
+      "time": 1792296013.769202,
+      "observations": {
+        "location": "/probe/fixtures",
+        "selected": [
+          "photo.png"
+        ],
+        "owner": ""
+      },
+      "readerLogBytes": 2342489
+    },
+    {
+      "phase": "go-to-main-open-delivers-owner",
+      "time": 1792296016.2894204,
+      "observations": {
+        "owner": "Selected URLs: file:///probe/fixtures/photo.png"
+      },
+      "readerLogBytes": 2557194
+    },
+    {
+      "phase": "go-to-remount-retains-last-input",
+      "time": 1792296018.7322457,
+      "observations": {
+        "raw": "/probe/fixtures/photo.png",
+        "owner": "Selected URLs: file:///probe/fixtures/photo.png"
+      },
+      "readerLogBytes": 2921831
+    },
+    {
+      "phase": "go-to-editable-text-prefix",
+      "time": 1792296021.5328982,
+      "observations": {
+        "raw": "/probe/fixtures/Al",
+        "proposals": [
+          "/probe/fixtures/Alpha",
+          "/probe/fixtures/Alpine",
+          "/probe/fixtures/Alphabet"
+        ],
+        "interfaceResult": true,
+        "method": "AT-SPI EditableText.setTextContents"
+      },
+      "readerLogBytes": 3005186
+    },
+    {
+      "phase": "go-to-editable-text-single-replacement-undo-redo",
+      "time": 1792296024.0366335,
+      "observations": {
+        "undo": "",
+        "redo": "/probe/fixtures/Al"
+      },
+      "readerLogBytes": 3063239
+    },
+    {
+      "phase": "go-to-editable-text-insert-delete",
+      "time": 1792296026.455777,
+      "observations": {
+        "raw": "/probe/fixtures/Al",
+        "proposals": [
+          "/probe/fixtures/Alpha",
+          "/probe/fixtures/Alpine",
+          "/probe/fixtures/Alphabet"
+        ],
+        "method": "AT-SPI EditableText InsertText/DeleteText"
+      },
+      "readerLogBytes": 3071496
+    },
+    {
+      "phase": "go-to-editable-text-native-undo-redo",
+      "time": 1792296029.0924766,
+      "observations": {
+        "before": "/probe/fixtures/Alpha",
+        "undo": "/probe/fixtures/Al",
+        "redo": "/probe/fixtures/Alpha",
+        "method": "Native Qt undo grouping; exact redo roundtrip"
+      },
+      "readerLogBytes": 3129404
+    },
+    {
+      "phase": "go-to-editable-text-navigates-without-owner",
+      "time": 1792296031.754028,
+      "observations": {
+        "location": "/probe/fixtures/Alpha",
+        "owner": "Selected URLs: file:///probe/fixtures/photo.png"
+      },
+      "readerLogBytes": 3253984
+    },
+    {
+      "phase": "go-to-editable-text-unicode-proposal",
+      "time": 1792296034.1550488,
+      "observations": {
+        "raw": "/probe/fixtures/Caf\u00e9",
+        "proposals": [
+          "/probe/fixtures/Caf\u00e9"
+        ]
+      },
+      "readerLogBytes": 3336749
+    },
+    {
+      "phase": "go-to-editable-text-missing-stays-modal",
+      "time": 1792296038.079034,
+      "observations": {
+        "raw": "/probe/fixtures/missing",
+        "location": "/probe/fixtures/Caf\u00e9",
+        "owner": "Selected URLs: file:///probe/fixtures/photo.png"
+      },
+      "readerLogBytes": 3503235
+    },
+    {
+      "phase": "go-to-final-cancel-restores-caller",
+      "time": 1792296040.0486133,
+      "observations": {
+        "owner": "Selected URLs: file:///probe/fixtures/photo.png"
+      },
+      "readerLogBytes": 3654342
+    }
+  ]
+}

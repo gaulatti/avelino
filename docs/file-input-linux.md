@@ -384,15 +384,38 @@ native reader, physical and independent-machine acceptance remain pending. The
 records final source60: eight focused Qt targets, a fresh source-free consumer in
 eight contexts, eight virtual display profiles and an exact restored-runtime
 replay. All 256 prior closed PNGs and complete closed/sizing metadata are unchanged.
-Its actual new AT-SPI/Orca GoTo flow remains pending; source54 reader evidence
-does not prove the new flow. No expected image, pin, mask or tolerance
-is changed.
+That capsule does not exercise the new GoTo flow through AT-SPI/Orca; source54
+reader evidence does not prove it. The editing checkpoint below adds scoped
+protocol evidence. No expected image, pin, mask or tolerance is changed.
 
 The popup and editing integration was checked against the official Qt 6.8.3
 [Popup source documentation](https://github.com/qt/qtdeclarative/blob/v6.8.3/src/quicktemplates/qquickpopup.cpp)
 and [TextInput signal documentation](https://github.com/qt/qtdeclarative/blob/v6.8.3/src/quick/items/qquicktextinput.cpp).
 It uses Qt templates for input/focus with the existing owned dialog accessibility
 base; the platform's native file chooser is not substituted.
+
+The owned path field also supplies `QAccessibleEditableTextInterface`, which
+Qt Quick 6.8.3 does not expose for its text inputs. Assistive replacement,
+insertion and deletion use a Qt input-method commit, preserving the field's
+validation, length limit, text signals and undo history. Read-only and disabled
+fields reject edits. Suggestion input follows text changes, including assistive
+edits, while navigation and file selection retain the same owner-result boundary.
+The implementation follows the pinned
+[Quick accessibility interfaces](https://github.com/qt/qtdeclarative/blob/v6.8.3/src/quick/accessible/qaccessiblequickitem.cpp)
+and [AT-SPI adaptor](https://github.com/qt/qtbase/blob/v6.8.3/src/gui/accessible/linux/atspiadaptor.cpp).
+Complete native hierarchy, suggestion announcements, reader equivalence and
+physical listening remain separate pending gates.
+
+The [source61 editing checkpoint](../evidence/development/file-input-go-to-editing-20261018/README.md)
+retains the missing-interface probes and the corrected twenty-phase X11/software
+and scaled dark Wayland/OpenGL runs. Direct AT-SPI replacement, insertion,
+deletion and Unicode navigation work, and actual keyboard undo/redo is exercised.
+Earlier probe assumptions about undo units and a net-zero edit remain recorded;
+the library was not changed to accommodate them. The arrow interval still exposes
+no selection event for the changing highlighted proposal. Suggestion events and
+reader announcements therefore remain open alongside complete native hierarchy
+and reader comparison. The eight-target Qt, fresh installed-consumer, virtual
+display and restored-runtime evidence remains scoped Linux verification.
 
 Visual QA found that the owned scrollbar thumbs were drawn even when their
 content fit. Source60 makes the existing AsNeeded policy control visibility in

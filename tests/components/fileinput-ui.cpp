@@ -340,6 +340,31 @@ private slots:
         click(find(content,"bleeckerFileChooserOpen"));QTRY_COMPARE(results(fixture).size(),1);QVERIFY(!browser->active());QVERIFY(fixture->property("visibleAtCallback").toBool());
         QCOMPARE(results(fixture)[0].toMap()["urls"].toList(),QVariantList{QUrl::fromLocalFile(root.filePath("Other.png"))});
     }
+    void actualGoToAccessibleTextEditingUpdatesSuggestionsAndKeepsUndo(){
+        QTemporaryDir directory;QDir root(directory.path());QVERIFY(root.mkdir("Alpha"));QVERIFY(root.mkdir(QString::fromUtf8("Café")));
+        QQuickView view;QVERIFY(load(view,directory));auto fixture=view.rootObject();auto control=fixture->findChild<QQuickItem*>("fileInput");QVERIFY(control);
+        auto browser=control->property("browser").value<FileChooserBrowser*>();auto chooser=control->property("chooser").value<QObject*>();
+        click(control->property("inputItem").value<QQuickItem*>());QTRY_VERIFY(browser->active());
+        auto content=chooser->property("contentItem").value<QQuickItem*>();QTest::keyClick(content->window(),Qt::Key_L,Qt::ControlModifier);
+        auto prompt=chooser->property("goToDialog").value<QObject*>();QTRY_VERIFY(prompt->property("visible").toBool());
+        auto path=chooser->property("pathInput").value<QQuickItem*>();auto suggestions=prompt->property("suggestions").value<FileChooserPaths*>();QVERIFY(path&&suggestions);
+        auto accessible=QAccessible::queryAccessibleInterface(path);QVERIFY(accessible&&accessible->textInterface()&&accessible->editableTextInterface());
+        auto editable=accessible->editableTextInterface();auto text=accessible->textInterface();const auto prefix=root.filePath("Al");
+        editable->replaceText(0,text->characterCount(),prefix);QTRY_COMPARE(suggestions->input(),prefix);QCOMPARE(suggestions->selectedUrl(),QUrl::fromLocalFile(root.filePath("Alpha")));
+        QTest::keyClick(path->window(),Qt::Key_Z,Qt::ControlModifier);QTRY_COMPARE(suggestions->input(),directory.path());
+        QTest::keyClick(path->window(),Qt::Key_Z,Qt::ControlModifier|Qt::ShiftModifier);QTRY_COMPARE(suggestions->input(),prefix);
+        editable->insertText(text->characterCount(),"p");QTRY_COMPARE(suggestions->input(),prefix+"p");
+        editable->deleteText(prefix.size(),prefix.size()+1);QTRY_COMPARE(suggestions->input(),prefix);
+        editable->replaceText(-1,1,"invalid");editable->deleteText(0,text->characterCount()+1);editable->insertText(text->characterCount()+1,"invalid");QCOMPARE(suggestions->input(),prefix);
+        path->setProperty("readOnly",true);editable->replaceText(0,text->characterCount(),"blocked");QCOMPARE(suggestions->input(),prefix);path->setProperty("readOnly",false);
+        path->setEnabled(false);editable->replaceText(0,text->characterCount(),"blocked");QCOMPARE(suggestions->input(),prefix);path->setEnabled(true);
+        capture(path->window(),"go-to-accessible-prefix");
+        const auto unicode=root.filePath(QString::fromUtf8("Café"));editable->replaceText(0,text->characterCount(),unicode);
+        QTRY_COMPARE(suggestions->input(),unicode);QCOMPARE(text->text(0,text->characterCount()),unicode);QCOMPARE(suggestions->selectedUrl(),QUrl::fromLocalFile(unicode));
+        QVERIFY(results(fixture).isEmpty());QCOMPARE(browser->folderPath(),directory.path());
+        path->forceActiveFocus();QTest::keyClick(path->window(),Qt::Key_Return);QTRY_VERIFY(!prompt->property("visible").toBool());QCOMPARE(browser->folderPath(),unicode);QVERIFY(results(fixture).isEmpty());
+        click(find(content,"bleeckerFileChooserCancel"));QTRY_VERIFY(!browser->active());QVERIFY(results(fixture).isEmpty());
+    }
     void removingOwnerClosesGoToWindow(){
         QTemporaryDir directory;QQuickView view;QVERIFY(load(view,directory));auto fixture=view.rootObject();auto control=fixture->findChild<QQuickItem*>("fileInput");QVERIFY(control);
         auto chooser=control->property("chooser").value<QObject*>();click(control->property("inputItem").value<QQuickItem*>());QTRY_VERIFY(chooser->property("visible").toBool());
