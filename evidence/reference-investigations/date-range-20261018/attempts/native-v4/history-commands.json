@@ -1,0 +1,23 @@
+[
+  {
+    "name": "history-build",
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-native-20261018-v4/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-native-20261018-v4/tool/DateCommon.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-native-20261018-v4/tool/DateHistory.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-native-20261018-v4/build/out/Products/Debug/Sabella.o",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-native-20261018-v4/tool/NativeDateHistory"
+    ],
+    "exitCode": 1,
+    "seconds": 1.3420888748951256
+  }
+]

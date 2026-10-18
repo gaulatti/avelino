@@ -143,6 +143,13 @@ three together. Eight gallery contexts pass actual operator clicks and caller
 Tab/Space/disabled checks. Native sizing, complete geometry, lazy/gesture timing,
 font/raster, reader, physical and independent-machine acceptance remain pending.
 
+The [DateRangePicker reference investigation](docs/date-range-picker.md) preserves
+384 closed contexts, 17,280 sizing queries and 17 matching typed history steps.
+Its source-only rebuild replays all 1,206 files exactly on this machine. Native
+editing, binding-owner input responses and the complete Linux component, catalog,
+consumer and runtime acceptance remain pending; CUA could not acquire the visible
+reference window. Desktop candidate coverage remains 76/80, with zero accepted APIs.
+
 The [desktop app tab bar candidate](docs/app-tabs.md) preserves caller-owned
 selection requests, retained typed identities, integer badges and narrow overflow.
 All 1,208 native state observations agree; 940 frame sets and 56 images match.
@@ -157,7 +164,7 @@ zero complete frame sets or pixels match, with 48 body/caller-only frame matches
 The installed package, eight virtual display profiles and 24 exact gallery caller
 states pass. Native label/update timing, fonts/symbols/raster, popup presentation,
 sizing, accessibility, physical displays and readers remain pending. Desktop
-candidate coverage is 75/80 with zero accepted APIs.
+candidate coverage is 76/80 with zero accepted APIs.
 
 The [file input source investigation](docs/file-input.md) records 256 native
 closed contexts, 11,520 sizing responses and scoped chooser selection/cancel
