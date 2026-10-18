@@ -48,7 +48,7 @@ The [empty/error/loading source investigation](docs/presentation-states.md)
 now has [Linux presentation-state candidates](docs/presentation-states.md); complete mirror acceptance remains pending.
 The [alert candidate](docs/alert.md) adds typed feedback with caller-owned content
 and native prose-layout evidence.
-Sixty-three of the 80 discovered desktop entries have Linux candidates;
+Seventy-six of the 80 discovered desktop entries have Linux candidates;
 no component has passed its complete mirror gate.
 The public GitHub wiki remote is unavailable; documentation currently lives here.
 
@@ -106,7 +106,7 @@ closed source contexts remain in strict comparison: 76 exact pixel/frame matches
 1,168 frame matches and all produced states matching. Full Qt tests, independent
 packaging, eight virtual display profiles and actual gallery toolbar input pass.
 Native fonts/raster, complete contexts, physical displays and readers remain open.
-Desktop candidate coverage is 75/80; none are accepted.
+That checkpoint recorded desktop candidate coverage of 75/80; none were accepted.
 
 The [pill candidate](docs/pill-modifier.md) retains a single text caller, fixed mono 9
 font and 7/4 capsule padding, caller formatting and baseline guides. All 2,112
@@ -134,6 +134,14 @@ The native record also preserves 7,440 public sizing queries and one witness
 difference; Linux direct sizing remains unobserved. Fractional/text geometry,
 lazy height estimates, fonts/raster, native input timing,
 physical displays and readers remain pending; no mirror acceptance is claimed.
+
+The [HeroCarousel candidate](docs/hero-carousel-linux.md) supplies an owned
+horizontal viewport and retained caller slides, with catalog, independent
+package and eight virtual display profiles. All 192 observations remain strict:
+108 images, 184 active-frame sets and 168 lifecycle records match; 84 match all
+three together. Eight gallery contexts pass actual operator clicks and caller
+Tab/Space/disabled checks. Native sizing, complete geometry, lazy/gesture timing,
+font/raster, reader, physical and independent-machine acceptance remain pending.
 
 The [desktop app tab bar candidate](docs/app-tabs.md) preserves caller-owned
 selection requests, retained typed identities, integer badges and narrow overflow.

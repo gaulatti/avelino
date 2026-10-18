@@ -1,4 +1,14 @@
 qt_add_executable(AvelinoComponentTests main.cpp)
+qt_add_executable(AvelinoHeroCarouselTests herocarousel.cpp)
+qt_add_resources(AvelinoHeroCarouselTests hero_carousel_fixtures PREFIX "/hero-carousel-tests" FILES herocarousel-fixture.qml)
+target_link_libraries(AvelinoHeroCarouselTests PRIVATE Avelino Qt6::Quick Qt6::Test)
+target_include_directories(AvelinoHeroCarouselTests PRIVATE ${PROJECT_SOURCE_DIR}/src/Avelino)
+target_compile_definitions(AvelinoHeroCarouselTests PRIVATE AVELINO_HERO_IMPORT_PATH="${CMAKE_BINARY_DIR}/qml")
+add_dependencies(AvelinoHeroCarouselTests Avelinoplugin)
+add_test(NAME hero-carousel-retained-slides COMMAND AvelinoHeroCarouselTests)
+add_test(NAME hero-carousel-retained-slides-dpr2 COMMAND AvelinoHeroCarouselTests)
+set_tests_properties(hero-carousel-retained-slides PROPERTIES ENVIRONMENT "QT_QPA_PLATFORM=offscreen;QT_QUICK_BACKEND=software;QT_SCALE_FACTOR=1")
+set_tests_properties(hero-carousel-retained-slides-dpr2 PROPERTIES ENVIRONMENT "QT_QPA_PLATFORM=offscreen;QT_QUICK_BACKEND=software;QT_SCALE_FACTOR=2")
 target_link_libraries(AvelinoComponentTests PRIVATE Qt6::QuickTest Avelino)
 target_compile_definitions(AvelinoComponentTests PRIVATE
     QUICK_TEST_SOURCE_DIR="${CMAKE_CURRENT_SOURCE_DIR}"
@@ -119,6 +129,8 @@ add_test(NAME charts-catalog-metadata COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR
 add_test(NAME media-library-invalid-config COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/check-invalid-media-library.py
     $<TARGET_FILE:AvelinoComponentTests> ${CMAKE_BINARY_DIR}/qml)
 add_test(NAME media-library-catalog-metadata COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/check-media-library-catalog.py
+    $<TARGET_FILE:AvelinoCatalog> ${CMAKE_BINARY_DIR}/qml ${PROJECT_SOURCE_DIR})
+add_test(NAME hero-carousel-catalog-metadata COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/check-hero-carousel-catalog.py
     $<TARGET_FILE:AvelinoCatalog> ${CMAKE_BINARY_DIR}/qml ${PROJECT_SOURCE_DIR})
 
 add_test(NAME app-tabs-invalid-config COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/check-invalid-app-tabs.py

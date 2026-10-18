@@ -48,6 +48,7 @@ static QQuickItem *findVisualItem(QQuickItem *item, const QString &name) {
 #include "pillchecks.h"
 #include "chartchecks.h"
 #include "medialibrarychecks.h"
+#include "herocarouselchecks.h"
 #include "apptabschecks.h"
 #include "commandspotlightchecks.h"
 #include "dropdownmenuchecks.h"
@@ -338,6 +339,10 @@ int main(int argc, char **argv) {
     parser.addOption(QCommandLineOption("data-metrics", "Exercise data metrics, locale and badge/key presentation."));
     parser.addOption(QCommandLineOption("radio-group", "Exercise native RadioGroup binding and canonical String witnesses."));
     parser.addOption(QCommandLineOption("otp-input", "Exercise native OTP model/editor witnesses and Qt input."));
+    parser.addOption(QCommandLineOption("hero-carousel", "Exercise viewport slides, retained identities and owned scrolling."));
+    parser.addOption(QCommandLineOption("hero-carousel-report", "Write HeroCarousel observations and unedited captures to a fresh prefix.", "prefix"));
+    parser.addOption(QCommandLineOption("hero-carousel-observe", "Retain native differences; structural failures remain fatal."));
+    parser.addOption(QCommandLineOption("hero-carousel-gallery", "Exercise actual gallery operators and caller keyboard focus."));
     parser.addOption(QCommandLineOption("media-library", "Exercise caller tiles, retained identity and lazy viewport behavior."));
     parser.addOption(QCommandLineOption("media-library-report", "Write complete media grid observations and images to a fresh prefix.", "prefix"));
     parser.addOption(QCommandLineOption("media-library-observe", "Preserve native differences; structural failures remain fatal."));
@@ -388,26 +393,29 @@ int main(int argc, char **argv) {
     parser.addOption(QCommandLineOption("secure-field", "Exercise secure editing, reveal and Qt accessibility."));
     parser.addOption(QCommandLineOption("text-scale", "Exercise text scaling.", "factor", "1"));
     parser.process(app);
-    if (int(parser.isSet("file-input"))+int(parser.isSet("dropdown-menu"))+int(parser.isSet("command-spotlight"))+int(parser.isSet("app-tabs"))+int(parser.isSet("media-library"))+int(parser.isSet("charts"))+int(parser.isSet("pill-modifier"))+int(parser.isSet("surface-baseline"))+int(parser.isSet("surface-input"))+int(parser.isSet("surface-modifier"))+int(parser.isSet("font-modifier"))+int(parser.isSet("button-style"))+int(parser.isSet("tooltip"))+int(parser.isSet("modal"))+int(parser.isSet("activity-item"))+int(parser.isSet("otp-input"))+int(parser.isSet("radio-group"))+int(parser.isSet("stepper"))+int(parser.isSet("data-metrics"))+int(parser.isSet("navigation"))+int(parser.isSet("sidebar-brand"))+int(parser.isSet("controls"))+int(parser.isSet("composition"))+int(parser.isSet("selection"))+int(parser.isSet("checkbox"))+int(parser.isSet("secure-field"))+int(parser.isSet("search-field"))+int(parser.isSet("collection-filters"))+int(parser.isSet("slider"))+int(parser.isSet("tabs"))+int(parser.isSet("pagination"))+int(parser.isSet("pagination-integers"))+int(parser.isSet("accordion"))+int(parser.isSet("presentation-states"))+int(parser.isSet("spinner"))+int(parser.isSet("alert"))+int(parser.isSet("clipping"))>1) return 58;
+    if (int(parser.isSet("hero-carousel"))+int(parser.isSet("file-input"))+int(parser.isSet("dropdown-menu"))+int(parser.isSet("command-spotlight"))+int(parser.isSet("app-tabs"))+int(parser.isSet("media-library"))+int(parser.isSet("charts"))+int(parser.isSet("pill-modifier"))+int(parser.isSet("surface-baseline"))+int(parser.isSet("surface-input"))+int(parser.isSet("surface-modifier"))+int(parser.isSet("font-modifier"))+int(parser.isSet("button-style"))+int(parser.isSet("tooltip"))+int(parser.isSet("modal"))+int(parser.isSet("activity-item"))+int(parser.isSet("otp-input"))+int(parser.isSet("radio-group"))+int(parser.isSet("stepper"))+int(parser.isSet("data-metrics"))+int(parser.isSet("navigation"))+int(parser.isSet("sidebar-brand"))+int(parser.isSet("controls"))+int(parser.isSet("composition"))+int(parser.isSet("selection"))+int(parser.isSet("checkbox"))+int(parser.isSet("secure-field"))+int(parser.isSet("search-field"))+int(parser.isSet("collection-filters"))+int(parser.isSet("slider"))+int(parser.isSet("tabs"))+int(parser.isSet("pagination"))+int(parser.isSet("pagination-integers"))+int(parser.isSet("accordion"))+int(parser.isSet("presentation-states"))+int(parser.isSet("spinner"))+int(parser.isSet("alert"))+int(parser.isSet("clipping"))>1) return 58;
     bool validScale = false;
     const double textScale = parser.value("text-scale").toDouble(&validScale);
     if (!validScale || !std::isfinite(textScale) || textScale <= 0) return 12;
     if(parser.isSet("file-input") || parser.isSet("button-style") || parser.isSet("stepper") || parser.isSet("data-metrics"))QLocale::setDefault(QLocale("en_US"));
     if((parser.isSet("file-input-report")||parser.isSet("file-input-observe"))&&!parser.isSet("file-input"))return 58;
+    if((parser.isSet("hero-carousel-report")||parser.isSet("hero-carousel-observe")||parser.isSet("hero-carousel-gallery"))&&!parser.isSet("hero-carousel"))return 58;
     if(parser.isSet("file-input"))QAccessible::setActive(true);
     QQmlApplicationEngine engine;
     installAppTabFixtureMetrics(engine);
     engine.rootContext()->setContextProperty("consumerSurfaceInput",parser.isSet("surface-input"));
     engine.rootContext()->setContextProperty("consumerDark", parser.isSet("dark"));
     engine.rootContext()->setContextProperty("consumerTextScale", textScale);
+    engine.rootContext()->setContextProperty("consumerHeroGallery",parser.isSet("hero-carousel-gallery"));
     engine.rootContext()->setContextProperty("captureDark", parser.isSet("dark"));
     engine.rootContext()->setContextProperty("captureTextScale", textScale);
     engine.addImportPath(QStringLiteral(AVELINO_INSTALLED_IMPORT_PATH));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreationFailed, &app, [] { QCoreApplication::exit(1); }, Qt::QueuedConnection);
-    engine.loadFromModule("InstalledConsumer", parser.isSet("file-input") ? "FileInput" : parser.isSet("dropdown-menu") ? "DropdownMenu" : parser.isSet("command-spotlight") ? "CommandSpotlight" : parser.isSet("app-tabs") ? "AppTabs" : parser.isSet("media-library") ? "MediaLibrary" : parser.isSet("charts") ? "Charts" : parser.isSet("pill-modifier") ? "PillModifier" : (parser.isSet("surface-baseline") ||parser.isSet("surface-input")) ? "SurfaceSupplement" : parser.isSet("surface-modifier") ? "SurfaceModifier" : parser.isSet("font-modifier") ? "FontModifier" : parser.isSet("button-style") ? "ButtonStyle" : parser.isSet("tooltip") ? "Tooltip" : parser.isSet("modal") ? "Modal" : parser.isSet("activity-item") ? "ActivityItem" : parser.isSet("otp-input") ? "OTPInput" : parser.isSet("radio-group") ? "RadioGroup" : parser.isSet("stepper") ? "Stepper" : parser.isSet("data-metrics") ? "DataMetrics" : parser.isSet("sidebar-brand") ? "SidebarBrand" : parser.isSet("navigation") ? "Navigation" : parser.isSet("clipping") ? "Clipping" : parser.isSet("alert") ? "Alert" : parser.isSet("spinner") ? "Spinner" : parser.isSet("presentation-states") ? "PresentationStates" : parser.isSet("accordion") ? "Accordion" : parser.isSet("pagination-integers") ? "PaginationIntegers" : parser.isSet("pagination") ? "Pagination" : parser.isSet("tabs") ? "Tabs" : parser.isSet("slider") ? "Slider" : parser.isSet("collection-filters") ? "CollectionFilters" : parser.isSet("search-field") ? "SearchField" : parser.isSet("secure-field") ? "SecureField" : parser.isSet("checkbox") ? "Checkbox" : parser.isSet("selection") ? "Selection" : parser.isSet("composition") ? "Composition" : parser.isSet("controls") ? "Controls" : "Main");
+    engine.loadFromModule("InstalledConsumer", parser.isSet("hero-carousel") ? "HeroCarousel" : parser.isSet("file-input") ? "FileInput" : parser.isSet("dropdown-menu") ? "DropdownMenu" : parser.isSet("command-spotlight") ? "CommandSpotlight" : parser.isSet("app-tabs") ? "AppTabs" : parser.isSet("media-library") ? "MediaLibrary" : parser.isSet("charts") ? "Charts" : parser.isSet("pill-modifier") ? "PillModifier" : (parser.isSet("surface-baseline") ||parser.isSet("surface-input")) ? "SurfaceSupplement" : parser.isSet("surface-modifier") ? "SurfaceModifier" : parser.isSet("font-modifier") ? "FontModifier" : parser.isSet("button-style") ? "ButtonStyle" : parser.isSet("tooltip") ? "Tooltip" : parser.isSet("modal") ? "Modal" : parser.isSet("activity-item") ? "ActivityItem" : parser.isSet("otp-input") ? "OTPInput" : parser.isSet("radio-group") ? "RadioGroup" : parser.isSet("stepper") ? "Stepper" : parser.isSet("data-metrics") ? "DataMetrics" : parser.isSet("sidebar-brand") ? "SidebarBrand" : parser.isSet("navigation") ? "Navigation" : parser.isSet("clipping") ? "Clipping" : parser.isSet("alert") ? "Alert" : parser.isSet("spinner") ? "Spinner" : parser.isSet("presentation-states") ? "PresentationStates" : parser.isSet("accordion") ? "Accordion" : parser.isSet("pagination-integers") ? "PaginationIntegers" : parser.isSet("pagination") ? "Pagination" : parser.isSet("tabs") ? "Tabs" : parser.isSet("slider") ? "Slider" : parser.isSet("collection-filters") ? "CollectionFilters" : parser.isSet("search-field") ? "SearchField" : parser.isSet("secure-field") ? "SecureField" : parser.isSet("checkbox") ? "Checkbox" : parser.isSet("selection") ? "Selection" : parser.isSet("composition") ? "Composition" : parser.isSet("controls") ? "Controls" : "Main");
     QTimer::singleShot(500, &app, [&engine, &app, &parser, textScale] {
         auto window = qobject_cast<QQuickWindow *>(engine.rootObjects().value(0));
         if (!window) { app.exit(2); return; }
+        if (parser.isSet("hero-carousel")) {runHeroCarouselConsumer(window,app,parser,textScale);return;}
         if (parser.isSet("file-input")) {runFileInputConsumer(window,app,parser,textScale);return;}
         if (parser.isSet("dropdown-menu")) {runDropdownMenuConsumer(window,app,parser,textScale);return;}
         if (parser.isSet("command-spotlight")) {runCommandSpotlightConsumer(window,app,parser,textScale);return;}

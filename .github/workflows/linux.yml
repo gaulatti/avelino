@@ -37,7 +37,7 @@ jobs:
           test ! -e artifacts/package/install/obsolete-fixture
           test ! -d artifacts/package/consumer/consumer
       - name: Consumer with source and build trees absent
-        run: docker run --rm -v "$PWD/artifacts/package:/package" -w /package avelino-toolchain:qt6.8.3 bash -c 'bash check-installed.sh && bash check-display-sessions.sh'
+        run: docker run --rm -v "$PWD/artifacts/package:/package" -w /package avelino-toolchain:qt6.8.3 bash -c 'bash check-installed.sh && bash check-display-sessions.sh && bash check-display-sessions-hero-carousel.sh "$PWD/display-evidence/hero-carousel"'
       - uses: actions/upload-artifact@v4
         with:
           name: desktop-button-candidates-${{ matrix.runner }}
@@ -53,6 +53,7 @@ jobs:
             artifacts/package/environment.json
             artifacts/package/display-evidence
             artifacts/package/catalog-evidence
+            artifacts/package/hero-carousel-installed.*
             build/linux/Testing/Temporary/LastTest.log
   button-mirror-comparison:
     needs: build-runtime-package
