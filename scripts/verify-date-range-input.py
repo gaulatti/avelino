@@ -2,6 +2,7 @@
 """Verify scoped native input observations; Linux mirror acceptance stays pending."""
 import hashlib
 import json
+from datetime import datetime, timezone
 from pathlib import Path
 import struct
 
@@ -100,6 +101,10 @@ def verify():
     assert len(preview['model']['requests']) == 7
     assert committed['model']['start'] == committed['nativeControls']['datePickers'][0]['date'] == 1710345600
     assert len(committed['model']['requests']) == 8
+    clock = datetime.fromtimestamp(committed['model']['start'], timezone.utc)
+    assert (clock.hour, clock.minute, clock.second, clock.microsecond) == (16, 0, 0, 0)
+    assert committed['model']['start'] % 86400 == 57600
+    assert preview['model']['start'] % 86400 == 57600.625
     field = state('field-month-increment')
     assert field['nativeControls']['datePickers'][0]['style'] == 2 and len(field['windows']) == 1
     termination = read('termination.json')

@@ -74,7 +74,8 @@ model. A caller configuration update restores the ignored value; applying a
 delayed value commits it. Default keyboard, stepper, pointer-calendar and field
 edits preserve the observed hidden time/fraction. An out-of-range year edit clamps
 to the exact bound, replacing hidden time. Graphical Right-arrow navigation
-previews the next day at midnight without a binding request; Space commits it.
+previews the next day with hour/minute/second retained and the fractional second
+discarded, without a binding request; Space commits that whole-second value.
 Graphical pointer selection preserves hidden time. An end-date edit can cross
 start without reordering. Disabled pointer/Up input emits no additional request.
 
@@ -87,6 +88,11 @@ non-finite/extreme inputs, the owned Linux presentation, catalog, installed
 consumer, strict comparisons, display sessions, input, scaling, readers and
 physical acceptance remain required. No mask, tolerance, reference-pin change or
 approved exception is introduced.
+
+The [interpretation correction](../evidence/reference-investigations/date-range-interpretation-20261018/README.md)
+preserves the earlier incorrect midnight description and the Linux regression
+that exposed it. Timestamp 1710345600 means March 13 at 16:00 UTC. All native
+observations, PNGs and reference pins remain unchanged.
 
 Recompute the retained source observations with:
 

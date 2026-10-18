@@ -41,8 +41,8 @@ while CUA's compact AX date string says March 30; preserve the raw NSDate values
 instead of using that compact string as the UTC rendering oracle.
 
 Graphical pointer selection retains hidden time, but Right-arrow navigation
-previews the next day at UTC midnight without requesting a binding change. Space
-then commits that midnight value. Field-only focus/Up increments its selected
+previews the next day at 16:00:00 UTC, discarding the .625 fractional second
+without requesting a binding change. Space commits that whole-second value. Field-only focus/Up increments its selected
 month and opens no calendar overlay. Disabled pointer and Up events produce no
 additional request and leave both dates unchanged. These style differences must
 remain explicit in the Linux implementation.
@@ -57,3 +57,7 @@ availability and all Linux implementation/runtime/parity gates remain pending.
 
 Recompute the retained checks with python3 scripts/verify-date-range-input.py.
 No expected capture, reference pin, mask, tolerance or exception changes here.
+
+The earlier midnight interpretation was incorrect. The correction preserves its
+original metadata and verifies that all raw observations/captures are unchanged;
+see ../date-range-interpretation-20261018/README.md.

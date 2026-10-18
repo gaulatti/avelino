@@ -57,6 +57,7 @@ jobs:
       - run: python3 scripts/verify-hero-carousel-history.py
       - run: python3 scripts/verify-date-range-source.py
       - run: python3 scripts/verify-date-range-input.py
+      - run: python3 scripts/verify-date-range-interpretation.py
       - run: python3 scripts/generate-hero-carousel-witnesses.py --check
       - run: python3 scripts/verify-hero-carousel-candidate.py
       - run: python3 scripts/verify-ci-runtime-contracts.py
