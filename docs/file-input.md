@@ -170,3 +170,24 @@ remain pending. The supplement's README explains a separate Return
 acceptance during a menu experiment and the native panel's asynchronous AX update;
 neither is treated as automatic submission by a view change. Run
 `python3 scripts/verify-file-input-views.py` to audit the native observations.
+
+The [location supplement](../evidence/reference-investigations/file-input-location-20261017/investigation.json)
+records current-folder and ancestor choices, successful-folder Recent Places,
+ordering and a separately started process. Choosing the current folder preserves
+selection without adding a navigation step. Ancestor and recent navigation clear
+file selection and enter Back/Forward history. In the three single-file cases,
+Recent Places records the containing folder; browsing and cancellation do not add or reorder
+those entries. Reaccepting an older folder promotes it without duplication, and
+the observed order survives a fresh same-bundle process. Three successful
+callbacks preserve exact controlled URLs; the fresh process finishes without an
+owner result. General capacity, cross-application scope and recent updates for cross-directory
+or directory selections remain pending.
+
+Go to Folder is a separate native sheet with path entry and suggestions. A
+verified missing path leaves it open without a candidate; Escape preserves the
+prior file selection. File-path input/dismissal experiments remain diagnostic
+because the minimal helper and immediate AX observations were inconsistent.
+The initial narrow-root callback redaction and snapshot-output binding limitations
+are retained explicitly. Original JPEGs and filtered AX records do not establish
+menu artwork, complete hierarchy, physical input, readers, timing or strict raster
+acceptance. Run `python3 scripts/verify-file-input-location.py` to audit the record.

@@ -253,6 +253,19 @@ metadata formatting, exact glyphs/thumbnails, column resizing, complete native
 hierarchy and broader view/input equivalence still require parity acceptance.
 Run `python3 scripts/verify-file-input-views-linux.py` to audit this checkpoint.
 
+The [native location observations](../evidence/reference-investigations/file-input-location-20261017/investigation.json)
+also distinguish three states the Linux location controls must preserve: current
+folder choice is a selection-preserving no-op; ancestor/recent navigation enters
+open-panel history and clears file selection; persistent Recent Places changes
+only after successful selection and promotes an existing folder without duplication.
+The observed order survives a fresh same-bundle process. General recent capacity,
+cross-application scope, cross-directory/directory selection updates and Linux
+persistence integration remain unresolved.
+The native Go to Folder sheet has its own path field and suggestions. Its missing-
+path Escape preserves the underlying selected file. The current always-visible
+Linux path field does not establish equivalence to that nested presentation, and
+the supplemental file-path input/dismissal experiments remain diagnostic.
+
 The complete native panel also has a sidebar, location menu, search, selection
 preview and group/sort controls. These remain missing from the Linux
 implementation. Its path field and columns must not be reported as the
