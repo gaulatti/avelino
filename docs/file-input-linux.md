@@ -276,6 +276,18 @@ text-only configuration while ordinary selection of the same row is disabled;
 other type arrays, relative-input resolution and suggestion timing remain pending.
 The inline directory field does not implement those native path-selection rules.
 
+The [later Go to Folder lifecycle trials](../evidence/reference-investigations/file-input-go-to-20261018/README.md)
+also require separate state for the raw field, selected proposal and underlying
+chooser selection. The native AX Close button clears the field, Escape cancels
+the nested sheet, and Return or a completed pointer double-click navigates to
+the selected proposal. Down changes that proposal without rewriting raw input;
+Tab can extend a shared prefix. Invalid input/cancellation must not mutate the
+owner selection or remembered successful input. The observed `..`, `../` and
+`../A.txt` outcomes do not justify applying an assumed POSIX normalization rule
+or claiming complete relative-path equivalence. Suggestion ranking/history,
+native timing and atomic paste remain unproven. The separate Linux sheet,
+suggestion model and path-selected file route are still missing.
+
 The [owned location checkpoint](../evidence/development/file-input-location-20261017/validation.json)
 adds a Where menu with the current folder, its ancestors and Recent
 Places in a separate menu window. Choosing the current folder preserves file

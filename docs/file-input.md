@@ -214,6 +214,18 @@ an independent source rebuild, native artwork, reader or physical acceptance.
 Run `python3 scripts/verify-file-input-location-policy.py` to audit its bounded
 observations, capture provenance and exact callback URLs.
 
+The [Go to Folder lifecycle supplement](../evidence/reference-investigations/file-input-go-to-20261018/README.md)
+measures the sheet's clear control, selected suggestions, Return/Escape, pointer
+double-click and Tab completion against a controlled tree. The AX Close button
+clears rather than dismisses. A suggestion can navigate independently of the raw
+input retained for the next opening. Invalid input preserves the owner selection
+and saved input. Child, parent-relative and prefix trials are recorded exactly;
+general path normalization, ranking, history capacity and timing remain pending.
+It repeats the plain-text route-specific PNG result. Failed paste, Command+A,
+AX double-click and screenshot attempts remain visible with corrected trials;
+their actions do not count as completed input. Audit it with
+`python3 scripts/verify-file-input-go-to.py`.
+
 The [owned Linux location checkpoint](../evidence/development/file-input-location-20261017/validation.json)
 adds the Where menu and shared ten-folder Recent Places store. Current-folder
 choice preserves selection/history; ancestor/recent navigation clears selection
