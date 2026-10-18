@@ -186,3 +186,58 @@ records exact model/lifecycle, editor identity, calendar and environment matches
 at all 17 steps. Complete geometry matches at none of those steps. All 401 strict
 closed/history image comparisons execute and fail; all 544 earlier package images
 are unchanged. The native pins, reference PNGs, masks and tolerances are unchanged.
+
+## Editor font, fields and locale direction
+
+The [native font investigation](../evidence/reference-investigations/date-range-font-20261018/README.md)
+records explicit monospaced-number font features for all 96 editors. Its 48 pairs
+of before/after images match the original native captures exactly. A fresh build
+from the external source-only archive reproduces all 97 output files on the same
+Mac; this does not establish independent-machine or Linux font acceptance.
+
+The owned editor now requests tabular digits and reserves two numeric month/day
+columns and four year columns with figure spaces. Its editable segments and
+selection offsets use that visible representation. Natural date labels remain
+separate. Parsing removes the padding and retains hidden hours, minutes, seconds
+and fractions. Named and algorithmic calendar fields retain their locale number
+format; the tests round-trip all 96 observed native editor dates and fields.
+
+The bundled pattern resource is generated from the 14 observed locale/calendar
+date-style patterns together with original visible-image observations. Foundation
+short-date patterns alone do not describe NSDatePicker rendering: Japanese
+Gregorian visibly uses blank-padded month/day fields, whereas the Japanese
+calendar uses leading zeroes. The recorded override is bound to both original
+images. Unmeasured contexts use ICU's short-date algorithm and remain unaccepted.
+Run `python3 scripts/generate-date-editor-patterns.py --check` to verify the
+resource. The resource is part of the installed module, including source-absent
+consumer execution.
+
+Stepper placement and text alignment follow the date locale's direction while
+the caller's layout direction still governs the enclosing row. Native English
+editors keep their right-side steppers inside an RTL caller; Hebrew editors put
+their steppers on the left inside an LTR caller. Qt tests exercise both locale
+directions inside both caller directions. Current-label font measurements replace
+the earlier artificial future-year/month maximum; complete native intrinsic
+sizing, named-month widths and font/raster equivalence remain open.
+
+Repeated Linux-check publication now moves each earlier date catalog tree to a
+unique sibling directory before copying the fresh tree. The archive stays outside
+the temporary build stage. The retained reproduction demonstrates the previous
+nested-copy failure and two fresh publications with both earlier generations
+preserved byte for byte.
+
+Run `python3 scripts/check-date-range-catalog-publication.py` to exercise the actual
+publication block twice against retained installed-catalog output, including
+cleanup of its temporary stage.
+
+The [editor presentation checkpoint](../evidence/development/date-range-editor-presentation-20261018/README.md)
+retains all 401 exact closed/history comparisons, including every failure. Against
+the history checkpoint, 366 changed-pixel counts are lower, 18 are higher and 17
+are identical. The Japanese Gregorian correction removes four earlier increases.
+The remaining increases cover Islamic-calendar captures, dark ISO-calendar
+captures, light large-control captures and two history steps; they grant no
+exceptions. The new default row is 226 points against native 222. All 384 closed
+model/date observations and all 17 history model, identity, calendar and caller
+environment observations still match. Complete geometry matches in 8 closed
+contexts and no history steps. Native pixels, font shapes, intrinsic widths,
+physical displays/input and readers remain pending.

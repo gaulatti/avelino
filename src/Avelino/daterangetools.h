@@ -16,6 +16,8 @@ public:
     Q_INVOKABLE double clamped(double value,const QVariant &range) const;
     Q_INVOKABLE QVariantMap parts(double value,const QString &locale,const QString &calendar,const QString &timeZone) const;
     Q_INVOKABLE QVariantMap formatted(double value,const QString &locale,const QString &calendar,const QString &timeZone) const;
+    Q_INVOKABLE QVariantMap editorFormatted(double value,const QString &locale,const QString &calendar,const QString &timeZone) const;
+    Q_INVOKABLE QString editorFieldText(const QString &part,const QString &input) const;
     Q_INVOKABLE double stepped(double value,const QString &part,int amount,const QString &locale,const QString &calendar,const QString &timeZone,const QVariant &range) const;
     Q_INVOKABLE double replaced(double value,const QString &part,int number,const QString &locale,const QString &calendar,const QString &timeZone,const QVariant &range) const;
     Q_INVOKABLE double midnight(double value,const QString &locale,const QString &calendar,const QString &timeZone) const;

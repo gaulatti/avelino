@@ -1,5 +1,8 @@
 #include "daterangetools.h"
 #include <QJSValue>
+#include <QFile>
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QTimeZone>
 #include <QFontDatabase>
 #include <QFontMetricsF>
@@ -127,6 +130,43 @@ std::unique_ptr<icu::SimpleDateFormat> formatter(const QString &locale,const QSt
     std::unique_ptr<icu::SimpleDateFormat> result(new icu::SimpleDateFormat(pattern,nativeLocale,status));checked(status,"date formatter");
     result->adoptCalendar(calendarFor(locale,calendar,zone).release());return result;
 }
+std::unique_ptr<icu::SimpleDateFormat> editorFormatter(const QString &locale,const QString &calendar,const QString &zone) {
+    std::unique_ptr<icu::DateFormat> base(icu::DateFormat::createDateInstance(icu::DateFormat::kShort,localeFor(locale,calendar)));
+    auto simple=dynamic_cast<icu::SimpleDateFormat*>(base.get());
+    if(!simple)qFatal("DateRange short-date formatter is unavailable");
+    static const QJsonObject patterns=[](){
+        QFile file(QStringLiteral(":/qt/qml/Avelino/date-editor-patterns.json"));
+        if(!file.open(QIODevice::ReadOnly))qFatal("Pinned date editor patterns are unavailable");
+        QJsonParseError error;const auto document=QJsonDocument::fromJson(file.readAll(),&error);
+        const auto object=document.object();
+        if(error.error!=QJsonParseError::NoError||object["schemaVersion"]!=1||object["reference"]!="fe8a1d462fbd793d883fb92086a16aa2947e32c9"||!object["patterns"].isObject())qFatal("Invalid pinned date editor patterns");
+        return object["patterns"].toObject();
+    }();
+    icu::UnicodeString pattern;simple->toPattern(pattern);
+    const auto key=QString::fromLatin1(localeFor(locale,calendar).getBaseName())+"|"+calendarName(calendar);
+    if(patterns.contains(key)){
+        if(!patterns[key].isString()||patterns[key].toString().isEmpty())qFatal("Invalid native date pattern");
+        pattern=unicode(patterns[key].toString());
+    }
+    icu::UnicodeString fullYear;bool quoted=false;
+    for(int i=0;i<pattern.length();++i){
+        const auto point=pattern.charAt(i);fullYear.append(point);
+        if(point==u'\''){
+            if(i+1<pattern.length()&&pattern.charAt(i+1)==point){fullYear.append(point);++i;}
+            else quoted=!quoted;
+        }else if(!quoted&&(point==u'y'||point==u'r'))while(i+1<pattern.length()&&pattern.charAt(i+1)==point)++i;
+    }
+    // Preserve the locale's date-style number-format overrides (for example
+    // Hebrew numerals); reconstructing a formatter from its pattern loses them.
+    simple->applyPattern(fullYear);simple->adoptCalendar(calendarFor(locale,calendar,zone).release());
+    base.release();return std::unique_ptr<icu::SimpleDateFormat>(simple);
+}
+QString dateFieldText(const QString &part,const QString &input) {
+    const int minimum=part=="year"||part=="relatedYear" ? 4:part=="month"||part=="day" ? 2:0;
+    const auto points=input.toUcs4();
+    for(auto point:points)if(u_charType(UChar32(point))!=U_DECIMAL_DIGIT_NUMBER)return input;
+    return QString(std::max(0,minimum-int(points.size())),QChar(0x2007))+input;
+}
 QString formatted(icu::SimpleDateFormat &formatter,double value) {
     icu::UnicodeString result;formatter.format(value*1000.0,result);return text(result);
 }
@@ -150,6 +190,24 @@ QString fieldKind(int id) {
     if(id==UDAT_ERA_FIELD)return QStringLiteral("era");
     qFatal("Unexpected DateRange formatted field: %d",id);return {};
 }
+QVariantMap datePresentation(icu::SimpleDateFormat &native,double value,bool padded) {
+    UErrorCode status=U_ZERO_ERROR;icu::UnicodeString output;icu::FieldPositionIterator positions;
+    native.format(value*1000.0,output,&positions,status);checked(status,"date formatting");
+    struct Piece {int first,last,id;};std::vector<Piece> fields;icu::FieldPosition position;
+    while(positions.next(position))fields.push_back({position.getBeginIndex(),position.getEndIndex(),position.getField()});
+    std::sort(fields.begin(),fields.end(),[](const Piece &a,const Piece &b){return a.first<b.first;});
+    const auto string=text(output);QString displayed;QVariantList segments;int offset=0;
+    for(const auto &piece:fields){
+        if(piece.first<offset || piece.last>string.size())qFatal("Overlapping DateRange formatted fields");
+        if(piece.first>offset){const auto literal=string.mid(offset,piece.first-offset);segments.append(QVariantMap{{"kind","literal"},{"text",literal}});displayed+=literal;}
+        const auto kind=fieldKind(piece.id),raw=string.mid(piece.first,piece.last-piece.first);
+        const auto value=padded ? dateFieldText(kind,raw):raw;const int first=displayed.size();displayed+=value;
+        segments.append(QVariantMap{{"kind",kind},{"text",value},{"first",first},{"last",displayed.size()}});offset=piece.last;
+    }
+    if(offset<string.size()){const auto literal=string.mid(offset);segments.append(QVariantMap{{"kind","literal"},{"text",literal}});displayed+=literal;}
+    return {{"text",displayed},{"segments",segments}};
+}
+
 }
 
 double DateRangeTools::fromUnixSeconds(double value) const {return canonical(value);}
@@ -173,22 +231,12 @@ QVariantMap DateRangeTools::parts(double value,const QString &locale,const QStri
         {"minimumDaysInFirstWeek",int(native->getMinimalDaysInFirstWeek())}};
 }
 QVariantMap DateRangeTools::formatted(double value,const QString &locale,const QString &calendar,const QString &timeZone) const {
-    value=canonical(value);auto native=formatter(locale,calendar,timeZone,"yMd");
-    UErrorCode status=U_ZERO_ERROR;icu::UnicodeString output;icu::FieldPositionIterator positions;
-    native->format(value*1000.0,output,&positions,status);checked(status,"date formatting");
-    struct Piece {int first,last,id;};std::vector<Piece> fields;icu::FieldPosition position;
-    while(positions.next(position))fields.push_back({position.getBeginIndex(),position.getEndIndex(),position.getField()});
-    std::sort(fields.begin(),fields.end(),[](const Piece &a,const Piece &b){return a.first<b.first;});
-    const auto string=text(output);QVariantList segments;int offset=0;
-    for(const auto &piece:fields){
-        if(piece.first<offset || piece.last>string.size())qFatal("Overlapping DateRange formatted fields");
-        if(piece.first>offset)segments.append(QVariantMap{{"kind","literal"},{"text",string.mid(offset,piece.first-offset)}});
-        segments.append(QVariantMap{{"kind",fieldKind(piece.id)},{"text",string.mid(piece.first,piece.last-piece.first)},
-            {"first",piece.first},{"last",piece.last}});offset=piece.last;
-    }
-    if(offset<string.size())segments.append(QVariantMap{{"kind","literal"},{"text",string.mid(offset)}});
-    return {{"text",string},{"segments",segments}};
+    auto native=formatter(locale,calendar,timeZone,"yMd");return datePresentation(*native,canonical(value),false);
 }
+QVariantMap DateRangeTools::editorFormatted(double value,const QString &locale,const QString &calendar,const QString &timeZone) const {
+    auto native=editorFormatter(locale,calendar,timeZone);return datePresentation(*native,canonical(value),true);
+}
+QString DateRangeTools::editorFieldText(const QString &part,const QString &input) const {return dateFieldText(part,input);}
 double DateRangeTools::stepped(double value,const QString &part,int amount,const QString &locale,const QString &calendar,const QString &timeZone,const QVariant &range) const {
     value=canonical(value);auto native=calendarFor(locale,calendar,timeZone);setTime(*native,value);
     UErrorCode status=U_ZERO_ERROR;native->add(dateField(part),amount,status);checked(status,"date step");
@@ -250,6 +298,7 @@ QVariantMap DateRangeTools::month(double value,const QString &locale,const QStri
 QFont DateRangeTools::systemFont(int pixels) const {
     if(pixels<=0)qFatal("DateRange font size must be positive");
     auto font=QFontDatabase::systemFont(QFontDatabase::GeneralFont);font.setPixelSize(pixels);
+    font.clearFeatures();font.setFeature(QFont::Tag("tnum"),1);
     font.setWeight(QFont::Normal);font.setStyleName({});font.setItalic(false);font.setUnderline(false);
     font.setStrikeOut(false);font.setOverline(false);font.setResolveMask(QFont::AllPropertiesResolved);return font;
 }
@@ -265,21 +314,10 @@ QVariantMap DateRangeTools::presentation(const QString &style,const QString &siz
         {"graphical",style=="graphical"},{"calendarWidth",138.5},{"calendarHeight",148}};
 }
 qreal DateRangeTools::fieldTextWidth(double value,const QString &locale,const QString &calendar,const QString &timeZone,int pixels) const {
-    auto native=calendarFor(locale,calendar,timeZone);setTime(*native,canonical(value));
-    const QFontMetricsF metrics(systemFont(pixels));auto output=formatter(locale,calendar,timeZone,"yMd");
-    qreal maximum=metrics.horizontalAdvance(::formatted(*output,value));
-    // Measure the calendar's complete month vocabulary and four-digit year
-    // field. This derives width from font/locale/calendar data, not fixture IDs.
-    const auto currentYear=field(*native,UCAL_YEAR);UErrorCode status=U_ZERO_ERROR;
-    const auto year=std::min(native->getActualMaximum(UCAL_YEAR,status),std::max(8888,currentYear));checked(status,"field year width");
-    native->set(UCAL_DATE,1);native->set(UCAL_YEAR,year);
-    const auto lastMonth=native->getActualMaximum(UCAL_MONTH,status);checked(status,"field month width");
-    for(int monthIndex=0;monthIndex<=lastMonth;++monthIndex){
-        native->set(UCAL_DATE,1);native->set(UCAL_MONTH,monthIndex);
-        const auto lastDay=native->getActualMaximum(UCAL_DATE,status);checked(status,"field day width");
-        for(int day:{8,lastDay}){native->set(UCAL_DATE,day);maximum=std::max(maximum,metrics.horizontalAdvance(::formatted(*output,seconds(*native))));}
-    }
-    return maximum;
+    const QFontMetricsF metrics(systemFont(pixels));auto output=editorFormatter(locale,calendar,timeZone);
+    // Numeric labels reserve two/four columns. Measure named/algorithmic labels
+    // in the active font; complete native field sizing remains a separate gate.
+    return metrics.horizontalAdvance(datePresentation(*output,canonical(value),true).value("text").toString());
 }
 QVariantMap DateRangeTools::parsedField(double value,const QString &part,const QString &input,const QString &locale,const QString &calendar,const QString &timeZone) const {
     auto native=calendarFor(locale,calendar,timeZone);setTime(*native,canonical(value));
@@ -318,15 +356,30 @@ QVariantMap DateRangeTools::parsedField(double value,const QString &part,const Q
             const auto narrow=symbols.getNarrowEras(count);match(narrow,count,0);
         }
     }
-    const bool valid=(digits||named) && number>=minimum && number<=maximum;
+    bool algorithmic=false;
+    if(!digits&&!named&&!input.isEmpty()){
+        const auto presentation=editorFormatted(value,locale,calendar,timeZone);
+        for(const auto &segment:presentation.value("segments").toList()){
+            const auto item=segment.toMap();if(item.value("kind").toString()!=part)continue;
+            auto replacement=presentation.value("text").toString();replacement.replace(item.value("first").toInt(),item.value("last").toInt()-item.value("first").toInt(),input);
+            const auto parsed=parsedDate(value,replacement,locale,calendar,timeZone,{});
+            if(parsed.value("valid").toBool()){
+                auto date=calendarFor(locale,calendar,timeZone);setTime(*date,parsed.value("instant").toDouble());
+                number=part=="relatedYear" ? relatedYear(parsed.value("instant").toDouble(),locale,calendar,timeZone):field(*date,type)+(type==UCAL_MONTH?1:0);algorithmic=true;
+            }
+            break;
+        }
+    }
+    const bool valid=(digits||named||algorithmic) && number>=minimum && number<=maximum;
     return {{"valid",valid},{"number",number},{"minimum",minimum},{"maximum",maximum},
         {"complete",valid && (named || (type==UCAL_YEAR ? input.size()>=4:number*10>maximum))}};
 }
 QVariantMap DateRangeTools::parsedDate(double value,const QString &input,const QString &locale,const QString &calendar,const QString &timeZone,const QVariant &range) const {
     value=canonical(value);auto native=calendarFor(locale,calendar,timeZone);setTime(*native,value);
-    auto parser=formatter(locale,calendar,timeZone,"yMd");parser->setLenient(false);native->setLenient(false);
-    icu::ParsePosition position(0);parser->parse(unicode(input),*native,position);
+    auto parser=editorFormatter(locale,calendar,timeZone);parser->setLenient(false);native->setLenient(false);
+    const auto source=QString(input).remove(QChar(0x2007));
+    icu::ParsePosition position(0);parser->parse(unicode(source),*native,position);
     UErrorCode status=U_ZERO_ERROR;const auto parsed=native->getTime(status)/1000.0;
-    if(U_FAILURE(status) || position.getErrorIndex()>=0 || position.getIndex()!=input.size())return {{"valid",false}};
+    if(U_FAILURE(status) || position.getErrorIndex()>=0 || position.getIndex()!=source.size())return {{"valid",false}};
     return {{"valid",true},{"instant",Bounds(range).clamp(canonical(parsed+(value-std::floor(value))))}};
 }

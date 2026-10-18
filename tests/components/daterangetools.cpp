@@ -1,5 +1,6 @@
 #include "daterangetools.h"
 #include <QFile>
+#include <QFontMetricsF>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -32,6 +33,8 @@ private slots:
     void localizedSegmentBoundaries();
     void ownedCalendarGrid();
     void editableFieldParsing();
+    void editorPresentationAndRoundTrip();
+    void nativeNumericFontContract();
 };
 void DateRangeToolsTests::sourceDateConstructionAndDisplayClamp() {
     DateRangeTools tools;
@@ -149,5 +152,52 @@ void DateRangeToolsTests::editableFieldParsing(){
     QVERIFY(!tools.parsedDate(value,"2/29/2025","en_US","gregorian","UTC",{}).value("valid").toBool());
     QVERIFY(!tools.parsedField(value,"month","99","en_US","gregorian","UTC").value("valid").toBool());
 }
-QTEST_GUILESS_MAIN(DateRangeToolsTests)
+
+void DateRangeToolsTests::nativeNumericFontContract(){
+    DateRangeTools tools;const auto rows=read(QStringLiteral(NATIVE_DATE_FONT_DIRECTORY "/metrics.json"))["rows"].toArray();
+    QCOMPARE(rows.size(),48);int compared=0;
+    for(const auto &row:rows)for(const auto &item:row.toObject()["editors"].toArray()){
+        const auto native=item.toObject()["font"].toObject();bool monospaced=false;
+        for(const auto &entry:native["features"].toArray()){const auto feature=entry.toObject();monospaced|=feature["type"]==6&&feature["selector"]==0;}
+        QVERIFY(monospaced);const auto font=tools.systemFont(native["pointSize"].toInt());
+        QVERIFY(font.isFeatureSet(QFont::Tag("tnum")));QCOMPARE(font.featureValue(QFont::Tag("tnum")),quint32(1));
+        const QFontMetricsF metrics(font);const auto widths=native["widths"].toObject();
+        for(QChar digit=u'0';digit<=u'9';digit=QChar(digit.unicode()+1)){
+            QVERIFY(widths[QString(digit)].toDouble()==widths["0"].toDouble());
+            QVERIFY(metrics.horizontalAdvance(QString(digit))==metrics.horizontalAdvance(QStringLiteral("0")));
+        }
+        ++compared;
+    }
+    QCOMPARE(compared,96);
+}
+void DateRangeToolsTests::editorPresentationAndRoundTrip(){
+    DateRangeTools tools;
+    QCOMPARE(tools.editorFormatted(1710000000.625,"en_US","gregorian","UTC")["text"].toString(),QString::fromUtf8(" 3/ 9/2024"));
+    QCOMPARE(tools.editorFormatted(1710000000.625,"en_GB","gregorian","UTC")["text"].toString(),QStringLiteral("09/03/2024"));
+    QCOMPARE(tools.editorFormatted(1710000000.625,"ja_JP","gregorian","UTC")["text"].toString(),QString::fromUtf8("2024/ 3/ 9"));
+    QCOMPARE(tools.editorFormatted(1710000000.625,"ja_JP","japanese","UTC")["text"].toString(),QString::fromUtf8("R   6/03/09"));
+    QCOMPARE(tools.editorFormatted(1710000000.625,"he_IL","hebrew","UTC")["text"].toString(),QString::fromUtf8("כ״ט באדר א׳ תשפ״ד"));
+    const auto rows=read(QStringLiteral(NATIVE_DATE_FONT_DIRECTORY "/metrics.json"))["rows"].toArray();int compared=0;
+    for(const auto &item:rows){
+        const auto row=item.toObject(),configuration=row["configuration"].toObject();
+        const auto locale=configuration["locale"].toString(),calendar=configuration["calendar"].toString(),zone=configuration["timeZone"].toString();
+        const auto native=row["state"].toObject()["nativeControls"].toObject()["datePickers"].toArray();
+        for(const auto &picker:native){
+            const auto value=picker.toObject()["date"].toDouble();const auto presentation=tools.editorFormatted(value,locale,calendar,zone);
+            const auto parsed=tools.parsedDate(value,presentation["text"].toString(),locale,calendar,zone,{});
+            QVERIFY2(parsed["valid"].toBool(),qPrintable(configuration["id"].toString()+": "+presentation["text"].toString()));
+            EXACT_DATE(parsed["instant"].toDouble(),value);
+            const auto parts=tools.parts(value,locale,calendar,zone);
+            for(const auto &field:presentation["segments"].toList()){
+                const auto segment=field.toMap();const auto kind=segment["kind"].toString();if(kind=="literal"||kind=="relatedYear"||kind=="yearName")continue;
+                const auto result=tools.parsedField(value,kind,segment["text"].toString().remove(QChar(0x2007)),locale,calendar,zone);
+                QVERIFY2(result["valid"].toBool(),qPrintable(configuration["id"].toString()+" field "+kind+": "+segment["text"].toString()));
+                QCOMPARE(result["number"].toLongLong(),parts[kind].toLongLong());
+            }
+            ++compared;
+        }
+    }
+    QCOMPARE(compared,96);
+}
+QTEST_MAIN(DateRangeToolsTests)
 #include "daterangetools.moc"

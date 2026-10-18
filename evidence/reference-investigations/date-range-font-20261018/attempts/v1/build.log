@@ -1,0 +1,160 @@
+/Users/gaulatti/.codex/tmp/avelino-date-range-metrics-20261018-v1/DateMetrics.swift:19:69: warning: main actor-isolated property 'font' can not be referenced from a nonisolated context
+17 |             let session=Session(fixture,0,false,1,1);let before=session.capture(1);var editors:[[String:Any]]=[]
+18 |             func visit(_ view:NSView){
+19 |                 if let picker=view as? NSDatePicker,let font=picker.font {
+   |                                                                     `- warning: main actor-isolated property 'font' can not be referenced from a nonisolated context
+20 |                     let formatter=picker.cell?.formatter
+21 |                     var row:[String:Any]=["font":fontMetrics(font),"stringValue":picker.stringValue,"attributedStringValue":picker.attributedStringValue.string,"intrinsicWidth":picker.intrinsicContentSize.width,"intrinsicHeight":picker.intrinsicContentSize.height,"formatterClass":formatter.map{String(describing:type(of:$0))} ?? "none"]
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSControl.h:60:36: note: property declared here
+ 58 | /* The following methods apply only to controls with apparent textual content of some sort (buttons with labels, textfields, etc.).
+ 59 |  */
+ 60 | @property (nullable, copy) NSFont *font;
+    |                                    `- note: property declared here
+ 61 | 
+ 62 | @property BOOL usesSingleLineMode API_AVAILABLE(macos(10.10));
+
+/Users/gaulatti/.codex/tmp/avelino-date-range-metrics-20261018-v1/DateMetrics.swift:20:48: warning: main actor-isolated property 'formatter' can not be referenced from a nonisolated context
+18 |             func visit(_ view:NSView){
+19 |                 if let picker=view as? NSDatePicker,let font=picker.font {
+20 |                     let formatter=picker.cell?.formatter
+   |                                                `- warning: main actor-isolated property 'formatter' can not be referenced from a nonisolated context
+21 |                     var row:[String:Any]=["font":fontMetrics(font),"stringValue":picker.stringValue,"attributedStringValue":picker.attributedStringValue.string,"intrinsicWidth":picker.intrinsicContentSize.width,"intrinsicHeight":picker.intrinsicContentSize.height,"formatterClass":formatter.map{String(describing:type(of:$0))} ?? "none"]
+22 |                     if let formatter=formatter as? DateFormatter {row["dateFormat"]=formatter.dateFormat;row["formatterValue"]=formatter.string(from:picker.dateValue)}
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSCell.h:134:52: note: property declared here
+132 | @property (nullable, strong) NSFont *font;
+133 | @property (readonly, copy) NSString *keyEquivalent;
+134 | @property (nullable, strong) __kindof NSFormatter *formatter;
+    |                                                    `- note: property declared here
+135 | @property (nullable, copy) id /* id <NSCopying> */ objectValue;
+136 | @property (readonly) BOOL hasValidObjectValue;
+
+/Users/gaulatti/.codex/tmp/avelino-date-range-metrics-20261018-v1/DateMetrics.swift:20:42: warning: main actor-isolated property 'cell' can not be referenced from a nonisolated context
+18 |             func visit(_ view:NSView){
+19 |                 if let picker=view as? NSDatePicker,let font=picker.font {
+20 |                     let formatter=picker.cell?.formatter
+   |                                          `- warning: main actor-isolated property 'cell' can not be referenced from a nonisolated context
+21 |                     var row:[String:Any]=["font":fontMetrics(font),"stringValue":picker.stringValue,"attributedStringValue":picker.attributedStringValue.string,"intrinsicWidth":picker.intrinsicContentSize.width,"intrinsicHeight":picker.intrinsicContentSize.height,"formatterClass":formatter.map{String(describing:type(of:$0))} ?? "none"]
+22 |                     if let formatter=formatter as? DateFormatter {row["dateFormat"]=formatter.dateFormat;row["formatterValue"]=formatter.string(from:picker.dateValue)}
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSControl.h:128:47: note: property declared here
+126 | @property (class, nullable) Class cellClass;
+127 | 
+128 | @property (nullable, strong) __kindof NSCell *cell;
+    |                                               `- note: property declared here
+129 | 
+130 | - (nullable __kindof NSCell *)selectedCell;
+
+/Users/gaulatti/.codex/tmp/avelino-date-range-metrics-20261018-v1/DateMetrics.swift:21:50: error: call to main actor-isolated global function 'fontMetrics' in a synchronous nonisolated context [#ActorIsolatedCall]
+ 2 | import SwiftUI
+ 3 | 
+ 4 | @MainActor func fontMetrics(_ font:NSFont)->[String:Any] {
+   |                 `- note: calls to global function 'fontMetrics' from outside of its actor context are implicitly asynchronous
+ 5 |     let samples=["0","1","2","3","4","5","6","7","8","9"," ","/",".","-","88/88/8888","3/9/2024","3/ 9/2024"," 3/ 9/2024","09/03/2024","٠١٢٣٤٥٦٧٨٩","令和","אדר ב׳"]
+ 6 |     var widths:[String:Double]=[:]
+   :
+19 |                 if let picker=view as? NSDatePicker,let font=picker.font {
+20 |                     let formatter=picker.cell?.formatter
+21 |                     var row:[String:Any]=["font":fontMetrics(font),"stringValue":picker.stringValue,"attributedStringValue":picker.attributedStringValue.string,"intrinsicWidth":picker.intrinsicContentSize.width,"intrinsicHeight":picker.intrinsicContentSize.height,"formatterClass":formatter.map{String(describing:type(of:$0))} ?? "none"]
+   |                                                  `- error: call to main actor-isolated global function 'fontMetrics' in a synchronous nonisolated context [#ActorIsolatedCall]
+22 |                     if let formatter=formatter as? DateFormatter {row["dateFormat"]=formatter.dateFormat;row["formatterValue"]=formatter.string(from:picker.dateValue)}
+23 |                     editors.append(row)
+
+/Users/gaulatti/.codex/tmp/avelino-date-range-metrics-20261018-v1/DateMetrics.swift:21:89: warning: main actor-isolated property 'stringValue' can not be referenced from a nonisolated context
+19 |                 if let picker=view as? NSDatePicker,let font=picker.font {
+20 |                     let formatter=picker.cell?.formatter
+21 |                     var row:[String:Any]=["font":fontMetrics(font),"stringValue":picker.stringValue,"attributedStringValue":picker.attributedStringValue.string,"intrinsicWidth":picker.intrinsicContentSize.width,"intrinsicHeight":picker.intrinsicContentSize.height,"formatterClass":formatter.map{String(describing:type(of:$0))} ?? "none"]
+   |                                                                                         `- warning: main actor-isolated property 'stringValue' can not be referenced from a nonisolated context
+22 |                     if let formatter=formatter as? DateFormatter {row["dateFormat"]=formatter.dateFormat;row["formatterValue"]=formatter.string(from:picker.dateValue)}
+23 |                     editors.append(row)
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSControl.h:36:28: note: property declared here
+ 34 | 
+ 35 | @property (nullable, copy) id  /* id<NSCopying> */ objectValue;
+ 36 | @property (copy) NSString *stringValue;
+    |                            `- note: property declared here
+ 37 | @property (copy) NSAttributedString *attributedStringValue;
+ 38 | @property int intValue;
+
+/Users/gaulatti/.codex/tmp/avelino-date-range-metrics-20261018-v1/DateMetrics.swift:21:132: warning: main actor-isolated property 'attributedStringValue' can not be referenced from a nonisolated context
+19 |                 if let picker=view as? NSDatePicker,let font=picker.font {
+20 |                     let formatter=picker.cell?.formatter
+21 |                     var row:[String:Any]=["font":fontMetrics(font),"stringValue":picker.stringValue,"attributedStringValue":picker.attributedStringValue.string,"intrinsicWidth":picker.intrinsicContentSize.width,"intrinsicHeight":picker.intrinsicContentSize.height,"formatterClass":formatter.map{String(describing:type(of:$0))} ?? "none"]
+   |                                                                                                                                    `- warning: main actor-isolated property 'attributedStringValue' can not be referenced from a nonisolated context
+22 |                     if let formatter=formatter as? DateFormatter {row["dateFormat"]=formatter.dateFormat;row["formatterValue"]=formatter.string(from:picker.dateValue)}
+23 |                     editors.append(row)
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSControl.h:37:38: note: property declared here
+ 35 | @property (nullable, copy) id  /* id<NSCopying> */ objectValue;
+ 36 | @property (copy) NSString *stringValue;
+ 37 | @property (copy) NSAttributedString *attributedStringValue;
+    |                                      `- note: property declared here
+ 38 | @property int intValue;
+ 39 | @property NSInteger integerValue;
+
+/Users/gaulatti/.codex/tmp/avelino-date-range-metrics-20261018-v1/DateMetrics.swift:21:185: warning: main actor-isolated property 'intrinsicContentSize' can not be referenced from a nonisolated context
+19 |                 if let picker=view as? NSDatePicker,let font=picker.font {
+20 |                     let formatter=picker.cell?.formatter
+21 |                     var row:[String:Any]=["font":fontMetrics(font),"stringValue":picker.stringValue,"attributedStringValue":picker.attributedStringValue.string,"intrinsicWidth":picker.intrinsicContentSize.width,"intrinsicHeight":picker.intrinsicContentSize.height,"formatterClass":formatter.map{String(describing:type(of:$0))} ?? "none"]
+   |                                                                                                                                                                                         `- warning: main actor-isolated property 'intrinsicContentSize' can not be referenced from a nonisolated context
+22 |                     if let formatter=formatter as? DateFormatter {row["dateFormat"]=formatter.dateFormat;row["formatterValue"]=formatter.string(from:picker.dateValue)}
+23 |                     editors.append(row)
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSLayoutConstraint.h:333:29: note: property declared here
+331 | APPKIT_EXTERN const CGFloat NSViewNoIntrinsicMetric API_AVAILABLE(macos(10.11)); // -1
+332 | 
+333 | @property (readonly) NSSize intrinsicContentSize API_AVAILABLE(macos(10.7));
+    |                             `- note: property declared here
+334 | - (void)invalidateIntrinsicContentSize API_AVAILABLE(macos(10.7)); // call this when something changes that affects the intrinsicContentSize.  Otherwise AppKit won't notice that it changed.  
+335 | 
+
+/Users/gaulatti/.codex/tmp/avelino-date-range-metrics-20261018-v1/DateMetrics.swift:21:237: warning: main actor-isolated property 'intrinsicContentSize' can not be referenced from a nonisolated context
+19 |                 if let picker=view as? NSDatePicker,let font=picker.font {
+20 |                     let formatter=picker.cell?.formatter
+21 |                     var row:[String:Any]=["font":fontMetrics(font),"stringValue":picker.stringValue,"attributedStringValue":picker.attributedStringValue.string,"intrinsicWidth":picker.intrinsicContentSize.width,"intrinsicHeight":picker.intrinsicContentSize.height,"formatterClass":formatter.map{String(describing:type(of:$0))} ?? "none"]
+   |                                                                                                                                                                                                                                             `- warning: main actor-isolated property 'intrinsicContentSize' can not be referenced from a nonisolated context
+22 |                     if let formatter=formatter as? DateFormatter {row["dateFormat"]=formatter.dateFormat;row["formatterValue"]=formatter.string(from:picker.dateValue)}
+23 |                     editors.append(row)
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSLayoutConstraint.h:333:29: note: property declared here
+331 | APPKIT_EXTERN const CGFloat NSViewNoIntrinsicMetric API_AVAILABLE(macos(10.11)); // -1
+332 | 
+333 | @property (readonly) NSSize intrinsicContentSize API_AVAILABLE(macos(10.7));
+    |                             `- note: property declared here
+334 | - (void)invalidateIntrinsicContentSize API_AVAILABLE(macos(10.7)); // call this when something changes that affects the intrinsicContentSize.  Otherwise AppKit won't notice that it changed.  
+335 | 
+
+/Users/gaulatti/.codex/tmp/avelino-date-range-metrics-20261018-v1/DateMetrics.swift:22:157: warning: main actor-isolated property 'dateValue' can not be referenced from a nonisolated context
+20 |                     let formatter=picker.cell?.formatter
+21 |                     var row:[String:Any]=["font":fontMetrics(font),"stringValue":picker.stringValue,"attributedStringValue":picker.attributedStringValue.string,"intrinsicWidth":picker.intrinsicContentSize.width,"intrinsicHeight":picker.intrinsicContentSize.height,"formatterClass":formatter.map{String(describing:type(of:$0))} ?? "none"]
+22 |                     if let formatter=formatter as? DateFormatter {row["dateFormat"]=formatter.dateFormat;row["formatterValue"]=formatter.string(from:picker.dateValue)}
+   |                                                                                                                                                             `- warning: main actor-isolated property 'dateValue' can not be referenced from a nonisolated context
+23 |                     editors.append(row)
+24 |                 }
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSDatePicker.h:51:26: note: property declared here
+49 | #pragma mark *** Object Value Access ***
+50 | 
+51 | @property (copy) NSDate *dateValue;
+   |                          `- note: property declared here
+52 | 
+53 | @property NSTimeInterval timeInterval;
+
+/Users/gaulatti/.codex/tmp/avelino-date-range-metrics-20261018-v1/DateMetrics.swift:25:35: warning: main actor-isolated property 'subviews' can not be referenced from a nonisolated context
+23 |                     editors.append(row)
+24 |                 }
+25 |                 for child in view.subviews {visit(child)}
+   |                                   `- warning: main actor-isolated property 'subviews' can not be referenced from a nonisolated context
+26 |             }
+27 |             visit(session.host);let after=session.capture(1);let name=fixture.id+".png";try before.write(to:output.appendingPathComponent(name));try after.write(to:output.appendingPathComponent(fixture.id+"-after.png"))
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSView.h:88:46: note: property declared here
+ 86 | @property (nullable, readonly, unsafe_unretained) NSWindow *window;
+ 87 | @property (nullable, readonly, unsafe_unretained) NSView *superview;
+ 88 | @property (copy) NSArray<__kindof NSView *> *subviews;
+    |                                              `- note: property declared here
+ 89 | - (BOOL)isDescendantOf:(NSView *)view;
+ 90 | - (nullable NSView *)ancestorSharedWithView:(NSView *)view;
+
+[#ActorIsolatedCall]: <https://docs.swift.org/compiler/documentation/diagnostics/actor-isolated-call>

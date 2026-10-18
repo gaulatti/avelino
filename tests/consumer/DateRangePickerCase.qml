@@ -52,6 +52,8 @@ Item {
         return {ready:true,model:{start:modelStart,end:modelEnd,requests:requests,pending:pending,appearances:appearances,disappearances:disappearances,wrapperInstances:instances},
             frames:{caller:box(picker),picker:box(picker.presentationItem),start:box(picker.startField),end:box(picker.endField),arrow:box(arrow)},
             displayed:[picker.startField.bufferValue,picker.endField.bufferValue],
+            editorText:[picker.startField.input.text,picker.endField.input.text],
+            editorVisible:!picker.dateStyle.graphical,
             calendarParts:[DateRangeTools.parts(picker.startField.bufferValue,picker.locale.name,picker.calendar,picker.timeZone),DateRangeTools.parts(picker.endField.bufferValue,picker.locale.name,picker.calendar,picker.timeZone)],
             startText:picker.startField.formatted.text,endText:picker.endField.formatted.text,
             enabled:picker.enabled,mirrored:picker.mirrored,controlSize:picker.controlSize,

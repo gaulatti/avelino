@@ -114,6 +114,11 @@ cp scripts/check-installed-date-range-catalog.sh artifacts/package/check-install
 cp scripts/check-display-sessions-date-range.sh artifacts/package/check-display-sessions-date-range.sh
 if [[ -e artifacts/linux/catalog-installed ]]; then mv artifacts/linux/catalog-installed "$stage/previous-catalog-installed"; fi
 cp -R "$stage/catalog-evidence" artifacts/linux/catalog-installed
+# Keep each earlier date catalog intact while publishing a fresh current tree.
+if [[ -e artifacts/linux/date-range-catalog-installed ]]; then
+  previous_date_catalog_dir="$(mktemp -d artifacts/linux/date-range-catalog-previous.XXXXXX)"
+  mv artifacts/linux/date-range-catalog-installed "$previous_date_catalog_dir/catalog-installed"
+fi
 cp -R "$stage/date-range-catalog-evidence" artifacts/linux/date-range-catalog-installed
 cp scripts/check-display-sessions.sh artifacts/package/check-display-sessions.sh
 cp scripts/check-display-sessions-hero-carousel.sh artifacts/package/check-display-sessions-hero-carousel.sh

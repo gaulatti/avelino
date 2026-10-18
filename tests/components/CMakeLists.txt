@@ -9,12 +9,14 @@ add_test(NAME date-range-owned-input COMMAND AvelinoDateRangeUiTests)
 add_test(NAME date-range-owned-input-dpr2 COMMAND AvelinoDateRangeUiTests)
 set_tests_properties(date-range-owned-input-dpr2 PROPERTIES ENVIRONMENT "QT_QPA_PLATFORM=offscreen;QT_QUICK_BACKEND=software;QT_SCALE_FACTOR=2")
 set_tests_properties(date-range-owned-input PROPERTIES ENVIRONMENT "QT_QPA_PLATFORM=offscreen;QT_QUICK_BACKEND=software")
-target_link_libraries(AvelinoDateRangeToolsTests PRIVATE Avelino Qt6::Test)
+target_link_libraries(AvelinoDateRangeToolsTests PRIVATE Avelino Qt6::Gui Qt6::Test)
 target_include_directories(AvelinoDateRangeToolsTests PRIVATE ${PROJECT_SOURCE_DIR}/src/Avelino)
 target_compile_definitions(AvelinoDateRangeToolsTests PRIVATE
     NATIVE_DATE_RANGE_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/date-range-20261018"
-    NATIVE_DATE_INPUT_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/date-range-input-20261018")
+    NATIVE_DATE_INPUT_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/date-range-input-20261018"
+    NATIVE_DATE_FONT_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/date-range-font-20261018")
 add_test(NAME date-range-calendar-components COMMAND AvelinoDateRangeToolsTests)
+set_tests_properties(date-range-calendar-components PROPERTIES ENVIRONMENT "QT_QPA_PLATFORM=offscreen;QT_QUICK_BACKEND=software")
 qt_add_executable(AvelinoHeroCarouselTests herocarousel.cpp)
 qt_add_resources(AvelinoHeroCarouselTests hero_carousel_fixtures PREFIX "/hero-carousel-tests" FILES herocarousel-fixture.qml)
 target_link_libraries(AvelinoHeroCarouselTests PRIVATE Avelino Qt6::Quick Qt6::Test)

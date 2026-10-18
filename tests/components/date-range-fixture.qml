@@ -12,6 +12,7 @@ Window {
     property string pickerStyle:"field"
     property bool disabled:false
     property bool rtl:false
+    property string localeName:"en_US"
     property real callerWidth:-1
     property var requests:[]
     property var pending:({})
@@ -30,7 +31,7 @@ Window {
         id:control
         start:window.sourceStart;end:window.sourceEnd;range:window.bounds
         width:window.callerWidth<0 ? implicitWidth:window.callerWidth
-        locale:Qt.locale("en_US");calendar:"gregorian";timeZone:"UTC"
+        locale:Qt.locale(window.localeName);calendar:"gregorian";timeZone:"UTC"
         pickerStyle:window.pickerStyle
         enabled:!window.disabled
         LayoutMirroring.enabled:window.rtl

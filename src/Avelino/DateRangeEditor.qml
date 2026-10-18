@@ -5,6 +5,7 @@ Item {
     id:editor
     required property Item field
     readonly property Item owner:field.owner
+    readonly property bool dateMirrored:owner.locale.textDirection===Qt.RightToLeft
     readonly property Item textInput:input
     readonly property Item inlineCalendarItem:inlineCalendar
     readonly property Item popupCalendarItem:popupCalendar
@@ -17,12 +18,15 @@ Item {
     Item {
         id:editorContainer;objectName:"bleeckerDateEditorContainer"
         visible:!owner.dateStyle.graphical;width:field.width;height:field.height
+        LayoutMirroring.enabled:false;LayoutMirroring.childrenInherit:true
         T.TextField {
             id:input;objectName:"bleeckerDateEditor"
+            x:editor.dateMirrored ? owner.dateStyle.stepperWidth:0
             width:editorContainer.width-owner.dateStyle.stepperWidth;height:editorContainer.height
-            padding:0;leftPadding:4;rightPadding:4;topPadding:0;bottomPadding:0
+            padding:0;leftPadding:editor.dateMirrored ? 2:3;rightPadding:editor.dateMirrored ? 3:2;topPadding:0;bottomPadding:0
             font:field.editorFont;text:{field.textRevision;return field.currentText}
             color:field.enabled ? BleeckerTheme.nativeEditorText:BleeckerTheme.nativeEditorDisabledText
+            horizontalAlignment:editor.dateMirrored ? TextInput.AlignRight:TextInput.AlignLeft
             selectionColor:"#1769db";selectedTextColor:"white";verticalAlignment:TextInput.AlignVCenter
             focusPolicy:Qt.StrongFocus;selectByMouse:false;Accessible.name:field.title
             background:Rectangle {
@@ -57,7 +61,8 @@ Item {
             }
         }
         Column {
-            x:input.width+2;y:0;width:Math.max(0,owner.dateStyle.stepperWidth-2);height:parent.height
+            objectName:"bleeckerDateStepper"
+            x:editor.dateMirrored ? 0:input.width+2;y:0;width:Math.max(0,owner.dateStyle.stepperWidth-2);height:parent.height
             visible:owner.dateStyle.stepperWidth>0
             Repeater {
                 model:2

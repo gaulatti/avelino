@@ -48,7 +48,7 @@ qt_add_qml_module(Avelino URI Avelino VERSION 0.1
     SOURCES filechooserpathinput.h filechooserpathinput.cpp filechoosersuggestions.h filechoosersuggestions.cpp
     SOURCES herocarouselbase.h herocarouselbase.cpp
     SOURCES daterangetools.h daterangetools.cpp
-    RESOURCES ${font_resources} ${brand_logo} unicode-normalization-17.json)
+    RESOURCES ${font_resources} ${brand_logo} unicode-normalization-17.json date-editor-patterns.json)
 target_link_libraries(Avelino PUBLIC Qt6::Core Qt6::Gui Qt6::Qml Qt6::Quick Qt6::QuickControls2)
 target_link_libraries(Avelino PRIVATE Qt6::QuickPrivate Qt6::QuickTemplates2Private ICU::i18n ICU::uc)
 target_include_directories(Avelino PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})

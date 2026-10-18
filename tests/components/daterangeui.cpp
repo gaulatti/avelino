@@ -48,6 +48,7 @@ private slots:
     void independentEndpointsAndExactBounds();
     void numericYearAfterDayEdit();
     void ownerRemovalWhileCommittingTypedField();
+    void localeDirectionInsideCallerLayout();
 };
 void DateRangeUiTests::fieldKeyboardOwners(){
     for(const QString policy:{"echo","ignore","delay"}){
@@ -79,7 +80,9 @@ void DateRangeUiTests::graphicalPreviewAndCommit(){
 }
 void DateRangeUiTests::overlayInputWindow(){
     Fixture f;QVERIFY(f.window&&f.picker);f.window->setProperty("pickerStyle","stepperField");
-    auto input=f.field("startInput");QVERIFY(input);click(input);
+    auto input=f.field("startInput");QVERIFY(input);
+    QRectF year;QVERIFY(QMetaObject::invokeMethod(input,"positionToRectangle",Q_RETURN_ARG(QRectF,year),Q_ARG(int,input->property("text").toString().size()-2)));
+    QTest::mouseClick(input->window(),Qt::LeftButton,Qt::NoModifier,input->mapToScene(year.center()).toPoint());
     auto field=f.field("startField");QVERIFY(field);
     auto panel=field->property("calendarPanel").value<QObject*>();QVERIFY(panel);
     QTRY_VERIFY(panel->property("visible").toBool());
@@ -167,6 +170,18 @@ void DateRangeUiTests::ownerRemovalWhileCommittingTypedField(){
         QTest::keyClick(input->window(),Qt::Key_2);QCOMPARE(f.requests(),0);
         QTest::keyClick(input->window(),ending);
         QTRY_VERIFY(picker.isNull());QCOMPARE(f.requests(),1);
+        QVERIFY2(f.warnings.isEmpty(),qPrintable(f.warnings.join('\n')));
+    }
+}
+
+void DateRangeUiTests::localeDirectionInsideCallerLayout(){
+    for(const QString locale:{"en_US","ar_EG"})for(const bool rtl:{false,true}){
+        Fixture f;QVERIFY(f.window&&f.picker);f.window->setProperty("pickerStyle","stepperField");f.window->setProperty("rtl",rtl);f.window->setProperty("localeName",locale);
+        auto input=f.field("startInput");auto stepper=visual(f.field("startField"),"bleeckerDateStepper");QVERIFY(input&&stepper);
+        const bool localRtl=locale=="ar_EG";
+        QTRY_VERIFY((input->x()>stepper->x())==localRtl);
+        QCOMPARE(input->property("horizontalAlignment").toInt(),int(localRtl?Qt::AlignRight:Qt::AlignLeft));
+        QCOMPARE(f.picker->property("mirrored").toBool(),rtl);QCOMPARE(f.requests(),0);
         QVERIFY2(f.warnings.isEmpty(),qPrintable(f.warnings.join('\n')));
     }
 }

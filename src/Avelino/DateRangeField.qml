@@ -14,9 +14,11 @@ FocusScope {
     property bool restoring:false
     readonly property string title:endpoint==="start" ? "From":"To"
     readonly property var formatted:owner.componentReady ? DateRangeTools.formatted(bufferValue,owner.locale.name,owner.calendar,owner.timeZone):({text:"",segments:[]})
-    readonly property var editable:formatted.segments.filter(item=>item.kind!=="literal")
+    readonly property var editorFormatted:owner.componentReady ? DateRangeTools.editorFormatted(bufferValue,owner.locale.name,owner.calendar,owner.timeZone):({text:"",segments:[]})
+    readonly property string typedText:selected ? DateRangeTools.editorFieldText(selected.kind,typing):typing
+    readonly property var editable:editorFormatted.segments.filter(item=>item.kind!=="literal")
     readonly property var selected:editable[Math.min(selectedSegment,Math.max(0,editable.length-1))]
-    readonly property string currentText:isTyping &&selected ? formatted.text.slice(0,selected.first)+typing+formatted.text.slice(selected.last):formatted.text
+    readonly property string currentText:isTyping &&selected ? editorFormatted.text.slice(0,selected.first)+typedText+editorFormatted.text.slice(selected.last):editorFormatted.text
     readonly property font editorFont:DateRangeTools.systemFont(owner.dateStyle.fontPixels)
     readonly property Item editor:editorLoader.item
     readonly property Item input:editor ? editor.textInput:null
@@ -26,7 +28,7 @@ FocusScope {
     readonly property var panel:editor ? editor.calendarPanel:null
     readonly property var calendarPanel:panel
     readonly property real naturalTextWidth:owner.componentReady ? DateRangeTools.fieldTextWidth(bufferValue,owner.locale.name,owner.calendar,owner.timeZone,owner.dateStyle.fontPixels):0
-    implicitWidth:owner.dateStyle.graphical ? 138.5:Math.ceil(naturalTextWidth+8)+owner.dateStyle.stepperWidth
+    implicitWidth:owner.dateStyle.graphical ? 138.5:Math.ceil(naturalTextWidth+5)+owner.dateStyle.stepperWidth
     implicitHeight:owner.dateStyle.graphical ? 148:owner.dateStyle.fieldHeight
     width:implicitWidth;height:implicitHeight
     Accessible.ignored:true
@@ -40,7 +42,7 @@ FocusScope {
     onEnabledChanged:if(!enabled&&panel)panel.close()
     function restoreSelection():void {
         if(!input||!input.activeFocus||!selected)return
-        input.select(selected.first,isTyping ? selected.first+typing.length:selected.last)
+        input.select(selected.first,isTyping ? selected.first+typedText.length:selected.last)
     }
     function request(value:real):void {
         if(!enabled)return

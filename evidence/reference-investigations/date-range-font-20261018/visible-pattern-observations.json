@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "reference": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+  "method": "Original untransformed native images reviewed at their recorded resolution; getters are not visible-text observations.",
+  "accepted": false,
+  "overrides": [
+    {
+      "locale": "ja_JP",
+      "calendar": "gregorian",
+      "shortDateFormat": "y/MM/dd",
+      "visiblePattern": "y/M/d",
+      "images": [
+        {
+          "path": "evidence/reference-investigations/date-range-20261018/output/locale-ja-jp-light-text1.0-dpr1.0-mode0.png",
+          "sha256": "80e8fd32f32f5906b42aa9332c48cf9742ede30d0457fbc41640f145f0dca9a6"
+        },
+        {
+          "path": "evidence/reference-investigations/date-range-20261018/output/calendar-japanese-light-text1.0-dpr1.0-mode0.png",
+          "sha256": "6f56fb89b1b5220a8b1cfe8a598ad8e0aa37757e6ba09c2855e52427605d36ec"
+        }
+      ],
+      "observation": "Gregorian Japanese uses figure-space-sized blank slots before one-digit months/days (2024/ 3/ 9); the separate Japanese calendar visibly retains zero-padded month/day fields (R   6/03/09). Neither the Foundation short-date getter nor the long date string getter establishes visible editor text."
+    }
+  ]
+}

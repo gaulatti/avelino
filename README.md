@@ -151,11 +151,14 @@ ignore/delay images across three source variants, exact range clamping and
 graphical preview/Space-commit differences. The owned Qt editors now run in the
 catalog and independent consumer. Eight source-absent package/gallery profiles
 match all 384 native model/displayed-date observations; complete geometry matches
-in 8, and all 384 strict raster comparisons fail. Eight virtual display profiles
-pass structural/input checks. All 17 typed caller-history steps now match model,
+in 8. All 401 strict closed/history image comparisons fail. Eight virtual display
+profiles pass structural/input checks. All 17 typed caller-history steps match model,
 editor identity, calendar and environment observations. Complete native input,
 geometry/raster, reader and physical acceptance remain pending. Desktop candidate coverage remains 76/80,
-with zero accepted APIs.
+with zero accepted APIs. The editor now has native-observed numeric slots, locale
+number formatting and locale-directed steppers; its new font/format source-only
+probe reproduces all 97 outputs exactly. Full sizing and raster acceptance remain
+open.
 
 The [desktop app tab bar candidate](docs/app-tabs.md) preserves caller-owned
 selection requests, retained typed identities, integer badges and narrow overflow.
