@@ -1,0 +1,56 @@
+{
+  "accepted": false,
+  "status": "passed",
+  "producer": "file-input-qt-v54",
+  "orcaLogSha256": "aebd86a06c27f02459a73e64f882efbaf5902374b8990736e12bb03455c82331",
+  "orcaSpeechOutputChecks": {
+    "one.txt": true,
+    "child.txt": true,
+    "No such file or directory": true,
+    "This name is already taken.": true,
+    "Created by views reader": true,
+    "Where:": true,
+    "fixtures": true
+  },
+  "orcaBackendCommandChecks": {
+    "one.txt": true,
+    "child.txt": true,
+    "No such file or directory": true,
+    "This name is already taken.": true,
+    "Created by views reader": true,
+    "Where:": true,
+    "fixtures": true
+  },
+  "logReadAfterSessionExit": true,
+  "serverUtteranceContentLogged": false,
+  "physicalAudioHeard": false,
+  "engineAudioVerification": "pending",
+  "nativeReaderComparison": "pending",
+  "nativeTimingAcceptance": "pending",
+  "additionalFocusWaitSeconds": [
+    0.05185216199606657,
+    0.06656261799798813
+  ],
+  "assistiveMultiselectionMethod": "AT-SPI Selection.selectChild",
+  "incorrectFileDisclosureSpeech": false,
+  "childrenChangedSignatureWarnings": "preserved; native hierarchy acceptance pending",
+  "nativeWaylandPopupSurfaces": 6,
+  "nativeWaylandPopupGrabs": 0,
+  "applicationSwitchDismissal": true,
+  "nativeHostFocus": {
+    "searchCommand": [
+      "xwininfo",
+      "-root",
+      "-tree"
+    ],
+    "focusCommand": [
+      "xdotool",
+      "windowfocus",
+      "--sync",
+      "0x200005"
+    ],
+    "focusedWindow": "2097157",
+    "exitCode": 0,
+    "keyEventsSent": 0
+  }
+}

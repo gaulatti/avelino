@@ -1,0 +1,76 @@
+
+(process:131): dbind-WARNING **: 01:38:44.822: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+
+location-current-menu
+location-current-preserves-selection
+
+(process:131): dbind-WARNING **: 01:38:48.300: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+
+location-ancestor-clears-selection
+
+(process:131): dbind-WARNING **: 01:38:51.716: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+
+location-menu-escape-keeps-chooser
+list-retains-column-selection
+list-accessible-disclosure
+list-cross-level-selection
+list-sort-preserves-identities
+icons-prunes-hidden-child
+
+(process:131): dbind-WARNING **: 01:39:05.449: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+
+icons-folder-open-navigates
+
+(process:131): dbind-WARNING **: 01:39:07.019: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+
+
+(process:131): dbind-WARNING **: 01:39:07.019: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+
+
+(process:131): dbind-WARNING **: 01:39:07.019: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+
+
+(process:131): dbind-WARNING **: 01:39:07.019: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+
+
+(process:131): dbind-WARNING **: 01:39:07.019: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+
+history-clears-view-selection
+
+(process:131): dbind-WARNING **: 01:39:09.191: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+
+
+(process:131): dbind-WARNING **: 01:39:09.191: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+
+
+(process:131): dbind-WARNING **: 01:39:09.191: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+
+
+(process:131): dbind-WARNING **: 01:39:09.191: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+
+
+(process:131): dbind-WARNING **: 01:39:09.191: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+
+
+(process:131): dbind-WARNING **: 01:39:09.191: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+
+list-left-collapses
+list-keyboard-selects-child
+child-owner-result
+reopen-retains-list-and-disclosure
+invalid-location-announced
+list-history-recovers-location
+nested-folder-error-announced
+list-new-folder-creates-and-navigates
+
+(process:131): dbind-WARNING **: 01:39:29.060: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+
+operator-failure
+Traceback (most recent call last):
+  File "/probe/exercise.py", line 246, in <module>
+    press_any('Where:');wait_for(lambda:present('fixtures','menu item'))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/probe/exercise.py", line 93, in wait_for
+    if time.monotonic()>end:raise AssertionError('Expected AT-SPI/Orca observation did not arrive')
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected AT-SPI/Orca observation did not arrive

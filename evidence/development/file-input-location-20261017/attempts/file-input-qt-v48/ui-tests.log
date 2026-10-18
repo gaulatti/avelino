@@ -1,0 +1,49 @@
+Internal ctest changing into directory: /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/build
+Test project /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/build
+    Start 45: file-input-owned-ui
+1/2 Test #45: file-input-owned-ui ..............***Exception: SegFault  0.05 sec
+********* Start testing of FileInputUiTests *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : FileInputUiTests::initTestCase()
+QWARN  : FileInputUiTests::actualLocationMenuSelectionHistoryRecentAndRemoval() qrc:/file-input-tests/fileinput-fixture.qml:16:13: Type BleeckerFileInput unavailable 
+                 BleeckerFileInput { 
+                 ^
+QWARN  : FileInputUiTests::actualLocationMenuSelectionHistoryRecentAndRemoval() qrc:/qt/qml/Avelino/BleeckerFileInput.qml:52:5: Type FileChooserDialog unavailable 
+         FileChooserDialog { 
+         ^
+QWARN  : FileInputUiTests::actualLocationMenuSelectionHistoryRecentAndRemoval() qrc:/qt/qml/Avelino/FileChooserDialog.qml:108:9: FileChooserLocationMenu is not a type 
+             FileChooserLocationMenu { 
+             ^
+FAIL!  : FileInputUiTests::actualLocationMenuSelectionHistoryRecentAndRemoval() 'view.status()==QQuickView::Ready' returned FALSE. (qrc:/file-input-tests/fileinput-fixture.qml:16:13: Type BleeckerFileInput unavailable)
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/tests/components/fileinput-ui.cpp(68)]
+Received signal 11 (SIGSEGV), code 1, for address 0x0000000000000000
+         actualLocationMenuSelectionHistoryRecentAndRemoval function time: 20ms, total time: 20ms
+
+    Start 46: file-input-owned-ui-dpr2
+2/2 Test #46: file-input-owned-ui-dpr2 .........***Exception: SegFault  0.04 sec
+********* Start testing of FileInputUiTests *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : FileInputUiTests::initTestCase()
+QWARN  : FileInputUiTests::actualLocationMenuSelectionHistoryRecentAndRemoval() qrc:/file-input-tests/fileinput-fixture.qml:16:13: Type BleeckerFileInput unavailable 
+                 BleeckerFileInput { 
+                 ^
+QWARN  : FileInputUiTests::actualLocationMenuSelectionHistoryRecentAndRemoval() qrc:/qt/qml/Avelino/BleeckerFileInput.qml:52:5: Type FileChooserDialog unavailable 
+         FileChooserDialog { 
+         ^
+QWARN  : FileInputUiTests::actualLocationMenuSelectionHistoryRecentAndRemoval() qrc:/qt/qml/Avelino/FileChooserDialog.qml:108:9: FileChooserLocationMenu is not a type 
+             FileChooserLocationMenu { 
+             ^
+FAIL!  : FileInputUiTests::actualLocationMenuSelectionHistoryRecentAndRemoval() 'view.status()==QQuickView::Ready' returned FALSE. (qrc:/file-input-tests/fileinput-fixture.qml:16:13: Type BleeckerFileInput unavailable)
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/tests/components/fileinput-ui.cpp(68)]
+Received signal 11 (SIGSEGV), code 1, for address 0x0000000000000000
+         actualLocationMenuSelectionHistoryRecentAndRemoval function time: 17ms, total time: 17ms
+
+
+0% tests passed, 2 tests failed out of 2
+
+Total Test time (real) =   0.11 sec
+
+The following tests FAILED:
+	 45 - file-input-owned-ui (SEGFAULT)
+	 46 - file-input-owned-ui-dpr2 (SEGFAULT)
+Errors while running CTest

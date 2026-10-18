@@ -1,0 +1,271 @@
+{
+  "accepted": false,
+  "status": "passed",
+  "profile": {
+    "platform": "xcb",
+    "renderer": "software",
+    "dark": false,
+    "textScale": 1,
+    "dpr": 1
+  },
+  "phases": [
+    {
+      "phase": "location-current-menu",
+      "time": 1792287990.8417792,
+      "observations": {
+        "selected": [
+          "one.txt"
+        ],
+        "location": "/probe/fixtures"
+      },
+      "readerLogBytes": 201859
+    },
+    {
+      "phase": "location-current-preserves-selection",
+      "time": 1792287992.45274,
+      "observations": {
+        "selected": [
+          "one.txt"
+        ],
+        "location": "/probe/fixtures"
+      },
+      "readerLogBytes": 243498
+    },
+    {
+      "phase": "location-native-keyboard-current",
+      "time": 1792287995.6612635,
+      "observations": {
+        "selected": [
+          "one.txt"
+        ],
+        "method": "AT-SPI SetFocus and native XTest Down/Up/Return"
+      },
+      "readerLogBytes": 393270
+    },
+    {
+      "phase": "location-ancestor-clears-selection",
+      "time": 1792287997.691375,
+      "observations": {
+        "selected": [],
+        "location": "/probe"
+      },
+      "readerLogBytes": 641991
+    },
+    {
+      "phase": "location-menu-escape-keeps-chooser",
+      "time": 1792288000.41288,
+      "observations": {
+        "selected": [
+          "one.txt"
+        ],
+        "location": "/probe/fixtures"
+      },
+      "readerLogBytes": 832472
+    },
+    {
+      "phase": "list-retains-column-selection",
+      "time": 1792288002.604334,
+      "observations": {
+        "selected": [
+          "one.txt"
+        ],
+        "dateAdded": "unavailable",
+        "modal": true
+      },
+      "readerLogBytes": 973592
+    },
+    {
+      "phase": "list-accessible-disclosure",
+      "time": 1792288004.1563036,
+      "observations": {
+        "expanded": true,
+        "location": "/probe/fixtures"
+      },
+      "readerLogBytes": 1072552
+    },
+    {
+      "phase": "list-cross-level-selection",
+      "time": 1792288005.9303782,
+      "observations": {
+        "selected": [
+          "child.txt",
+          "one.txt"
+        ],
+        "method": "AT-SPI Selection.selectChild"
+      },
+      "readerLogBytes": 1138675
+    },
+    {
+      "phase": "list-sort-preserves-identities",
+      "time": 1792288007.463211,
+      "observations": {
+        "selected": [
+          "child.txt",
+          "one.txt"
+        ],
+        "nameOrder": "descending"
+      },
+      "readerLogBytes": 1246210
+    },
+    {
+      "phase": "icons-prunes-hidden-child",
+      "time": 1792288009.495299,
+      "observations": {
+        "selected": [
+          "one.txt"
+        ]
+      },
+      "readerLogBytes": 1387467
+    },
+    {
+      "phase": "icons-folder-open-navigates",
+      "time": 1792288011.2831104,
+      "observations": {
+        "location": "/probe/fixtures/folder",
+        "ownerResult": false
+      },
+      "readerLogBytes": 1478759
+    },
+    {
+      "phase": "history-clears-view-selection",
+      "time": 1792288012.633711,
+      "observations": {
+        "location": "/probe/fixtures"
+      },
+      "readerLogBytes": 1545301
+    },
+    {
+      "phase": "list-left-collapses",
+      "time": 1792288015.843578,
+      "observations": {
+        "selected": [
+          "folder"
+        ]
+      },
+      "readerLogBytes": 1892674
+    },
+    {
+      "phase": "list-keyboard-selects-child",
+      "time": 1792288017.6610253,
+      "observations": {
+        "selected": [
+          "child.txt"
+        ]
+      },
+      "readerLogBytes": 2025652
+    },
+    {
+      "phase": "child-owner-result",
+      "time": 1792288019.07963,
+      "observations": {
+        "owner": "Selected URLs: file:///probe/fixtures/folder/child.txt"
+      },
+      "readerLogBytes": 2100165
+    },
+    {
+      "phase": "reopen-retains-list-and-disclosure",
+      "time": 1792288020.4854186,
+      "observations": {
+        "location": "/probe/fixtures",
+        "selected": []
+      },
+      "readerLogBytes": 2232430
+    },
+    {
+      "phase": "invalid-location-announced",
+      "time": 1792288022.3672674,
+      "observations": {
+        "location": "/probe/fixtures/missing"
+      },
+      "readerLogBytes": 2464603
+    },
+    {
+      "phase": "list-history-recovers-location",
+      "time": 1792288023.6113625,
+      "observations": {
+        "location": "/probe/fixtures"
+      },
+      "readerLogBytes": 2538884
+    },
+    {
+      "phase": "nested-folder-error-announced",
+      "time": 1792288025.8892999,
+      "observations": {
+        "modal": true
+      },
+      "readerLogBytes": 2646710
+    },
+    {
+      "phase": "list-new-folder-creates-and-navigates",
+      "time": 1792288029.276646,
+      "observations": {
+        "location": "/probe/fixtures/Created by views reader",
+        "owner": "Selected URLs: file:///probe/fixtures/folder/child.txt"
+      },
+      "readerLogBytes": 2986359
+    },
+    {
+      "phase": "location-recent-menu-after-reopen",
+      "time": 1792288030.686216,
+      "observations": {
+        "location": "/probe/fixtures/Created by views reader",
+        "matchingFolderItems": 2,
+        "owner": "Selected URLs: file:///probe/fixtures/folder/child.txt"
+      },
+      "readerLogBytes": 3060538
+    },
+    {
+      "phase": "location-recent-navigates-without-owner",
+      "time": 1792288032.1820278,
+      "observations": {
+        "location": "/probe/fixtures",
+        "owner": "Selected URLs: file:///probe/fixtures/folder/child.txt"
+      },
+      "readerLogBytes": 3184322
+    },
+    {
+      "phase": "list-history-after-creation",
+      "time": 1792288034.1469119,
+      "observations": {
+        "location": "/probe/fixtures"
+      },
+      "readerLogBytes": 3341775
+    },
+    {
+      "phase": "final-cancel-preserves-owner",
+      "time": 1792288035.4725132,
+      "observations": {
+        "owner": "Selected URLs: file:///probe/fixtures/folder/child.txt"
+      },
+      "readerLogBytes": 3416463
+    }
+  ],
+  "announcementEvents": [
+    {
+      "time": 1792288021.3379936,
+      "event": "object:announcement",
+      "detail1": 2,
+      "detail2": 0,
+      "name": "No such file or directory",
+      "role": "label",
+      "pid": 86,
+      "message": "No such file or directory"
+    },
+    {
+      "time": 1792288024.8290248,
+      "event": "object:announcement",
+      "detail1": 2,
+      "detail2": 0,
+      "name": "This name is already taken.",
+      "role": "label",
+      "pid": 86,
+      "message": "This name is already taken."
+    }
+  ],
+  "modalStateExposed": true,
+  "libraryProjectSourcesMounted": false,
+  "physicalInput": false,
+  "physicalListening": false,
+  "nativeAccessibilityAcceptance": "pending",
+  "nativeReaderComparison": "pending"
+}

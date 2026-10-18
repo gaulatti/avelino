@@ -3,11 +3,13 @@
 #include <QFile>
 #include <QPointer>
 #include <QSignalSpy>
+#include <QSettings>
 #include <QTemporaryDir>
 #include <QtTest>
 
 class BrowserTests:public QObject {
     Q_OBJECT
+    QTemporaryDir config;
     void put(const QString &path){QFile file(path);QVERIFY(file.open(QIODevice::WriteOnly));QVERIFY(file.write("Avelino owned fixture\n")>0);}
     int row(FileChooserModel *model,const QString &name){
         for(int i=0;i<model->count();++i)if(model->entry(i)["name"]==name)return i;
@@ -18,6 +20,23 @@ class BrowserTests:public QObject {
         return -1;
     }
 private slots:
+    void initTestCase(){QVERIFY(config.isValid());QSettings::setPath(QSettings::NativeFormat,QSettings::UserScope,config.path());}
+    void locationChoiceKeepsCurrentSelectionAndRecordsOnlySuccessfulLocation(){
+        QTemporaryDir root;QVERIFY(QDir().mkdir(root.filePath("Folder")));put(root.filePath("Alpha.txt"));put(root.filePath("Folder/Child.txt"));
+        QSettings settings("Avelino","FileChooser");settings.clear();settings.sync();
+        FileChooserBrowser browser;browser.setAllowedContentTypes({"text/plain"});QVERIFY(browser.open(QUrl::fromLocalFile(root.path())));
+        browser.choose(0,row(browser.modelAt(0),"Alpha.txt"));const auto selected=browser.selectedUrls();QSignalSpy result(&browser,&FileChooserBrowser::result);
+        QVERIFY(browser.chooseLocation(QUrl::fromLocalFile(root.path()+"/")));QCOMPARE(browser.selectedUrls(),selected);QVERIFY(!browser.canGoBack());
+        browser.refreshPlaces();for(const auto &value:browser.places()->entries())QVERIFY(!value.toMap()["recent"].toBool());
+        QVERIFY(browser.chooseLocation(QUrl::fromLocalFile(root.filePath("Folder"))));QVERIFY(browser.selectedUrls().isEmpty());QVERIFY(browser.canGoBack());QVERIFY(result.isEmpty());
+        browser.goBack();QVERIFY(browser.selectedUrls().isEmpty());browser.cancel();browser.refreshPlaces();
+        for(const auto &value:browser.places()->entries())QVERIFY(!value.toMap()["recent"].toBool());
+        QVERIFY(browser.open(QUrl::fromLocalFile(root.path())));browser.setViewMode("list");auto listing=browser.listing();listing->toggleExpanded(listed(listing,"Folder"));
+        listing->select(listed(listing,"Child.txt"));listing->select(listed(listing,"Alpha.txt"),Qt::ControlModifier);browser.acceptSelection();QCOMPARE(result.count(),1);
+        browser.refreshPlaces();QVariantList recent;
+        for(const auto &value:browser.places()->entries()){const auto entry=value.toMap();if(entry["recent"].toBool()&&!entry["heading"].toBool())recent.append(entry["url"]);}
+        QCOMPARE(recent,QVariantList{QUrl::fromLocalFile(root.path())});
+    }
     void columnNavigationAndSelectionAreSeparate(){
         QTemporaryDir root;QDir directory(root.path());QVERIFY(directory.mkdir("folder"));
         put(directory.filePath("one.txt"));put(directory.filePath("folder/child.txt"));put(directory.filePath("fake.png"));

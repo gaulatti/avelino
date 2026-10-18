@@ -77,6 +77,14 @@ The default Weston input-method keyboard appears when the text field receives
 focus; the whole-output capture preserves it as session evidence.
 [Weston's backend documentation](https://wayland.pages.freedesktop.org/weston/toc/running-weston.html)
 describes how its X11 backend composites Wayland surfaces into the parent output.
+The toolchain builds Weston 13.0.4 from a checksummed upstream release using
+`tools/install-weston.sh`. Ubuntu 24.04's original Weston 13.0.0 crashes in its
+desktop-shell child-focus walk when another application activates while a
+non-grabbing popup is visible. A standalone stock Qt tooltip reproduces the
+failure without loading Avelino; the same executable survives on 13.0.4. Qt
+remains pinned to 6.8.3. The compositor build provides X11, nested Wayland and
+headless backends for verification; physical display and DRM acceptance remain
+separate gates.
 Each configuration runs the base fixture, `--controls`, `--composition`,
 `--selection`, `--checkbox`, `--secure-field`, `--search-field`, `--collection-filters`, `--slider`, `--tabs`, `--pagination`, `--pagination-integers`, `--accordion`, `--presentation-states`, `--spinner`, `--alert`, `--clipping`, `--navigation`, `--sidebar-brand` and
 `--data-metrics`, `--stepper`, `--radio-group`, `--otp-input`, `--activity-item`,

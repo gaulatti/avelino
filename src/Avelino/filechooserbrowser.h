@@ -1,6 +1,7 @@
 #pragma once
 #include "filechoosermodel.h"
 #include "filechooserlisting.h"
+#include "filechooserplaces.h"
 
 class FileChooserBrowser : public QAbstractListModel {
     Q_OBJECT
@@ -11,6 +12,7 @@ class FileChooserBrowser : public QAbstractListModel {
     Q_PROPERTY(int focusedColumn READ focusedColumn NOTIFY metadataChanged)
     Q_PROPERTY(int selectionColumn READ selectionColumn NOTIFY metadataChanged)
     Q_PROPERTY(QString folderPath READ folderPath NOTIFY metadataChanged)
+    Q_PROPERTY(QString folderLabel READ folderLabel NOTIFY metadataChanged)
     Q_PROPERTY(QString error READ error NOTIFY metadataChanged)
     Q_PROPERTY(bool canAccept READ canAccept NOTIFY metadataChanged)
     Q_PROPERTY(QVariantList selectedUrls READ selectedUrls NOTIFY metadataChanged)
@@ -20,6 +22,7 @@ class FileChooserBrowser : public QAbstractListModel {
     Q_PROPERTY(QString newFolderError READ newFolderError NOTIFY newFolderErrorChanged)
     Q_PROPERTY(QString viewMode READ viewMode WRITE setViewMode NOTIFY viewModeChanged)
     Q_PROPERTY(FileChooserListing *listing READ listing CONSTANT)
+    Q_PROPERTY(FileChooserPlaces *places READ places CONSTANT)
 public:
     explicit FileChooserBrowser(QObject *parent=nullptr);
     enum Role {ModelRole=Qt::UserRole+1,BranchRole};
@@ -33,6 +36,7 @@ public:
     int focusedColumn() const{return m_focus;}
     int selectionColumn() const{return m_selection;}
     QString folderPath() const;
+    QString folderLabel() const;
     QString error() const;
     bool canAccept() const;
     QVariantList selectedUrls() const;
@@ -43,6 +47,9 @@ public:
     QString viewMode()const{return m_viewMode;}
     void setViewMode(const QString &mode);
     FileChooserListing *listing()const{return m_listing;}
+    FileChooserPlaces *places()const{return m_places;}
+    Q_INVOKABLE void refreshPlaces();
+    Q_INVOKABLE bool chooseLocation(const QUrl &url);
     Q_INVOKABLE QUrl defaultFolder() const;
     Q_INVOKABLE FileChooserModel *modelAt(int column) const;
     Q_INVOKABLE bool open(const QUrl &initialFolder);
@@ -95,6 +102,7 @@ private:
     QString m_newFolderError;
     QString m_viewMode="columns";
     FileChooserListing *m_listing;
+    FileChooserPlaces *m_places;
     QUrl m_lastFolder;
     int m_focus=-1,m_selection=-1;
     bool m_active=false,m_completing=false;

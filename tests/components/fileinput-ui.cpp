@@ -8,6 +8,7 @@
 #include <QQuickItem>
 #include <QQuickView>
 #include <QRegularExpression>
+#include <QSettings>
 #include <QTemporaryDir>
 #include <QtTest>
 
@@ -27,11 +28,17 @@ public:
 
 class FileInputUiTests:public QObject {
     Q_OBJECT
+    QTemporaryDir config;
     void put(const QString &path){QFile f(path);QVERIFY(f.open(QIODevice::WriteOnly));QVERIFY(f.write("Avelino owned UI fixture\n")>0);}
     QQuickItem *find(QQuickItem *root,const QString &name){
         if(!root)return nullptr;
         if(root->objectName()==name)return root;
         for(auto child:root->childItems())if(auto result=find(child,name))return result;
+        return nullptr;
+    }
+    QQuickItem *findVisible(const QString &name){
+        for(auto window:QGuiApplication::topLevelWindows())if(auto quick=qobject_cast<QQuickWindow*>(window);quick&&quick->isVisible())
+            if(auto item=find(quick->contentItem(),name);item&&item->isVisible())return item;
         return nullptr;
     }
     int row(FileChooserModel *model,const QString &name){
@@ -54,20 +61,75 @@ class FileInputUiTests:public QObject {
         QDir directory(AVELINO_FILE_INPUT_EVIDENCE_DIR);QVERIFY(directory.mkpath("."));
         QVERIFY(image.save(directory.filePath(name+"-dpr"+QString::number(window->devicePixelRatio())+".png")));
     }
-    void load(QQuickView &view,const QTemporaryDir &root){
+    bool load(QQuickView &view,const QTemporaryDir &root){
         view.engine()->addImportPath(AVELINO_FILE_INPUT_IMPORT_PATH);
         view.setInitialProperties({{"fixtureRoot",QUrl::fromLocalFile(root.path())}});
         view.setSource(QUrl("qrc:/file-input-tests/fileinput-fixture.qml"));
-        QVERIFY2(view.status()==QQuickView::Ready,qPrintable(view.errors().isEmpty()?QStringLiteral("FileInput fixture did not load"):view.errors().first().toString()));
-        view.show();QVERIFY(QTest::qWaitForWindowExposed(&view));
+        if(view.status()!=QQuickView::Ready){
+            const auto error=view.errors().isEmpty()?QStringLiteral("FileInput fixture did not load"):view.errors().first().toString();
+            QTest::qFail(qPrintable(error),__FILE__,__LINE__);return false;
+        }
+        view.show();return QTest::qWaitForWindowExposed(&view);
     }
 private slots:
-    void initTestCase(){QAccessible::setActive(true);}
-    void init(){QTest::failOnWarning(QRegularExpression(".*(FileInput requires|Unable to assign|should be coerced|ReferenceError|TypeError).*"));}
+    void initTestCase(){QAccessible::setActive(true);QVERIFY(config.isValid());QSettings::setPath(QSettings::NativeFormat,QSettings::UserScope,config.path());}
+    void init(){QTest::failOnWarning(QRegularExpression(".*(FileInput requires|Unable to assign|should be coerced|ReferenceError|TypeError).*"));QSettings settings("Avelino","FileChooser");settings.clear();settings.sync();}
+    void actualLocationMenuSelectionHistoryRecentAndRemoval(){
+        QTemporaryDir directory;QDir root(directory.path());QVERIFY(root.mkpath("Parent/Start"));put(root.filePath("Parent/Start/Alpha.txt"));
+        const auto start=root.filePath("Parent/Start"),parent=root.filePath("Parent");
+        QQuickView view;QVERIFY(load(view,directory));auto fixture=view.rootObject();fixture->setProperty("fixtureRoot",QUrl::fromLocalFile(start));
+        auto control=fixture->findChild<QQuickItem*>("fileInput");QVERIFY(control);auto browser=control->property("browser").value<FileChooserBrowser*>();
+        auto chooser=control->property("chooser").value<QObject*>();click(control->property("inputItem").value<QQuickItem*>());QTRY_VERIFY(chooser->property("visible").toBool());
+        auto content=chooser->property("contentItem").value<QQuickItem*>();QVERIFY(content);
+        const auto chooserWindowFlags=content->window()->flags();
+        auto chooseMenu=[&](int index,bool accessibleAction){
+            auto button=find(content,"bleeckerFileChooserLocation");QVERIFY(button);
+            auto interface=QAccessible::queryAccessibleInterface(button);QVERIFY(interface&&interface->actionInterface());
+            QCOMPARE(interface->role(),QAccessible::ButtonMenu);QCOMPARE(interface->text(QAccessible::Name),QString("Where:"));
+            QVERIFY(interface->actionInterface()->actionNames().contains(QAccessibleActionInterface::pressAction()));
+            if(accessibleAction)interface->actionInterface()->doAction(QAccessibleActionInterface::pressAction());else click(button);
+            QQuickItem *entry=nullptr;QTRY_VERIFY((entry=findVisible("bleeckerFileChooserLocation_"+QString::number(index))));
+            QVERIFY(entry->window()!=content->window());QVERIFY(QTest::qWaitForWindowExposed(entry->window()));
+            QCOMPARE(content->window()->flags(),chooserWindowFlags);
+            auto accessible=QAccessible::queryAccessibleInterface(entry);QVERIFY(accessible);QCOMPARE(accessible->role(),QAccessible::MenuItem);
+            QVERIFY(interface->state().expanded);QVERIFY(interface->state().hasPopup);
+            QAccessibleInterface *menu=nullptr;
+            for(int i=0;i<interface->childCount();++i){const auto child=interface->child(i);if(child&&child->role()==QAccessible::PopupMenu)menu=child;}
+            QVERIFY2(menu,"The opener must expose its separate-window menu in the accessible tree");
+            QCOMPARE(menu->parent(),interface);QVERIFY(interface->indexOfChild(menu)>=0);
+            bool reachable=false;
+            auto visit=[&](auto &&self,QAccessibleInterface *node)->void {
+                if(node->object()==entry)reachable=true;
+                for(int i=0;i<node->childCount();++i)if(auto child=node->child(i))self(self,child);
+            };
+            visit(visit,menu);QVERIFY(reachable);
+            capture(entry->window(),"location-menu-"+QString::number(index));
+            if(accessibleAction)accessible->actionInterface()->doAction(QAccessibleActionInterface::pressAction());else click(entry);
+            QTRY_VERIFY(!findVisible("bleeckerFileChooserLocation_"+QString::number(index)));
+        };
+        click(find(content,"bleeckerFileChooserRow0_"+QString::number(row(browser->modelAt(0),"Alpha.txt"))));
+        const auto selected=browser->selectedUrls();chooseMenu(0,true);QCOMPARE(browser->selectedUrls(),selected);QVERIFY(!browser->canGoBack());QVERIFY(results(fixture).isEmpty());
+        chooseMenu(1,false);QTRY_COMPARE(browser->folderPath(),parent);QVERIFY(browser->selectedUrls().isEmpty());QVERIFY(browser->canGoBack());QVERIFY(results(fixture).isEmpty());
+        click(find(content,"bleeckerFileChooserBack"));QTRY_COMPARE(browser->folderPath(),start);QVERIFY(browser->selectedUrls().isEmpty());
+        click(find(content,"bleeckerFileChooserLocation"));QQuickItem *first=nullptr;QTRY_VERIFY((first=findVisible("bleeckerFileChooserLocation_0")));
+        QTest::keyClick(first->window(),Qt::Key_Escape);QTRY_VERIFY(!findVisible("bleeckerFileChooserLocation_0"));QVERIFY(browser->active());
+        click(find(content,"bleeckerFileChooserLocation"));QTRY_VERIFY(findVisible("bleeckerFileChooserLocation_0"));
+        click(chooser->property("pathInput").value<QQuickItem*>());
+        QTRY_VERIFY(!findVisible("bleeckerFileChooserLocation_0"));QVERIFY(browser->active());QVERIFY(results(fixture).isEmpty());
+        click(find(content,"bleeckerFileChooserRow0_"+QString::number(row(browser->modelAt(0),"Alpha.txt"))));click(find(content,"bleeckerFileChooserOpen"));QTRY_COMPARE(results(fixture).size(),1);
+        fixture->setProperty("mounted",false);QTRY_VERIFY(!fixture->findChild<QQuickItem*>("fileInput"));fixture->setProperty("mounted",true);
+        QTRY_VERIFY((control=fixture->findChild<QQuickItem*>("fileInput")));browser=control->property("browser").value<FileChooserBrowser*>();chooser=control->property("chooser").value<QObject*>();
+        click(control->property("inputItem").value<QQuickItem*>());QTRY_VERIFY(chooser->property("visible").toBool());content=chooser->property("contentItem").value<QQuickItem*>();
+        browser->refreshPlaces();int recent=-1;const auto entries=browser->places()->entries();
+        for(int i=0;i<entries.size();++i){const auto value=entries[i].toMap();if(value["recent"].toBool()&&value["url"].toUrl()==QUrl::fromLocalFile(start)){recent=i;break;}}
+        QVERIFY(recent>=0);chooseMenu(recent,false);QCOMPARE(results(fixture).size(),1);QVERIFY(browser->selectedUrls().isEmpty());
+        click(find(content,"bleeckerFileChooserLocation"));QTRY_VERIFY(findVisible("bleeckerFileChooserLocation_0"));
+        fixture->setProperty("mounted",false);QTRY_VERIFY(!findVisible("bleeckerFileChooserLocation_0"));QVERIFY(!fixture->findChild<QQuickItem*>("fileInput"));
+    }
     void actualViewMenuListDisclosureAndIconsNavigation(){
         QTemporaryDir directory;QDir root(directory.path());QVERIFY(root.mkdir("Folder"));
         put(root.filePath("Alpha.txt"));put(root.filePath("Bravo.txt"));put(root.filePath("Folder/Child.txt"));put(root.filePath("blocked.png"));
-        QQuickView view;load(view,directory);auto fixture=view.rootObject();auto control=fixture->findChild<QQuickItem*>("fileInput");QVERIFY(control);
+        QQuickView view;QVERIFY(load(view,directory));auto fixture=view.rootObject();auto control=fixture->findChild<QQuickItem*>("fileInput");QVERIFY(control);
         auto browser=control->property("browser").value<FileChooserBrowser*>();auto chooser=control->property("chooser").value<QObject*>();
         click(control->property("inputItem").value<QQuickItem*>());QTRY_VERIFY(chooser->property("visible").toBool());
         auto content=chooser->property("contentItem").value<QQuickItem*>();QTRY_VERIFY(content&&content->window());
@@ -147,7 +209,7 @@ private slots:
     }
     void removingListOwnerDuringAccessibleAccept(){
         QTemporaryDir directory;QDir root(directory.path());QVERIFY(root.mkdir("Folder"));put(root.filePath("Folder/Child.txt"));
-        QQuickView view;load(view,directory);auto fixture=view.rootObject();fixture->setProperty("removeOnResult",true);
+        QQuickView view;QVERIFY(load(view,directory));auto fixture=view.rootObject();fixture->setProperty("removeOnResult",true);
         auto control=fixture->findChild<QQuickItem*>("fileInput");QVERIFY(control);
         QPointer<FileChooserBrowser> browser=control->property("browser").value<FileChooserBrowser*>();
         QPointer<QObject> chooser=control->property("chooser").value<QObject*>();QPointer<FileChooserListing> listing=browser->listing();
@@ -167,7 +229,7 @@ private slots:
     }
     void actualClicksMultiSelectionCancelAndReopen(){
         QTemporaryDir directory;QDir root(directory.path());put(root.filePath("a.txt"));put(root.filePath("b.txt"));put(root.filePath("photo.png"));
-        QQuickView view;load(view,directory);auto fixture=view.rootObject();QVERIFY(fixture);
+        QQuickView view;QVERIFY(load(view,directory));auto fixture=view.rootObject();QVERIFY(fixture);
         fixture->setProperty("types",QVariantList{QStringLiteral("text/plain")});
         auto control=fixture->findChild<QQuickItem*>("fileInput");QVERIFY(control);
         auto browser=control->property("browser").value<FileChooserBrowser*>();QVERIFY(browser);
@@ -197,7 +259,7 @@ private slots:
     }
     void actualColumnNavigationAndCallbackRemoval(){
         QTemporaryDir directory;QDir root(directory.path());QVERIFY(root.mkdir("folder"));put(root.filePath("folder/child.txt"));
-        QQuickView view;load(view,directory);auto fixture=view.rootObject();fixture->setProperty("removeOnResult",true);
+        QQuickView view;QVERIFY(load(view,directory));auto fixture=view.rootObject();fixture->setProperty("removeOnResult",true);
         auto control=fixture->findChild<QQuickItem*>("fileInput");QVERIFY(control);
         QPointer<FileChooserBrowser> browser=control->property("browser").value<FileChooserBrowser*>();QVERIFY(browser);
         QPointer<QObject> chooser=control->property("chooser").value<QObject*>();
@@ -215,7 +277,7 @@ private slots:
     }
     void accessibleRowsSelectThroughTheChooser(){
         QTemporaryDir directory;QDir root(directory.path());put(root.filePath("one.txt"));put(root.filePath("photo.png"));
-        QQuickView view;load(view,directory);auto fixture=view.rootObject();auto control=fixture->findChild<QQuickItem*>("fileInput");QVERIFY(control);
+        QQuickView view;QVERIFY(load(view,directory));auto fixture=view.rootObject();auto control=fixture->findChild<QQuickItem*>("fileInput");QVERIFY(control);
         auto browser=control->property("browser").value<FileChooserBrowser*>();auto chooser=control->property("chooser").value<QObject*>();
         click(control->property("inputItem").value<QQuickItem*>());QTRY_VERIFY(browser->active());
         auto content=chooser->property("contentItem").value<QQuickItem*>();QTRY_VERIFY(content&&content->window());
@@ -238,7 +300,7 @@ private slots:
     void actualLocationErrorRecoveryAndKeyboardAccept(){
         FileInputAnnouncementCapture announcements;
         QTemporaryDir directory;QDir root(directory.path());put(root.filePath("one.txt"));
-        QQuickView view;load(view,directory);auto fixture=view.rootObject();auto control=fixture->findChild<QQuickItem*>("fileInput");QVERIFY(control);
+        QQuickView view;QVERIFY(load(view,directory));auto fixture=view.rootObject();auto control=fixture->findChild<QQuickItem*>("fileInput");QVERIFY(control);
         auto browser=control->property("browser").value<FileChooserBrowser*>();auto chooser=control->property("chooser").value<QObject*>();
         click(control->property("inputItem").value<QQuickItem*>());QTRY_VERIFY(browser->active());
         auto content=chooser->property("contentItem").value<QQuickItem*>();QTRY_VERIFY(content&&content->window());
@@ -265,7 +327,7 @@ private slots:
     }
     void initialLocationErrorAndClosedAnnouncement(){
         FileInputAnnouncementCapture announcements;QTemporaryDir directory;
-        QQuickView view;load(view,directory);auto fixture=view.rootObject();
+        QQuickView view;QVERIFY(load(view,directory));auto fixture=view.rootObject();
         const auto missing=QUrl::fromLocalFile(directory.path()+"/missing");fixture->setProperty("fixtureRoot",missing);
         auto control=fixture->findChild<QQuickItem*>("fileInput");QVERIFY(control);
         auto browser=control->property("browser").value<FileChooserBrowser*>();QVERIFY(browser);
@@ -280,7 +342,7 @@ private slots:
     }
     void actualNewFolderValidationNestedEscapeAndHistory(){
         QTemporaryDir directory;QDir root(directory.path());QVERIFY(root.mkdir("untitled folder"));put(root.filePath("one.txt"));
-        QQuickView view;load(view,directory);auto fixture=view.rootObject();auto control=fixture->findChild<QQuickItem*>("fileInput");QVERIFY(control);
+        QQuickView view;QVERIFY(load(view,directory));auto fixture=view.rootObject();auto control=fixture->findChild<QQuickItem*>("fileInput");QVERIFY(control);
         auto browser=control->property("browser").value<FileChooserBrowser*>();auto chooser=control->property("chooser").value<QObject*>();
         click(control->property("inputItem").value<QQuickItem*>());QTRY_VERIFY(browser->active());
         auto content=chooser->property("contentItem").value<QQuickItem*>();QTRY_VERIFY(content&&content->window());
@@ -311,7 +373,7 @@ private slots:
         click(find(content,"bleeckerFileChooserCancel"));QTRY_VERIFY(!browser->active());QVERIFY(results(fixture).isEmpty());
     }
     void removingOwnerClosesNestedFolderPrompt(){
-        QTemporaryDir directory;QQuickView view;load(view,directory);auto fixture=view.rootObject();auto control=fixture->findChild<QQuickItem*>("fileInput");QVERIFY(control);
+        QTemporaryDir directory;QQuickView view;QVERIFY(load(view,directory));auto fixture=view.rootObject();auto control=fixture->findChild<QQuickItem*>("fileInput");QVERIFY(control);
         QPointer<FileChooserBrowser> browser=control->property("browser").value<FileChooserBrowser*>();
         QPointer<QObject> chooser=control->property("chooser").value<QObject*>();
         click(control->property("inputItem").value<QQuickItem*>());QTRY_VERIFY(browser->active());
@@ -324,7 +386,7 @@ private slots:
     void actualBackClearsSelectionAndStartsFreshShiftRange(){
         QTemporaryDir directory;QDir root(directory.path());QVERIFY(root.mkdir("folder"));
         for(const auto &name:{"a.txt","b.txt","c.txt"})put(root.filePath(name));
-        QQuickView view;load(view,directory);auto fixture=view.rootObject();auto control=fixture->findChild<QQuickItem*>("fileInput");QVERIFY(control);
+        QQuickView view;QVERIFY(load(view,directory));auto fixture=view.rootObject();auto control=fixture->findChild<QQuickItem*>("fileInput");QVERIFY(control);
         auto browser=control->property("browser").value<FileChooserBrowser*>();auto chooser=control->property("chooser").value<QObject*>();
         click(control->property("inputItem").value<QQuickItem*>());QTRY_VERIFY(browser->active());
         auto content=chooser->property("contentItem").value<QQuickItem*>();QTRY_VERIFY(content&&content->window());
@@ -340,7 +402,7 @@ private slots:
         capture(content->window(),"history-cleared-then-shift-range");
     }
     void directoryFilterKeepsReturnInsideNewFolderPrompt(){
-        QTemporaryDir directory;QQuickView view;load(view,directory);auto fixture=view.rootObject();fixture->setProperty("types",QVariantList{QStringLiteral("inode/directory")});
+        QTemporaryDir directory;QQuickView view;QVERIFY(load(view,directory));auto fixture=view.rootObject();fixture->setProperty("types",QVariantList{QStringLiteral("inode/directory")});
         auto control=fixture->findChild<QQuickItem*>("fileInput");QVERIFY(control);auto browser=control->property("browser").value<FileChooserBrowser*>();auto chooser=control->property("chooser").value<QObject*>();
         click(control->property("inputItem").value<QQuickItem*>());QTRY_VERIFY(browser->active());QVERIFY(browser->canAccept());
         auto content=chooser->property("contentItem").value<QQuickItem*>();QTRY_VERIFY(content&&content->window());
@@ -355,7 +417,7 @@ private slots:
     }
     void typedCustomEmptyAndMixedFiltersReachActualControls(){
         QTemporaryDir directory;QDir root(directory.path());put(root.filePath("one.txt"));QVERIFY(root.mkdir("folder"));
-        QQuickView view;load(view,directory);auto fixture=view.rootObject();
+        QQuickView view;QVERIFY(load(view,directory));auto fixture=view.rootObject();
         fixture->setProperty("types",QVariantList{QVariantMap{{"identifier",QStringLiteral("org.avelino.fixture")},{"filenameExtensions",QVariantList{}}}});
         auto control=fixture->findChild<QQuickItem*>("fileInput");QVERIFY(control);
         auto browser=control->property("browser").value<FileChooserBrowser*>();auto chooser=control->property("chooser").value<QObject*>();

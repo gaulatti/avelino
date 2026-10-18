@@ -1,7 +1,7 @@
 import QtQuick
 import QtQuick.Templates as T
 
-T.Button {
+FileChooserButtonBase {
     id:button
     property bool accent:false
     property bool dark:BleeckerTheme.dark

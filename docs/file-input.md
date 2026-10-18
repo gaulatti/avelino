@@ -213,3 +213,11 @@ missing-resource startup failure is preserved. This supplement does not establis
 an independent source rebuild, native artwork, reader or physical acceptance.
 Run `python3 scripts/verify-file-input-location-policy.py` to audit its bounded
 observations, capture provenance and exact callback URLs.
+
+The [owned Linux location checkpoint](../evidence/development/file-input-location-20261017/validation.json)
+adds the Where menu and shared ten-folder Recent Places store. Current-folder
+choice preserves selection/history; ancestor/recent navigation clears selection
+without submitting. Its Qt, independent installed-consumer, virtual-display and
+AT-SPI/Orca evidence is scoped in [the Linux implementation notes](file-input-linux.md).
+FileInput and strict native parity remain pending, including the separate Go to
+Folder presentation and its path-selected file rules.

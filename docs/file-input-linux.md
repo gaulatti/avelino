@@ -263,7 +263,7 @@ The observed order survives a fresh same-bundle process. The later
 records a ten-folder pool shared by two distinct consumer bundle identifiers.
 Cross-directory file acceptance and selected-directory acceptance record the
 visible folder. A directory chooser can also accept that folder without a selected
-row. Linux integration of the location menu and shared persistence is in progress.
+row. Linux locations have the scoped implementation described below.
 The native Go to Folder sheet has its own path field and suggestions. Its missing-
 path Escape preserves the underlying selected file. The current always-visible
 Linux path field does not establish equivalence to that nested presentation, and
@@ -276,9 +276,54 @@ text-only configuration while ordinary selection of the same row is disabled;
 other type arrays, relative-input resolution and suggestion timing remain pending.
 The inline directory field does not implement those native path-selection rules.
 
-The complete native panel also has a sidebar, location menu, search, selection
-preview and group/sort controls. These remain missing from the Linux
+The [owned location checkpoint](../evidence/development/file-input-location-20261017/validation.json)
+adds a Where menu with the current folder, its ancestors and Recent
+Places in a separate menu window. Choosing the current folder preserves file
+selection and history. Ancestor/recent navigation clears selection and enters
+Back/Forward history without calling the owner. Escape closes only this menu;
+removing the input owner also removes its menu. The opener exposes the visible
+menu as its accessible child, with the corresponding parent relationship,
+expanded state, item actions and focus. This relationship is scoped to the owned
+chooser classes rather than changing unrelated Qt controls.
+
+Recent Places uses the per-user `Avelino/FileChooser` QSettings store, shared by
+Avelino consumers. On Linux this follows XDG configuration paths; the default is
+`~/.config/Avelino/FileChooser.conf`. Successful acceptance promotes the visible
+folder, removes duplicates and retains ten entries. Browsing, cancellation and
+history navigation do not update the pool. A separate short-lived lock covers
+the read/promote/write transaction, in addition to QSettings' own atomic-write
+lock. Invalid or unsupported settings remain intact and produce a visible menu
+error; missing saved folders remain visible but disabled. Native equivalence for
+unavailable mounts, symlink identity and storage errors is still pending.
+
+The pinned Qt 6.8.3 Wayland implementation requires a native input serial when
+opening a grabbing popup. Assistive actions provide no new serial: the earlier
+runs show an unanchored first window and a later grab dismissed by the compositor.
+The owned adapter uses Qt's non-grabbing `xdg_popup` surface path, then restores
+the logical Popup window type and Qt's popup stack for keyboard and pointer
+routing. It explicitly focuses an enabled menu item and closes the menu when
+the application becomes inactive. The window guard only applies to the menu's
+own popup window. These private Qt interfaces are version-asserted; revalidate
+them before upgrading Qt. The [pinned shell implementation](https://raw.githubusercontent.com/qt/qtwayland/v6.8.3/src/plugins/shellintegration/xdg-shell/qwaylandxdgshell.cpp)
+and [Qt popup input routing](https://raw.githubusercontent.com/qt/qtbase/v6.8.3/src/gui/kernel/qguiapplication.cpp)
+explain the distinction between surface grabs and logical popup input delivery.
+
+The focused Qt tests cover the actual menu controls, selection/history, recent
+reload after remount, owner removal and outside clicks. Backend tests separately
+exercise fresh processes, concurrent writers, ten-entry promotion and invalid
+settings preservation. Installed-consumer checks use a fresh independent consumer
+build, with its source bytes checked before reuse against later library builds.
+Virtual display profiles and reader transport are recorded separately. The
+Wayland reader test explicitly focuses the X11 host of the nested compositor;
+Xvfb PointerRoot is not a valid destination for its XTest keys. Reader child exits,
+raw ChildrenChanged signature warnings and failed attempts remain diagnostic
+evidence. Physical input/display, native reader hierarchy and speech-engine audio
+acceptance remain pending.
+
+The complete native panel also has a sidebar, search, selection preview and
+group/sort controls. These remain missing from the Linux
 implementation. Its path field and columns must not be reported as the
-complete native presentation. Direct two-axis sizing, type conformance, source input and
+complete native presentation. Location-menu artwork, the separate Go to Folder
+sheet and its path-selected file rules also remain pending. Direct two-axis sizing, type conformance, source input and
 callback timing, strict raster, physical display/input and independent-machine
 acceptance also remain pending.

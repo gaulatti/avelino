@@ -105,8 +105,12 @@ FileChooserDialogBase {
                 ViewOption {mode:"columns"}
             }
         }
+        FileChooserLocationMenu {
+            id:location;browser:dialog.browser;x:218;y:38
+            width:Math.min(190,Math.max(76,(parent.width-238)*0.42));implicitWidth:190
+        }
         T.TextField {
-            id:path;objectName:"bleeckerFileChooserPath";x:218;y:38;width:Math.max(0,parent.width-238);height:24
+            id:path;objectName:"bleeckerFileChooserPath";x:location.x+location.width+8;y:38;width:Math.max(0,parent.width-x-20);height:24
             leftPadding:8;rightPadding:8;topPadding:0;bottomPadding:0
             text:dialog.browser.folderPath;selectByMouse:true;clip:true
             color:dialog.ink;selectionColor:"#0063e1";selectedTextColor:"white"

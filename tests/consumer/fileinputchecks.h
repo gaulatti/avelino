@@ -214,6 +214,46 @@ static void runFileInputConsumer(QQuickWindow *window,QGuiApplication &app,const
     if(!open()||!check(browser()->property("viewMode").toString()=="list"&&browser()->property("selectedUrls").toList().isEmpty()
         &&!browser()->property("canGoBack").toBool(),"Reopened List did not clear selection/history")||!click(findVisualItem(content(),"bleeckerFileChooserCancel")))return;
     record("view-retained-cancel");
+    // The location menu is a separate owned popup window. Exercise its actual
+    // items through the installed module, including a newly mounted consumer.
+    auto visibleLocationEntry=[&](int index)->QQuickItem*{
+        const auto name="bleeckerFileChooserLocation_"+QString::number(index);
+        for(auto candidate:QGuiApplication::topLevelWindows())if(auto quick=qobject_cast<QQuickWindow*>(candidate);quick&&quick->isVisible())
+            if(auto item=findVisualItem(quick->contentItem(),name);item&&item->isVisible())return item;
+        return nullptr;
+    };
+    auto openLocations=[&]{
+        if(!click(findVisualItem(content(),"bleeckerFileChooserLocation")))return false;
+        QElapsedTimer timer;timer.start();while(timer.elapsed()<5000&&!visibleLocationEntry(0))QTest::qWait(10);
+        const auto entry=visibleLocationEntry(0);
+        return check(entry&&entry->window()&&QTest::qWaitForWindowExposed(entry->window(),5000)&&popupReady(entry->window()),"Location menu did not become exposed and stable");
+    };
+    auto placeEntries=[&]{auto places=browser()->property("places").value<QObject*>();return places?places->property("entries").toList():QVariantList{};};
+    if(!configure(standard,QJsonArray{"text/plain"})||!open()||!selectRow(0,"folder")||!selectRow(1,"child.txt"))return;
+    const auto selectedBeforeLocation=browser()->property("selectedUrls").toList();
+    if(!openLocations()||!save(visibleLocationEntry(0)->window(),"location-current-menu")||!click(visibleLocationEntry(0))
+        ||!check(browser()->property("selectedUrls").toList()==selectedBeforeLocation&&state()["results"].toArray().isEmpty(),"Current location changed file selection or called the owner"))return;
+    record("location-current-keeps-selection");
+    if(!openLocations()||!click(visibleLocationEntry(1))||!check(browser()->property("folderPath").toString()==root.path()
+        &&browser()->property("selectedUrls").toList().isEmpty()&&state()["results"].toArray().isEmpty(),"Ancestor did not navigate with cleared selection")
+        ||!click(findVisualItem(content(),"bleeckerFileChooserBack"))||!check(browser()->property("folderPath").toString()==directory.filePath("folder"),"Ancestor navigation did not enter history"))return;
+    record("location-ancestor-clears-selection");
+    if(!openLocations())return;QTest::keyClick(visibleLocationEntry(0)->window(),Qt::Key_Escape);++keys;QTest::qWait(40);
+    if(!check(browser()->property("active").toBool()&&!visibleLocationEntry(0),"Location menu Escape closed the chooser or left the menu visible")||!openLocations())return;
+    int recentRoot=-1;const auto placesBeforeNavigation=placeEntries();
+    for(int i=0;i<placesBeforeNavigation.size();++i){const auto entry=placesBeforeNavigation[i].toMap();if(entry["recent"].toBool()&&entry["url"].toUrl()==QUrl::fromLocalFile(root.path())){recentRoot=i;break;}}
+    if(!check(recentRoot>=0,"Successful containing folder missing from shared recent places")||!click(visibleLocationEntry(recentRoot))
+        ||!check(browser()->property("folderPath").toString()==root.path()&&state()["results"].toArray().isEmpty(),"Recent-place navigation submitted an owner result"))return;
+    record("location-recent-does-not-submit");
+    if(!selectRow(0,"one.txt")||!click(findVisualItem(content(),"bleeckerFileChooserOpen"))||!check(state()["results"].toArray().size()==1,"Location flow acceptance failed"))return;
+    fixture()->setProperty("mounted",false);if(!check(waitForShapeFrame(window),"Unmounted location consumer did not settle"))return;
+    fixture()->setProperty("mounted",true);if(!check(waitForShapeFrame(window)&&control(),"New location consumer did not mount")||!open()||!openLocations())return;
+    const auto persistedPlaces=placeEntries();QUrl firstRecent;
+    for(const auto &value:persistedPlaces){const auto entry=value.toMap();if(entry["recent"].toBool()&&!entry["heading"].toBool()){firstRecent=entry["url"].toUrl();break;}}
+    if(!check(firstRecent==QUrl::fromLocalFile(root.path()),"Fresh consumer did not load the last successful location")||!save(visibleLocationEntry(0)->window(),"location-recent-persisted"))return;
+    QTest::keyClick(visibleLocationEntry(0)->window(),Qt::Key_Escape);++keys;QTest::qWait(40);
+    if(!click(findVisualItem(content(),"bleeckerFileChooserCancel"))||!check(state()["results"].toArray().size()==1,"Location cancellation changed the owner"))return;
+    record("location-history-owner-and-cancel");
     if(!configure(standard,QJsonArray{"text/plain"})||!open()||!selectRow(0,"folder")||!check(browser()->property("count").toInt()==2&&!browser()->property("canAccept").toBool(),"Directory navigation selected an ineligible directory")||!selectRow(1,"child.txt"))return;
     if(!save(content()->window(),"directory-columns"))return;
     record("child-selected");
@@ -224,7 +264,7 @@ static void runFileInputConsumer(QQuickWindow *window,QGuiApplication &app,const
     QJsonObject report{{"accepted",false},{"reference",native["reference"]},{"fixture","file-input"},{"qt",qVersion()},{"platform",QGuiApplication::platformName()},
         {"graphicsApi",int(window->rendererInterface()->graphicsApi())},{"width",window->width()},{"height",window->height()},
         {"popupCaptureMethod","QQuickItem::grabToImage of the entire popup window content item at native DPR; no cropping or resizing"},
-        {"structuralChecks","passed"},{"images",42},{"closedImages",32},{"popupImages",9},{"ownerResultImages",1},
+        {"structuralChecks","passed"},{"images",44},{"closedImages",32},{"popupImages",11},{"ownerResultImages",1},
         {"appearance",parser.isSet("dark")?"dark":"light"},{"textScale",textScale},{"dpr",window->devicePixelRatio()},
         {"closed",closed},{"sizing",sizing},{"nativeCompleteFramesMatch",frames},{"nativeContractStatesMatch",states},
         {"applicationActive",QGuiApplication::applicationState()==Qt::ApplicationActive},{"windowActive",window->isActive()},

@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.21)
+project(StockTooltip LANGUAGES CXX)
+find_package(Qt6 6.8.3 EXACT REQUIRED COMPONENTS Widgets)
+add_executable(StockTooltip main.cpp)
+target_link_libraries(StockTooltip PRIVATE Qt6::Widgets)

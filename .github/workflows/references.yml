@@ -70,6 +70,7 @@ jobs:
       - run: python3 scripts/verify-file-input-announcements.py
       - run: python3 scripts/verify-file-input-navigation.py
       - run: python3 scripts/verify-file-input-views-linux.py
+      - run: python3 scripts/verify-file-input-location-linux.py
       - run: python3 scripts/verify-dropdown-menu-supplement.py
       - run: python3 scripts/generate-dropdown-menu-witnesses.py --check
       - run: python3 scripts/verify-dropdown-menu-candidate.py

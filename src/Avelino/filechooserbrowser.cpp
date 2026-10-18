@@ -11,9 +11,11 @@
 #include <cstring>
 #include <sys/stat.h>
 
-FileChooserBrowser::FileChooserBrowser(QObject *parent):QAbstractListModel(parent),m_listing(new FileChooserListing(this)){
+FileChooserBrowser::FileChooserBrowser(QObject *parent):QAbstractListModel(parent),m_listing(new FileChooserListing(this)),m_places(new FileChooserPlaces(this)){
     connect(this,&FileChooserBrowser::metadataChanged,this,[this]{
         m_listing->setRoot(m_active&&m_viewMode!="columns"?modelAt(count()-1):nullptr);
+        const auto folder=m_active?folderPath():QString();
+        if(folder!=m_places->currentFolder())m_places->refresh(folder);
     });
     connect(m_listing,&FileChooserListing::changed,this,&FileChooserBrowser::metadataChanged);
     connect(m_listing,&FileChooserListing::navigateRequested,this,[this](const QUrl &url){navigatePath(url.toLocalFile());});
@@ -21,8 +23,19 @@ FileChooserBrowser::FileChooserBrowser(QObject *parent):QAbstractListModel(paren
 }
 void FileChooserBrowser::completeResult(const QVariantMap &value){
     if(!m_active||m_completing)return;
-    m_completing=true;QPointer<FileChooserBrowser> guard(this);emit result(value);
+    m_completing=true;QPointer<FileChooserBrowser> guard(this);
+    // Native Recent Places records the visible chooser location, including
+    // results spanning List levels or a directory selected without navigation.
+    if(value["kind"]=="success")m_places->rememberAcceptedFolder(folderPath());
+    if(!guard)return;emit result(value);
     if(!guard)return;m_completing=false;cancel();
+}
+void FileChooserBrowser::refreshPlaces(){m_places->refresh(m_active?folderPath():QString());}
+bool FileChooserBrowser::chooseLocation(const QUrl &url){
+    if(!m_active||!url.isValid()||!url.isLocalFile()||url.hasQuery()||url.hasFragment()||!QDir::isAbsolutePath(url.toLocalFile()))return false;
+    const auto path=QDir::cleanPath(url.toLocalFile());
+    if(path==QDir::cleanPath(folderPath())&&error().isEmpty()){emit focusRequested(m_focus);return true;}
+    return navigatePath(path);
 }
 void FileChooserBrowser::setViewMode(const QString &mode){
     if(mode==m_viewMode)return;
@@ -65,6 +78,10 @@ void FileChooserBrowser::setAllowedContentTypes(const QVariantList &value){
 }
 QString FileChooserBrowser::folderPath() const {
     return m_columns.isEmpty()?QString():m_columns.last().model->folderPath();
+}
+QString FileChooserBrowser::folderLabel() const {
+    const auto entries=m_places->entries();
+    return m_active&&!entries.isEmpty()&&!entries.first().toMap()["heading"].toBool()?entries.first().toMap()["label"].toString():QString();
 }
 QString FileChooserBrowser::error() const {
     if(!m_typeError.isEmpty())return m_typeError;

@@ -1,0 +1,1186 @@
+[1900128.087]  -> wl_display@1.get_registry(new id wl_registry@2)
+[1900128.333]  -> wl_display@1.sync(new id wl_callback@3)
+[1900131.181] wl_display@1.delete_id(3)
+[1900131.270] wl_registry@2.global(1, "wl_compositor", 5)
+[1900131.356]  -> wl_registry@2.bind(1, "wl_compositor", 5, new id [unknown]@4)
+[1900131.448] wl_registry@2.global(2, "wl_subcompositor", 1)
+[1900131.528]  -> wl_registry@2.bind(2, "wl_subcompositor", 1, new id [unknown]@5)
+[1900131.596] wl_registry@2.global(3, "wp_viewporter", 1)
+[1900131.663]  -> wl_registry@2.bind(3, "wp_viewporter", 1, new id [unknown]@6)
+[1900131.725] wl_registry@2.global(4, "zxdg_output_manager_v1", 2)
+[1900131.793]  -> wl_registry@2.bind(4, "zxdg_output_manager_v1", 2, new id [unknown]@7)
+[1900131.858] wl_registry@2.global(5, "wp_presentation", 1)
+[1900131.914] wl_registry@2.global(6, "wp_single_pixel_buffer_manager_v1", 1)
+[1900131.979] wl_registry@2.global(7, "wp_tearing_control_manager_v1", 1)
+[1900132.068] wl_registry@2.global(8, "zwp_relative_pointer_manager_v1", 1)
+[1900132.145] wl_registry@2.global(9, "zwp_pointer_constraints_v1", 1)
+[1900132.206] wl_registry@2.global(10, "zwp_input_timestamps_manager_v1", 1)
+[1900132.273] wl_registry@2.global(11, "weston_capture_v1", 1)
+[1900132.338] wl_registry@2.global(12, "wl_data_device_manager", 3)
+[1900132.402]  -> wl_registry@2.bind(12, "wl_data_device_manager", 3, new id [unknown]@8)
+[1900132.466] wl_registry@2.global(13, "wl_shm", 1)
+[1900132.544]  -> wl_registry@2.bind(13, "wl_shm", 1, new id [unknown]@9)
+[1900132.602] wl_registry@2.global(14, "wl_seat", 7)
+[1900132.666]  -> wl_registry@2.bind(14, "wl_seat", 7, new id [unknown]@10)
+[1900132.738]  -> wl_data_device_manager@8.get_data_device(new id wl_data_device@11, wl_seat@10)
+[1900132.796] wl_registry@2.global(15, "wl_output", 4)
+[1900132.852]  -> wl_registry@2.bind(15, "wl_output", 3, new id [unknown]@12)
+[1900132.910]  -> zxdg_output_manager_v1@7.get_xdg_output(new id zxdg_output_v1@13, wl_output@12)
+[1900132.973] wl_registry@2.global(16, "zwp_input_panel_v1", 1)
+[1900133.040] wl_registry@2.global(17, "zwp_input_method_v1", 1)
+[1900133.096] wl_registry@2.global(18, "zwp_text_input_manager_v1", 1)
+[1900133.149]  -> wl_registry@2.bind(18, "zwp_text_input_manager_v1", 1, new id [unknown]@14)
+[1900133.202]  -> zwp_text_input_manager_v1@14.create_text_input(new id zwp_text_input_v1@15)
+[1900133.284] wl_registry@2.global(19, "xdg_wm_base", 5)
+[1900133.339] wl_registry@2.global(20, "weston_desktop_shell", 1)
+[1900133.406] wl_callback@3.done(1)
+[1900133.460]  -> wl_display@1.sync(new id wl_callback@3)
+[1900137.427] wl_display@1.delete_id(3)
+[1900137.507] wl_shm@9.format(0)
+[1900137.573] wl_shm@9.format(1)
+[1900137.641] wl_shm@9.format(909199186)
+[1900137.702] wl_shm@9.format(875709016)
+[1900137.757] wl_shm@9.format(875708993)
+[1900137.826] wl_shm@9.format(875714642)
+[1900137.885] wl_shm@9.format(875708754)
+[1900137.949] wl_shm@9.format(875714626)
+[1900138.005] wl_shm@9.format(875708738)
+[1900138.073] wl_shm@9.format(808669784)
+[1900138.130] wl_shm@9.format(808669761)
+[1900138.193] wl_shm@9.format(808665688)
+[1900138.251] wl_shm@9.format(808665665)
+[1900138.322] wl_seat@10.capabilities(3)
+[1900138.390]  -> wl_seat@10.get_keyboard(new id wl_keyboard@16)
+[1900138.460]  -> wl_seat@10.get_pointer(new id wl_pointer@17)
+[1900138.531] wl_seat@10.name("default")
+[1900138.599] wl_output@12.geometry(0, 0, 609, 457, 0, "weston-X11", "none", 0)
+[1900138.668] wl_output@12.scale(1)
+[1900138.747] wl_output@12.mode(3, 2400, 1800, 60000)
+[1900138.815] wl_output@12.done()
+[1900138.889] zxdg_output_v1@13.logical_position(0, 0)
+[1900138.978] zxdg_output_v1@13.logical_size(2400, 1800)
+[1900139.049] zxdg_output_v1@13.name("screen0")
+[1900139.106] zxdg_output_v1@13.done()
+[1900139.201] wl_callback@3.done(1)
+[1900140.029]  -> wl_registry@2.bind(19, "xdg_wm_base", 5, new id [unknown]@3)
+[1900205.455]  -> wl_display@1.get_registry(new id wl_registry@18)
+[1900206.565]  -> wl_display@1.sync(new id wl_callback@19)
+[1900212.511] wl_display@1.delete_id(19)
+[1900212.632] wl_registry@18.global(1, "wl_compositor", 5)
+[1900212.733] wl_registry@18.global(2, "wl_subcompositor", 1)
+[1900212.844] wl_registry@18.global(3, "wp_viewporter", 1)
+[1900212.943] wl_registry@18.global(4, "zxdg_output_manager_v1", 2)
+[1900213.058] wl_registry@18.global(5, "wp_presentation", 1)
+[1900213.164]  -> wl_registry@18.bind(5, "wp_presentation", 1, new id [unknown]@20)
+[1900213.261] wl_registry@18.global(6, "wp_single_pixel_buffer_manager_v1", 1)
+[1900213.368] wl_registry@18.global(7, "wp_tearing_control_manager_v1", 1)
+[1900213.466] wl_registry@18.global(8, "zwp_relative_pointer_manager_v1", 1)
+[1900213.557] wl_registry@18.global(9, "zwp_pointer_constraints_v1", 1)
+[1900213.650] wl_registry@18.global(10, "zwp_input_timestamps_manager_v1", 1)
+[1900213.737] wl_registry@18.global(11, "weston_capture_v1", 1)
+[1900213.927] wl_registry@18.global(12, "wl_data_device_manager", 3)
+[1900214.022] wl_registry@18.global(13, "wl_shm", 1)
+[1900214.111]  -> wl_registry@18.bind(13, "wl_shm", 1, new id [unknown]@21)
+[1900214.199] wl_registry@18.global(14, "wl_seat", 7)
+[1900214.283] wl_registry@18.global(15, "wl_output", 4)
+[1900214.367] wl_registry@18.global(16, "zwp_input_panel_v1", 1)
+[1900214.460] wl_registry@18.global(17, "zwp_input_method_v1", 1)
+[1900214.605] wl_registry@18.global(18, "zwp_text_input_manager_v1", 1)
+[1900214.715] wl_registry@18.global(19, "xdg_wm_base", 5)
+[1900214.809] wl_registry@18.global(20, "weston_desktop_shell", 1)
+[1900214.897] wl_callback@19.done(1)
+[1900214.985]  -> wl_display@1.sync(new id wl_callback@19)
+[1900217.408] wl_display@1.delete_id(19)
+[1900217.552] wp_presentation@20.clock_id(4)
+[1900217.677] wl_shm@21.format(0)
+[1900217.835] wl_shm@21.format(1)
+[1900218.000] wl_shm@21.format(909199186)
+[1900218.135] wl_shm@21.format(875709016)
+[1900218.284] wl_shm@21.format(875708993)
+[1900218.414] wl_shm@21.format(875714642)
+[1900218.579] wl_shm@21.format(875708754)
+[1900218.724] wl_shm@21.format(875714626)
+[1900218.869] wl_shm@21.format(875708738)
+[1900218.974] wl_shm@21.format(808669784)
+[1900219.105] wl_shm@21.format(808669761)
+[1900219.257] wl_shm@21.format(808665688)
+[1900219.369] wl_shm@21.format(808665665)
+[1900219.475] wl_callback@19.done(1)
+qt.scenegraph.general: threaded render loop
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.67 ms
+[1900287.273]  -> wl_compositor@4.create_surface(new id wl_surface@19)
+[1900287.533]  -> xdg_wm_base@3.get_xdg_surface(new id xdg_surface@22, wl_surface@19)
+[1900287.662]  -> xdg_surface@22.get_toplevel(new id xdg_toplevel@23)
+[1900287.767]  -> xdg_toplevel@23.set_min_size(0, 0)
+[1900287.865]  -> xdg_toplevel@23.set_max_size(0, 0)
+[1900287.982]  -> xdg_toplevel@23.set_title("Avelino file input")
+[1900288.091]  -> xdg_toplevel@23.set_app_id("AvelinoCatalog")
+[1900288.193]  -> wl_surface@19.set_buffer_scale(1)
+[1900288.817]  -> wl_compositor@4.create_region(new id wl_region@24)
+[1900288.949]  -> wl_region@24.add(3, 30, 2240, 1440)
+[1900289.056]  -> wl_surface@19.set_opaque_region(wl_region@24)
+[1900289.180]  -> wl_region@24.destroy()
+[1900289.284]  -> xdg_toplevel@23.set_min_size(6, 33)
+[1900289.410]  -> xdg_toplevel@23.set_max_size(16777221, 16777248)
+[1900289.579]  -> wl_surface@19.set_buffer_transform(0)
+[1900290.591]  -> wl_surface@19.commit()
+[1900296.023] wl_keyboard@16.repeat_info(40, 400)
+[1900296.209] wl_keyboard@16.keymap(1, fd 12, 64756)
+qt.accessibility.atspi: Subscription string not handled: "Window:Destroy:"
+[1900300.104] wl_display@1.delete_id(24)
+[1900302.297] xdg_toplevel@23.wm_capabilities(array[12])
+[1900303.054] xdg_toplevel@23.configure(0, 0, array[0])
+[1900303.246] xdg_surface@22.configure(2)
+[1900303.436]  -> xdg_surface@22.ack_configure(2)
+[1900303.560]  -> xdg_surface@22.set_window_geometry(0, 0, 2246, 1473)
+[1900328.795]  -> wl_compositor@4.create_surface(new id wl_surface@24)
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.67 ms
+qt.scenegraph.general: Creating QRhi with backend OpenGL for window 0xba55c4388120 (wflags 0x1)
+  Graphics API debug/validation layers: 0
+  Debug markers: 0
+  Timestamps: 0
+  Prefer software device: 0
+  Shader/pipeline cache collection: 1
+qt.rhi.general: Created OpenGL context QSurfaceFormat(version 4.5, options QFlags<QSurfaceFormat::FormatOption>(DeprecatedFunctions), depthBufferSize 24, redBufferSize 8, greenBufferSize 8, blueBufferSize 8, alphaBufferSize 8, stencilBufferSize 8, samples 0, swapBehavior QSurfaceFormat::DefaultSwapBehavior, swapInterval 1, colorSpace QColorSpace(), profile  QSurfaceFormat::CompatibilityProfile)
+[1900350.219]  -> wl_shm@21.create_pool(new id wl_shm_pool@25, fd 21, 13233432)
+[1900350.344]  -> wl_shm_pool@25.create_buffer(new id wl_buffer@26, 0, 2246, 1473, 8984, 0)
+[1900350.447]  -> wl_shm_pool@25.destroy()
+qt.rhi.general: OpenGL VENDOR: Mesa RENDERER: llvmpipe (LLVM 20.1.2, 128 bits) VERSION: 4.5 (Compatibility Profile) Mesa 25.2.8-0ubuntu0.24.04.4
+qt.scenegraph.general: Created QRhi 0xe0ce1c001cf0 for window 0xba55c4388120
+qt.scenegraph.general: MSAA sample count for the swapchain is 1. Alpha channel requested = no.
+qt.scenegraph.general: rhi texture atlas dimensions: 4096x2048
+[1900497.580]  -> wl_surface@19.damage_buffer(0, 0, 2246, 30)
+[1900498.600]  -> wl_surface@19.damage_buffer(0, 30, 3, 1440)
+[1900498.999]  -> wl_surface@19.damage_buffer(2243, 30, 3, 1440)
+[1900499.356]  -> wl_surface@19.damage_buffer(0, 1470, 2246, 3)
+[1900499.727]  -> wl_surface@19.damage_buffer(0, 1473, 3, 30)
+[1900606.538]  -> wl_surface@19.frame(new id wl_callback@27)
+[1900609.802]  -> wl_surface@19.attach(wl_buffer@26, 0, 0)
+[1900610.068]  -> wl_surface@19.damage_buffer(0, 0, 2147483647, 2147483647)
+[1900620.058]  -> wl_surface@19.commit()
+[1900620.372]  -> wl_display@1.sync(new id wl_callback@28)
+[1900625.344] wl_display@1.delete_id(25)
+[1900625.353] wl_display@1.delete_id(28)
+[1900626.470] wl_surface@19.enter(wl_output@12)
+[1900626.799] wl_keyboard@16.enter(3, wl_surface@19, array[0])
+[1900627.043]  -> wl_display@1.sync(new id wl_callback@25)
+[1900627.196] wl_keyboard@16.modifiers(3, 0, 0, 0, 0)
+[1900627.312] wl_data_device@11.selection(nil)
+[1900627.568] xdg_toplevel@23.configure(0, 0, array[4])
+[1900627.894] xdg_surface@22.configure(4)
+[1900628.195]  -> xdg_surface@22.set_window_geometry(0, 0, 2246, 1473)
+[1900628.405]  -> xdg_surface@22.ack_configure(4)
+[1900628.556]  -> xdg_surface@22.set_window_geometry(0, 0, 2246, 1473)
+[1900628.776] wl_display@1.delete_id(25)
+[1900640.326] wl_display@1.delete_id(27)
+[1900640.390] wl_callback@27.done(108049124)
+[1900810.748] wl_callback@28.done(3)
+[1900811.900]  -> wl_shm@21.create_pool(new id wl_shm_pool@28, fd 21, 13233432)
+[1900812.020]  -> wl_shm_pool@28.create_buffer(new id wl_buffer@27, 0, 2246, 1473, 8984, 0)
+[1900812.160]  -> wl_shm_pool@28.destroy()
+[1900815.401]  -> wl_surface@19.damage_buffer(0, 0, 2246, 30)
+[1900815.579]  -> wl_surface@19.damage_buffer(0, 30, 3, 1440)
+[1900815.681]  -> wl_surface@19.damage_buffer(2243, 30, 3, 1440)
+[1900815.781]  -> wl_surface@19.damage_buffer(0, 1470, 2246, 3)
+[1900815.874]  -> wl_surface@19.damage_buffer(0, 1473, 3, 30)
+[1900828.454]  -> wl_surface@19.frame(new id wl_callback@29)
+[1900828.708]  -> wl_surface@19.attach(wl_buffer@27, 0, 0)
+[1900828.825]  -> wl_surface@19.damage_buffer(0, 0, 2147483647, 2147483647)
+[1900842.356]  -> wl_surface@19.commit()
+[1900842.620]  -> wl_display@1.sync(new id wl_callback@30)
+[1900842.871] wl_callback@25.done(4)
+[1900843.052] wl_pointer@17.enter(6, wl_surface@19, 1153.00000000, 728.00000000)
+[1900843.273]  -> wl_shm@9.create_pool(new id wl_shm_pool@25, fd 21, 2304)
+[1900843.592]  -> wl_shm_pool@25.resize(6912)
+[1900843.782]  -> wl_shm_pool@25.resize(16128)
+[1900844.005]  -> wl_shm_pool@25.resize(34560)
+[1900844.281]  -> wl_shm_pool@25.resize(71424)
+[1900844.902]  -> wl_shm_pool@25.resize(145152)
+[1900845.040]  -> wl_shm_pool@25.resize(292608)
+[1900845.917]  -> wl_shm_pool@25.resize(587520)
+[1900847.138] wl_display@1.delete_id(28)
+[1900847.224] wl_display@1.delete_id(30)
+[1900848.714]  -> wl_shm_pool@25.create_buffer(new id wl_buffer@28, 382464, 24, 24, 96, 0)
+[1900848.842]  -> wl_compositor@4.create_surface(new id wl_surface@31)
+[1900848.998]  -> wl_pointer@17.set_cursor(6, wl_surface@31, 3, 1)
+[1900849.158]  -> wl_surface@31.set_buffer_scale(1)
+[1900849.266]  -> wl_surface@31.attach(wl_buffer@28, 0, 0)
+[1900849.364]  -> wl_surface@31.damage(0, 0, 24, 24)
+[1900849.454]  -> wl_surface@31.commit()
+[1900849.563] wl_pointer@17.frame()
+[1900849.722] xdg_wm_base@3.ping(7)
+[1900849.873]  -> xdg_wm_base@3.pong(7)
+[1900851.690] wl_buffer@26.release()
+[1900852.035]  -> zwp_text_input_v1@15.deactivate(wl_seat@10)
+[1900853.891] wl_surface@31.enter(wl_output@12)
+[1900853.903] wl_callback@30.done(7)
+[1900854.010]  -> wl_surface@31.set_buffer_scale(1)
+[1900854.159]  -> wl_surface@31.attach(wl_buffer@28, 0, 0)
+[1900854.334]  -> wl_surface@31.damage(0, 0, 24, 24)
+[1900854.407]  -> wl_surface@31.commit()
+[1900869.244] wl_display@1.delete_id(29)
+[1900870.137] wl_callback@29.done(108049346)
+[1900883.652]  -> wl_surface@19.frame(new id wl_callback@29)
+[1900885.695]  -> wl_surface@19.attach(wl_buffer@26, 0, 0)
+[1900885.907]  -> wl_surface@19.damage_buffer(0, 0, 2147483647, 2147483647)
+[1900898.173]  -> wl_surface@19.commit()
+[1900898.433]  -> wl_display@1.sync(new id wl_callback@30)
+[1900901.110] wl_display@1.delete_id(30)
+[1900916.586] wl_display@1.delete_id(29)
+[1900916.737] wl_callback@29.done(108049400)
+[1900931.711]  -> wl_compositor@4.create_surface(new id wl_surface@29)
+[1900931.893]  -> xdg_wm_base@3.get_xdg_surface(new id xdg_surface@32, wl_surface@29)
+[1900931.975]  -> xdg_surface@32.get_toplevel(new id xdg_toplevel@33)
+[1900932.070]  -> xdg_toplevel@33.set_parent(xdg_toplevel@23)
+[1900932.166]  -> xdg_toplevel@33.set_min_size(0, 0)
+[1900932.264]  -> xdg_toplevel@33.set_max_size(0, 0)
+[1900932.385]  -> xdg_toplevel@33.set_title("Open")
+[1900932.484]  -> xdg_toplevel@33.set_app_id("AvelinoCatalog")
+[1900932.636]  -> wl_surface@29.set_buffer_scale(1)
+[1900932.746]  -> xdg_toplevel@33.set_min_size(6, 33)
+[1900932.811]  -> xdg_toplevel@33.set_max_size(16777221, 16777248)
+[1900932.882]  -> wl_surface@29.set_buffer_transform(0)
+[1900932.958]  -> wl_surface@29.commit()
+[1900936.486] wl_buffer@27.release()
+[1900936.830] wl_callback@30.done(7)
+[1900943.558] xdg_toplevel@33.wm_capabilities(array[12])
+[1900943.709] xdg_toplevel@33.configure(0, 0, array[0])
+[1900943.799] xdg_surface@32.configure(8)
+[1900943.916]  -> xdg_surface@32.ack_configure(8)
+[1900944.032]  -> xdg_surface@32.set_window_geometry(0, 0, 1766, 929)
+[1900955.791]  -> wl_compositor@4.create_surface(new id wl_surface@30)
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.67 ms
+qt.scenegraph.general: Creating QRhi with backend OpenGL for window 0xba55c471f260 (wflags 0x3)
+  Graphics API debug/validation layers: 0
+  Debug markers: 0
+  Timestamps: 0
+  Prefer software device: 0
+  Shader/pipeline cache collection: 0
+[1900972.823]  -> wl_surface@19.frame(new id wl_callback@34)
+[1900974.591]  -> wl_surface@19.attach(wl_buffer@27, 0, 0)
+qt.rhi.general: Created OpenGL context QSurfaceFormat(version 4.5, options QFlags<QSurfaceFormat::FormatOption>(DeprecatedFunctions), depthBufferSize 24, redBufferSize 8, greenBufferSize 8, blueBufferSize 8, alphaBufferSize 8, stencilBufferSize 8, samples 0, swapBehavior QSurfaceFormat::DefaultSwapBehavior, swapInterval 1, colorSpace QColorSpace(), profile  QSurfaceFormat::CompatibilityProfile)
+[1900974.733]  -> wl_surface@19.damage_buffer(0, 0, 2147483647, 2147483647)
+[1900976.208]  -> wl_shm@21.create_pool(new id wl_shm_pool@35, fd 24, 6562456)
+[1900976.341]  -> wl_shm_pool@35.create_buffer(new id wl_buffer@36, 0, 1766, 929, 7064, 0)
+[1900976.462]  -> wl_shm_pool@35.destroy()
+qt.rhi.general: OpenGL VENDOR: Mesa RENDERER: llvmpipe (LLVM 20.1.2, 128 bits) VERSION: 4.5 (Compatibility Profile) Mesa 25.2.8-0ubuntu0.24.04.4
+qt.scenegraph.general: Created QRhi 0xe0ce08001cf0 for window 0xba55c471f260
+[1900985.219]  -> wl_surface@19.commit()
+[1900985.445]  -> wl_display@1.sync(new id wl_callback@37)
+qt.scenegraph.general: MSAA sample count for the swapchain is 1. Alpha channel requested = yes.
+qt.scenegraph.general: rhi texture atlas dimensions: 2048x1024
+[1900989.256] wl_display@1.delete_id(35)
+[1900989.310] wl_display@1.delete_id(37)
+[1901003.666] wl_display@1.delete_id(34)
+[1901003.751] wl_callback@34.done(108049488)
+[1901182.957]  -> wl_surface@29.damage_buffer(0, 0, 1766, 30)
+[1901184.622]  -> wl_surface@29.damage_buffer(0, 30, 3, 896)
+[1901184.754]  -> wl_surface@29.damage_buffer(1763, 30, 3, 896)
+[1901184.882]  -> wl_surface@29.damage_buffer(0, 926, 1766, 3)
+[1901185.011]  -> wl_surface@29.damage_buffer(0, 929, 3, 30)
+[1901199.624]  -> wl_surface@29.frame(new id wl_callback@34)
+[1901201.638]  -> wl_surface@29.attach(wl_buffer@36, 0, 0)
+[1901201.710]  -> wl_surface@29.damage_buffer(0, 0, 2147483647, 2147483647)
+[1901205.274]  -> wl_surface@29.commit()
+[1901205.526]  -> wl_display@1.sync(new id wl_callback@35)
+[1901207.141] wl_buffer@26.release()
+[1901209.867] wl_callback@37.done(8)
+[1901211.925] wl_display@1.delete_id(35)
+[1901211.941] wl_surface@29.enter(wl_output@12)
+[1901212.149] wl_keyboard@16.leave(9, wl_surface@19)
+[1901212.220]  -> wl_display@1.sync(new id wl_callback@37)
+[1901212.323] wl_keyboard@16.enter(10, wl_surface@29, array[0])
+[1901212.395] wl_keyboard@16.modifiers(10, 0, 0, 0, 0)
+[1901212.517] wl_data_device@11.selection(nil)
+[1901212.642] xdg_toplevel@23.configure(0, 0, array[0])
+[1901212.787] xdg_surface@22.configure(11)
+[1901212.859] xdg_toplevel@33.configure(0, 0, array[4])
+[1901212.950] xdg_surface@32.configure(12)
+[1901213.137]  -> xdg_surface@22.set_window_geometry(0, 0, 2246, 1473)
+[1901213.296]  -> xdg_surface@22.ack_configure(11)
+[1901213.424]  -> xdg_surface@22.set_window_geometry(0, 0, 2246, 1473)
+[1901213.691] wl_display@1.delete_id(37)
+[1901228.439] wl_display@1.delete_id(34)
+[1901228.540] wl_callback@34.done(108049710)
+[1901232.522]  -> wl_surface@19.frame(new id wl_callback@34)
+[1901232.768]  -> wl_surface@19.attach(wl_buffer@26, 0, 0)
+[1901232.856]  -> wl_surface@19.damage_buffer(0, 0, 2147483647, 2147483647)
+[1901241.599]  -> wl_surface@19.commit()
+[1901241.980]  -> wl_display@1.sync(new id wl_callback@38)
+[1901243.299] wl_display@1.delete_id(38)
+[1901243.559] wl_buffer@27.release()
+[1901247.686] wl_callback@38.done(15)
+[1901252.784]  -> wl_surface@19.damage_buffer(0, 0, 2246, 30)
+[1901255.302]  -> wl_surface@19.damage_buffer(0, 30, 3, 1440)
+[1901255.536]  -> wl_surface@19.damage_buffer(2243, 30, 3, 1440)
+[1901255.628]  -> wl_surface@19.damage_buffer(0, 1470, 2246, 3)
+[1901255.697]  -> wl_surface@19.damage_buffer(0, 1473, 3, 30)
+[1901263.781] wl_display@1.delete_id(34)
+[1901263.872] wl_callback@34.done(108049742)
+[1901269.316]  -> wl_surface@19.frame(new id wl_callback@34)
+[1901269.535]  -> wl_surface@19.attach(wl_buffer@27, 0, 0)
+[1901269.749]  -> wl_surface@19.damage_buffer(0, 0, 2147483647, 2147483647)
+[1901279.390]  -> wl_surface@19.commit()
+[1901279.764]  -> wl_display@1.sync(new id wl_callback@38)
+[1901280.359]  -> xdg_surface@32.set_window_geometry(0, 0, 1766, 929)
+[1901280.599]  -> xdg_surface@32.ack_configure(12)
+[1901280.755]  -> xdg_surface@32.set_window_geometry(0, 0, 1766, 929)
+[1901281.438] wl_callback@35.done(10)
+[1901283.596]  -> wl_shm@21.create_pool(new id wl_shm_pool@35, fd 24, 6562456)
+[1901283.717]  -> wl_shm_pool@35.create_buffer(new id wl_buffer@39, 0, 1766, 929, 7064, 0)
+[1901283.783]  -> wl_shm_pool@35.destroy()
+[1901283.906] wl_display@1.delete_id(38)
+[1901285.165]  -> wl_surface@29.damage_buffer(0, 0, 1766, 30)
+[1901285.263]  -> wl_surface@29.damage_buffer(0, 30, 3, 896)
+[1901285.341]  -> wl_surface@29.damage_buffer(1763, 30, 3, 896)
+[1901285.423]  -> wl_surface@29.damage_buffer(0, 926, 1766, 3)
+[1901285.513]  -> wl_surface@29.damage_buffer(0, 929, 3, 30)
+[1901296.865]  -> wl_surface@29.frame(new id wl_callback@40)
+[1901298.610]  -> wl_surface@29.attach(wl_buffer@39, 0, 0)
+[1901298.745]  -> wl_surface@29.damage_buffer(0, 0, 2147483647, 2147483647)
+[1901302.664] wl_display@1.delete_id(35)
+[1901302.836] wl_display@1.delete_id(34)
+[1901302.959] wl_callback@34.done(108049783)
+[1901303.685]  -> wl_surface@29.commit()
+[1901303.829]  -> wl_display@1.sync(new id wl_callback@34)
+[1901304.049] wl_callback@37.done(12)
+[1901304.309] wl_pointer@17.leave(13, wl_surface@19)
+[1901304.434] wl_pointer@17.frame()
+[1901304.551] wl_pointer@17.enter(14, wl_surface@29, 1111.00000000, 709.00000000)
+[1901304.644]  -> wl_pointer@17.set_cursor(14, wl_surface@31, 3, 1)
+[1901304.752]  -> wl_surface@31.set_buffer_scale(1)
+[1901304.857]  -> wl_surface@31.attach(wl_buffer@28, 0, 0)
+[1901304.964]  -> wl_surface@31.damage(0, 0, 24, 24)
+[1901305.067]  -> wl_surface@31.commit()
+[1901305.137] wl_pointer@17.frame()
+[1901305.156] wl_display@1.delete_id(34)
+[1901305.224] xdg_wm_base@3.ping(15)
+[1901305.396]  -> xdg_wm_base@3.pong(15)
+[1901305.862]  -> zwp_text_input_v1@15.deactivate(wl_seat@10)
+[1901306.546] wl_buffer@36.release()
+[1901306.909]  -> zwp_text_input_v1@15.deactivate(wl_seat@10)
+[1901307.236]  -> wl_surface@31.set_buffer_scale(1)
+[1901307.320]  -> wl_surface@31.attach(wl_buffer@28, 0, 0)
+[1901307.390]  -> wl_surface@31.damage(0, 0, 24, 24)
+[1901307.454]  -> wl_surface@31.commit()
+[1901307.605] wl_callback@34.done(15)
+[1901327.735] wl_display@1.delete_id(40)
+[1901327.827] wl_callback@40.done(108049803)
+[1901331.353]  -> wl_surface@29.frame(new id wl_callback@40)
+[1901331.575]  -> wl_surface@29.attach(wl_buffer@36, 0, 0)
+[1901332.178]  -> wl_surface@29.damage_buffer(0, 0, 2147483647, 2147483647)
+[1901341.139]  -> wl_surface@29.commit()
+[1901341.807]  -> wl_display@1.sync(new id wl_callback@34)
+[1901342.363] wl_display@1.delete_id(34)
+[1901356.939] wl_display@1.delete_id(40)
+[1901357.062] wl_callback@40.done(108049841)
+[1901445.948]  -> zwp_text_input_v1@15.deactivate(wl_seat@10)
+[1901447.799] wl_buffer@39.release()
+[1901449.756] wl_callback@34.done(15)
+[1901471.478]  -> wl_surface@29.frame(new id wl_callback@34)
+[1901471.722]  -> wl_surface@29.attach(wl_buffer@39, 0, 0)
+[1901471.845]  -> wl_surface@29.damage_buffer(0, 0, 2147483647, 2147483647)
+[1901478.671]  -> wl_surface@29.commit()
+[1901479.012]  -> wl_display@1.sync(new id wl_callback@40)
+[1901480.543] wl_display@1.delete_id(40)
+[1901493.308] wl_display@1.delete_id(34)
+[1901493.307] wl_callback@34.done(108049979)
+[1901881.649]  -> zwp_text_input_v1@15.deactivate(wl_seat@10)
+[1901884.968]  -> wl_compositor@4.create_surface(new id wl_surface@34)
+[1901886.310]  -> xdg_wm_base@3.get_xdg_surface(new id xdg_surface@37, wl_surface@34)
+[1901886.854]  -> xdg_surface@37.get_toplevel(new id xdg_toplevel@35)
+[1901888.330]  -> xdg_toplevel@35.set_parent(xdg_toplevel@33)
+[1901889.015]  -> xdg_toplevel@35.set_min_size(0, 0)
+[1901889.181]  -> xdg_toplevel@35.set_max_size(0, 0)
+[1901889.431]  -> xdg_toplevel@35.set_title("AvelinoCatalog")
+[1901889.514]  -> xdg_toplevel@35.set_app_id("AvelinoCatalog")
+[1901889.731]  -> wl_surface@34.set_buffer_scale(1)
+[1901889.843]  -> wl_surface@34.set_buffer_transform(0)
+[1901890.039]  -> wl_surface@34.commit()
+[1901893.154] wl_buffer@36.release()
+[1901897.741] wl_callback@40.done(15)
+[1901903.352] xdg_toplevel@35.wm_capabilities(array[12])
+[1901903.442] xdg_toplevel@35.configure(0, 0, array[0])
+[1901903.526] xdg_surface@37.configure(16)
+[1901903.648]  -> xdg_surface@37.ack_configure(16)
+[1901903.736]  -> xdg_surface@37.set_window_geometry(0, 0, 600, 20)
+[1901927.448]  -> wl_compositor@4.create_surface(new id wl_surface@40)
+[1901934.158]  -> wl_surface@29.frame(new id wl_callback@41)
+[1901934.372]  -> wl_surface@29.attach(wl_buffer@36, 0, 0)
+[1901934.485]  -> wl_surface@29.damage_buffer(0, 0, 2147483647, 2147483647)
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.67 ms
+qt.scenegraph.general: Creating QRhi with backend OpenGL for window 0xba55c4a193e0 (wflags 0x40000809)
+  Graphics API debug/validation layers: 0
+  Debug markers: 0
+  Timestamps: 0
+  Prefer software device: 0
+  Shader/pipeline cache collection: 0
+[1901937.477]  -> xdg_surface@37.set_window_geometry(0, 0, 600, 176)
+[1901939.628]  -> xdg_surface@37.set_window_geometry(0, 0, 600, 176)
+qt.rhi.general: Created OpenGL context QSurfaceFormat(version 4.5, options QFlags<QSurfaceFormat::FormatOption>(DeprecatedFunctions), depthBufferSize 24, redBufferSize 8, greenBufferSize 8, blueBufferSize 8, alphaBufferSize 8, stencilBufferSize 8, samples 0, swapBehavior QSurfaceFormat::DefaultSwapBehavior, swapInterval 1, colorSpace QColorSpace(), profile  QSurfaceFormat::CompatibilityProfile)
+[1901947.184]  -> wl_shm@21.create_pool(new id wl_shm_pool@42, fd 25, 422400)
+[1901947.271]  -> wl_shm_pool@42.create_buffer(new id wl_buffer@43, 0, 600, 176, 2400, 0)
+[1901947.376]  -> wl_shm_pool@42.destroy()
+qt.rhi.general: OpenGL VENDOR: Mesa RENDERER: llvmpipe (LLVM 20.1.2, 128 bits) VERSION: 4.5 (Compatibility Profile) Mesa 25.2.8-0ubuntu0.24.04.4
+[1901947.810]  -> wl_surface@29.commit()
+[1901948.829]  -> wl_display@1.sync(new id wl_callback@44)
+qt.scenegraph.general: Created QRhi 0xba55c82edf40 for window 0xba55c4a193e0
+qt.scenegraph.general: MSAA sample count for the swapchain is 1. Alpha channel requested = yes.
+qt.scenegraph.general: rhi texture atlas dimensions: 1024x512
+[1901951.414] wl_display@1.delete_id(42)
+[1901951.538] wl_display@1.delete_id(44)
+[1901968.888] wl_display@1.delete_id(41)
+[1901968.979] wl_callback@41.done(108050450)
+[1902029.457]  -> wl_surface@34.frame(new id wl_callback@41)
+[1902029.975]  -> wl_surface@34.attach(wl_buffer@43, 0, 0)
+[1902030.145]  -> wl_surface@34.damage_buffer(0, 0, 2147483647, 2147483647)
+[1902030.426]  -> wl_surface@34.commit()
+[1902030.646]  -> wl_display@1.sync(new id wl_callback@42)
+[1902031.540]  -> wl_shm@21.create_pool(new id wl_shm_pool@45, fd 25, 422400)
+[1902031.694]  -> wl_shm_pool@45.create_buffer(new id wl_buffer@46, 0, 600, 176, 2400, 0)
+[1902031.824]  -> wl_shm_pool@45.destroy()
+[1902033.321] wl_display@1.delete_id(42)
+[1902043.226] wl_display@1.delete_id(45)
+[1902043.362] wl_display@1.delete_id(41)
+[1902043.494] wl_callback@41.done(108050531)
+[1902043.691]  -> wl_surface@34.frame(new id wl_callback@41)
+[1902043.828] wl_callback@42.done(18)
+[1902043.927]  -> wl_surface@34.attach(wl_buffer@46, 0, 0)
+[1902044.019]  -> wl_surface@34.damage_buffer(0, 0, 2147483647, 2147483647)
+[1902044.275]  -> wl_surface@34.commit()
+[1902044.361]  -> wl_display@1.sync(new id wl_callback@42)
+[1902044.507] wl_surface@34.enter(wl_output@12)
+[1902044.642] wl_keyboard@16.leave(17, wl_surface@29)
+[1902044.739]  -> wl_display@1.sync(new id wl_callback@45)
+[1902044.859] wl_keyboard@16.enter(18, wl_surface@34, array[0])
+[1902044.986] wl_keyboard@16.modifiers(18, 0, 0, 0, 0)
+[1902045.122] wl_data_device@11.selection(nil)
+[1902045.274] xdg_toplevel@33.configure(0, 0, array[0])
+[1902045.386] xdg_surface@32.configure(19)
+[1902045.518] xdg_toplevel@35.configure(0, 0, array[4])
+[1902045.591] xdg_surface@37.configure(20)
+[1902045.698] wl_pointer@17.leave(21, wl_surface@29)
+[1902045.808] wl_pointer@17.frame()
+[1902045.923] wl_pointer@17.enter(22, wl_surface@34, 87.00000000, 145.00000000)
+[1902045.531] wl_display@1.delete_id(42)
+[1902046.033]  -> wl_pointer@17.set_cursor(22, wl_surface@31, 3, 1)
+[1902046.225]  -> wl_surface@31.set_buffer_scale(1)
+[1902046.350]  -> wl_surface@31.attach(wl_buffer@28, 0, 0)
+[1902046.445]  -> wl_surface@31.damage(0, 0, 24, 24)
+[1902046.551]  -> wl_surface@31.commit()
+[1902046.666] wl_pointer@17.frame()
+[1902046.799] xdg_wm_base@3.ping(23)
+[1902046.925]  -> xdg_wm_base@3.pong(23)
+[1902047.346] wl_buffer@43.release()
+[1902047.472] wl_callback@42.done(23)
+[1902048.290]  -> xdg_surface@32.set_window_geometry(0, 0, 1766, 929)
+[1902049.350]  -> xdg_surface@32.ack_configure(19)
+[1902049.457]  -> xdg_surface@32.set_window_geometry(0, 0, 1766, 929)
+[1902049.601] wl_display@1.delete_id(45)
+[1902049.921]  -> wl_surface@31.set_buffer_scale(1)
+[1902050.240]  -> wl_surface@31.attach(wl_buffer@28, 0, 0)
+[1902050.810]  -> wl_surface@31.damage(0, 0, 24, 24)
+[1902051.413]  -> wl_surface@31.commit()
+[1902052.067] wl_buffer@39.release()
+[1902053.574] wl_callback@44.done(16)
+[1902054.032]  -> wl_surface@29.damage_buffer(0, 0, 1766, 30)
+[1902054.177]  -> wl_surface@29.damage_buffer(0, 30, 3, 896)
+[1902055.544]  -> wl_surface@29.damage_buffer(1763, 30, 3, 896)
+[1902055.732]  -> wl_surface@29.damage_buffer(0, 926, 1766, 3)
+[1902055.856]  -> wl_surface@29.damage_buffer(0, 929, 3, 30)
+[1902061.517] wl_display@1.delete_id(41)
+[1902061.798] wl_callback@41.done(108050548)
+[1902061.931]  -> wl_surface@34.frame(new id wl_callback@41)
+[1902062.262]  -> wl_surface@34.attach(wl_buffer@43, 0, 0)
+[1902062.444]  -> wl_surface@34.damage_buffer(0, 0, 2147483647, 2147483647)
+[1902066.656]  -> wl_surface@29.frame(new id wl_callback@44)
+[1902066.867]  -> wl_surface@29.attach(wl_buffer@39, 0, 0)
+[1902066.947]  -> wl_surface@29.damage_buffer(0, 0, 2147483647, 2147483647)
+[1902073.303]  -> wl_surface@29.commit()
+[1902073.532]  -> wl_display@1.sync(new id wl_callback@42)
+[1902073.828]  -> wl_surface@34.commit()
+[1902073.985]  -> wl_display@1.sync(new id wl_callback@47)
+[1902074.165]  -> xdg_surface@37.set_window_geometry(0, 0, 600, 176)
+[1902074.313]  -> xdg_surface@37.ack_configure(20)
+[1902074.557]  -> xdg_surface@37.set_window_geometry(0, 0, 600, 176)
+[1902075.127]  -> wl_shm@21.create_pool(new id wl_shm_pool@48, fd 25, 422400)
+[1902075.302]  -> wl_shm_pool@48.create_buffer(new id wl_buffer@49, 0, 600, 176, 2400, 0)
+[1902075.419]  -> wl_shm_pool@48.destroy()
+[1902077.258] wl_display@1.delete_id(42)
+[1902082.817] wl_display@1.delete_id(44)
+[1902082.900] wl_display@1.delete_id(47)
+[1902083.013] wl_display@1.delete_id(48)
+[1902083.118] wl_callback@44.done(108050565)
+[1902093.831] wl_display@1.delete_id(41)
+[1902094.014] wl_callback@41.done(108050581)
+[1902094.423]  -> wl_surface@34.frame(new id wl_callback@41)
+[1902094.569] wl_buffer@46.release()
+[1902094.639] wl_callback@47.done(23)
+[1902094.703]  -> wl_surface@34.attach(wl_buffer@49, 0, 0)
+[1902094.993]  -> wl_surface@34.damage_buffer(0, 0, 2147483647, 2147483647)
+[1902095.286]  -> wl_surface@34.commit()
+[1902095.400]  -> wl_display@1.sync(new id wl_callback@47)
+[1902095.576] wl_callback@45.done(23)
+[1902096.571]  -> zwp_text_input_v1@15.deactivate(wl_seat@10)
+[1902098.432]  -> zwp_text_input_v1@15.deactivate(wl_seat@10)
+[1902102.825] wl_display@1.delete_id(47)
+[1902123.157] wl_display@1.delete_id(41)
+[1902123.289] wl_callback@41.done(108050601)
+[1902123.707]  -> wl_surface@34.frame(new id wl_callback@41)
+[1902124.025] wl_buffer@43.release()
+[1902124.293] wl_callback@47.done(23)
+[1902124.431]  -> wl_surface@34.attach(wl_buffer@46, 0, 0)
+[1902125.242]  -> wl_surface@34.damage_buffer(0, 0, 2147483647, 2147483647)
+[1902125.602]  -> wl_surface@34.commit()
+[1902125.820]  -> wl_display@1.sync(new id wl_callback@47)
+[1902127.203] wl_display@1.delete_id(47)
+[1902135.986] wl_display@1.delete_id(41)
+[1902136.003] wl_callback@41.done(108050622)
+[1903579.033]  -> zwp_text_input_v1@15.deactivate(wl_seat@10)
+[1903579.783]  -> zwp_text_input_v1@15.deactivate(wl_seat@10)
+[1903580.135]  -> xdg_toplevel@35.destroy()
+[1903580.309]  -> xdg_surface@37.destroy()
+[1903580.524]  -> wl_surface@34.destroy()
+[1903580.668]  -> wl_display@1.sync(new id wl_callback@41)
+[1903584.033] wl_display@1.delete_id(35)
+[1903584.147] wl_display@1.delete_id(34)
+[1903584.240] wl_display@1.delete_id(41)
+[1903584.047] wl_display@1.delete_id(37)
+[1903584.414] wl_keyboard@16.leave(24, nil)
+[1903584.474] wl_pointer@17.leave(25, nil)
+[1903584.546] wl_pointer@17.frame()
+[1903584.667] wl_callback@41.done(25)
+[1903594.701] wl_keyboard@16.modifiers(26, 0, 0, 0, 0)
+[1903594.918] wl_pointer@17.enter(26, wl_surface@29, 1111.00000000, 709.00000000)
+[1903595.087]  -> wl_pointer@17.set_cursor(26, wl_surface@31, 3, 1)
+[1903595.197]  -> wl_surface@31.set_buffer_scale(1)
+[1903595.292]  -> wl_surface@31.attach(wl_buffer@28, 0, 0)
+[1903595.380]  -> wl_surface@31.damage(0, 0, 24, 24)
+[1903595.466]  -> wl_surface@31.commit()
+[1903595.621] wl_pointer@17.frame()
+[1903595.780]  -> wl_surface@31.set_buffer_scale(1)
+[1903595.895]  -> wl_surface@31.attach(wl_buffer@28, 0, 0)
+[1903595.990]  -> wl_surface@31.damage(0, 0, 24, 24)
+[1903596.083]  -> wl_surface@31.commit()
+[1903596.188] xdg_wm_base@3.ping(27)
+[1903596.508]  -> xdg_wm_base@3.pong(27)
+[1904533.692] wl_keyboard@16.enter(28, wl_surface@29, array[0])
+[1904533.844]  -> wl_display@1.sync(new id wl_callback@41)
+[1904533.949] wl_keyboard@16.modifiers(28, 0, 0, 0, 0)
+[1904534.142] wl_data_device@11.selection(nil)
+[1904534.299] xdg_toplevel@33.configure(0, 0, array[4])
+[1904534.406] xdg_surface@32.configure(29)
+[1904534.618]  -> xdg_surface@32.set_window_geometry(0, 0, 1766, 929)
+[1904534.765]  -> xdg_surface@32.ack_configure(29)
+[1904534.834]  -> xdg_surface@32.set_window_geometry(0, 0, 1766, 929)
+[1904535.052] wl_display@1.delete_id(41)
+[1904535.631] wl_buffer@36.release()
+[1904537.644] wl_callback@42.done(23)
+[1904538.107]  -> wl_surface@29.damage_buffer(0, 0, 1766, 30)
+[1904539.568]  -> wl_surface@29.damage_buffer(0, 30, 3, 896)
+[1904539.667]  -> wl_surface@29.damage_buffer(1763, 30, 3, 896)
+[1904539.755]  -> wl_surface@29.damage_buffer(0, 926, 1766, 3)
+[1904539.828]  -> wl_surface@29.damage_buffer(0, 929, 3, 30)
+[1904552.950]  -> wl_surface@29.frame(new id wl_callback@42)
+[1904554.615]  -> wl_surface@29.attach(wl_buffer@36, 0, 0)
+[1904554.723]  -> wl_surface@29.damage_buffer(0, 0, 2147483647, 2147483647)
+[1904557.774]  -> wl_surface@29.commit()
+[1904557.986]  -> wl_display@1.sync(new id wl_callback@37)
+[1904558.174] wl_callback@41.done(29)
+[1904558.591]  -> zwp_text_input_v1@15.deactivate(wl_seat@10)
+[1904560.019] wl_display@1.delete_id(37)
+[1904565.975] wl_display@1.delete_id(42)
+[1904566.141] wl_callback@42.done(108053052)
+[1905497.365]  -> zwp_text_input_v1@15.deactivate(wl_seat@10)
+[1905507.290]  -> wl_compositor@4.create_surface(new id wl_surface@42)
+[1905509.101]  -> xdg_wm_base@3.get_xdg_surface(new id xdg_surface@41, wl_surface@42)
+[1905509.179]  -> xdg_surface@41.get_toplevel(new id xdg_toplevel@34)
+[1905509.239]  -> xdg_toplevel@34.set_parent(xdg_toplevel@33)
+[1905509.324]  -> xdg_toplevel@34.set_min_size(0, 0)
+[1905509.416]  -> xdg_toplevel@34.set_max_size(0, 0)
+[1905512.039]  -> xdg_toplevel@34.set_title("AvelinoCatalog")
+[1905512.272]  -> xdg_toplevel@34.set_app_id("AvelinoCatalog")
+[1905512.454]  -> wl_surface@42.set_buffer_scale(1)
+[1905512.546]  -> wl_surface@42.set_buffer_transform(0)
+[1905515.248]  -> wl_surface@42.commit()
+[1905516.626] wl_buffer@39.release()
+[1905521.888] wl_callback@37.done(29)
+[1905534.599] xdg_toplevel@34.wm_capabilities(array[12])
+[1905535.536]  -> wl_surface@29.frame(new id wl_callback@37)
+[1905537.657]  -> wl_surface@29.attach(wl_buffer@39, 0, 0)
+[1905537.765] xdg_toplevel@34.configure(0, 0, array[0])
+[1905537.773]  -> wl_surface@29.damage_buffer(0, 0, 2147483647, 2147483647)
+[1905538.488] xdg_surface@41.configure(30)
+[1905538.623]  -> xdg_surface@41.ack_configure(30)
+[1905538.719]  -> xdg_surface@41.set_window_geometry(0, 0, 600, 176)
+[1905539.434]  -> wl_shm@21.create_pool(new id wl_shm_pool@35, fd 25, 422400)
+[1905539.565]  -> wl_shm_pool@35.create_buffer(new id wl_buffer@45, 0, 600, 176, 2400, 0)
+[1905539.642]  -> wl_shm_pool@35.destroy()
+[1905539.774]  -> wl_buffer@43.destroy()
+[1905539.886]  -> wl_buffer@46.destroy()
+[1905539.993]  -> wl_buffer@49.destroy()
+[1905540.436]  -> wl_surface@42.frame(new id wl_callback@47)
+[1905540.586]  -> wl_surface@42.attach(wl_buffer@45, 0, 0)
+[1905540.711]  -> wl_surface@42.damage_buffer(0, 0, 2147483647, 2147483647)
+[1905542.732]  -> wl_surface@29.commit()
+[1905542.960]  -> wl_display@1.sync(new id wl_callback@44)
+[1905543.137]  -> wl_surface@42.commit()
+[1905543.229]  -> wl_display@1.sync(new id wl_callback@48)
+[1905546.055] wl_display@1.delete_id(35)
+[1905546.172] wl_display@1.delete_id(46)
+[1905546.311] wl_display@1.delete_id(49)
+[1905546.459] wl_display@1.delete_id(44)
+[1905546.072] wl_display@1.delete_id(43)
+[1905548.174] wl_display@1.delete_id(48)
+[1905548.294] wl_surface@42.enter(wl_output@12)
+[1905548.403] wl_keyboard@16.leave(31, wl_surface@29)
+[1905548.494]  -> wl_display@1.sync(new id wl_callback@43)
+[1905548.585] wl_keyboard@16.enter(32, wl_surface@42, array[0])
+[1905548.647] wl_keyboard@16.modifiers(32, 0, 0, 0, 0)
+[1905548.716] wl_data_device@11.selection(nil)
+[1905548.796] xdg_toplevel@33.configure(0, 0, array[0])
+[1905548.853] xdg_surface@32.configure(33)
+[1905548.912] xdg_toplevel@34.configure(0, 0, array[4])
+[1905548.964] xdg_surface@41.configure(34)
+[1905549.107]  -> xdg_surface@32.set_window_geometry(0, 0, 1766, 929)
+[1905549.363]  -> xdg_surface@32.ack_configure(33)
+[1905549.479]  -> xdg_surface@32.set_window_geometry(0, 0, 1766, 929)
+[1905549.669] wl_display@1.delete_id(43)
+[1905550.168] wl_buffer@36.release()
+[1905554.611] wl_callback@44.done(30)
+[1905556.840]  -> wl_surface@29.damage_buffer(0, 0, 1766, 30)
+[1905557.037]  -> wl_surface@29.damage_buffer(0, 30, 3, 896)
+[1905557.213]  -> wl_surface@29.damage_buffer(1763, 30, 3, 896)
+[1905557.319]  -> wl_surface@29.damage_buffer(0, 926, 1766, 3)
+[1905557.443]  -> wl_surface@29.damage_buffer(0, 929, 3, 30)
+[1905563.247] wl_display@1.delete_id(37)
+[1905563.366] wl_display@1.delete_id(47)
+[1905563.489] wl_callback@37.done(108054045)
+[1905563.632] wl_callback@47.done(108054045)
+[1905567.471]  -> wl_surface@29.frame(new id wl_callback@47)
+[1905569.622]  -> wl_surface@29.attach(wl_buffer@36, 0, 0)
+[1905569.771]  -> wl_surface@29.damage_buffer(0, 0, 2147483647, 2147483647)
+[1905572.559]  -> wl_surface@29.commit()
+[1905572.749]  -> wl_display@1.sync(new id wl_callback@37)
+[1905572.930]  -> xdg_surface@41.set_window_geometry(0, 0, 600, 176)
+[1905573.025]  -> xdg_surface@41.ack_configure(34)
+[1905573.114]  -> xdg_surface@41.set_window_geometry(0, 0, 600, 176)
+[1905573.400] wl_callback@48.done(32)
+[1905573.513]  -> wl_shm@21.create_pool(new id wl_shm_pool@48, fd 25, 422400)
+[1905573.591]  -> wl_shm_pool@48.create_buffer(new id wl_buffer@44, 0, 600, 176, 2400, 0)
+[1905573.687]  -> wl_shm_pool@48.destroy()
+[1905573.978]  -> wl_surface@42.frame(new id wl_callback@49)
+[1905574.136]  -> wl_surface@42.attach(wl_buffer@44, 0, 0)
+[1905574.914]  -> wl_surface@42.damage_buffer(0, 0, 2147483647, 2147483647)
+[1905574.136] wl_display@1.delete_id(37)
+[1905575.156]  -> wl_surface@42.commit()
+[1905575.358]  -> wl_display@1.sync(new id wl_callback@46)
+[1905575.555] wl_callback@43.done(34)
+[1905575.831]  -> zwp_text_input_v1@15.deactivate(wl_seat@10)
+[1905576.538]  -> zwp_text_input_v1@15.deactivate(wl_seat@10)
+[1905578.823] wl_display@1.delete_id(48)
+[1905578.852] wl_display@1.delete_id(46)
+[1905588.242] wl_display@1.delete_id(47)
+[1905588.380] wl_callback@47.done(108054073)
+[1905588.510] wl_callback@49.done(108054073)
+[1905588.246] wl_display@1.delete_id(49)
+[1906007.018]  -> zwp_text_input_v1@15.deactivate(wl_seat@10)
+[1906018.668]  -> zwp_text_input_v1@15.deactivate(wl_seat@10)
+[1906019.234]  -> xdg_toplevel@34.destroy()
+[1906019.416]  -> xdg_surface@41.destroy()
+[1906019.561]  -> wl_surface@42.destroy()
+[1906019.686]  -> wl_display@1.sync(new id wl_callback@49)
+[1906021.616] wl_buffer@39.release()
+[1906021.748] wl_callback@37.done(34)
+[1906026.643] wl_display@1.delete_id(34)
+[1906026.855] wl_display@1.delete_id(41)
+[1906026.955] wl_display@1.delete_id(42)
+[1906027.066] wl_display@1.delete_id(49)
+[1906039.070]  -> wl_surface@29.frame(new id wl_callback@42)
+[1906041.652]  -> wl_surface@29.attach(wl_buffer@39, 0, 0)
+[1906041.771]  -> wl_surface@29.damage_buffer(0, 0, 2147483647, 2147483647)
+[1906044.412]  -> wl_surface@29.commit()
+[1906044.655]  -> wl_display@1.sync(new id wl_callback@41)
+[1906045.019] wl_keyboard@16.leave(35, nil)
+[1906045.738]  -> wl_shm@21.create_pool(new id wl_shm_pool@34, fd 25, 6562456)
+[1906047.736]  -> wl_shm_pool@34.create_buffer(new id wl_buffer@37, 0, 1766, 929, 7064, 0)
+[1906047.792]  -> wl_shm_pool@34.destroy()
+[1906047.869] wl_callback@49.done(35)
+[1906049.901] wl_display@1.delete_id(41)
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483893"
+[1906061.072] wl_display@1.delete_id(34)
+[1906061.095] wl_display@1.delete_id(42)
+[1906061.177] wl_callback@42.done(108054542)
+[1906066.003]  -> wl_surface@29.frame(new id wl_callback@42)
+[1906067.610] wl_buffer@36.release()
+[1906067.718] wl_callback@41.done(35)
+[1906067.824]  -> wl_surface@29.attach(wl_buffer@37, 0, 0)
+[1906067.945]  -> wl_surface@29.damage_buffer(0, 0, 2147483647, 2147483647)
+[1906071.962]  -> wl_surface@29.commit()
+[1906072.442]  -> wl_display@1.sync(new id wl_callback@41)
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483893"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483893"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483893"
+[1906074.188] wl_display@1.delete_id(41)
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483893"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483893"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483893"
+[1906075.332] wl_buffer@39.release()
+[1906077.620] wl_callback@41.done(35)
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483893"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483897"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483897"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483897"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483897"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483897"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483897"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483897"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483897"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483901"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483901"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483901"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483901"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483901"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483901"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483901"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483901"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483905"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483905"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483905"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483905"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483905"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483905"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483905"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483905"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483909"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483909"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483909"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483909"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483909"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483909"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483909"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483909"
+[1906093.665] wl_display@1.delete_id(42)
+[1906093.751] wl_callback@42.done(108054577)
+[1906097.580]  -> wl_surface@29.frame(new id wl_callback@42)
+[1906097.759]  -> wl_surface@29.attach(wl_buffer@36, 0, 0)
+[1906098.062]  -> wl_surface@29.damage_buffer(0, 0, 2147483647, 2147483647)
+[1906105.346]  -> wl_surface@29.commit()
+[1906105.803]  -> wl_display@1.sync(new id wl_callback@41)
+[1906107.214] wl_display@1.delete_id(41)
+[1906125.842] wl_display@1.delete_id(42)
+[1906126.022] wl_callback@42.done(108054611)
+[1906973.784] wl_keyboard@16.enter(36, wl_surface@29, array[0])
+[1906973.951]  -> wl_display@1.sync(new id wl_callback@42)
+[1906974.074] wl_keyboard@16.modifiers(36, 0, 0, 0, 0)
+[1906974.173] wl_data_device@11.selection(nil)
+[1906974.295] xdg_toplevel@33.configure(0, 0, array[4])
+[1906974.402] xdg_surface@32.configure(37)
+[1906974.613]  -> xdg_surface@32.set_window_geometry(0, 0, 1766, 929)
+[1906974.767]  -> xdg_surface@32.ack_configure(37)
+[1906974.914]  -> xdg_surface@32.set_window_geometry(0, 0, 1766, 929)
+[1906975.094] wl_display@1.delete_id(42)
+[1906975.684] wl_buffer@37.release()
+[1906977.713] wl_callback@41.done(35)
+[1906981.773]  -> wl_surface@29.damage_buffer(0, 0, 1766, 30)
+[1906981.914]  -> wl_surface@29.damage_buffer(0, 30, 3, 896)
+[1906982.009]  -> wl_surface@29.damage_buffer(1763, 30, 3, 896)
+[1906982.094]  -> wl_surface@29.damage_buffer(0, 926, 1766, 3)
+[1906982.173]  -> wl_surface@29.damage_buffer(0, 929, 3, 30)
+[1906993.408]  -> wl_surface@29.frame(new id wl_callback@41)
+[1906995.609]  -> wl_surface@29.attach(wl_buffer@39, 0, 0)
+[1906995.729]  -> wl_surface@29.damage_buffer(0, 0, 2147483647, 2147483647)
+[1906998.900]  -> wl_surface@29.commit()
+[1906999.101]  -> wl_display@1.sync(new id wl_callback@34)
+[1906999.229] wl_callback@42.done(37)
+[1906999.652]  -> zwp_text_input_v1@15.deactivate(wl_seat@10)
+[1907001.687] wl_display@1.delete_id(34)
+[1907010.935] wl_display@1.delete_id(41)
+[1907011.169] wl_callback@41.done(108055496)
+[1908105.768]  -> zwp_text_input_v1@15.deactivate(wl_seat@10)
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483931"
+[1908115.832]  -> zwp_text_input_v1@15.deactivate(wl_seat@10)
+[1908113.150] wl_buffer@36.release()
+[1908116.180] wl_callback@34.done(37)
+[1908128.709]  -> wl_surface@29.frame(new id wl_callback@34)
+[1908130.722]  -> wl_surface@29.attach(wl_buffer@36, 0, 0)
+[1908130.907]  -> wl_surface@29.damage_buffer(0, 0, 2147483647, 2147483647)
+[1908134.005]  -> wl_surface@29.commit()
+[1908134.216]  -> wl_display@1.sync(new id wl_callback@41)
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483931"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483931"
+[1908137.441] wl_display@1.delete_id(41)
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483931"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483931"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483931"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483931"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483931"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483935"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483939"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483939"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483939"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483939"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483939"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483939"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483939"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483939"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483943"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483943"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483943"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483943"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483943"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483943"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483943"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483943"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483947"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483947"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483947"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483947"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483947"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483947"
+[1908155.787] wl_display@1.delete_id(34)
+[1908155.974] wl_callback@34.done(108056636)
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483947"
+[1908156.072]  -> wl_surface@29.frame(new id wl_callback@34)
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483947"
+[1908156.296] wl_buffer@39.release()
+[1908156.579] wl_callback@41.done(37)
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483951"
+[1908156.657]  -> wl_surface@29.attach(wl_buffer@37, 0, 0)
+[1908156.854]  -> wl_surface@29.damage_buffer(0, 0, 2147483647, 2147483647)
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483951"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483951"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483951"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483951"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483951"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483951"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483951"
+[1908159.942]  -> wl_surface@29.commit()
+[1908160.237]  -> wl_display@1.sync(new id wl_callback@41)
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483955"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483955"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483955"
+[1908161.409] wl_display@1.delete_id(41)
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483955"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483955"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483955"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483955"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483955"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483959"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483959"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483959"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483959"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483959"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483959"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483959"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483959"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483963"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483963"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483963"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483963"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483963"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483963"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483963"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483963"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483967"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483967"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483967"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483967"
+[1908168.930] wl_display@1.delete_id(34)
+[1908169.133] wl_callback@34.done(108056655)
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483967"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483967"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483967"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483967"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483971"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483971"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483971"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483971"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483971"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483971"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483971"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483971"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483975"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483975"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483975"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483975"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483975"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483975"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483975"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483975"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483979"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483979"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483979"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483979"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483979"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483979"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483979"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483979"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483983"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483983"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483983"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483983"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483983"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483983"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483983"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483983"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483987"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483987"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483987"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483987"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483987"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483987"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483987"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483987"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483991"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483991"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483991"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483991"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483991"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483991"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483991"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483991"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483995"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483995"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483995"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483995"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483995"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483995"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483995"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483995"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483999"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483999"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483999"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483999"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483999"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483999"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483999"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483999"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484003"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484003"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484003"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484003"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484003"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484003"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484003"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484003"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484007"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484007"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484007"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484007"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484007"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484007"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484007"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484007"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484011"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484011"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484011"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484011"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484011"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484011"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484011"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484011"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484015"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484015"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484015"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484015"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484015"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484015"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484015"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484015"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484019"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484019"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484019"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484019"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484019"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484019"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484019"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484019"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484023"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484023"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484023"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484023"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484023"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484023"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484023"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484023"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484027"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484027"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484027"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484027"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484027"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484027"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484027"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484027"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484031"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484031"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484031"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484031"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484031"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484031"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484031"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484031"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484035"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484035"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484035"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484035"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484035"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484035"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484035"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484035"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484039"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484039"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484039"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484039"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484039"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484039"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484039"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484039"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484043"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484043"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484043"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484043"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484043"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484043"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484043"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147484043"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483929"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483929"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483929"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483929"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483929"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483929"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483929"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483929"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483929"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483929"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483929"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483929"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483929"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483929"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483929"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483929"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483929"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483929"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483929"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483929"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483929"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483929"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483929"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483929"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483929"
+qt.accessibility.atspi: Could not find accessible on path: "/org/a11y/atspi/accessible/2147483929"
+[1908671.742]  -> zwp_text_input_v1@15.deactivate(wl_seat@10)
+[1908673.645] wl_buffer@36.release()
+[1908674.259] wl_callback@41.done(37)
+[1908701.756]  -> wl_surface@29.frame(new id wl_callback@41)
+[1908704.550]  -> wl_surface@29.attach(wl_buffer@36, 0, 0)
+[1908706.506]  -> wl_surface@29.damage_buffer(0, 0, 2147483647, 2147483647)
+[1908708.947]  -> wl_surface@29.commit()
+[1908709.212]  -> wl_display@1.sync(new id wl_callback@34)
+[1908710.063] wl_display@1.delete_id(34)
+[1908723.012] wl_display@1.delete_id(41)
+[1908723.164] wl_callback@41.done(108057209)
+[1909092.805]  -> zwp_text_input_v1@15.deactivate(wl_seat@10)
+[1909095.158]  -> wl_compositor@4.create_surface(new id wl_surface@41)
+[1909095.344]  -> xdg_wm_base@3.get_xdg_surface(new id xdg_surface@42, wl_surface@41)
+[1909095.449]  -> xdg_surface@42.get_toplevel(new id xdg_toplevel@49)
+[1909095.544]  -> xdg_toplevel@49.set_parent(xdg_toplevel@33)
+[1909095.630]  -> xdg_toplevel@49.set_min_size(0, 0)
+[1909095.725]  -> xdg_toplevel@49.set_max_size(0, 0)
+[1909095.814]  -> xdg_toplevel@49.set_title("AvelinoCatalog")
+[1909095.909]  -> xdg_toplevel@49.set_app_id("AvelinoCatalog")
+[1909095.999]  -> wl_surface@41.set_buffer_scale(1)
+[1909096.081]  -> wl_surface@41.set_buffer_transform(0)
+[1909096.152]  -> wl_surface@41.commit()
+[1909096.996] wl_buffer@37.release()
+[1909100.528] wl_callback@34.done(37)
+[1909102.361] xdg_toplevel@49.wm_capabilities(array[12])
+[1909102.452] xdg_toplevel@49.configure(0, 0, array[0])
+[1909102.535] xdg_surface@42.configure(38)
+[1909102.626]  -> xdg_surface@42.ack_configure(38)
+[1909102.708]  -> xdg_surface@42.set_window_geometry(0, 0, 600, 176)
+[1909103.942]  -> wl_shm@21.create_pool(new id wl_shm_pool@34, fd 25, 422400)
+[1909104.024]  -> wl_shm_pool@34.create_buffer(new id wl_buffer@47, 0, 600, 176, 2400, 0)
+[1909104.107]  -> wl_shm_pool@34.destroy()
+[1909104.260]  -> wl_buffer@45.destroy()
+[1909104.349]  -> wl_buffer@44.destroy()
+[1909104.678]  -> wl_surface@41.frame(new id wl_callback@46)
+[1909106.583]  -> wl_surface@41.attach(wl_buffer@47, 0, 0)
+[1909106.719]  -> wl_surface@41.damage_buffer(0, 0, 2147483647, 2147483647)
+[1909113.345]  -> wl_surface@29.frame(new id wl_callback@48)
+[1909114.484]  -> wl_surface@29.attach(wl_buffer@39, 0, 0)
+[1909114.593]  -> wl_surface@29.damage_buffer(0, 0, 2147483647, 2147483647)
+[1909119.347]  -> wl_surface@41.commit()
+[1909119.815]  -> wl_display@1.sync(new id wl_callback@43)
+[1909120.096]  -> wl_surface@29.commit()
+[1909120.232]  -> wl_display@1.sync(new id wl_callback@35)
+[1909125.811] wl_display@1.delete_id(34)
+[1909125.948] wl_display@1.delete_id(44)
+[1909126.038] wl_display@1.delete_id(43)
+[1909125.912] wl_display@1.delete_id(45)
+[1909126.276] wl_surface@41.enter(wl_output@12)
+[1909126.406] wl_keyboard@16.leave(39, wl_surface@29)
+[1909126.508]  -> wl_display@1.sync(new id wl_callback@45)
+[1909126.623] wl_keyboard@16.enter(40, wl_surface@41, array[0])
+[1909126.714] wl_keyboard@16.modifiers(40, 0, 0, 0, 0)
+[1909126.787] wl_data_device@11.selection(nil)
+[1909126.904] xdg_toplevel@33.configure(0, 0, array[0])
+[1909126.977] xdg_surface@32.configure(41)
+[1909126.643] wl_display@1.delete_id(35)
+[1909127.045] xdg_toplevel@49.configure(0, 0, array[4])
+[1909127.290] xdg_surface@42.configure(42)
+[1909127.510]  -> xdg_surface@32.set_window_geometry(0, 0, 1766, 929)
+[1909127.713]  -> xdg_surface@32.ack_configure(41)
+[1909127.833]  -> xdg_surface@32.set_window_geometry(0, 0, 1766, 929)
+[1909127.984] wl_display@1.delete_id(45)
+[1909128.523] wl_buffer@36.release()
+[1909128.759] wl_callback@35.done(42)
+[1909129.230]  -> wl_surface@29.damage_buffer(0, 0, 1766, 30)
+[1909129.324]  -> wl_surface@29.damage_buffer(0, 30, 3, 896)
+[1909129.429]  -> wl_surface@29.damage_buffer(1763, 30, 3, 896)
+[1909129.506]  -> wl_surface@29.damage_buffer(0, 926, 1766, 3)
+[1909129.582]  -> wl_surface@29.damage_buffer(0, 929, 3, 30)
+[1909143.900] wl_display@1.delete_id(48)
+[1909143.994] wl_display@1.delete_id(46)
+[1909144.058] wl_callback@48.done(108057624)
+[1909144.160] wl_callback@46.done(108057624)
+[1909145.694]  -> wl_surface@29.frame(new id wl_callback@46)
+[1909147.574]  -> wl_surface@29.attach(wl_buffer@36, 0, 0)
+[1909147.691]  -> wl_surface@29.damage_buffer(0, 0, 2147483647, 2147483647)
+[1909150.617]  -> wl_surface@29.commit()
+[1909150.862]  -> wl_display@1.sync(new id wl_callback@48)
+[1909151.142]  -> xdg_surface@42.set_window_geometry(0, 0, 600, 176)
+[1909151.280]  -> xdg_surface@42.ack_configure(42)
+[1909151.392]  -> xdg_surface@42.set_window_geometry(0, 0, 600, 176)
+[1909151.628] wl_callback@43.done(40)
+[1909151.776]  -> wl_shm@21.create_pool(new id wl_shm_pool@43, fd 25, 422400)
+[1909151.849]  -> wl_shm_pool@43.create_buffer(new id wl_buffer@35, 0, 600, 176, 2400, 0)
+[1909151.955]  -> wl_shm_pool@43.destroy()
+[1909152.044] wl_display@1.delete_id(48)
+[1909152.191]  -> wl_surface@41.frame(new id wl_callback@44)
+[1909153.146]  -> wl_surface@41.attach(wl_buffer@35, 0, 0)
+[1909153.207]  -> wl_surface@41.damage_buffer(0, 0, 2147483647, 2147483647)
+[1909153.414]  -> wl_surface@41.commit()
+[1909153.479]  -> wl_display@1.sync(new id wl_callback@34)
+[1909154.593] wl_callback@45.done(42)
+[1909154.900]  -> zwp_text_input_v1@15.deactivate(wl_seat@10)
+[1909155.559]  -> zwp_text_input_v1@15.deactivate(wl_seat@10)
+[1909158.406] wl_display@1.delete_id(43)
+[1909158.408] wl_display@1.delete_id(46)
+[1909158.517] wl_callback@46.done(108057643)
+[1909159.350] wl_display@1.delete_id(34)
+[1909170.984] wl_display@1.delete_id(44)
+[1909171.161] wl_callback@44.done(108057660)
+qt.accessibility.atspi: Subscription string not handled: "Window:Destroy:"

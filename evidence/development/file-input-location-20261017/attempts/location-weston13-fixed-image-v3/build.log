@@ -1,0 +1,1151 @@
+#0 building with "colima-avelino-verify" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 349B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/avelino-toolchain:recovered-a11y-20261017-qt6.8.3
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/4] FROM docker.io/library/avelino-toolchain:recovered-a11y-20261017-qt6.8.3@sha256:cd1a2db8b8d979077bc74f0d596dea780aa485e0439df80200e90078cd9e5d5f
+#4 resolve docker.io/library/avelino-toolchain:recovered-a11y-20261017-qt6.8.3@sha256:cd1a2db8b8d979077bc74f0d596dea780aa485e0439df80200e90078cd9e5d5f 0.0s done
+#4 CACHED
+
+#5 [internal] load build context
+#5 transferring context: 2.21kB done
+#5 DONE 0.0s
+
+#6 [2/4] COPY install-weston.sh /usr/local/lib/avelino/install-weston.sh
+#6 DONE 0.0s
+
+#7 [3/4] RUN bash /usr/local/lib/avelino/install-weston.sh
+#7 0.250 Get:1 http://ports.ubuntu.com/ubuntu-ports noble InRelease [256 kB]
+#7 0.299 Get:2 http://ports.ubuntu.com/ubuntu-ports noble-updates InRelease [126 kB]
+#7 0.313 Get:3 http://ports.ubuntu.com/ubuntu-ports noble-backports InRelease [126 kB]
+#7 0.325 Get:4 http://ports.ubuntu.com/ubuntu-ports noble-security InRelease [126 kB]
+#7 0.338 Get:5 http://ports.ubuntu.com/ubuntu-ports noble/universe arm64 Packages [19.0 MB]
+#7 0.605 Get:6 http://ports.ubuntu.com/ubuntu-ports noble/multiverse arm64 Packages [274 kB]
+#7 0.605 Get:7 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 Packages [1776 kB]
+#7 0.607 Get:8 http://ports.ubuntu.com/ubuntu-ports noble/restricted arm64 Packages [113 kB]
+#7 0.616 Get:9 http://ports.ubuntu.com/ubuntu-ports noble-updates/universe arm64 Packages [2214 kB]
+#7 0.650 Get:10 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 Packages [1786 kB]
+#7 0.666 Get:11 http://ports.ubuntu.com/ubuntu-ports noble-updates/restricted arm64 Packages [3251 kB]
+#7 0.693 Get:12 http://ports.ubuntu.com/ubuntu-ports noble-updates/multiverse arm64 Packages [104 kB]
+#7 0.695 Get:13 http://ports.ubuntu.com/ubuntu-ports noble-backports/main arm64 Packages [49.0 kB]
+#7 0.695 Get:14 http://ports.ubuntu.com/ubuntu-ports noble-backports/multiverse arm64 Packages [669 B]
+#7 0.696 Get:15 http://ports.ubuntu.com/ubuntu-ports noble-backports/universe arm64 Packages [36.3 kB]
+#7 0.696 Get:16 http://ports.ubuntu.com/ubuntu-ports noble-security/multiverse arm64 Packages [99.1 kB]
+#7 0.697 Get:17 http://ports.ubuntu.com/ubuntu-ports noble-security/main arm64 Packages [1475 kB]
+#7 0.702 Get:18 http://ports.ubuntu.com/ubuntu-ports noble-security/restricted arm64 Packages [3129 kB]
+#7 0.750 Get:19 http://ports.ubuntu.com/ubuntu-ports noble-security/universe arm64 Packages [1638 kB]
+#7 1.698 Fetched 35.6 MB in 2s (22.8 MB/s)
+#7 1.698 Reading package lists...
+#7 2.510 Reading package lists...
+#7 3.237 Building dependency tree...
+#7 3.474 Reading state information...
+#7 3.745 libegl-dev is already the newest version (1.7.0-1build1).
+#7 3.745 libxkbcommon-dev is already the newest version (1.6.0-1build1).
+#7 3.745 The following additional packages will be installed:
+#7 3.745   gir1.2-freedesktop-dev gir1.2-glib-2.0-dev gir1.2-gudev-1.0 libblkid-dev
+#7 3.745   libbrotli-dev libbz2-dev libcairo-script-interpreter2 libdatrie-dev
+#7 3.745   libdrm-etnaviv1 libdrm-freedreno1 libdrm-nouveau2 libdrm-radeon1
+#7 3.745   libdrm-tegra0 libevdev-dev libexpat1-dev libffi-dev libfontconfig-dev
+#7 3.745   libfreetype-dev libfribidi-dev libgirepository-2.0-0 libgles1
+#7 3.745   libglib2.0-dev-bin libgraphite2-dev libgudev-1.0-dev libharfbuzz-cairo0
+#7 3.745   libharfbuzz-dev libharfbuzz-icu0 libharfbuzz-subset0 libice-dev
+#7 3.745   libjpeg-turbo8-dev libjpeg8-dev liblzo2-2 libmount-dev libmtdev-dev
+#7 3.745   libpciaccess-dev libpciaccess0 libpcre2-16-0 libpcre2-32-0 libpcre2-dev
+#7 3.745   libpcre2-posix3 libpkgconf3 libselinux1-dev libsepol-dev libsharpyuv-dev
+#7 3.745   libsm-dev libsystemd0 libthai-dev libudev1 libwacom-dev libwayland-bin
+#7 3.745   libwebpdecoder3 libxcb-shape0-dev libxcb-xinput0 libxext-dev libxfixes-dev
+#7 3.745   libxft-dev libxrender-dev pango1.0-tools pkgconf pkgconf-bin
+#7 3.746   python3-packaging python3-pkg-resources python3-setuptools uuid-dev
+#7 3.746   zlib1g-dev
+#7 3.746 Suggested packages:
+#7 3.746   libcairo2-doc libdatrie-doc libevdev-doc freetype2-doc libglib2.0-doc
+#7 3.746   libgdk-pixbuf2.0-bin libxml2-utils libgraphite2-utils libice-doc
+#7 3.746   libpango1.0-doc pciutils libsm-doc libthai-doc libwayland-doc libxext-doc
+#7 3.746   graphicsmagick python-setuptools-doc
+#7 3.746 Recommended packages:
+#7 3.746   bzip2-doc libpng-tools
+#7 3.856 The following NEW packages will be installed:
+#7 3.856   gir1.2-freedesktop-dev gir1.2-glib-2.0-dev gir1.2-gudev-1.0 libblkid-dev
+#7 3.857   libbrotli-dev libbz2-dev libcairo-script-interpreter2 libcairo2-dev
+#7 3.857   libdatrie-dev libdrm-dev libdrm-etnaviv1 libdrm-freedreno1 libdrm-nouveau2
+#7 3.857   libdrm-radeon1 libdrm-tegra0 libevdev-dev libexpat1-dev libffi-dev
+#7 3.857   libfontconfig-dev libfreetype-dev libfribidi-dev libgbm-dev
+#7 3.857   libgirepository-2.0-0 libgles-dev libgles1 libglib2.0-dev libglib2.0-dev-bin
+#7 3.857   libgraphite2-dev libgudev-1.0-dev libharfbuzz-cairo0 libharfbuzz-dev
+#7 3.857   libharfbuzz-icu0 libharfbuzz-subset0 libice-dev libinput-dev libjpeg-dev
+#7 3.857   libjpeg-turbo8-dev libjpeg8-dev liblcms2-dev liblzo2-2 libmount-dev
+#7 3.857   libmtdev-dev libpango1.0-dev libpciaccess-dev libpciaccess0 libpcre2-16-0
+#7 3.857   libpcre2-32-0 libpcre2-dev libpcre2-posix3 libpixman-1-dev libpkgconf3
+#7 3.857   libpng-dev libselinux1-dev libsepol-dev libsharpyuv-dev libsm-dev
+#7 3.857   libthai-dev libudev-dev libwacom-dev libwayland-bin libwayland-dev
+#7 3.857   libwebp-dev libwebpdecoder3 libx11-xcb-dev libxcb-composite0-dev
+#7 3.857   libxcb-randr0-dev libxcb-render0-dev libxcb-shape0-dev libxcb-shm0-dev
+#7 3.857   libxcb-xfixes0-dev libxcb-xinerama0-dev libxcb-xinput-dev libxcb-xinput0
+#7 3.857   libxcb-xkb-dev libxcursor-dev libxext-dev libxfixes-dev libxft-dev
+#7 3.857   libxkbcommon-x11-dev libxrender-dev meson pango1.0-tools pkg-config pkgconf
+#7 3.857   pkgconf-bin python3-packaging python3-pkg-resources python3-setuptools
+#7 3.857   uuid-dev wayland-protocols zlib1g-dev
+#7 3.858 The following packages will be upgraded:
+#7 3.858   libsystemd0 libudev1
+#7 3.913 2 upgraded, 91 newly installed, 0 to remove and 2 not upgraded.
+#7 3.913 Need to get 14.6 MB of archives.
+#7 3.913 After this operation, 68.4 MB of additional disk space will be used.
+#7 3.913 Get:1 http://ports.ubuntu.com/ubuntu-ports noble-security/main arm64 libsystemd0 arm64 255.4-1ubuntu8.18 [428 kB]
+#7 3.967 Get:2 http://ports.ubuntu.com/ubuntu-ports noble-security/main arm64 libudev1 arm64 255.4-1ubuntu8.18 [176 kB]
+#7 3.970 Get:3 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 python3-pkg-resources all 68.1.2-2ubuntu1.2 [168 kB]
+#7 3.972 Get:4 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 gir1.2-glib-2.0-dev arm64 2.80.0-6ubuntu3.9 [848 kB]
+#7 3.986 Get:5 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 gir1.2-freedesktop-dev arm64 1.80.1-1 [28.8 kB]
+#7 3.986 Get:6 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 gir1.2-gudev-1.0 arm64 1:238-5ubuntu1 [3812 B]
+#7 3.987 Get:7 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libbrotli-dev arm64 1.1.0-2build2 [360 kB]
+#7 3.989 Get:8 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 libbz2-dev arm64 1.0.8-5.1ubuntu0.1 [35.8 kB]
+#7 3.990 Get:9 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 liblzo2-2 arm64 2.10-2build4 [50.6 kB]
+#7 3.990 Get:10 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libcairo-script-interpreter2 arm64 1.18.0-3build1 [60.9 kB]
+#7 3.991 Get:11 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 libexpat1-dev arm64 2.6.1-2ubuntu0.6 [134 kB]
+#7 3.992 Get:12 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 zlib1g-dev arm64 1:1.3.dfsg-3.1ubuntu2.2 [894 kB]
+#7 4.011 Get:13 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 libpng-dev arm64 1.6.43-5ubuntu0.7 [268 kB]
+#7 4.012 Get:14 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 libfreetype-dev arm64 2.13.2+dfsg-1ubuntu0.2 [574 kB]
+#7 4.016 Get:15 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 uuid-dev arm64 2.39.3-9ubuntu6.6 [34.8 kB]
+#7 4.016 Get:16 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libpkgconf3 arm64 1.8.1-2build1 [31.2 kB]
+#7 4.017 Get:17 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 pkgconf-bin arm64 1.8.1-2build1 [20.5 kB]
+#7 4.017 Get:18 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 pkgconf arm64 1.8.1-2build1 [16.8 kB]
+#7 4.017 Get:19 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libfontconfig-dev arm64 2.15.0-1.1ubuntu2 [165 kB]
+#7 4.019 Get:20 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libffi-dev arm64 3.4.6-1build1 [59.5 kB]
+#7 4.019 Get:21 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 python3-packaging all 24.0-1 [41.1 kB]
+#7 4.020 Get:22 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 libglib2.0-dev-bin arm64 2.80.0-6ubuntu3.9 [138 kB]
+#7 4.022 Get:23 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 libblkid-dev arm64 2.39.3-9ubuntu6.6 [219 kB]
+#7 4.025 Get:24 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libsepol-dev arm64 3.5-2build1 [395 kB]
+#7 4.029 Get:25 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 libpcre2-16-0 arm64 10.42-4ubuntu2.1 [196 kB]
+#7 4.042 Get:26 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 libpcre2-32-0 arm64 10.42-4ubuntu2.1 [184 kB]
+#7 4.043 Get:27 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 libpcre2-posix3 arm64 10.42-4ubuntu2.1 [6604 B]
+#7 4.044 Get:28 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 libpcre2-dev arm64 10.42-4ubuntu2.1 [680 kB]
+#7 4.068 Get:29 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 libselinux1-dev arm64 3.5-2ubuntu2.1 [172 kB]
+#7 4.071 Get:30 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 libmount-dev arm64 2.39.3-9ubuntu6.6 [14.9 kB]
+#7 4.071 Get:31 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 libgirepository-2.0-0 arm64 2.80.0-6ubuntu3.9 [71.5 kB]
+#7 4.071 Get:32 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 libglib2.0-dev arm64 2.80.0-6ubuntu3.9 [1964 kB]
+#7 4.086 Get:33 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libpixman-1-dev arm64 0.42.2-1build1 [228 kB]
+#7 4.088 Get:34 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libice-dev arm64 2:1.0.10-1build3 [52.3 kB]
+#7 4.088 Get:35 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libsm-dev arm64 2:1.2.3-1build3 [18.9 kB]
+#7 4.089 Get:36 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libxcb-render0-dev arm64 1.15-1ubuntu2 [20.9 kB]
+#7 4.089 Get:37 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libxcb-shm0-dev arm64 1.15-1ubuntu2 [8750 B]
+#7 4.089 Get:38 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libxext-dev arm64 2:1.3.4-1build2 [84.9 kB]
+#7 4.090 Get:39 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libxrender-dev arm64 1:0.9.10-1.1build1 [26.9 kB]
+#7 4.090 Get:40 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libcairo2-dev arm64 1.18.0-3build1 [41.1 kB]
+#7 4.091 Get:41 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libdatrie-dev arm64 0.2.13-3build1 [20.3 kB]
+#7 4.095 Get:42 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 libdrm-radeon1 arm64 2.4.125-1ubuntu0.1~24.04.2 [20.9 kB]
+#7 4.098 Get:43 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 libdrm-nouveau2 arm64 2.4.125-1ubuntu0.1~24.04.2 [17.8 kB]
+#7 4.099 Get:44 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 libdrm-freedreno1 arm64 2.4.125-1ubuntu0.1~24.04.2 [20.2 kB]
+#7 4.099 Get:45 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 libdrm-tegra0 arm64 2.4.125-1ubuntu0.1~24.04.2 [9636 B]
+#7 4.099 Get:46 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 libdrm-etnaviv1 arm64 2.4.125-1ubuntu0.1~24.04.2 [12.5 kB]
+#7 4.100 Get:47 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 libpciaccess0 arm64 0.17-3ubuntu0.24.04.3 [19.5 kB]
+#7 4.100 Get:48 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 libpciaccess-dev arm64 0.17-3ubuntu0.24.04.3 [23.8 kB]
+#7 4.101 Get:49 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 libdrm-dev arm64 2.4.125-1ubuntu0.1~24.04.2 [350 kB]
+#7 4.104 Get:50 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libfribidi-dev arm64 1.0.13-3build1 [65.0 kB]
+#7 4.105 Get:51 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 libgbm-dev arm64 25.2.8-0ubuntu0.24.04.4 [12.7 kB]
+#7 4.106 Get:52 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libgles1 arm64 1.7.0-1build1 [11.6 kB]
+#7 4.107 Get:53 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libgles-dev arm64 1.7.0-1build1 [50.4 kB]
+#7 4.108 Get:54 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 libgraphite2-dev arm64 1.3.14-2ubuntu0.24.04.1 [14.7 kB]
+#7 4.109 Get:55 http://ports.ubuntu.com/ubuntu-ports noble-security/main arm64 libudev-dev arm64 255.4-1ubuntu8.18 [22.0 kB]
+#7 4.109 Get:56 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 pkg-config arm64 1.8.1-2build1 [7264 B]
+#7 4.110 Get:57 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libgudev-1.0-dev arm64 1:238-5ubuntu1 [27.2 kB]
+#7 4.110 Get:58 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libharfbuzz-cairo0 arm64 8.3.0-2build2 [25.1 kB]
+#7 4.114 Get:59 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libharfbuzz-icu0 arm64 8.3.0-2build2 [13.2 kB]
+#7 4.117 Get:60 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libharfbuzz-subset0 arm64 8.3.0-2build2 [413 kB]
+#7 4.122 Get:61 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libharfbuzz-dev arm64 8.3.0-2build2 [142 kB]
+#7 4.123 Get:62 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libjpeg-turbo8-dev arm64 2.1.5-2ubuntu2 [305 kB]
+#7 4.138 Get:63 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libjpeg8-dev arm64 8c-2ubuntu11 [1484 B]
+#7 4.138 Get:64 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libjpeg-dev arm64 8c-2ubuntu11 [1482 B]
+#7 4.138 Get:65 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 liblcms2-dev arm64 2.14-2ubuntu0.1 [1809 kB]
+#7 4.157 Get:66 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libmtdev-dev arm64 1.1.6-1.1build1 [5118 B]
+#7 4.159 Get:67 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libthai-dev arm64 0.1.29-2build1 [26.3 kB]
+#7 4.159 Get:68 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libxft-dev arm64 2.3.6-1build1 [65.0 kB]
+#7 4.159 Get:69 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 pango1.0-tools arm64 1.52.1+ds-1build1 [36.3 kB]
+#7 4.159 Get:70 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libpango1.0-dev arm64 1.52.1+ds-1build1 [147 kB]
+#7 4.160 Get:71 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libsharpyuv-dev arm64 1.3.2-0.4build3 [15.1 kB]
+#7 4.161 Get:72 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libevdev-dev arm64 1.13.1+dfsg-1build1 [53.9 kB]
+#7 4.162 Get:73 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libwacom-dev arm64 2.10.0-2 [7586 B]
+#7 4.162 Get:74 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libwebpdecoder3 arm64 1.3.2-0.4build3 [88.7 kB]
+#7 4.167 Get:75 http://ports.ubuntu.com/ubuntu-ports noble-security/main arm64 libx11-xcb-dev arm64 2:1.8.7-1ubuntu0.1 [10.0 kB]
+#7 4.170 Get:76 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libxcb-shape0-dev arm64 1.15-1ubuntu2 [7806 B]
+#7 4.170 Get:77 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libxcb-xfixes0-dev arm64 1.15-1ubuntu2 [14.2 kB]
+#7 4.171 Get:78 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libxcb-composite0-dev arm64 1.15-1ubuntu2 [7028 B]
+#7 4.171 Get:79 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libxcb-randr0-dev arm64 1.15-1ubuntu2 [23.6 kB]
+#7 4.171 Get:80 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libxcb-xinerama0-dev arm64 1.15-1ubuntu2 [6442 B]
+#7 4.172 Get:81 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libxcb-xinput0 arm64 1.15-1ubuntu2 [34.2 kB]
+#7 4.173 Get:82 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libxcb-xinput-dev arm64 1.15-1ubuntu2 [49.6 kB]
+#7 4.173 Get:83 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libxcb-xkb-dev arm64 1.15-1ubuntu2 [44.1 kB]
+#7 4.173 Get:84 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libxfixes-dev arm64 1:6.0.0-2build1 [13.0 kB]
+#7 4.177 Get:85 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libxcursor-dev arm64 1:1.2.1-1build1 [33.3 kB]
+#7 4.180 Get:86 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 python3-setuptools all 68.1.2-2ubuntu1.2 [397 kB]
+#7 4.184 Get:87 http://ports.ubuntu.com/ubuntu-ports noble/universe arm64 meson all 1.3.2-1ubuntu1 [604 kB]
+#7 4.199 Get:88 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 libinput-dev arm64 1.25.0-1ubuntu3.7 [32.3 kB]
+#7 4.200 Get:89 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libwayland-bin arm64 1.22.0-2.1build1 [20.3 kB]
+#7 4.200 Get:90 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libwayland-dev arm64 1.22.0-2.1build1 [71.3 kB]
+#7 4.200 Get:91 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libwebp-dev arm64 1.3.2-0.4build3 [334 kB]
+#7 4.203 Get:92 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libxkbcommon-x11-dev arm64 1.6.0-1build1 [5584 B]
+#7 4.203 Get:93 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 wayland-protocols all 1.45-1~ubuntu0.24.04.2 [114 kB]
+#7 4.356 debconf: delaying package configuration, since apt-utils is not installed
+#7 4.394 Fetched 14.6 MB in 0s (44.2 MB/s)
+#7 4.411 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 39747 files and directories currently installed.)
+#7 4.457 Preparing to unpack .../libsystemd0_255.4-1ubuntu8.18_arm64.deb ...
+#7 4.460 Unpacking libsystemd0:arm64 (255.4-1ubuntu8.18) over (255.4-1ubuntu8.17) ...
+#7 4.494 Setting up libsystemd0:arm64 (255.4-1ubuntu8.18) ...
+#7 4.515 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 39747 files and directories currently installed.)
+#7 4.529 Preparing to unpack .../libudev1_255.4-1ubuntu8.18_arm64.deb ...
+#7 4.533 Unpacking libudev1:arm64 (255.4-1ubuntu8.18) over (255.4-1ubuntu8.17) ...
+#7 4.557 Setting up libudev1:arm64 (255.4-1ubuntu8.18) ...
+#7 4.585 Selecting previously unselected package python3-pkg-resources.
+#7 4.585 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 39747 files and directories currently installed.)
+#7 4.597 Preparing to unpack .../00-python3-pkg-resources_68.1.2-2ubuntu1.2_all.deb ...
+#7 4.598 Unpacking python3-pkg-resources (68.1.2-2ubuntu1.2) ...
+#7 4.621 Selecting previously unselected package gir1.2-glib-2.0-dev:arm64.
+#7 4.623 Preparing to unpack .../01-gir1.2-glib-2.0-dev_2.80.0-6ubuntu3.9_arm64.deb ...
+#7 4.625 Unpacking gir1.2-glib-2.0-dev:arm64 (2.80.0-6ubuntu3.9) ...
+#7 4.673 Selecting previously unselected package gir1.2-freedesktop-dev:arm64.
+#7 4.675 Preparing to unpack .../02-gir1.2-freedesktop-dev_1.80.1-1_arm64.deb ...
+#7 4.677 Unpacking gir1.2-freedesktop-dev:arm64 (1.80.1-1) ...
+#7 4.693 Selecting previously unselected package gir1.2-gudev-1.0:arm64.
+#7 4.695 Preparing to unpack .../03-gir1.2-gudev-1.0_1%3a238-5ubuntu1_arm64.deb ...
+#7 4.696 Unpacking gir1.2-gudev-1.0:arm64 (1:238-5ubuntu1) ...
+#7 4.709 Selecting previously unselected package libbrotli-dev:arm64.
+#7 4.712 Preparing to unpack .../04-libbrotli-dev_1.1.0-2build2_arm64.deb ...
+#7 4.714 Unpacking libbrotli-dev:arm64 (1.1.0-2build2) ...
+#7 4.738 Selecting previously unselected package libbz2-dev:arm64.
+#7 4.741 Preparing to unpack .../05-libbz2-dev_1.0.8-5.1ubuntu0.1_arm64.deb ...
+#7 4.744 Unpacking libbz2-dev:arm64 (1.0.8-5.1ubuntu0.1) ...
+#7 4.762 Selecting previously unselected package liblzo2-2:arm64.
+#7 4.764 Preparing to unpack .../06-liblzo2-2_2.10-2build4_arm64.deb ...
+#7 4.766 Unpacking liblzo2-2:arm64 (2.10-2build4) ...
+#7 4.784 Selecting previously unselected package libcairo-script-interpreter2:arm64.
+#7 4.787 Preparing to unpack .../07-libcairo-script-interpreter2_1.18.0-3build1_arm64.deb ...
+#7 4.788 Unpacking libcairo-script-interpreter2:arm64 (1.18.0-3build1) ...
+#7 4.803 Selecting previously unselected package libexpat1-dev:arm64.
+#7 4.806 Preparing to unpack .../08-libexpat1-dev_2.6.1-2ubuntu0.6_arm64.deb ...
+#7 4.808 Unpacking libexpat1-dev:arm64 (2.6.1-2ubuntu0.6) ...
+#7 4.831 Selecting previously unselected package zlib1g-dev:arm64.
+#7 4.837 Preparing to unpack .../09-zlib1g-dev_1%3a1.3.dfsg-3.1ubuntu2.2_arm64.deb ...
+#7 4.839 Unpacking zlib1g-dev:arm64 (1:1.3.dfsg-3.1ubuntu2.2) ...
+#7 4.862 Selecting previously unselected package libpng-dev:arm64.
+#7 4.863 Preparing to unpack .../10-libpng-dev_1.6.43-5ubuntu0.7_arm64.deb ...
+#7 4.864 Unpacking libpng-dev:arm64 (1.6.43-5ubuntu0.7) ...
+#7 4.890 Selecting previously unselected package libfreetype-dev:arm64.
+#7 4.892 Preparing to unpack .../11-libfreetype-dev_2.13.2+dfsg-1ubuntu0.2_arm64.deb ...
+#7 4.894 Unpacking libfreetype-dev:arm64 (2.13.2+dfsg-1ubuntu0.2) ...
+#7 4.927 Selecting previously unselected package uuid-dev:arm64.
+#7 4.930 Preparing to unpack .../12-uuid-dev_2.39.3-9ubuntu6.6_arm64.deb ...
+#7 4.931 Unpacking uuid-dev:arm64 (2.39.3-9ubuntu6.6) ...
+#7 4.946 Selecting previously unselected package libpkgconf3:arm64.
+#7 4.949 Preparing to unpack .../13-libpkgconf3_1.8.1-2build1_arm64.deb ...
+#7 4.950 Unpacking libpkgconf3:arm64 (1.8.1-2build1) ...
+#7 4.969 Selecting previously unselected package pkgconf-bin.
+#7 4.970 Preparing to unpack .../14-pkgconf-bin_1.8.1-2build1_arm64.deb ...
+#7 4.972 Unpacking pkgconf-bin (1.8.1-2build1) ...
+#7 4.991 Selecting previously unselected package pkgconf:arm64.
+#7 4.993 Preparing to unpack .../15-pkgconf_1.8.1-2build1_arm64.deb ...
+#7 4.996 Unpacking pkgconf:arm64 (1.8.1-2build1) ...
+#7 5.013 Selecting previously unselected package libfontconfig-dev:arm64.
+#7 5.013 Preparing to unpack .../16-libfontconfig-dev_2.15.0-1.1ubuntu2_arm64.deb ...
+#7 5.015 Unpacking libfontconfig-dev:arm64 (2.15.0-1.1ubuntu2) ...
+#7 5.031 Selecting previously unselected package libffi-dev:arm64.
+#7 5.033 Preparing to unpack .../17-libffi-dev_3.4.6-1build1_arm64.deb ...
+#7 5.034 Unpacking libffi-dev:arm64 (3.4.6-1build1) ...
+#7 5.050 Selecting previously unselected package python3-packaging.
+#7 5.052 Preparing to unpack .../18-python3-packaging_24.0-1_all.deb ...
+#7 5.053 Unpacking python3-packaging (24.0-1) ...
+#7 5.069 Selecting previously unselected package libglib2.0-dev-bin.
+#7 5.071 Preparing to unpack .../19-libglib2.0-dev-bin_2.80.0-6ubuntu3.9_arm64.deb ...
+#7 5.072 Unpacking libglib2.0-dev-bin (2.80.0-6ubuntu3.9) ...
+#7 5.090 Selecting previously unselected package libblkid-dev:arm64.
+#7 5.092 Preparing to unpack .../20-libblkid-dev_2.39.3-9ubuntu6.6_arm64.deb ...
+#7 5.093 Unpacking libblkid-dev:arm64 (2.39.3-9ubuntu6.6) ...
+#7 5.108 Selecting previously unselected package libsepol-dev:arm64.
+#7 5.110 Preparing to unpack .../21-libsepol-dev_3.5-2build1_arm64.deb ...
+#7 5.111 Unpacking libsepol-dev:arm64 (3.5-2build1) ...
+#7 5.137 Selecting previously unselected package libpcre2-16-0:arm64.
+#7 5.140 Preparing to unpack .../22-libpcre2-16-0_10.42-4ubuntu2.1_arm64.deb ...
+#7 5.141 Unpacking libpcre2-16-0:arm64 (10.42-4ubuntu2.1) ...
+#7 5.156 Selecting previously unselected package libpcre2-32-0:arm64.
+#7 5.158 Preparing to unpack .../23-libpcre2-32-0_10.42-4ubuntu2.1_arm64.deb ...
+#7 5.159 Unpacking libpcre2-32-0:arm64 (10.42-4ubuntu2.1) ...
+#7 5.177 Selecting previously unselected package libpcre2-posix3:arm64.
+#7 5.179 Preparing to unpack .../24-libpcre2-posix3_10.42-4ubuntu2.1_arm64.deb ...
+#7 5.181 Unpacking libpcre2-posix3:arm64 (10.42-4ubuntu2.1) ...
+#7 5.195 Selecting previously unselected package libpcre2-dev:arm64.
+#7 5.198 Preparing to unpack .../25-libpcre2-dev_10.42-4ubuntu2.1_arm64.deb ...
+#7 5.199 Unpacking libpcre2-dev:arm64 (10.42-4ubuntu2.1) ...
+#7 5.223 Selecting previously unselected package libselinux1-dev:arm64.
+#7 5.227 Preparing to unpack .../26-libselinux1-dev_3.5-2ubuntu2.1_arm64.deb ...
+#7 5.228 Unpacking libselinux1-dev:arm64 (3.5-2ubuntu2.1) ...
+#7 5.248 Selecting previously unselected package libmount-dev:arm64.
+#7 5.250 Preparing to unpack .../27-libmount-dev_2.39.3-9ubuntu6.6_arm64.deb ...
+#7 5.252 Unpacking libmount-dev:arm64 (2.39.3-9ubuntu6.6) ...
+#7 5.265 Selecting previously unselected package libgirepository-2.0-0:arm64.
+#7 5.267 Preparing to unpack .../28-libgirepository-2.0-0_2.80.0-6ubuntu3.9_arm64.deb ...
+#7 5.268 Unpacking libgirepository-2.0-0:arm64 (2.80.0-6ubuntu3.9) ...
+#7 5.281 Selecting previously unselected package libglib2.0-dev:arm64.
+#7 5.283 Preparing to unpack .../29-libglib2.0-dev_2.80.0-6ubuntu3.9_arm64.deb ...
+#7 5.284 Unpacking libglib2.0-dev:arm64 (2.80.0-6ubuntu3.9) ...
+#7 5.377 Selecting previously unselected package libpixman-1-dev:arm64.
+#7 5.379 Preparing to unpack .../30-libpixman-1-dev_0.42.2-1build1_arm64.deb ...
+#7 5.382 Unpacking libpixman-1-dev:arm64 (0.42.2-1build1) ...
+#7 5.403 Selecting previously unselected package libice-dev:arm64.
+#7 5.404 Preparing to unpack .../31-libice-dev_2%3a1.0.10-1build3_arm64.deb ...
+#7 5.406 Unpacking libice-dev:arm64 (2:1.0.10-1build3) ...
+#7 5.425 Selecting previously unselected package libsm-dev:arm64.
+#7 5.429 Preparing to unpack .../32-libsm-dev_2%3a1.2.3-1build3_arm64.deb ...
+#7 5.430 Unpacking libsm-dev:arm64 (2:1.2.3-1build3) ...
+#7 5.444 Selecting previously unselected package libxcb-render0-dev:arm64.
+#7 5.447 Preparing to unpack .../33-libxcb-render0-dev_1.15-1ubuntu2_arm64.deb ...
+#7 5.448 Unpacking libxcb-render0-dev:arm64 (1.15-1ubuntu2) ...
+#7 5.465 Selecting previously unselected package libxcb-shm0-dev:arm64.
+#7 5.468 Preparing to unpack .../34-libxcb-shm0-dev_1.15-1ubuntu2_arm64.deb ...
+#7 5.471 Unpacking libxcb-shm0-dev:arm64 (1.15-1ubuntu2) ...
+#7 5.486 Selecting previously unselected package libxext-dev:arm64.
+#7 5.489 Preparing to unpack .../35-libxext-dev_2%3a1.3.4-1build2_arm64.deb ...
+#7 5.490 Unpacking libxext-dev:arm64 (2:1.3.4-1build2) ...
+#7 5.509 Selecting previously unselected package libxrender-dev:arm64.
+#7 5.512 Preparing to unpack .../36-libxrender-dev_1%3a0.9.10-1.1build1_arm64.deb ...
+#7 5.513 Unpacking libxrender-dev:arm64 (1:0.9.10-1.1build1) ...
+#7 5.528 Selecting previously unselected package libcairo2-dev:arm64.
+#7 5.530 Preparing to unpack .../37-libcairo2-dev_1.18.0-3build1_arm64.deb ...
+#7 5.531 Unpacking libcairo2-dev:arm64 (1.18.0-3build1) ...
+#7 5.548 Selecting previously unselected package libdatrie-dev:arm64.
+#7 5.550 Preparing to unpack .../38-libdatrie-dev_0.2.13-3build1_arm64.deb ...
+#7 5.551 Unpacking libdatrie-dev:arm64 (0.2.13-3build1) ...
+#7 5.565 Selecting previously unselected package libdrm-radeon1:arm64.
+#7 5.567 Preparing to unpack .../39-libdrm-radeon1_2.4.125-1ubuntu0.1~24.04.2_arm64.deb ...
+#7 5.569 Unpacking libdrm-radeon1:arm64 (2.4.125-1ubuntu0.1~24.04.2) ...
+#7 5.582 Selecting previously unselected package libdrm-nouveau2:arm64.
+#7 5.585 Preparing to unpack .../40-libdrm-nouveau2_2.4.125-1ubuntu0.1~24.04.2_arm64.deb ...
+#7 5.586 Unpacking libdrm-nouveau2:arm64 (2.4.125-1ubuntu0.1~24.04.2) ...
+#7 5.601 Selecting previously unselected package libdrm-freedreno1:arm64.
+#7 5.603 Preparing to unpack .../41-libdrm-freedreno1_2.4.125-1ubuntu0.1~24.04.2_arm64.deb ...
+#7 5.604 Unpacking libdrm-freedreno1:arm64 (2.4.125-1ubuntu0.1~24.04.2) ...
+#7 5.615 Selecting previously unselected package libdrm-tegra0:arm64.
+#7 5.618 Preparing to unpack .../42-libdrm-tegra0_2.4.125-1ubuntu0.1~24.04.2_arm64.deb ...
+#7 5.619 Unpacking libdrm-tegra0:arm64 (2.4.125-1ubuntu0.1~24.04.2) ...
+#7 5.631 Selecting previously unselected package libdrm-etnaviv1:arm64.
+#7 5.634 Preparing to unpack .../43-libdrm-etnaviv1_2.4.125-1ubuntu0.1~24.04.2_arm64.deb ...
+#7 5.635 Unpacking libdrm-etnaviv1:arm64 (2.4.125-1ubuntu0.1~24.04.2) ...
+#7 5.650 Selecting previously unselected package libpciaccess0:arm64.
+#7 5.653 Preparing to unpack .../44-libpciaccess0_0.17-3ubuntu0.24.04.3_arm64.deb ...
+#7 5.654 Unpacking libpciaccess0:arm64 (0.17-3ubuntu0.24.04.3) ...
+#7 5.671 Selecting previously unselected package libpciaccess-dev:arm64.
+#7 5.672 Preparing to unpack .../45-libpciaccess-dev_0.17-3ubuntu0.24.04.3_arm64.deb ...
+#7 5.673 Unpacking libpciaccess-dev:arm64 (0.17-3ubuntu0.24.04.3) ...
+#7 5.687 Selecting previously unselected package libdrm-dev:arm64.
+#7 5.689 Preparing to unpack .../46-libdrm-dev_2.4.125-1ubuntu0.1~24.04.2_arm64.deb ...
+#7 5.690 Unpacking libdrm-dev:arm64 (2.4.125-1ubuntu0.1~24.04.2) ...
+#7 5.716 Selecting previously unselected package libfribidi-dev:arm64.
+#7 5.719 Preparing to unpack .../47-libfribidi-dev_1.0.13-3build1_arm64.deb ...
+#7 5.721 Unpacking libfribidi-dev:arm64 (1.0.13-3build1) ...
+#7 5.739 Selecting previously unselected package libgbm-dev:arm64.
+#7 5.740 Preparing to unpack .../48-libgbm-dev_25.2.8-0ubuntu0.24.04.4_arm64.deb ...
+#7 5.742 Unpacking libgbm-dev:arm64 (25.2.8-0ubuntu0.24.04.4) ...
+#7 5.761 Selecting previously unselected package libgles1:arm64.
+#7 5.763 Preparing to unpack .../49-libgles1_1.7.0-1build1_arm64.deb ...
+#7 5.765 Unpacking libgles1:arm64 (1.7.0-1build1) ...
+#7 5.783 Selecting previously unselected package libgles-dev:arm64.
+#7 5.786 Preparing to unpack .../50-libgles-dev_1.7.0-1build1_arm64.deb ...
+#7 5.787 Unpacking libgles-dev:arm64 (1.7.0-1build1) ...
+#7 5.807 Selecting previously unselected package libgraphite2-dev:arm64.
+#7 5.808 Preparing to unpack .../51-libgraphite2-dev_1.3.14-2ubuntu0.24.04.1_arm64.deb ...
+#7 5.810 Unpacking libgraphite2-dev:arm64 (1.3.14-2ubuntu0.24.04.1) ...
+#7 5.829 Selecting previously unselected package libudev-dev:arm64.
+#7 5.830 Preparing to unpack .../52-libudev-dev_255.4-1ubuntu8.18_arm64.deb ...
+#7 5.832 Unpacking libudev-dev:arm64 (255.4-1ubuntu8.18) ...
+#7 5.851 Selecting previously unselected package pkg-config:arm64.
+#7 5.854 Preparing to unpack .../53-pkg-config_1.8.1-2build1_arm64.deb ...
+#7 5.857 Unpacking pkg-config:arm64 (1.8.1-2build1) ...
+#7 5.872 Selecting previously unselected package libgudev-1.0-dev:arm64.
+#7 5.873 Preparing to unpack .../54-libgudev-1.0-dev_1%3a238-5ubuntu1_arm64.deb ...
+#7 5.874 Unpacking libgudev-1.0-dev:arm64 (1:238-5ubuntu1) ...
+#7 5.893 Selecting previously unselected package libharfbuzz-cairo0:arm64.
+#7 5.896 Preparing to unpack .../55-libharfbuzz-cairo0_8.3.0-2build2_arm64.deb ...
+#7 5.897 Unpacking libharfbuzz-cairo0:arm64 (8.3.0-2build2) ...
+#7 5.912 Selecting previously unselected package libharfbuzz-icu0:arm64.
+#7 5.915 Preparing to unpack .../56-libharfbuzz-icu0_8.3.0-2build2_arm64.deb ...
+#7 5.916 Unpacking libharfbuzz-icu0:arm64 (8.3.0-2build2) ...
+#7 5.931 Selecting previously unselected package libharfbuzz-subset0:arm64.
+#7 5.934 Preparing to unpack .../57-libharfbuzz-subset0_8.3.0-2build2_arm64.deb ...
+#7 5.935 Unpacking libharfbuzz-subset0:arm64 (8.3.0-2build2) ...
+#7 5.952 Selecting previously unselected package libharfbuzz-dev:arm64.
+#7 5.955 Preparing to unpack .../58-libharfbuzz-dev_8.3.0-2build2_arm64.deb ...
+#7 5.957 Unpacking libharfbuzz-dev:arm64 (8.3.0-2build2) ...
+#7 5.986 Selecting previously unselected package libjpeg-turbo8-dev:arm64.
+#7 5.988 Preparing to unpack .../59-libjpeg-turbo8-dev_2.1.5-2ubuntu2_arm64.deb ...
+#7 5.990 Unpacking libjpeg-turbo8-dev:arm64 (2.1.5-2ubuntu2) ...
+#7 6.011 Selecting previously unselected package libjpeg8-dev:arm64.
+#7 6.014 Preparing to unpack .../60-libjpeg8-dev_8c-2ubuntu11_arm64.deb ...
+#7 6.015 Unpacking libjpeg8-dev:arm64 (8c-2ubuntu11) ...
+#7 6.032 Selecting previously unselected package libjpeg-dev:arm64.
+#7 6.036 Preparing to unpack .../61-libjpeg-dev_8c-2ubuntu11_arm64.deb ...
+#7 6.038 Unpacking libjpeg-dev:arm64 (8c-2ubuntu11) ...
+#7 6.172 Selecting previously unselected package liblcms2-dev:arm64.
+#7 6.179 Preparing to unpack .../62-liblcms2-dev_2.14-2ubuntu0.1_arm64.deb ...
+#7 6.208 Unpacking liblcms2-dev:arm64 (2.14-2ubuntu0.1) ...
+#7 6.269 Selecting previously unselected package libmtdev-dev:arm64.
+#7 6.270 Preparing to unpack .../63-libmtdev-dev_1.1.6-1.1build1_arm64.deb ...
+#7 6.281 Unpacking libmtdev-dev:arm64 (1.1.6-1.1build1) ...
+#7 6.319 Selecting previously unselected package libthai-dev:arm64.
+#7 6.324 Preparing to unpack .../64-libthai-dev_0.1.29-2build1_arm64.deb ...
+#7 6.329 Unpacking libthai-dev:arm64 (0.1.29-2build1) ...
+#7 6.374 Selecting previously unselected package libxft-dev:arm64.
+#7 6.377 Preparing to unpack .../65-libxft-dev_2.3.6-1build1_arm64.deb ...
+#7 6.388 Unpacking libxft-dev:arm64 (2.3.6-1build1) ...
+#7 6.418 Selecting previously unselected package pango1.0-tools.
+#7 6.419 Preparing to unpack .../66-pango1.0-tools_1.52.1+ds-1build1_arm64.deb ...
+#7 6.424 Unpacking pango1.0-tools (1.52.1+ds-1build1) ...
+#7 6.479 Selecting previously unselected package libpango1.0-dev:arm64.
+#7 6.483 Preparing to unpack .../67-libpango1.0-dev_1.52.1+ds-1build1_arm64.deb ...
+#7 6.496 Unpacking libpango1.0-dev:arm64 (1.52.1+ds-1build1) ...
+#7 6.565 Selecting previously unselected package libsharpyuv-dev:arm64.
+#7 6.570 Preparing to unpack .../68-libsharpyuv-dev_1.3.2-0.4build3_arm64.deb ...
+#7 6.578 Unpacking libsharpyuv-dev:arm64 (1.3.2-0.4build3) ...
+#7 6.608 Selecting previously unselected package libevdev-dev:arm64.
+#7 6.609 Preparing to unpack .../69-libevdev-dev_1.13.1+dfsg-1build1_arm64.deb ...
+#7 6.625 Unpacking libevdev-dev:arm64 (1.13.1+dfsg-1build1) ...
+#7 6.678 Selecting previously unselected package libwacom-dev:arm64.
+#7 6.682 Preparing to unpack .../70-libwacom-dev_2.10.0-2_arm64.deb ...
+#7 6.692 Unpacking libwacom-dev:arm64 (2.10.0-2) ...
+#7 6.737 Selecting previously unselected package libwebpdecoder3:arm64.
+#7 6.740 Preparing to unpack .../71-libwebpdecoder3_1.3.2-0.4build3_arm64.deb ...
+#7 6.752 Unpacking libwebpdecoder3:arm64 (1.3.2-0.4build3) ...
+#7 6.825 Selecting previously unselected package libx11-xcb-dev:arm64.
+#7 6.831 Preparing to unpack .../72-libx11-xcb-dev_2%3a1.8.7-1ubuntu0.1_arm64.deb ...
+#7 6.835 Unpacking libx11-xcb-dev:arm64 (2:1.8.7-1ubuntu0.1) ...
+#7 6.872 Selecting previously unselected package libxcb-shape0-dev:arm64.
+#7 6.879 Preparing to unpack .../73-libxcb-shape0-dev_1.15-1ubuntu2_arm64.deb ...
+#7 6.884 Unpacking libxcb-shape0-dev:arm64 (1.15-1ubuntu2) ...
+#7 6.929 Selecting previously unselected package libxcb-xfixes0-dev:arm64.
+#7 6.931 Preparing to unpack .../74-libxcb-xfixes0-dev_1.15-1ubuntu2_arm64.deb ...
+#7 6.937 Unpacking libxcb-xfixes0-dev:arm64 (1.15-1ubuntu2) ...
+#7 6.983 Selecting previously unselected package libxcb-composite0-dev:arm64.
+#7 6.985 Preparing to unpack .../75-libxcb-composite0-dev_1.15-1ubuntu2_arm64.deb ...
+#7 6.990 Unpacking libxcb-composite0-dev:arm64 (1.15-1ubuntu2) ...
+#7 7.021 Selecting previously unselected package libxcb-randr0-dev:arm64.
+#7 7.024 Preparing to unpack .../76-libxcb-randr0-dev_1.15-1ubuntu2_arm64.deb ...
+#7 7.030 Unpacking libxcb-randr0-dev:arm64 (1.15-1ubuntu2) ...
+#7 7.053 Selecting previously unselected package libxcb-xinerama0-dev:arm64.
+#7 7.056 Preparing to unpack .../77-libxcb-xinerama0-dev_1.15-1ubuntu2_arm64.deb ...
+#7 7.058 Unpacking libxcb-xinerama0-dev:arm64 (1.15-1ubuntu2) ...
+#7 7.075 Selecting previously unselected package libxcb-xinput0:arm64.
+#7 7.076 Preparing to unpack .../78-libxcb-xinput0_1.15-1ubuntu2_arm64.deb ...
+#7 7.078 Unpacking libxcb-xinput0:arm64 (1.15-1ubuntu2) ...
+#7 7.095 Selecting previously unselected package libxcb-xinput-dev:arm64.
+#7 7.098 Preparing to unpack .../79-libxcb-xinput-dev_1.15-1ubuntu2_arm64.deb ...
+#7 7.099 Unpacking libxcb-xinput-dev:arm64 (1.15-1ubuntu2) ...
+#7 7.124 Selecting previously unselected package libxcb-xkb-dev:arm64.
+#7 7.126 Preparing to unpack .../80-libxcb-xkb-dev_1.15-1ubuntu2_arm64.deb ...
+#7 7.128 Unpacking libxcb-xkb-dev:arm64 (1.15-1ubuntu2) ...
+#7 7.149 Selecting previously unselected package libxfixes-dev:arm64.
+#7 7.152 Preparing to unpack .../81-libxfixes-dev_1%3a6.0.0-2build1_arm64.deb ...
+#7 7.153 Unpacking libxfixes-dev:arm64 (1:6.0.0-2build1) ...
+#7 7.171 Selecting previously unselected package libxcursor-dev:arm64.
+#7 7.175 Preparing to unpack .../82-libxcursor-dev_1%3a1.2.1-1build1_arm64.deb ...
+#7 7.179 Unpacking libxcursor-dev:arm64 (1:1.2.1-1build1) ...
+#7 7.216 Selecting previously unselected package python3-setuptools.
+#7 7.219 Preparing to unpack .../83-python3-setuptools_68.1.2-2ubuntu1.2_all.deb ...
+#7 7.221 Unpacking python3-setuptools (68.1.2-2ubuntu1.2) ...
+#7 7.295 Selecting previously unselected package meson.
+#7 7.297 Preparing to unpack .../84-meson_1.3.2-1ubuntu1_all.deb ...
+#7 7.300 Unpacking meson (1.3.2-1ubuntu1) ...
+#7 7.355 Selecting previously unselected package libinput-dev:arm64.
+#7 7.356 Preparing to unpack .../85-libinput-dev_1.25.0-1ubuntu3.7_arm64.deb ...
+#7 7.357 Unpacking libinput-dev:arm64 (1.25.0-1ubuntu3.7) ...
+#7 7.374 Selecting previously unselected package libwayland-bin.
+#7 7.377 Preparing to unpack .../86-libwayland-bin_1.22.0-2.1build1_arm64.deb ...
+#7 7.379 Unpacking libwayland-bin (1.22.0-2.1build1) ...
+#7 7.395 Selecting previously unselected package libwayland-dev:arm64.
+#7 7.396 Preparing to unpack .../87-libwayland-dev_1.22.0-2.1build1_arm64.deb ...
+#7 7.398 Unpacking libwayland-dev:arm64 (1.22.0-2.1build1) ...
+#7 7.416 Selecting previously unselected package libwebp-dev:arm64.
+#7 7.419 Preparing to unpack .../88-libwebp-dev_1.3.2-0.4build3_arm64.deb ...
+#7 7.420 Unpacking libwebp-dev:arm64 (1.3.2-0.4build3) ...
+#7 7.442 Selecting previously unselected package libxkbcommon-x11-dev:arm64.
+#7 7.445 Preparing to unpack .../89-libxkbcommon-x11-dev_1.6.0-1build1_arm64.deb ...
+#7 7.448 Unpacking libxkbcommon-x11-dev:arm64 (1.6.0-1build1) ...
+#7 7.465 Selecting previously unselected package wayland-protocols.
+#7 7.467 Preparing to unpack .../90-wayland-protocols_1.45-1~ubuntu0.24.04.2_all.deb ...
+#7 7.468 Unpacking wayland-protocols (1.45-1~ubuntu0.24.04.2) ...
+#7 7.507 Setting up python3-pkg-resources (68.1.2-2ubuntu1.2) ...
+#7 7.663 Setting up libpciaccess0:arm64 (0.17-3ubuntu0.24.04.3) ...
+#7 7.669 Setting up libx11-xcb-dev:arm64 (2:1.8.7-1ubuntu0.1) ...
+#7 7.677 Setting up libjpeg-turbo8-dev:arm64 (2.1.5-2ubuntu2) ...
+#7 7.683 Setting up libdrm-nouveau2:arm64 (2.4.125-1ubuntu0.1~24.04.2) ...
+#7 7.693 Setting up libharfbuzz-icu0:arm64 (8.3.0-2build2) ...
+#7 7.711 Setting up libpixman-1-dev:arm64 (0.42.2-1build1) ...
+#7 7.721 Setting up libdrm-etnaviv1:arm64 (2.4.125-1ubuntu0.1~24.04.2) ...
+#7 7.725 Setting up libpciaccess-dev:arm64 (0.17-3ubuntu0.24.04.3) ...
+#7 7.729 Setting up python3-setuptools (68.1.2-2ubuntu1.2) ...
+#7 8.022 Setting up libxcb-xinput0:arm64 (1.15-1ubuntu2) ...
+#7 8.024 Setting up libice-dev:arm64 (2:1.0.10-1build3) ...
+#7 8.028 Setting up libevdev-dev:arm64 (1.13.1+dfsg-1build1) ...
+#7 8.031 Setting up libgirepository-2.0-0:arm64 (2.80.0-6ubuntu3.9) ...
+#7 8.034 Setting up libsm-dev:arm64 (2:1.2.3-1build3) ...
+#7 8.037 Setting up libmtdev-dev:arm64 (1.1.6-1.1build1) ...
+#7 8.040 Setting up libdrm-radeon1:arm64 (2.4.125-1ubuntu0.1~24.04.2) ...
+#7 8.043 Setting up libfribidi-dev:arm64 (1.0.13-3build1) ...
+#7 8.046 Setting up libxcb-xkb-dev:arm64 (1.15-1ubuntu2) ...
+#7 8.049 Setting up pango1.0-tools (1.52.1+ds-1build1) ...
+#7 8.052 Setting up libwebpdecoder3:arm64 (1.3.2-0.4build3) ...
+#7 8.056 Setting up meson (1.3.2-1ubuntu1) ...
+#7 8.544 Setting up liblzo2-2:arm64 (2.10-2build4) ...
+#7 8.549 Setting up libxcb-xinerama0-dev:arm64 (1.15-1ubuntu2) ...
+#7 8.553 Setting up libffi-dev:arm64 (3.4.6-1build1) ...
+#7 8.558 Setting up libgbm-dev:arm64 (25.2.8-0ubuntu0.24.04.4) ...
+#7 8.563 Setting up libpcre2-16-0:arm64 (10.42-4ubuntu2.1) ...
+#7 8.568 Setting up libxfixes-dev:arm64 (1:6.0.0-2build1) ...
+#7 8.575 Setting up libxcb-shm0-dev:arm64 (1.15-1ubuntu2) ...
+#7 8.582 Setting up libwayland-bin (1.22.0-2.1build1) ...
+#7 8.586 Setting up libgraphite2-dev:arm64 (1.3.14-2ubuntu0.24.04.1) ...
+#7 8.591 Setting up libpcre2-32-0:arm64 (10.42-4ubuntu2.1) ...
+#7 8.595 Setting up python3-packaging (24.0-1) ...
+#7 8.675 Setting up libpkgconf3:arm64 (1.8.1-2build1) ...
+#7 8.680 Setting up libexpat1-dev:arm64 (2.6.1-2ubuntu0.6) ...
+#7 8.683 Setting up libharfbuzz-cairo0:arm64 (8.3.0-2build2) ...
+#7 8.687 Setting up uuid-dev:arm64 (2.39.3-9ubuntu6.6) ...
+#7 8.690 Setting up libgles1:arm64 (1.7.0-1build1) ...
+#7 8.694 Setting up gir1.2-gudev-1.0:arm64 (1:238-5ubuntu1) ...
+#7 8.698 Setting up libdrm-freedreno1:arm64 (2.4.125-1ubuntu0.1~24.04.2) ...
+#7 8.701 Setting up libudev-dev:arm64 (255.4-1ubuntu8.18) ...
+#7 8.705 Setting up libsepol-dev:arm64 (3.5-2build1) ...
+#7 8.708 Setting up libxcb-render0-dev:arm64 (1.15-1ubuntu2) ...
+#7 8.711 Setting up pkgconf-bin (1.8.1-2build1) ...
+#7 8.715 Setting up libdrm-tegra0:arm64 (2.4.125-1ubuntu0.1~24.04.2) ...
+#7 8.718 Setting up libxcb-shape0-dev:arm64 (1.15-1ubuntu2) ...
+#7 8.721 Setting up libxext-dev:arm64 (2:1.3.4-1build2) ...
+#7 8.724 Setting up liblcms2-dev:arm64 (2.14-2ubuntu0.1) ...
+#7 8.728 Setting up zlib1g-dev:arm64 (1:1.3.dfsg-3.1ubuntu2.2) ...
+#7 8.730 Setting up libpcre2-posix3:arm64 (10.42-4ubuntu2.1) ...
+#7 8.733 Setting up wayland-protocols (1.45-1~ubuntu0.24.04.2) ...
+#7 8.735 Setting up gir1.2-glib-2.0-dev:arm64 (2.80.0-6ubuntu3.9) ...
+#7 8.738 Setting up libharfbuzz-subset0:arm64 (8.3.0-2build2) ...
+#7 8.742 Setting up libxcb-xfixes0-dev:arm64 (1.15-1ubuntu2) ...
+#7 8.744 Setting up libgles-dev:arm64 (1.7.0-1build1) ...
+#7 8.747 Setting up libjpeg8-dev:arm64 (8c-2ubuntu11) ...
+#7 8.750 Setting up libsharpyuv-dev:arm64 (1.3.2-0.4build3) ...
+#7 8.754 Setting up libxrender-dev:arm64 (1:0.9.10-1.1build1) ...
+#7 8.758 Setting up libbrotli-dev:arm64 (1.1.0-2build2) ...
+#7 8.761 Setting up libxkbcommon-x11-dev:arm64 (1.6.0-1build1) ...
+#7 8.764 Setting up libbz2-dev:arm64 (1.0.8-5.1ubuntu0.1) ...
+#7 8.767 Setting up libcairo-script-interpreter2:arm64 (1.18.0-3build1) ...
+#7 8.771 Setting up libglib2.0-dev-bin (2.80.0-6ubuntu3.9) ...
+#7 8.865 Setting up libblkid-dev:arm64 (2.39.3-9ubuntu6.6) ...
+#7 8.872 Setting up libdrm-dev:arm64 (2.4.125-1ubuntu0.1~24.04.2) ...
+#7 8.876 Setting up libpcre2-dev:arm64 (10.42-4ubuntu2.1) ...
+#7 8.880 Setting up libxcb-composite0-dev:arm64 (1.15-1ubuntu2) ...
+#7 8.883 Setting up libselinux1-dev:arm64 (3.5-2ubuntu2.1) ...
+#7 8.886 Setting up libxcursor-dev:arm64 (1:1.2.1-1build1) ...
+#7 8.889 Setting up libpng-dev:arm64 (1.6.43-5ubuntu0.7) ...
+#7 8.891 Setting up libjpeg-dev:arm64 (8c-2ubuntu11) ...
+#7 8.894 Setting up libwayland-dev:arm64 (1.22.0-2.1build1) ...
+#7 8.897 Setting up pkgconf:arm64 (1.8.1-2build1) ...
+#7 8.899 Setting up libfreetype-dev:arm64 (2.13.2+dfsg-1ubuntu0.2) ...
+#7 8.902 Setting up libwebp-dev:arm64 (1.3.2-0.4build3) ...
+#7 8.905 Setting up libxcb-randr0-dev:arm64 (1.15-1ubuntu2) ...
+#7 8.907 Setting up gir1.2-freedesktop-dev:arm64 (1.80.1-1) ...
+#7 8.910 Setting up pkg-config:arm64 (1.8.1-2build1) ...
+#7 8.912 Setting up libdatrie-dev:arm64 (0.2.13-3build1) ...
+#7 8.915 Setting up libxcb-xinput-dev:arm64 (1.15-1ubuntu2) ...
+#7 8.917 Setting up libmount-dev:arm64 (2.39.3-9ubuntu6.6) ...
+#7 8.920 Setting up libfontconfig-dev:arm64 (2.15.0-1.1ubuntu2) ...
+#7 8.922 Setting up libglib2.0-dev:arm64 (2.80.0-6ubuntu3.9) ...
+#7 8.925 Setting up libthai-dev:arm64 (0.1.29-2build1) ...
+#7 8.934 Setting up libxft-dev:arm64 (2.3.6-1build1) ...
+#7 8.940 Processing triggers for libc-bin (2.39-0ubuntu8.9) ...
+#7 8.967 Processing triggers for man-db (2.12.0-4build2) ...
+#7 9.013 Processing triggers for libglib2.0-0t64:arm64 (2.80.0-6ubuntu3.9) ...
+#7 9.025 Setting up libcairo2-dev:arm64 (1.18.0-3build1) ...
+#7 9.029 Setting up libharfbuzz-dev:arm64 (8.3.0-2build2) ...
+#7 9.032 Setting up libgudev-1.0-dev:arm64 (1:238-5ubuntu1) ...
+#7 9.036 Setting up libpango1.0-dev:arm64 (1.52.1+ds-1build1) ...
+#7 9.039 Setting up libwacom-dev:arm64 (2.10.0-2) ...
+#7 9.043 Setting up libinput-dev:arm64 (1.25.0-1ubuntu3.7) ...
+#7 12.50 The Meson build system
+#7 12.50 Version: 1.3.2
+#7 12.50 Source dir: /tmp/tmp.P8Z9pQHpuP/weston-13.0.4
+#7 12.50 Build dir: /tmp/tmp.P8Z9pQHpuP/build
+#7 12.50 Build type: native build
+#7 12.50 Project name: weston
+#7 12.50 Project version: 13.0.4
+#7 12.50 C compiler for the host machine: cc (gcc 13.3.0 "cc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0")
+#7 12.50 C linker for the host machine: cc ld.bfd 2.42
+#7 12.50 Host machine cpu family: aarch64
+#7 12.50 Host machine cpu: aarch64
+#7 12.50 Compiler for C supports arguments -Wmissing-prototypes: YES 
+#7 12.50 Compiler for C supports arguments -Wno-unused-parameter: YES 
+#7 12.50 Compiler for C supports arguments -Wno-shift-negative-value: YES 
+#7 12.50 Compiler for C supports arguments -Wno-missing-field-initializers: YES 
+#7 12.50 Compiler for C supports arguments -Wno-pedantic: YES 
+#7 12.50 Compiler for C supports arguments -Wundef: YES 
+#7 12.50 Compiler for C supports arguments -fvisibility=hidden: YES 
+#7 12.50 Header "sys/sysmacros.h" has symbol "major" : YES 
+#7 12.50 Checking for function "mkostemp" : YES 
+#7 12.50 Checking for function "strchrnul" : YES 
+#7 12.50 Checking for function "initgroups" : YES 
+#7 12.50 Checking for function "posix_fallocate" : YES 
+#7 12.50 Checking for function "memfd_create" : YES 
+#7 12.50 Checking for function "unreachable" : YES 
+#7 12.50 Has header "linux/sync_file.h" : YES 
+#7 12.50 Message: The default backend is headless
+#7 12.50 Found pkg-config: YES (/usr/bin/pkg-config) 1.8.1
+#7 12.50 Run-time dependency xkbcommon found: YES 1.6.0
+#7 12.50 Run-time dependency wayland-server found: YES 1.22.0
+#7 12.50 Run-time dependency wayland-client found: YES 1.22.0
+#7 12.50 Run-time dependency pixman-1 found: YES 0.42.2
+#7 12.50 Run-time dependency libinput found: YES 1.25.0
+#7 12.50 Run-time dependency libevdev found: YES 1.13.1
+#7 12.50 Library m found: YES
+#7 12.50 Library dl found: YES
+#7 12.50 Run-time dependency libdrm found: YES 2.4.125
+#7 12.50 Run-time dependency threads found: YES
+#7 12.50 Run-time dependency lcms2 found: YES 2.14
+#7 12.50 Program python3 found: YES (/usr/bin/python3)
+#7 12.50 Configuring version.h using configuration
+#7 12.50 Build-time dependency wayland-scanner found: YES 1.22.0
+#7 12.50 Program /usr/bin/wayland-scanner found: YES (/usr/bin/wayland-scanner)
+#7 12.50 Run-time dependency wayland-protocols found: YES 1.45
+#7 12.50 Run-time dependency xcb found: YES 1.15
+#7 12.50 Run-time dependency cairo found: YES 1.18.0
+#7 12.50 Run-time dependency libpng found: YES 1.6.43
+#7 12.50 Run-time dependency pango found: YES 1.52.1
+#7 12.50 Run-time dependency pangocairo found: YES 1.52.1
+#7 12.50 Run-time dependency fontconfig found: YES 2.15.0
+#7 12.50 Run-time dependency glib-2.0 found: YES 2.80.0
+#7 12.50 Run-time dependency libjpeg found: YES 2.1.5
+#7 12.50 Run-time dependency libwebp found: YES 1.3.2
+#7 12.50 Run-time dependency egl found: YES 1.5
+#7 12.50 Run-time dependency libudev found: YES 255
+#7 12.50 Dependency egl found: YES 1.5 (cached)
+#7 12.50 Run-time dependency glesv2 found: YES 3.2
+#7 12.50 Dependency wayland-client found: YES 1.22.0 (cached)
+#7 12.50 Run-time dependency wayland-cursor found: YES 1.22.0
+#7 12.50 Run-time dependency wayland-egl found: YES 18.1.0
+#7 12.50 Dependency xcb found: YES 1.15 (cached)
+#7 12.50 Run-time dependency xcb-shm found: YES 1.15
+#7 12.50 Run-time dependency x11 found: YES 1.8.7
+#7 12.50 Run-time dependency x11-xcb found: YES 1.8.7
+#7 12.50 Run-time dependency xcb-xkb found: YES 1.15
+#7 12.50 Configuring weston.ini using configuration
+#7 12.50 Dependency wayland-cursor found: YES 1.22.0 (cached)
+#7 12.50 Library util found: YES
+#7 12.50 Run-time dependency gbm found: YES 25.2.8-0ubuntu0.24.04.4
+#7 12.50 Dependency libudev found: YES 255 (cached)
+#7 12.50 Dependency gbm found: YES 25.2.8-0ubuntu0.24.04.4 (cached)
+#7 12.50 Dependency cairo found: YES 1.18.0 (cached)
+#7 12.50 Dependency libudev found: YES 255 (cached)
+#7 12.50 Configuring test-config.h using configuration
+#7 12.50 Configuring weston.1 using configuration
+#7 12.50 Configuring weston-bindings.7 using configuration
+#7 12.50 Configuring weston-debug.1 using configuration
+#7 12.50 Configuring weston.ini.5 using configuration
+#7 12.50 Configuring config.h using configuration
+#7 12.50 Message: Documentation will not be built. Use -Ddoc to build it.
+#7 12.50 Build targets in project: 158
+#7 12.50 
+#7 12.50 weston 13.0.4
+#7 12.50 
+#7 12.50   User defined options
+#7 12.50     buildtype                   : release
+#7 12.50     libdir                      : lib
+#7 12.50     prefix                      : /opt/weston-13.0.4
+#7 12.50     backend-default             : headless
+#7 12.50     backend-drm                 : false
+#7 12.50     backend-drm-screencast-vaapi: false
+#7 12.50     backend-pipewire            : false
+#7 12.50     backend-rdp                 : false
+#7 12.50     backend-vnc                 : false
+#7 12.50     color-management-lcms       : false
+#7 12.50     demo-clients                : false
+#7 12.50     doc                         : false
+#7 12.50     pipewire                    : false
+#7 12.50     remoting                    : false
+#7 12.50     screenshare                 : false
+#7 12.50     shell-fullscreen            : false
+#7 12.50     shell-ivi                   : false
+#7 12.50     shell-kiosk                 : false
+#7 12.50     simple-clients              : []
+#7 12.50     systemd                     : false
+#7 12.50     test-junit-xml              : false
+#7 12.50     tools                       : []
+#7 12.50     wcap-decode                 : false
+#7 12.50     xwayland                    : false
+#7 12.50 
+#7 12.50 Found ninja-1.11.1 at /usr/bin/ninja
+#7 12.68 ninja: Entering directory `/tmp/tmp.P8Z9pQHpuP/build'
+#7 12.69 [1/329] Generating protocol/fullscreen-shell-unstable-v1 client-header with a custom command
+#7 12.69 [2/329] Generating protocol/fullscreen-shell-unstable-v1 private-code with a custom command
+#7 12.69 [3/329] Generating protocol/input-method-unstable-v1 client-header with a custom command
+#7 12.70 [4/329] Generating protocol/input-method-unstable-v1 server-header with a custom command
+#7 12.70 [5/329] Generating protocol/input-method-unstable-v1 private-code with a custom command
+#7 12.70 [6/329] Generating protocol/input-timestamps-unstable-v1 client-header with a custom command
+#7 12.70 [7/329] Generating protocol/input-timestamps-unstable-v1 server-header with a custom command
+#7 12.70 [8/329] Generating protocol/input-timestamps-unstable-v1 private-code with a custom command
+#7 12.71 [9/329] Generating protocol/ivi-application client-header with a custom command
+#7 12.71 [10/329] Generating protocol/ivi-application private-code with a custom command
+#7 12.71 [11/329] Generating protocol/linux-dmabuf-unstable-v1 server-header with a custom command
+#7 12.71 [12/329] Generating protocol/linux-dmabuf-unstable-v1 private-code with a custom command
+#7 12.72 [13/329] Generating protocol/linux-explicit-synchronization-unstable-v1 client-header with a custom command
+#7 12.72 [14/329] Generating protocol/linux-explicit-synchronization-unstable-v1 server-header with a custom command
+#7 12.72 [15/329] Generating protocol/linux-explicit-synchronization-unstable-v1 private-code with a custom command
+#7 12.72 [16/329] Generating protocol/presentation-time client-header with a custom command
+#7 12.72 [17/329] Generating protocol/presentation-time server-header with a custom command
+#7 12.73 [18/329] Generating protocol/presentation-time private-code with a custom command
+#7 12.73 [19/329] Generating protocol/pointer-constraints-unstable-v1 client-header with a custom command
+#7 12.73 [20/329] Generating git-version.h with a custom command
+#7 12.73 [21/329] Generating protocol/pointer-constraints-unstable-v1 server-header with a custom command
+#7 12.73 [22/329] Generating protocol/pointer-constraints-unstable-v1 private-code with a custom command
+#7 12.73 [23/329] Generating protocol/relative-pointer-unstable-v1 client-header with a custom command
+#7 12.73 [24/329] Generating protocol/relative-pointer-unstable-v1 server-header with a custom command
+#7 12.74 [25/329] Generating protocol/relative-pointer-unstable-v1 private-code with a custom command
+#7 12.74 [26/329] Generating protocol/single-pixel-buffer-v1 client-header with a custom command
+#7 12.74 [27/329] Generating protocol/single-pixel-buffer-v1 server-header with a custom command
+#7 12.74 [28/329] Generating protocol/single-pixel-buffer-v1 private-code with a custom command
+#7 12.74 [29/329] Generating protocol/tablet-unstable-v2 server-header with a custom command
+#7 12.74 [30/329] Generating protocol/tablet-unstable-v2 client-header with a custom command
+#7 12.75 [31/329] Generating protocol/tearing-control-v1 server-header with a custom command
+#7 12.75 [32/329] Generating protocol/tablet-unstable-v2 private-code with a custom command
+#7 12.75 [33/329] Generating protocol/tearing-control-v1 private-code with a custom command
+#7 12.75 [34/329] Generating protocol/text-cursor-position client-header with a custom command
+#7 12.75 [35/329] Generating protocol/text-cursor-position server-header with a custom command
+#7 12.75 [36/329] Generating protocol/text-cursor-position private-code with a custom command
+#7 12.75 [37/329] Generating protocol/text-input-unstable-v1 client-header with a custom command
+#7 12.76 [38/329] Generating protocol/text-input-unstable-v1 server-header with a custom command
+#7 12.76 [39/329] Generating protocol/text-input-unstable-v1 private-code with a custom command
+#7 12.76 [40/329] Generating protocol/viewporter client-header with a custom command
+#7 12.76 [41/329] Generating protocol/viewporter server-header with a custom command
+#7 12.76 [42/329] Generating protocol/weston-debug server-header with a custom command
+#7 12.76 [43/329] Generating protocol/viewporter private-code with a custom command
+#7 12.77 [44/329] Generating protocol/weston-desktop-shell client-header with a custom command
+#7 12.77 [45/329] Generating protocol/weston-debug private-code with a custom command
+#7 12.77 [46/329] Generating protocol/weston-desktop-shell server-header with a custom command
+#7 12.77 [47/329] Generating protocol/weston-desktop-shell private-code with a custom command
+#7 12.77 [48/329] Generating protocol/weston-output-capture client-header with a custom command
+#7 12.77 [49/329] Generating protocol/weston-output-capture server-header with a custom command
+#7 12.77 [50/329] Generating protocol/weston-output-capture private-code with a custom command
+#7 12.77 [51/329] Generating protocol/weston-content-protection server-header with a custom command
+#7 12.78 [52/329] Generating protocol/weston-content-protection private-code with a custom command
+#7 12.78 [53/329] Generating protocol/weston-test client-header with a custom command
+#7 12.78 [54/329] Generating protocol/weston-test server-header with a custom command
+#7 12.78 [55/329] Generating protocol/weston-test private-code with a custom command
+#7 12.78 [56/329] Generating protocol/weston-touch-calibration server-header with a custom command
+#7 12.78 [57/329] Generating protocol/weston-touch-calibration private-code with a custom command
+#7 12.78 [58/329] Generating protocol/weston-direct-display server-header with a custom command
+#7 12.79 [59/329] Generating protocol/weston-direct-display private-code with a custom command
+#7 12.79 [60/329] Generating protocol/xdg-output-unstable-v1 server-header with a custom command
+#7 12.79 [61/329] Generating protocol/xdg-output-unstable-v1 private-code with a custom command
+#7 12.79 [62/329] Generating protocol/xdg-shell-unstable-v6 server-header with a custom command
+#7 12.79 [63/329] Generating protocol/xdg-shell-unstable-v6 private-code with a custom command
+#7 12.80 [64/329] Generating protocol/xdg-shell server-header with a custom command
+#7 12.80 [65/329] Generating protocol/xdg-shell client-header with a custom command
+#7 12.80 [66/329] Generating protocol/xdg-shell private-code with a custom command
+#7 12.86 [67/329] Compiling C object shared/libshared.a.p/option-parser.c.o
+#7 12.88 [68/329] Compiling C object shared/libshared.a.p/signal.c.o
+#7 12.93 [69/329] Compiling C object shared/libshared.a.p/file-util.c.o
+#7 12.93 [70/329] Compiling C object shared/libshared.a.p/config-parser.c.o
+#7 12.98 [71/329] Compiling C object shared/libshared.a.p/os-compatibility.c.o
+#7 13.01 [72/329] Compiling C object shared/libshared.a.p/process-util.c.o
+#7 13.03 [73/329] Compiling C object shared/libshared.a.p/hash.c.o
+#7 13.04 [74/329] Linking static target shared/libshared.a
+#7 13.10 [75/329] Compiling C object shared/libcairo-shared.a.p/image-loader.c.o
+#7 13.23 [76/329] Compiling C object shared/libcairo-shared.a.p/cairo-util.c.o
+#7 13.25 [77/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_linux-dmabuf-unstable-v1-protocol.c.o
+#7 13.27 [78/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_linux-explicit-synchronization-unstable-v1-protocol.c.o
+#7 13.28 [79/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_input-method-unstable-v1-protocol.c.o
+#7 13.30 [80/329] Compiling C object shared/libcairo-shared.a.p/frame.c.o
+#7 13.30 [81/329] Linking static target shared/libcairo-shared.a
+#7 13.31 [82/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_input-timestamps-unstable-v1-protocol.c.o
+#7 13.32 [83/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_presentation-time-protocol.c.o
+#7 13.32 [84/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_pointer-constraints-unstable-v1-protocol.c.o
+#7 13.34 [85/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_relative-pointer-unstable-v1-protocol.c.o
+#7 13.35 [86/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_single-pixel-buffer-v1-protocol.c.o
+#7 13.36 [87/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_tearing-control-v1-protocol.c.o
+#7 13.36 [88/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_text-cursor-position-protocol.c.o
+#7 13.38 [89/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_text-input-unstable-v1-protocol.c.o
+#7 13.38 [90/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_weston-touch-calibration-protocol.c.o
+#7 13.40 [91/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_weston-content-protection-protocol.c.o
+#7 13.40 [92/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_viewporter-protocol.c.o
+#7 13.42 [93/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_xdg-output-unstable-v1-protocol.c.o
+#7 13.42 [94/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_weston-debug-protocol.c.o
+#7 13.44 [95/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_weston-direct-display-protocol.c.o
+#7 13.44 [96/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_weston-output-capture-protocol.c.o
+#7 13.46 [97/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_tablet-unstable-v2-protocol.c.o
+#7 13.46 [98/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_xdg-shell-unstable-v6-protocol.c.o
+#7 13.48 [99/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_xdg-shell-protocol.c.o
+#7 13.53 [100/329] Compiling C object libweston/libweston-13.so.0.0.4.p/auth.c.o
+#7 13.59 [101/329] Compiling C object libweston/libweston-13.so.0.0.4.p/animation.c.o
+#7 13.65 [102/329] Compiling C object libweston/libweston-13.so.0.0.4.p/bindings.c.o
+#7 13.67 [103/329] Compiling C object libweston/libweston-13.so.0.0.4.p/clipboard.c.o
+#7 13.73 [104/329] Compiling C object libweston/libweston-13.so.0.0.4.p/color-noop.c.o
+#7 13.74 [105/329] Compiling C object libweston/libweston-13.so.0.0.4.p/color.c.o
+#7 13.81 [106/329] Compiling C object libweston/libweston-13.so.0.0.4.p/content-protection.c.o
+#7 14.03 [107/329] Compiling C object libweston/libweston-13.so.0.0.4.p/data-device.c.o
+#7 14.12 [108/329] Compiling C object libweston/libweston-13.so.0.0.4.p/drm-formats.c.o
+#7 14.82 [109/329] Compiling C object libweston/libweston-13.so.0.0.4.p/input.c.o
+#7 14.82 ../weston-13.0.4/libweston/input.c: In function ‘weston_pointer_send_motion’:
+#7 14.82 ../weston-13.0.4/libweston/input.c:578:59: warning: ‘old_sx’ may be used uninitialized [-Wmaybe-uninitialized]
+#7 14.82   578 |         if (pointer->focus && old_focus == pointer->focus &&
+#7 14.82       |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+#7 14.82   579 |             (old_sx != pointer->sx || old_sy != pointer->sy)) {
+#7 14.82       |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#7 14.82 ../weston-13.0.4/libweston/input.c:558:20: note: ‘old_sx’ was declared here
+#7 14.82   558 |         wl_fixed_t old_sx;
+#7 14.82       |                    ^~~~~~
+#7 14.82 ../weston-13.0.4/libweston/input.c:579:36: warning: ‘old_sy’ may be used uninitialized [-Wmaybe-uninitialized]
+#7 14.82   579 |             (old_sx != pointer->sx || old_sy != pointer->sy)) {
+#7 14.82       |             ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#7 14.82 ../weston-13.0.4/libweston/input.c:559:20: note: ‘old_sy’ was declared here
+#7 14.82   559 |         wl_fixed_t old_sy;
+#7 14.82       |                    ^~~~~~
+#7 14.82 ../weston-13.0.4/libweston/input.c: In function ‘weston_pointer_set_focus’:
+#7 14.82 ../weston-13.0.4/libweston/input.c:1991:29: warning: ‘sx’ may be used uninitialized [-Wmaybe-uninitialized]
+#7 14.82  1991 |                 pointer->sx = sx;
+#7 14.82       |                 ~~~~~~~~~~~~^~~~
+#7 14.82 ../weston-13.0.4/libweston/input.c:1916:20: note: ‘sx’ was declared here
+#7 14.82  1916 |         wl_fixed_t sx, sy;
+#7 14.82       |                    ^~
+#7 14.82 ../weston-13.0.4/libweston/input.c:1992:29: warning: ‘sy’ may be used uninitialized [-Wmaybe-uninitialized]
+#7 14.82  1992 |                 pointer->sy = sy;
+#7 14.82       |                 ~~~~~~~~~~~~^~~~
+#7 14.82 ../weston-13.0.4/libweston/input.c:1916:24: note: ‘sy’ was declared here
+#7 14.82  1916 |         wl_fixed_t sx, sy;
+#7 14.82       |                        ^~
+#7 14.91 [110/329] Compiling C object libweston/libweston-13.so.0.0.4.p/compositor.c.o
+#7 14.97 [111/329] Compiling C object libweston/libweston-13.so.0.0.4.p/linux-explicit-synchronization.c.o
+#7 14.98 [112/329] Compiling C object libweston/libweston-13.so.0.0.4.p/linux-dmabuf.c.o
+#7 15.01 [113/329] Compiling C object libweston/libweston-13.so.0.0.4.p/linux-sync-file.c.o
+#7 15.04 [114/329] Compiling C object libweston/libweston-13.so.0.0.4.p/log.c.o
+#7 15.07 [115/329] Compiling C object libweston/libweston-13.so.0.0.4.p/noop-renderer.c.o
+#7 15.16 [116/329] Compiling C object libweston/libweston-13.so.0.0.4.p/pixel-formats.c.o
+#7 15.16 [117/329] Compiling C object libweston/libweston-13.so.0.0.4.p/output-capture.c.o
+#7 15.21 [118/329] Compiling C object libweston/libweston-13.so.0.0.4.p/plugin-registry.c.o
+#7 15.32 [119/329] Compiling C object libweston/libweston-13.so.0.0.4.p/screenshooter.c.o
+#7 15.33 [120/329] Compiling C object libweston/libweston-13.so.0.0.4.p/pixman-renderer.c.o
+#7 15.41 [121/329] Compiling C object libweston/libweston-13.so.0.0.4.p/timeline.c.o
+#7 15.44 [122/329] Compiling C object libweston/libweston-13.so.0.0.4.p/touch-calibration.c.o
+#7 15.47 [123/329] Compiling C object libweston/libweston-13.so.0.0.4.p/weston-log-wayland.c.o
+#7 15.49 [124/329] Compiling C object libweston/libweston-13.so.0.0.4.p/weston-log-file.c.o
+#7 15.54 [125/329] Compiling C object libweston/libweston-13.so.0.0.4.p/weston-log-flight-rec.c.o
+#7 15.59 [126/329] Compiling C object libweston/libweston-13.so.0.0.4.p/weston-direct-display.c.o
+#7 15.62 [127/329] Compiling C object libweston/libweston-13.so.0.0.4.p/weston-log.c.o
+#7 15.65 [128/329] Compiling C object libweston/libweston-13.so.0.0.4.p/desktop_libweston-desktop.c.o
+#7 15.68 [129/329] Compiling C object libweston/libweston-13.so.0.0.4.p/desktop_client.c.o
+#7 15.75 [130/329] Compiling C object libweston/libweston-13.so.0.0.4.p/desktop_seat.c.o
+#7 15.85 [131/329] Compiling C object libweston/libweston-13.so.0.0.4.p/desktop_xwayland.c.o
+#7 15.86 [132/329] Compiling C object libweston/libweston-13.so.0.0.4.p/desktop_surface.c.o
+#7 16.04 [133/329] Compiling C object libweston/libweston-13.so.0.0.4.p/desktop_xdg-shell-v6.c.o
+#7 16.05 [134/329] Compiling C object libweston/libweston-13.so.0.0.4.p/desktop_xdg-shell.c.o
+#7 16.11 [135/329] Compiling C object libweston/libweston-13.so.0.0.4.p/shell-utils_shell-utils.c.o
+#7 16.16 [136/329] Compiling C object libweston/libweston-13.so.0.0.4.p/.._shared_matrix.c.o
+#7 16.18 [137/329] Linking target libweston/libweston-13.so.0.0.4
+#7 16.23 [138/329] Generating symbol file libweston/libweston-13.so.0.0.4.p/libweston-13.so.0.0.4.symbols
+#7 16.26 [139/329] Compiling C object libweston/liblibinput-backend.a.p/libinput-device.c.o
+#7 16.33 [140/329] Compiling C object libweston/liblibinput-backend.a.p/libinput-seat.c.o
+#7 16.33 [141/329] Linking static target libweston/liblibinput-backend.a
+#7 16.35 [142/329] Generating libweston/renderer-gl/vertex-shader.h with a custom command
+#7 16.37 [143/329] Compiling C object libweston/libgl-borders.a.p/gl-borders.c.o
+#7 16.37 [144/329] Linking static target libweston/libgl-borders.a
+#7 16.37 [145/329] Generating libweston/renderer-gl/fragment-shader.h with a custom command
+#7 16.39 [146/329] Compiling C object libweston/renderer-gl/gl-renderer.so.p/meson-generated_.._.._.._protocol_linux-dmabuf-unstable-v1-protocol.c.o
+#7 16.52 [147/329] Compiling C object libweston/backend-headless/headless-backend.so.p/headless.c.o
+#7 16.52 In function ‘headless_backend_create’,
+#7 16.52     inlined from ‘weston_backend_init’ at ../weston-13.0.4/libweston/backend-headless/headless.c:661:6:
+#7 16.52 ../weston-13.0.4/libweston/backend-headless/headless.c:604:20: warning: ‘ret’ may be used uninitialized [-Wmaybe-uninitialized]
+#7 16.52   604 |                 if (ret < 0)
+#7 16.52       |                    ^
+#7 16.52 ../weston-13.0.4/libweston/backend-headless/headless.c: In function ‘weston_backend_init’:
+#7 16.52 ../weston-13.0.4/libweston/backend-headless/headless.c:541:13: note: ‘ret’ was declared here
+#7 16.52   541 |         int ret;
+#7 16.52       |             ^~~
+#7 16.57 [148/329] Compiling C object libweston/renderer-gl/gl-renderer.so.p/egl-glue.c.o
+#7 16.70 [149/329] Compiling C object libweston/renderer-gl/gl-renderer.so.p/gl-shaders.c.o
+#7 16.79 [150/329] Compiling C object libweston/renderer-gl/gl-renderer.so.p/gl-shader-config-color-transformation.c.o
+#7 16.84 [151/329] Compiling C object libweston/renderer-gl/gl-renderer.so.p/.._vertex-clipping.c.o
+#7 16.87 [152/329] Linking target libweston/backend-headless/headless-backend.so
+#7 16.89 [153/329] Compiling C object libweston/backend-wayland/wayland-backend.so.p/meson-generated_.._.._.._protocol_fullscreen-shell-unstable-v1-protocol.c.o
+#7 16.91 [154/329] Compiling C object libweston/backend-wayland/wayland-backend.so.p/meson-generated_.._.._.._protocol_presentation-time-protocol.c.o
+#7 16.93 [155/329] Compiling C object libweston/backend-wayland/wayland-backend.so.p/meson-generated_.._.._.._protocol_xdg-shell-protocol.c.o
+#7 17.15 [156/329] Compiling C object libweston/renderer-gl/gl-renderer.so.p/gl-renderer.c.o
+#7 17.17 [157/329] Linking target libweston/renderer-gl/gl-renderer.so
+#7 17.21 [158/329] Generating symbol file libweston/renderer-gl/gl-renderer.so.p/gl-renderer.so.symbols
+#7 17.41 [159/329] Compiling C object libweston/backend-wayland/wayland-backend.so.p/wayland.c.o
+#7 17.44 [160/329] Linking target libweston/backend-wayland/wayland-backend.so
+#7 17.46 [161/329] Compiling C object compositor/libexec_weston.so.0.0.0.p/meson-generated_.._.._protocol_text-input-unstable-v1-protocol.c.o
+#7 17.48 [162/329] Compiling C object compositor/libexec_weston.so.0.0.0.p/meson-generated_.._.._protocol_input-method-unstable-v1-protocol.c.o
+#7 17.56 [163/329] Compiling C object libweston/backend-x11/x11-backend.so.p/x11.c.o
+#7 17.58 [164/329] Linking target libweston/backend-x11/x11-backend.so
+#7 17.74 [165/329] Compiling C object compositor/libexec_weston.so.0.0.0.p/text-backend.c.o
+#7 17.80 [166/329] Compiling C object compositor/libexec_weston.so.0.0.0.p/config-helpers.c.o
+#7 17.85 [167/329] Compiling C object compositor/libexec_weston.so.0.0.0.p/weston-screenshooter.c.o
+#7 17.89 [168/329] Compiling C object compositor/weston.p/executable.c.o
+#7 17.91 [169/329] Compiling C object desktop-shell/desktop-shell.so.p/meson-generated_.._.._protocol_weston-desktop-shell-protocol.c.o
+#7 17.93 [170/329] Compiling C object desktop-shell/desktop-shell.so.p/meson-generated_.._.._protocol_input-method-unstable-v1-protocol.c.o
+#7 18.15 [171/329] Compiling C object compositor/libexec_weston.so.0.0.0.p/main.c.o
+#7 18.15 ../weston-13.0.4/compositor/main.c: In function ‘wet_output_set_eotf_mode’:
+#7 18.15 ../weston-13.0.4/compositor/main.c:1435:6: warning: "HAVE_LIBDISPLAY_INFO" is not defined, evaluates to 0 [-Wundef]
+#7 18.15  1435 | #if !HAVE_LIBDISPLAY_INFO
+#7 18.15       |      ^~~~~~~~~~~~~~~~~~~~
+#7 18.16 [172/329] Linking target compositor/libexec_weston.so.0.0.0
+#7 18.21 [173/329] Generating symbol file compositor/libexec_weston.so.0.0.0.p/libexec_weston.so.0.0.0.symbols
+#7 18.23 [174/329] Linking target compositor/weston
+#7 18.32 [175/329] Compiling C object desktop-shell/desktop-shell.so.p/input-panel.c.o
+#7 18.34 [176/329] Compiling C object clients/libtoytoolkit.a.p/meson-generated_.._.._protocol_xdg-shell-protocol.c.o
+#7 18.37 [177/329] Compiling C object clients/libtoytoolkit.a.p/meson-generated_.._.._protocol_text-cursor-position-protocol.c.o
+#7 18.40 [178/329] Compiling C object clients/libtoytoolkit.a.p/meson-generated_.._.._protocol_relative-pointer-unstable-v1-protocol.c.o
+#7 18.42 [179/329] Compiling C object clients/libtoytoolkit.a.p/meson-generated_.._.._protocol_pointer-constraints-unstable-v1-protocol.c.o
+#7 18.44 [180/329] Compiling C object clients/libtoytoolkit.a.p/meson-generated_.._.._protocol_tablet-unstable-v2-protocol.c.o
+#7 18.46 [181/329] Compiling C object clients/libtoytoolkit.a.p/meson-generated_.._.._protocol_ivi-application-protocol.c.o
+#7 18.48 [182/329] Compiling C object clients/libtoytoolkit.a.p/meson-generated_.._.._protocol_viewporter-protocol.c.o
+#7 18.61 [183/329] Compiling C object desktop-shell/desktop-shell.so.p/shell.c.o
+#7 18.62 [184/329] Linking target desktop-shell/desktop-shell.so
+#7 18.72 [185/329] Compiling C object clients/libtoytoolkit.a.p/.._shared_matrix.c.o
+#7 18.74 [186/329] Compiling C object clients/weston-keyboard.p/meson-generated_.._.._protocol_text-input-unstable-v1-protocol.c.o
+#7 18.76 [187/329] Compiling C object clients/weston-keyboard.p/meson-generated_.._.._protocol_input-method-unstable-v1-protocol.c.o
+#7 18.91 [188/329] Compiling C object clients/weston-keyboard.p/keyboard.c.o
+#7 19.02 [189/329] Compiling C object clients/weston-keyboard.p/.._shared_matrix.c.o
+#7 19.04 [190/329] Compiling C object clients/weston-desktop-shell.p/meson-generated_.._.._protocol_weston-desktop-shell-protocol.c.o
+#7 19.05 [191/329] Compiling C object clients/weston-desktop-shell.p/meson-generated_.._.._protocol_tablet-unstable-v2-protocol.c.o
+#7 19.30 [192/329] Compiling C object clients/weston-desktop-shell.p/desktop-shell.c.o
+#7 19.41 [193/329] Compiling C object clients/weston-desktop-shell.p/.._shared_matrix.c.o
+#7 19.41 [194/329] Compiling C object clients/libtoytoolkit.a.p/window.c.o
+#7 19.41 [195/329] Linking static target clients/libtoytoolkit.a
+#7 19.43 [196/329] Compiling C object clients/weston-screenshooter.p/meson-generated_.._.._protocol_weston-output-capture-protocol.c.o
+#7 19.45 [197/329] Linking target clients/weston-keyboard
+#7 19.47 [198/329] Linking target clients/weston-desktop-shell
+#7 19.55 [199/329] Compiling C object clients/weston-screenshooter.p/screenshot.c.o
+#7 19.57 [200/329] Compiling C object clients/weston-screenshooter.p/.._shared_matrix.c.o
+#7 19.60 [201/329] Linking target clients/weston-screenshooter
+#7 19.62 [202/329] Compiling C object tests/weston-test-desktop-shell.so.p/weston-test-desktop-shell.c.o
+#7 19.63 [203/329] Linking target tests/weston-test-desktop-shell.so
+#7 19.65 [204/329] Compiling C object tests/libtest-client.a.p/meson-generated_.._.._protocol_weston-test-protocol.c.o
+#7 19.66 [205/329] Compiling C object tests/libtest-client.a.p/meson-generated_.._.._protocol_weston-output-capture-protocol.c.o
+#7 19.68 [206/329] Compiling C object tests/libtest-client.a.p/meson-generated_.._.._protocol_viewporter-protocol.c.o
+#7 19.71 [207/329] Compiling C object tests/libtest-runner.a.p/weston-test-runner.c.o
+#7 19.71 [208/329] Linking static target tests/libtest-runner.a
+#7 19.81 [209/329] Compiling C object tests/libtest-client.a.p/weston-test-fixture-compositor.c.o
+#7 19.81 ../weston-13.0.4/tests/weston-test-fixture-compositor.c: In function ‘execute_compositor’:
+#7 19.81 ../weston-13.0.4/tests/weston-test-fixture-compositor.c:279:21: warning: unused variable ‘drm_device’ [-Wunused-variable]
+#7 19.81   279 |         const char *drm_device;
+#7 19.81       |                     ^~~~~~~~~~
+#7 19.81 ../weston-13.0.4/tests/weston-test-fixture-compositor.c: At top level:
+#7 19.81 ../weston-13.0.4/tests/weston-test-fixture-compositor.c:142:1: warning: ‘wait_for_lock’ defined but not used [-Wunused-function]
+#7 19.81   142 | wait_for_lock(void)
+#7 19.81       | ^~~~~~~~~~~~~
+#7 19.95 [210/329] Compiling C object tests/libtest-client.a.p/color_util.c.o
+#7 19.97 [211/329] Compiling C object tests/test-plugin.so.p/meson-generated_.._.._protocol_weston-test-protocol.c.o
+#7 19.99 [212/329] Compiling C object tests/libtest-client.a.p/weston-test-client-helper.c.o
+#7 20.00 [213/329] Linking static target tests/libtest-client.a
+#7 20.07 [214/329] Compiling C object tests/libzunitc.a.p/.._tools_zunitc_src_zuc_base_logger.c.o
+#7 20.08 [215/329] Compiling C object tests/libzunitc.a.p/.._tools_zunitc_src_zuc_junit_reporter.c.o
+#7 20.13 [216/329] Compiling C object tests/test-plugin.so.p/weston-test.c.o
+#7 20.14 [217/329] Linking target tests/test-plugin.so
+#7 20.16 [218/329] Compiling C object tests/libzunitcmain.a.p/.._tools_zunitc_src_main.c.o
+#7 20.17 [219/329] Linking static target tests/libzunitcmain.a
+#7 20.23 [220/329] Compiling C object tests/test-surface-screenshot.so.p/surface-screenshot-test.c.o
+#7 20.24 [221/329] Linking target tests/test-surface-screenshot.so
+#7 20.33 [222/329] Compiling C object tests/test-alpha-blending.p/alpha-blending-test.c.o
+#7 20.36 [223/329] Compiling C object tests/libzunitc.a.p/.._tools_zunitc_src_zunitc_impl.c.o
+#7 20.36 [224/329] Linking static target tests/libzunitc.a
+#7 20.36 [225/329] Linking target tests/test-alpha-blending
+#7 20.41 [226/329] Compiling C object tests/test-assert.p/assert-test.c.o
+#7 20.42 [227/329] Compiling C object tests/test-bad-buffer.p/bad-buffer-test.c.o
+#7 20.43 [228/329] Linking target tests/test-assert
+#7 20.45 [229/329] Linking target tests/test-bad-buffer
+#7 20.49 [230/329] Compiling C object tests/test-buffer-transforms.p/buffer-transforms-test.c.o
+#7 20.52 [231/329] Linking target tests/test-buffer-transforms
+#7 20.54 [232/329] Compiling C object tests/test-color-metadata-errors.p/color-metadata-errors-test.c.o
+#7 20.56 [233/329] Linking target tests/test-color-metadata-errors
+#7 20.57 [234/329] Compiling C object tests/test-color-manager.p/color-manager-test.c.o
+#7 20.58 [235/329] Compiling C object tests/test-constraints.p/meson-generated_.._.._protocol_pointer-constraints-unstable-v1-protocol.c.o
+#7 20.59 [236/329] Linking target tests/test-color-manager
+#7 20.66 [237/329] Compiling C object tests/test-custom-env.p/custom-env-test.c.o
+#7 20.68 [238/329] Linking target tests/test-custom-env
+#7 20.72 [239/329] Compiling C object tests/test-constraints.p/constraints-test.c.o
+#7 20.75 [240/329] Linking target tests/test-constraints
+#7 20.81 [241/329] Compiling C object tests/test-devices.p/devices-test.c.o
+#7 20.83 [242/329] Linking target tests/test-devices
+#7 20.89 [243/329] Compiling C object tests/test-drm-smoke.p/drm-smoke-test.c.o
+#7 20.91 [244/329] Linking target tests/test-drm-smoke
+#7 20.96 [245/329] Compiling C object tests/test-drm-formats.p/drm-formats-test.c.o
+#7 20.97 [246/329] Compiling C object tests/test-drm-writeback-screenshot.p/drm-writeback-screenshot-test.c.o
+#7 20.98 [247/329] Linking target tests/test-drm-formats
+#7 21.00 [248/329] Linking target tests/test-drm-writeback-screenshot
+#7 21.06 [249/329] Compiling C object tests/test-event.p/event-test.c.o
+#7 21.07 [250/329] Compiling C object tests/test-internal-screenshot.p/internal-screenshot-test.c.o
+#7 21.08 [251/329] Linking target tests/test-event
+#7 21.09 [252/329] Linking target tests/test-internal-screenshot
+#7 21.10 [253/329] Compiling C object tests/test-keyboard.p/meson-generated_.._.._protocol_input-timestamps-unstable-v1-protocol.c.o
+#7 21.17 [254/329] Compiling C object tests/test-keyboard.p/input-timestamps-helper.c.o
+#7 21.17 [255/329] Compiling C object tests/test-keyboard.p/keyboard-test.c.o
+#7 21.19 [256/329] Compiling C object tests/test-linux-explicit-synchronization.p/meson-generated_.._.._protocol_linux-explicit-synchronization-unstable-v1-protocol.c.o
+#7 21.20 [257/329] Linking target tests/test-keyboard
+#7 21.25 [258/329] Compiling C object tests/test-matrix.p/matrix-test.c.o
+#7 21.28 [259/329] Linking target tests/test-matrix
+#7 21.32 [260/329] Compiling C object tests/test-linux-explicit-synchronization.p/linux-explicit-synchronization-test.c.o
+#7 21.35 [261/329] Linking target tests/test-linux-explicit-synchronization
+#7 21.37 [262/329] Compiling C object tests/test-output-capture-protocol.p/meson-generated_.._.._protocol_weston-output-capture-protocol.c.o
+#7 21.42 [263/329] Compiling C object tests/test-matrix-transform.p/matrix-transform-test.c.o
+#7 21.44 [264/329] Linking target tests/test-matrix-transform
+#7 21.47 [265/329] Compiling C object tests/test-output-capture-protocol.p/output-capture-protocol-test.c.o
+#7 21.50 [266/329] Linking target tests/test-output-capture-protocol
+#7 21.51 [267/329] Compiling C object tests/test-output-damage.p/output-damage-test.c.o
+#7 21.53 [268/329] Linking target tests/test-output-damage
+#7 21.55 [269/329] Compiling C object tests/test-output-decorations.p/output-decorations-test.c.o
+#7 21.57 [270/329] Linking target tests/test-output-decorations
+#7 21.59 [271/329] Compiling C object tests/test-output-transforms.p/output-transforms-test.c.o
+#7 21.62 [272/329] Linking target tests/test-output-transforms
+#7 21.63 [273/329] Compiling C object tests/test-plugin-registry.p/plugin-registry-test.c.o
+#7 21.64 [274/329] Linking target tests/test-plugin-registry
+#7 21.66 [275/329] Compiling C object tests/test-pointer.p/meson-generated_.._.._protocol_input-timestamps-unstable-v1-protocol.c.o
+#7 21.70 [276/329] Compiling C object tests/test-paint-node.p/paint-node-test.c.o
+#7 21.73 [277/329] Linking target tests/test-paint-node
+#7 21.79 [278/329] Compiling C object tests/test-pointer.p/input-timestamps-helper.c.o
+#7 21.80 [279/329] Compiling C object tests/test-pointer.p/pointer-test.c.o
+#7 21.82 [280/329] Linking target tests/test-pointer
+#7 21.84 [281/329] Compiling C object tests/test-presentation.p/meson-generated_.._.._protocol_presentation-time-protocol.c.o
+#7 21.86 [282/329] Compiling C object tests/test-pointer-shot.p/pointer-shot-test.c.o
+#7 21.89 [283/329] Linking target tests/test-pointer-shot
+#7 21.91 [284/329] Compiling C object tests/test-roles.p/meson-generated_.._.._protocol_xdg-shell-protocol.c.o
+#7 21.92 [285/329] Compiling C object tests/test-presentation.p/presentation-test.c.o
+#7 21.94 [286/329] Linking target tests/test-presentation
+#7 21.96 [287/329] Compiling C object tests/test-single-pixel-buffer.p/meson-generated_.._.._protocol_single-pixel-buffer-v1-protocol.c.o
+#7 21.98 [288/329] Compiling C object tests/test-roles.p/roles-test.c.o
+#7 22.00 [289/329] Linking target tests/test-roles
+#7 22.02 [290/329] Compiling C object tests/test-single-pixel-buffer.p/single-pixel-buffer-test.c.o
+#7 22.04 [291/329] Linking target tests/test-single-pixel-buffer
+#7 22.06 [292/329] Compiling C object tests/test-string.p/string-test.c.o
+#7 22.08 [293/329] Linking target tests/test-string
+#7 22.22 [294/329] Compiling C object tests/test-subsurface-shot.p/subsurface-shot-test.c.o
+#7 22.23 [295/329] Compiling C object tests/test-subsurface.p/subsurface-test.c.o
+#7 22.25 [296/329] Linking target tests/test-subsurface-shot
+#7 22.25 [297/329] Linking target tests/test-subsurface
+#7 22.31 [298/329] Compiling C object tests/test-surface.p/surface-test.c.o
+#7 22.31 [299/329] Compiling C object tests/test-surface-global.p/surface-global-test.c.o
+#7 22.33 [300/329] Linking target tests/test-surface
+#7 22.33 [301/329] Linking target tests/test-surface-global
+#7 22.35 [302/329] Compiling C object tests/test-text.p/meson-generated_.._.._protocol_text-input-unstable-v1-protocol.c.o
+#7 22.37 [303/329] Compiling C object tests/test-touch.p/meson-generated_.._.._protocol_input-timestamps-unstable-v1-protocol.c.o
+#7 22.40 [304/329] Compiling C object tests/test-text.p/text-test.c.o
+#7 22.43 [305/329] Linking target tests/test-text
+#7 22.44 [306/329] Compiling C object tests/test-touch.p/touch-test.c.o
+#7 22.50 [307/329] Compiling C object tests/test-touch.p/input-timestamps-helper.c.o
+#7 22.52 [308/329] Linking target tests/test-touch
+#7 22.54 [309/329] Compiling C object tests/test-viewporter.p/viewporter-test.c.o
+#7 22.57 [310/329] Linking target tests/test-viewporter
+#7 22.58 [311/329] Compiling C object tests/test-viewporter-shot.p/viewporter-shot-test.c.o
+#7 22.60 [312/329] Linking target tests/test-viewporter-shot
+#7 22.65 [313/329] Compiling C object tests/test-safe-signal.p/safe-signal-test.c.o
+#7 22.68 [314/329] Linking target tests/test-safe-signal
+#7 22.70 [315/329] Compiling C object tests/test-yuv-buffer.p/yuv-buffer-test.c.o
+#7 22.73 [316/329] Linking target tests/test-yuv-buffer
+#7 22.74 [317/329] Compiling C object tests/test-safe-signal-output-removal.p/safe-signal-output-removal-test.c.o
+#7 22.76 [318/329] Linking target tests/test-safe-signal-output-removal
+#7 22.79 [319/329] Compiling C object tests/test-iterate-debug-scopes.p/iterate-debug-scopes-test.c.o
+#7 22.81 [320/329] Linking target tests/test-iterate-debug-scopes
+#7 22.82 [321/329] Compiling C object tests/test-vertex-clip.p/vertex-clip-test.c.o
+#7 22.85 [322/329] Linking target tests/test-vertex-clip
+#7 22.92 [323/329] Compiling C object tests/test-timespec.p/timespec-test.c.o
+#7 22.94 [324/329] Linking target tests/test-timespec
+#7 22.97 [325/329] Compiling C object tests/test-zuc.p/.._tools_zunitc_test_fixtures_test.c.o
+#7 22.99 [326/329] Compiling C object tests/test-config-parser.p/config-parser-test.c.o
+#7 23.01 [327/329] Linking target tests/test-config-parser
+#7 23.04 [328/329] Compiling C object tests/test-zuc.p/.._tools_zunitc_test_zunitc_test.c.o
+#7 23.06 [329/329] Linking target tests/test-zuc
+#7 23.06 INFO: autodetecting backend as ninja
+#7 23.06 INFO: calculating backend command to run: /usr/bin/ninja -C /tmp/tmp.P8Z9pQHpuP/build -j 2
+#7 23.22 ninja: Entering directory `/tmp/tmp.P8Z9pQHpuP/build'
+#7 23.26 [1/61] Generating git-version.h with a custom command
+#7 23.30 Installing libweston/libweston-13.so.0.0.4 to /opt/weston-13.0.4/lib
+#7 23.30 Installing libweston/renderer-gl/gl-renderer.so to /opt/weston-13.0.4/lib/libweston-13
+#7 23.30 Installing libweston/backend-headless/headless-backend.so to /opt/weston-13.0.4/lib/libweston-13
+#7 23.30 Installing libweston/backend-wayland/wayland-backend.so to /opt/weston-13.0.4/lib/libweston-13
+#7 23.30 Installing libweston/backend-x11/x11-backend.so to /opt/weston-13.0.4/lib/libweston-13
+#7 23.30 Installing compositor/libexec_weston.so.0.0.0 to /opt/weston-13.0.4/lib/weston
+#7 23.30 Installing compositor/weston to /opt/weston-13.0.4/bin
+#7 23.30 Installing desktop-shell/desktop-shell.so to /opt/weston-13.0.4/lib/weston
+#7 23.30 Installing clients/weston-keyboard to /opt/weston-13.0.4/libexec
+#7 23.30 Installing clients/weston-desktop-shell to /opt/weston-13.0.4/libexec
+#7 23.30 Installing clients/weston-screenshooter to /opt/weston-13.0.4/bin
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/include/libweston/config-parser.h to /opt/weston-13.0.4/include/libweston-13/libweston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/include/libweston/libweston.h to /opt/weston-13.0.4/include/libweston-13/libweston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/include/libweston/desktop.h to /opt/weston-13.0.4/include/libweston-13/libweston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/include/libweston/matrix.h to /opt/weston-13.0.4/include/libweston-13/libweston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/include/libweston/plugin-registry.h to /opt/weston-13.0.4/include/libweston-13/libweston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/include/libweston/windowed-output-api.h to /opt/weston-13.0.4/include/libweston-13/libweston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/include/libweston/weston-log.h to /opt/weston-13.0.4/include/libweston-13/libweston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/include/libweston/zalloc.h to /opt/weston-13.0.4/include/libweston-13/libweston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/include/libweston/remoting-plugin.h to /opt/weston-13.0.4/include/libweston-13/libweston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/include/libweston/pipewire-plugin.h to /opt/weston-13.0.4/include/libweston-13/libweston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/include/libweston/shell-utils.h to /opt/weston-13.0.4/include/libweston-13/libweston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/build/include/libweston/version.h to /opt/weston-13.0.4/include/libweston-13/libweston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/include/libweston/backend-headless.h to /opt/weston-13.0.4/include/libweston-13/libweston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/include/libweston/backend-wayland.h to /opt/weston-13.0.4/include/libweston-13/libweston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/include/libweston/backend-x11.h to /opt/weston-13.0.4/include/libweston-13/libweston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/compositor/weston.h to /opt/weston-13.0.4/include/weston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/protocol/weston-content-protection.xml to /opt/weston-13.0.4/share/libweston-13/protocols
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/protocol/weston-debug.xml to /opt/weston-13.0.4/share/libweston-13/protocols
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/protocol/weston-direct-display.xml to /opt/weston-13.0.4/share/libweston-13/protocols
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/protocol/weston-output-capture.xml to /opt/weston-13.0.4/share/libweston-13/protocols
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/build/meson-private/libweston-13.pc to /opt/weston-13.0.4/lib/pkgconfig
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/build/meson-private/libweston-13-protocols.pc to /opt/weston-13.0.4/share/pkgconfig
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/build/meson-private/weston.pc to /opt/weston-13.0.4/lib/pkgconfig
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/compositor/weston.desktop to /opt/weston-13.0.4/share/wayland-sessions
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/data/background.png to /opt/weston-13.0.4/share/weston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/data/border.png to /opt/weston-13.0.4/share/weston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/data/fullscreen.png to /opt/weston-13.0.4/share/weston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/data/home.png to /opt/weston-13.0.4/share/weston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/data/icon_editor.png to /opt/weston-13.0.4/share/weston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/data/icon_flower.png to /opt/weston-13.0.4/share/weston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/data/icon_ivi_clickdot.png to /opt/weston-13.0.4/share/weston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/data/icon_ivi_flower.png to /opt/weston-13.0.4/share/weston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/data/icon_ivi_simple-egl.png to /opt/weston-13.0.4/share/weston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/data/icon_ivi_simple-shm.png to /opt/weston-13.0.4/share/weston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/data/icon_ivi_smoke.png to /opt/weston-13.0.4/share/weston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/data/icon_terminal.png to /opt/weston-13.0.4/share/weston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/data/icon_window.png to /opt/weston-13.0.4/share/weston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/data/panel.png to /opt/weston-13.0.4/share/weston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/data/pattern.png to /opt/weston-13.0.4/share/weston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/data/random.png to /opt/weston-13.0.4/share/weston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/data/sidebyside.png to /opt/weston-13.0.4/share/weston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/data/sign_close.png to /opt/weston-13.0.4/share/weston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/data/sign_maximize.png to /opt/weston-13.0.4/share/weston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/data/sign_minimize.png to /opt/weston-13.0.4/share/weston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/data/terminal.png to /opt/weston-13.0.4/share/weston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/data/tiling.png to /opt/weston-13.0.4/share/weston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/data/wayland.png to /opt/weston-13.0.4/share/weston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/weston-13.0.4/data/wayland.svg to /opt/weston-13.0.4/share/weston
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/build/man/weston.1 to /opt/weston-13.0.4/share/man/man1
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/build/man/weston-bindings.7 to /opt/weston-13.0.4/share/man/man7
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/build/man/weston-debug.1 to /opt/weston-13.0.4/share/man/man1
+#7 23.30 Installing /tmp/tmp.P8Z9pQHpuP/build/man/weston.ini.5 to /opt/weston-13.0.4/share/man/man5
+#7 23.30 Installing symlink pointing to libweston-13.so.0.0.4 to /opt/weston-13.0.4/lib/libweston-13.so.0
+#7 23.30 Installing symlink pointing to libweston-13.so.0 to /opt/weston-13.0.4/lib/libweston-13.so
+#7 23.30 Installing symlink pointing to libexec_weston.so.0.0.0 to /opt/weston-13.0.4/lib/weston/libexec_weston.so.0
+#7 23.30 Installing symlink pointing to libexec_weston.so.0 to /opt/weston-13.0.4/lib/weston/libexec_weston.so
+#7 23.33 weston 13.0.4
+#7 DONE 23.5s
+
+#8 [4/4] RUN weston --version && qmake -query QT_VERSION
+#8 0.240 weston 13.0.4
+#8 0.247 6.8.3
+#8 DONE 0.3s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 1.9s done
+#9 exporting manifest sha256:d4f48cf1a04dd8cf3ddd61fffc76e9dbe4935841cea297478f525a1c16efd258 done
+#9 exporting config sha256:f667f275fd060dab6013604f9245f414b3e0fb341116a41c2ee6b305119cbc3b done
+#9 exporting attestation manifest sha256:4d5a8515376482a5e420ad243fe676a042c4564c98e2dcdf905e318db134d426 done
+#9 exporting manifest list sha256:2fdc6216ef3446ebd904a1999d3e0c909c7b667e844149ad2830d68d069e77f8 done
+#9 naming to docker.io/library/avelino-toolchain:recovered-weston13-v2-20261017-qt6.8.3 done
+#9 unpacking to docker.io/library/avelino-toolchain:recovered-weston13-v2-20261017-qt6.8.3
+#9 unpacking to docker.io/library/avelino-toolchain:recovered-weston13-v2-20261017-qt6.8.3 0.4s done
+#9 DONE 2.3s
