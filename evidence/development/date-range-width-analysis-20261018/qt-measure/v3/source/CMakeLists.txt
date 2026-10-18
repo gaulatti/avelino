@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.24)
+project(DateWidthMeasure LANGUAGES CXX)
+find_package(Qt6 6.8.3 EXACT REQUIRED COMPONENTS Gui Qml Quick)
+qt_add_executable(DateWidthMeasure main.cpp)
+target_link_libraries(DateWidthMeasure PRIVATE Qt6::Gui Qt6::Qml Qt6::Quick)

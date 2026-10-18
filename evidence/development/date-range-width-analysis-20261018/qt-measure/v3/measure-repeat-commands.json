@@ -1,0 +1,27 @@
+[
+  {
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/date-range-width-measure-v3:/measure-check",
+      "-w",
+      "/measure-check",
+      "--env",
+      "QT_QPA_PLATFORM=offscreen",
+      "--env",
+      "QT_QUICK_BACKEND=software",
+      "--env",
+      "XDG_RUNTIME_DIR=/tmp/avelino-date-widths",
+      "avelino-toolchain:recovered-weston13-v2-20261017-qt6.8.3",
+      "./build/DateWidthMeasure",
+      "input.json",
+      "output-repeat.json"
+    ],
+    "exitCode": 0,
+    "seconds": 5.388292790972628
+  }
+]

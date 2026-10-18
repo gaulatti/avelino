@@ -157,8 +157,10 @@ editor identity, calendar and environment observations. Complete native input,
 geometry/raster, reader and physical acceptance remain pending. Desktop candidate coverage remains 76/80,
 with zero accepted APIs. The editor now has native-observed numeric slots, locale
 number formatting and locale-directed steppers; its new font/format source-only
-probe reproduces all 97 outputs exactly. Full sizing and raster acceptance remain
-open.
+probe reproduces all 97 outputs exactly. A further 1,848-update native investigation
+finds stable intrinsic widths in 23 contexts, while the current Qt label advances
+vary in ten; its fresh source-only replay reproduces all 355 width/bounds/style files.
+Full sizing, font, raster and reader acceptance remain open.
 
 The [desktop app tab bar candidate](docs/app-tabs.md) preserves caller-owned
 selection requests, retained typed identities, integer badges and narrow overflow.

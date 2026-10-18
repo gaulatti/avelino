@@ -241,3 +241,71 @@ model/date observations and all 17 history model, identity, calendar and caller
 environment observations still match. Complete geometry matches in 8 closed
 contexts and no history steps. Native pixels, font shapes, intrinsic widths,
 physical displays/input and readers remain pending.
+
+## Reserved widths across caller dates
+
+The [width investigation](../evidence/reference-investigations/date-range-width-20261018/README.md)
+retains 1,848 public caller date updates across 23 locale/calendar/control-size
+contexts. Intrinsic control widths stay constant within every context; all 3,696
+picker dates match the caller. All 46 retained/cold image pairs and all 23
+initial/restored pairs match exactly. The 48 baseline getter pairs also match
+the original source images. Cold controls therefore provide a separate check
+against an explanation based only on retained value or width caches.
+
+Representative regular intrinsic widths are:
+
+| Locale and calendar | Complete intrinsic width |
+| --- | ---: |
+| en_US Gregorian | 95 |
+| ar_EG Gregorian | 91.5 |
+| fa_IR Persian | 91.5 |
+| he_IL Hebrew | 139.5 |
+| ja_JP Japanese | 104.5 |
+| ar_SA Islamic | 162 |
+| en_US ISO | 99.5 |
+
+These dimensions differ from text advances and snapped alignment frames. Large
+controls keep the regular 13-point font but add three intrinsic width points.
+Cold small Hebrew controls have 18-point intrinsic/alignment height; the earlier
+retained control-size-change history and its geometry remain separate evidence.
+The raw `initialEditors` key in the width helper is recorded after restoration;
+it is interpreted as a restored observation, with the initial PNG and baseline
+getters kept separately.
+
+Direct per-picker accessibility getters expose the date area and stepper hierarchy,
+including their rectangles, with all 23 before/after pairs unchanged. They expose
+no month/day/year child rectangles in this context. These getter rectangles
+establish no pointer hit-test, physical-input or screen-reader acceptance.
+
+The [Linux measurement analysis](../evidence/development/date-range-width-analysis-20261018/README.md)
+measures the unchanged installed module at the same 1,848 dates and repeats its
+output bytes exactly. Current editor text advances vary in ten contexts while
+native intrinsic widths stay fixed. Single-string figure spaces do not establish
+numeric column geometry across scripts; named and algorithmic fields also need
+reserved widths. The analysis keeps Qt text advances separate from complete
+native dimensions and treats the Foundation short-date string as metrology text,
+rather than a visible-editor oracle. Font, field reservation, chrome and snapped
+frames remain distinct implementation work.
+
+A fresh source-only build reproduces 282 width/bounds output files and, using the
+separately provided style-matrix JSON, 73 more files on the same Mac (355 total). All Apple helpers, source archives and products remain external; their
+checksums and immutable archive locators are recorded. Run
+`python3 scripts/verify-date-range-width-investigation.py` to check the sealed
+evidence. This investigation changes no product code, reference, tolerance,
+approved exception or acceptance status.
+
+The supplemental 36-context matrix compares field, stepperField and compact styles
+in Gregorian, Hebrew and Umm al-Qura calendars at all four sizes. Complete
+intrinsic width differences and heights are:
+
+| Control size | Stepper minus field width | Field height | Stepper height |
+| --- | ---: | ---: | ---: |
+| Regular | 17 | 21 | 20 |
+| Small | 15 | 19 | 18 |
+| Mini | 11 | 16 | 16 |
+| Large | 20 | 21 | 24 |
+
+These differences agree across all three calendars; compact matches stepperField intrinsic dimensions.
+Regular and large field-style captures are byte-identical in all three calendars.
+The current constant 17-point stepper and universal extra field-style height point
+therefore need correction independently of the pending reserved-column/font work.
