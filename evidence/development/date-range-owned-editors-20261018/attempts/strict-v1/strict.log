@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/gaulatti/source/gaulatti/avelino/scripts/compare-date-range-captures.py", line 50, in <module>
+    main()
+    ~~~~^^
+  File "/Users/gaulatti/source/gaulatti/avelino/scripts/compare-date-range-captures.py", line 38, in main
+    captures.append(dict(path=name, source=report['reference'], api='BleeckerDateRangePicker', **metadata))
+                    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: dict() got multiple values for keyword argument 'api'

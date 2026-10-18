@@ -1,0 +1,22 @@
+[
+  {
+    "name": "display-sessions",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/date-range-display-v2/runtime:/display-check",
+      "-w",
+      "/display-check",
+      "avelino-toolchain:recovered-weston13-v2-20261017-qt6.8.3",
+      "bash",
+      "check.sh",
+      "/display-check/output"
+    ],
+    "exitCode": 0,
+    "seconds": 132.5758444169769
+  }
+]

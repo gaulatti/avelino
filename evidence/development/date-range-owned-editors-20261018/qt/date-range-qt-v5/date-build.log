@@ -1,0 +1,24 @@
+[0/2] Re-checking globbed directories...
+[1/14] Copying Avelino qml sources into build dir
+[2/14] Generating .rcc/qmlcache/Avelino_DateRangeField_qml.cpp, .rcc/qmlcache/Avelino_DateRangeField_qml.cpp.aotstats
+[3/14] Running rcc for resource Avelino_raw_qml_0
+[4/14] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_DateRangeField_qml.cpp.o
+[5/14] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.qt/rcc/qrc_Avelino_raw_qml_0.cpp.o
+[6/14] Linking CXX shared library src/Avelino/libAvelino.so
+[7/14] Automatic MOC and UIC for target AvelinoDateRangeToolsTests
+[8/13] Linking CXX shared module qml/Avelino/libAvelinoplugin.so
+[9/13] Linking CXX executable tests/components/AvelinoDateRangeToolsTests
+[10/13] Automatic MOC and UIC for target AvelinoDateRangeUiTests
+[11/12] Building CXX object tests/components/CMakeFiles/AvelinoDateRangeUiTests.dir/daterangeui.cpp.o
+/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/tests/components/daterangeui.cpp: In constructor ‘{anonymous}::Fixture::Fixture()’:
+/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/tests/components/daterangeui.cpp:20:89: warning: ignoring return value of ‘bool QTest::qWaitForWindowExposed(QWindow*, int)’, declared with attribute ‘nodiscard’ [-Wunused-result]
+   20 |         if(window){window->show();window->requestActivate();QTest::qWaitForWindowExposed(window);}
+      |                                                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+In file included from /opt/qt/include/QtTest/qtestsystem.h:11,
+                 from /opt/qt/include/QtTest/qtest.h:282,
+                 from /opt/qt/include/QtTest/QtTest:11,
+                 from /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/tests/components/daterangeui.cpp:7:
+/opt/qt/include/QtGui/qtestsupport_gui.h:27:33: note: declared here
+   27 | [[nodiscard]] Q_GUI_EXPORT bool qWaitForWindowExposed(QWindow *window, int timeout = 5000);
+      |                                 ^~~~~~~~~~~~~~~~~~~~~
+[12/12] Linking CXX executable tests/components/AvelinoDateRangeUiTests

@@ -72,6 +72,12 @@ set(charts_fixture "${PROJECT_SOURCE_DIR}/tests/consumer/Charts.qml")
 set_source_files_properties("${charts_fixture}" PROPERTIES QT_RESOURCE_ALIAS "Charts.qml")
 set(charts_case "${PROJECT_SOURCE_DIR}/tests/consumer/ChartsCase.qml")
 set_source_files_properties("${charts_case}" PROPERTIES QT_RESOURCE_ALIAS "ChartsCase.qml")
+set(date_range_qml)
+foreach(name DateRangePicker.qml DateRangePickerCase.qml)
+    set(path "${PROJECT_SOURCE_DIR}/tests/consumer/${name}")
+    set_source_files_properties("${path}" PROPERTIES QT_RESOURCE_ALIAS "${name}")
+    list(APPEND date_range_qml "${path}")
+endforeach()
 set(hero_qml)
 foreach(name HeroCarousel.qml HeroCarouselCase.qml HeroCarouselSlide.qml)
     set(path "${PROJECT_SOURCE_DIR}/tests/consumer/${name}")
@@ -119,7 +125,7 @@ qt_add_resources(AvelinoCatalog "dropdown_menu_images" PREFIX "/qt/qml/AvelinoCa
 qt_add_qml_module(AvelinoCatalog URI AvelinoCatalog VERSION 0.1
     OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/qml/AvelinoCatalog
     SOURCES ${PROJECT_SOURCE_DIR}/tests/consumer/sharprectangle.h ${PROJECT_SOURCE_DIR}/tests/consumer/mediatilefill.h
-    QML_FILES ${hero_qml} ${file_input_qml} ${dropdown_menu_qml} ${command_spotlight_qml} ${app_tabs_fixture} ${app_tabs_case} ${app_tabs_glyph} ${app_tabs_metrics} ${media_fixture} ${media_case} ${media_tile} ${charts_fixture} ${charts_case} ${pill_modifier_fixture} ${pill_modifier_case} ${surface_modifier_fixture} ${surface_modifier_case} ${font_modifier_fixture} ${font_modifier_case} ${button_style_fixture} ${button_style_case} ${tooltip_fixture} ${tooltip_case} ${modal_fixture} ${modal_case} ${activity_fixture} ${activity_case} ${activity_glyph} ${otp_fixture} ${otp_case} ${radio_fixture} ${radio_case} ${stepper_fixture} ${stepper_case} ${data_fixture} ${data_case} ${data_glyph} Main.qml ButtonFixture.qml FoundationsFixture.qml SurfacesFixture.qml DataDisplayFixture.qml ControlsFixture.qml ReferenceCaseFixture.qml CompositionFixture.qml SelectionFixture.qml CheckboxFixture.qml SecureFieldFixture.qml SearchFieldFixture.qml CollectionFiltersFixture.qml SliderFixture.qml TabsFixture.qml PaginationFixture.qml PaginationIntegerFixture.qml AccordionFixture.qml PresentationStatesFixture.qml SpinnerFixture.qml AlertFixture.qml ${sidebar_fixture} ${sidebar_case} ${sidebar_glyph} ${navigation_fixture} ${navigation_case} ${breadcrumb_house} ${clipping_fixture} ${accordion_text} ${navigation_icon} ${search_glyph})
+    QML_FILES ${date_range_qml} ${hero_qml} ${file_input_qml} ${dropdown_menu_qml} ${command_spotlight_qml} ${app_tabs_fixture} ${app_tabs_case} ${app_tabs_glyph} ${app_tabs_metrics} ${media_fixture} ${media_case} ${media_tile} ${charts_fixture} ${charts_case} ${pill_modifier_fixture} ${pill_modifier_case} ${surface_modifier_fixture} ${surface_modifier_case} ${font_modifier_fixture} ${font_modifier_case} ${button_style_fixture} ${button_style_case} ${tooltip_fixture} ${tooltip_case} ${modal_fixture} ${modal_case} ${activity_fixture} ${activity_case} ${activity_glyph} ${otp_fixture} ${otp_case} ${radio_fixture} ${radio_case} ${stepper_fixture} ${stepper_case} ${data_fixture} ${data_case} ${data_glyph} Main.qml ButtonFixture.qml FoundationsFixture.qml SurfacesFixture.qml DataDisplayFixture.qml ControlsFixture.qml ReferenceCaseFixture.qml CompositionFixture.qml SelectionFixture.qml CheckboxFixture.qml SecureFieldFixture.qml SearchFieldFixture.qml CollectionFiltersFixture.qml SliderFixture.qml TabsFixture.qml PaginationFixture.qml PaginationIntegerFixture.qml AccordionFixture.qml PresentationStatesFixture.qml SpinnerFixture.qml AlertFixture.qml ${sidebar_fixture} ${sidebar_case} ${sidebar_glyph} ${navigation_fixture} ${navigation_case} ${breadcrumb_house} ${clipping_fixture} ${accordion_text} ${navigation_icon} ${search_glyph})
 qt_add_resources(AvelinoCatalog "catalog_fixture_assets" PREFIX "/avelino/fixtures"
     BASE "${PROJECT_SOURCE_DIR}/tests/consumer" FILES "${PROJECT_SOURCE_DIR}/tests/consumer/avatar-wide.ppm" "${PROJECT_SOURCE_DIR}/tests/consumer/native-app-tab-icon-metrics.json")
 target_link_libraries(AvelinoCatalog PRIVATE Avelino Qt6::Quick Qt6::Test)

@@ -148,9 +148,13 @@ The [DateRangePicker reference investigation](docs/date-range-picker.md) preserv
 Its source-only rebuild replays all 1,206 files exactly on this machine. A native
 input supplement retains 82 OS events and 21 milestones, including identical
 ignore/delay images across three source variants, exact range clamping and
-graphical preview/Space-commit differences. Complete native input and the Linux
-component, catalog, consumer and runtime acceptance remain pending. Desktop
-candidate coverage remains 76/80, with zero accepted APIs.
+graphical preview/Space-commit differences. The owned Qt editors now run in the
+catalog and independent consumer. Eight source-absent package/gallery profiles
+match all 384 native model/displayed-date observations; complete geometry matches
+in 8, and all 384 strict raster comparisons fail. Eight virtual display profiles
+pass structural/input checks. Complete native histories, geometry/raster, reader
+and physical acceptance remain pending. Desktop candidate coverage remains 76/80,
+with zero accepted APIs.
 
 The [desktop app tab bar candidate](docs/app-tabs.md) preserves caller-owned
 selection requests, retained typed identities, integer badges and narrow overflow.

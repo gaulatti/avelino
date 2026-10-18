@@ -1,0 +1,71 @@
+[
+  {
+    "name": "main",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/date-range-package-v2/runtime:/regression-check",
+      "-w",
+      "/regression-check",
+      "--env",
+      "QT_QPA_PLATFORM=offscreen",
+      "--env",
+      "QT_QUICK_BACKEND=software",
+      "avelino-toolchain:recovered-weston13-v2-20261017-qt6.8.3",
+      "./consumer-build/InstalledConsumer"
+    ],
+    "exitCode": 0,
+    "seconds": 3.267730792053044
+  },
+  {
+    "name": "controls",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/date-range-package-v2/runtime:/regression-check",
+      "-w",
+      "/regression-check",
+      "--env",
+      "QT_QPA_PLATFORM=offscreen",
+      "--env",
+      "QT_QUICK_BACKEND=software",
+      "avelino-toolchain:recovered-weston13-v2-20261017-qt6.8.3",
+      "./consumer-build/InstalledConsumer",
+      "--controls"
+    ],
+    "exitCode": 0,
+    "seconds": 2.069337041932158
+  },
+  {
+    "name": "hero-carousel",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/date-range-package-v2/runtime:/regression-check",
+      "-w",
+      "/regression-check",
+      "--env",
+      "QT_QPA_PLATFORM=offscreen",
+      "--env",
+      "QT_QUICK_BACKEND=software",
+      "avelino-toolchain:recovered-weston13-v2-20261017-qt6.8.3",
+      "./consumer-build/InstalledConsumer",
+      "--hero-carousel",
+      "--hero-carousel-observe"
+    ],
+    "exitCode": 0,
+    "seconds": 12.469117208034731
+  }
+]

@@ -55,7 +55,7 @@
   },
   "desktop": {
     "acceptance": "pending",
-    "registeredCount": 79,
+    "registeredCount": 80,
     "entries": [
       {
         "id": "BleeckerAccordion",
@@ -68131,8 +68131,16 @@
           "path": "Sources/Sabella/Extended.swift",
           "line": 63
         },
-        "implementation": [],
-        "caseDiscovery": "pending: 384 native closed contexts, 17280 sizing queries, 17 typed history steps and 21 input milestones; complete native input contexts, parsing, extreme values and Linux cases remain pending",
+        "implementation": [
+          "src/Avelino/BleeckerDateRangePicker.qml",
+          "src/Avelino/DateRangeField.qml",
+          "src/Avelino/DateRangeEditor.qml",
+          "src/Avelino/DateRangeCalendar.qml",
+          "src/Avelino/DateRangeArrow.qml",
+          "src/Avelino/daterangetools.h",
+          "src/Avelino/daterangetools.cpp"
+        ],
+        "caseDiscovery": "pending: 384 native closed contexts, 17280 sizing queries, 17 typed history steps and 21 input milestones; owned Linux checkpoint records 384 exact models, 8 exact geometries and 384 strict raster failures; full histories, parsing, extreme inputs, reader and physical acceptance remain pending",
         "cases": [
           {
             "id": "default-light-text1-dpr1",
@@ -71782,7 +71790,13 @@
         ],
         "tests": [
           "scripts/verify-date-range-source.py",
-          "scripts/verify-date-range-input.py"
+          "scripts/verify-date-range-input.py",
+          "tests/components/daterangetools.cpp",
+          "tests/components/daterangeui.cpp",
+          "tests/consumer/daterangechecks.h",
+          "scripts/generate-date-range-witnesses.py",
+          "scripts/verify-date-range-owned-editors.py",
+          "scripts/compare-date-range-captures.py"
         ],
         "captures": [
           "evidence/reference-investigations/date-range-20261018/output",
@@ -71794,25 +71808,34 @@
           "evidence/reference-investigations/date-range-20261018/history-branch-comparison.json",
           "evidence/reference-investigations/date-range-20261018/source-only-replay/comparison.json",
           "evidence/reference-investigations/date-range-input-20261018/investigation.json",
-          "evidence/reference-investigations/date-range-input-20261018/owner-comparisons.json"
+          "evidence/reference-investigations/date-range-input-20261018/owner-comparisons.json",
+          "evidence/development/date-range-owned-editors-20261018/strict/comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/date-range-owned-editors-20261018/package/result.json"
+            ]
           },
           "x11": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/date-range-owned-editors-20261018/display/result.json"
+            ]
           },
           "wayland": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/date-range-owned-editors-20261018/display/result.json"
+            ]
           },
           "keyboardPointer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/date-range-owned-editors-20261018/qt/date-range-qt-v12/result.json"
+            ]
           },
           "focusAccessibility": {
             "status": "pending",
@@ -71820,11 +71843,15 @@
           },
           "displayTextScaling": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/date-range-owned-editors-20261018/display/result.json"
+            ]
           },
           "installedConsumer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/date-range-owned-editors-20261018/package/result.json"
+            ]
           }
         }
       },

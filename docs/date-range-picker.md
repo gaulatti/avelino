@@ -1,6 +1,7 @@
 # DateRangePicker reference contract
 
-The Linux component remains unimplemented. The pinned desktop source is
+The owned Linux component is under implementation; its inventory entry remains
+pending until the complete candidate verification is recorded. The pinned desktop source is
 `fe8a1d462fbd793d883fb92086a16aa2947e32c9`,
 `Sources/Sabella/Extended.swift:63–68`. Its two independent date bindings are
 presented by date-only native pickers, with an arrow between them. A supplied
@@ -100,3 +101,61 @@ Recompute the retained source observations with:
 python3 scripts/verify-date-range-source.py
 python3 scripts/verify-date-range-input.py
 ```
+
+## Current Linux implementation
+
+`BleeckerDateRangePicker` exposes independent `start` and `end` Unix-second values,
+optional `range: {lower, upper}`, and `startRequested`/`endRequested` signals. The
+owner decides whether to echo, ignore or delay requests. It also exposes `locale`,
+`calendar`, `timeZone`, `pickerStyle` and `controlSize`. Presentation clamping does
+not rewrite caller values, and crossed endpoints remain independent.
+
+The ICU-backed calendar layer preserves Foundation Date double construction,
+hidden time, locale/calendar segments and range endpoints. The owned Qt template
+editors include field, stepper/overlay and graphical presentations. Optional range
+presence chooses distinct editor components, while supplied-bound changes retain
+the editor. The caller wrapper is retained. Graphical keyboard preview retains
+whole-second time and drops the fraction; pointer selection retains it.
+
+The catalog route is `--fixture date-range`. Its gallery changes bounds, crossed
+values, owner policy, style, locale, calendar, time zone, size, RTL, caller width,
+disabled state and theme. The independent installed consumer route is
+`--date-range`; `--date-range-report PREFIX` writes observations and unchanged
+captures, and `--date-range-gallery` exercises the gallery's actual operators.
+`--date-range-observe` retains exact native model/geometry differences while
+structural and input failures remain fatal. It grants no acceptance.
+
+`python3 scripts/generate-date-range-witnesses.py --check` verifies that the
+consumer's 384 native observations are the deterministic projection of the sealed
+source capture journal. Local Qt tests cover exact native timestamp/calendrical
+observations and synthetic owned-editor input; these are separate from native
+CUA input. Current builds, test results, package execution, strict capture
+comparisons and display-session evidence must each be reported separately.
+
+Parsing/cancellation and traversal beyond the retained native histories,
+non-finite/extreme behavior, complete native history/lifecycle replay, arbitrary
+caller fonts, strict raster/geometry equality, reader and physical acceptance
+remain pending. The original four pending desktop inventory entries and all 46 TV
+entries remain pending; registration does not change candidate coverage.
+
+The consumer resolves its installed QML import directory relative to its executable,
+using the relationship established by CMake. Moving that executable and installed
+prefix together therefore preserves imports without a build-time absolute path.
+The first virtual-session attempt retained a missing-module failure after changing
+the runtime mount path; the repeated source-absent package/session checks pass after this repair.
+
+## Recorded implementation checkpoint
+
+The [owned-editor evidence](../evidence/development/date-range-owned-editors-20261018/README.md)
+records three passing Qt test runs, eight source-absent package/gallery profiles,
+four installed catalog captures and eight virtual display profiles. All 384 native
+model/displayed-date observations match; complete geometry matches in 8. All 384
+strict raster comparisons execute and fail. The default Linux row measures 232
+points against the reference's 222. These failures remain open with no baseline,
+mask, resize, tolerance or exception change. DateRangePicker stays pending and
+candidate coverage remains 76/80; no desktop entry is accepted.
+
+The relocated consumer repeats all 560 package output files exactly after the
+import-path repair. The earlier missing-module display run is preserved. Xvfb,
+Weston and software-rendered OpenGL sessions are virtual runtime evidence;
+physical display/input, hardware acceleration and reader acceptance remain pending.

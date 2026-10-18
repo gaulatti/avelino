@@ -1,0 +1,26 @@
+[0/2] Re-checking globbed directories...
+[1/168] Automatic MOC and UIC for target AvelinoDateRangeToolsTests
+[2/166] Automatic MOC and UIC for target AvelinoCatalog
+[3/165] Running AUTOMOC file extraction for target AvelinoCatalog
+[4/165] Running moc --collect-json for target AvelinoCatalog
+[5/8] Automatic MOC and UIC for target AvelinoDateRangeUiTests
+[6/7] Building CXX object tests/components/CMakeFiles/AvelinoDateRangeUiTests.dir/daterangeui.cpp.o
+FAILED: tests/components/CMakeFiles/AvelinoDateRangeUiTests.dir/daterangeui.cpp.o 
+/usr/bin/c++ -DAVELINO_DATE_IMPORT_PATH=\"/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/build/qml\" -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_OPENGL_LIB -DQT_QMLINTEGRATION_LIB -DQT_QMLMETA_LIB -DQT_QMLMODELS_LIB -DQT_QMLWORKERSCRIPT_LIB -DQT_QML_LIB -DQT_QUICKCONTROLS2_LIB -DQT_QUICK_LIB -DQT_TESTCASE_BUILDDIR=\"/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/build/tests/components\" -DQT_TESTCASE_SOURCEDIR=\"/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/tests/components\" -DQT_TESTLIB_LIB -I/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/build/tests/components/AvelinoDateRangeUiTests_autogen/include -isystem /opt/qt/include/QtCore -isystem /opt/qt/include -isystem /opt/qt/mkspecs/linux-g++ -isystem /opt/qt/include/QtGui -isystem /opt/qt/include/QtQml -isystem /opt/qt/include/QtQmlIntegration -isystem /opt/qt/include/QtNetwork -isystem /opt/qt/include/QtQuick -isystem /opt/qt/include/QtQmlMeta -isystem /opt/qt/include/QtQmlModels -isystem /opt/qt/include/QtQmlWorkerScript -isystem /opt/qt/include/QtOpenGL -isystem /opt/qt/include/QtQuickControls2 -isystem /opt/qt/include/QtTest -g -std=gnu++17 -MD -MT tests/components/CMakeFiles/AvelinoDateRangeUiTests.dir/daterangeui.cpp.o -MF tests/components/CMakeFiles/AvelinoDateRangeUiTests.dir/daterangeui.cpp.o.d -o tests/components/CMakeFiles/AvelinoDateRangeUiTests.dir/daterangeui.cpp.o -c /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/tests/components/daterangeui.cpp
+/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/tests/components/daterangeui.cpp: In constructor ‘{anonymous}::Fixture::Fixture()’:
+/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/tests/components/daterangeui.cpp:21:89: warning: ignoring return value of ‘bool QTest::qWaitForWindowExposed(QWindow*, int)’, declared with attribute ‘nodiscard’ [-Wunused-result]
+   21 |         if(window){window->show();window->requestActivate();QTest::qWaitForWindowExposed(window);}
+      |                                                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+In file included from /opt/qt/include/QtTest/qtestsystem.h:11,
+                 from /opt/qt/include/QtTest/qtest.h:282,
+                 from /opt/qt/include/QtTest/QtTest:11,
+                 from /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/tests/components/daterangeui.cpp:8:
+/opt/qt/include/QtGui/qtestsupport_gui.h:27:33: note: declared here
+   27 | [[nodiscard]] Q_GUI_EXPORT bool qWaitForWindowExposed(QWindow *window, int timeout = 5000);
+      |                                 ^~~~~~~~~~~~~~~~~~~~~
+/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/tests/components/daterangeui.cpp: In member function ‘void DateRangeUiTests::numericYearAfterDayEdit()’:
+/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/tests/components/daterangeui.cpp:153:59: error: ‘keyClicks’ is not a member of ‘QTest’; did you mean ‘keyClick’?
+  153 |     QTest::keyClick(input->window(),Qt::Key_Right);QTest::keyClicks(input->window(),"2026");
+      |                                                           ^~~~~~~~~
+      |                                                           keyClick
+ninja: build stopped: subcommand failed.

@@ -84,6 +84,8 @@ cmake --build "$stage/build" --parallel 2
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --pill-modifier --pill-observe)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --charts --charts-observe)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --media-library --media-library-observe)
+(cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --date-range --date-range-observe)
+(cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --date-range --date-range-gallery --date-range-report "$stage/date-range-gallery")
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --hero-carousel --hero-carousel-observe)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --hero-carousel --hero-carousel-gallery --hero-carousel-report "$stage/hero-carousel-gallery")
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --app-tabs --app-tabs-observe)
@@ -96,6 +98,8 @@ set +e
 format_result=$?
 set -e
 if [[ "$format_result" != 0 && "$format_result" != 244 ]]; then exit "$format_result"; fi
+cp scripts/check-installed-date-range-catalog.sh "$stage/check-installed-date-range-catalog.sh"
+(cd "$stage" && bash check-installed-date-range-catalog.sh "$stage/date-range-catalog-evidence")
 cp scripts/check-installed-catalog.sh "$stage/check-installed-catalog.sh"
 (cd "$stage" && bash check-installed-catalog.sh "$stage/catalog-evidence")
 mkdir -p artifacts
@@ -106,8 +110,11 @@ mkdir artifacts/package
 cp -R "$stage/install" "$stage/consumer" artifacts/package/
 cp scripts/check-installed.sh artifacts/package/check-installed.sh
 cp scripts/check-installed-catalog.sh artifacts/package/check-installed-catalog.sh
+cp scripts/check-installed-date-range-catalog.sh artifacts/package/check-installed-date-range-catalog.sh
+cp scripts/check-display-sessions-date-range.sh artifacts/package/check-display-sessions-date-range.sh
 if [[ -e artifacts/linux/catalog-installed ]]; then mv artifacts/linux/catalog-installed "$stage/previous-catalog-installed"; fi
 cp -R "$stage/catalog-evidence" artifacts/linux/catalog-installed
+cp -R "$stage/date-range-catalog-evidence" artifacts/linux/date-range-catalog-installed
 cp scripts/check-display-sessions.sh artifacts/package/check-display-sessions.sh
 cp scripts/check-display-sessions-hero-carousel.sh artifacts/package/check-display-sessions-hero-carousel.sh
 cp artifacts/linux/environment.json artifacts/package/environment.json
