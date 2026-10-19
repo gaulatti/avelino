@@ -1,0 +1,18 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "exec",
+    "avelino-qtquick-alpha-build-20261019-v1",
+    "cmake",
+    "--build",
+    "/qt-build",
+    "--target",
+    "Quick",
+    "--parallel",
+    "2"
+  ],
+  "exitCode": 0,
+  "seconds": 4275.818648333894
+}

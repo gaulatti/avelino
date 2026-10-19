@@ -1,0 +1,150 @@
+[
+  {
+    "name": "baseline-jit-stage",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "exec",
+      "avelino-qtquick-alpha-build-20261019-v1",
+      "python3",
+      "-c",
+      "\nfrom pathlib import Path\nimport shutil,subprocess,re,json,hashlib,os,sys\nname=sys.argv[1];out=Path('/result')/(name+'-qt/lib');out.mkdir(parents=True)\nsource=Path('/qt-build/lib/libQt6Quick.so.6.8.3');target=out/source.name;shutil.copy2(source,target)\ndynamic=subprocess.check_output(['readelf','-d',str(target)],text=True)\npaths=re.findall(r'\\((?:RUNPATH|RPATH)\\).*?\\[(.*?)\\]',dynamic);assert len(paths)==1,paths\nscript=Path('/result/install-rpath.cmake')\nscript.write_text('file(RPATH_CHANGE FILE \"${binary}\" OLD_RPATH \"${old_path}\" NEW_RPATH \"$ORIGIN\")\\n')\nsubprocess.run(['cmake','-Dbinary='+str(target),'-Dold_path='+paths[0],'-P',str(script)],check=True)\n(out/'libQt6Quick.so.6').symlink_to(target.name);(out/'libQt6Quick.so').symlink_to('libQt6Quick.so.6')\nenv=dict(os.environ,LD_LIBRARY_PATH=str(out)+':/opt/weston-13.0.4/lib:/opt/qt/lib')\nlinked=subprocess.check_output(['ldd','-r',str(target)],env=env,text=True,stderr=subprocess.STDOUT)\nassert 'not found'not in linked and 'undefined symbol'not in linked and '/qt-build/'not in linked,linked\ndynamic=subprocess.check_output(['readelf','-d',str(target)],text=True)\nassert '/qt-build'not in dynamic\nPath('/result/'+name+'-linkage.log').write_text(linked+'\\n'+dynamic)\nPath('/result/'+name+'-library.json').write_text(json.dumps(dict(sourceSha256=hashlib.sha256(source.read_bytes()).hexdigest(),installedSha256=hashlib.sha256(target.read_bytes()).hexdigest(),runtimePath='$ORIGIN',otherLibraries='Original /opt/qt SDK; source Qml libraries excluded'),indent=2)+'\\n')\n",
+      "baseline-jit"
+    ],
+    "exitCode": 0,
+    "seconds": 0.9983045828994364
+  },
+  {
+    "name": "baseline-jit-regression",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "exec",
+      "-w",
+      "/result/app-runtime",
+      "-e",
+      "LD_LIBRARY_PATH=/result/baseline-jit-qt/lib:/opt/weston-13.0.4/lib:/opt/qt/lib",
+      "avelino-qtquick-alpha-build-20261019-v1",
+      "bash",
+      "/result/regression-v2/check-qt-software-opacity.sh",
+      "/result/baseline-jit-regression"
+    ],
+    "exitCode": 1,
+    "seconds": 19.104280667030253
+  },
+  {
+    "name": "baseline-jit-date-profile",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "exec",
+      "-w",
+      "/result/app-runtime",
+      "-e",
+      "LD_LIBRARY_PATH=/result/baseline-jit-qt/lib:/opt/weston-13.0.4/lib:/opt/qt/lib",
+      "avelino-qtquick-alpha-build-20261019-v1",
+      "bash",
+      "check.sh",
+      "/result/app-runtime/baseline-jit-output"
+    ],
+    "exitCode": 1,
+    "seconds": 57.45263887499459
+  },
+  {
+    "name": "apply-source-patch",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "exec",
+      "-w",
+      "/qt-source/qtdeclarative-everywhere-src-6.8.3",
+      "avelino-qtquick-alpha-build-20261019-v1",
+      "patch",
+      "--batch",
+      "--forward",
+      "--fuzz=0",
+      "-p1",
+      "-i",
+      "/result/qt-software-opacity.patch"
+    ],
+    "exitCode": 0,
+    "seconds": 0.2851585840107873
+  },
+  {
+    "name": "patched-jit-build",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "exec",
+      "avelino-qtquick-alpha-build-20261019-v1",
+      "cmake",
+      "--build",
+      "/qt-build",
+      "--target",
+      "Quick",
+      "--parallel",
+      "2"
+    ],
+    "exitCode": 0,
+    "seconds": 111.87529004202224
+  },
+  {
+    "name": "patched-jit-stage",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "exec",
+      "avelino-qtquick-alpha-build-20261019-v1",
+      "python3",
+      "-c",
+      "\nfrom pathlib import Path\nimport shutil,subprocess,re,json,hashlib,os,sys\nname=sys.argv[1];out=Path('/result')/(name+'-qt/lib');out.mkdir(parents=True)\nsource=Path('/qt-build/lib/libQt6Quick.so.6.8.3');target=out/source.name;shutil.copy2(source,target)\ndynamic=subprocess.check_output(['readelf','-d',str(target)],text=True)\npaths=re.findall(r'\\((?:RUNPATH|RPATH)\\).*?\\[(.*?)\\]',dynamic);assert len(paths)==1,paths\nscript=Path('/result/install-rpath.cmake')\nscript.write_text('file(RPATH_CHANGE FILE \"${binary}\" OLD_RPATH \"${old_path}\" NEW_RPATH \"$ORIGIN\")\\n')\nsubprocess.run(['cmake','-Dbinary='+str(target),'-Dold_path='+paths[0],'-P',str(script)],check=True)\n(out/'libQt6Quick.so.6').symlink_to(target.name);(out/'libQt6Quick.so').symlink_to('libQt6Quick.so.6')\nenv=dict(os.environ,LD_LIBRARY_PATH=str(out)+':/opt/weston-13.0.4/lib:/opt/qt/lib')\nlinked=subprocess.check_output(['ldd','-r',str(target)],env=env,text=True,stderr=subprocess.STDOUT)\nassert 'not found'not in linked and 'undefined symbol'not in linked and '/qt-build/'not in linked,linked\ndynamic=subprocess.check_output(['readelf','-d',str(target)],text=True)\nassert '/qt-build'not in dynamic\nPath('/result/'+name+'-linkage.log').write_text(linked+'\\n'+dynamic)\nPath('/result/'+name+'-library.json').write_text(json.dumps(dict(sourceSha256=hashlib.sha256(source.read_bytes()).hexdigest(),installedSha256=hashlib.sha256(target.read_bytes()).hexdigest(),runtimePath='$ORIGIN',otherLibraries='Original /opt/qt SDK; source Qml libraries excluded'),indent=2)+'\\n')\n",
+      "patched-jit"
+    ],
+    "exitCode": 0,
+    "seconds": 1.7620637499494478
+  },
+  {
+    "name": "patched-jit-regression",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "exec",
+      "-w",
+      "/result/app-runtime",
+      "-e",
+      "LD_LIBRARY_PATH=/result/patched-jit-qt/lib:/opt/weston-13.0.4/lib:/opt/qt/lib",
+      "avelino-qtquick-alpha-build-20261019-v1",
+      "bash",
+      "/result/regression-v2/check-qt-software-opacity.sh",
+      "/result/patched-jit-regression"
+    ],
+    "exitCode": 0,
+    "seconds": 27.956871084054
+  },
+  {
+    "name": "patched-jit-date-profile",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "exec",
+      "-w",
+      "/result/app-runtime",
+      "-e",
+      "LD_LIBRARY_PATH=/result/patched-jit-qt/lib:/opt/weston-13.0.4/lib:/opt/qt/lib",
+      "avelino-qtquick-alpha-build-20261019-v1",
+      "bash",
+      "check.sh",
+      "/result/app-runtime/patched-jit-output"
+    ],
+    "exitCode": 0,
+    "seconds": 57.79489408398513
+  }
+]

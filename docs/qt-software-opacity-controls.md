@@ -27,3 +27,7 @@ decode the original PNGs, recompute opacity, fixture colors, bounds and stable
 frames, and check hashes, dimensions and effective SDK features. These controls
 validate a reproducer. They do not validate a source patch, change the supported
 toolchain, or accept native raster, physical input, reader behavior or a Linux API.
+
+The separate [paired source validation](qt-software-opacity.md) retains the
+unpatched failure and the patched library's passing opacity, Canvas2D and
+DateRangePicker results.
