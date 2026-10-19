@@ -1,0 +1,28 @@
+{
+  "accepted": false,
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--rm",
+    "--ulimit",
+    "core=0",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/weston-popup-order-v1:/probe",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/weston-popup-guard-asan-v1/install:/probe/install:ro",
+    "-w",
+    "/probe",
+    "--env",
+    "WESTON_BIN=/probe/install/bin/weston",
+    "--env",
+    "WESTON_LIB=/probe/install/lib",
+    "avelino-toolchain:recovered-weston13-cjk-v1-20261018-qt6.8.3",
+    "bash",
+    "probe.sh",
+    "/probe/candidate-sanitizer"
+  ],
+  "exitCode": 0,
+  "seconds": 1.7840099999448285
+}

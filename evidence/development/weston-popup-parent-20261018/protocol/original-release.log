@@ -1,0 +1,3 @@
+probe.sh: line 25:    20 Segmentation fault      env ASAN_OPTIONS=detect_leaks=0:abort_on_error=1 UBSAN_OPTIONS=print_stacktrace=1:halt_on_error=1 LD_LIBRARY_PATH="${WESTON_LIB:-/opt/weston-13.0.4/lib}:/opt/qt/lib" "${WESTON_BIN:-/opt/weston-13.0.4/bin/weston}" --backend=x11 --renderer=pixman --width=480 --height=360 --socket=avelino-order --idle-time=0 --config="$runtime/weston.ini" --log="$output/weston.log" > "$output/weston-client.log" 2>&1
+parent mapped; creating uncommitted non-grabbing popup
+committing parent before popup's first surface commit

@@ -91,14 +91,29 @@ failure without loading Avelino; the same executable survives on 13.0.4. Qt
 remains pinned to 6.8.3. The compositor build provides X11, nested Wayland and
 headless backends for verification; physical display and DRM acceptance remain
 separate gates.
-The Docker context explicitly includes both `tools/Dockerfile` and
-`tools/install-weston.sh`; repository sources and evidence remain excluded.
+The toolchain also applies a checksummed local patch to Weston 13.0.4 for a
+separate popup-order crash. A parent can commit after `get_popup` creates the
+child view and before the child's first commit assigns its transform parent.
+Position updates defer that unconfigured view until its own commit. The
+standalone `tools/check-weston-popup-parent.sh` reproduces the failure without
+Qt or Avelino and verifies that the later 20×20 popup actually renders. Every
+toolchain image build runs it and retains its logs, full-output screenshot and
+exact popup/parent pixel counts under
+`/opt/weston-13.0.4/share/avelino/popup-parent-regression`. This dependency test
+does not replace the complete Qt display matrix or grant mirror acceptance.
+The installer accepts `AVELINO_WESTON_ARCHIVE` for an existing source archive;
+cached and downloaded bytes must pass the same pinned SHA-256 check. The
+[popup-order checkpoint](../evidence/development/weston-popup-parent-20261018/README.md)
+retains the failing stock compositor and passing patched compositor evidence.
+The Docker context explicitly includes the Dockerfile, installer, patch and
+standalone regression sources; repository sources and evidence remain excluded.
 Each configuration runs the base fixture, `--controls`, `--composition`,
 `--selection`, `--checkbox`, `--secure-field`, `--search-field`, `--collection-filters`, `--slider`, `--tabs`, `--pagination`, `--pagination-integers`, `--accordion`, `--presentation-states`, `--spinner`, `--alert`, `--clipping`, `--navigation`, `--sidebar-brand` and
 `--data-metrics`, `--stepper`, `--radio-group`, `--otp-input`, `--activity-item`,
 `--modal`, `--tooltip`, `--button-style`, `--font-modifier`, `--surface-modifier`,
 `--surface-baseline`, `--surface-input`, `--pill-modifier`, `--charts`,
-`--media-library` and `--app-tabs` independently. The configured matrix has 280
+`--media-library`, `--app-tabs`, `--command-spotlight`, `--file-input` and
+`--dropdown-menu` independently. The configured matrix has 304
 parent-window/full-output pairs; Modal and Tooltip also record their separate
 popup windows in each configuration. The harness reports live producers every
 30 seconds while waiting for their evidence; it does not kill them after a fixed

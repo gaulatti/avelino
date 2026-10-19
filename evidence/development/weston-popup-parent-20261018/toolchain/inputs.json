@@ -1,0 +1,16 @@
+{
+  "accepted": false,
+  "baseGit": "fede040b615e4bfdf96815f6d407564b9fcd7223",
+  "baseImage": "avelino-toolchain:recovered-weston13-cjk-v1-20261018-qt6.8.3",
+  "baseImageId": "sha256:05ed336701790c156dc6f59b48c195d6ac36144205c0eb75696001e9c9893fc6",
+  "files": {
+    "tools/Dockerfile": "343801286b487b0924eb00cdd1f77de430723c74e67aaf1bd689c70dd0ba3c28",
+    "tools/install-weston.sh": "5c90101b49044d978f25b98870b60ad543e9c21bd3f1c38f74aa69b00d63c9fe",
+    "tools/weston-popup-parent.patch": "18587d7496f73dbd6fb61717acf1cfb3af98a8d873f8594dafd984aff4cb32e0",
+    "tools/weston-popup-order.c": "5385d05602b927f5d96edae2c707933fc7157ff8d0787321d7a5bd2db2e79b78",
+    "tools/check-weston-popup-parent.sh": "570e8a607396f38370522287dcffc7dcd774139fc5b06aa68cdc653f2776b41f",
+    ".dockerignore": "a04461b2f4d9cf4b8a3bad13b904a8746756cbcec99e3210c85608e7bb990346"
+  },
+  "archiveSha256": "66252c9c5bbc45ab402e2518b76e6d824f09ebc1d0040ee2f51b096a1bc585b1",
+  "scope": "Rebuild patched Weston on validated Qt/font base; exact same source archive supplied from verified local cache after upstream timeout; mandatory tracked protocol regression"
+}

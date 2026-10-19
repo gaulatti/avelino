@@ -1,0 +1,143 @@
+#0 building with "colima-avelino-verify" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 420B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/avelino-toolchain:recovered-weston13-cjk-v1-20261018-qt6.8.3
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 184B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 15.13kB done
+#4 DONE 0.0s
+
+#5 [1/4] FROM docker.io/library/avelino-toolchain:recovered-weston13-cjk-v1-20261018-qt6.8.3@sha256:05ed336701790c156dc6f59b48c195d6ac36144205c0eb75696001e9c9893fc6
+#5 resolve docker.io/library/avelino-toolchain:recovered-weston13-cjk-v1-20261018-qt6.8.3@sha256:05ed336701790c156dc6f59b48c195d6ac36144205c0eb75696001e9c9893fc6 0.0s done
+#5 DONE 0.0s
+
+#6 [2/4] COPY tools/install-weston.sh tools/weston-popup-parent.patch tools/weston-popup-order.c tools/check-weston-popup-parent.sh /usr/local/lib/avelino/
+#6 DONE 0.0s
+
+#7 [3/4] RUN bash /usr/local/lib/avelino/install-weston.sh
+#7 0.994 Get:1 http://ports.ubuntu.com/ubuntu-ports noble InRelease [256 kB]
+#7 1.618 Get:2 http://ports.ubuntu.com/ubuntu-ports noble-updates InRelease [126 kB]
+#7 1.837 Get:3 http://ports.ubuntu.com/ubuntu-ports noble-backports InRelease [126 kB]
+#7 2.031 Get:4 http://ports.ubuntu.com/ubuntu-ports noble-security InRelease [126 kB]
+#7 2.171 Get:5 http://ports.ubuntu.com/ubuntu-ports noble/multiverse arm64 Packages [274 kB]
+#7 2.290 Get:6 http://ports.ubuntu.com/ubuntu-ports noble/restricted arm64 Packages [113 kB]
+#7 2.376 Get:7 http://ports.ubuntu.com/ubuntu-ports noble/universe arm64 Packages [19.0 MB]
+#7 3.559 Get:8 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 Packages [1776 kB]
+#7 3.620 Get:9 http://ports.ubuntu.com/ubuntu-ports noble-updates/multiverse arm64 Packages [104 kB]
+#7 3.628 Get:10 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 Packages [1786 kB]
+#7 3.701 Get:11 http://ports.ubuntu.com/ubuntu-ports noble-updates/restricted arm64 Packages [3251 kB]
+#7 3.766 Get:12 http://ports.ubuntu.com/ubuntu-ports noble-updates/universe arm64 Packages [2214 kB]
+#7 3.896 Get:13 http://ports.ubuntu.com/ubuntu-ports noble-backports/main arm64 Packages [49.0 kB]
+#7 3.896 Get:14 http://ports.ubuntu.com/ubuntu-ports noble-backports/multiverse arm64 Packages [669 B]
+#7 3.896 Get:15 http://ports.ubuntu.com/ubuntu-ports noble-backports/universe arm64 Packages [36.3 kB]
+#7 3.896 Get:16 http://ports.ubuntu.com/ubuntu-ports noble-security/multiverse arm64 Packages [99.1 kB]
+#7 3.897 Get:17 http://ports.ubuntu.com/ubuntu-ports noble-security/main arm64 Packages [1475 kB]
+#7 4.176 Get:18 http://ports.ubuntu.com/ubuntu-ports noble-security/restricted arm64 Packages [3129 kB]
+#7 4.210 Get:19 http://ports.ubuntu.com/ubuntu-ports noble-security/universe arm64 Packages [1638 kB]
+#7 6.127 Fetched 35.6 MB in 5s (6505 kB/s)
+#7 6.127 Reading package lists...
+#7 7.943 Reading package lists...
+#7 9.596 Building dependency tree...
+#7 9.995 Reading state information...
+#7 10.53 meson is already the newest version (1.3.2-1ubuntu1).
+#7 10.53 pkg-config is already the newest version (1.8.1-2build1).
+#7 10.53 patch is already the newest version (2.7.6-7build3).
+#7 10.53 patch set to manually installed.
+#7 10.53 libwayland-dev is already the newest version (1.22.0-2.1build1).
+#7 10.53 wayland-protocols is already the newest version (1.45-1~ubuntu0.24.04.2).
+#7 10.53 libpixman-1-dev is already the newest version (0.42.2-1build1).
+#7 10.53 libinput-dev is already the newest version (1.25.0-1ubuntu3.7).
+#7 10.53 libudev-dev is already the newest version (255.4-1ubuntu8.18).
+#7 10.53 libdrm-dev is already the newest version (2.4.125-1ubuntu0.1~24.04.2).
+#7 10.53 libgbm-dev is already the newest version (25.2.8-0ubuntu0.24.04.4).
+#7 10.53 libegl-dev is already the newest version (1.7.0-1build1).
+#7 10.53 libgles-dev is already the newest version (1.7.0-1build1).
+#7 10.53 libcairo2-dev is already the newest version (1.18.0-3build1).
+#7 10.53 libpango1.0-dev is already the newest version (1.52.1+ds-1build1).
+#7 10.53 libjpeg-dev is already the newest version (8c-2ubuntu11).
+#7 10.53 libwebp-dev is already the newest version (1.3.2-0.4build3).
+#7 10.53 liblcms2-dev is already the newest version (2.14-2ubuntu0.1).
+#7 10.53 libx11-xcb-dev is already the newest version (2:1.8.7-1ubuntu0.1).
+#7 10.53 libxcb-composite0-dev is already the newest version (1.15-1ubuntu2).
+#7 10.53 libxcursor-dev is already the newest version (1:1.2.1-1build1).
+#7 10.53 libxcb-xfixes0-dev is already the newest version (1.15-1ubuntu2).
+#7 10.53 libxcb-shm0-dev is already the newest version (1.15-1ubuntu2).
+#7 10.53 libxcb-xkb-dev is already the newest version (1.15-1ubuntu2).
+#7 10.53 libxcb-render0-dev is already the newest version (1.15-1ubuntu2).
+#7 10.53 libxcb-xinput-dev is already the newest version (1.15-1ubuntu2).
+#7 10.53 libxcb-xinerama0-dev is already the newest version (1.15-1ubuntu2).
+#7 10.53 libxcb-randr0-dev is already the newest version (1.15-1ubuntu2).
+#7 10.53 libxkbcommon-dev is already the newest version (1.6.0-1build1).
+#7 10.53 libxkbcommon-x11-dev is already the newest version (1.6.0-1build1).
+#7 10.53 libpng-dev is already the newest version (1.6.43-5ubuntu0.7).
+#7 10.53 libglib2.0-dev is already the newest version (2.80.0-6ubuntu3.9).
+#7 10.53 0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+#7 71.14 Traceback (most recent call last):
+#7 71.14   File "<stdin>", line 7, in <module>
+#7 71.14   File "/usr/lib/python3.12/urllib/request.py", line 215, in urlopen
+#7 71.14     return opener.open(url, data, timeout)
+#7 71.15            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 71.15   File "/usr/lib/python3.12/urllib/request.py", line 515, in open
+#7 71.15     response = self._open(req, data)
+#7 71.15                ^^^^^^^^^^^^^^^^^^^^^
+#7 71.15   File "/usr/lib/python3.12/urllib/request.py", line 532, in _open
+#7 71.15     result = self._call_chain(self.handle_open, protocol, protocol +
+#7 71.15              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 71.15   File "/usr/lib/python3.12/urllib/request.py", line 492, in _call_chain
+#7 71.15     result = func(*args)
+#7 71.15              ^^^^^^^^^^^
+#7 71.15   File "/usr/lib/python3.12/urllib/request.py", line 1392, in https_open
+#7 71.15     return self.do_open(http.client.HTTPSConnection, req,
+#7 71.15            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 71.15   File "/usr/lib/python3.12/urllib/request.py", line 1348, in do_open
+#7 71.15     r = h.getresponse()
+#7 71.15         ^^^^^^^^^^^^^^^
+#7 71.15   File "/usr/lib/python3.12/http/client.py", line 1457, in getresponse
+#7 71.15     response.begin()
+#7 71.15   File "/usr/lib/python3.12/http/client.py", line 336, in begin
+#7 71.15     version, status, reason = self._read_status()
+#7 71.15                               ^^^^^^^^^^^^^^^^^^^
+#7 71.15   File "/usr/lib/python3.12/http/client.py", line 297, in _read_status
+#7 71.15     line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+#7 71.15                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 71.15   File "/usr/lib/python3.12/socket.py", line 707, in readinto
+#7 71.15     return self._sock.recv_into(b)
+#7 71.15            ^^^^^^^^^^^^^^^^^^^^^^^
+#7 71.16   File "/usr/lib/python3.12/ssl.py", line 1252, in recv_into
+#7 71.16     return self.read(nbytes, buffer)
+#7 71.16            ^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 71.16   File "/usr/lib/python3.12/ssl.py", line 1104, in read
+#7 71.16     return self._sslobj.read(len, buffer)
+#7 71.16            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 71.16 TimeoutError: The read operation timed out
+#7 ERROR: process "/bin/sh -c bash /usr/local/lib/avelino/install-weston.sh" did not complete successfully: exit code: 1
+------
+ > [3/4] RUN bash /usr/local/lib/avelino/install-weston.sh:
+71.15   File "/usr/lib/python3.12/socket.py", line 707, in readinto
+71.15     return self._sock.recv_into(b)
+71.15            ^^^^^^^^^^^^^^^^^^^^^^^
+71.16   File "/usr/lib/python3.12/ssl.py", line 1252, in recv_into
+71.16     return self.read(nbytes, buffer)
+71.16            ^^^^^^^^^^^^^^^^^^^^^^^^^
+71.16   File "/usr/lib/python3.12/ssl.py", line 1104, in read
+71.16     return self._sslobj.read(len, buffer)
+71.16            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+71.16 TimeoutError: The read operation timed out
+------
+Dockerfile:3
+--------------------
+   1 |     FROM avelino-toolchain:recovered-weston13-cjk-v1-20261018-qt6.8.3
+   2 |     COPY tools/install-weston.sh tools/weston-popup-parent.patch tools/weston-popup-order.c tools/check-weston-popup-parent.sh /usr/local/lib/avelino/
+   3 | >>> RUN bash /usr/local/lib/avelino/install-weston.sh
+   4 |     RUN bash /usr/local/lib/avelino/check-weston-popup-parent.sh /opt/weston-13.0.4/share/avelino/popup-parent-regression
+   5 |     
+--------------------
+ERROR: failed to build: failed to solve: process "/bin/sh -c bash /usr/local/lib/avelino/install-weston.sh" did not complete successfully: exit code: 1

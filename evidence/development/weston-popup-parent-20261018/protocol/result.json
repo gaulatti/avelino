@@ -1,0 +1,77 @@
+{
+  "accepted": false,
+  "steps": [
+    {
+      "name": "build",
+      "command": [
+        "docker",
+        "--context",
+        "colima-avelino-verify",
+        "run",
+        "--rm",
+        "--ulimit",
+        "core=0",
+        "-v",
+        "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/weston-popup-order-v1:/probe",
+        "-w",
+        "/probe",
+        "avelino-toolchain:recovered-weston13-cjk-v1-20261018-qt6.8.3",
+        "bash",
+        "build.sh"
+      ],
+      "exitCode": 0,
+      "seconds": 2.169122333987616
+    },
+    {
+      "name": "original-sanitizer",
+      "command": [
+        "docker",
+        "--context",
+        "colima-avelino-verify",
+        "run",
+        "--rm",
+        "--ulimit",
+        "core=0",
+        "-v",
+        "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/weston-popup-order-v1:/probe",
+        "-w",
+        "/probe",
+        "-v",
+        "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/tooltip-weston-asan-v2/install:/sanitizer:ro",
+        "--env",
+        "WESTON_BIN=/sanitizer/bin/weston",
+        "--env",
+        "WESTON_LIB=/sanitizer/lib",
+        "avelino-toolchain:recovered-weston13-cjk-v1-20261018-qt6.8.3",
+        "bash",
+        "probe.sh",
+        "/probe/original-sanitizer"
+      ],
+      "exitCode": 1,
+      "seconds": 2.35209004196804
+    },
+    {
+      "name": "original-release",
+      "command": [
+        "docker",
+        "--context",
+        "colima-avelino-verify",
+        "run",
+        "--rm",
+        "--ulimit",
+        "core=0",
+        "-v",
+        "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/weston-popup-order-v1:/probe",
+        "-w",
+        "/probe",
+        "avelino-toolchain:recovered-weston13-cjk-v1-20261018-qt6.8.3",
+        "bash",
+        "probe.sh",
+        "/probe/original-release"
+      ],
+      "exitCode": 6,
+      "seconds": 2.2095129159279168
+    }
+  ],
+  "scope": "Deterministic protocol-order reproducer; no product or toolchain changes"
+}

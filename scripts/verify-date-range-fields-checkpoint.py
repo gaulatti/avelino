@@ -211,7 +211,9 @@ def verify():
     assert digest(parent/'files.json')==specification['parentCheckpointManifestSha256']
     font=json.loads((parent/'font-toolchain/font-environment.json').read_text())
     assert inputs['imageId']==font['imageId'] and font['cjkFamilies'] and len(font['fontFiles'])==4
-    assert digest(ROOT/'tools/Dockerfile')==font['rootDockerfileSha256']
+    # Bind the historical captures to the Dockerfile used by their producer.
+    # Current runtime dependencies are verified by the current Linux workflow.
+    assert digest(parent/'implementation-inputs/tools/Dockerfile')==font['rootDockerfileSha256']
     tests=(CAPSULE/'qt/date-range-qt-v35/ctest-last-test.log').read_text()
     assert 'DateRangeToolsTests::nativeChromeProfiles()' in tests and tests.count('DateRangeUiTests::nativeChromeProfilesReachOwnedEditors()')==2
     assert 'FAIL!' not in tests

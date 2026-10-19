@@ -74,6 +74,7 @@ jobs:
       - run: python3 scripts/verify-date-chinese-checkpoint.py
       - run: python3 scripts/verify-date-range-fields-checkpoint.py
       - run: python3 scripts/verify-navigation-cjk-metrics.py
+      - run: python3 scripts/verify-weston-popup-checkpoint.py
       - run: python3 scripts/generate-hero-carousel-witnesses.py --check
       - run: python3 scripts/verify-hero-carousel-candidate.py
       - run: python3 scripts/verify-ci-runtime-contracts.py

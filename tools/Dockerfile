@@ -18,8 +18,9 @@ RUN case "$TARGETARCH" in \
     esac && /opt/aqt/bin/aqt install-qt "$qt_host" desktop 6.8.3 "$qt_arch" \
       --outputdir /opt/Qt --archives icu qtbase qtdeclarative qttools qtsvg qtwayland \
     && ln -s /opt/Qt/6.8.3/* /opt/qt
-COPY tools/install-weston.sh /usr/local/lib/avelino/install-weston.sh
+COPY tools/install-weston.sh tools/weston-popup-parent.patch tools/weston-popup-order.c tools/check-weston-popup-parent.sh /usr/local/lib/avelino/
 RUN bash /usr/local/lib/avelino/install-weston.sh
+RUN bash /usr/local/lib/avelino/check-weston-popup-parent.sh /opt/weston-13.0.4/share/avelino/popup-parent-regression
 ENV PATH=/opt/weston-13.0.4/bin:/opt/qt/bin:$PATH
 ENV LD_LIBRARY_PATH=/opt/weston-13.0.4/lib:/opt/qt/lib
 ENV CMAKE_PREFIX_PATH=/opt/qt

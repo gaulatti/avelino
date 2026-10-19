@@ -1,0 +1,15 @@
+{
+  "accepted": false,
+  "baseImage": "avelino-toolchain:recovered-weston13-cjk-v1-20261018-qt6.8.3",
+  "baseImageId": "sha256:05ed336701790c156dc6f59b48c195d6ac36144205c0eb75696001e9c9893fc6",
+  "baseGit": "fede040b615e4bfdf96815f6d407564b9fcd7223",
+  "files": {
+    "tools/Dockerfile": "343801286b487b0924eb00cdd1f77de430723c74e67aaf1bd689c70dd0ba3c28",
+    "tools/install-weston.sh": "0898e61406e790b249d3f49a399d7245de2c4893cb5b73cd483c581da4699a75",
+    "tools/weston-popup-parent.patch": "18587d7496f73dbd6fb61717acf1cfb3af98a8d873f8594dafd984aff4cb32e0",
+    "tools/weston-popup-order.c": "5385d05602b927f5d96edae2c707933fc7157ff8d0787321d7a5bd2db2e79b78",
+    "tools/check-weston-popup-parent.sh": "570e8a607396f38370522287dcffc7dcd774139fc5b06aa68cdc653f2776b41f",
+    ".dockerignore": "a04461b2f4d9cf4b8a3bad13b904a8746756cbcec99e3210c85608e7bb990346"
+  },
+  "scope": "Reuse validated Qt/font base layers; rebuild patched Weston using the current repository installer and execute the current mandatory regression"
+}
