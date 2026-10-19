@@ -159,3 +159,10 @@ audit is excluded from binary-compatibility evidence. The corrected source build
 uses offset 688, and both paired Qt Quick builds pass the Canvas2D checks against
 the SDK's QML libraries. The Canvas2D guard prevents a rectangle-only pass from
 overlooking that runtime boundary.
+
+The first integrated x86 CI run built this toolchain but failed during package
+seeding because its evidence extraction created a root-owned artifact parent.
+The [ownership repair](../evidence/development/ci-artifact-ownership-20261019/README.md)
+precreates the specific evidence directory as the runner user. The original
+workflow remains bound to its immutable toolchain commit; the live workflow
+repair has a separate Linux ownership reproduction and verifier.

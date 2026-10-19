@@ -26,9 +26,9 @@ jobs:
           cache-to: type=gha,mode=max,scope=toolchain-${{ matrix.runner }}
       - name: Preserve Qt software-renderer build evidence
         run: |
-          docker run --rm -v "$PWD/artifacts:/evidence" avelino-toolchain:qt6.8.3 bash -c '
-            mkdir -p /evidence/linux/toolchain
-            cp -R /opt/qt/share/avelino/qt-software-opacity /evidence/linux/toolchain/
+          mkdir -p artifacts/linux/toolchain
+          docker run --rm -v "$PWD/artifacts/linux/toolchain:/evidence" avelino-toolchain:qt6.8.3 bash -c '
+            cp -R /opt/qt/share/avelino/qt-software-opacity /evidence/
           '
       - name: Seed obsolete package files for regeneration check
         run: |
