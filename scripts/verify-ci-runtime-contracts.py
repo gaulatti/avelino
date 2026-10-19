@@ -7,6 +7,7 @@ from pathlib import Path
 import re
 import shlex
 import struct
+import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
 DIRECTORY = ROOT / 'evidence/development/ci-runtime-contracts-20261018'
@@ -35,7 +36,9 @@ def verify():
     earlier = read('attempts/v1/commands.json')
     assert earlier[-1]['name'] == 'artifact-permissions' and earlier[-1]['exitCode'] == 1
     for name in ['scripts/check-installed-catalog.sh', 'scripts/check-display-sessions.sh', '.github/workflows/linux.yml']:
-        assert (DIRECTORY / 'after' / name).read_bytes() == (ROOT / name).read_bytes(), name
+        actual = (subprocess.check_output(['git', 'show', '2b837a5fd52b462b59d8d66dae4a71a3a88bce20:'+name], cwd=ROOT)
+                  if name == '.github/workflows/linux.yml' else (ROOT / name).read_bytes())
+        assert (DIRECTORY / 'after' / name).read_bytes() == actual, name
     source = ROOT / 'evidence/development/file-input-go-to-suggestions-20261018/display/output'
     inputs = read('input-reports.json')
     assert len(inputs) == 8

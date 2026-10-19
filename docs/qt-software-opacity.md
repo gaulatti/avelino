@@ -134,6 +134,14 @@ at Arabic-year/end pixels with equal models and state. Those jobs used the
 unpatched default toolchain. The ARM64 evidence above validates the replacement;
 remote CI for the integrated change must be reported separately.
 
+The older CJK checkpoint keeps its original tooling hashes. Its verifier reads
+the matching Linux driver and workflow blobs from immutable commit `2b837a5`,
+alongside its other retained historical tools. The earlier CI contract checkpoint
+also binds its workflow to that commit and retains its current script checks.
+Current driver validation comes
+from the toolchain checkpoint above; updating the supported installer does not
+rewrite the historical checkpoint or its captured images.
+
 Qt Quick's source build also requires the matching ShaderTools SDK module and
 Vulkan development headers. The first unpatched build stopped because those
 headers were absent while the existing Qt Gui Vulkan feature was enabled.

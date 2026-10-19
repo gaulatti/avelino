@@ -4,6 +4,7 @@ import hashlib
 import importlib.util
 import json
 import re
+import subprocess
 from collections import Counter
 from pathlib import Path
 
@@ -30,7 +31,16 @@ def verify():
     }
     # Historical producer tooling remains sealed while the current toolchain
     # can receive independently verified dependency fixes.
-    for name,value in spec['liveScripts'].items():assert digest(historical_tools.get(name,ROOT/name))==value
+    historical_git_tools={
+        'scripts/check-linux.sh':'2b837a5fd52b462b59d8d66dae4a71a3a88bce20',
+        '.github/workflows/linux.yml':'2b837a5fd52b462b59d8d66dae4a71a3a88bce20',
+    }
+    for name,value in spec['liveScripts'].items():
+        if name in historical_git_tools:
+            raw=subprocess.check_output(['git','show',historical_git_tools[name]+':'+name],cwd=ROOT)
+            assert hashlib.sha256(raw).hexdigest()==value,name
+        else:
+            assert digest(historical_tools.get(name,ROOT/name))==value,name
     activation=read('qt/activated-inputs.json')
     assert activation['previousValidatedProducer']=='navigation-cjk-qt-v4' and activation['cacheBytesMatchSnapshot']
     assert set(activation['files'])=={'src/Avelino/CMakeLists.txt','src/Avelino/TooltipHost.qml','src/Avelino/tooltipwindowlifecycle.cpp','src/Avelino/tooltipwindowlifecycle.h','tests/consumer/tooltipchecks.h'}
