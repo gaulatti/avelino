@@ -12,11 +12,17 @@ files = sorted([Path('CMakeLists.txt'), Path('CMakePresets.json')] +
 # The CI bind mount belongs to the runner UID, while the toolchain runs as root.
 # Trust only this explicit checkout for these read-only provenance commands.
 git = ['git', '-c', f'safe.directory={Path.cwd()}']
+qt_software_renderer = json.loads(Path('/opt/qt/share/avelino/qt-software-opacity/provenance.json').read_text())
+qt_quick_sha256 = hashlib.sha256(Path('/opt/qt/lib/libQt6Quick.so.6.8.3').read_bytes()).hexdigest()
+assert qt_software_renderer['qt'] == '6.8.3' and not qt_software_renderer['nativeAcceptance']
+assert qt_software_renderer['installedLibrarySha256'] == qt_quick_sha256
 metadata = {
     'sourceRevision': command(*git, 'rev-parse', 'HEAD'),
     'uncommittedChanges': bool(command(*git, 'status', '--porcelain')),
     'compiler': command('c++', '--version'),
     'qt': command('qmake', '-query', 'QT_VERSION'),
+    'qtQuickSha256': qt_quick_sha256,
+    'qtSoftwareRenderer': qt_software_renderer,
     'cmake': command('cmake', '--version'),
     'installedPackages': command('dpkg-query', '-W'),
     'sourceInputs': {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in files},

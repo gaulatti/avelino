@@ -782,3 +782,7 @@ evidence/development/file-input-go-to-editing-20261018/display/output/capture-to
 evidence/development/file-input-go-to-suggestions-20261018/display/output/capture-tool-version.txt -text -whitespace
 evidence/reference-investigations/hero-carousel-20261018/interactive/build.log -text -whitespace
 evidence/development/hero-carousel-20261018/display/output/capture-tool-version.txt -text -whitespace
+
+# Preserve checksummed toolchain and reader logs, including emitted spaces.
+evidence/development/qt-software-toolchain-20261019/**/*.log.txt -text -whitespace
+evidence/development/qt-software-toolchain-20261019/implementation-inputs/tools/*.patch -text -whitespace

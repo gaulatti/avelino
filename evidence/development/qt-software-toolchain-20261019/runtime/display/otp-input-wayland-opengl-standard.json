@@ -1,0 +1,3839 @@
+{
+  "accepted": false,
+  "appearance": "light",
+  "callbackComparable": 143,
+  "callbackMatches": 36,
+  "callerBindingChecks": "passed",
+  "dpr": 1,
+  "fixture": "otp-input",
+  "focusChecks": "passed",
+  "graphicsApi": 3,
+  "height": 580,
+  "inputMethod": "QInputMethodEvent commits/preedit and QtTest keys, no physical keyboard/IME or reader acceptance",
+  "nativeLifecycleAcceptance": "pending; native callback and selection comparisons are retained",
+  "nativeModelEditorSnapshots": 200,
+  "nativeTraces": [
+    {
+      "bindingMode": "functional-observed",
+      "events": [
+        {
+          "action": "initial",
+          "actual": {
+            "code": "",
+            "fieldValue": "",
+            "hasMarkedText": false,
+            "requests": []
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": true,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        },
+        {
+          "action": "focus",
+          "actual": {
+            "code": "",
+            "fieldValue": "",
+            "hasMarkedText": false,
+            "requests": [
+              ""
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": true,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "select-all",
+          "actual": {
+            "code": "",
+            "fieldValue": "",
+            "hasMarkedText": false,
+            "requests": [
+              ""
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": true,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "insert-mixed",
+          "actual": {
+            "code": "1\u0662\u21631\u03012",
+            "fieldValue": "a1b\u0662\u21631\u03012",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "settled",
+          "actual": {
+            "code": "1\u0662\u21631\u03012",
+            "fieldValue": "a1b\u0662\u21631\u03012",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "delete-backward",
+          "actual": {
+            "code": "1\u0662\u21631\u0301",
+            "fieldValue": "a1b\u0662\u21631\u0301",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1\u0662\u21631\u03012",
+              "1\u0662\u21631\u0301"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "external-unfiltered",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1\u0662\u21631\u03012",
+              "1\u0662\u21631\u0301"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "external-length-two",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1\u0662\u21631\u03012",
+              "1\u0662\u21631\u0301"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "insert-keycap",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662\u2163\u00b3\u4e00",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1\u0662\u21631\u03012",
+              "1\u0662\u21631\u0301",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "return-command",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1\u0662\u21631\u03012",
+              "1\u0662\u21631\u0301",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": false
+        },
+        {
+          "action": "blur",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1\u0662\u21631\u03012",
+              "1\u0662\u21631\u0301",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        }
+      ],
+      "fixture": "editing",
+      "sourceFile": "behavior-final/behavior.json"
+    },
+    {
+      "bindingMode": "functional-observed",
+      "events": [
+        {
+          "action": "initial",
+          "actual": {
+            "code": "A12",
+            "fieldValue": "A12",
+            "hasMarkedText": false,
+            "requests": []
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": true,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        },
+        {
+          "action": "focus",
+          "actual": {
+            "code": "12",
+            "fieldValue": "12",
+            "hasMarkedText": false,
+            "requests": [
+              "12"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "select-all",
+          "actual": {
+            "code": "12",
+            "fieldValue": "12",
+            "hasMarkedText": false,
+            "requests": [
+              "12"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "insert-mixed",
+          "actual": {
+            "code": "1\u0662\u21631\u03012",
+            "fieldValue": "a1b\u0662\u21631\u03012",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "settled",
+          "actual": {
+            "code": "1\u0662\u21631\u03012",
+            "fieldValue": "a1b\u0662\u21631\u03012",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "delete-backward",
+          "actual": {
+            "code": "1\u0662\u21631\u0301",
+            "fieldValue": "a1b\u0662\u21631\u0301",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\u0662\u21631\u0301"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "external-unfiltered",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\u0662\u21631\u0301"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "external-length-two",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\u0662\u21631\u0301"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "insert-keycap",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662\u2163\u00b3\u4e00",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\u0662\u21631\u0301",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "return-command",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\u0662\u21631\u0301",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": false
+        },
+        {
+          "action": "blur",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\u0662\u21631\u0301",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        }
+      ],
+      "fixture": "unfiltered-initial",
+      "sourceFile": "behavior-final/behavior.json"
+    },
+    {
+      "bindingMode": "functional-observed",
+      "events": [
+        {
+          "action": "initial",
+          "actual": {
+            "code": "12",
+            "fieldValue": "12",
+            "hasMarkedText": false,
+            "requests": []
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": true,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        },
+        {
+          "action": "focus",
+          "actual": {
+            "code": "12",
+            "fieldValue": "12",
+            "hasMarkedText": false,
+            "requests": [
+              "12"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": true,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": false
+        },
+        {
+          "action": "select-all",
+          "actual": {
+            "code": "12",
+            "fieldValue": "12",
+            "hasMarkedText": false,
+            "requests": [
+              "12"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": true,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "insert-mixed",
+          "actual": {
+            "code": "12",
+            "fieldValue": "a1b\u0662\u21631\u03012",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "settled",
+          "actual": {
+            "code": "12",
+            "fieldValue": "a1b\u0662\u21631\u03012",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "delete-backward",
+          "actual": {
+            "code": "12",
+            "fieldValue": "a1b\u0662\u21631\u0301",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\u0662\u21631\u0301"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "external-unfiltered",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "a1b\u0662\u21631\u0301",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\u0662\u21631\u0301"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "external-length-two",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\u0662\u21631\u0301"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "insert-keycap",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "1\ufe0f\u20e3\u0662\u2163\u00b3\u4e00",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\u0662\u21631\u0301",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "return-command",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\u0662\u21631\u0301",
+              "1\ufe0f\u20e3\u0662",
+              "98"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": false
+        },
+        {
+          "action": "blur",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\u0662\u21631\u0301",
+              "1\ufe0f\u20e3\u0662",
+              "98",
+              "98"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        }
+      ],
+      "fixture": "observe-only",
+      "sourceFile": "behavior-final/behavior.json"
+    },
+    {
+      "bindingMode": "functional-observed",
+      "events": [
+        {
+          "action": "initial",
+          "actual": {
+            "code": "12",
+            "fieldValue": "12",
+            "hasMarkedText": false,
+            "requests": []
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": true,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        },
+        {
+          "action": "focus",
+          "actual": {
+            "code": "12",
+            "fieldValue": "12",
+            "hasMarkedText": false,
+            "requests": [
+              "12"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": true,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": true,
+          "selectionComparable": true,
+          "selectionMatch": false
+        },
+        {
+          "action": "select-all",
+          "actual": {
+            "code": "12",
+            "fieldValue": "12",
+            "hasMarkedText": false,
+            "requests": [
+              "12"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": true,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "insert-mixed",
+          "actual": {
+            "code": "12",
+            "fieldValue": "a1b\u0662\u21631\u03012",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "settled",
+          "actual": {
+            "code": "1\u0662\u21631\u03012",
+            "fieldValue": "a1b\u0662\u21631\u03012",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": true,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "delete-backward",
+          "actual": {
+            "code": "1\u0662\u21631\u0301",
+            "fieldValue": "a1b\u0662\u21631\u0301",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\u0662\u21631\u0301"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": true,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "external-unfiltered",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\u0662\u21631\u0301"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "external-length-two",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\u0662\u21631\u0301"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "insert-keycap",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662\u2163\u00b3\u4e00",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\u0662\u21631\u0301",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": true,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "return-command",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\u0662\u21631\u0301",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": true,
+          "selectionComparable": true,
+          "selectionMatch": false
+        },
+        {
+          "action": "blur",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\u0662\u21631\u0301",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": true,
+          "selectionComparable": false,
+          "selectionMatch": false
+        }
+      ],
+      "fixture": "deferred-owner",
+      "sourceFile": "behavior-final/behavior.json"
+    },
+    {
+      "bindingMode": "functional-observed",
+      "events": [
+        {
+          "action": "initial",
+          "actual": {
+            "code": "A12",
+            "fieldValue": "A12",
+            "hasMarkedText": false,
+            "requests": []
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": true,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        },
+        {
+          "action": "focus",
+          "actual": {
+            "code": "A12",
+            "fieldValue": "A12",
+            "hasMarkedText": false,
+            "requests": []
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": true,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        },
+        {
+          "action": "blur",
+          "actual": {
+            "code": "A12",
+            "fieldValue": "A12",
+            "hasMarkedText": false,
+            "requests": []
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": true,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        }
+      ],
+      "fixture": "disabled",
+      "sourceFile": "behavior-final/behavior.json"
+    },
+    {
+      "bindingMode": "functional-observed",
+      "events": [
+        {
+          "action": "initial",
+          "actual": {
+            "code": "",
+            "fieldValue": "",
+            "hasMarkedText": false,
+            "requests": []
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": true,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        },
+        {
+          "action": "focus",
+          "actual": {
+            "code": "",
+            "fieldValue": "",
+            "hasMarkedText": false,
+            "requests": [
+              ""
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": true,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "select-all",
+          "actual": {
+            "code": "",
+            "fieldValue": "",
+            "hasMarkedText": false,
+            "requests": [
+              ""
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": true,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "insert-mixed",
+          "actual": {
+            "code": "",
+            "fieldValue": "a1b\u0662\u21631\u03012",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              ""
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "settled",
+          "actual": {
+            "code": "",
+            "fieldValue": "a1b\u0662\u21631\u03012",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              ""
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "delete-backward",
+          "actual": {
+            "code": "",
+            "fieldValue": "a1b\u0662\u21631\u0301",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "",
+              ""
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "external-unfiltered",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "",
+              ""
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "external-length-two",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "",
+              ""
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "insert-keycap",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662\u2163\u00b3\u4e00",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "",
+              "",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "return-command",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "",
+              "",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": false
+        },
+        {
+          "action": "blur",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "",
+              "",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        }
+      ],
+      "fixture": "zero-length",
+      "sourceFile": "behavior-final/behavior.json"
+    },
+    {
+      "bindingMode": "functional-observed",
+      "events": [
+        {
+          "action": "initial",
+          "actual": {
+            "code": "",
+            "fieldValue": "",
+            "hasMarkedText": false,
+            "requests": []
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": true,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        },
+        {
+          "action": "focus",
+          "actual": {
+            "code": "",
+            "fieldValue": "",
+            "hasMarkedText": false,
+            "requests": [
+              ""
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": true,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "select-all",
+          "actual": {
+            "code": "",
+            "fieldValue": "",
+            "hasMarkedText": false,
+            "requests": [
+              ""
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": true,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "insert-mixed",
+          "actual": {
+            "code": "1\u0662",
+            "fieldValue": "a1b\u0662\u21631\u03012",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "settled",
+          "actual": {
+            "code": "1\u0662",
+            "fieldValue": "a1b\u0662\u21631\u03012",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "delete-backward",
+          "actual": {
+            "code": "1\u0662",
+            "fieldValue": "a1b\u0662\u21631\u0301",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1\u0662",
+              "1\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "external-unfiltered",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1\u0662",
+              "1\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "external-length-two",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1\u0662",
+              "1\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "insert-keycap",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662\u2163\u00b3\u4e00",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1\u0662",
+              "1\u0662",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "return-command",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1\u0662",
+              "1\u0662",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": false
+        },
+        {
+          "action": "blur",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1\u0662",
+              "1\u0662",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        }
+      ],
+      "fixture": "short-length",
+      "sourceFile": "behavior-final/behavior.json"
+    },
+    {
+      "bindingMode": "functional-observed",
+      "events": [
+        {
+          "action": "initial",
+          "actual": {
+            "code": "\u0661\u0662\u2163",
+            "fieldValue": "\u0661\u0662\u2163",
+            "hasMarkedText": false,
+            "requests": []
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": true,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        },
+        {
+          "action": "focus",
+          "actual": {
+            "code": "\u0661\u0662\u2163",
+            "fieldValue": "\u0661\u0662\u2163",
+            "hasMarkedText": false,
+            "requests": [
+              "\u0661\u0662\u2163"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": true,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": false
+        },
+        {
+          "action": "select-all",
+          "actual": {
+            "code": "\u0661\u0662\u2163",
+            "fieldValue": "\u0661\u0662\u2163",
+            "hasMarkedText": false,
+            "requests": [
+              "\u0661\u0662\u2163"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": true,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "insert-mixed",
+          "actual": {
+            "code": "1\u0662\u21631\u03012",
+            "fieldValue": "a1b\u0662\u21631\u03012",
+            "hasMarkedText": false,
+            "requests": [
+              "\u0661\u0662\u2163",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "settled",
+          "actual": {
+            "code": "1\u0662\u21631\u03012",
+            "fieldValue": "a1b\u0662\u21631\u03012",
+            "hasMarkedText": false,
+            "requests": [
+              "\u0661\u0662\u2163",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "delete-backward",
+          "actual": {
+            "code": "1\u0662\u21631\u0301",
+            "fieldValue": "a1b\u0662\u21631\u0301",
+            "hasMarkedText": false,
+            "requests": [
+              "\u0661\u0662\u2163",
+              "1\u0662\u21631\u03012",
+              "1\u0662\u21631\u0301"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "external-unfiltered",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "\u0661\u0662\u2163",
+              "1\u0662\u21631\u03012",
+              "1\u0662\u21631\u0301"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "external-length-two",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "\u0661\u0662\u2163",
+              "1\u0662\u21631\u03012",
+              "1\u0662\u21631\u0301"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "insert-keycap",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662\u2163\u00b3\u4e00",
+            "hasMarkedText": false,
+            "requests": [
+              "\u0661\u0662\u2163",
+              "1\u0662\u21631\u03012",
+              "1\u0662\u21631\u0301",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "return-command",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662",
+            "hasMarkedText": false,
+            "requests": [
+              "\u0661\u0662\u2163",
+              "1\u0662\u21631\u03012",
+              "1\u0662\u21631\u0301",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": false
+        },
+        {
+          "action": "blur",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662",
+            "hasMarkedText": false,
+            "requests": [
+              "\u0661\u0662\u2163",
+              "1\u0662\u21631\u03012",
+              "1\u0662\u21631\u0301",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        }
+      ],
+      "fixture": "unicode",
+      "sourceFile": "behavior-final/behavior.json"
+    },
+    {
+      "bindingMode": "projected-state",
+      "events": [
+        {
+          "action": "initial",
+          "actual": {
+            "code": "",
+            "fieldValue": "",
+            "hasMarkedText": false,
+            "requests": []
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        },
+        {
+          "action": "focus",
+          "actual": {
+            "code": "",
+            "fieldValue": "",
+            "hasMarkedText": false,
+            "requests": [
+              ""
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "focus-settled",
+          "actual": {
+            "code": "",
+            "fieldValue": "",
+            "hasMarkedText": false,
+            "requests": [
+              ""
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "insert-mixed",
+          "actual": {
+            "code": "1\u0662\u21631\u03012",
+            "fieldValue": "a1b\u0662\u21631\u03012",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "insert-settled",
+          "actual": {
+            "code": "1\u0662\u21631\u03012",
+            "fieldValue": "a1b\u0662\u21631\u03012",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "external-unfiltered",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "external-settled",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "length-two",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "insert-keycap",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662\u2163\u00b3\u4e00",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1\u0662\u21631\u03012",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "keycap-settled",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662\u2163\u00b3\u4e00",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1\u0662\u21631\u03012",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "return-command",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1\u0662\u21631\u03012",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": false
+        },
+        {
+          "action": "blur",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1\u0662\u21631\u03012",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        },
+        {
+          "action": "blur-settled",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1\u0662\u21631\u03012",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        }
+      ],
+      "fixture": "empty",
+      "sourceFile": "state-bindings/state-bindings.json"
+    },
+    {
+      "bindingMode": "projected-state",
+      "events": [
+        {
+          "action": "initial",
+          "actual": {
+            "code": "A12",
+            "fieldValue": "A12",
+            "hasMarkedText": false,
+            "requests": []
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        },
+        {
+          "action": "focus",
+          "actual": {
+            "code": "12",
+            "fieldValue": "12",
+            "hasMarkedText": false,
+            "requests": [
+              "12"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "focus-settled",
+          "actual": {
+            "code": "12",
+            "fieldValue": "12",
+            "hasMarkedText": false,
+            "requests": [
+              "12"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "insert-mixed",
+          "actual": {
+            "code": "1\u0662\u21631\u03012",
+            "fieldValue": "a1b\u0662\u21631\u03012",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "insert-settled",
+          "actual": {
+            "code": "1\u0662\u21631\u03012",
+            "fieldValue": "a1b\u0662\u21631\u03012",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "external-unfiltered",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "external-settled",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "length-two",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "insert-keycap",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662\u2163\u00b3\u4e00",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "keycap-settled",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662\u2163\u00b3\u4e00",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "return-command",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": false
+        },
+        {
+          "action": "blur",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        },
+        {
+          "action": "blur-settled",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        }
+      ],
+      "fixture": "unfiltered-initial",
+      "sourceFile": "state-bindings/state-bindings.json"
+    },
+    {
+      "bindingMode": "projected-state",
+      "events": [
+        {
+          "action": "initial",
+          "actual": {
+            "code": "12",
+            "fieldValue": "12",
+            "hasMarkedText": false,
+            "requests": []
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        },
+        {
+          "action": "focus",
+          "actual": {
+            "code": "12",
+            "fieldValue": "12",
+            "hasMarkedText": false,
+            "requests": [
+              "12"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": false
+        },
+        {
+          "action": "focus-settled",
+          "actual": {
+            "code": "12",
+            "fieldValue": "12",
+            "hasMarkedText": false,
+            "requests": [
+              "12"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": false
+        },
+        {
+          "action": "insert-mixed",
+          "actual": {
+            "code": "1\u0662\u21631\u03012",
+            "fieldValue": "a1b\u0662\u21631\u03012",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "insert-settled",
+          "actual": {
+            "code": "1\u0662\u21631\u03012",
+            "fieldValue": "a1b\u0662\u21631\u03012",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "external-unfiltered",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "external-settled",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "length-two",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "insert-keycap",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662\u2163\u00b3\u4e00",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "keycap-settled",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662\u2163\u00b3\u4e00",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "return-command",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": false
+        },
+        {
+          "action": "blur",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        },
+        {
+          "action": "blur-settled",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        }
+      ],
+      "fixture": "valid-initial",
+      "sourceFile": "state-bindings/state-bindings.json"
+    },
+    {
+      "bindingMode": "projected-state",
+      "events": [
+        {
+          "action": "initial",
+          "actual": {
+            "code": "",
+            "fieldValue": "",
+            "hasMarkedText": false,
+            "requests": []
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        },
+        {
+          "action": "focus",
+          "actual": {
+            "code": "",
+            "fieldValue": "",
+            "hasMarkedText": false,
+            "requests": [
+              ""
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "focus-settled",
+          "actual": {
+            "code": "",
+            "fieldValue": "",
+            "hasMarkedText": false,
+            "requests": [
+              ""
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "insert-mixed",
+          "actual": {
+            "code": "",
+            "fieldValue": "a1b\u0662\u21631\u03012",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              ""
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "insert-settled",
+          "actual": {
+            "code": "",
+            "fieldValue": "a1b\u0662\u21631\u03012",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              ""
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "external-unfiltered",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "a1b\u0662\u21631\u03012",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              ""
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "external-settled",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "a1b\u0662\u21631\u03012",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              ""
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "length-two",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              ""
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "insert-keycap",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662\u2163\u00b3\u4e00",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "keycap-settled",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662\u2163\u00b3\u4e00",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "return-command",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": false
+        },
+        {
+          "action": "blur",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        },
+        {
+          "action": "blur-settled",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        }
+      ],
+      "fixture": "zero-length",
+      "sourceFile": "state-bindings/state-bindings.json"
+    },
+    {
+      "bindingMode": "projected-state",
+      "events": [
+        {
+          "action": "initial",
+          "actual": {
+            "code": "A12",
+            "fieldValue": "A12",
+            "hasMarkedText": false,
+            "requests": []
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        },
+        {
+          "action": "focus",
+          "actual": {
+            "code": "A12",
+            "fieldValue": "A12",
+            "hasMarkedText": false,
+            "requests": []
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        },
+        {
+          "action": "focus-settled",
+          "actual": {
+            "code": "A12",
+            "fieldValue": "A12",
+            "hasMarkedText": false,
+            "requests": []
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        },
+        {
+          "action": "blur",
+          "actual": {
+            "code": "A12",
+            "fieldValue": "A12",
+            "hasMarkedText": false,
+            "requests": []
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        },
+        {
+          "action": "blur-settled",
+          "actual": {
+            "code": "A12",
+            "fieldValue": "A12",
+            "hasMarkedText": false,
+            "requests": []
+          },
+          "callbacksComparable": false,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        }
+      ],
+      "fixture": "disabled",
+      "sourceFile": "state-bindings/state-bindings.json"
+    },
+    {
+      "bindingMode": "functional-state",
+      "events": [
+        {
+          "action": "initial",
+          "actual": {
+            "code": "",
+            "fieldValue": "",
+            "hasMarkedText": false,
+            "requests": []
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": true,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        },
+        {
+          "action": "focus",
+          "actual": {
+            "code": "",
+            "fieldValue": "",
+            "hasMarkedText": false,
+            "requests": [
+              ""
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": true,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "focus-settled",
+          "actual": {
+            "code": "",
+            "fieldValue": "",
+            "hasMarkedText": false,
+            "requests": [
+              ""
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": true,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "insert-mixed",
+          "actual": {
+            "code": "1\u0662\u21631\u03012",
+            "fieldValue": "a1b\u0662\u21631\u03012",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "insert-settled",
+          "actual": {
+            "code": "1\u0662\u21631\u03012",
+            "fieldValue": "a1b\u0662\u21631\u03012",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "external-unfiltered",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "external-settled",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "length-two",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "insert-keycap",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662\u2163\u00b3\u4e00",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1\u0662\u21631\u03012",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "keycap-settled",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662\u2163\u00b3\u4e00",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1\u0662\u21631\u03012",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "return-command",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1\u0662\u21631\u03012",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": false
+        },
+        {
+          "action": "blur",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1\u0662\u21631\u03012",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        },
+        {
+          "action": "blur-settled",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1\u0662\u21631\u03012",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        }
+      ],
+      "fixture": "empty",
+      "sourceFile": "state-bindings/state-bindings.json"
+    },
+    {
+      "bindingMode": "functional-state",
+      "events": [
+        {
+          "action": "initial",
+          "actual": {
+            "code": "A12",
+            "fieldValue": "A12",
+            "hasMarkedText": false,
+            "requests": []
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": true,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        },
+        {
+          "action": "focus",
+          "actual": {
+            "code": "12",
+            "fieldValue": "12",
+            "hasMarkedText": false,
+            "requests": [
+              "12"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "focus-settled",
+          "actual": {
+            "code": "12",
+            "fieldValue": "12",
+            "hasMarkedText": false,
+            "requests": [
+              "12"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "insert-mixed",
+          "actual": {
+            "code": "1\u0662\u21631\u03012",
+            "fieldValue": "a1b\u0662\u21631\u03012",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "insert-settled",
+          "actual": {
+            "code": "1\u0662\u21631\u03012",
+            "fieldValue": "a1b\u0662\u21631\u03012",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "external-unfiltered",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "external-settled",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "length-two",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "insert-keycap",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662\u2163\u00b3\u4e00",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "keycap-settled",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662\u2163\u00b3\u4e00",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "return-command",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": false
+        },
+        {
+          "action": "blur",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        },
+        {
+          "action": "blur-settled",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        }
+      ],
+      "fixture": "unfiltered-initial",
+      "sourceFile": "state-bindings/state-bindings.json"
+    },
+    {
+      "bindingMode": "functional-state",
+      "events": [
+        {
+          "action": "initial",
+          "actual": {
+            "code": "12",
+            "fieldValue": "12",
+            "hasMarkedText": false,
+            "requests": []
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": true,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        },
+        {
+          "action": "focus",
+          "actual": {
+            "code": "12",
+            "fieldValue": "12",
+            "hasMarkedText": false,
+            "requests": [
+              "12"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": true,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": false
+        },
+        {
+          "action": "focus-settled",
+          "actual": {
+            "code": "12",
+            "fieldValue": "12",
+            "hasMarkedText": false,
+            "requests": [
+              "12"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": true,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": false
+        },
+        {
+          "action": "insert-mixed",
+          "actual": {
+            "code": "12",
+            "fieldValue": "a1b\u0662\u21631\u03012",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "insert-settled",
+          "actual": {
+            "code": "12",
+            "fieldValue": "a1b\u0662\u21631\u03012",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "external-unfiltered",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "a1b\u0662\u21631\u03012",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "external-settled",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "a1b\u0662\u21631\u03012",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "length-two",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "insert-keycap",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "1\ufe0f\u20e3\u0662\u2163\u00b3\u4e00",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "keycap-settled",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "1\ufe0f\u20e3\u0662\u2163\u00b3\u4e00",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "return-command",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\ufe0f\u20e3\u0662",
+              "98"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": false
+        },
+        {
+          "action": "blur",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\ufe0f\u20e3\u0662",
+              "98",
+              "98"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        },
+        {
+          "action": "blur-settled",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\ufe0f\u20e3\u0662",
+              "98",
+              "98"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        }
+      ],
+      "fixture": "observe-only",
+      "sourceFile": "state-bindings/state-bindings.json"
+    },
+    {
+      "bindingMode": "functional-state",
+      "events": [
+        {
+          "action": "initial",
+          "actual": {
+            "code": "12",
+            "fieldValue": "12",
+            "hasMarkedText": false,
+            "requests": []
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": true,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        },
+        {
+          "action": "focus",
+          "actual": {
+            "code": "12",
+            "fieldValue": "12",
+            "hasMarkedText": false,
+            "requests": [
+              "12"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": true,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": false
+        },
+        {
+          "action": "focus-settled",
+          "actual": {
+            "code": "12",
+            "fieldValue": "12",
+            "hasMarkedText": false,
+            "requests": [
+              "12"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": true,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": true,
+          "selectionComparable": true,
+          "selectionMatch": false
+        },
+        {
+          "action": "insert-mixed",
+          "actual": {
+            "code": "12",
+            "fieldValue": "a1b\u0662\u21631\u03012",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "insert-settled",
+          "actual": {
+            "code": "1\u0662\u21631\u03012",
+            "fieldValue": "a1b\u0662\u21631\u03012",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": true,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "external-unfiltered",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "external-settled",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": true,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "length-two",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "X987654321",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "insert-keycap",
+          "actual": {
+            "code": "X987654321",
+            "fieldValue": "1\ufe0f\u20e3\u0662\u2163\u00b3\u4e00",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "keycap-settled",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662\u2163\u00b3\u4e00",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": true,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "return-command",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": false
+        },
+        {
+          "action": "blur",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        },
+        {
+          "action": "blur-settled",
+          "actual": {
+            "code": "1\ufe0f\u20e3\u0662",
+            "fieldValue": "1\ufe0f\u20e3\u0662",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "1\u0662\u21631\u03012",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662",
+              "1\ufe0f\u20e3\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": true,
+          "selectionComparable": false,
+          "selectionMatch": false
+        }
+      ],
+      "fixture": "deferred-owner",
+      "sourceFile": "state-bindings/state-bindings.json"
+    },
+    {
+      "bindingMode": "functional-observed",
+      "events": [
+        {
+          "action": "initial",
+          "actual": {
+            "code": "",
+            "fieldValue": "",
+            "hasMarkedText": false,
+            "requests": []
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": true,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        },
+        {
+          "action": "focus",
+          "actual": {
+            "code": "",
+            "fieldValue": "",
+            "hasMarkedText": false,
+            "requests": [
+              ""
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": true,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "insert-40001",
+          "actual": {
+            "code": "1",
+            "fieldValue": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "blur",
+          "actual": {
+            "code": "1",
+            "fieldValue": "1",
+            "hasMarkedText": false,
+            "requests": [
+              "",
+              "1",
+              "1"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        }
+      ],
+      "fixture": "large-insert",
+      "sourceFile": "edges/edges.json"
+    },
+    {
+      "bindingMode": "functional-observed",
+      "events": [
+        {
+          "action": "initial",
+          "actual": {
+            "code": "12",
+            "fieldValue": "12",
+            "hasMarkedText": false,
+            "requests": []
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": true,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        },
+        {
+          "action": "focus",
+          "actual": {
+            "code": "12",
+            "fieldValue": "12",
+            "hasMarkedText": false,
+            "requests": [
+              "12"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": true,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": false
+        },
+        {
+          "action": "mark-one",
+          "actual": {
+            "code": "12",
+            "fieldValue": "\u4e00",
+            "hasMarkedText": true,
+            "requests": [
+              "12"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": false
+        },
+        {
+          "action": "mark-two",
+          "actual": {
+            "code": "12",
+            "fieldValue": "\u4e00\u4e8c",
+            "hasMarkedText": true,
+            "requests": [
+              "12"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": false
+        },
+        {
+          "action": "unmark",
+          "actual": {
+            "code": "\u4e00\u4e8c",
+            "fieldValue": "\u4e00\u4e8c",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "\u4e00\u4e8c"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "commit-mixed",
+          "actual": {
+            "code": "\ud835\udfd91\ufe0f\u20e3\u4e00\u0662",
+            "fieldValue": "a\ud835\udfd91\ufe0f\u20e3\u4e00b\u0662",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "\u4e00\u4e8c",
+              "\ud835\udfd91\ufe0f\u20e3\u4e00\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": true,
+          "selectionMatch": true
+        },
+        {
+          "action": "blur",
+          "actual": {
+            "code": "\ud835\udfd91\ufe0f\u20e3\u4e00\u0662",
+            "fieldValue": "\ud835\udfd91\ufe0f\u20e3\u4e00\u0662",
+            "hasMarkedText": false,
+            "requests": [
+              "12",
+              "\u4e00\u4e8c",
+              "\ud835\udfd91\ufe0f\u20e3\u4e00\u0662",
+              "\ud835\udfd91\ufe0f\u20e3\u4e00\u0662"
+            ]
+          },
+          "callbacksComparable": true,
+          "callbacksMatch": false,
+          "modelAndEditorMatch": true,
+          "ownerQueueFlushed": false,
+          "selectionComparable": false,
+          "selectionMatch": false
+        }
+      ],
+      "fixture": "marked-text",
+      "sourceFile": "edges/edges.json"
+    }
+  ],
+  "otpChecks": "passed",
+  "ownerTimingScope": "Explicit acknowledgement schedule replays queued actual requests; native 50/100ms delayed-owner timing equivalence pending",
+  "platform": "wayland",
+  "qt": "6.8.3",
+  "qtAccessibilityChecks": "passed",
+  "quickBackend": "",
+  "requestedGraphicsBackend": "opengl",
+  "selectionComparable": 150,
+  "selectionMatches": 123,
+  "textScale": 1,
+  "width": 840,
+  "windowCaptureMethod": "QQuickWindow::grabWindow; full session captured separately",
+  "environmentRecord": "environment.json",
+  "session": "Weston Wayland nested on Xvfb X11",
+  "sessionCaptureMethod": "ImageMagick import -window root (full X11 output)",
+  "physicalDisplay": false,
+  "hardwareAcceleration": false,
+  "nativePointerControl": "parked outside clients and nested compositor; consumer pointer input is synthetic Qt input",
+  "nativePointerRecord": "native-pointer.txt",
+  "sessionOutputSize": [
+    2560,
+    1920
+  ],
+  "clientOutputSize": [
+    2400,
+    1800
+  ],
+  "sessionCapture": "otp-input-wayland-opengl-standard-session.png",
+  "sessionCaptureSha256": "ad3bdad49c464da76306b2e778e2fd253f17f9c9bc2e395a512f998341a9a4cf",
+  "windowCaptureSha256": "81daaf80bcda6ffca482b632c32140570569bfab17053e091945028a829ed533"
+}

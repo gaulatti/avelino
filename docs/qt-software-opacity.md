@@ -12,7 +12,11 @@ applies the conservative classification inside Qt's software renderer. It
 preserves geometry, colors, input, clipping and comparison rules. The
 [paired source-built evidence](../evidence/development/qt-software-source-patch-20261019/result.json)
 validates that change on Linux ARM64 with the SDK's QML libraries retained.
-The supported toolchain installer and fresh image still require validation.
+The [supported toolchain checkpoint](../evidence/development/qt-software-toolchain-20261019/result.json)
+now validates a fresh ARM64 image through the installer, complete Linux driver,
+independent consumer, virtual display sessions, date replay, and reader replay.
+Native parity and physical acceptance remain separate. CI validation of the
+integrated toolchain on both x86-64 and ARM64 is still required.
 
 ## Paired source validation
 
@@ -83,8 +87,52 @@ the installed SDK, and checks all 49 effective QML/Quick feature definitions
 before compilation. It stages only Qt Quick, checks runtime linkage, and requires
 the complete opacity/Canvas2D regression before replacing that library. The SDK
 audit requires exactly that one existing library to change. Source-built QML
-libraries are excluded from the installed payload. A fresh Docker image is
-building through that installer; it has not passed end-to-end validation yet.
+libraries are excluded from the installed payload. The default Dockerfile runs
+that installer and includes the matching ShaderTools SDK and Vulkan headers.
+
+The fresh ARM64 image passes all 55 core tests. Independent inventory of its
+9,236 SDK entries finds exactly one changed existing file,
+`lib/libQt6Quick.so.6.8.3`; the SDK QML libraries remain intact. The SDK's red
+control retains 90 opacity frames, nine Canvas2D frames, and nine opacity
+failures. The installed repair passes 120 opacity and twelve Canvas2D frames.
+The full Linux driver and a freshly built independent consumer pass with the
+library and consumer project sources absent from the runtime container.
+
+All 304 general consumer display contexts and eight HeroCarousel contexts pass
+in virtual X11/nested Wayland sessions across software/OpenGL and standard/scaled
+configurations. These use software rendering or llvmpipe rather than physical
+hardware acceleration. The checkpoint retains the complete display metadata and
+file hashes, with raw composition and HeroCarousel images; the complete raw
+display output also remains in the recorded local producer directory.
+
+A separate replay preserves all 437 retained navigation/date/calendar PNGs byte
+for byte and passes 128 literal-input checks, including 64 native-derived value
+comparisons. It reuses the freshly compiled consumer without project sources or
+another compilation. The reader add-on preserves all 9,236 SDK entries and runs
+42 phases across X11/software and scaled Wayland/OpenGL. Orca utterances and
+Speech Dispatcher commands for native arrows and assistive selection are checked
+before Return. Physical input/listening and comparison with native readers remain
+pending.
+
+The first source-absence harness rejected the image's empty `/work` directory
+after the core driver and fresh consumer build had passed. Its failed result and
+commands are preserved. The continuation reuses the exact consumer ELF, permits
+only an absent or empty SDK workdir, and continues to reject project sources and
+producer builds. No image or application change supplied that harness correction.
+
+Run `python3 scripts/verify-qt-software-toolchain.py` to audit the retained SDK
+inventory, effective features, source bindings, raw opacity/Canvas2D controls,
+core log, display records, cold PNGs, literal reports, and reader speech windows.
+The supported build remains `docker build -t avelino-toolchain:qt6.8.3 -f tools/Dockerfile .`
+followed by the repository's Linux and installed-package verification drivers.
+The installer requires a fresh original SDK prefix; its optional second argument
+accepts a locally cached source archive with the same mandatory checksum.
+
+Before integration, [CI for `2b837a5`](https://github.com/gaulatti/avelino/actions/runs/39241485376)
+passed the core driver on both architectures and failed the independent consumer
+at Arabic-year/end pixels with equal models and state. Those jobs used the
+unpatched default toolchain. The ARM64 evidence above validates the replacement;
+remote CI for the integrated change must be reported separately.
 
 Qt Quick's source build also requires the matching ShaderTools SDK module and
 Vulkan development headers. The first unpatched build stopped because those

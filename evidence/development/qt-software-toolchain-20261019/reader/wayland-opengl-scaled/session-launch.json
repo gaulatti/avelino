@@ -1,0 +1,23 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--detach",
+    "--name",
+    "avelino-qt-opacity-reader-v1-wayland-opengl-scaled",
+    "--ulimit",
+    "core=0",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/qt-software-reader-replay-v1/wayland-opengl-scaled:/probe",
+    "-w",
+    "/probe",
+    "sha256:4a7ebeb0400ef8cb33b72a5d7180f369ec41288ca3785979d39dd1982419410d",
+    "dbus-run-session",
+    "--",
+    "python3",
+    "/probe/session.py"
+  ],
+  "containerId": "868442de04ea3b51db7d66c770342f53bc74badcbefa2e8fd322cf78fd017790"
+}
