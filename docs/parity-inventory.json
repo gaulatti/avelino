@@ -97886,47 +97886,1191 @@
       },
       {
         "id": "BleeckerMobileAppShell",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Mobile.swift",
           "line": 195
         },
-        "implementation": [],
-        "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
-        "captures": [],
-        "comparisonResults": [],
+        "implementation": [
+          "src/Avelino/BleeckerMobileAppShell.qml",
+          "src/Avelino/DesktopSectionPicker.qml",
+          "src/Avelino/shellslot.h",
+          "src/Avelino/shellslot.cpp",
+          "src/Avelino/proposalrow.h"
+        ],
+        "caseDiscovery": "18 native slot cases across 72 appearance/DPR profiles; 144 transparent measurement pairs and 72 unchanged source controls. The installed candidate matches all 144 body layouts across eight package contexts; 76 body images are pixel-exact. Three hosted source owner histories project to 25 settled states and 12 Qt pointer actions per context. Eight virtual display contexts pass. Toolbar raster, broader composition, native keyboard/lifecycle, physical and reader acceptance remain pending.",
+        "cases": [
+          {
+            "id": "BleeckerMobileAppShell-standard-light-dpr1",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/standard-light-dpr1.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1-standard-light-dpr1.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-standard-light-dpr2",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/standard-light-dpr2.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr2-standard-light-dpr2.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr2.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-standard-dark-dpr1",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/standard-dark-dpr1.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr1-standard-dark-dpr1.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr1.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 360 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-standard-dark-dpr2",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/standard-dark-dpr2.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr2-standard-dark-dpr2.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr2.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 1440 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-no-header-light-dpr1",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/no-header-light-dpr1.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1-no-header-light-dpr1.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-no-header-light-dpr2",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/no-header-light-dpr2.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr2-no-header-light-dpr2.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr2.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-no-header-dark-dpr1",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/no-header-dark-dpr1.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr1-no-header-dark-dpr1.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr1.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 360 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-no-header-dark-dpr2",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/no-header-dark-dpr2.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr2-no-header-dark-dpr2.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr2.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 1440 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-no-footer-light-dpr1",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/no-footer-light-dpr1.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1-no-footer-light-dpr1.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-no-footer-light-dpr2",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/no-footer-light-dpr2.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr2-no-footer-light-dpr2.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr2.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-no-footer-dark-dpr1",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/no-footer-dark-dpr1.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr1-no-footer-dark-dpr1.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr1.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 360 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-no-footer-dark-dpr2",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/no-footer-dark-dpr2.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr2-no-footer-dark-dpr2.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr2.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 1440 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-empty-content-light-dpr1",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/empty-content-light-dpr1.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1-empty-content-light-dpr1.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-empty-content-light-dpr2",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/empty-content-light-dpr2.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr2-empty-content-light-dpr2.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr2.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-empty-content-dark-dpr1",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/empty-content-dark-dpr1.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr1-empty-content-dark-dpr1.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr1.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 360 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-empty-content-dark-dpr2",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/empty-content-dark-dpr2.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr2-empty-content-dark-dpr2.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr2.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 1440 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-all-empty-light-dpr1",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/all-empty-light-dpr1.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1-all-empty-light-dpr1.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-all-empty-light-dpr2",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/all-empty-light-dpr2.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr2-all-empty-light-dpr2.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr2.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-all-empty-dark-dpr1",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/all-empty-dark-dpr1.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr1-all-empty-dark-dpr1.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr1.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 360 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-all-empty-dark-dpr2",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/all-empty-dark-dpr2.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr2-all-empty-dark-dpr2.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr2.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 1440 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-fixed-content-light-dpr1",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/fixed-content-light-dpr1.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1-fixed-content-light-dpr1.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-fixed-content-light-dpr2",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/fixed-content-light-dpr2.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr2-fixed-content-light-dpr2.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr2.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-fixed-content-dark-dpr1",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/fixed-content-dark-dpr1.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr1-fixed-content-dark-dpr1.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr1.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 360 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-fixed-content-dark-dpr2",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/fixed-content-dark-dpr2.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr2-fixed-content-dark-dpr2.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr2.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 1440 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-zero-content-light-dpr1",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/zero-content-light-dpr1.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1-zero-content-light-dpr1.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-zero-content-light-dpr2",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/zero-content-light-dpr2.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr2-zero-content-light-dpr2.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr2.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-zero-content-dark-dpr1",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/zero-content-dark-dpr1.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr1-zero-content-dark-dpr1.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr1.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 360 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-zero-content-dark-dpr2",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/zero-content-dark-dpr2.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr2-zero-content-dark-dpr2.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr2.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 1440 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-zero-header-light-dpr1",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/zero-header-light-dpr1.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1-zero-header-light-dpr1.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-zero-header-light-dpr2",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/zero-header-light-dpr2.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr2-zero-header-light-dpr2.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr2.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-zero-header-dark-dpr1",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/zero-header-dark-dpr1.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr1-zero-header-dark-dpr1.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr1.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 360 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-zero-header-dark-dpr2",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/zero-header-dark-dpr2.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr2-zero-header-dark-dpr2.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr2.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 1440 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-hidden-header-light-dpr1",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/hidden-header-light-dpr1.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1-hidden-header-light-dpr1.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-hidden-header-light-dpr2",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/hidden-header-light-dpr2.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr2-hidden-header-light-dpr2.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr2.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-hidden-header-dark-dpr1",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/hidden-header-dark-dpr1.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr1-hidden-header-dark-dpr1.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr1.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 360 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-hidden-header-dark-dpr2",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/hidden-header-dark-dpr2.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr2-hidden-header-dark-dpr2.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr2.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 1440 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-short-light-dpr1",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/short-light-dpr1.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1-short-light-dpr1.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-short-light-dpr2",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/short-light-dpr2.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr2-short-light-dpr2.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr2.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-short-dark-dpr1",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/short-dark-dpr1.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr1-short-dark-dpr1.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr1.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 360 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-short-dark-dpr2",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/short-dark-dpr2.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr2-short-dark-dpr2.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr2.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 1440 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-short-fixed-light-dpr1",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/short-fixed-light-dpr1.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1-short-fixed-light-dpr1.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-short-fixed-light-dpr2",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/short-fixed-light-dpr2.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr2-short-fixed-light-dpr2.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr2.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-short-fixed-dark-dpr1",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/short-fixed-dark-dpr1.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr1-short-fixed-dark-dpr1.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr1.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-short-fixed-dark-dpr2",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/short-fixed-dark-dpr2.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr2-short-fixed-dark-dpr2.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr2.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-short-empty-light-dpr1",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/short-empty-light-dpr1.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1-short-empty-light-dpr1.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-short-empty-light-dpr2",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/short-empty-light-dpr2.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr2-short-empty-light-dpr2.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr2.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-short-empty-dark-dpr1",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/short-empty-dark-dpr1.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr1-short-empty-dark-dpr1.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr1.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 360 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-short-empty-dark-dpr2",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/short-empty-dark-dpr2.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr2-short-empty-dark-dpr2.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr2.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 1440 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-narrow-light-dpr1",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/narrow-light-dpr1.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1-narrow-light-dpr1.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-narrow-light-dpr2",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/narrow-light-dpr2.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr2-narrow-light-dpr2.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr2.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-narrow-dark-dpr1",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/narrow-dark-dpr1.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr1-narrow-dark-dpr1.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr1.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 100 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-narrow-dark-dpr2",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/narrow-dark-dpr2.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr2-narrow-dark-dpr2.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr2.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 400 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-narrow-fixed-light-dpr1",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/narrow-fixed-light-dpr1.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1-narrow-fixed-light-dpr1.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-narrow-fixed-light-dpr2",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/narrow-fixed-light-dpr2.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr2-narrow-fixed-light-dpr2.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr2.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-narrow-fixed-dark-dpr1",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/narrow-fixed-dark-dpr1.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr1-narrow-fixed-dark-dpr1.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr1.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 100 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-narrow-fixed-dark-dpr2",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/narrow-fixed-dark-dpr2.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr2-narrow-fixed-dark-dpr2.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr2.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 400 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-narrow-empty-light-dpr1",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/narrow-empty-light-dpr1.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1-narrow-empty-light-dpr1.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-narrow-empty-light-dpr2",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/narrow-empty-light-dpr2.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr2-narrow-empty-light-dpr2.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr2.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-narrow-empty-dark-dpr1",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/narrow-empty-dark-dpr1.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr1-narrow-empty-dark-dpr1.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr1.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 100 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-narrow-empty-dark-dpr2",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/narrow-empty-dark-dpr2.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr2-narrow-empty-dark-dpr2.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr2.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 400 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-fractional-light-dpr1",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/fractional-light-dpr1.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1-fractional-light-dpr1.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 242 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-fractional-light-dpr2",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/fractional-light-dpr2.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr2-fractional-light-dpr2.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr2.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 843 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-fractional-dark-dpr1",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/fractional-dark-dpr1.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr1-fractional-dark-dpr1.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr1.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 604 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-fractional-dark-dpr2",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/fractional-dark-dpr2.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr2-fractional-dark-dpr2.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr2.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 1929 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-large-footer-light-dpr1",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/large-footer-light-dpr1.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1-large-footer-light-dpr1.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-large-footer-light-dpr2",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/large-footer-light-dpr2.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr2-large-footer-light-dpr2.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr2.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-large-footer-dark-dpr1",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/large-footer-dark-dpr1.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr1-large-footer-dark-dpr1.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr1.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-large-footer-dark-dpr2",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/large-footer-dark-dpr2.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr2-large-footer-dark-dpr2.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr2.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-wide-light-dpr1",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/wide-light-dpr1.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1-wide-light-dpr1.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-wide-light-dpr2",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/wide-light-dpr2.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr2-wide-light-dpr2.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr2.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 0 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-wide-dark-dpr1",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/wide-dark-dpr1.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr1-wide-dark-dpr1.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr1.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 840 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          },
+          {
+            "id": "BleeckerMobileAppShell-wide-dark-dpr2",
+            "status": "verification-pending",
+            "referenceCapture": null,
+            "sourceInvestigationCapture": "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/wide-dark-dpr2.png",
+            "candidateCapture": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr2-wide-dark-dpr2.png",
+            "candidateMetadata": "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1-dpr2.json",
+            "evidence": [
+              "docs/mobile-shell.md",
+              "tests/consumer/native-mobile-shell-witnesses.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+              "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json"
+            ],
+            "notes": "Investigation source; exact body geometry. Raw image comparison changes 3360 pixels at zero tolerance. Source viewport is retained completely; toolbar, broader composition, native keyboard and physical/reader acceptance remain pending."
+          }
+        ],
+        "tests": [
+          "tests/components/tst_mobile_shell.qml",
+          "tests/consumer/mobileshellchecks.h",
+          "tests/consumer/main.cpp",
+          "scripts/verify-mobile-shell-source.py",
+          "scripts/generate-mobile-shell-witnesses.py",
+          "scripts/verify-mobile-shell-candidate.py"
+        ],
+        "captures": [
+          "tests/consumer/MobileShell.qml",
+          "tests/consumer/MobileShellCase.qml",
+          "evidence/reference-investigations/mobile-shell-slots-20261019/run-v2/output/measurements.json",
+          "evidence/reference-investigations/desktop-shell-host-20261019/run-v4/output/measurements.json",
+          "evidence/development/mobile-shell-20261019/result.json",
+          "evidence/development/mobile-shell-20261019/gallery/result.json"
+        ],
+        "comparisonResults": [
+          "evidence/development/mobile-shell-20261019/runtime/comparison.json",
+          "evidence/development/mobile-shell-20261019/runtime/pixel-diagnostics.json",
+          "evidence/development/mobile-shell-20261019/runtime/body-focus-identity.json"
+        ],
         "exceptions": [],
         "runtimeGates": {
           "offscreen": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/mobile-shell.md",
+              "evidence/development/mobile-shell-20261019/runtime/result.json",
+              "evidence/development/mobile-shell-20261019/runtime/comparison.json"
+            ],
+            "notes": "Eight source-free contexts pass 144 exact body layouts, 25 settled states and 12 Qt pointer actions per context. Raw body images are exact in 76/144 profiles; dark separator and fractional-edge differences remain. Native toolbar and wider composition are not accepted."
           },
           "x11": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/mobile-shell.md",
+              "evidence/development/mobile-shell-20261019/runtime/display/mobile-shell-xcb-software-standard.json",
+              "evidence/development/mobile-shell-20261019/runtime/display/mobile-shell-xcb-opengl-scaled.json"
+            ],
+            "notes": "Four virtual X11 contexts pass across software/OpenGL and standard/scaled output, with whole-window and session captures. Physical X11 display/input and native presentation acceptance remain pending."
           },
           "wayland": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/mobile-shell.md",
+              "evidence/development/mobile-shell-20261019/runtime/display/mobile-shell-wayland-software-standard.json",
+              "evidence/development/mobile-shell-20261019/runtime/display/mobile-shell-wayland-opengl-scaled.json"
+            ],
+            "notes": "Four virtual Wayland contexts pass across software/OpenGL and standard/scaled output, with whole-window and session captures. Physical Wayland display/input and native presentation acceptance remain pending."
           },
           "keyboardPointer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/mobile-shell.md",
+              "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1.json",
+              "evidence/development/mobile-shell-20261019/runtime/offscreen/dark-text1.5-dpr2.json"
+            ],
+            "notes": "Three source programmatic owner histories match 25 settled states using 12 actual Qt pointer actions per package context. Qt Space activation passes. Native physical keyboard timing, shortcuts and broader lifecycle remain unverified."
           },
           "focusAccessibility": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/mobile-shell.md",
+              "evidence/development/mobile-shell-20261019/runtime/offscreen/light-text1-dpr1.json",
+              "evidence/development/mobile-shell-20261019/runtime/body-focus-identity.json"
+            ],
+            "notes": "One Qt focus scope proxies focus to the selected segment, and two actual Qt radio-button interfaces expose labels and checked state. Native accessibility equivalence and actual readers remain unverified."
           },
           "displayTextScaling": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/mobile-shell.md",
+              "evidence/development/mobile-shell-20261019/runtime/result.json",
+              "evidence/development/mobile-shell-20261019/runtime/display/mobile-shell-wayland-opengl-scaled.json"
+            ],
+            "notes": "Eight package contexts cover light/dark, Qt text scale 1/1.5 and DPR 1/2; eight virtual display contexts pass. Body color slots do not establish native text scaling or general slot composition."
           },
           "installedConsumer": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "docs/mobile-shell.md",
+              "evidence/development/mobile-shell-20261019/compiled-v7/result.json",
+              "evidence/development/mobile-shell-20261019/compiled-v7/core-inheritance.json",
+              "evidence/development/mobile-shell-20261019/installed-smoke/result.json",
+              "evidence/development/mobile-shell-20261019/date-replay/result.json",
+              "evidence/development/mobile-shell-20261019/footer-replay/result.json",
+              "evidence/development/mobile-shell-20261019/button-group-replay/result.json"
+            ],
+            "notes": "The final independent consumer compiles freshly against the installed module and runs without project/producer sources. All 43 smoke commands pass; 437 date, 120 footer and 184 button-group images remain byte-identical. Physical/independent-machine and strict mirror acceptance remain pending."
           }
         }
       },

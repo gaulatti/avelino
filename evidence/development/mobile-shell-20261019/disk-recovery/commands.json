@@ -1,0 +1,48 @@
+[
+  {
+    "command": [
+      "df",
+      "-h",
+      "/System/Volumes/Data"
+    ],
+    "exitCode": 0,
+    "seconds": 0.0066812909208238125
+  },
+  {
+    "command": [
+      "colima",
+      "--profile",
+      "avelino-verify",
+      "ssh",
+      "--",
+      "df",
+      "-h",
+      "/var/lib/docker"
+    ],
+    "exitCode": 0,
+    "seconds": 0.388691334053874
+  },
+  {
+    "command": [
+      "colima",
+      "--profile",
+      "avelino-verify",
+      "ssh",
+      "--",
+      "sudo",
+      "fstrim",
+      "-av"
+    ],
+    "exitCode": 0,
+    "seconds": 0.636476416955702
+  },
+  {
+    "command": [
+      "df",
+      "-h",
+      "/System/Volumes/Data"
+    ],
+    "exitCode": 0,
+    "seconds": 0.011632458888925612
+  }
+]

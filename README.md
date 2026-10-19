@@ -44,13 +44,14 @@ and [search fields](docs/search-field.md), plus [collection filters](docs/collec
 The [shared spinner contract](docs/spinner.md) records measured native sizes and
 model-frame timing, with visual and physical acceptance still pending.
 Shared label sizing follows [measured native typography](docs/typography.md).
+The [desktop application shell candidate](docs/mobile-shell.md) adds retained caller slots and a window-hosted section picker; complete mirror acceptance remains pending.
 The [font raster investigation](docs/font-raster-investigation.md) retains font,
 hinting and fractional-placement controls without promoting a rendering model.
 The [empty/error/loading source investigation](docs/presentation-states.md)
 now has [Linux presentation-state candidates](docs/presentation-states.md); complete mirror acceptance remains pending.
 The [alert candidate](docs/alert.md) adds typed feedback with caller-owned content
 and native prose-layout evidence.
-Seventy-six of the 80 discovered desktop entries have Linux candidates;
+Seventy-seven of the 80 discovered desktop entries have Linux candidates;
 no component has passed its complete mirror gate.
 The public GitHub wiki remote is unavailable; documentation currently lives here.
 

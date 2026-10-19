@@ -1,0 +1,55 @@
+[
+  {
+    "name": "source-absence",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--init",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/mobile-shell-runtime-v1/runtime:/package",
+      "-w",
+      "/package",
+      "sha256:e29f85ab0df39f3ae46c4d5ddcc075517701fc05359a230c8647b1174e862dd3",
+      "python3",
+      "-c",
+      "from pathlib import Path; assert not Path(\"/work\").exists() or not any(Path(\"/work\").iterdir()); assert not any(Path(n).exists() for n in [\"/package/consumer\",\"/package/src\",\"/package/build\",\"/package/consumer-build/CMakeCache.txt\"]); print(\"Project and producer sources absent\")"
+    ],
+    "exitCode": 0,
+    "seconds": 0.39550399989821017
+  },
+  {
+    "name": "mobile-shell-light-text1-dpr1",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--init",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/mobile-shell-runtime-v1/runtime:/package",
+      "-w",
+      "/package",
+      "sha256:e29f85ab0df39f3ae46c4d5ddcc075517701fc05359a230c8647b1174e862dd3",
+      "env",
+      "QT_QPA_PLATFORM=offscreen",
+      "QT_QUICK_BACKEND=software",
+      "QT_SCALE_FACTOR=1",
+      "./consumer-build/InstalledConsumer",
+      "--mobile-shell",
+      "--mobile-shell-report",
+      "/package/offscreen/light-text1-dpr1",
+      "--text-scale",
+      "1"
+    ],
+    "exitCode": 99,
+    "seconds": 1.5832776670577005
+  }
+]

@@ -51,6 +51,10 @@ The eight canonical catalog controls improve in two contexts, remain unchanged
 in six, and worsen in none; none is yet pixel-exact.
 
 The shared library passes all 55 Linux core targets and the 792 Python contracts.
+Those are the retained group checkpoint's results. Additive desktop-shell routes
+bind its shared test/catalog entrypoints to producer `86334226`; group-owned code
+and fixtures remain checked against the current tree. New package regressions
+are recorded with the later shell checkpoint.
 After that full run, two catalog-only integrations add the canonical `default`
 alias and an explicit empty-case contract. The final catalog passes all 184
 expanded contexts and eight canonical contexts; four missing, false, nonboolean

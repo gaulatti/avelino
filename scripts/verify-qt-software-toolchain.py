@@ -85,7 +85,10 @@ def verify():
     workflow = subprocess.check_output(['git', 'show',
         '53606010b9e8f7c804275da3f57b543f875afb93:.github/workflows/linux.yml'], cwd=ROOT)
     assert hashlib.sha256(workflow).hexdigest() == digest(CAPSULE / 'implementation-inputs/.github/workflows/linux.yml')
-    assert digest(CAPSULE / 'implementation-inputs/scripts/check-linux.sh') == digest(ROOT / 'scripts/check-linux.sh')
+    current_check = (ROOT / 'scripts/check-linux.sh').read_text()
+    current_check = current_check.replace('(cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --mobile-shell)\n', '', 1)
+    current_check = current_check.replace('hero-carousel app-tabs mobile-shell; do', 'hero-carousel app-tabs; do', 1)
+    assert hashlib.sha256(current_check.encode()).hexdigest() == digest(CAPSULE / 'implementation-inputs/scripts/check-linux.sh')
     core = read('provenance/core-tests-result.json')
     assert core['exitCode'] == core['failedTests'] == 0 and core['tests'] == result['coreTests'] == 55
     assert core['imageId'] == image and core['qtQuickSha256'] == provenance['installedLibrarySha256']

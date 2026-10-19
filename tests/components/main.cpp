@@ -229,6 +229,11 @@ public slots:
         const auto footerData=QJsonDocument::fromJson(footer.readAll()).object();
         if(footerData.value("reference").toString()!="fe8a1d462fbd793d883fb92086a16aa2947e32c9" || footerData.value("captures").toArray().size()!=120)qFatal("Native footer source matrix invalid");
         engine->rootContext()->setContextProperty("nativeFooterCaptures",footerData.value("captures").toArray().toVariantList());
+        QFile mobileShell(QStringLiteral(NATIVE_MOBILE_SHELL_FILE));
+        if(!mobileShell.open(QIODevice::ReadOnly))qFatal("Native mobile shell slot evidence missing");
+        const auto mobileShellData=QJsonDocument::fromJson(mobileShell.readAll()).object();
+        if(mobileShellData.value("reference").toString()!="fe8a1d462fbd793d883fb92086a16aa2947e32c9" || mobileShellData.value("profiles").toArray().size()!=72)qFatal("Native mobile shell matrix invalid");
+        engine->rootContext()->setContextProperty("nativeMobileShellProfiles",mobileShellData.value("profiles").toArray().toVariantList());
         QFile buttonGroup(QStringLiteral(NATIVE_BUTTON_GROUP_FILE));
         if(!buttonGroup.open(QIODevice::ReadOnly))qFatal("Native button group source evidence missing");
         const auto buttonGroupData=QJsonDocument::fromJson(buttonGroup.readAll()).object();

@@ -27,6 +27,9 @@ jobs:
       - run: python3 scripts/verify-button-group-source.py
       - run: python3 scripts/verify-button-group-candidate.py
       - run: python3 scripts/verify-font-raster-investigation.py
+      - run: python3 scripts/verify-mobile-shell-source.py
+      - run: python3 scripts/generate-mobile-shell-witnesses.py --check
+      - run: python3 scripts/verify-mobile-shell-candidate.py
       - run: python3 scripts/verify-footer-candidate.py
       - run: python3 scripts/verify-data-metrics-source.py
       - run: python3 scripts/verify-native-source-rebuild.py

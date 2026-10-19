@@ -63,7 +63,7 @@ INI
   fi
   for backend in software opengl; do
     for configuration in standard scaled; do
-    for fixture in base controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper radio-group otp-input activity-item modal tooltip button-style font-modifier surface-modifier surface-baseline surface-input pill-modifier charts media-library app-tabs command-spotlight dropdown-menu file-input; do
+    for fixture in base controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper radio-group otp-input activity-item modal tooltip button-style font-modifier surface-modifier surface-baseline surface-input pill-modifier charts media-library app-tabs mobile-shell command-spotlight dropdown-menu file-input; do
       prefix="$evidence/$protocol-$backend-$configuration"
       if [[ "$fixture" == controls ]]; then prefix="$evidence/controls-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == composition ]]; then prefix="$evidence/composition-$protocol-$backend-$configuration"; fi
@@ -85,6 +85,7 @@ INI
       if [[ "$fixture" == command-spotlight ]]; then prefix="$evidence/command-spotlight-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == file-input ]]; then prefix="$evidence/file-input-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == dropdown-menu ]]; then prefix="$evidence/dropdown-menu-$protocol-$backend-$configuration"; fi
+      if [[ "$fixture" == mobile-shell ]]; then prefix="$evidence/mobile-shell-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == app-tabs ]]; then prefix="$evidence/app-tabs-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == charts ]]; then prefix="$evidence/charts-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == font-modifier ]]; then prefix="$evidence/font-modifier-$protocol-$backend-$configuration"; fi
@@ -122,6 +123,7 @@ INI
       if [[ "$fixture" == command-spotlight ]]; then args+=(--command-spotlight --command-spotlight-observe); fi
       if [[ "$fixture" == file-input ]]; then args+=(--file-input --file-input-observe); fi
       if [[ "$fixture" == dropdown-menu ]]; then args+=(--dropdown-menu --dropdown-menu-observe); fi
+      if [[ "$fixture" == mobile-shell ]]; then args+=(--mobile-shell); fi
       if [[ "$fixture" == app-tabs ]]; then args+=(--app-tabs --app-tabs-observe); fi
       if [[ "$fixture" == charts ]]; then args+=(--charts --charts-observe); fi
       if [[ "$fixture" == font-modifier ]]; then args+=(--font-modifier); fi
@@ -242,6 +244,13 @@ elif fixture == 'dropdown-menu':
     assert record['pointerDeliveries']==11 and record['keyDeliveries']==1 and len(record['actions'])==6,record
     assert record['nativeRasterAcceptance']==record['physicalInputAcceptance']==record['readerAcceptance']=='pending',record
     assert record['nativeAccessibilityAcceptance']=='unobserved',record
+elif fixture == 'mobile-shell':
+    assert record['structuralChecks']=='passed' and record['accepted'] is False,record
+    assert record['geometryPassed']==len(record['layouts'])==18,record
+    assert len(record['nativeOwnerHistories'])==3 and record['nativeStateChecks']==25,record
+    assert record['pointerActions']==12 and record['qtSpaceActivation'] is True,record
+    assert record['qtAccessibilityInterfaces']==2 and record['nativeKeyboardEquivalentVerified'] is False,record
+    assert record['nativeToolbarRasterAccepted'] is False and record['readerAcceptance'] is False,record
 elif fixture == 'app-tabs':
     assert record['structuralChecks']=='passed' and record['accepted'] is False,record
     assert len(record['closed'])==43 and len(record['histories'])==6 and len(record['sizing'])==43 and record['images']==151,record
