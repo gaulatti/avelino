@@ -102,6 +102,8 @@ int main(int argc, char *argv[]) {
             if (entry.value("fixture").toString() == parser.value("case")) { definition = entry; ++matches; }
         }
         if (matches != 1 || definition.value("width").toDouble() <= 0 || definition.value("height").toDouble() <= 0) return 6;
+        if(definition["api"]=="BleeckerButtonGroup" && definition.contains("expectedEmpty")
+            && !definition["expectedEmpty"].isBool())return 6;
         if(definition["api"]=="BleeckerDropdownMenu"&&!validDropdownMenuFixture(definition))return 6;
         if(definition["api"]=="BleeckerFileInput"&&!validFileInputFixture(definition))return 6;
         if(definition["api"]=="BleeckerHeroCarousel"&&!validHeroCarouselFixture(definition))return 6;
@@ -418,11 +420,14 @@ int main(int argc, char *argv[]) {
             const bool surfaceEmpty=expectedEmpty && api=="BleeckerSurfaceModifier" && definition.value("content").toString()=="empty";
             const bool fontEmpty=expectedEmpty && api=="View.bleeckerFont" && definition.value("content").toString()=="empty-view";
             const bool buttonStyleEmpty=expectedEmpty && api=="BleeckerButtonStyle" && definition.value("content").toString()=="empty";
-            const auto geometryItem=api=="BleeckerTooltip" && component ? component->property("control").value<QQuickItem*>():(api=="BleeckerModal" || api=="BleeckerOTPInput" || api=="BleeckerActivityItem") && component ? component->property("presentationItem").value<QQuickItem*>():component;
+            const bool buttonGroupEmpty=expectedEmpty && api=="BleeckerButtonGroup"
+                && QStringList{"absent","empty-group","zero","conditional-absent"}.contains(variant);
+            const auto geometryItem=api=="BleeckerTooltip" && component ? component->property("control").value<QQuickItem*>():(api=="BleeckerButtonGroup" || api=="BleeckerModal" || api=="BleeckerOTPInput" || api=="BleeckerActivityItem") && component ? component->property("presentationItem").value<QQuickItem*>():component;
             if (isolated && (!component || !geometryItem || component->width()<0 || component->height()<0
                 || geometryItem->width()<0 || geometryItem->height()<0
                 || ((geometryItem->width()==0 || geometryItem->height()==0) && !expectedEmpty)
-                || (expectedEmpty && !navigationEmpty && !gridEmpty && !brandEmpty && !radioEmpty && !modalEmpty && !tooltipEmpty && !buttonStyleEmpty && !fontEmpty && !surfaceEmpty)
+                || (expectedEmpty && !navigationEmpty && !gridEmpty && !brandEmpty && !radioEmpty && !modalEmpty && !tooltipEmpty && !buttonStyleEmpty && !fontEmpty && !surfaceEmpty && !buttonGroupEmpty)
+                || (buttonGroupEmpty && (geometryItem->width()!=0 || geometryItem->height()!=0))
                 || (modalEmpty && (geometryItem->width()!=0 || geometryItem->height()<=0))
                 || (gridEmpty && component->height()!=0)
                 || (radioEmpty && (component->width()!=0 || component->height()!=0)))) {qCritical("Invalid isolated geometry or expected-empty contract");app.exit(6);return;}
@@ -837,7 +842,7 @@ int main(int argc, char *argv[]) {
                 }
                 auto measuredComponent=component;
                 if(api=="BleeckerTooltip")measuredComponent=component->property("control").value<QQuickItem*>();
-                if (api=="BleeckerModal" || api=="BleeckerActivityItem" || api=="BleeckerOTPInput" || api=="BleeckerRadioGroup" || api=="BleeckerStepper" || api=="BleeckerMetric" || api=="BleeckerStatCard" || api=="BleeckerKbd" || api=="BleeckerIconBadge" || api=="BleeckerSidebarItem" || api=="BleeckerBrandMark" || api=="BleeckerBrandLockup" || api=="BleeckerPageHeader" || api=="BleeckerBreadcrumb" || definition.value("api").toString()=="BleeckerAlert" || definition.value("api").toString()=="BleeckerEmptyState" || definition.value("api").toString()=="BleeckerErrorState") {
+                if (api=="BleeckerButtonGroup" || api=="BleeckerModal" || api=="BleeckerActivityItem" || api=="BleeckerOTPInput" || api=="BleeckerRadioGroup" || api=="BleeckerStepper" || api=="BleeckerMetric" || api=="BleeckerStatCard" || api=="BleeckerKbd" || api=="BleeckerIconBadge" || api=="BleeckerSidebarItem" || api=="BleeckerBrandMark" || api=="BleeckerBrandLockup" || api=="BleeckerPageHeader" || api=="BleeckerBreadcrumb" || definition.value("api").toString()=="BleeckerAlert" || definition.value("api").toString()=="BleeckerEmptyState" || definition.value("api").toString()=="BleeckerErrorState") {
                     measuredComponent=component->property("presentationItem").value<QQuickItem*>();
                     if(!measuredComponent){app.exit(18);return;}
                     const auto offered=api=="BleeckerModal" ? component->property("control").value<QQuickItem*>():component;
@@ -848,17 +853,22 @@ int main(int argc, char *argv[]) {
                 meta.insert("componentSize", QJsonObject{{"width", measuredComponent->width()}, {"height", measuredComponent->height()}});
                 const auto position = measuredComponent->mapToScene(QPointF(0, 0));
                 meta.insert("componentOrigin", QJsonObject{{"x", position.x()}, {"y", position.y()}});
-                if(api=="BleeckerFooter") {
+                if(api=="BleeckerFooter" || api=="BleeckerButtonGroup") {
                     QJsonObject frames;
                     const auto record=[&frames](const QString &name,QQuickItem *item) {
                         const auto point=item->mapToScene(QPointF());
                         frames.insert(name,QJsonObject{{"x",point.x()},{"y",point.y()},
                             {"width",item->width()},{"height",item->height()}});
                     };
-                    record("component",component);
-                    for(const auto &name:QStringList{"first","second"})
-                        if(const auto child=findVisual(component,name))record(name,child);
-                    meta.insert("footerFrames",frames);
+                    record("component",measuredComponent);
+                    for(const auto &name:QStringList{"first","second"}) {
+                        if(const auto child=findVisual(component,name)) {
+                            record(name,child);
+                            if(api=="BleeckerButtonGroup")
+                                if(const auto label=findVisual(child,"bleeckerButtonLabel"))record(name+"Text",label);
+                        }
+                    }
+                    meta.insert(api=="BleeckerFooter" ? "footerFrames":"buttonGroupFrames",frames);
                 }
                 QJsonArray labels;
                 recordLabels(component, labels);

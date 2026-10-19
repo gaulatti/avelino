@@ -27,7 +27,7 @@ ProposalRow::ProposalRow(QQuickItem *parent):QQuickItem(parent) {
     connect(this,&QQuickItem::childrenChanged,this,&ProposalRow::childrenUpdated);
 }
 void ProposalRow::setSpacing(qreal value) {
-    if(!std::isfinite(value)||value<0)qFatal("Row spacing must be finite and nonnegative");
+    if(!std::isfinite(value))qFatal("Row spacing must be finite");
     if(value==m_spacing)return;m_spacing=value;emit configurationChanged();polish();
 }
 void ProposalRow::setMaximumWidth(qreal value) {
@@ -87,7 +87,7 @@ void ProposalRow::layout() {
     struct Cell {QQuickItem *item;BleeckerLayout *hint;qreal ideal,minimum,width=0,height=0;QRectF before;BleeckerLayout::Baseline baseline{0,false};};
     const QPointer<QQuickItem> grabber=window() ? window()->mouseGrabberItem():nullptr;
     QList<Cell> cells;
-    qreal ideal=0,minimum=0;
+    qreal ideal=0,minimum=0,largestIdeal=0,largestMinimum=0;
     for(auto child:layoutItems()) {
         if(auto row=qobject_cast<ProposalRow*>(child))row->layout();
         if(auto column=qobject_cast<ProposalColumn*>(child))column->layout();
@@ -98,21 +98,27 @@ void ProposalRow::layout() {
         if(!std::isfinite(natural)||!std::isfinite(lower)||natural<0||lower<0||lower>natural)
             qFatal("Content layout requires finite widths with 0 <= minimum <= ideal");
         cells.append({child,hint,natural,lower,0,0,QRectF(child->position(),child->size())});ideal+=natural;minimum+=lower;
+        largestIdeal=std::max(largestIdeal,natural);largestMinimum=std::max(largestMinimum,lower);
     }
     const qreal gaps=std::max(qsizetype(0),cells.size()-1)*m_spacing;
     ideal+=gaps;minimum+=gaps;
-    if(m_natural!=ideal||m_minimum!=minimum){m_natural=ideal;m_minimum=minimum;emit metricsChanged();}
+    const auto naturalExtent=std::max(ideal,largestIdeal),minimumExtent=std::max(minimum,largestMinimum);
+    if(m_natural!=naturalExtent||m_minimum!=minimumExtent){m_natural=naturalExtent;m_minimum=minimumExtent;emit metricsChanged();}
     QList<int> order;int fills=0;
     qreal remaining=m_maximum<0 ? ideal-gaps:std::max(qreal(0),m_maximum-gaps);
     for(int i=0;i<cells.size();++i) {
         if(cells[i].hint->fillsWidth){remaining-=cells[i].minimum;++fills;cells[i].width=cells[i].minimum;}
         else order.append(i);
     }
+    // A fitted row without expanding children keeps intrinsic proposals once
+    // all ideals fit. Rows with fillers still need finite proposals: those
+    // drive nested allocation and the source's retained text measurements.
+    const bool intrinsic=m_maximum<0 || (fills==0 && m_maximum>=naturalExtent);
     std::stable_sort(order.begin(),order.end(),[&cells](int a,int b){return cells[a].ideal-cells[a].minimum<cells[b].ideal-cells[b].minimum;});
     for(int at=0;at<order.size();++at) {
         auto &c=cells[order[at]];
-        const auto offered=m_maximum<0 ? c.ideal:std::clamp(remaining/(order.size()-at),c.minimum,c.ideal);
-        c.hint->propose(m_maximum<0 ? -1:offered);
+        const auto offered=intrinsic ? c.ideal:std::clamp(remaining/(order.size()-at),c.minimum,c.ideal);
+        c.hint->propose(intrinsic ? -1:offered);
         if(auto row=qobject_cast<ProposalRow*>(c.item))row->layout();
         if(auto column=qobject_cast<ProposalColumn*>(c.item))column->layout();
         if(auto overlay=qobject_cast<ProposalOverlay*>(c.item))overlay->layout();
@@ -121,7 +127,7 @@ void ProposalRow::layout() {
         if(auto column=qobject_cast<ProposalColumn*>(c.item))column->layout();
         remaining-=c.width;
     }
-    qreal total=gaps,height=0,above=0,below=0;
+    qreal total=gaps,largestWidth=0,height=0,above=0,below=0;
     bool first=true;
     for(auto &c:cells) {
         if(c.hint->fillsWidth)c.width+=std::max(qreal(0),remaining)/fills;
@@ -130,12 +136,16 @@ void ProposalRow::layout() {
         if(auto column=qobject_cast<ProposalColumn*>(c.item))column->layout();
         c.height=measured || c.item->implicitHeight()>0 ? c.item->implicitHeight():c.item->height();
         c.item->setHeight(c.height);total+=c.width;height=std::max(height,c.height);
+        largestWidth=std::max(largestWidth,c.width);
         c.baseline=BleeckerLayout::baselineFor(c.item);
         above=first ? c.baseline.offset:std::max(above,c.baseline.offset);
         below=first ? c.height-c.baseline.offset:std::max(below,c.height-c.baseline.offset);
         first=false;
     }
     if(m_verticalAlignment==Qt::AlignBaseline && !cells.isEmpty())height=above+below;
+    // Overlapping source stacks reserve at least their widest child; later
+    // children may paint outside that extent when spacing is negative.
+    total=std::max(total,largestWidth);
     qreal x=m_mirrored ? total:0;
     qreal implicitBaseline=height;
     bool hasBaseline=false;

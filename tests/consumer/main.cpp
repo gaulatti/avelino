@@ -211,6 +211,38 @@ static void runSelectionConsumer(QQuickWindow *window, QGuiApplication &app,
     QObject::connect(timer,&QTimer::timeout,&app,[&app,path] { if (QFile::exists(path+".captured")) app.exit(0); });
     timer->start(100); QTimer::singleShot(10000,&app,[&app] { app.exit(77); });
 }
+static bool verifyInstalledButtonGroupSlots(QQuickWindow *window) {
+    struct Case { const char *factory; qreal width,height,firstX,secondX; };
+    for(const auto &row: {Case{"emptyGroupFactory",0,0,0,0},
+        Case{"groupSlotsFactory",128,30,0,88},Case{"overlappingGroupFactory",80,30,0,-120},
+        Case{"rtlGroupFactory",128,30,48,0},Case{"fractionalGroupFactory",129,30.5,0,88.5}}) {
+        const auto component=window->property(row.factory).value<QQmlComponent *>();
+        if(!component)return false;
+        std::unique_ptr<QObject> object(component->create(qmlContext(window)));
+        const auto group=qobject_cast<QQuickItem *>(object.get());
+        if(!group)return false;
+        group->setParentItem(window->contentItem());QTest::qWait(80);
+        if(group->width()!=row.width || group->height()!=row.height)return false;
+        if(row.width>0) {
+            const auto first=findVisualItem(group,"first"),second=findVisualItem(group,"second");
+            if(!first || !second || first->mapToItem(group,QPointF())!=QPointF(row.firstX,5)
+                || second->mapToItem(group,QPointF())!=QPointF(row.secondX,0))return false;
+        }
+    }
+    const auto component=window->property("interactiveGroupFactory").value<QQmlComponent *>();
+    if(!component)return false;
+    std::unique_ptr<QObject> object(component->create(qmlContext(window)));
+    const auto group=qobject_cast<QQuickItem *>(object.get());
+    if(!group)return false;
+    group->setParentItem(window->contentItem());group->setPosition(QPointF(300,200));QTest::qWait(80);
+    const auto first=findVisualItem(group,"first"),second=findVisualItem(group,"second");
+    if(!first || !second)return false;
+    QTest::mouseClick(window,Qt::LeftButton,Qt::NoModifier,first->mapToScene(QPointF(first->width()/2,first->height()/2)).toPoint());
+    first->forceActiveFocus();QTest::keyClick(window,Qt::Key_Space);QTest::qWait(40);
+    if(window->property("groupInvocations").toInt()!=2)return false;
+    qInfo("Installed ButtonGroup: five bare slot cases and pointer/keyboard activation passed");
+    return true;
+}
 static bool verifyInstalledFooterSlots(QQuickWindow *window) {
     for (const auto &name : {"emptyFooterFactory", "footerSlotsFactory"}) {
         const auto component=window->property(name).value<QQmlComponent *>();
@@ -245,6 +277,9 @@ static void runCompositionConsumer(QQuickWindow *window, QGuiApplication &app,
     }
     if (!verifyInstalledFooterSlots(window)) {
         qCritical("Installed footer absent/multiple-slot source geometry differs"); app.exit(55); return;
+    }
+    if (!verifyInstalledButtonGroupSlots(window)) {
+        qCritical("Installed button group source geometry or activation differs"); app.exit(56); return;
     }
     if (grid->property("columns").toInt()!=2 || sidebar->width()!=240 || content->width()!=519
         || first->width()!=251.5 || second->x()!=267.5 || first->height()<=0 || footer->height()<=41) {

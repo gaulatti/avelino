@@ -5,6 +5,7 @@ import itertools
 import json
 from pathlib import Path
 import re
+import subprocess
 
 from PIL import Image, ImageChops
 
@@ -38,8 +39,18 @@ def verify():
     result=read('result.json')
     assert result['exitCode']==0 and result['sourceProfiles']==result['componentTestProfiles']==120
     assert all(result[key] is False for key in ['physicalDisplay','nativeWindowInput','readerAcceptance','accepted','fullMirrorAccepted'])
+    shared_helpers={'samples/AvelinoCatalog/CMakeLists.txt','samples/AvelinoCatalog/ReferenceCaseFixture.qml',
+        'samples/AvelinoCatalog/main.cpp','tests/components/CMakeLists.txt','tests/components/main.cpp',
+        'tests/consumer/main.cpp','tests/consumer/Composition.qml'}
     for path in (CAPSULE/'implementation-inputs').rglob('*'):
-        if path.is_file():assert digest(path)==digest(ROOT/path.relative_to(CAPSULE/'implementation-inputs'))
+        if not path.is_file():continue
+        name=str(path.relative_to(CAPSULE/'implementation-inputs'))
+        if name in shared_helpers:
+            original=subprocess.check_output(['git','show',
+                '307f9ee8d31b8e5f7a6baba0e08f1aeb7abf9a58:'+name],cwd=ROOT)
+            assert digest(path)==hashlib.sha256(original).hexdigest(),name
+        else:
+            assert digest(path)==digest(ROOT/name),name
     source=json.loads((NATIVE/'captures.json').read_text())
     assert source['reference']==result['sourcePin']=='fe8a1d462fbd793d883fb92086a16aa2947e32c9'
     comparisons={row['source']:row for row in read('provenance/v4/comparison.json')['results']}

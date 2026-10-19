@@ -30839,9 +30839,10 @@
           "line": 123
         },
         "implementation": [
-          "src/Avelino/BleeckerButtonGroup.qml"
+          "src/Avelino/BleeckerButtonGroup.qml",
+          "src/Avelino/proposalrow.cpp"
         ],
-        "caseDiscovery": "pending",
+        "caseDiscovery": "23 source slot cases across 184 appearance/text-scale/DPR profiles; all component/child frames match, 170 label-frame maps match, and 128 raw images are exact. 55 core and 792 contract tests, 42 source-free smoke commands, eight composition/package and eight virtual display profiles pass. 437 date/navigation and 120 footer images retain their bytes. Strict native pixels, lifecycle/baseline/input coverage, physical sessions and readers remain pending.",
         "cases": [
           {
             "id": "BleeckerButtonGroup-default-spacing",
@@ -30849,9 +30850,18 @@
             "referenceCapture": null,
             "evidence": [
               "tests/components/tst_foundations.qml",
-              "docs/foundations.md"
+              "docs/foundations.md",
+              "evidence/reference-investigations/button-group-slots-20261019/captures.json",
+              "evidence/reference-investigations/button-group-slots-20261019/investigation.json",
+              "scripts/verify-button-group-source.py",
+              "tests/components/tst_button_group.qml",
+              "tests/consumer/ButtonGroupCase.qml",
+              "docs/button-group-layout.md",
+              "evidence/development/button-group-layout-20261019/result.json",
+              "evidence/development/button-group-layout-20261019/runtime/comparison.json",
+              "scripts/verify-button-group-candidate.py"
             ],
-            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+            "notes": "184 source layout profiles, 55 core targets, 792 contracts and 42 source-free smoke commands pass. Qt pointer/keyboard checks are recorded separately from full native input, tab-order, physical and reader acceptance. Strict raster and remaining source behavior coverage stay pending."
           },
           {
             "id": "BleeckerButtonGroup-custom-spacing",
@@ -30859,9 +30869,18 @@
             "referenceCapture": null,
             "evidence": [
               "tests/components/tst_foundations.qml",
-              "docs/foundations.md"
+              "docs/foundations.md",
+              "evidence/reference-investigations/button-group-slots-20261019/captures.json",
+              "evidence/reference-investigations/button-group-slots-20261019/investigation.json",
+              "scripts/verify-button-group-source.py",
+              "tests/components/tst_button_group.qml",
+              "tests/consumer/ButtonGroupCase.qml",
+              "docs/button-group-layout.md",
+              "evidence/development/button-group-layout-20261019/result.json",
+              "evidence/development/button-group-layout-20261019/runtime/comparison.json",
+              "scripts/verify-button-group-candidate.py"
             ],
-            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+            "notes": "184 source layout profiles, 55 core targets, 792 contracts and 42 source-free smoke commands pass. Qt pointer/keyboard checks are recorded separately from full native input, tab-order, physical and reader acceptance. Strict raster and remaining source behavior coverage stay pending."
           },
           {
             "id": "BleeckerButtonGroup-vertical-alignment",
@@ -30869,9 +30888,18 @@
             "referenceCapture": null,
             "evidence": [
               "tests/components/tst_foundations.qml",
-              "docs/foundations.md"
+              "docs/foundations.md",
+              "evidence/reference-investigations/button-group-slots-20261019/captures.json",
+              "evidence/reference-investigations/button-group-slots-20261019/investigation.json",
+              "scripts/verify-button-group-source.py",
+              "tests/components/tst_button_group.qml",
+              "tests/consumer/ButtonGroupCase.qml",
+              "docs/button-group-layout.md",
+              "evidence/development/button-group-layout-20261019/result.json",
+              "evidence/development/button-group-layout-20261019/runtime/comparison.json",
+              "scripts/verify-button-group-candidate.py"
             ],
-            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+            "notes": "184 source layout profiles, 55 core targets, 792 contracts and 42 source-free smoke commands pass. Qt pointer/keyboard checks are recorded separately from full native input, tab-order, physical and reader acceptance. Strict raster and remaining source behavior coverage stay pending."
           },
           {
             "id": "BleeckerButtonGroup-hidden-child",
@@ -30879,9 +30907,18 @@
             "referenceCapture": null,
             "evidence": [
               "tests/components/tst_foundations.qml",
-              "docs/foundations.md"
+              "docs/foundations.md",
+              "evidence/reference-investigations/button-group-slots-20261019/captures.json",
+              "evidence/reference-investigations/button-group-slots-20261019/investigation.json",
+              "scripts/verify-button-group-source.py",
+              "tests/components/tst_button_group.qml",
+              "tests/consumer/ButtonGroupCase.qml",
+              "docs/button-group-layout.md",
+              "evidence/development/button-group-layout-20261019/result.json",
+              "evidence/development/button-group-layout-20261019/runtime/comparison.json",
+              "scripts/verify-button-group-candidate.py"
             ],
-            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+            "notes": "184 source layout profiles, 55 core targets, 792 contracts and 42 source-free smoke commands pass. Qt pointer/keyboard checks are recorded separately from full native input, tab-order, physical and reader acceptance. Strict raster and remaining source behavior coverage stay pending."
           },
           {
             "id": "BleeckerButtonGroup-keyboard-activation-and-tab-order",
@@ -30889,14 +30926,415 @@
             "referenceCapture": null,
             "evidence": [
               "tests/components/tst_foundations.qml",
-              "docs/foundations.md"
+              "docs/foundations.md",
+              "evidence/reference-investigations/button-group-slots-20261019/captures.json",
+              "evidence/reference-investigations/button-group-slots-20261019/investigation.json",
+              "scripts/verify-button-group-source.py",
+              "tests/components/tst_button_group.qml",
+              "tests/consumer/ButtonGroupCase.qml",
+              "docs/button-group-layout.md",
+              "evidence/development/button-group-layout-20261019/result.json",
+              "evidence/development/button-group-layout-20261019/runtime/comparison.json",
+              "scripts/verify-button-group-candidate.py"
             ],
-            "notes": "Implementation contract coverage exists; native source capture and visual/runtime acceptance remain pending."
+            "notes": "184 source layout profiles, 55 core targets, 792 contracts and 42 source-free smoke commands pass. Qt pointer/keyboard checks are recorded separately from full native input, tab-order, physical and reader acceptance. Strict raster and remaining source behavior coverage stay pending."
+          },
+          {
+            "id": "BleeckerButtonGroup-source-mixed-buttons",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "evidence/reference-investigations/button-group-slots-20261019/captures.json",
+              "evidence/reference-investigations/button-group-slots-20261019/investigation.json",
+              "scripts/verify-button-group-source.py",
+              "tests/components/tst_button_group.qml",
+              "tests/consumer/ButtonGroupCase.qml",
+              "docs/button-group-layout.md",
+              "evidence/development/button-group-layout-20261019/result.json",
+              "evidence/development/button-group-layout-20261019/runtime/comparison.json",
+              "scripts/verify-button-group-candidate.py"
+            ],
+            "notes": "All eight source component/child frame sets match; 0/8 investigation images are pixel-exact. Eight package and eight virtual display profiles pass. Full native pixels, baseline/lifecycle/input coverage, physical sessions and readers remain pending; no acceptance or exception is approved."
+          },
+          {
+            "id": "BleeckerButtonGroup-source-absent",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "evidence/reference-investigations/button-group-slots-20261019/captures.json",
+              "evidence/reference-investigations/button-group-slots-20261019/investigation.json",
+              "scripts/verify-button-group-source.py",
+              "tests/components/tst_button_group.qml",
+              "tests/consumer/ButtonGroupCase.qml",
+              "docs/button-group-layout.md",
+              "evidence/development/button-group-layout-20261019/result.json",
+              "evidence/development/button-group-layout-20261019/runtime/comparison.json",
+              "scripts/verify-button-group-candidate.py"
+            ],
+            "notes": "All eight source component/child frame sets match; 8/8 investigation images are pixel-exact. Eight package and eight virtual display profiles pass. Full native pixels, baseline/lifecycle/input coverage, physical sessions and readers remain pending; no acceptance or exception is approved."
+          },
+          {
+            "id": "BleeckerButtonGroup-source-empty-group",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "evidence/reference-investigations/button-group-slots-20261019/captures.json",
+              "evidence/reference-investigations/button-group-slots-20261019/investigation.json",
+              "scripts/verify-button-group-source.py",
+              "tests/components/tst_button_group.qml",
+              "tests/consumer/ButtonGroupCase.qml",
+              "docs/button-group-layout.md",
+              "evidence/development/button-group-layout-20261019/result.json",
+              "evidence/development/button-group-layout-20261019/runtime/comparison.json",
+              "scripts/verify-button-group-candidate.py"
+            ],
+            "notes": "All eight source component/child frame sets match; 8/8 investigation images are pixel-exact. Eight package and eight virtual display profiles pass. Full native pixels, baseline/lifecycle/input coverage, physical sessions and readers remain pending; no acceptance or exception is approved."
+          },
+          {
+            "id": "BleeckerButtonGroup-source-zero",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "evidence/reference-investigations/button-group-slots-20261019/captures.json",
+              "evidence/reference-investigations/button-group-slots-20261019/investigation.json",
+              "scripts/verify-button-group-source.py",
+              "tests/components/tst_button_group.qml",
+              "tests/consumer/ButtonGroupCase.qml",
+              "docs/button-group-layout.md",
+              "evidence/development/button-group-layout-20261019/result.json",
+              "evidence/development/button-group-layout-20261019/runtime/comparison.json",
+              "scripts/verify-button-group-candidate.py"
+            ],
+            "notes": "All eight source component/child frame sets match; 8/8 investigation images are pixel-exact. Eight package and eight virtual display profiles pass. Full native pixels, baseline/lifecycle/input coverage, physical sessions and readers remain pending; no acceptance or exception is approved."
+          },
+          {
+            "id": "BleeckerButtonGroup-source-block",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "evidence/reference-investigations/button-group-slots-20261019/captures.json",
+              "evidence/reference-investigations/button-group-slots-20261019/investigation.json",
+              "scripts/verify-button-group-source.py",
+              "tests/components/tst_button_group.qml",
+              "tests/consumer/ButtonGroupCase.qml",
+              "docs/button-group-layout.md",
+              "evidence/development/button-group-layout-20261019/result.json",
+              "evidence/development/button-group-layout-20261019/runtime/comparison.json",
+              "scripts/verify-button-group-candidate.py"
+            ],
+            "notes": "All eight source component/child frame sets match; 8/8 investigation images are pixel-exact. Eight package and eight virtual display profiles pass. Full native pixels, baseline/lifecycle/input coverage, physical sessions and readers remain pending; no acceptance or exception is approved."
+          },
+          {
+            "id": "BleeckerButtonGroup-source-two-blocks",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "evidence/reference-investigations/button-group-slots-20261019/captures.json",
+              "evidence/reference-investigations/button-group-slots-20261019/investigation.json",
+              "scripts/verify-button-group-source.py",
+              "tests/components/tst_button_group.qml",
+              "tests/consumer/ButtonGroupCase.qml",
+              "docs/button-group-layout.md",
+              "evidence/development/button-group-layout-20261019/result.json",
+              "evidence/development/button-group-layout-20261019/runtime/comparison.json",
+              "scripts/verify-button-group-candidate.py"
+            ],
+            "notes": "All eight source component/child frame sets match; 8/8 investigation images are pixel-exact. Eight package and eight virtual display profiles pass. Full native pixels, baseline/lifecycle/input coverage, physical sessions and readers remain pending; no acceptance or exception is approved."
+          },
+          {
+            "id": "BleeckerButtonGroup-source-group-blocks",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "evidence/reference-investigations/button-group-slots-20261019/captures.json",
+              "evidence/reference-investigations/button-group-slots-20261019/investigation.json",
+              "scripts/verify-button-group-source.py",
+              "tests/components/tst_button_group.qml",
+              "tests/consumer/ButtonGroupCase.qml",
+              "docs/button-group-layout.md",
+              "evidence/development/button-group-layout-20261019/result.json",
+              "evidence/development/button-group-layout-20261019/runtime/comparison.json",
+              "scripts/verify-button-group-candidate.py"
+            ],
+            "notes": "All eight source component/child frame sets match; 8/8 investigation images are pixel-exact. Eight package and eight virtual display profiles pass. Full native pixels, baseline/lifecycle/input coverage, physical sessions and readers remain pending; no acceptance or exception is approved."
+          },
+          {
+            "id": "BleeckerButtonGroup-source-hidden-block",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "evidence/reference-investigations/button-group-slots-20261019/captures.json",
+              "evidence/reference-investigations/button-group-slots-20261019/investigation.json",
+              "scripts/verify-button-group-source.py",
+              "tests/components/tst_button_group.qml",
+              "tests/consumer/ButtonGroupCase.qml",
+              "docs/button-group-layout.md",
+              "evidence/development/button-group-layout-20261019/result.json",
+              "evidence/development/button-group-layout-20261019/runtime/comparison.json",
+              "scripts/verify-button-group-candidate.py"
+            ],
+            "notes": "All eight source component/child frame sets match; 8/8 investigation images are pixel-exact. Eight package and eight virtual display profiles pass. Full native pixels, baseline/lifecycle/input coverage, physical sessions and readers remain pending; no acceptance or exception is approved."
+          },
+          {
+            "id": "BleeckerButtonGroup-source-zero-then-block",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "evidence/reference-investigations/button-group-slots-20261019/captures.json",
+              "evidence/reference-investigations/button-group-slots-20261019/investigation.json",
+              "scripts/verify-button-group-source.py",
+              "tests/components/tst_button_group.qml",
+              "tests/consumer/ButtonGroupCase.qml",
+              "docs/button-group-layout.md",
+              "evidence/development/button-group-layout-20261019/result.json",
+              "evidence/development/button-group-layout-20261019/runtime/comparison.json",
+              "scripts/verify-button-group-candidate.py"
+            ],
+            "notes": "All eight source component/child frame sets match; 8/8 investigation images are pixel-exact. Eight package and eight virtual display profiles pass. Full native pixels, baseline/lifecycle/input coverage, physical sessions and readers remain pending; no acceptance or exception is approved."
+          },
+          {
+            "id": "BleeckerButtonGroup-source-conditional-absent",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "evidence/reference-investigations/button-group-slots-20261019/captures.json",
+              "evidence/reference-investigations/button-group-slots-20261019/investigation.json",
+              "scripts/verify-button-group-source.py",
+              "tests/components/tst_button_group.qml",
+              "tests/consumer/ButtonGroupCase.qml",
+              "docs/button-group-layout.md",
+              "evidence/development/button-group-layout-20261019/result.json",
+              "evidence/development/button-group-layout-20261019/runtime/comparison.json",
+              "scripts/verify-button-group-candidate.py"
+            ],
+            "notes": "All eight source component/child frame sets match; 8/8 investigation images are pixel-exact. Eight package and eight virtual display profiles pass. Full native pixels, baseline/lifecycle/input coverage, physical sessions and readers remain pending; no acceptance or exception is approved."
+          },
+          {
+            "id": "BleeckerButtonGroup-source-conditional-block",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "evidence/reference-investigations/button-group-slots-20261019/captures.json",
+              "evidence/reference-investigations/button-group-slots-20261019/investigation.json",
+              "scripts/verify-button-group-source.py",
+              "tests/components/tst_button_group.qml",
+              "tests/consumer/ButtonGroupCase.qml",
+              "docs/button-group-layout.md",
+              "evidence/development/button-group-layout-20261019/result.json",
+              "evidence/development/button-group-layout-20261019/runtime/comparison.json",
+              "scripts/verify-button-group-candidate.py"
+            ],
+            "notes": "All eight source component/child frame sets match; 8/8 investigation images are pixel-exact. Eight package and eight virtual display profiles pass. Full native pixels, baseline/lifecycle/input coverage, physical sessions and readers remain pending; no acceptance or exception is approved."
+          },
+          {
+            "id": "BleeckerButtonGroup-source-spacing-zero",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "evidence/reference-investigations/button-group-slots-20261019/captures.json",
+              "evidence/reference-investigations/button-group-slots-20261019/investigation.json",
+              "scripts/verify-button-group-source.py",
+              "tests/components/tst_button_group.qml",
+              "tests/consumer/ButtonGroupCase.qml",
+              "docs/button-group-layout.md",
+              "evidence/development/button-group-layout-20261019/result.json",
+              "evidence/development/button-group-layout-20261019/runtime/comparison.json",
+              "scripts/verify-button-group-candidate.py"
+            ],
+            "notes": "All eight source component/child frame sets match; 8/8 investigation images are pixel-exact. Eight package and eight virtual display profiles pass. Full native pixels, baseline/lifecycle/input coverage, physical sessions and readers remain pending; no acceptance or exception is approved."
+          },
+          {
+            "id": "BleeckerButtonGroup-source-spacing-fractional",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "evidence/reference-investigations/button-group-slots-20261019/captures.json",
+              "evidence/reference-investigations/button-group-slots-20261019/investigation.json",
+              "scripts/verify-button-group-source.py",
+              "tests/components/tst_button_group.qml",
+              "tests/consumer/ButtonGroupCase.qml",
+              "docs/button-group-layout.md",
+              "evidence/development/button-group-layout-20261019/result.json",
+              "evidence/development/button-group-layout-20261019/runtime/comparison.json",
+              "scripts/verify-button-group-candidate.py"
+            ],
+            "notes": "All eight source component/child frame sets match; 8/8 investigation images are pixel-exact. Eight package and eight virtual display profiles pass. Full native pixels, baseline/lifecycle/input coverage, physical sessions and readers remain pending; no acceptance or exception is approved."
+          },
+          {
+            "id": "BleeckerButtonGroup-source-constrained-110",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "evidence/reference-investigations/button-group-slots-20261019/captures.json",
+              "evidence/reference-investigations/button-group-slots-20261019/investigation.json",
+              "scripts/verify-button-group-source.py",
+              "tests/components/tst_button_group.qml",
+              "tests/consumer/ButtonGroupCase.qml",
+              "docs/button-group-layout.md",
+              "evidence/development/button-group-layout-20261019/result.json",
+              "evidence/development/button-group-layout-20261019/runtime/comparison.json",
+              "scripts/verify-button-group-candidate.py"
+            ],
+            "notes": "All eight source component/child frame sets match; 0/8 investigation images are pixel-exact. Eight package and eight virtual display profiles pass. Full native pixels, baseline/lifecycle/input coverage, physical sessions and readers remain pending; no acceptance or exception is approved."
+          },
+          {
+            "id": "BleeckerButtonGroup-source-wide-300",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "evidence/reference-investigations/button-group-slots-20261019/captures.json",
+              "evidence/reference-investigations/button-group-slots-20261019/investigation.json",
+              "scripts/verify-button-group-source.py",
+              "tests/components/tst_button_group.qml",
+              "tests/consumer/ButtonGroupCase.qml",
+              "docs/button-group-layout.md",
+              "evidence/development/button-group-layout-20261019/result.json",
+              "evidence/development/button-group-layout-20261019/runtime/comparison.json",
+              "scripts/verify-button-group-candidate.py"
+            ],
+            "notes": "All eight source component/child frame sets match; 0/8 investigation images are pixel-exact. Eight package and eight virtual display profiles pass. Full native pixels, baseline/lifecycle/input coverage, physical sessions and readers remain pending; no acceptance or exception is approved."
+          },
+          {
+            "id": "BleeckerButtonGroup-source-spacing-negative",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "evidence/reference-investigations/button-group-slots-20261019/captures.json",
+              "evidence/reference-investigations/button-group-slots-20261019/investigation.json",
+              "scripts/verify-button-group-source.py",
+              "tests/components/tst_button_group.qml",
+              "tests/consumer/ButtonGroupCase.qml",
+              "docs/button-group-layout.md",
+              "evidence/development/button-group-layout-20261019/result.json",
+              "evidence/development/button-group-layout-20261019/runtime/comparison.json",
+              "scripts/verify-button-group-candidate.py"
+            ],
+            "notes": "All eight source component/child frame sets match; 8/8 investigation images are pixel-exact. Eight package and eight virtual display profiles pass. Full native pixels, baseline/lifecycle/input coverage, physical sessions and readers remain pending; no acceptance or exception is approved."
+          },
+          {
+            "id": "BleeckerButtonGroup-source-spacing-overlap",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "evidence/reference-investigations/button-group-slots-20261019/captures.json",
+              "evidence/reference-investigations/button-group-slots-20261019/investigation.json",
+              "scripts/verify-button-group-source.py",
+              "tests/components/tst_button_group.qml",
+              "tests/consumer/ButtonGroupCase.qml",
+              "docs/button-group-layout.md",
+              "evidence/development/button-group-layout-20261019/result.json",
+              "evidence/development/button-group-layout-20261019/runtime/comparison.json",
+              "scripts/verify-button-group-candidate.py"
+            ],
+            "notes": "All eight source component/child frame sets match; 8/8 investigation images are pixel-exact. Eight package and eight virtual display profiles pass. Full native pixels, baseline/lifecycle/input coverage, physical sessions and readers remain pending; no acceptance or exception is approved."
+          },
+          {
+            "id": "BleeckerButtonGroup-source-spacing-very-large",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "evidence/reference-investigations/button-group-slots-20261019/captures.json",
+              "evidence/reference-investigations/button-group-slots-20261019/investigation.json",
+              "scripts/verify-button-group-source.py",
+              "tests/components/tst_button_group.qml",
+              "tests/consumer/ButtonGroupCase.qml",
+              "docs/button-group-layout.md",
+              "evidence/development/button-group-layout-20261019/result.json",
+              "evidence/development/button-group-layout-20261019/runtime/comparison.json",
+              "scripts/verify-button-group-candidate.py"
+            ],
+            "notes": "All eight source component/child frame sets match; 8/8 investigation images are pixel-exact. Eight package and eight virtual display profiles pass. Full native pixels, baseline/lifecycle/input coverage, physical sessions and readers remain pending; no acceptance or exception is approved."
+          },
+          {
+            "id": "BleeckerButtonGroup-source-rtl-blocks",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "evidence/reference-investigations/button-group-slots-20261019/captures.json",
+              "evidence/reference-investigations/button-group-slots-20261019/investigation.json",
+              "scripts/verify-button-group-source.py",
+              "tests/components/tst_button_group.qml",
+              "tests/consumer/ButtonGroupCase.qml",
+              "docs/button-group-layout.md",
+              "evidence/development/button-group-layout-20261019/result.json",
+              "evidence/development/button-group-layout-20261019/runtime/comparison.json",
+              "scripts/verify-button-group-candidate.py"
+            ],
+            "notes": "All eight source component/child frame sets match; 8/8 investigation images are pixel-exact. Eight package and eight virtual display profiles pass. Full native pixels, baseline/lifecycle/input coverage, physical sessions and readers remain pending; no acceptance or exception is approved."
+          },
+          {
+            "id": "BleeckerButtonGroup-source-rtl-buttons",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "evidence/reference-investigations/button-group-slots-20261019/captures.json",
+              "evidence/reference-investigations/button-group-slots-20261019/investigation.json",
+              "scripts/verify-button-group-source.py",
+              "tests/components/tst_button_group.qml",
+              "tests/consumer/ButtonGroupCase.qml",
+              "docs/button-group-layout.md",
+              "evidence/development/button-group-layout-20261019/result.json",
+              "evidence/development/button-group-layout-20261019/runtime/comparison.json",
+              "scripts/verify-button-group-candidate.py"
+            ],
+            "notes": "All eight source component/child frame sets match; 0/8 investigation images are pixel-exact. Eight package and eight virtual display profiles pass. Full native pixels, baseline/lifecycle/input coverage, physical sessions and readers remain pending; no acceptance or exception is approved."
+          },
+          {
+            "id": "BleeckerButtonGroup-source-fractional-blocks",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "evidence/reference-investigations/button-group-slots-20261019/captures.json",
+              "evidence/reference-investigations/button-group-slots-20261019/investigation.json",
+              "scripts/verify-button-group-source.py",
+              "tests/components/tst_button_group.qml",
+              "tests/consumer/ButtonGroupCase.qml",
+              "docs/button-group-layout.md",
+              "evidence/development/button-group-layout-20261019/result.json",
+              "evidence/development/button-group-layout-20261019/runtime/comparison.json",
+              "scripts/verify-button-group-candidate.py"
+            ],
+            "notes": "All eight source component/child frame sets match; 0/8 investigation images are pixel-exact. Eight package and eight virtual display profiles pass. Full native pixels, baseline/lifecycle/input coverage, physical sessions and readers remain pending; no acceptance or exception is approved."
+          },
+          {
+            "id": "BleeckerButtonGroup-source-constrained-zero",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "evidence/reference-investigations/button-group-slots-20261019/captures.json",
+              "evidence/reference-investigations/button-group-slots-20261019/investigation.json",
+              "scripts/verify-button-group-source.py",
+              "tests/components/tst_button_group.qml",
+              "tests/consumer/ButtonGroupCase.qml",
+              "docs/button-group-layout.md",
+              "evidence/development/button-group-layout-20261019/result.json",
+              "evidence/development/button-group-layout-20261019/runtime/comparison.json",
+              "scripts/verify-button-group-candidate.py"
+            ],
+            "notes": "All eight source component/child frame sets match; 0/8 investigation images are pixel-exact. Eight package and eight virtual display profiles pass. Full native pixels, baseline/lifecycle/input coverage, physical sessions and readers remain pending; no acceptance or exception is approved."
+          },
+          {
+            "id": "BleeckerButtonGroup-source-constrained-20",
+            "status": "pending",
+            "referenceCapture": null,
+            "evidence": [
+              "evidence/reference-investigations/button-group-slots-20261019/captures.json",
+              "evidence/reference-investigations/button-group-slots-20261019/investigation.json",
+              "scripts/verify-button-group-source.py",
+              "tests/components/tst_button_group.qml",
+              "tests/consumer/ButtonGroupCase.qml",
+              "docs/button-group-layout.md",
+              "evidence/development/button-group-layout-20261019/result.json",
+              "evidence/development/button-group-layout-20261019/runtime/comparison.json",
+              "scripts/verify-button-group-candidate.py"
+            ],
+            "notes": "All eight source component/child frame sets match; 0/8 investigation images are pixel-exact. Eight package and eight virtual display profiles pass. Full native pixels, baseline/lifecycle/input coverage, physical sessions and readers remain pending; no acceptance or exception is approved."
           }
         ],
         "tests": [
           "tests/components/tst_foundations.qml",
-          "tests/consumer/main.cpp"
+          "tests/consumer/main.cpp",
+          "tests/components/tst_button_group.qml"
         ],
         "captures": [
           "samples/AvelinoCatalog/FoundationsFixture.qml",
@@ -30915,11 +31353,14 @@
           "evidence/development/panel-sizing/captures/button-group-dark-text1.0-offscreen-dpr1.0.png",
           "evidence/development/panel-sizing/captures/button-group-dark-text1.0-offscreen-dpr2.0.png",
           "evidence/development/panel-sizing/captures/button-group-dark-text1.5-offscreen-dpr1.0.png",
-          "evidence/development/panel-sizing/captures/button-group-dark-text1.5-offscreen-dpr2.0.png"
+          "evidence/development/panel-sizing/captures/button-group-dark-text1.5-offscreen-dpr2.0.png",
+          "evidence/reference-investigations/button-group-slots-20261019/captures.json"
         ],
         "comparisonResults": [
           "evidence/development/isolated-desktop/comparison/comparison.json",
-          "evidence/development/panel-sizing/comparison/comparison.json"
+          "evidence/development/panel-sizing/comparison/comparison.json",
+          "evidence/development/button-group-layout-20261019/runtime/comparison.json",
+          "evidence/development/button-group-layout-20261019/legacy-before/comparison.json"
         ],
         "exceptions": [],
         "runtimeGates": {
@@ -30931,9 +31372,11 @@
               "tests/consumer/main.cpp",
               "scripts/check-display-sessions.sh",
               "evidence/development/isolated-desktop/candidate.json",
-              "evidence/development/panel-sizing/candidate.json"
+              "evidence/development/panel-sizing/candidate.json",
+              "evidence/development/button-group-layout-20261019/result.json",
+              "docs/button-group-layout.md"
             ],
-            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
+            "notes": "The current compiled package passes component geometry, source-free consumer and eight virtual display profiles. Exact images remain 128/184; complete source behavior, native pixels, physical input/display and actual readers remain unaccepted."
           },
           "x11": {
             "status": "pending",
@@ -30941,9 +31384,11 @@
               "docs/foundations.md",
               "tests/components/tst_foundations.qml",
               "tests/consumer/main.cpp",
-              "scripts/check-display-sessions.sh"
+              "scripts/check-display-sessions.sh",
+              "evidence/development/button-group-layout-20261019/result.json",
+              "docs/button-group-layout.md"
             ],
-            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
+            "notes": "The current compiled package passes component geometry, source-free consumer and eight virtual display profiles. Exact images remain 128/184; complete source behavior, native pixels, physical input/display and actual readers remain unaccepted."
           },
           "wayland": {
             "status": "pending",
@@ -30951,9 +31396,11 @@
               "docs/foundations.md",
               "tests/components/tst_foundations.qml",
               "tests/consumer/main.cpp",
-              "scripts/check-display-sessions.sh"
+              "scripts/check-display-sessions.sh",
+              "evidence/development/button-group-layout-20261019/result.json",
+              "docs/button-group-layout.md"
             ],
-            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
+            "notes": "The current compiled package passes component geometry, source-free consumer and eight virtual display profiles. Exact images remain 128/184; complete source behavior, native pixels, physical input/display and actual readers remain unaccepted."
           },
           "keyboardPointer": {
             "status": "pending",
@@ -30961,9 +31408,11 @@
               "docs/foundations.md",
               "tests/components/tst_foundations.qml",
               "tests/consumer/main.cpp",
-              "scripts/check-display-sessions.sh"
+              "scripts/check-display-sessions.sh",
+              "evidence/development/button-group-layout-20261019/result.json",
+              "docs/button-group-layout.md"
             ],
-            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
+            "notes": "The current compiled package passes component geometry, source-free consumer and eight virtual display profiles. Exact images remain 128/184; complete source behavior, native pixels, physical input/display and actual readers remain unaccepted."
           },
           "focusAccessibility": {
             "status": "pending",
@@ -30971,9 +31420,11 @@
               "docs/foundations.md",
               "tests/components/tst_foundations.qml",
               "tests/consumer/main.cpp",
-              "scripts/check-display-sessions.sh"
+              "scripts/check-display-sessions.sh",
+              "evidence/development/button-group-layout-20261019/result.json",
+              "docs/button-group-layout.md"
             ],
-            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
+            "notes": "The current compiled package passes component geometry, source-free consumer and eight virtual display profiles. Exact images remain 128/184; complete source behavior, native pixels, physical input/display and actual readers remain unaccepted."
           },
           "displayTextScaling": {
             "status": "pending",
@@ -30981,9 +31432,11 @@
               "docs/foundations.md",
               "tests/components/tst_foundations.qml",
               "tests/consumer/main.cpp",
-              "scripts/check-display-sessions.sh"
+              "scripts/check-display-sessions.sh",
+              "evidence/development/button-group-layout-20261019/result.json",
+              "docs/button-group-layout.md"
             ],
-            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
+            "notes": "The current compiled package passes component geometry, source-free consumer and eight virtual display profiles. Exact images remain 128/184; complete source behavior, native pixels, physical input/display and actual readers remain unaccepted."
           },
           "installedConsumer": {
             "status": "pending",
@@ -30992,9 +31445,11 @@
               "tests/components/tst_foundations.qml",
               "tests/consumer/main.cpp",
               "scripts/check-display-sessions.sh",
-              "evidence/development/catalog-runtime/candidate.json"
+              "evidence/development/catalog-runtime/candidate.json",
+              "evidence/development/button-group-layout-20261019/result.json",
+              "docs/button-group-layout.md"
             ],
-            "notes": "Implementation/session checks do not close full component parity. Native captures, visual comparisons, accessibility and complete behavior cases remain pending."
+            "notes": "The current compiled package passes component geometry, source-free consumer and eight virtual display profiles. Exact images remain 128/184; complete source behavior, native pixels, physical input/display and actual readers remain unaccepted."
           }
         },
         "referenceCandidates": [

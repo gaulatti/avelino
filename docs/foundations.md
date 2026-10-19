@@ -48,3 +48,9 @@ Sources: pinned `Sources/Sabella/Surfaces.swift`, `Feedback.swift`, `Buttons.swi
 and `Layout.swift`, linked per entry in [the parity inventory](parity-inventory.json).
 Framework mechanisms: [Qt ProgressBar](https://doc.qt.io/qt-6.8/qml-qtquick-controls-progressbar.html)
 and [Qt RowLayout](https://doc.qt.io/qt-6.8/qml-qtquick-layouts-rowlayout.html).
+
+The [button group slot investigation](button-group-layout.md) now covers 23
+source cases across 184 contexts. Groups retain hidden-child allocation, flatten
+content slots, preserve fractional widths and center the fitted row in a caller
+proposal. Negative spacing can place later children outside the fitted extent.
+The focused geometry check does not close strict pixel, physical or reader gates.

@@ -495,7 +495,7 @@ Window {
     Component { id: progress; BleeckerProgress { width: 240; value: definition.value; size: definition.size; variant: definition.variant } }
     Component {
         id: buttonGroup
-        BleeckerButtonGroup { BleeckerButton { size: "xs"; text: "Short" } BleeckerButton { size: "lg"; text: "Tall" } }
+        ButtonGroupCase { definition: window.definition }
     }
     Component {
         id: header

@@ -31,3 +31,10 @@ This checkpoint records source behavior. It does not establish a Linux repair,
 strict pixel parity, native window/input behavior, physical display behavior,
 or screen-reader acceptance. Reference pins and expected captures are unchanged;
 the footer remains verification-pending in the parity inventory.
+
+The later ButtonGroup checkpoint changes seven shared catalog/consumer helpers.
+The footer verifier binds those original helpers to immutable commit
+`307f9ee8d31b8e5f7a6baba0e08f1aeb7abf9a58`; the footer implementation and
+fixture still match their current bytes. The new package separately replays all
+120 footer captures byte for byte, recorded in the
+[ButtonGroup evidence](../evidence/development/button-group-layout-20261019/footer-replay/result.json).

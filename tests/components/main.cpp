@@ -229,6 +229,11 @@ public slots:
         const auto footerData=QJsonDocument::fromJson(footer.readAll()).object();
         if(footerData.value("reference").toString()!="fe8a1d462fbd793d883fb92086a16aa2947e32c9" || footerData.value("captures").toArray().size()!=120)qFatal("Native footer source matrix invalid");
         engine->rootContext()->setContextProperty("nativeFooterCaptures",footerData.value("captures").toArray().toVariantList());
+        QFile buttonGroup(QStringLiteral(NATIVE_BUTTON_GROUP_FILE));
+        if(!buttonGroup.open(QIODevice::ReadOnly))qFatal("Native button group source evidence missing");
+        const auto buttonGroupData=QJsonDocument::fromJson(buttonGroup.readAll()).object();
+        if(buttonGroupData.value("reference").toString()!="fe8a1d462fbd793d883fb92086a16aa2947e32c9" || buttonGroupData.value("captures").toArray().size()!=184)qFatal("Native button group source matrix invalid");
+        engine->rootContext()->setContextProperty("nativeButtonGroupCaptures",buttonGroupData.value("captures").toArray().toVariantList());
         QFile sidebarBrand(QStringLiteral(NATIVE_SIDEBAR_BRAND_FILE));
         if(!sidebarBrand.open(QIODevice::ReadOnly))qFatal("Native sidebar/brand evidence missing");
         const auto sidebarData=QJsonDocument::fromJson(sidebarBrand.readAll()).object();
