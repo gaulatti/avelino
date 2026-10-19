@@ -1,0 +1,29 @@
+/Users/gaulatti/.codex/tmp/avelino-font-raster-native-20261019-v1/FontRaster.swift:45:29: warning: main actor-isolated property 'baseline' can not be mutated from a Sendable closure
+  9 | @MainActor final class Records {
+ 10 |     var frame: CGRect?
+ 11 |     var baseline: CGFloat?
+    |         `- note: mutation of this property is only permitted within the actor
+ 12 |     var font: CTFont?
+ 13 | }
+    :
+ 43 |                 })
+ 44 |                 .alignmentGuide(.firstTextBaseline) { dimensions in
+ 45 |                     records.baseline = dimensions[.firstTextBaseline]
+    |                             `- warning: main actor-isolated property 'baseline' can not be mutated from a Sendable closure
+ 46 |                     return dimensions[.firstTextBaseline]
+ 47 |                 }
+
+/Users/gaulatti/.codex/tmp/avelino-font-raster-native-20261019-v1/FontRaster.swift:88:58: error: 'noOptions' is unavailable: use [] to construct an empty option set
+ 86 |     var result: [String: String] = [:]
+ 87 |     for name in ["head", "hhea", "hmtx", "maxp", "OS/2", "cmap", "loca", "glyf", "name", "GPOS", "GSUB"] {
+ 88 |         if let value = CTFontCopyTable(font, tag(name), .noOptions) { result[name] = sha(value as Data) }
+    |                                                          `- error: 'noOptions' is unavailable: use [] to construct an empty option set
+ 89 |     }
+ 90 |     return result
+
+CoreText.CTFontTableOptions.noOptions:3:21: note: 'noOptions' has been explicitly marked unavailable here
+1 | struct CTFontTableOptions {
+2 | @available(*, unavailable, message: "use [] to construct an empty option set")
+3 |   public static var noOptions: CTFontTableOptions { get }}
+  |                     `- note: 'noOptions' has been explicitly marked unavailable here
+4 | 

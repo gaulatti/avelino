@@ -1,0 +1,14 @@
+/Users/gaulatti/.codex/tmp/avelino-font-raster-native-20261019-v5/FontRaster.swift:46:29: warning: main actor-isolated property 'baseline' can not be mutated from a Sendable closure
+  9 | @MainActor final class Records {
+ 10 |     var frame: CGRect?
+ 11 |     var baseline: CGFloat?
+    |         `- note: mutation of this property is only permitted within the actor
+ 12 |     var font: CTFont?
+ 13 | }
+    :
+ 44 |                 })
+ 45 |                 .alignmentGuide(.firstTextBaseline) { dimensions in
+ 46 |                     records.baseline = dimensions[.firstTextBaseline]
+    |                             `- warning: main actor-isolated property 'baseline' can not be mutated from a Sendable closure
+ 47 |                     return dimensions[.firstTextBaseline]
+ 48 |                 }
