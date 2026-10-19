@@ -448,6 +448,26 @@ half-open UTF-16 ranges so the first character of a day belongs to the day.
 Preedit pointer actions retain Qt's input-method click path. Assistive text edits
 enter through Qt input-method commits and the existing owner request path.
 
+Literal pointer hits keep Qt's normal focus path but do not activate the calendar.
+Classification uses the actual field reservation: an RTL mark can map a separator
+hit to the following year's logical cursor offset. The existing selected field
+and logical text remain intact. The
+[native literal-input investigation](../evidence/reference-investigations/date-range-literal-input-20261018/README.md)
+records unchanged selected-field pixels and model values for Hebrew, English and
+Arabic literals, followed by edits of the retained field. It also records an
+initial Hebrew literal click taking focus and selecting the native year. Initial
+field selection, other focus/IME histories, RTL glyph clipping and rendered-to-
+logical UTF-16 mapping remain unaccepted work; this input change does not establish
+those equivalences.
+Selected components also suppress the insertion caret while retaining cursor
+geometry for input methods and assistive queries. The
+[native selected-field supplement](../evidence/reference-investigations/date-range-selected-field-stability-20261019/README.md)
+records 106 stable captures across 8–13-second intervals. A scaled OpenGL replay
+exposed the old blinking insertion bar despite unchanged selection/model state.
+The [literal-input checkpoint](../evidence/development/date-literal-input-20261019/README.md)
+retains the failing run and the final compiled, independent-consumer and display
+verification; it does not establish full DateRangePicker parity.
+
 This integration is pinned to the inspected
 [Qt 6.8.3 TextInput implementation](https://github.com/qt/qtdeclarative/blob/v6.8.3/src/quick/items/qquicktextinput.cpp)
 and [scene-graph text implementation](https://github.com/qt/qtdeclarative/blob/v6.8.3/src/quick/items/qsginternaltextnode.cpp).

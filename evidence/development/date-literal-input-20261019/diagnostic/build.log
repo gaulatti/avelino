@@ -1,0 +1,33 @@
+[1/2] Building CXX object CMakeFiles/InstalledConsumer.dir/main.cpp.o
+In file included from /consumer-check/consumer/main.cpp:36:
+/consumer-check/consumer/tabschecks.h: In function ‘void runTabsConsumer(QQuickWindow*, QGuiApplication&, const QCommandLineParser&, double)’:
+/consumer-check/consumer/tabschecks.h:13:75: warning: format ‘%d’ expects argument of type ‘int’, but argument 7 has type ‘long long unsigned int’ [-Wformat=]
+   13 |     qInfo("Tabs interface: present=%d role=%d name=%s action=%d disabled=%d",bool(accessible),accessible ? int(accessible->role()) : -1,accessible ? qPrintable(accessible->text(QAccessible::Name)) : "missing",bool(accessible && accessible->actionInterface()),middleAccessible ? middleAccessible->state().disabled : -1);
+      |                                                                          ~^                                                                                                                                                                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                                           |                                                                                                                                                                                                         |
+      |                                                                           int                                                                                                                                                                                                       long long unsigned int
+      |                                                                          %lld
+/consumer-check/consumer/main.cpp: In function ‘void runCheckboxConsumer(QQuickWindow*, QGuiApplication&, const QCommandLineParser&, double)’:
+/consumer-check/consumer/main.cpp:81:86: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long long unsigned int’ [-Wformat=]
+   81 |         qCritical("Installed checkbox accessibility: interface=%d role=%d checkable=%d checked=%d name=%s",
+      |                                                                                     ~^
+      |                                                                                      |
+      |                                                                                      int
+      |                                                                                     %lld
+   82 |             accessible!=nullptr, accessible ? int(accessible->role()) : -1,
+   83 |             accessible ? accessible->state().checkable : -1,
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~                           
+      |                        |
+      |                        long long unsigned int
+/consumer-check/consumer/main.cpp:81:97: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘long long unsigned int’ [-Wformat=]
+   81 |         qCritical("Installed checkbox accessibility: interface=%d role=%d checkable=%d checked=%d name=%s",
+      |                                                                                                ~^
+      |                                                                                                 |
+      |                                                                                                 int
+      |                                                                                                %lld
+......
+   84 |             accessible ? accessible->state().checked : -1,
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~                                        
+      |                        |
+      |                        long long unsigned int
+[2/2] Linking CXX executable InstalledConsumer

@@ -1,0 +1,286 @@
+{
+  "accessibilityAcceptance": "pending; Qt interfaces and synthetic input are not screen-reader acceptance",
+  "appearance": "light",
+  "callerBindingChecks": "passed",
+  "compiler": "13.3.0",
+  "dpr": 1,
+  "fixture": "stepper",
+  "focusChecks": "passed",
+  "fontSymbolAcceptance": "pending; system monospace and original plus/minus geometry are unapproved candidates",
+  "graphicsApi": 3,
+  "height": 540,
+  "inputMethod": "QTest synthetic pointer/keyboard and actual Qt accessibility press actions",
+  "matchingNativeIntegerFormatterWitnesses": 126,
+  "nativeBehaviorTraces": [
+    {
+      "finalValue": "5",
+      "fixture": "normal",
+      "requests": [
+        "1",
+        "2",
+        "3",
+        "2"
+      ],
+      "status": "passed"
+    },
+    {
+      "finalValue": "5",
+      "fixture": "labeled-initializer",
+      "requests": [
+        "1",
+        "2",
+        "3",
+        "2"
+      ],
+      "status": "passed"
+    },
+    {
+      "finalValue": "6",
+      "fixture": "observe-only",
+      "requests": [
+        "1",
+        "3",
+        "3",
+        "1"
+      ],
+      "status": "passed"
+    },
+    {
+      "finalValue": "5",
+      "fixture": "lower",
+      "requests": [
+        "2",
+        "3",
+        "2"
+      ],
+      "status": "passed"
+    },
+    {
+      "finalValue": "5",
+      "fixture": "upper",
+      "requests": [
+        "9",
+        "10",
+        "9"
+      ],
+      "status": "passed"
+    },
+    {
+      "finalValue": "5",
+      "fixture": "below-range",
+      "requests": [
+        "-4",
+        "-3"
+      ],
+      "status": "passed"
+    },
+    {
+      "finalValue": "5",
+      "fixture": "above-range",
+      "requests": [
+        "14",
+        "13"
+      ],
+      "status": "passed"
+    },
+    {
+      "finalValue": "5",
+      "fixture": "equal-range",
+      "requests": [],
+      "status": "passed"
+    },
+    {
+      "finalValue": "5",
+      "fixture": "equal-below",
+      "requests": [
+        "5"
+      ],
+      "status": "passed"
+    },
+    {
+      "finalValue": "5",
+      "fixture": "equal-above",
+      "requests": [
+        "5"
+      ],
+      "status": "passed"
+    },
+    {
+      "finalValue": "5",
+      "fixture": "step-zero",
+      "requests": [
+        "2",
+        "2",
+        "2",
+        "2"
+      ],
+      "status": "passed"
+    },
+    {
+      "finalValue": "5",
+      "fixture": "step-negative",
+      "requests": [
+        "4",
+        "2",
+        "0"
+      ],
+      "status": "passed"
+    },
+    {
+      "finalValue": "5",
+      "fixture": "step-negative-cross",
+      "requests": [
+        "13",
+        "17"
+      ],
+      "status": "passed"
+    },
+    {
+      "finalValue": "5",
+      "fixture": "step-four",
+      "requests": [
+        "4",
+        "8",
+        "10",
+        "6"
+      ],
+      "status": "passed"
+    },
+    {
+      "finalValue": "5",
+      "fixture": "offset",
+      "requests": [
+        "1",
+        "2",
+        "3",
+        "2"
+      ],
+      "status": "passed"
+    },
+    {
+      "finalValue": "5",
+      "fixture": "negative-offset",
+      "requests": [
+        "1",
+        "2",
+        "3",
+        "2"
+      ],
+      "status": "passed"
+    },
+    {
+      "finalValue": "5",
+      "fixture": "integer-min",
+      "requests": [
+        "-9223372036854775807",
+        "-9223372036854775806",
+        "-9223372036854775807"
+      ],
+      "status": "passed"
+    },
+    {
+      "finalValue": "5",
+      "fixture": "integer-max",
+      "requests": [
+        "9223372036854775806",
+        "9223372036854775807",
+        "9223372036854775806"
+      ],
+      "status": "passed"
+    },
+    {
+      "finalValue": "5",
+      "fixture": "beyond-js-safe",
+      "requests": [
+        "9007199254740992",
+        "9007199254740993",
+        "9007199254740994",
+        "9007199254740993"
+      ],
+      "status": "passed"
+    },
+    {
+      "finalValue": "5",
+      "fixture": "disabled",
+      "requests": [],
+      "status": "passed"
+    },
+    {
+      "finalValue": "5",
+      "fixture": "rtl",
+      "requests": [
+        "1",
+        "2",
+        "3",
+        "2"
+      ],
+      "status": "passed"
+    },
+    {
+      "finalValue": "5",
+      "fixture": "narrow",
+      "requests": [
+        "1",
+        "2",
+        "3",
+        "2"
+      ],
+      "status": "passed"
+    },
+    {
+      "finalValue": "5",
+      "fixture": "parent-font30",
+      "requests": [
+        "1",
+        "2",
+        "3",
+        "2"
+      ],
+      "status": "passed"
+    },
+    {
+      "finalValue": "5",
+      "fixture": "subtract-int-min-safe",
+      "requests": [
+        "9223372036854775807"
+      ],
+      "status": "passed"
+    },
+    {
+      "finalValue": "5",
+      "fixture": "add-int-min-safe",
+      "requests": [
+        "-9223372036854775808"
+      ],
+      "status": "passed"
+    }
+  ],
+  "platform": "wayland",
+  "qt": "6.8.3",
+  "qtAccessibilityChecks": "passed",
+  "quickBackend": "",
+  "requestedGraphicsBackend": "opengl",
+  "sourceKeyboardAcceptance": "pending; Qt keyboard input is not source equivalence",
+  "stepperChecks": "passed",
+  "textScale": 1,
+  "width": 840,
+  "windowCaptureMethod": "QQuickWindow::grabWindow; full session captured separately",
+  "environmentRecord": "environment.json",
+  "session": "Weston Wayland nested on Xvfb X11",
+  "sessionCaptureMethod": "ImageMagick import -window root (full X11 output)",
+  "physicalDisplay": false,
+  "hardwareAcceleration": false,
+  "nativePointerControl": "parked outside clients and nested compositor; consumer pointer input is synthetic Qt input",
+  "nativePointerRecord": "native-pointer.txt",
+  "sessionOutputSize": [
+    2560,
+    1920
+  ],
+  "clientOutputSize": [
+    2400,
+    1800
+  ],
+  "sessionCapture": "stepper-wayland-opengl-standard-session.png",
+  "sessionCaptureSha256": "7c6ac1282e7d62b1516843bdd33283c2bb52286a523621da9b5ccbbb3bd290ba",
+  "windowCaptureSha256": "816785854d3233408b6be3726e37d23295ae1affd5599a7941842351a6e4bbd0"
+}

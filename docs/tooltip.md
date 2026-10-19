@@ -145,6 +145,13 @@ eight tooltip display profiles pass, but the complete display gate fails at
 303/304 records because scaled Wayland/OpenGL FileInput cannot save a capture.
 The runtime gate and mirror acceptance remain pending; see the
 [checkpoint evidence](../evidence/development/navigation-cjk-metrics-20261018/README.md).
+The later97fe54c compositor checkpoint fixes the independently reproduced popup
+parent-order crash. Its
+[complete display run](../evidence/development/weston-display-20261018/README.md)
+passes304/304 records, including160 tooltip remount frames and all eight FileInput
+profiles. This closes that run's gate; the earlier capture failure remains
+preserved without claiming its permanent cause is established. Native visual,
+reader and physical acceptance remain separate.
 
 `TooltipAccess` supplies the hint through the actual Qt accessible interface. A
 read-only metadata layer overlays description reads while leaving native

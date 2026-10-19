@@ -44,6 +44,7 @@ private:
     using Layouts=std::vector<std::unique_ptr<FieldLayout>>;
     Layouts layouts()const;
     void invalidateFields();
+    bool isLiteralAt(const QPointF &point)const;
     bool preeditMouseEvent(QMouseEvent *event);
     QVariantList m_fields,m_widths;
     int m_activeSegment=0;

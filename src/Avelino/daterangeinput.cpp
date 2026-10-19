@@ -193,6 +193,16 @@ bool DateRangeInput::preeditMouseEvent(QMouseEvent *event){
     }
     return false;
 }
+bool DateRangeInput::isLiteralAt(const QPointF &point)const{
+    const auto pieces=layouts();
+    for(qsizetype index=0;index<qsizetype(pieces.size());++index){
+        const auto &rectangle=pieces[index]->reservation;
+        if(point.x()>=rectangle.left()&&point.x()<rectangle.right()
+            &&point.y()>=rectangle.top()&&point.y()<=rectangle.bottom())
+            return m_fields[index].toMap()["kind"]=="literal";
+    }
+    return false;
+}
 void DateRangeInput::mousePressEvent(QMouseEvent *event){
     if(preeditMouseEvent(event))return;
     const QPointer<DateRangeInput> guard=this;
@@ -201,7 +211,10 @@ void DateRangeInput::mousePressEvent(QMouseEvent *event){
     QQuickTextField::mousePressEvent(event);
     // The template's internal mouse path uses its joined layout. Apply the
     // calendar selection after that path, using the actual visible field.
-    if(guard&&event->button()==Qt::LeftButton)emit fieldActivated(positionAt(event->position().x(),event->position().y(),CursorOnCharacter));
+    // Native literals can take focus but do not activate the calendar. Use the
+    // reservation: RTL marks can map a literal hit to the next editable cursor.
+    if(guard&&event->button()==Qt::LeftButton&&!isLiteralAt(event->position()))
+        emit fieldActivated(positionAt(event->position().x(),event->position().y(),CursorOnCharacter));
 }
 void DateRangeInput::mouseReleaseEvent(QMouseEvent *event){
     if(preeditMouseEvent(event))return;
@@ -221,7 +234,9 @@ QSGNode *DateRangeInput::updatePaintNode(QSGNode *oldNode,UpdatePaintNodeData *)
         // TextInput does, despite the public header naming it selectionCount.
         node->addTextLayout(field->origin,&field->text,first<last ? first:-1,first<last ? last-1:-1);clipping->appendChildNode(node);
     }
-    if(!isReadOnly()&&!d->cursorItem&&isCursorVisible()&&d->m_blinkStatus){
+    // The native segmented picker keeps a selected component stable, without
+    // a blinking insertion bar. Cursor geometry still serves input methods.
+    if(selectionStart()==selectionEnd()&&!isReadOnly()&&!d->cursorItem&&isCursorVisible()&&d->m_blinkStatus){
         auto clipping=fieldClipNode(content);clipping->appendChildNode(new QSGSimpleRectNode(fieldCursorRectangle(),color()));root->appendChildNode(clipping);
     }
     return root;

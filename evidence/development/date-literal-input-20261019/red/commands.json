@@ -1,0 +1,62 @@
+[
+  {
+    "dpr": 1,
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/date-literal-hit-red-v2:/tests:ro",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/navigation-cjk-package-v2/runtime/install:/runtime/install:ro",
+      "--env",
+      "QT_QPA_PLATFORM=offscreen",
+      "--env",
+      "QT_QUICK_BACKEND=software",
+      "--env",
+      "QT_SCALE_FACTOR=1",
+      "avelino-toolchain:weston13-popup-parent-v2-20261018-qt6.8.3",
+      "/opt/qt/bin/qmltestrunner",
+      "-input",
+      "/tests/tst_literal_hits.qml",
+      "-import",
+      "/runtime/install/lib/qml"
+    ],
+    "exitCode": 16,
+    "seconds": 5.60182750003878
+  },
+  {
+    "dpr": 2,
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/date-literal-hit-red-v2:/tests:ro",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/navigation-cjk-package-v2/runtime/install:/runtime/install:ro",
+      "--env",
+      "QT_QPA_PLATFORM=offscreen",
+      "--env",
+      "QT_QUICK_BACKEND=software",
+      "--env",
+      "QT_SCALE_FACTOR=2",
+      "avelino-toolchain:weston13-popup-parent-v2-20261018-qt6.8.3",
+      "/opt/qt/bin/qmltestrunner",
+      "-input",
+      "/tests/tst_literal_hits.qml",
+      "-import",
+      "/runtime/install/lib/qml"
+    ],
+    "exitCode": 16,
+    "seconds": 6.161826541065238
+  }
+]

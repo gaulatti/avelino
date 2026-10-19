@@ -46,6 +46,25 @@ Item {
         const p=item.mapToItem(fixture,0,0)
         return {x:p.x,y:p.y,width:item.width,height:item.height}
     }
+    function literalInputState(endpoint:string):var {
+        const field=picker[endpoint+"Field"],input=field.input
+        return {selectedSegment:field.selectedSegment,selectionStart:input.selectionStart,selectionEnd:input.selectionEnd,
+            text:input.text,activeFocus:input.activeFocus,calendarVisible:field.panel.visible}
+    }
+    function prepareLiteralInput(value):var {
+        const field=picker[value.endpoint+"Field"],input=field.input
+        const selected=field.editable.findIndex(piece=>piece.kind===value.selectedKind)
+        if(selected<0)throw new Error("Native selected field missing")
+        field.selectedSegment=selected;input.forceActiveFocus(Qt.OtherFocusReason);field.restoreSelection()
+        const literals=[];for(let i=0;i<input.fields.length;++i)if(input.fields[i].kind==="literal")literals.push(i)
+        const index=literals[value.literalOrdinal]
+        if(index===undefined||input.reservedWidths[index]<=0)throw new Error("Native literal reservation missing")
+        let advance=0;for(let i=0;i<index;++i)advance+=input.reservedWidths[i]
+        const reserved=input.reservedWidths[index]
+        const left=input.horizontalAlignment===TextInput.AlignRight ? input.width-input.rightPadding-advance-reserved:input.leftPadding+advance
+        const x=left+reserved/2,y=input.height/2
+        return {x:x,y:y,literal:input.fields[index].text,position:input.positionAt(x,y,TextInput.CursorOnCharacter)}
+    }
     function snapshot():var {
         if(!picker)return {ready:false}
         const arrow=picker.presentationItem.children.find(item=>item.objectName==="bleeckerDateArrow")

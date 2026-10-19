@@ -14,7 +14,7 @@ static void runDateRangeConsumer(QQuickWindow *window,QGuiApplication &app,const
     auto call=[&](QObject *target,const char *method,const QJsonObject &value){return check(QMetaObject::invokeMethod(target,method,Q_ARG(QVariant,value.toVariantMap())),"Caller update failed");};
     auto frame=[&](){return check(waitForShapeFrame(window)&&waitForShapeFrame(window),"Rendered frame missing");};
     auto save=[&](const QString &name){return prefix.isEmpty()||check(!QFile::exists(prefix+"-"+name+".png")&&window->grabWindow().save(prefix+"-"+name+".png"),"Capture exists or failed");};
-    QJsonArray closed,inputs,operators,histories,chinese;int modelMatches=0,geometryMatches=0,historyModels=0,historyGeometry=0,historyInstances=0,historyCalendars=0,historyEnvironment=0,chineseModels=0,chineseTexts=0,chineseCalendars=0,chineseIntrinsic=0;
+    QJsonArray closed,inputs,operators,histories,chinese,literalInput;int modelMatches=0,geometryMatches=0,historyModels=0,historyGeometry=0,historyInstances=0,historyCalendars=0,historyEnvironment=0,chineseModels=0,chineseTexts=0,chineseCalendars=0,chineseIntrinsic=0;
     auto configure=[&](const QJsonObject &configuration){
         fixture->setProperty("mounted",false);if(!frame())return false;
         if(!check(QMetaObject::invokeMethod(fixture,"resetCounters"),"Counter reset missing")||!call(window,"configure",configuration))return false;
@@ -138,12 +138,59 @@ static void runDateRangeConsumer(QQuickWindow *window,QGuiApplication &app,const
             if(!check(actual["displayed"].toArray()[0].toDouble()==1741536000.625&&model["start"].toDouble()==(policy=="echo"?1741536000.625:1710000000.625)&&model["end"].toDouble()==1710864000.125&&model["requests"].toArray().size()==1,"Owner/input behavior differs"))return;
             inputs.append(QJsonObject{{"owner",policy},{"actual",actual}});if(!save("input-"+policy))return;
         }
+        QFile literalSource(":/avelino/fixtures/native-date-literal-input-witnesses.json");
+        if(!check(literalSource.open(QIODevice::ReadOnly),"Native literal input observations missing"))return;
+        const auto literalWitness=QJsonDocument::fromJson(literalSource.readAll()).object();
+        if(!check(literalWitness["reference"]==native["reference"]&&literalWitness["accepted"]==false
+            &&literalWitness["profiles"].toArray().size()==4,"Native literal input observations incomplete"))return;
+        auto literalState=[&](const QString &endpoint){
+            QVariant state;
+            if(!QMetaObject::invokeMethod(fixture,"literalInputState",Q_RETURN_ARG(QVariant,state),Q_ARG(QString,endpoint)))return QJsonObject{};
+            return QJsonObject::fromVariantMap(state.toMap());
+        };
+        for(const auto &entry:literalWitness["profiles"].toArray())for(const bool callerRtl:{false,true})for(const QString endpoint:{"start","end"}){
+            const auto profile=entry.toObject();auto configuration=base;
+            configuration["pickerStyle"]="inherit";configuration["locale"]=profile["locale"];configuration["calendar"]=profile["calendar"];configuration["rtl"]=callerRtl;
+            if(!configure(configuration))return;
+            auto settings=profile;settings["endpoint"]=endpoint;QVariant prepared;
+            if(!check(QMetaObject::invokeMethod(fixture,"prepareLiteralInput",Q_RETURN_ARG(QVariant,prepared),Q_ARG(QVariant,settings.toVariantMap())),"Literal input setup failed")||!frame())return;
+            const auto point=QJsonObject::fromVariantMap(prepared.toMap());
+            auto picker=fixture->property("picker").value<QQuickItem*>();auto editor=picker->property((endpoint+"Input").toUtf8()).value<QQuickItem*>();
+            const auto before=literalState(endpoint),beforeModel=dateRangeSnapshot(fixture)["model"].toObject();const auto beforePixels=window->grabWindow();
+            if(!check(editor&&!before.isEmpty()&&before["activeFocus"].toBool()&&!before["calendarVisible"].toBool()&&!beforePixels.isNull(),"Literal input baseline missing"))return;
+            QTest::mouseClick(editor->window(),Qt::LeftButton,Qt::NoModifier,editor->mapToScene(QPointF(point["x"].toDouble(),point["y"].toDouble())).toPoint());
+            if(!frame())return;
+            const auto after=literalState(endpoint),afterModel=dateRangeSnapshot(fixture)["model"].toObject();const auto afterPixels=window->grabWindow();
+            if(after!=before||afterModel!=beforeModel||beforePixels!=afterPixels){
+                const QJsonObject failure{{"sourceCase",profile["nativeCase"]},{"endpoint",endpoint},{"callerRtl",callerRtl},{"point",point},
+                    {"before",before},{"after",after},{"beforeModel",beforeModel},{"afterModel",afterModel},
+                    {"sameState",after==before},{"sameModel",afterModel==beforeModel},{"samePixels",beforePixels==afterPixels}};
+                qWarning().noquote()<<"LITERAL_FAILURE"<<QJsonDocument(failure).toJson(QJsonDocument::Compact);
+                if(!prefix.isEmpty()&&!QFile::exists(prefix+"-failed.json")){
+                    beforePixels.save(prefix+"-failed-before.png");afterPixels.save(prefix+"-failed-after.png");
+                    QFile detail(prefix+"-failed.json");if(detail.open(QIODevice::WriteOnly))detail.write(QJsonDocument(failure).toJson());
+                }
+            }
+            if(!check(after==before&&afterModel==beforeModel&&beforePixels==afterPixels,"Literal click changed selection, pixels, focus, model or calendar"))return;
+            QTest::keyClick(editor->window(),Qt::Key_Up);if(!frame())return;
+            const auto stepped=dateRangeSnapshot(fixture),model=stepped["model"].toObject();const auto requests=model["requests"].toArray();
+            if(!check(requests.size()==1&&requests[0].toObject()["endpoint"]==endpoint
+                &&literalState(endpoint)["selectedSegment"]==before["selectedSegment"],"Literal click changed the following edit target"))return;
+            if(endpoint=="start"){
+                if(!check(model["start"]==profile["nativeStartAfterUp"]&&model["end"].toDouble()==1710864000.125,"Literal retained-field edit differs from native source"))return;
+            }else if(!check(model["start"].toDouble()==1710000000.625,"End literal edit changed the start"))return;
+            literalInput.append(QJsonObject{{"sourceCase",profile["nativeCase"]},{"endpoint",endpoint},{"callerRtl",callerRtl},
+                {"point",point},{"before",before},{"after",after},{"samePixels",true},{"afterUp",stepped},{"nativeValueCompared",endpoint=="start"}});
+            if(!save("literal-"+profile["nativeCase"].toString()+"-"+endpoint+(callerRtl?"-rtl1":"-rtl0")))return;
+        }
+        if(!check(literalInput.size()==16,"Literal input matrix incomplete"))return;
     }
     const bool strict=closed.isEmpty()||(modelMatches==closed.size()&&geometryMatches==closed.size()&&historyModels==histories.size()&&historyGeometry==histories.size()&&historyInstances==histories.size()&&historyCalendars==histories.size()&&historyEnvironment==histories.size()&&chineseModels==chinese.size()&&chineseTexts==chinese.size()&&chineseCalendars==chinese.size()&&chineseIntrinsic==chinese.size());
     if(!prefix.isEmpty()){
-        const QJsonObject report{{"fixture","date-range"},{"structuralChecks","passed"},{"platform",QGuiApplication::platformName()},{"graphicsApi",int(window->rendererInterface()->graphicsApi())},{"width",window->width()},{"height",window->height()},{"appearance",parser.isSet("dark")?"dark":"light"},{"accepted",false},{"reference","fe8a1d462fbd793d883fb92086a16aa2947e32c9"},{"textScale",textScale},{"dpr",window->devicePixelRatio()},{"closed",closed},{"input",inputs},{"gallery",operators},{"histories",histories},{"chinese",chinese},{"chineseModelMatches",chineseModels},{"chineseTextMatches",chineseTexts},{"chineseCalendarMatches",chineseCalendars},{"chineseIntrinsicSizeMatches",chineseIntrinsic},{"historyModelMatches",historyModels},{"historyGeometryMatches",historyGeometry},{"historyEditorInstanceMatches",historyInstances},{"historyCalendarMatches",historyCalendars},{"historyEnvironmentMatches",historyEnvironment},{"modelMatches",modelMatches},{"geometryMatches",geometryMatches},{"strictObservationsMatch",strict},{"visualAcceptance","pending"},{"readerPhysicalAcceptance","pending"}};
+        const QJsonObject report{{"fixture","date-range"},{"structuralChecks","passed"},{"platform",QGuiApplication::platformName()},{"graphicsApi",int(window->rendererInterface()->graphicsApi())},{"width",window->width()},{"height",window->height()},{"appearance",parser.isSet("dark")?"dark":"light"},{"accepted",false},{"reference","fe8a1d462fbd793d883fb92086a16aa2947e32c9"},{"textScale",textScale},{"dpr",window->devicePixelRatio()},{"closed",closed},{"input",inputs},{"literalInput",literalInput},{"gallery",operators},{"histories",histories},{"chinese",chinese},{"chineseModelMatches",chineseModels},{"chineseTextMatches",chineseTexts},{"chineseCalendarMatches",chineseCalendars},{"chineseIntrinsicSizeMatches",chineseIntrinsic},{"historyModelMatches",historyModels},{"historyGeometryMatches",historyGeometry},{"historyEditorInstanceMatches",historyInstances},{"historyCalendarMatches",historyCalendars},{"historyEnvironmentMatches",historyEnvironment},{"modelMatches",modelMatches},{"geometryMatches",geometryMatches},{"strictObservationsMatch",strict},{"visualAcceptance","pending"},{"readerPhysicalAcceptance","pending"}};
         QFile output(prefix+".json");if(!check(output.open(QIODevice::WriteOnly|QIODevice::NewOnly)&&output.write(QJsonDocument(report).toJson())>0,"Report write failed"))return;
     }
+    qInfo("DateRangePicker native literal input: %lld Qt pointer/retained-field checks; native initial-field and RTL glyph acceptance pending",literalInput.size());
     qInfo("DateRangePicker typed history: %lld steps, %d model/lifecycle, %d raw geometry, %d editor identity and %d calendar matches",histories.size(),historyModels,historyGeometry,historyInstances,historyCalendars);
     qInfo("DateRangePicker: %lld cold contexts, %d exact models, %d exact geometry, %lld input owners, %lld gallery operators; acceptance pending",closed.size(),modelMatches,geometryMatches,inputs.size(),operators.size());
     if(!strict&&!parser.isSet("date-range-observe")){check(false,"Native model/geometry differs; observations retained");return;}

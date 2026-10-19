@@ -1,0 +1,97 @@
+[
+  {
+    "name": "tokens",
+    "command": [
+      "node",
+      "scripts/generate-tokens.mjs",
+      "--check"
+    ],
+    "exitCode": 0,
+    "seconds": 0.7686599999433383
+  },
+  {
+    "name": "references",
+    "command": [
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/date-range-visual-venv/bin/python",
+      "scripts/verify-references.py"
+    ],
+    "exitCode": 0,
+    "seconds": 0.8160852500004694
+  },
+  {
+    "name": "discovery",
+    "command": [
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/date-range-visual-venv/bin/python",
+      "scripts/discover-reference.py",
+      "--check"
+    ],
+    "exitCode": 0,
+    "seconds": 1.085721708019264
+  },
+  {
+    "name": "date-source",
+    "command": [
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/date-range-visual-venv/bin/python",
+      "scripts/verify-date-range-source.py"
+    ],
+    "exitCode": 0,
+    "seconds": 2.045857875025831
+  },
+  {
+    "name": "date-font",
+    "command": [
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/date-range-visual-venv/bin/python",
+      "scripts/verify-date-range-font-source.py"
+    ],
+    "exitCode": 0,
+    "seconds": 0.1811066250083968
+  },
+  {
+    "name": "chinese-source",
+    "command": [
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/date-range-visual-venv/bin/python",
+      "scripts/verify-date-chinese-source.py"
+    ],
+    "exitCode": 0,
+    "seconds": 0.3212932499591261
+  },
+  {
+    "name": "date-witnesses",
+    "command": [
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/date-range-visual-venv/bin/python",
+      "scripts/generate-date-range-witnesses.py",
+      "--check"
+    ],
+    "exitCode": 0,
+    "seconds": 0.5484699999215081
+  },
+  {
+    "name": "chinese-witnesses",
+    "command": [
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/date-range-visual-venv/bin/python",
+      "scripts/generate-date-chinese-witnesses.py",
+      "--check"
+    ],
+    "exitCode": 0,
+    "seconds": 0.16911791707389057
+  },
+  {
+    "name": "literal-source",
+    "command": [
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/date-range-visual-venv/bin/python",
+      "scripts/generate-date-literal-input-witnesses.py",
+      "--check"
+    ],
+    "exitCode": 0,
+    "seconds": 0.16913541709072888
+  },
+  {
+    "name": "runtime-contracts",
+    "command": [
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/date-range-visual-venv/bin/python",
+      "scripts/verify-ci-runtime-contracts.py"
+    ],
+    "exitCode": 0,
+    "seconds": 0.4360041250474751
+  }
+]
