@@ -2,6 +2,11 @@
 
 This is a checkpoint record, not desktop or TV acceptance.
 
+Retained app-tab raster evidence directories use mode `0755` so the host runner
+can traverse and upload evidence produced by a root-running test container.
+The test checks the permission change before retaining its temporary directory.
+Image comparisons and visual acceptance criteria remain unchanged.
+
 | Gate | Evidence | Result |
 | --- | --- | --- |
 | Immutable source inputs | `scripts/verify-references.py`, reference CI | Both exact archives verify in clean extraction directories; source hashes and dependency locks match |
