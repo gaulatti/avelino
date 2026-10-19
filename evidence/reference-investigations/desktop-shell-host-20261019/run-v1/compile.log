@@ -1,0 +1,23 @@
+/Users/gaulatti/.codex/tmp/avelino-shell-host-native-20261019-v1/ShellHost.swift:30:23: error: extraneous argument label 'value:' in call
+ 28 |     }
+ 29 |     var tabs: [BleeckerAppTab<String>] { hasTabs ? [
+ 30 |         BleeckerAppTab(value: "news", label: "News", systemImage: "newspaper", badge: 8),
+    |                       `- error: extraneous argument label 'value:' in call
+ 31 |         BleeckerAppTab(value: "saved", label: "Saved", systemImage: "bookmark", accessibilityLabel: "Stored items", disabled: true)
+ 32 |     ] : [] }
+
+/Users/gaulatti/.codex/tmp/avelino-shell-host-native-20261019-v1/ShellHost.swift:31:23: error: extraneous argument label 'value:' in call
+ 29 |     var tabs: [BleeckerAppTab<String>] { hasTabs ? [
+ 30 |         BleeckerAppTab(value: "news", label: "News", systemImage: "newspaper", badge: 8),
+ 31 |         BleeckerAppTab(value: "saved", label: "Saved", systemImage: "bookmark", accessibilityLabel: "Stored items", disabled: true)
+    |                       `- error: extraneous argument label 'value:' in call
+ 32 |     ] : [] }
+ 33 |     var body: some View {
+
+/Users/gaulatti/.codex/tmp/avelino-shell-host-native-20261019-v1/ShellHost.swift:52:22: error: cannot convert value of type 'KeyPath<EnvironmentValues, Bool>' to expected argument type 'WritableKeyPath<EnvironmentValues, Bool>'
+ 50 |         .environment(\.colorScheme, .light)
+ 51 |         .environment(\.locale, Locale(identifier: "en_US"))
+ 52 |         .environment(\.accessibilityReduceMotion, true)
+    |                      `- error: cannot convert value of type 'KeyPath<EnvironmentValues, Bool>' to expected argument type 'WritableKeyPath<EnvironmentValues, Bool>'
+ 53 |     }
+ 54 | }
