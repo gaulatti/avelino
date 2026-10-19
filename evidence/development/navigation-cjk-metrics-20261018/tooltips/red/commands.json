@@ -1,0 +1,119 @@
+[
+  {
+    "name": "configure",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/tooltip-remount-red-v1:/consumer-check",
+      "-w",
+      "/consumer-check",
+      "avelino-toolchain:recovered-weston13-cjk-v1-20261018-qt6.8.3",
+      "cmake",
+      "-S",
+      "consumer",
+      "-B",
+      "consumer-build",
+      "-G",
+      "Ninja",
+      "-DCMAKE_PREFIX_PATH=/consumer-check/install;/opt/qt"
+    ],
+    "exitCode": 0,
+    "seconds": 2.719077582936734
+  },
+  {
+    "name": "build",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/tooltip-remount-red-v1:/consumer-check",
+      "-w",
+      "/consumer-check",
+      "avelino-toolchain:recovered-weston13-cjk-v1-20261018-qt6.8.3",
+      "cmake",
+      "--build",
+      "consumer-build",
+      "--parallel",
+      "4"
+    ],
+    "exitCode": 0,
+    "seconds": 184.7096400409937
+  },
+  {
+    "name": "attempt1",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/tooltip-remount-red-v1/runtime:/display-check",
+      "-w",
+      "/display-check",
+      "avelino-toolchain:recovered-weston13-cjk-v1-20261018-qt6.8.3",
+      "bash",
+      "check.sh",
+      "/display-check/attempt1"
+    ],
+    "exitCode": 0,
+    "seconds": 4.919018708053045
+  },
+  {
+    "name": "attempt2",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/tooltip-remount-red-v1/runtime:/display-check",
+      "-w",
+      "/display-check",
+      "avelino-toolchain:recovered-weston13-cjk-v1-20261018-qt6.8.3",
+      "bash",
+      "check.sh",
+      "/display-check/attempt2"
+    ],
+    "exitCode": 0,
+    "seconds": 5.051336125005037
+  },
+  {
+    "name": "attempt3",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/tooltip-remount-red-v1/runtime:/display-check",
+      "-w",
+      "/display-check",
+      "avelino-toolchain:recovered-weston13-cjk-v1-20261018-qt6.8.3",
+      "bash",
+      "check.sh",
+      "/display-check/attempt3"
+    ],
+    "exitCode": 1,
+    "seconds": 7.9727674999739975
+  }
+]

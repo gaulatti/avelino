@@ -55,6 +55,13 @@ identity; replacement or removal/reinsertion resets it. The helper's PageHeader
 case named `nil-handler` supplies empty actions. PageHeader has no optional
 selection callback.
 
+The shared navigation fixture starts with `Éditions 東京`. Its Unicode title uses
+the captured 32-point line box and 68-point header height with CJK fonts installed.
+The owned text shaper requests typographic metrics for bundled-font text and its
+fallback runs. The installed consumer changes the title to Latin and back while
+checking the height, action state and editing focus. The existing source geometry
+assertions remain intact; glyph/raster and reader acceptance are still pending.
+
 ## Breadcrumb
 
 The source accepts an item array and optional `(Int) -> Void` callback. Item titles

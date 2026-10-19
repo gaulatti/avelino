@@ -191,6 +191,10 @@ Default button labels use an owned `ButtonLabel` painted item. Qt shapes at
 font design-unit precision; the two bundled families now resolve sizes, line
 boxes and intrinsic view bounds using [measured native typography](typography.md).
 The requested logical size remains separate from the source-resolved glyph size.
+Shaping for the two bundled families uses typographic line metrics, including
+their fallback runs. This keeps CJK coverage from enlarging the native line box:
+the captured Unicode page header remains 68 points high with Noto CJK installed.
+Glyph size and fallback coverage remain separate from native raster acceptance.
 For example, a source custom-font request of 19.5 resolves to 20, with a 25-unit
 line box and baseline 21. This corrects the earlier assumption that preserving
 the fractional request as the rendered size reproduced the source.

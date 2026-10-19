@@ -6,6 +6,7 @@ import QtQuick.Templates as T
 QtObject {
     id:host
     property QtObject owner:null
+    readonly property TooltipWindowLifecycle windowLifecycle:TooltipWindowLifecycle {target:popup.contentItem}
     readonly property T.ToolTip presentation:T.ToolTip {
         id:popup;objectName:"bleeckerTooltipPresentation"
         popupType:T.Popup.Window

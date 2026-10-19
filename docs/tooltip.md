@@ -128,6 +128,24 @@ grab. Caller hover, input, focus, layout and local state remain with the caller.
 The shown text is retained until the next presentation; editing the hint updates
 the accessible description independently.
 
+The owned tooltip window allows Qt to release its graphics and scene graph
+resources when hidden so a remount can create resources for its new native
+surface. The policy follows the popup content's window
+and applies only to `Qt::ToolTip`; the caller window keeps its graphics policy.
+The installed consumer repeatedly removes and remounts a visible help owner,
+requiring twenty displayed popup frames, fresh caller state and retained editor
+focus. The popup remains a separate `Popup.Window` throughout.
+
+The October 18 development checkpoint retains unresolved runtime failures.
+The identical consumer passes 19 of 20 focused runs; the other run crashes
+Weston 13.0.4. A sanitizer build of that exact compositor catches a null parent
+view in `weston_desktop_surface_update_view_position`. Forty ordinary runs pass
+without reproducing the crash, which does not establish its resolution. All
+eight tooltip display profiles pass, but the complete display gate fails at
+303/304 records because scaled Wayland/OpenGL FileInput cannot save a capture.
+The runtime gate and mirror acceptance remain pending; see the
+[checkpoint evidence](../evidence/development/navigation-cjk-metrics-20261018/README.md).
+
 `TooltipAccess` supplies the hint through the actual Qt accessible interface. A
 read-only metadata layer overlays description reads while leaving native
 description fields, writes, bindings, Action proxies and Behaviors intact. On

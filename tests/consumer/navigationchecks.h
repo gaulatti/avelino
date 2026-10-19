@@ -5,6 +5,8 @@ static void runNavigationConsumer(QQuickWindow *window,QGuiApplication &app,cons
     auto requests=[window]{return qjsvalue_cast<QVariantList>(window->property("requests").value<QJSValue>());};
     auto header=item("consumerPageHeader"),crumb=item("consumerBreadcrumb"),field=item("headerChildField"),action=item("headerChildAction");
     if(!check(header&&crumb&&field&&action,"missing header or breadcrumb"))return;
+    auto headerBody=header->property("presentationItem").value<QQuickItem*>();
+    if(!check(window->property("heading").toString()==QString::fromUtf8("Éditions 東京")&&headerBody&&headerBody->implicitHeight()==68,"Unicode title retains the source header height with CJK fonts"))return;
     const auto originalPath=window->property("path");
     auto narrow=item("narrowBreadcrumb"),rtl=item("rtlBreadcrumb");
     auto narrowBody=narrow ? narrow->property("presentationItem").value<QQuickItem*>():nullptr;
@@ -21,6 +23,8 @@ static void runNavigationConsumer(QQuickWindow *window,QGuiApplication &app,cons
     if(!check(window->property("count").toInt()==3,"header pointer/keyboard/Qt accessibility activation"))return;
     click(field);QTest::keyClick(window,Qt::Key_X);window->setProperty("heading","Updated title");QTest::qWait(20);
     if(!check(item("headerChildAction")==action&&field->hasActiveFocus()&&field->property("text").toString()=="x"&&window->property("mounts").toInt()==1,"producer update preserves caller identity/private state/focus"))return;
+    window->setProperty("heading",QString::fromUtf8("Éditions 東京"));QTest::qWait(20);
+    if(!check(headerBody->implicitHeight()==68&&item("headerChildAction")==action&&window->property("count").toInt()==3&&field->hasActiveFocus(),"Restoring Unicode keeps line height, action state and editing focus"))return;
     header->setEnabled(false);click(action);ax->actionInterface()->doAction(QAccessibleActionInterface::pressAction());QTest::qWait(20);
     if(!check(ax->state().disabled&&window->property("count").toInt()==3,"disabled header action suppression"))return;
     header->setEnabled(true);click(last);last->forceActiveFocus(Qt::TabFocusReason);QTest::keyClick(window,Qt::Key_Space);crumbAx->actionInterface()->doAction(QAccessibleActionInterface::pressAction());QTest::qWait(20);

@@ -1,0 +1,39 @@
+Date: 2026-10-18 UTC
+[22:16:33.547] weston 13.0.4
+               https://wayland.freedesktop.org
+               Bug reports to: https://gitlab.freedesktop.org/wayland/weston/issues/
+               Build: 13.0.4
+[22:16:33.579] Command line: weston --backend=x11 --renderer=pixman --width=2400 --height=1800 --socket=avelino-wayland --idle-time=0 --config=/tmp/tmp.U12bzM2CPU/weston.ini --log=/display-check/trace-v2-1/weston.log
+[22:16:33.581] OS: Linux, 6.8.0-117-generic, #117-Ubuntu SMP PREEMPT_DYNAMIC Thu May  7 17:26:37 UTC 2026, aarch64
+[22:16:33.588] Flight recorder: enabled
+[22:16:33.590] Using config file '/tmp/tmp.U12bzM2CPU/weston.ini'
+[22:16:33.599] Output repaint window is 7 ms maximum.
+[22:16:33.606] Loading module '/opt/weston-13.0.4/lib/libweston-13/x11-backend.so'
+[22:16:33.623] Using Pixman renderer
+[22:16:33.646] Registered plugin API 'weston_windowed_output_api_v2' of size 16
+[22:16:33.647] Color manager: no-op
+[22:16:33.647] Output 'screen0' attempts EOTF mode: SDR
+[22:16:33.647] Output 'screen0' using color profile: stock sRGB color profile
+[22:16:33.649] Found visual, bits per value: 8, red_mask: 00ff0000, green_mask: 0000ff00, blue_mask: 000000ff
+[22:16:33.649] Visual depth is 24
+[22:16:33.649] Found format for depth 24, bpp: 32
+[22:16:33.649] Will use x8r8g8b8 format for SHM surfaces
+[22:16:33.650] x11 output 2400x1800, window id 2097157
+[22:16:33.650] Output 'screen0' enabled with head(s) screen0
+[22:16:33.650] Compositor capabilities:
+               arbitrary surface rotation: yes
+               screen capture uses y-flip: no
+               cursor planes: no
+               arbitrary resolutions: no
+               view mask clipping: yes
+               explicit sync: no
+               color operations: no
+               presentation clock: CLOCK_MONOTONIC_RAW, id 4
+               presentation clock resolution: 0.000000001 s
+[22:16:33.651] Loading module '/opt/weston-13.0.4/lib/weston/desktop-shell.so'
+[22:16:33.653] launching '/opt/weston-13.0.4/libexec/weston-keyboard'
+[22:16:33.659] launching '/opt/weston-13.0.4/libexec/weston-desktop-shell'
+[22:16:35.727] Detected an unmapped surface or view in the layer list, which should not occur.
+               Warning: the above message will not be printed again.
+[22:16:41.210] caught signal 15
+[22:16:41.211] BUG: finalizing a layer with views still on it.
