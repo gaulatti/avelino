@@ -5,6 +5,8 @@
 #include <QtQml/qqml.h>
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QQmlComponent>
+#include <memory>
 #include <QTimer>
 #include <QQuickWindow>
 #include <QQuickItem>
@@ -209,6 +211,28 @@ static void runSelectionConsumer(QQuickWindow *window, QGuiApplication &app,
     QObject::connect(timer,&QTimer::timeout,&app,[&app,path] { if (QFile::exists(path+".captured")) app.exit(0); });
     timer->start(100); QTimer::singleShot(10000,&app,[&app] { app.exit(77); });
 }
+static bool verifyInstalledFooterSlots(QQuickWindow *window) {
+    for (const auto &name : {"emptyFooterFactory", "footerSlotsFactory"}) {
+        const auto component=window->property(name).value<QQmlComponent *>();
+        if (!component) return false;
+        std::unique_ptr<QObject> object(component->create(qmlContext(window)));
+        const auto footer=qobject_cast<QQuickItem *>(object.get());
+        if (!footer) return false;
+        footer->setParentItem(window->contentItem());
+        QTest::qWait(80);
+        const bool empty=std::strcmp(name,"emptyFooterFactory")==0;
+        if (footer->width()!=300 || footer->height()!=(empty ? 1 : 131)) return false;
+        if (!empty) {
+            const auto first=findVisualItem(footer,"firstFooterSlot");
+            const auto second=findVisualItem(footer,"secondFooterSlot");
+            if (!first || !second || first->width()!=80 || first->height()!=20
+                || second->width()!=40 || second->height()!=30
+                || first->mapToItem(footer,QPointF())!=QPointF(110,21)
+                || second->mapToItem(footer,QPointF())!=QPointF(130,81)) return false;
+        }
+    }
+    return true;
+}
 static void runCompositionConsumer(QQuickWindow *window, QGuiApplication &app,
                                    const QCommandLineParser &parser, double textScale) {
     auto item = [window](const QString &name) { return findVisualItem(window->contentItem(),name); };
@@ -218,6 +242,9 @@ static void runCompositionConsumer(QQuickWindow *window, QGuiApplication &app,
     const auto first=item("bleeckerDashboardTile0"), second=item("bleeckerDashboardTile1");
     if (!shell || !grid || !section || !action || !feed || !footer || !sidebar || !content || !first || !second) {
         qCritical("Installed composition is missing a visual slot"); app.exit(50); return;
+    }
+    if (!verifyInstalledFooterSlots(window)) {
+        qCritical("Installed footer absent/multiple-slot source geometry differs"); app.exit(55); return;
     }
     if (grid->property("columns").toInt()!=2 || sidebar->width()!=240 || content->width()!=519
         || first->width()!=251.5 || second->x()!=267.5 || first->height()<=0 || footer->height()<=41) {

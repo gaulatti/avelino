@@ -48,6 +48,7 @@ target_compile_definitions(AvelinoComponentTests PRIVATE
     NATIVE_NUMERIC_TEXT_FILE="${PROJECT_SOURCE_DIR}/evidence/geometry/native-numeric-text.json"
     NATIVE_DATA_METRICS_FILE="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/data-metrics-20261015/captures.json"
     NATIVE_DATA_METRICS_INPUT_FILE="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/data-metrics-inputs-20261015/fixture-inputs.json"
+    NATIVE_FOOTER_FILE="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/footer-slots-20261019/captures.json"
     NATIVE_SIDEBAR_BRAND_FILE="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/sidebar-brand-20261015/captures.json"
     NATIVE_SPINNER_FILE="${PROJECT_SOURCE_DIR}/evidence/geometry/native-spinner.json"
     NATIVE_RADIO_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/radio-20261016"

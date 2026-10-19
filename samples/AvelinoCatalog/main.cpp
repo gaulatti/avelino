@@ -848,6 +848,18 @@ int main(int argc, char *argv[]) {
                 meta.insert("componentSize", QJsonObject{{"width", measuredComponent->width()}, {"height", measuredComponent->height()}});
                 const auto position = measuredComponent->mapToScene(QPointF(0, 0));
                 meta.insert("componentOrigin", QJsonObject{{"x", position.x()}, {"y", position.y()}});
+                if(api=="BleeckerFooter") {
+                    QJsonObject frames;
+                    const auto record=[&frames](const QString &name,QQuickItem *item) {
+                        const auto point=item->mapToScene(QPointF());
+                        frames.insert(name,QJsonObject{{"x",point.x()},{"y",point.y()},
+                            {"width",item->width()},{"height",item->height()}});
+                    };
+                    record("component",component);
+                    for(const auto &name:QStringList{"first","second"})
+                        if(const auto child=findVisual(component,name))record(name,child);
+                    meta.insert("footerFrames",frames);
+                }
                 QJsonArray labels;
                 recordLabels(component, labels);
                 meta.insert("labels", labels);

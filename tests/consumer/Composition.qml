@@ -9,6 +9,16 @@ Window {
     property int reviewInvocations: 0
     readonly property real fixtureTextScale: BleeckerTheme.textScale
     Component.onCompleted: { BleeckerTheme.dark = consumerDark; BleeckerTheme.textScale = consumerTextScale; BleeckerTheme.reducedMotion = true }
+    readonly property Component emptyFooterFactory: Component {
+        BleeckerFooter { width: 300 }
+    }
+    readonly property Component footerSlotsFactory: Component {
+        BleeckerFooter {
+            width: 300
+            Rectangle { objectName: "firstFooterSlot"; width: 80; height: 20; color: BleeckerTheme.palette.sea }
+            Rectangle { objectName: "secondFooterSlot"; width: 40; height: 30; color: BleeckerTheme.palette.desert }
+        }
+    }
     BleeckerAppShell {
         anchors.fill: parent
         objectName: "appShell"
@@ -51,7 +61,7 @@ Window {
             BleeckerFooter {
                 objectName: "footer"
                 anchors.bottom: parent.bottom; width: parent.width
-                T.Label { text: "Bleecker • Avelino"; color: palette.windowText; anchors.horizontalCenter: parent.horizontalCenter }
+                T.Label { text: "Bleecker • Avelino"; color: palette.windowText }
             }
         }
     }

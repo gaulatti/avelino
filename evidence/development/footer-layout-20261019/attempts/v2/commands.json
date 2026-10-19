@@ -1,0 +1,34 @@
+[
+  {
+    "name": "candidate-configure",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/.codex/worktrees/avelino-footer-source-20261019-v1:/work:ro",
+      "-v",
+      "/Users/gaulatti/.codex/worktrees/avelino-footer-source-20261019-v1/artifacts/footer-compiled-v1/output/build:/work/build",
+      "-v",
+      "/Users/gaulatti/.codex/worktrees/avelino-footer-source-20261019-v1/artifacts/footer-compiled-v1/output/package:/package",
+      "-w",
+      "/work",
+      "sha256:e29f85ab0df39f3ae46c4d5ddcc075517701fc05359a230c8647b1174e862dd3",
+      "cmake",
+      "-S",
+      "/work",
+      "-B",
+      "/work/build/linux",
+      "-G",
+      "Ninja",
+      "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
+      "-DBUILD_TESTING=ON"
+    ],
+    "exitCode": 125,
+    "seconds": 0.3282369589433074
+  }
+]
