@@ -78,6 +78,7 @@ jobs:
       - run: python3 scripts/verify-weston-display-checkpoint.py
       - run: python3 scripts/generate-date-literal-input-witnesses.py --check
       - run: python3 scripts/verify-date-literal-input-checkpoint.py
+      - run: python3 scripts/verify-qt-software-opacity-controls.py
       - run: python3 scripts/generate-hero-carousel-witnesses.py --check
       - run: python3 scripts/verify-hero-carousel-candidate.py
       - run: python3 scripts/verify-ci-runtime-contracts.py

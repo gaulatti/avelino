@@ -1,0 +1,16 @@
+{
+  "command": [
+    "c++",
+    "-std=c++17",
+    "-fPIC",
+    "-dM",
+    "-E",
+    "-x",
+    "c++",
+    "-I/opt/qt/include",
+    "-I/opt/qt/mkspecs/linux-g++",
+    "-"
+  ],
+  "input": "#include <QtCore/qglobal.h>\n#include \"/opt/qt/include/QtQml/6.8.3/QtQml/private/qtqml-config_p.h\"\n#include \"/opt/qt/include/QtQml/qtqml-config.h\"\n#include \"/opt/qt/include/QtQmlModels/6.8.3/QtQmlModels/private/qtqmlmodels-config_p.h\"\n#include \"/opt/qt/include/QtQmlModels/qtqmlmodels-config.h\"\n#include \"/opt/qt/include/QtQuick/6.8.3/QtQuick/private/qtquick-config_p.h\"\n#include \"/opt/qt/include/QtQuick/qtquick-config.h\"\n#include \"/opt/qt/include/QtQuickControls2/6.8.3/QtQuickControls2/private/qtquickcontrols2-config_p.h\"\n#include \"/opt/qt/include/QtQuickControls2/qtquickcontrols2-config.h\"\n#include \"/opt/qt/include/QtQuickTemplates2/6.8.3/QtQuickTemplates2/private/qtquicktemplates2-config_p.h\"\n#include \"/opt/qt/include/QtQuickTemplates2/qtquicktemplates2-config.h\"\n",
+  "target": "aarch64-linux-gnu"
+}
