@@ -224,6 +224,11 @@ public slots:
         if(dataCases.size()!=1048)qFatal("Native metric source matrix invalid");
         engine->rootContext()->setContextProperty("nativeDataMetricsCaptures",dataCases.toVariantList());
         engine->rootContext()->setContextProperty("nativeMetricFormatting",dataMetric.value("formatting").toArray().toVariantList());
+        QFile footer(QStringLiteral(NATIVE_FOOTER_FILE));
+        if(!footer.open(QIODevice::ReadOnly))qFatal("Native footer source evidence missing");
+        const auto footerData=QJsonDocument::fromJson(footer.readAll()).object();
+        if(footerData.value("reference").toString()!="fe8a1d462fbd793d883fb92086a16aa2947e32c9" || footerData.value("captures").toArray().size()!=120)qFatal("Native footer source matrix invalid");
+        engine->rootContext()->setContextProperty("nativeFooterCaptures",footerData.value("captures").toArray().toVariantList());
         QFile sidebarBrand(QStringLiteral(NATIVE_SIDEBAR_BRAND_FILE));
         if(!sidebarBrand.open(QIODevice::ReadOnly))qFatal("Native sidebar/brand evidence missing");
         const auto sidebarData=QJsonDocument::fromJson(sidebarBrand.readAll()).object();

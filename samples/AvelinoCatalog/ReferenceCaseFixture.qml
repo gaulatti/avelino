@@ -432,16 +432,8 @@ Window {
     }
     Component {
         id: footer
-        BleeckerFooter {
-            width: 300
-            Loader {
-                anchors.horizontalCenter: parent.horizontalCenter
-                sourceComponent: definition.variant === "block" ? footerBlock : footerText
-            }
-        }
+        FooterCase { definition: window.definition }
     }
-    Component { id: footerBlock; Rectangle { width: 180; height: 40; color: BleeckerTheme.palette.sea } }
-    Component { id: footerText; T.Label { text: definition.text; color: palette.windowText } }
     Component {
         id: feed
         BleeckerFeedItem {

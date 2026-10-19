@@ -84,7 +84,9 @@ Item {
         function test_footer_inherits_font_and_palette() {
             const item=createTemporaryObject(footerFactory,root)
             const slot=findChild(item,"bleeckerFooterContent"), label=findChild(item,"footerLabel")
-            compare(slot.y,21); compare(slot.width,300); compare(item.height,label.height+41)
+            compare(slot.y,1); compare(slot.width,300); compare(item.height,label.height+41)
+            compare(label.mapToItem(item,0,0).y,21)
+            compare(label.mapToItem(item,0,0).x,(item.width-label.width)/2)
             compare(label.font.family,BleeckerTheme.secondaryFont); compare(label.color.toString(),BleeckerTheme.palette.textSecondary.toString())
             BleeckerTheme.dark=true; compare(label.color.toString(),BleeckerTheme.palette.textSecondary.toString())
         }

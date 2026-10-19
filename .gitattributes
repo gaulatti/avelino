@@ -1,6 +1,11 @@
 # Preserve the checksummed CMake transcript, including emitted trailing spaces.
 evidence/reference-investigations/radio-20261016/qt-identity-build.log -text -whitespace
 
+# Preserve checksummed footer build, failed-attempt and display transcripts.
+evidence/development/footer-layout-20261019/**/*.log.txt -text -whitespace
+evidence/development/footer-layout-20261019/display/*.log -text -whitespace
+evidence/development/footer-layout-20261019/display/capture-tool-version.txt -text -whitespace
+
 # Preserve raw candidate build/test transcripts, including emitted spaces.
 evidence/development/radio/logs/*.log -text -whitespace
 evidence/development/radio/sessions/capture-tool-version.txt -text -whitespace

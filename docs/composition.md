@@ -45,6 +45,46 @@ differ; typography, semantic colors and capsule-edge rasterization also remain
 open. All 724 PNGs in the original desktop matrix reproduce the prior repaired
 candidate byte for byte. No component or reference baseline is accepted here.
 
+A later [footer source investigation](../evidence/reference-investigations/footer-slots-20261019/investigation.json)
+records 15 content cases across light/dark, text scale 1/1.5 and DPR 1/2.
+All 120 transparent measurement pairs retain identical PNG bytes, and the 24
+overlapping text, empty-text and block renders reproduce the original proposed
+references byte for byte. The helper reuses a source-verified pinned Sabella
+library object; it does not constitute another independent library rebuild or
+clean replay. Native window/input observations remain pending.
+
+Those measurements expose a public footer layout error that the catalog's
+manually centered Loader concealed. The footer now lays out flattened content
+children with the shared proposal column. Each child is horizontally centered
+and receives 20 units above and below; padding is applied per child. An absent
+slot or empty group leaves only the one-unit separator. A present zero-size
+child produces height 41, while a present empty text line produces height 55.
+Hidden content retains its layout allocation. Multiple children stack in source
+order, and text wraps at the supplied width. The source footer retains its fixed
+12-point Libre Franklin font in both recorded text-scale contexts.
+
+The catalog uses the shared `FooterCase.qml` fixture with `BleeckerText` for the
+source Text cases and leaves centering to the public control. Component tests
+compare the footer and child frames against all 120 native measurements. The
+installed composition consumer also constructs empty and two-child public
+footers directly, checking heights 1/131 and the measured child positions without
+the catalog fixture. The [compiled checkpoint](../evidence/development/footer-layout-20261019/result.json)
+passes all 120 layouts, both existing composition suites, eight source-free
+consumer contexts, and eight virtual X11/Wayland display contexts. All 120
+catalog PNGs reproduce the earlier public-slot prototype byte for byte; 44 match
+native pixels exactly. The build reuses a verified COW build cache and rebuilds
+the affected targets. The consumer fixture was rebuilt after correcting an
+invalid `Component.objectName` declaration; the failed attempt is retained.
+
+Against the 24 earlier catalog captures, 12 pixel comparisons improve and two
+light/DPR1 nonempty text comparisons increase from 491 to 495 changed pixels
+when the fixture uses the source Text counterpart. No existing exact image pass
+is lost. The remaining text raster and dark separator color differences remain
+open. `python3 scripts/verify-footer-candidate.py` decodes these comparisons and
+checks the retained code, native frames, component logs, package contexts, and
+display captures. Strict pixels, native window/input, readers, and physical
+display acceptance remain pending; the footer is still verification-pending.
+
 The fresh Linux build and 498 Qt checks pass at DPR 1 and 2. A package-only
 container passes the three consumer fixtures and all 24 virtual X11/Wayland
 window/full-output checks, split across software/OpenGL and standard/scaled
@@ -64,7 +104,7 @@ provenance. New captures use X11 1920 × 1400 and nested Wayland 1760 × 1280.
 | `BleeckerDashboardSection` | Required `title`, subtitle/action properties and a default content slot, separated from the section header by 16. Content-height changes update the section's intrinsic height. |
 | `BleeckerDashboardGrid` | Ordered `tiles` and required `tile` component. The delegate context exposes `tileData` and `tileIndex`. Defaults: minimum column width 260, spacing 16. Column count adapts to the offered width, cells share the available width, each row accommodates its tallest tile. |
 | `BleeckerAppShell` | Required `sidebar`, `header` and `content` component slots. Sidebar content width defaults to 240 plus 16 padding on all sides; its intrinsic block is vertically centered, and a vertical separator precedes the main area. Header minimum height 64 with 24 horizontal padding; main content has 24 padding and a header separator. |
-| `BleeckerFooter` | Default content slot, separator, 20 vertical padding, inherited Libre Franklin 12 and secondary text color. Template labels inherit the control font/palette; raw QtQuick text binds them explicitly. |
+| `BleeckerFooter` | Default content slot and one-unit separator. Each flattened child receives 20 vertical padding and horizontal centering; no children leaves the separator alone. Inherited Libre Franklin 12 and secondary text color. Template labels inherit font/palette; `BleeckerText` supplies the measured source Text layout. |
 | `BleeckerFeedItem` | Required author/timestamp and a default content slot. Small avatar 32, gap 12, body spacing 6 and vertical padding 8. Author is Encode Sans 13 semibold; timestamp Libre Franklin 11. |
 | `BleeckerProgressStack` | Ordered segments with `id`, `value` and `color`, height default 8. Segment widths are `max(0, offeredWidth × value)`, with 2 between segments. Values are not normalized. The capsule covers the sum of those widths and gaps; its painted extent can exceed the allocated control width. |
 
