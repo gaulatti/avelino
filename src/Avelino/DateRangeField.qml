@@ -7,7 +7,9 @@ FocusScope {
     required property string endpoint
     required property real modelValue
     property real bufferValue:0
-    property int selectedSegment:0
+    // The native Hebrew separator entry selects the leftmost visible field.
+    // Date-field direction is independent of the caller's layout mirroring.
+    property int selectedSegment:owner.locale.textDirection===Qt.RightToLeft ? Math.max(0,editable.length-1):0
     property string typing:""
     property bool isTyping:false
     property int textRevision:0

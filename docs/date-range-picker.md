@@ -459,6 +459,15 @@ initial Hebrew literal click taking focus and selecting the native year. Initial
 field selection, other focus/IME histories, RTL glyph clipping and rendered-to-
 logical UTF-16 mapping remain unaccepted work; this input change does not establish
 those equivalences.
+
+The initial date-field selection now follows visual field order independently of
+caller mirroring. A focused installed-module probe at producer 7253695 confirmed
+that the previous Hebrew literal entry selected day and Up advanced one day, while
+native observations 13–15 select year and advance to `1743264000.625`. The new
+`initialHebrewLiteralFocus` regression checks that exact initial entry, unchanged
+owner values and a closed calendar before Up, followed by the captured owner
+request. Existing retained-field input remains a separate contract. This bounded
+correction does not accept other focus histories, native raster or reader parity.
 Selected components also suppress the insertion caret while retaining cursor
 geometry for input methods and assistive queries. The
 [native selected-field supplement](../evidence/reference-investigations/date-range-selected-field-stability-20261019/README.md)

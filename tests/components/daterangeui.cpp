@@ -64,6 +64,7 @@ private slots:
     void leapMonthKeepsIndependentDayPosition();
     void segmentedInputMethodAndAccessibility();
     void fieldHitTestingAcrossLocaleDirections();
+    void initialHebrewLiteralFocus();
 };
 void DateRangeUiTests::fieldKeyboardOwners(){
     for(const QString policy:{"echo","ignore","delay"}){
@@ -397,6 +398,35 @@ void DateRangeUiTests::fieldHitTestingAcrossLocaleDirections(){
     }
     QVERIFY(compared>150);
     qInfo()<<"Calendar field endpoint clicks and QML hit tests:"<<compared;
+}
+void DateRangeUiTests::initialHebrewLiteralFocus(){
+    // Pinned native observations 13-15 in date-range-literal-input-20261018:
+    // an unfocused Hebrew bet separator selects year, then Up reaches this instant.
+    Fixture f;QVERIFY(f.window&&f.picker);
+    f.window->setProperty("localeName","he_IL");f.picker->setProperty("calendar","hebrew");
+    f.window->setProperty("pickerStyle","inherit");QCoreApplication::processEvents();
+    auto field=f.field("startField"),input=f.field("startInput");QVERIFY(field&&input);
+    f.window->contentItem()->forceActiveFocus(Qt::OtherFocusReason);QTRY_VERIFY(!input->hasActiveFocus());
+    const auto fields=input->property("fields").toList(),widths=input->property("reservedWidths").toList();
+    QCOMPARE(fields.size(),widths.size());int literal=-1;qreal advance=0;
+    for(qsizetype i=0;i<fields.size();++i){
+        if(fields[i].toMap()["kind"]=="literal"){literal=int(i);break;}
+        advance+=widths[i].toReal();
+    }
+    QVERIFY(literal>=0);QCOMPARE(fields[literal].toMap()["text"].toString(),QString::fromUtf8(" ב"));
+    const auto reserved=widths[literal].toReal();QVERIFY(reserved>0);
+    const auto left=input->width()-input->property("rightPadding").toReal()-advance-reserved;
+    QTest::mouseClick(input->window(),Qt::LeftButton,Qt::NoModifier,input->mapToScene(QPointF(left+reserved/2,input->height()/2)).toPoint());
+    QTRY_VERIFY(input->hasActiveFocus());
+    auto panel=field->property("calendarPanel").value<QObject*>();QVERIFY(panel);QVERIFY(!panel->property("visible").toBool());
+    QCOMPARE(f.requests(),0);QCOMPARE(f.window->property("sourceStart").toDouble(),1710000000.625);
+    const auto selected=field->property("selected");
+    const auto segment=(selected.metaType().id()==qMetaTypeId<QJSValue>()?selected.value<QJSValue>().toVariant():selected).toMap();
+    QCOMPARE(segment["kind"].toString(),"year");
+    QTest::keyClick(input->window(),Qt::Key_Up);
+    QTRY_COMPARE(f.window->property("sourceStart").toDouble(),1743264000.625);
+    QCOMPARE(f.window->property("sourceEnd").toDouble(),1710864000.125);QCOMPARE(f.requests(),1);
+    QVERIFY2(f.warnings.isEmpty(),qPrintable(f.warnings.join('\n')));
 }
 QTEST_MAIN(DateRangeUiTests)
 #include "daterangeui.moc"
