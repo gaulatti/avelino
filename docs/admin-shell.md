@@ -57,6 +57,26 @@ window hosting and viewport resizing. It is an interpreted-source result;
 fresh compilation and execution of the new installed consumer remain pending.
 Earlier attempts and their exact input snapshots remain in the capsule.
 
+The subsequent [compiled/package checkpoint](../evidence/development/admin-shell-package-20261020/result.json)
+rebuilds the library from a separate build clone and configures a fresh independent
+consumer. Both scale factors pass 260 AdminShell and 40 MobileShell tests. The
+first consumer compilation failed on three ambiguous Qt JSON-array comparisons;
+the explicit conversion repair and successful rebuild are retained separately.
+
+With project sources and the library build absent, four light/dark and scale 1/2
+runs each pass 80 native layouts, 160 owner-history states and 168 divider cases.
+The checkpoint retains all 320 raw body captures, four installed gallery captures,
+all 44 installed smoke commands and the complete 167-capture catalog regression,
+including refusal to start without the installed module. Qt toolbar input,
+keyboard shortcut, retained caller controls and two accessibility interfaces pass.
+These are package and Qt behavior results; they do not accept native pixels or
+screen-reader equivalence.
+
+The initial X11 session failed its shortcut check. That attempt and its 80 body
+captures remain intact. The consumer now explicitly activates its own window and
+waits for keyboard focus before Tab, Space and the shortcut. The complete installed
+session matrix is retained separately after its current run finishes.
+
 ## Capture scope
 
 The [retained evidence](../evidence/reference-investigations/admin-shell-20261020/result.json)

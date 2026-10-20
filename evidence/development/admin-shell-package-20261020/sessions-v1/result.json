@@ -1,0 +1,27 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--init",
+    "--rm",
+    "--ulimit",
+    "core=0",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/admin-shell-compiled-v1/output/package:/package",
+    "-w",
+    "/package",
+    "-e",
+    "LD_LIBRARY_PATH=/package/install/lib/qml/Avelino:/opt/weston-13.0.4/lib:/opt/qt/lib",
+    "sha256:40ab3fe5897ee697937db7429956381f67d4f9d9c7acb98130ebfddaa751e3f7",
+    "bash",
+    "-euc",
+    "test ! -e /work/src; test ! -e /work/CMakeLists.txt; exec bash check-admin-sessions.sh /package/admin-sessions-v1"
+  ],
+  "exitCode": 1,
+  "seconds": 9.768957957974635,
+  "sourceProjectsMounted": false,
+  "productBuildMounted": false,
+  "accepted": false
+}
