@@ -1,0 +1,210 @@
+{
+  "recorded_at": "2026-10-20T16:56:44.203905+00:00",
+  "parent_head": "3b6e4b617849b8879660f9c41b71e94e91522967",
+  "ci_baseline": {
+    "run": 39385163760,
+    "artifact": 12255266375,
+    "archive_sha256": "8c8ba581b5729a9b6b669b75d2020c2797c1b6c01f4ee10ca0498e33dc9defcf",
+    "focused_original_software": "PASS",
+    "focused_original_opengl": "FAIL original frame gate, EGL_BAD_SURFACE"
+  },
+  "build": {
+    "parent_head": "3b6e4b617849b8879660f9c41b71e94e91522967",
+    "archive_sha256": "1fe68b1738d8a234d3582a608008ee62af1cd2467e9a37b440859b7f717ab82e",
+    "changed_inputs": [
+      {
+        "file": "src/Avelino/CMakeLists.txt",
+        "sha256": "cf3dd1c348b786e072e9c72628e1d666dc99812592d3bc9ce12c4f43d305bd0a"
+      },
+      {
+        "file": "src/Avelino/TooltipHost.qml",
+        "sha256": "fa2720bb4aa7f79501a5f4ee5bb82662f3d232e3f65233cd40b7d9d1a610be74"
+      },
+      {
+        "file": "src/Avelino/tooltipwindowresources.h",
+        "sha256": "2298280961bca13c2d85106b965d6c28569a04ce8d3911a585886d3d6ee3c9a3"
+      }
+    ],
+    "scope": "Only build product module/plugin for real owned-helper integration against Qt6.8.3; no tests/reference/gallery source generation or baseline changes.",
+    "additional_configure_inputs": {
+      "path": "tests/consumer",
+      "archive_sha256": "9782542e951cd7685d2adbcb612d1f71b4fde0e2d4e6abfb42f0fea3cd148a15",
+      "reason": "Existing catalog CMake configuration imports original installed-consumer headers and QML even when building only the module/plugin."
+    }
+  },
+  "qt": "6.8.3",
+  "platform": "Linux ARM64 Ubuntu24.04 container; Xvfb and Weston nested X11/pixman; llvmpipe OpenGL; no physical display",
+  "consumer": {
+    "unchanged_original_binary_sha256": "5327224a38dadf6d6c024fb7be84e3b0c6699db65cdb69f9b7b6446ace5c2941",
+    "producer_source_and_build_absent_from_test_container": true,
+    "candidate_module_read_only": true,
+    "original_assertions_inputs_and_deadlines_unchanged": true
+  },
+  "installed_module_sha256": "fe54f38f5bf1f6c8bd1cd0af64d416cdc72236495a3584ac1d5ad4f9adcc8cfe",
+  "eight_original_profiles": {
+    "profiles": [
+      {
+        "profile": "tooltip-wayland-opengl-scaled",
+        "qt": "6.8.3",
+        "graphicsApi": 3,
+        "tooltipChecks": "passed",
+        "focusChecks": "passed",
+        "qtAccessibilityChecks": "passed",
+        "closedBodyIdentical": true,
+        "shownHintPixelsIdentical": true,
+        "egl_errors": false,
+        "windowCaptureSha256": "f696144f5893764cda209aefcc812aa5699a0630907367a3cc1bbba0aedd2256",
+        "popupCaptureSha256": "1db5640195a7d1d7040c04e05a621aad721b814da8ae6fe8ee1e88c8c56398b0"
+      },
+      {
+        "profile": "tooltip-wayland-opengl-standard",
+        "qt": "6.8.3",
+        "graphicsApi": 3,
+        "tooltipChecks": "passed",
+        "focusChecks": "passed",
+        "qtAccessibilityChecks": "passed",
+        "closedBodyIdentical": true,
+        "shownHintPixelsIdentical": true,
+        "egl_errors": false,
+        "windowCaptureSha256": "6fd01e9ba699d4f6a87ae1f2624e67580af43b0baf94124c39ae160693505a61",
+        "popupCaptureSha256": "a9b240204d0faabde445d180130a79d2fefa7d36209c6955bcbf9aa755af3548"
+      },
+      {
+        "profile": "tooltip-wayland-software-scaled",
+        "qt": "6.8.3",
+        "graphicsApi": 1,
+        "tooltipChecks": "passed",
+        "focusChecks": "passed",
+        "qtAccessibilityChecks": "passed",
+        "closedBodyIdentical": true,
+        "shownHintPixelsIdentical": true,
+        "egl_errors": false,
+        "windowCaptureSha256": "cb5f25186169027145dee44549a8c4b48021dbfd0e4c2dc44bf2f148a0084c8c",
+        "popupCaptureSha256": "e3b2db94f1b9bba89a62050d4a4592b0f7a993a11d79a86fa53b428af1c21614"
+      },
+      {
+        "profile": "tooltip-wayland-software-standard",
+        "qt": "6.8.3",
+        "graphicsApi": 1,
+        "tooltipChecks": "passed",
+        "focusChecks": "passed",
+        "qtAccessibilityChecks": "passed",
+        "closedBodyIdentical": true,
+        "shownHintPixelsIdentical": true,
+        "egl_errors": false,
+        "windowCaptureSha256": "88df4b5cd61067ac6d2a3fe4ce1ab90d0135581b3383b49058d2b9199a3f272c",
+        "popupCaptureSha256": "114e5950625bb05b5ebbd47c2efeb26125a764d5c3526e9ad2be75f5d1a11b01"
+      },
+      {
+        "profile": "tooltip-xcb-opengl-scaled",
+        "qt": "6.8.3",
+        "graphicsApi": 3,
+        "tooltipChecks": "passed",
+        "focusChecks": "passed",
+        "qtAccessibilityChecks": "passed",
+        "closedBodyIdentical": true,
+        "shownHintPixelsIdentical": true,
+        "egl_errors": false,
+        "windowCaptureSha256": "6deebd0c7cab277294d7343ad27340c563661786ae4c1a5223e46a79d0364e1f",
+        "popupCaptureSha256": "1db5640195a7d1d7040c04e05a621aad721b814da8ae6fe8ee1e88c8c56398b0"
+      },
+      {
+        "profile": "tooltip-xcb-opengl-standard",
+        "qt": "6.8.3",
+        "graphicsApi": 3,
+        "tooltipChecks": "passed",
+        "focusChecks": "passed",
+        "qtAccessibilityChecks": "passed",
+        "closedBodyIdentical": true,
+        "shownHintPixelsIdentical": true,
+        "egl_errors": false,
+        "windowCaptureSha256": "97a252f80013672d054916aeb53e2a90a6bf287968dd375a3ccb1670a2b00836",
+        "popupCaptureSha256": "a9b240204d0faabde445d180130a79d2fefa7d36209c6955bcbf9aa755af3548"
+      },
+      {
+        "profile": "tooltip-xcb-software-scaled",
+        "qt": "6.8.3",
+        "graphicsApi": 1,
+        "tooltipChecks": "passed",
+        "focusChecks": "passed",
+        "qtAccessibilityChecks": "passed",
+        "closedBodyIdentical": true,
+        "shownHintPixelsIdentical": true,
+        "egl_errors": false,
+        "windowCaptureSha256": "cb5f25186169027145dee44549a8c4b48021dbfd0e4c2dc44bf2f148a0084c8c",
+        "popupCaptureSha256": "e3b2db94f1b9bba89a62050d4a4592b0f7a993a11d79a86fa53b428af1c21614"
+      },
+      {
+        "profile": "tooltip-xcb-software-standard",
+        "qt": "6.8.3",
+        "graphicsApi": 1,
+        "tooltipChecks": "passed",
+        "focusChecks": "passed",
+        "qtAccessibilityChecks": "passed",
+        "closedBodyIdentical": true,
+        "shownHintPixelsIdentical": true,
+        "egl_errors": false,
+        "windowCaptureSha256": "88df4b5cd61067ac6d2a3fe4ce1ab90d0135581b3383b49058d2b9199a3f272c",
+        "popupCaptureSha256": "114e5950625bb05b5ebbd47c2efeb26125a764d5c3526e9ad2be75f5d1a11b01"
+      }
+    ],
+    "unchanged_software_baseline_pngs": {
+      "tooltip-wayland-software-standard.png": true,
+      "tooltip-wayland-software-standard-tooltip.png": true,
+      "tooltip-wayland-software-standard-native-default-tooltip.png": true,
+      "tooltip-wayland-software-standard-updated-hint-tooltip.png": true
+    }
+  },
+  "additional_read_only_policy_observations": [
+    {
+      "profile": "tooltip-wayland-opengl-standard",
+      "tooltip_show_observations": 6,
+      "tooltip_policy_before_first_show": "sceneGraph=false, graphics=false",
+      "caller_policy_all_observations": "sceneGraph=true, graphics=true",
+      "egl_errors": false,
+      "log_sha256": "ccf222f5d34f8987a98d9c0fccf19c9b49f923912926b8337db20c8c0a830efc"
+    },
+    {
+      "profile": "tooltip-wayland-software-standard",
+      "tooltip_show_observations": 6,
+      "tooltip_policy_before_first_show": "sceneGraph=false, graphics=false",
+      "caller_policy_all_observations": "sceneGraph=true, graphics=true",
+      "egl_errors": false,
+      "log_sha256": "7c670dff405476a19b9b12909b4a8b50916fba46bcd45317c9e99286b985b822"
+    }
+  ],
+  "probe_repeats": [
+    {
+      "repeat": 1,
+      "exit": 0,
+      "egl_error_logs": []
+    },
+    {
+      "repeat": 2,
+      "exit": 0,
+      "egl_error_logs": []
+    },
+    {
+      "repeat": 3,
+      "exit": 0,
+      "egl_error_logs": []
+    },
+    {
+      "repeat": 4,
+      "exit": 0,
+      "egl_error_logs": []
+    },
+    {
+      "repeat": 5,
+      "exit": 0,
+      "egl_error_logs": []
+    }
+  ],
+  "independent_audit": "No demonstrated helper lifecycle/ownership blocker; actual built-product replay required and completed here. Exact EGL root cause remains a hypothesis.",
+  "remaining": [
+    "Hosted full Linux CI on both architectures",
+    "Strict original-source appearance parity and unresolved fonts/native tooltip policies",
+    "Physical input and screen reader acceptance",
+    "Overall PR Clouseau qualification; this is a narrow native-CI repair, not full PR approval"
+  ]
+}

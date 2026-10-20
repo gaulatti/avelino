@@ -225,3 +225,30 @@ and three-second exposure/five-second frame gates remain unchanged. Attached
 help visibility alone does not acknowledge native popup closure. These are
 lifecycle observations, not proof that intermediate frames rendered or that the
 underlying surface failure has been repaired.
+
+
+## Hidden tooltip renderer lifetime
+
+The focused replay of CI run39385163760 reproduces the retained-popup failure
+with the exact installed ARM64 module: Wayland/software passes, while
+Wayland/OpenGL cannot display the remounted popup within the original frame
+deadline. A native surface/frame trace changes timing and can complete despite
+an earlier EGL_BAD_SURFACE, so that diagnostic pass is not acceptance evidence.
+
+`TooltipWindowResources` follows only the owned popup content item's window.
+Before that content is shown in a real Qt tooltip window, it disables scene-graph
+and graphics persistence for that window. Qt may then release the hidden
+renderer's resources and recreate them when the native Wayland surface returns.
+The caller and singleton popup objects remain retained. The helper never changes
+the caller window, requests a native window ID, forces a frame, or waits for
+teardown. This uses public Qt APIs; the exact stale-context mechanism remains a
+hypothesis rather than a proven platform diagnosis.
+
+The external resource-policy probe passes the original focused software/OpenGL
+assertions without EGL errors. The [built-product verification](../evidence/development/tooltip-resource-lifetime-20261020/verification.json)
+then passes all eight original Tooltip profiles with the unchanged standalone
+consumer and no EGL errors. The four comparable Wayland/software PNGs are
+byte-identical to the original installed module. Separate read-only observations
+confirm both resource hints are false before the first tooltip Show and remain
+true on the caller. Full hosted CI remains required. Native appearance, physical input and
+reader acceptance remain separate pending gates.
