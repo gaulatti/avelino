@@ -1,6 +1,12 @@
 # Desktop application shell
 
 `BleeckerMobileAppShell` implements the pinned desktop branch of the source API.
+
+The retained experiment remains bound to producer commit `240feec4` for shared
+catalog, build and test entry points, which now also host AdminShell. Its
+MobileShell-specific source files still have their live hashes checked. This
+historical receipt does not verify later AdminShell behavior or later package
+builds.
 Its name does not select a touch presentation. The desktop body is header,
 one-unit separator, expanding content wrapper and optional footer. Sections live
 in a separate principal toolbar picker. No bottom tab bar is added.

@@ -1,8 +1,52 @@
-# AdminShell source investigation
+# Desktop administration shell
 
-`BleeckerAdminShell` still has no Linux candidate. This investigation measures
-the pinned desktop source at `fe8a1d462fbd793d883fb92086a16aa2947e32c9` without
-accepting a replacement presentation or changing existing expected images.
+`BleeckerAdminShell` has a Linux candidate based on the pinned desktop source at
+`fe8a1d462fbd793d883fb92086a16aa2947e32c9`. Acceptance remains pending. Existing
+expected images and source pins are unchanged.
+
+## Linux use
+
+Supply retained `sidebar`, `header` and `content` components and a caller-owned
+`navigationPresented` boolean. Handle `navigationPresentedRequested` according
+to the owner's policy. A request does not assign the public boolean. The
+read-only `displayedNavigation` value exposes the split view's actual state.
+
+```qml
+ApplicationWindow {
+    property bool navigation: true
+    header: shell.toolbarItem
+    BleeckerAdminShell {
+        id: shell
+        anchors.fill: parent
+        navigationPresented: navigation
+        onNavigationPresentedRequested: value => navigation = value
+        sidebar: Component { NavigationContents {} }
+        header: Component { AdministrationHeader {} }
+        content: Component { AdministrationContents {} }
+    }
+}
+```
+
+The default `sidebarWidth` is 300. `breakpoint` is retained as a source argument;
+the pinned desktop branch always uses a split view. The source's explicit toolbar
+action toggles the caller's value. Its separate native split-view action toggles
+the displayed column. Both remain distinct when an owner ignores writeback.
+The explicit action has the source shortcut, Meta+Control+S on Linux.
+
+The split handle uses Qt's input handling with a zero-width layout extent and a
+wider containment mask. Caller instances and fixed size bindings remain alive
+through collapse, reopening and resizing. Native visibility requests may include
+transient `true`, `false` sequences even when the final pane stays collapsed;
+the candidate preserves the observed callbacks. Preferred and resolved widths
+remain distinct, including the 180-point caller that initially resolves to 212.
+
+The regular component tests and `InstalledConsumer --admin-shell` consume 80
+native profiles, six owner histories containing 160 states, and 168 fresh-window
+divider cases. The catalog fixture is `--fixture admin-shell`. Add
+`--admin-shell-report PREFIX` to retain raw consumer body captures and results.
+The fixture colours currently diagnose geometry; source colour inputs and
+window compositing still require visual comparison. Native symbols, chrome,
+toolbar timing, physical input and screen-reader acceptance remain pending.
 
 ## Capture scope
 

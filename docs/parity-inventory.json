@@ -9872,17 +9872,1071 @@
       },
       {
         "id": "BleeckerAdminShell",
-        "status": "pending",
+        "status": "verification-pending",
         "reference": {
           "revision": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
           "path": "Sources/Sabella/Mobile.swift",
           "line": 292
         },
-        "implementation": [],
-        "caseDiscovery": "pending",
-        "cases": [],
-        "tests": [],
-        "captures": [],
+        "implementation": [
+          "src/Avelino/BleeckerAdminShell.qml",
+          "src/Avelino/DesktopNavigationToolbar.qml",
+          "src/Avelino/DesktopSidebarGlyph.qml",
+          "src/Avelino/shellslot.cpp",
+          "src/Avelino/shellslot.h"
+        ],
+        "caseDiscovery": "20 pinned native caller layouts, two initial visibility values, light/dark environments, six paired owner histories and 168 fresh-window divider cases; complete caller, toolbar timing, native raster, physical input and reader acceptance pending",
+        "cases": [
+          {
+            "id": "BleeckerAdminShell-standard-light-False",
+            "status": "verification-pending",
+            "fixture": "standard",
+            "appearance": "light",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "standard-light-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-standard-light-True",
+            "status": "verification-pending",
+            "fixture": "standard",
+            "appearance": "light",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "standard-light-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-standard-dark-False",
+            "status": "verification-pending",
+            "fixture": "standard",
+            "appearance": "dark",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "standard-dark-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-standard-dark-True",
+            "status": "verification-pending",
+            "fixture": "standard",
+            "appearance": "dark",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "standard-dark-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-empty-sidebar-light-False",
+            "status": "verification-pending",
+            "fixture": "empty-sidebar",
+            "appearance": "light",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "empty-sidebar-light-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-empty-sidebar-light-True",
+            "status": "verification-pending",
+            "fixture": "empty-sidebar",
+            "appearance": "light",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "empty-sidebar-light-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-empty-sidebar-dark-False",
+            "status": "verification-pending",
+            "fixture": "empty-sidebar",
+            "appearance": "dark",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "empty-sidebar-dark-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-empty-sidebar-dark-True",
+            "status": "verification-pending",
+            "fixture": "empty-sidebar",
+            "appearance": "dark",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "empty-sidebar-dark-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-empty-header-light-False",
+            "status": "verification-pending",
+            "fixture": "empty-header",
+            "appearance": "light",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "empty-header-light-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-empty-header-light-True",
+            "status": "verification-pending",
+            "fixture": "empty-header",
+            "appearance": "light",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "empty-header-light-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-empty-header-dark-False",
+            "status": "verification-pending",
+            "fixture": "empty-header",
+            "appearance": "dark",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "empty-header-dark-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-empty-header-dark-True",
+            "status": "verification-pending",
+            "fixture": "empty-header",
+            "appearance": "dark",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "empty-header-dark-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-empty-content-light-False",
+            "status": "verification-pending",
+            "fixture": "empty-content",
+            "appearance": "light",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "empty-content-light-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-empty-content-light-True",
+            "status": "verification-pending",
+            "fixture": "empty-content",
+            "appearance": "light",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "empty-content-light-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-empty-content-dark-False",
+            "status": "verification-pending",
+            "fixture": "empty-content",
+            "appearance": "dark",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "empty-content-dark-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-empty-content-dark-True",
+            "status": "verification-pending",
+            "fixture": "empty-content",
+            "appearance": "dark",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "empty-content-dark-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-all-empty-light-False",
+            "status": "verification-pending",
+            "fixture": "all-empty",
+            "appearance": "light",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "all-empty-light-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-all-empty-light-True",
+            "status": "verification-pending",
+            "fixture": "all-empty",
+            "appearance": "light",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "all-empty-light-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-all-empty-dark-False",
+            "status": "verification-pending",
+            "fixture": "all-empty",
+            "appearance": "dark",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "all-empty-dark-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-all-empty-dark-True",
+            "status": "verification-pending",
+            "fixture": "all-empty",
+            "appearance": "dark",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "all-empty-dark-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-fixed-content-light-False",
+            "status": "verification-pending",
+            "fixture": "fixed-content",
+            "appearance": "light",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "fixed-content-light-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-fixed-content-light-True",
+            "status": "verification-pending",
+            "fixture": "fixed-content",
+            "appearance": "light",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "fixed-content-light-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-fixed-content-dark-False",
+            "status": "verification-pending",
+            "fixture": "fixed-content",
+            "appearance": "dark",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "fixed-content-dark-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-fixed-content-dark-True",
+            "status": "verification-pending",
+            "fixture": "fixed-content",
+            "appearance": "dark",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "fixed-content-dark-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-zero-content-light-False",
+            "status": "verification-pending",
+            "fixture": "zero-content",
+            "appearance": "light",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "zero-content-light-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-zero-content-light-True",
+            "status": "verification-pending",
+            "fixture": "zero-content",
+            "appearance": "light",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "zero-content-light-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-zero-content-dark-False",
+            "status": "verification-pending",
+            "fixture": "zero-content",
+            "appearance": "dark",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "zero-content-dark-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-zero-content-dark-True",
+            "status": "verification-pending",
+            "fixture": "zero-content",
+            "appearance": "dark",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "zero-content-dark-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-zero-sidebar-light-False",
+            "status": "verification-pending",
+            "fixture": "zero-sidebar",
+            "appearance": "light",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "zero-sidebar-light-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-zero-sidebar-light-True",
+            "status": "verification-pending",
+            "fixture": "zero-sidebar",
+            "appearance": "light",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "zero-sidebar-light-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-zero-sidebar-dark-False",
+            "status": "verification-pending",
+            "fixture": "zero-sidebar",
+            "appearance": "dark",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "zero-sidebar-dark-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-zero-sidebar-dark-True",
+            "status": "verification-pending",
+            "fixture": "zero-sidebar",
+            "appearance": "dark",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "zero-sidebar-dark-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-zero-header-light-False",
+            "status": "verification-pending",
+            "fixture": "zero-header",
+            "appearance": "light",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "zero-header-light-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-zero-header-light-True",
+            "status": "verification-pending",
+            "fixture": "zero-header",
+            "appearance": "light",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "zero-header-light-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-zero-header-dark-False",
+            "status": "verification-pending",
+            "fixture": "zero-header",
+            "appearance": "dark",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "zero-header-dark-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-zero-header-dark-True",
+            "status": "verification-pending",
+            "fixture": "zero-header",
+            "appearance": "dark",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "zero-header-dark-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-flex-sidebar-light-False",
+            "status": "verification-pending",
+            "fixture": "flex-sidebar",
+            "appearance": "light",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "flex-sidebar-light-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-flex-sidebar-light-True",
+            "status": "verification-pending",
+            "fixture": "flex-sidebar",
+            "appearance": "light",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "flex-sidebar-light-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-flex-sidebar-dark-False",
+            "status": "verification-pending",
+            "fixture": "flex-sidebar",
+            "appearance": "dark",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "flex-sidebar-dark-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-flex-sidebar-dark-True",
+            "status": "verification-pending",
+            "fixture": "flex-sidebar",
+            "appearance": "dark",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "flex-sidebar-dark-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-flex-header-light-False",
+            "status": "verification-pending",
+            "fixture": "flex-header",
+            "appearance": "light",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "flex-header-light-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-flex-header-light-True",
+            "status": "verification-pending",
+            "fixture": "flex-header",
+            "appearance": "light",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "flex-header-light-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-flex-header-dark-False",
+            "status": "verification-pending",
+            "fixture": "flex-header",
+            "appearance": "dark",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "flex-header-dark-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-flex-header-dark-True",
+            "status": "verification-pending",
+            "fixture": "flex-header",
+            "appearance": "dark",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "flex-header-dark-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-short-light-False",
+            "status": "verification-pending",
+            "fixture": "short",
+            "appearance": "light",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "short-light-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-short-light-True",
+            "status": "verification-pending",
+            "fixture": "short",
+            "appearance": "light",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "short-light-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-short-dark-False",
+            "status": "verification-pending",
+            "fixture": "short",
+            "appearance": "dark",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "short-dark-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-short-dark-True",
+            "status": "verification-pending",
+            "fixture": "short",
+            "appearance": "dark",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "short-dark-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-short-fixed-light-False",
+            "status": "verification-pending",
+            "fixture": "short-fixed",
+            "appearance": "light",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "short-fixed-light-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-short-fixed-light-True",
+            "status": "verification-pending",
+            "fixture": "short-fixed",
+            "appearance": "light",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "short-fixed-light-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-short-fixed-dark-False",
+            "status": "verification-pending",
+            "fixture": "short-fixed",
+            "appearance": "dark",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "short-fixed-dark-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-short-fixed-dark-True",
+            "status": "verification-pending",
+            "fixture": "short-fixed",
+            "appearance": "dark",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "short-fixed-dark-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-narrow-light-False",
+            "status": "verification-pending",
+            "fixture": "narrow",
+            "appearance": "light",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "narrow-light-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-narrow-light-True",
+            "status": "verification-pending",
+            "fixture": "narrow",
+            "appearance": "light",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "narrow-light-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-narrow-dark-False",
+            "status": "verification-pending",
+            "fixture": "narrow",
+            "appearance": "dark",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "narrow-dark-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-narrow-dark-True",
+            "status": "verification-pending",
+            "fixture": "narrow",
+            "appearance": "dark",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "narrow-dark-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-narrow-fixed-light-False",
+            "status": "verification-pending",
+            "fixture": "narrow-fixed",
+            "appearance": "light",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "narrow-fixed-light-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-narrow-fixed-light-True",
+            "status": "verification-pending",
+            "fixture": "narrow-fixed",
+            "appearance": "light",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "narrow-fixed-light-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-narrow-fixed-dark-False",
+            "status": "verification-pending",
+            "fixture": "narrow-fixed",
+            "appearance": "dark",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "narrow-fixed-dark-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-narrow-fixed-dark-True",
+            "status": "verification-pending",
+            "fixture": "narrow-fixed",
+            "appearance": "dark",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "narrow-fixed-dark-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-fractional-light-False",
+            "status": "verification-pending",
+            "fixture": "fractional",
+            "appearance": "light",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "fractional-light-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-fractional-light-True",
+            "status": "verification-pending",
+            "fixture": "fractional",
+            "appearance": "light",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "fractional-light-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-fractional-dark-False",
+            "status": "verification-pending",
+            "fixture": "fractional",
+            "appearance": "dark",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "fractional-dark-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-fractional-dark-True",
+            "status": "verification-pending",
+            "fixture": "fractional",
+            "appearance": "dark",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "fractional-dark-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-sidebar-180-light-False",
+            "status": "verification-pending",
+            "fixture": "sidebar-180",
+            "appearance": "light",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "sidebar-180-light-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-sidebar-180-light-True",
+            "status": "verification-pending",
+            "fixture": "sidebar-180",
+            "appearance": "light",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "sidebar-180-light-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-sidebar-180-dark-False",
+            "status": "verification-pending",
+            "fixture": "sidebar-180",
+            "appearance": "dark",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "sidebar-180-dark-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-sidebar-180-dark-True",
+            "status": "verification-pending",
+            "fixture": "sidebar-180",
+            "appearance": "dark",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "sidebar-180-dark-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-sidebar-460-light-False",
+            "status": "verification-pending",
+            "fixture": "sidebar-460",
+            "appearance": "light",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "sidebar-460-light-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-sidebar-460-light-True",
+            "status": "verification-pending",
+            "fixture": "sidebar-460",
+            "appearance": "light",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "sidebar-460-light-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-sidebar-460-dark-False",
+            "status": "verification-pending",
+            "fixture": "sidebar-460",
+            "appearance": "dark",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "sidebar-460-dark-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-sidebar-460-dark-True",
+            "status": "verification-pending",
+            "fixture": "sidebar-460",
+            "appearance": "dark",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "sidebar-460-dark-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-breakpoint-1-light-False",
+            "status": "verification-pending",
+            "fixture": "breakpoint-1",
+            "appearance": "light",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "breakpoint-1-light-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-breakpoint-1-light-True",
+            "status": "verification-pending",
+            "fixture": "breakpoint-1",
+            "appearance": "light",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "breakpoint-1-light-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-breakpoint-1-dark-False",
+            "status": "verification-pending",
+            "fixture": "breakpoint-1",
+            "appearance": "dark",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "breakpoint-1-dark-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-breakpoint-1-dark-True",
+            "status": "verification-pending",
+            "fixture": "breakpoint-1",
+            "appearance": "dark",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "breakpoint-1-dark-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-breakpoint-10000-light-False",
+            "status": "verification-pending",
+            "fixture": "breakpoint-10000",
+            "appearance": "light",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "breakpoint-10000-light-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-breakpoint-10000-light-True",
+            "status": "verification-pending",
+            "fixture": "breakpoint-10000",
+            "appearance": "light",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "breakpoint-10000-light-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-breakpoint-10000-dark-False",
+            "status": "verification-pending",
+            "fixture": "breakpoint-10000",
+            "appearance": "dark",
+            "navigationPresented": false,
+            "sourceInvestigationCapture": "breakpoint-10000-dark-false-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          },
+          {
+            "id": "BleeckerAdminShell-breakpoint-10000-dark-True",
+            "status": "verification-pending",
+            "fixture": "breakpoint-10000",
+            "appearance": "dark",
+            "navigationPresented": true,
+            "sourceInvestigationCapture": "breakpoint-10000-dark-true-measured-before.png",
+            "evidence": [
+              "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/images.json",
+              "tests/consumer/native-admin-shell-witnesses.json"
+            ],
+            "notes": "Observed native geometry and binding input; candidate pixels and full acceptance pending"
+          }
+        ],
+        "tests": [
+          "tests/components/tst_admin_shell.qml",
+          "tests/consumer/adminshellchecks.h",
+          "scripts/generate-admin-shell-witnesses.py"
+        ],
+        "captures": [
+          "evidence/reference-investigations/admin-shell-pinned-matrix-20261020/measurements.json",
+          "evidence/reference-investigations/admin-divider-boundaries-20261020/boundaries.json"
+        ],
         "comparisonResults": [],
         "exceptions": [],
         "runtimeGates": {

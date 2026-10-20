@@ -45,6 +45,11 @@ The [shared spinner contract](docs/spinner.md) records measured native sizes and
 model-frame timing, with visual and physical acceptance still pending.
 Shared label sizing follows [measured native typography](docs/typography.md).
 The [desktop application shell candidate](docs/mobile-shell.md) adds retained caller slots and a window-hosted section picker; complete mirror acceptance remains pending.
+
+The [desktop administration shell candidate](docs/admin-shell.md) adds a retained
+split view, caller-owned navigation requests, and separate native/caller toolbar
+actions. Its catalog and installed-consumer fixture is `admin-shell`; strict
+visual, input and accessibility acceptance remains pending.
 The [font raster investigation](docs/font-raster-investigation.md) retains font,
 hinting and fractional-placement controls without promoting a rendering model.
 The [empty/error/loading source investigation](docs/presentation-states.md)

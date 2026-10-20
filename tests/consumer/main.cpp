@@ -55,6 +55,7 @@ static QQuickItem *findVisualItem(QQuickItem *item, const QString &name) {
 #include "daterangechecks.h"
 #include "apptabschecks.h"
 #include "mobileshellchecks.h"
+#include "adminshellchecks.h"
 #include "commandspotlightchecks.h"
 #include "dropdownmenuchecks.h"
 #include "fileinputchecks.h"
@@ -425,6 +426,8 @@ int main(int argc, char **argv) {
     parser.addOption(QCommandLineOption("command-spotlight", "Compare native command spotlight and retained caller histories."));
     parser.addOption(QCommandLineOption("command-spotlight-report", "Write reports and captures to a fresh prefix.", "prefix"));
     parser.addOption(QCommandLineOption("command-spotlight-observe", "Record native differences; structural failures remain fatal."));
+    parser.addOption(QCommandLineOption("admin-shell", "Exercise the desktop admin shell and caller-owned visibility."));
+    parser.addOption(QCommandLineOption("admin-shell-report", "Retain raw admin body captures and native state comparisons.", "prefix"));
     parser.addOption(QCommandLineOption("mobile-shell", "Compare native desktop shell slots and hosted section writeback."));
     parser.addOption(QCommandLineOption("mobile-shell-report", "Write desktop shell observations and body captures to a fresh prefix.", "prefix"));
     parser.addOption(QCommandLineOption("app-tabs", "Compare native desktop app-tab contexts and caller binding histories."));
@@ -473,7 +476,8 @@ int main(int argc, char **argv) {
     if((parser.isSet("file-input-report")||parser.isSet("file-input-observe"))&&!parser.isSet("file-input"))return 58;
     if((parser.isSet("hero-carousel-report")||parser.isSet("hero-carousel-observe")||parser.isSet("hero-carousel-gallery"))&&!parser.isSet("hero-carousel"))return 58;
     if((parser.isSet("date-range-report")||parser.isSet("date-range-observe")||parser.isSet("date-range-gallery"))&&!parser.isSet("date-range"))return 58;
-    if(parser.isSet("file-input"))QAccessible::setActive(true);
+    if(parser.isSet("admin-shell-report")&&!parser.isSet("admin-shell"))return 58;
+    if(parser.isSet("file-input") || parser.isSet("admin-shell"))QAccessible::setActive(true);
     QQmlApplicationEngine engine;
     installAppTabFixtureMetrics(engine);
     engine.rootContext()->setContextProperty("consumerSurfaceInput",parser.isSet("surface-input"));
@@ -485,7 +489,7 @@ int main(int argc, char **argv) {
     engine.rootContext()->setContextProperty("captureTextScale", textScale);
     engine.addImportPath(QDir(QCoreApplication::applicationDirPath()).filePath(QStringLiteral(AVELINO_INSTALLED_IMPORT_PATH)));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreationFailed, &app, [] { QCoreApplication::exit(1); }, Qt::QueuedConnection);
-    engine.loadFromModule("InstalledConsumer", parser.isSet("mobile-shell") ? "MobileShell" : parser.isSet("date-range") ? "DateRangePicker" : parser.isSet("hero-carousel") ? "HeroCarousel" : parser.isSet("file-input") ? "FileInput" : parser.isSet("dropdown-menu") ? "DropdownMenu" : parser.isSet("command-spotlight") ? "CommandSpotlight" : parser.isSet("app-tabs") ? "AppTabs" : parser.isSet("media-library") ? "MediaLibrary" : parser.isSet("charts") ? "Charts" : parser.isSet("pill-modifier") ? "PillModifier" : (parser.isSet("surface-baseline") ||parser.isSet("surface-input")) ? "SurfaceSupplement" : parser.isSet("surface-modifier") ? "SurfaceModifier" : parser.isSet("font-modifier") ? "FontModifier" : parser.isSet("button-style") ? "ButtonStyle" : parser.isSet("tooltip") ? "Tooltip" : parser.isSet("modal") ? "Modal" : parser.isSet("activity-item") ? "ActivityItem" : parser.isSet("otp-input") ? "OTPInput" : parser.isSet("radio-group") ? "RadioGroup" : parser.isSet("stepper") ? "Stepper" : parser.isSet("data-metrics") ? "DataMetrics" : parser.isSet("sidebar-brand") ? "SidebarBrand" : parser.isSet("navigation") ? "Navigation" : parser.isSet("clipping") ? "Clipping" : parser.isSet("alert") ? "Alert" : parser.isSet("spinner") ? "Spinner" : parser.isSet("presentation-states") ? "PresentationStates" : parser.isSet("accordion") ? "Accordion" : parser.isSet("pagination-integers") ? "PaginationIntegers" : parser.isSet("pagination") ? "Pagination" : parser.isSet("tabs") ? "Tabs" : parser.isSet("slider") ? "Slider" : parser.isSet("collection-filters") ? "CollectionFilters" : parser.isSet("search-field") ? "SearchField" : parser.isSet("secure-field") ? "SecureField" : parser.isSet("checkbox") ? "Checkbox" : parser.isSet("selection") ? "Selection" : parser.isSet("composition") ? "Composition" : parser.isSet("controls") ? "Controls" : "Main");
+    engine.loadFromModule("InstalledConsumer", parser.isSet("admin-shell") ? "AdminShell" : parser.isSet("mobile-shell") ? "MobileShell" : parser.isSet("date-range") ? "DateRangePicker" : parser.isSet("hero-carousel") ? "HeroCarousel" : parser.isSet("file-input") ? "FileInput" : parser.isSet("dropdown-menu") ? "DropdownMenu" : parser.isSet("command-spotlight") ? "CommandSpotlight" : parser.isSet("app-tabs") ? "AppTabs" : parser.isSet("media-library") ? "MediaLibrary" : parser.isSet("charts") ? "Charts" : parser.isSet("pill-modifier") ? "PillModifier" : (parser.isSet("surface-baseline") ||parser.isSet("surface-input")) ? "SurfaceSupplement" : parser.isSet("surface-modifier") ? "SurfaceModifier" : parser.isSet("font-modifier") ? "FontModifier" : parser.isSet("button-style") ? "ButtonStyle" : parser.isSet("tooltip") ? "Tooltip" : parser.isSet("modal") ? "Modal" : parser.isSet("activity-item") ? "ActivityItem" : parser.isSet("otp-input") ? "OTPInput" : parser.isSet("radio-group") ? "RadioGroup" : parser.isSet("stepper") ? "Stepper" : parser.isSet("data-metrics") ? "DataMetrics" : parser.isSet("sidebar-brand") ? "SidebarBrand" : parser.isSet("navigation") ? "Navigation" : parser.isSet("clipping") ? "Clipping" : parser.isSet("alert") ? "Alert" : parser.isSet("spinner") ? "Spinner" : parser.isSet("presentation-states") ? "PresentationStates" : parser.isSet("accordion") ? "Accordion" : parser.isSet("pagination-integers") ? "PaginationIntegers" : parser.isSet("pagination") ? "Pagination" : parser.isSet("tabs") ? "Tabs" : parser.isSet("slider") ? "Slider" : parser.isSet("collection-filters") ? "CollectionFilters" : parser.isSet("search-field") ? "SearchField" : parser.isSet("secure-field") ? "SecureField" : parser.isSet("checkbox") ? "Checkbox" : parser.isSet("selection") ? "Selection" : parser.isSet("composition") ? "Composition" : parser.isSet("controls") ? "Controls" : "Main");
     QTimer::singleShot(500, &app, [&engine, &app, &parser, textScale] {
         auto window = qobject_cast<QQuickWindow *>(engine.rootObjects().value(0));
         if (!window) { app.exit(2); return; }
@@ -494,6 +498,7 @@ int main(int argc, char **argv) {
         if (parser.isSet("file-input")) {runFileInputConsumer(window,app,parser,textScale);return;}
         if (parser.isSet("dropdown-menu")) {runDropdownMenuConsumer(window,app,parser,textScale);return;}
         if (parser.isSet("command-spotlight")) {runCommandSpotlightConsumer(window,app,parser,textScale);return;}
+        if (parser.isSet("admin-shell")) {runAdminShellConsumer(window,app,parser,textScale);return;}
         if (parser.isSet("mobile-shell")) {runMobileShellConsumer(window,app,parser,textScale);return;}
         if (parser.isSet("app-tabs")) {runAppTabsConsumer(window,app,parser,textScale);return;}
         if (parser.isSet("media-library")) {runMediaLibraryConsumer(window,app,parser,textScale);return;}

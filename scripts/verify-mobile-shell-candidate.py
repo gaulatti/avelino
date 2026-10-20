@@ -5,6 +5,7 @@ import itertools
 import json
 from pathlib import Path
 import re
+import subprocess
 
 from PIL import Image, ImageChops
 
@@ -43,9 +44,19 @@ def verify():
     for name in ["sourcePinsChanged", "expectedImagesChanged", "physicalDisplay",
                  "readerAcceptance", "accepted", "fullMirrorAccepted"]:
         assert result[name] is False
+    # Shared entry points now also host AdminShell. Bind the earlier experiment
+    # to its exact producer; keep live MobileShell-specific source checks.
+    shared = {"samples/AvelinoCatalog/CMakeLists.txt", "samples/AvelinoCatalog/main.cpp",
+              "src/Avelino/CMakeLists.txt", "tests/components/CMakeLists.txt", "tests/components/main.cpp",
+              "tests/consumer/CMakeLists.txt", "tests/consumer/main.cpp"}
+    producer = "240feec4ba6af1723028eb6308700b876c25c9f4"
     for name, checksum in read("implementation-inputs.json").items():
         assert digest(CAPSULE / "implementation-inputs" / name) == checksum
-        assert digest(ROOT / name) == checksum, name
+        if name in shared:
+            content = subprocess.check_output(["git", "show", producer + ":" + name], cwd=ROOT)
+            assert hashlib.sha256(content).hexdigest() == checksum, name
+        else:
+            assert digest(ROOT / name) == checksum, name
     compiled = read("compiled-v5/result.json")
     assert compiled["exitCode"] == 0 and compiled["freshConsumerBuild"] is True
     assert compiled["fullCoreTestsPassed"] is compiled["sourceInputsUnchanged"] is True

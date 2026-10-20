@@ -229,6 +229,13 @@ public slots:
         const auto footerData=QJsonDocument::fromJson(footer.readAll()).object();
         if(footerData.value("reference").toString()!="fe8a1d462fbd793d883fb92086a16aa2947e32c9" || footerData.value("captures").toArray().size()!=120)qFatal("Native footer source matrix invalid");
         engine->rootContext()->setContextProperty("nativeFooterCaptures",footerData.value("captures").toArray().toVariantList());
+        QFile adminShell(QStringLiteral(NATIVE_ADMIN_SHELL_FILE));
+        if(!adminShell.open(QIODevice::ReadOnly))qFatal("Native admin shell witnesses missing");
+        const auto adminData=QJsonDocument::fromJson(adminShell.readAll()).object();
+        if(adminData.value("reference").toString()!="fe8a1d462fbd793d883fb92086a16aa2947e32c9"
+            || adminData.value("profiles").toArray().size()!=80 || adminData.value("histories").toArray().size()!=6
+            || adminData.value("boundaries").toArray().size()!=168)qFatal("Native admin shell matrix invalid");
+        engine->rootContext()->setContextProperty("nativeAdminShellWitnesses",adminData.toVariantMap());
         QFile mobileShell(QStringLiteral(NATIVE_MOBILE_SHELL_FILE));
         if(!mobileShell.open(QIODevice::ReadOnly))qFatal("Native mobile shell slot evidence missing");
         const auto mobileShellData=QJsonDocument::fromJson(mobileShell.readAll()).object();

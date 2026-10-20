@@ -1,7 +1,7 @@
 # Desktop shell contracts and verification status
 
-`BleeckerMobileAppShell` has a Linux candidate; `BleeckerAdminShell` remains
-pending without a Linux implementation. Neither API is accepted. Their reference is pinned to Sabella
+`BleeckerMobileAppShell` and `BleeckerAdminShell` have Linux candidates. Neither
+API is accepted. Their reference is pinned to Sabella
 `fe8a1d462fbd793d883fb92086a16aa2947e32c9`, `Sources/Sabella/Mobile.swift`.
 The existing `BleeckerAppShell`, `BleeckerTabs` and `BleeckerAppTabBar` are separate
 APIs and do not supply these window-level behaviors.

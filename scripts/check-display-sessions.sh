@@ -63,7 +63,7 @@ INI
   fi
   for backend in software opengl; do
     for configuration in standard scaled; do
-    for fixture in base controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper radio-group otp-input activity-item modal tooltip button-style font-modifier surface-modifier surface-baseline surface-input pill-modifier charts media-library app-tabs mobile-shell command-spotlight dropdown-menu file-input; do
+    for fixture in base controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper radio-group otp-input activity-item modal tooltip button-style font-modifier surface-modifier surface-baseline surface-input pill-modifier charts media-library app-tabs mobile-shell admin-shell command-spotlight dropdown-menu file-input; do
       prefix="$evidence/$protocol-$backend-$configuration"
       if [[ "$fixture" == controls ]]; then prefix="$evidence/controls-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == composition ]]; then prefix="$evidence/composition-$protocol-$backend-$configuration"; fi
@@ -85,6 +85,7 @@ INI
       if [[ "$fixture" == command-spotlight ]]; then prefix="$evidence/command-spotlight-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == file-input ]]; then prefix="$evidence/file-input-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == dropdown-menu ]]; then prefix="$evidence/dropdown-menu-$protocol-$backend-$configuration"; fi
+      if [[ "$fixture" == admin-shell ]]; then prefix="$evidence/admin-shell-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == mobile-shell ]]; then prefix="$evidence/mobile-shell-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == app-tabs ]]; then prefix="$evidence/app-tabs-$protocol-$backend-$configuration"; fi
       if [[ "$fixture" == charts ]]; then prefix="$evidence/charts-$protocol-$backend-$configuration"; fi
@@ -123,6 +124,7 @@ INI
       if [[ "$fixture" == command-spotlight ]]; then args+=(--command-spotlight --command-spotlight-observe); fi
       if [[ "$fixture" == file-input ]]; then args+=(--file-input --file-input-observe); fi
       if [[ "$fixture" == dropdown-menu ]]; then args+=(--dropdown-menu --dropdown-menu-observe); fi
+      if [[ "$fixture" == admin-shell ]]; then args+=(--admin-shell); fi
       if [[ "$fixture" == mobile-shell ]]; then args+=(--mobile-shell); fi
       if [[ "$fixture" == app-tabs ]]; then args+=(--app-tabs --app-tabs-observe); fi
       if [[ "$fixture" == charts ]]; then args+=(--charts --charts-observe); fi
