@@ -1,7 +1,7 @@
-# Desktop shell contracts awaiting native window verification
+# Desktop shell contracts and verification status
 
-`BleeckerMobileAppShell` and `BleeckerAdminShell` remain pending in the desktop
-inventory. Their reference is pinned to Sabella
+`BleeckerMobileAppShell` has a Linux candidate; `BleeckerAdminShell` remains
+pending without a Linux implementation. Neither API is accepted. Their reference is pinned to Sabella
 `fe8a1d462fbd793d883fb92086a16aa2947e32c9`, `Sources/Sabella/Mobile.swift`.
 The existing `BleeckerAppShell`, `BleeckerTabs` and `BleeckerAppTabBar` are separate
 APIs and do not supply these window-level behaviors.
@@ -18,10 +18,11 @@ Each item uses the tab's label, system image and value tag. This branch does not
 forward the tab's badge, disabled state or custom accessibility label. Empty tab
 data omits the principal picker. It does not add the touch/TV bottom tab bar.
 
-Selection remains caller-owned. Echoing, ignored, delayed and redirected setters
-need separate observations; an activation request does not prove that the
-external selection changed. Native toolbar attachment, segment layout, empty and
-unmatched selection, keyboard behavior and actual accessibility remain unmeasured.
+Selection remains caller-owned. The [application-shell candidate](mobile-shell.md)
+records native slot geometry, hidden-window toolbar attachment, and apply,
+ignore and delayed owner histories. An activation request does not prove that
+the external selection changed. Broader value/identity policies, native keyboard
+timing, physical input and screen-reader acceptance remain pending.
 
 ## AdminShell on desktop
 
@@ -44,16 +45,17 @@ focus and retained caller state require actual window observations.
 
 ## Reference preparation
 
-An external macOS helper now hosts the unchanged public components in a real
-SwiftUI window scene. It compiled successfully. Its 17
-prepared String-valued fixtures cover the initial toolbar and split-view
-questions, including optional caller-slot probes. It reuses the checksummed
-Sabella object from the earlier date investigation, so it is not an independent
-library rebuild.
+The [retained host investigation](../evidence/reference-investigations/desktop-shell-host-20261019/provenance.json)
+compiled and ran external macOS helpers against the checksummed Sabella object
+from the earlier date investigation. It is not an independent library rebuild.
+The completed initial host run retains 16 records: eight for the application
+shell and eight for the admin shell, covering widths 360/840, both visibility
+states and bare/measured forms. Its hidden NSWindows were neither visible nor
+key; AppKit cached their own views without capturing the user's screen.
 
-The helper has not been launched or observed. The desktop was locked during
-preparation. Raw window/view, toolbar, split-view, accessibility and OS-input
-records are still required, as is a public-versus-probed comparison. Other value
-types, duplicate identities, direct sizing, animation, physical input and reader
-acceptance remain separate work. No Linux candidate or accepted API is added by
-this preparation. All Apple tooling and binaries remain external to this tree.
+The admin records include raw content/chrome images, toolbar items and the native
+split-view hierarchy. They do not establish complete sizing, splitter input,
+visibility writeback, public-versus-probed equivalence, focus or accessibility.
+Later owner histories cover the application-shell picker only. Other value types,
+duplicate identities, animation, physical input and reader acceptance remain
+separate work. All Apple tooling and binaries remain external to this tree.

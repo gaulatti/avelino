@@ -111,8 +111,8 @@ The state-report accessor uses the existing fixtures' untyped JavaScript return
 convention; an earlier typed return converted its nested request array to null.
 That failed run is retained.
 
-All 144 body layouts match the native witnesses; 76 of 144 body images match at
-zero pixel tolerance. The dark separator differs by one blue-channel level
+At the application-shell checkpoint, all 144 body layouts match the native
+witnesses; 76 of 144 body images match at zero pixel tolerance. The dark separator differs by one blue-channel level
 (native 32/42/51, candidate 32/42/50), and fractional cases retain additional
 edge differences. All 144 body PNGs are byte-identical before and after the focus
 repair. Raw integer-parent captures and their complete native viewport copies
@@ -131,6 +131,15 @@ pass. Cold replays preserve 437 date, 120 footer and 184 button-group PNGs byte
 for byte. Four light/dark and DPR 1/2 catalog captures were inspected for layout
 and legibility; they establish startup and capture, with gallery-operator input
 acceptance still pending. No source pin, expected image, mask or tolerance changes.
+
+The later [fractional rectangle stage](qt-fractional-rectangle.md) raises exact
+body images to 80/144 while preserving all 144 layouts. Eight images improve,
+none regress, and 136 remain byte-identical. The extra fractional edges are
+resolved in that SDK experiment; 64 dark-body images still fail on the separator
+colour. The original shell checkpoint above remains a historical result. The
+toolchain recipe now includes this stage, with its complete Linux driver and
+fresh CI results still pending. Full-window, physical and reader acceptance
+remain open.
 
 The earlier CJK checkpoint's verifier reads its catalog and display scripts from
 `0b3665b913411399e616ba82990f991920996acb`, whose bytes match that checkpoint's
