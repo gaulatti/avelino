@@ -80,7 +80,9 @@ def verify():
     build_inputs = read('provenance/qt-software-toolchain-build-v4/inputs.json')
     for name, checksum in build_inputs.items():
         assert digest(CAPSULE / 'implementation-inputs' / name) == checksum, name
-        if name in {'tools/Dockerfile', 'tools/install-qt-software-opacity.sh'}:
+        # This opacity-only build predates the rectangle stage and its context
+        # inputs. The current context has its own live COPY-control verifier.
+        if name in {'.dockerignore', 'tools/Dockerfile', 'tools/install-qt-software-opacity.sh'}:
             original = subprocess.check_output(['git', 'show',
                 '7d0e6221fcc9245135c21919f01d692c279d022c:' + name], cwd=ROOT)
             assert hashlib.sha256(original).hexdigest() == checksum, name
