@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.24)
+project(AdminSourceColourCapture LANGUAGES CXX)
+find_package(Qt6 6.8 REQUIRED COMPONENTS Gui)
+add_executable(profile profile.cpp)
+target_link_libraries(profile PRIVATE Qt6::Gui)

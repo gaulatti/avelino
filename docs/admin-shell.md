@@ -56,6 +56,29 @@ byte-identical, with unchanged geometry and callbacks. These source inputs diffe
 from pure diagnostic RGB and change with appearance. They are not yet integrated
 into the Linux fixtures; the fair input bridge and raster comparison remain open.
 
+The [material observations](../evidence/reference-investigations/admin-shell-materials-20261020/README.md)
+identify a native one-device-pixel divider, sidebar glass, a 12-point split shadow
+and 52-point titlebar scroll pockets. All 36 control paths across the three
+observation versions reproduce the earlier pixels. The colour query must use the
+view's effective drawing appearance; the earlier ambient-colour query remains
+recorded separately.
+
+The [divider checkpoint](../evidence/development/admin-divider-20261020/README.md)
+adds the visible divider inside the existing zero-layout-width input handle,
+using the existing native separator colour. Both scale factors pass 264 component
+tests with the current interpreted QML. Rendered before/after controls show one
+physical column changing with adjacent columns unchanged. A fresh updated module
+build and installed-consumer run remain pending. The initial candidate's unchanged
+260-case receipt stays bound to its original Git producer for the two evolved
+files; it does not verify this later implementation.
+
+The source-colour experiment uses Qt's standard sRGB-to-profile conversion and
+retains the recipe. The canonical comparator refuses all 80 ICC-managed cases,
+including the converted captures, pending explicit conversion review. Four
+pre-divider converted diagnostic bodies have identical pixels; this grants no
+acceptance. Native glass, shadows, scroll pockets and complete visual parity
+remain open. No comparison policy or expected image was changed.
+
 The [initial public-candidate checkpoint](../evidence/development/admin-shell-20261020/result.json)
 retains 260 passing QtTest cases in each of four contexts: offscreen at scale 1
 and 2, X11 at scale 1 and Wayland at scale 2. It loads the current public QML

@@ -1,8 +1,10 @@
 import QtQuick
+import QtQuick.Window
 import QtQuick.Templates as T
 import QtTest
 import Avelino
 import "../consumer" as Fixtures
+import "native-admin-divider.js" as Divider
 
 Item {
     id: root
@@ -84,6 +86,23 @@ Item {
             verify(fixture.shell.displayedNavigation); compare(fixture.navigation, true)
             compare(fixture.shell.columnWidth, 220); compare(fixture.shell.sidebarItem, caller)
             compare(caller.width, 180); compare(caller.height, 90)
+        }
+        function test_native_divider_view_data() { return Divider.rows }
+        function test_native_divider_view(row) {
+            BleeckerTheme.dark = row.dark
+            const fixture = createTemporaryObject(factory, root, {definition:nativeAdminShellWitnesses.profiles[0].definition, initial:row.initial})
+            verify(fixture); wait(30)
+            const divider = findChild(fixture, "bleeckerAdminDivider")
+            verify(divider)
+            compare(divider.visible, row.visible)
+            compare(divider.color, Qt.rgba(row.rgba[0], row.rgba[1], row.rgba[2], row.rgba[3]))
+            if (row.visible) {
+                const position = divider.mapToItem(fixture, 0, 0)
+                compare(position.x + divider.width, row.frame.x + row.frame.width)
+                compare(position.y, row.frame.y)
+                compare(divider.height, row.frame.height)
+                compare(divider.width * root.Screen.devicePixelRatio, row.frame.width * row.sourceDpr)
+            }
         }
         function test_toolbar_keyboard_and_shortcut() {
             const fixture = createTemporaryObject(factory, root, {definition:nativeAdminShellWitnesses.profiles[0].definition, initial:true})

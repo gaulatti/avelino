@@ -60,6 +60,10 @@ def verify():
                                          dict(attempt=8, platform='xcb', scale=1),
                                          dict(attempt=9, platform='offscreen', scale=2)]
     current = {row['attempt'] for row in result['currentContexts']}
+    # These files gained a later visible-divider implementation and native
+    # divider cases. The initial receipt still proves its recorded producer.
+    evolved = {'src/Avelino/BleeckerAdminShell.qml', 'tests/components/tst_admin_shell.qml'}
+    historical = dict(zip(sorted(evolved), git_bytes([result['sourceCheckpoint'] + ':' + n for n in sorted(evolved)]), strict=True))
     for attempt in range(1, 10):
         receipt = read(f'run-v{attempt}.json')
         assert receipt['exitCode'] == (1 if attempt == 2 else 0)
@@ -86,7 +90,7 @@ def verify():
             row = next(r for r in result['currentContexts'] if r['attempt'] == attempt)
             assert 'QT_QPA_PLATFORM=' + row['platform'] in receipt['command']
             assert 'QT_SCALE_FACTOR=' + str(row['scale']) in receipt['command']
-            assert all((ROOT / n).read_bytes() == b for n, b in original.items())
+            assert all((historical[n] if n in evolved else (ROOT / n).read_bytes()) == b for n, b in original.items())
     inheritance = read('runtime-inheritance.json')
     assert inheritance['sourceCppModuleReused'] and inheritance['qmlInterpreted']
     assert inheritance['freshCompilation'] is inheritance['installedConsumerExecuted'] is False

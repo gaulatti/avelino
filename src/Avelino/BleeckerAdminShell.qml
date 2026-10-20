@@ -22,6 +22,7 @@ T.Control {
     A.BleeckerLayout.minimumWidth: body.minimumWidth
     A.BleeckerLayout.idealWidth: implicitWidth
     Accessible.ignored: true
+    A.PixelAlignment { id: alignment; target: control }
     QtObject {
         readonly property Item navigationToolbar: DesktopNavigationToolbar {
             id: toolbar
@@ -97,6 +98,15 @@ T.Control {
             handle: Item {
                 implicitWidth: 0
                 containmentMask: Item { x: -8; width: 16; height: split.height }
+                Rectangle {
+                    objectName: "bleeckerAdminDivider"
+                    x: -width
+                    width: 1 / alignment.devicePixelRatio
+                    height: split.height
+                    visible: control.displayedNavigation
+                    color: A.BleeckerTheme.nativeSeparator
+                    Accessible.ignored: true
+                }
             }
             Item {
                 id: leftPane
