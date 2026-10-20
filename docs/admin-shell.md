@@ -81,6 +81,19 @@ These virtual sessions use llvmpipe; native raster/material, physical input/disp
 and reader acceptance remain pending. No capture-profile conversion, expected
 image, pin or comparator was changed.
 
+The [split-root clipping checkpoint](../evidence/development/admin-shell-clipping-20261020/README.md)
+adds containment for arbitrary caller paint. The native split view clips an
+oversized header overlay to its own bounds; its original twelve control paths
+stay byte-identical. The prior Linux code lets the same caller paint into the
+surrounding margin. The split view now clips its children, preserving the
+source's minimum body geometry and the caller's identities and binding states.
+All 266 source-interpreted component cases pass at each scale. A corrected test
+uses the window DPR for pixel coordinates within the returned Qt Quick Test
+[window crop](https://github.com/qt/qtdeclarative/blob/v6.8.3/src/qmltest/quicktestresult.cpp).
+The earlier invalid DPR test and missing-resource native helper run are retained.
+Fresh compiled, installed-consumer and display-session execution of this clipping
+change remain pending; the preceding package receipts stay bound to source 4a0a06b.
+
 The [material observations](../evidence/reference-investigations/admin-shell-materials-20261020/README.md)
 identify a native one-device-pixel divider, sidebar glass, a 12-point split shadow
 and 52-point titlebar scroll pockets. All 36 control paths across the three

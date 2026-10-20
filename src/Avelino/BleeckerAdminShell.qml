@@ -93,6 +93,7 @@ T.Control {
         T.SplitView {
             id: split
             anchors.fill: parent
+            clip: true
             objectName: "bleeckerAdminSplit"
             onResizingChanged: if (!resizing && control._complete) control.setDividerPosition(leftPane.T.SplitView.preferredWidth)
             handle: Item {

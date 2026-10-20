@@ -13,6 +13,34 @@ Item {
     Component { id: factory; Fixtures.AdminShellCase {} }
     Component { id: controlCaller; T.Button { width:180; height:90; property int activations:0; onClicked:++activations } }
     Component { id: windowFactory; Fixtures.AdminShell { property bool consumerDark:false; property real consumerTextScale:1 } }
+    Component {
+        id: overflowFactory
+        Rectangle {
+            id: host
+            width: 960; height: 620; color: "magenta"
+            property bool paintOverflow: false
+            readonly property alias fixture: caller
+            Component {
+                id: overflowHeader
+                Rectangle {
+                    width: 90; height: 36; color: "red"
+                    Rectangle {
+                        anchors.centerIn: parent
+                        width: 1400; height: 1400; color: "yellow"
+                        visible: host.paintOverflow
+                    }
+                }
+            }
+            Fixtures.AdminShellCase {
+                id: caller
+                x: 30; y: 30; clip: false
+                definition: Object.assign({}, nativeAdminShellWitnesses.profiles[0].definition,
+                    {width:360, height:180, columnWidth:150, sideWidth:90, headWidth:90})
+                initial: true
+                headerOverride: overflowHeader
+            }
+        }
+    }
     TestCase {
         name: "DesktopAdminShellSource"
         when: windowShown
@@ -56,6 +84,26 @@ Item {
                 const v = inputs[role].encodedSRGB
                 compare(items[role].color, Qt.rgba(v[0], v[1], v[2], v[3]), role + " source colour")
             }
+        }
+        function test_arbitrary_caller_paint_stays_in_split_root() {
+            const host = createTemporaryObject(overflowFactory, root)
+            verify(host); wait(50)
+            const fixture = host.fixture
+            const state = fixture.snapshot()
+            const caller = fixture.shell.headerItem
+            const before = grabImage(host)
+            host.paintOverflow = true; wait(50)
+            const after = grabImage(host)
+            // Use the window's DPR for physical sample positions and keep them
+            // inside Qt Quick Test's returned window crop.
+            const scale = root.Screen.devicePixelRatio
+            for (const point of [[10, 10], [15, 100], [405, 100], [210, 230]]) {
+                const x = point[0] * scale, y = point[1] * scale
+                compare(after.pixel(x, y), before.pixel(x, y), "Caller paint escaped the split root")
+            }
+            compare(after.pixel(285 * scale, 40 * scale), Qt.rgba(1, 1, 0, 1))
+            compare(fixture.shell.headerItem, caller)
+            compareState(fixture, state, "Overflow paint")
         }
         function test_source_colour_scheme_updates_retained_callers() {
             const row = nativeAdminShellWitnesses.profiles.find(row => row.definition.id === "standard" && row.initial && !row.dark)

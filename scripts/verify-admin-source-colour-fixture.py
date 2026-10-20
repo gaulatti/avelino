@@ -12,6 +12,14 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
 CAP = ROOT / 'evidence/development/admin-source-colour-fixture-20261020'
+COLOUR_PRODUCER = '4a0a06bb2d183072a8d000c829b234d14c137a20'
+EVOLVED = {'src/Avelino/BleeckerAdminShell.qml', 'tests/components/tst_admin_shell.qml'}
+
+
+def source_bytes(name):
+    if name in EVOLVED:
+        return subprocess.check_output(['git', 'show', COLOUR_PRODUCER + ':' + name], cwd=ROOT)
+    return (ROOT / name).read_bytes()
 
 
 def read(name):
@@ -31,12 +39,12 @@ def verify():
     assert set(tracked) == set(members), 'Every colour-fixture capsule member must be in the Git index'
     names = members + sorted(implementation)
     result = subprocess.run(['git', 'cat-file', '--batch'], cwd=ROOT,
-        input=('\n'.join(':' + name for name in names) + '\n').encode(), stdout=subprocess.PIPE, check=True)
+        input=('\n'.join(COLOUR_PRODUCER + ':' + name if name in EVOLVED else ':' + name for name in names) + '\n').encode(), stdout=subprocess.PIPE, check=True)
     stream = io.BytesIO(result.stdout)
     for name in names:
         header = stream.readline().split(); assert len(header) == 3 and header[1] == b'blob', name
         raw = stream.read(int(header[2])); assert stream.read(1) == b'\n'
-        assert raw == (ROOT / name).read_bytes(), name
+        assert raw == source_bytes(name), name
         if name in implementation:
             assert sha(raw) == implementation[name]
         elif name != str(relative / 'files.json'):
@@ -90,7 +98,7 @@ def verify():
         assert '265 passed, 0 failed' in (CAP / f'runtime/run-v{scale}.log').read_text()
         original = {name:(CAP / f'runtime/inputs-v{scale}' / name).read_bytes() for name in receipt['sourceInputHashes']}
         assert {name:sha(raw) for name,raw in original.items()} == receipt['sourceInputHashes']
-        assert all((ROOT / name).read_bytes() == raw for name,raw in original.items())
+        assert all(source_bytes(name) == raw for name,raw in original.items())
         payload = dict(original)
         payload['tests/components/witnesses.js'] = b'var data = ' + original['tests/consumer/native-admin-shell-witnesses.json'] + b';\n'
         name = 'tests/components/tst_admin_shell.qml'
@@ -105,7 +113,7 @@ def verify():
         observed = [json.loads(line.split('SOURCE_COLOUR ', 1)[1]) for line in log.splitlines() if 'SOURCE_COLOUR ' in line]
         assert observed == capture['observations'] and {row['name'] for row in observed} == set(profiles)
         for name,digest in capture['sourceInputHashes'].items():
-            assert sha((ROOT / name).read_bytes()) == digest
+            assert sha(source_bytes(name)) == digest
         for name,digest in capture['executedPayloadHashes'].items():
             assert sha((CAP / f'runtime/capture-inputs-dpr{scale}' / name).read_bytes()) == digest
         for row in observed:
