@@ -65,9 +65,15 @@ catalog include the generated resource. Both scales pass 265 component cases,
 including retained callers updating with appearance. The 160 raw layout captures
 retain native geometry and callbacks; 158 visible caller pixels per scale exactly
 match their Qt inputs. These are input checks and do not accept native parity.
-Fresh consumer/catalog compilation and complete display-session verification
-remain pending. No capture-profile conversion, expected image, pin or comparator
-was changed.
+The [compiled source-colour package](../evidence/development/admin-source-colour-package-20261020/README.md)
+now rebuilds the core and catalog, passes 265 AdminShell and 40 MobileShell cases
+at each scale, installs the module, and builds a freshly configured independent consumer.
+All 865 source inputs and the four audited original build/package artifacts
+remain unchanged. Four source-absent offscreen contexts each pass 80 layouts,
+160 owner states and 168 divider boundaries. Their 320 raw body images are
+byte-identical to the committed interpreted colour inputs. Complete display-session
+verification remains pending. No capture-profile conversion, expected image,
+pin or comparator was changed.
 
 The [material observations](../evidence/reference-investigations/admin-shell-materials-20261020/README.md)
 identify a native one-device-pixel divider, sidebar glass, a 12-point split shadow
@@ -110,7 +116,8 @@ source-colour integration similarly preserves these diagnostic-colour receipts.
 The rebuilt divider display run subsequently stopped with a disk-full error.
 Seven contexts have complete reports and window/compositor captures. The final
 Wayland/OpenGL scaled context retains 80 body images but lacks its report and
-window/compositor captures. The updated eight-context matrix has not passed.
+window/compositor captures. That attempt did not pass the eight-context matrix;
+the compiled source-colour package is undergoing a separate complete run.
 
 The source-colour experiment uses Qt's standard sRGB-to-profile conversion and
 retains the recipe. The canonical comparator refuses all 80 ICC-managed cases,
