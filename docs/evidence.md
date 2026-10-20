@@ -1458,3 +1458,12 @@ fresh behavior replay, exact type mapping, complete chooser artwork, accessibili
 physical displays/input, readers and independent-machine availability remain
 pending. Linux implementation is pending; desktop coverage stays 75/80 candidates,
 zero accepted APIs. TV remains a separate later phase.
+
+
+The installed Tooltip consumer waits for the native window to become exposed
+before requesting its measured frame. This separates Wayland popup visibility
+from compositor surface readiness. Exposure has a three-second bound and frame
+presentation retains its existing five-second bound. Failures identify the
+phase, caller or tooltip owner, exposure state, dimensions and transient parent;
+the separate native popup, pixel equality, focus and accessibility checks remain
+required. The Linux display matrix is the runtime verification for this path.

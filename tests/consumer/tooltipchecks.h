@@ -13,13 +13,19 @@ static void runTooltipConsumer(QQuickWindow *window,QGuiApplication &app,
     auto input=caller->property("inputItem").value<QQuickItem*>();
     auto popup=help->property("presentation").value<QObject*>();
     if(!check(input && popup,"Input or owned template popup missing"))return;
+    QString phase="initial";
     auto frame=[&](QQuickWindow *owner){
+        auto context=[&](){return QStringLiteral("%1: owner=%2 visible=%3 exposed=%4 size=%5x%6 transientParentIsCaller=%7")
+            .arg(phase).arg(owner==window ? "caller":"tooltip").arg(owner->isVisible()).arg(owner->isExposed())
+            .arg(owner->width()).arg(owner->height()).arg(owner->transientParent()==window);};
+        // A Wayland popup being visible does not mean its native surface has
+        // received the compositor's configure/expose event yet.
+        if(!check(QTest::qWaitForWindowExposed(owner,3000),context()+": native window did not become exposed"))return false;
         QSignalSpy displayed(owner,&QQuickWindow::frameSwapped);owner->update();
-        return check(displayed.count()>0 || displayed.wait(5000),"Visible window did not display a frame");
+        return check(displayed.count()>0 || displayed.wait(5000),context()+": exposed window did not display a frame");
     };
     auto move=[&](QQuickItem *target){QTest::mouseMove(window,target->mapToScene(QPointF(target->width()/2,target->height()/2)).toPoint());QCoreApplication::processEvents();};
     auto away=[&](){QTest::mouseMove(window,QPoint(window->width()-2,window->height()-2));QCoreApplication::processEvents();};
-    QString phase="initial";
     auto waitVisible=[&](QObject *owner,bool visible){return check(QTest::qWaitFor([&]{return owner->property("visible").toBool()==visible;},3000),
         QStringLiteral("%1: expected visible=%2; window active=%3, exposed=%4, caller window=%5")
             .arg(phase).arg(visible).arg(window->isActive()).arg(window->isExposed()).arg(caller->window()==window));};
@@ -29,9 +35,9 @@ static void runTooltipConsumer(QQuickWindow *window,QGuiApplication &app,
     if(!check(ax && ax->role()==QAccessible::Button && ax->text(QAccessible::Name)=="Publish 0"
         && ax->text(QAccessible::Description)=="Publishes the selected edition","Actual Qt accessible caller name, role or hint"))return;
     input->forceActiveFocus(Qt::TabFocusReason);away();
-    if(!frame(window))return;
+    phase="closed attached caller";if(!frame(window))return;
     const auto before=window->grabWindow();
-    fixture->setProperty("helpAttached",false);QCoreApplication::processEvents();if(!frame(window))return;
+    fixture->setProperty("helpAttached",false);QCoreApplication::processEvents();phase="closed bare caller";if(!frame(window))return;
     const auto bare=window->grabWindow();
     if(before!=bare) {
         const auto diagnostic=parser.isSet("evidence") ? parser.value("evidence"):QStringLiteral("tooltip-closed-diagnostic");
@@ -49,7 +55,7 @@ static void runTooltipConsumer(QQuickWindow *window,QGuiApplication &app,
     auto tooltipWindow=content ? content->window():nullptr;
     if(!check(tooltipWindow && tooltipWindow!=window && tooltipWindow->isVisible() && popup->property("popupType").toInt()==1
         && (tooltipWindow->flags() & Qt::WindowType_Mask)==Qt::ToolTip,"Real separate tooltip window required"))return;
-    if(!frame(tooltipWindow))return;
+    phase="first tooltip frame";if(!frame(tooltipWindow))return;
     if(!check(input->hasActiveFocus(),"Tooltip stole caller focus"))return;
     const auto shown=tooltipWindow->grabWindow();
     window->setProperty("hint","Reviews the published edition");QTest::qWait(10);
@@ -58,7 +64,7 @@ static void runTooltipConsumer(QQuickWindow *window,QGuiApplication &app,
         && fixture->property("appears").toInt()==1 && fixture->property("destroyedCount").toInt()==0,"Hint update changed caller identity, geometry or state"))return;
     if(!check(ax->text(QAccessible::Name)=="Publish 1" && ax->text(QAccessible::Description)=="Reviews the published edition"
         && popup->property("text").toString()=="Publishes the selected edition","AX hint and visible popup text must update independently"))return;
-    if(!frame(tooltipWindow))return;
+    phase="hint update tooltip frame";if(!frame(tooltipWindow))return;
     const auto afterHint=tooltipWindow->grabWindow();
     if(!check(shown==afterHint,"Visible popup changed during hint update"))return;
     phase="caller departure";away();if(!waitVisible(help,false))return;
