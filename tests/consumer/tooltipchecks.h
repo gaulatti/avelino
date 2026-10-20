@@ -80,7 +80,9 @@ static void runTooltipConsumer(QQuickWindow *window,QGuiApplication &app,
         && fixture->property("destroyedCount").toInt()==1,"Remount did not create fresh caller state"))return;
     phase="remounted caller";caller=window->property("primaryCaller").value<QQuickItem*>();away();move(caller);if(!waitVisible(help,true))return;
     content=popup->property("contentItem").value<QQuickItem*>();tooltipWindow=content ? content->window():nullptr;
-    if(!check(tooltipWindow && tooltipWindow!=window && tooltipWindow->isVisible(),"Remounted tooltip window missing") || !frame(tooltipWindow))return;
+    if(!check(tooltipWindow && tooltipWindow!=window && tooltipWindow->isVisible(),"Remounted tooltip window missing")
+        || !check(popup->property("parent").value<QQuickItem*>()==window->contentItem(),"Remounted tooltip lost its stable caller-window parent")
+        || !frame(tooltipWindow))return;
     qInfo("Installed Tooltip: closed pixels, caller identity/input/binding, retained shown text, real separate popup, focus and Qt accessibility passed");
     if(!parser.isSet("evidence")){app.exit(0);return;}
     const auto path=parser.value("evidence");

@@ -200,3 +200,18 @@ animation: the fixture now disables motion before changing the palette. Raw
 before/after images remain preserved, and the final matrix passes the same
 pixel-equality check. No expected image, pixel tolerance, pin or approved
 exception changed.
+
+## Retained popup parent across caller remount
+
+CI run39355163949 passed the source runtime/package stage on both architectures,
+then failed the installed consumer's shown-popup remount in Wayland/OpenGL:
+`EGL_BAD_SURFACE`, no native frame within the unchanged five-second gate. Waiting
+for the initial exposure did not repair it. The singleton popup had been visually
+parented to the caller item that the fixture's Loader destroys.
+
+The candidate now parents the retained `Popup.Window` to the caller window's
+stable `contentItem` and maps the target-local hover point into that coordinate
+space. Caller visibility/window/destruction still dismisses help. The installed
+consumer checks the stable parent after remount and still requires the real
+OpenGL frame; no capture reference or tolerance changed. This is a repair
+candidate pending the new native CI result, not a verified Qt platform diagnosis.
