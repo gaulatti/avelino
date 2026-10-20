@@ -65,10 +65,21 @@ not establish that the profile alone caused every changed pixel.
 Both old and new data are preserved, and the verifier records zero original
 pixel identities alongside four immutable-binary replay identities. It does not
 replace the older images or declare visual continuity. A matching, stable
-capture context remains a gate for reproducible visual comparison.
+capture context remains a gate for reproducible visual comparison of the expanded
+matrix.
+
+A subsequent [controlled-context replay](../evidence/reference-investigations/admin-shell-context-20261020/all-record-comparison.json)
+sets only the owned windows' appearance to Aqua and their colour space to the
+older captures' embedded ICC profile. All 32 original application/admin body and
+chrome PNGs reproduce byte-for-byte. This changes the capture environment, not
+the expected images or pixels after capture. It establishes a reproducible
+context for those controls; it does not attribute the earlier differences to
+either setting individually. The expanded caller matrix still needs this pinned
+context before visual acceptance.
 
 ```sh
 python3 scripts/verify-admin-shell-source.py
+python3 scripts/verify-admin-shell-context.py
 ```
 
 The verifier checks PNG decoding, every original-path mapping, probe identity,
