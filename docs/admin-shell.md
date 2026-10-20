@@ -77,9 +77,16 @@ captures remain intact. The consumer now explicitly activates its own window and
 waits for keyboard focus before Tab, Space and the shortcut. The next installed
 session run passed seven complete configurations and all structural checks in
 the eighth, scaled Wayland/OpenGL. Its session validator then failed because the
-JSON readiness report preceded completion of the window PNG. The consumer now
+JSON readiness report preceded completion of the window PNG. The [failed attempt](../evidence/development/admin-shell-sessions-failure-20261020/scope.json)
+retains its original command, script, logs, eight reports and all 655 produced
+PNGs, including the compositor image from the incomplete final context. Seven
+window captures exist; the eighth remains absent. The consumer now
 saves the window first and publishes the report atomically. The failed run stays
 intact; a complete successful session matrix remains pending.
+
+```sh
+python3 scripts/verify-admin-shell-sessions.py --failed-attempt
+```
 
 ## Capture scope
 
