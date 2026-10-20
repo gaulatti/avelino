@@ -115,7 +115,14 @@ T.Control {
                     width: control.columnWidth
                     height: Math.max(body.height, sidebarSlot.minimumHeight + 32)
                     visible: control._displayedNavigation
-                    Rectangle { anchors.fill: parent; color: A.BleeckerTheme.palette.card }
+                    Rectangle {
+                        objectName: "bleeckerAdminSidebarBackground"
+                        x: (parent.width - width) / 2
+                        width: sidebarSlot.item ? sidebarSlot.item.width + 32 : 0
+                        height: parent.height
+                        visible: sidebarSlot.item !== null
+                        color: A.BleeckerTheme.palette.card
+                    }
                     A.ShellSlot {
                         id: sidebarSlot
                         objectName: "bleeckerAdminSidebar"

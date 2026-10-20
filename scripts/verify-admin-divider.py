@@ -65,7 +65,14 @@ def verify():
         else:
             assert '264 passed, 0 failed' in log
             assert 'QT_SCALE_FACTOR=' + str(attempt - 3) in receipt['command']
-            assert all((ROOT / n).read_bytes() == b for n, b in original.items())
+            evolved = {'src/Avelino/BleeckerAdminShell.qml', 'tests/components/tst_admin_shell.qml'}
+            for name, raw in original.items():
+                if name in evolved:
+                    historical = subprocess.check_output([
+                        'git', 'show', '166ac74ccf442e45ac111cbe134ad0022f13a2ba:' + name], cwd=ROOT)
+                    assert historical == raw
+                else:
+                    assert (ROOT / name).read_bytes() == raw
     base = read('base-module.json')
     assert base['moduleReused'] and base['newQmlInterpreted'] and base['accepted'] is False
     published_inputs = json.loads((ROOT / 'evidence/development/admin-shell-sessions-20261020/inputs.json').read_text())

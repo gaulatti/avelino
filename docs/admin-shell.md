@@ -82,6 +82,22 @@ states and 168 divider boundaries. All 320 raw body captures are retained. The
 updated display-session matrix was still live at capture and is excluded from
 this checkpoint. Native pixel and reader/physical acceptance remain pending.
 
+The [padded-sidebar checkpoint](../evidence/development/admin-sidebar-background-20261020/README.md)
+corrects the card background to follow the caller's width plus 16-point padding
+on each side. The standard 180-point caller therefore has a 212-point card at
+x=44 in the 300-point column, matching the pinned source structure and the span
+in the retained native images. Both scales pass 264 source-interpreted component
+cases. Four raw renders retain the correction: the light controls are unchanged;
+only the two 44-point side strips change in dark controls. The card and detail
+pixels remain unchanged. These strips currently expose the white diagnostic
+caller background; native sidebar glass remains unresolved. The earlier divider
+receipt is bound to its exact producer for the two evolved QML files.
+
+The rebuilt divider display run subsequently stopped with a disk-full error.
+Seven contexts have complete reports and window/compositor captures. The final
+Wayland/OpenGL scaled context retains 80 body images but lacks its report and
+window/compositor captures. The updated eight-context matrix has not passed.
+
 The source-colour experiment uses Qt's standard sRGB-to-profile conversion and
 retains the recipe. The canonical comparator refuses all 80 ICC-managed cases,
 including the converted captures, pending explicit conversion review. Four

@@ -1,0 +1,52 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--rm",
+    "-i",
+    "--ulimit",
+    "core=0",
+    "-e",
+    "QT_QPA_PLATFORM=offscreen",
+    "-e",
+    "QT_QUICK_BACKEND=software",
+    "-e",
+    "QT_SCALE_FACTOR=1",
+    "-e",
+    "LD_LIBRARY_PATH=/avelino/lib/qml/Avelino:/opt/qt/lib",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/admin-shell-compiled-v1/output/package/install:/avelino:ro",
+    "sha256:40ab3fe5897ee697937db7429956381f67d4f9d9c7acb98130ebfddaa751e3f7",
+    "bash",
+    "-euc",
+    "set -e\nmkdir -p /tmp/admin/overlay/Avelino\ntar -xf - -C /tmp/admin\nfor f in /avelino/lib/qml/Avelino/*; do\n  name=${f##*/}\n  if [[ \"$name\" != qmldir && \"$name\" != BleeckerAdminShell.qml && \"$name\" != DesktopNavigationToolbar.qml && \"$name\" != DesktopSidebarGlyph.qml ]]; then ln -s \"$f\" \"/tmp/admin/overlay/Avelino/$name\"; fi\ndone\nsed '/^prefer /d' /avelino/lib/qml/Avelino/qmldir > /tmp/admin/overlay/Avelino/qmldir\ncp /tmp/admin/src/Avelino/*.qml /tmp/admin/overlay/Avelino/\n/opt/qt/bin/qmltestrunner -import /tmp/admin/overlay -input /tmp/admin/tests/components -o -,txt\n"
+  ],
+  "exitCode": 0,
+  "seconds": 19.991154083050787,
+  "sourceInputHashes": {
+    "src/Avelino/BleeckerAdminShell.qml": "08cd5034e34e0e386529db50b337f38f71029d9a6c1af71474995be7c69a3a80",
+    "src/Avelino/DesktopNavigationToolbar.qml": "573fddb3849f32fcb0174a7c0645046b56e1b40206b4e28fb13a1918c87a767d",
+    "src/Avelino/DesktopSidebarGlyph.qml": "f699677e3c4f57c85df5688bc561078cbd66da73f6cc55f7945a81fda58da55b",
+    "tests/consumer/AdminShellCase.qml": "5c71f1493eefaffbac96f0452b953be368a1d6a75e252d0fdc9250cd1fdff17f",
+    "tests/consumer/AdminShell.qml": "fb89f2b547896264e6bf289bbd3f21f38fa6b92a2a1485ae899dcab0086d8442",
+    "tests/components/tst_admin_shell.qml": "701621bb765210ec2ba27ab3fbc1dcad2df4acb32f7028b8728cd078003a31cf",
+    "tests/consumer/native-admin-shell-witnesses.json": "a8af8b24721f3faca050800c24a762d41b0b46045bffd237297b32429ce56d13",
+    "tests/components/native-admin-divider.js": "233550c40361b638af1d3c27b8b5db74a1ee0ce511cc64af237671d1c782110a"
+  },
+  "executedPayloadHashes": {
+    "src/Avelino/BleeckerAdminShell.qml": "08cd5034e34e0e386529db50b337f38f71029d9a6c1af71474995be7c69a3a80",
+    "src/Avelino/DesktopNavigationToolbar.qml": "573fddb3849f32fcb0174a7c0645046b56e1b40206b4e28fb13a1918c87a767d",
+    "src/Avelino/DesktopSidebarGlyph.qml": "f699677e3c4f57c85df5688bc561078cbd66da73f6cc55f7945a81fda58da55b",
+    "tests/consumer/AdminShellCase.qml": "5c71f1493eefaffbac96f0452b953be368a1d6a75e252d0fdc9250cd1fdff17f",
+    "tests/consumer/AdminShell.qml": "fb89f2b547896264e6bf289bbd3f21f38fa6b92a2a1485ae899dcab0086d8442",
+    "tests/components/tst_admin_shell.qml": "c75e82db7f8b2d441137283bb2fa1a109072de2d641e80704b9e1e16b5ffafa1",
+    "tests/consumer/native-admin-shell-witnesses.json": "a8af8b24721f3faca050800c24a762d41b0b46045bffd237297b32429ce56d13",
+    "tests/components/native-admin-divider.js": "233550c40361b638af1d3c27b8b5db74a1ee0ce511cc64af237671d1c782110a",
+    "tests/components/witnesses.js": "4671a3c5c0e45eadc487fb95752697827d485e5e9688b38d6e7c36e9f9a86fea"
+  },
+  "contextAdapter": "Same witness JSON supplied as a QML property in place of the compiled test main context",
+  "freshCompilation": false,
+  "accepted": false
+}

@@ -32,6 +32,17 @@ Item {
             verify(fixture); wait(30)
             compare(fixture.toolbarItem.parent, null, "Body must not host its toolbar")
             compareState(fixture, row.state, row.name)
+            const background = findChild(fixture, "bleeckerAdminSidebarBackground")
+            verify(background)
+            compare(background.visible, row.initial && row.state.frames.sidebar !== undefined)
+            if (row.initial && row.state.frames.sidebar !== undefined) {
+                const caller = row.state.frames.sidebar
+                const position = background.mapToItem(fixture, 0, 0)
+                compare(position.x, caller.x - 16)
+                compare(position.y, row.state.frames.root.y)
+                compare(background.width, caller.width + 32)
+                compare(background.height, Math.max(row.state.frames.root.height, caller.height + 32))
+            }
         }
         function test_native_histories_data() { return nativeAdminShellWitnesses.histories.map(row => Object.assign({tag:row.owner + "-" + row.initial}, row)) }
         function test_native_histories(row) {
