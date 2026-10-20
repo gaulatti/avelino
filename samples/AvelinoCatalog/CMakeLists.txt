@@ -1,5 +1,5 @@
 set(desktop_shell_qml)
-foreach(name AdminShell.qml AdminShellCase.qml MobileShell.qml MobileShellCase.qml MobileShellGlyph.qml)
+foreach(name AdminShell.qml AdminShellCase.qml native-admin-shell-colours.js MobileShell.qml MobileShellCase.qml MobileShellGlyph.qml)
     set(path "${PROJECT_SOURCE_DIR}/tests/consumer/${name}")
     set_source_files_properties("${path}" PROPERTIES QT_RESOURCE_ALIAS "${name}")
     list(APPEND desktop_shell_qml "${path}")

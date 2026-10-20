@@ -62,7 +62,8 @@ def verify():
     current = {row['attempt'] for row in result['currentContexts']}
     # These files gained a later visible-divider implementation and native
     # divider cases. The initial receipt still proves its recorded producer.
-    evolved = {'src/Avelino/BleeckerAdminShell.qml', 'tests/components/tst_admin_shell.qml'}
+    evolved = {'src/Avelino/BleeckerAdminShell.qml', 'tests/components/tst_admin_shell.qml',
+               'tests/consumer/AdminShellCase.qml'}
     historical = dict(zip(sorted(evolved), git_bytes([result['sourceCheckpoint'] + ':' + n for n in sorted(evolved)]), strict=True))
     for attempt in range(1, 10):
         receipt = read(f'run-v{attempt}.json')

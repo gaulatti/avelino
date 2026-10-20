@@ -19,6 +19,12 @@ def sha(raw):
     return hashlib.sha256(raw).hexdigest()
 
 
+def source_bytes(name):
+    if name in {'tests/components/tst_admin_shell.qml', 'tests/consumer/AdminShellCase.qml'}:
+        return subprocess.check_output(['git', 'show', '39489069c52ac40c7a4dadfdec33b0fd1d76261a:' + name], cwd=ROOT)
+    return (ROOT / name).read_bytes()
+
+
 def verify():
     files = read('files.json')
     assert set(files) == {str(p.relative_to(CAP)) for p in CAP.rglob('*') if p.is_file() and p.name != 'files.json'}
@@ -72,7 +78,7 @@ def verify():
         assert '264 passed, 0 failed' in (CAP / f'runtime/run-v{scale}.log').read_text()
         original = {n: (CAP / f'runtime/inputs-v{scale}' / n).read_bytes() for n in receipt['sourceInputHashes']}
         assert {n: sha(b) for n, b in original.items()} == receipt['sourceInputHashes']
-        assert all((ROOT / n).read_bytes() == b for n, b in original.items())
+        assert all(source_bytes(n) == b for n, b in original.items())
         payload = dict(original)
         payload['tests/components/witnesses.js'] = b'var data = ' + original['tests/consumer/native-admin-shell-witnesses.json'] + b';\n'
         name = 'tests/components/tst_admin_shell.qml'
@@ -85,7 +91,7 @@ def verify():
         for key in ['freshCompilation', 'sourceColourInputsIntegrated', 'nativeRasterAccepted', 'accepted']:
             assert capture[key] is False
         for name, digest in capture['sourceInputHashes'].items():
-            assert sha((ROOT / name).read_bytes()) == digest
+            assert sha(source_bytes(name)) == digest
         for name, digest in capture['executedPayloadHashes'].items():
             assert sha((CAP / f'runtime/capture-inputs-dpr{scale}' / name).read_bytes()) == digest
     base = read('base-module.json')

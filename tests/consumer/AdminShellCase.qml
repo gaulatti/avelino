@@ -1,5 +1,6 @@
 import QtQuick
 import Avelino
+import "native-admin-shell-colours.js" as SourceColours
 
 Item {
     id: fixture
@@ -17,6 +18,10 @@ Item {
     width: Math.ceil(definition.width)
     height: Math.ceil(definition.height)
     clip: true
+    function sourceColour(role: string): color {
+        const value = SourceColours.environments[BleeckerTheme.dark ? "dark" : "light"][role].encodedSRGB
+        return Qt.rgba(value[0], value[1], value[2], value[3])
+    }
     function request(value: bool): void {
         requests = requests.concat([value])
         if (owner === "echo") navigation = value
@@ -33,26 +38,26 @@ Item {
         else throw new Error("Unknown native admin step: " + step)
     }
     readonly property Component sideFactory: Component {
-        Rectangle { width: fixture.definition.sidebar === "zero" ? 0 : fixture.definition.sideWidth; height: fixture.definition.sidebar === "zero" ? 0 : fixture.definition.sideHeight; color: "#00ff00" }
+        Rectangle { width: fixture.definition.sidebar === "zero" ? 0 : fixture.definition.sideWidth; height: fixture.definition.sidebar === "zero" ? 0 : fixture.definition.sideHeight; color: fixture.sourceColour("sidebar") }
     }
     readonly property Component headFactory: Component {
-        Rectangle { width: fixture.definition.header === "zero" ? 0 : fixture.definition.headWidth; height: fixture.definition.header === "zero" ? 0 : fixture.definition.headHeight; color: "#ff0000" }
+        Rectangle { width: fixture.definition.header === "zero" ? 0 : fixture.definition.headWidth; height: fixture.definition.header === "zero" ? 0 : fixture.definition.headHeight; color: fixture.sourceColour("header") }
     }
     readonly property Component contentFactory: Component {
-        Rectangle { width: fixture.definition.content === "zero" ? 0 : fixture.definition.contentWidth; height: fixture.definition.content === "zero" ? 0 : fixture.definition.contentHeight; color: "#0000ff" }
+        Rectangle { width: fixture.definition.content === "zero" ? 0 : fixture.definition.contentWidth; height: fixture.definition.content === "zero" ? 0 : fixture.definition.contentHeight; color: fixture.sourceColour("content") }
     }
     readonly property Component flexSideFactory: Component {
-        Rectangle { implicitWidth: 10; implicitHeight: 10; BleeckerLayout.minimumWidth: 0; BleeckerLayout.fillsWidth: true; BleeckerLayout.fillsHeight: true; color: "#00ff00" }
+        Rectangle { implicitWidth: 10; implicitHeight: 10; BleeckerLayout.minimumWidth: 0; BleeckerLayout.fillsWidth: true; BleeckerLayout.fillsHeight: true; color: fixture.sourceColour("sidebar") }
     }
     readonly property Component flexHeadFactory: Component {
-        Rectangle { implicitWidth: 10; implicitHeight: 10; BleeckerLayout.minimumWidth: 0; BleeckerLayout.fillsWidth: true; BleeckerLayout.fillsHeight: true; color: "#ff0000" }
+        Rectangle { implicitWidth: 10; implicitHeight: 10; BleeckerLayout.minimumWidth: 0; BleeckerLayout.fillsWidth: true; BleeckerLayout.fillsHeight: true; color: fixture.sourceColour("header") }
     }
     readonly property Component flexContentFactory: Component {
-        Rectangle { implicitWidth: 10; implicitHeight: 10; BleeckerLayout.minimumWidth: 0; BleeckerLayout.fillsWidth: true; BleeckerLayout.fillsHeight: true; color: "#0000ff" }
+        Rectangle { implicitWidth: 10; implicitHeight: 10; BleeckerLayout.minimumWidth: 0; BleeckerLayout.fillsWidth: true; BleeckerLayout.fillsHeight: true; color: fixture.sourceColour("content") }
     }
-    // Caller colours are diagnostics until native Color inputs and window
-    // compositing have been compared. Geometry does not accept their pixels.
-    Rectangle { anchors.fill: parent; color: "white"; Accessible.ignored: true }
+    // Pinned source inputs use the standard sRGB transfer for Qt colours.
+    // Capture-profile conversion and native compositing acceptance remain open.
+    Rectangle { objectName: "adminShellFixtureBackground"; anchors.fill: parent; color: fixture.sourceColour("root"); Accessible.ignored: true }
     BleeckerAdminShell {
         id: shellControl
         anchors.fill: parent

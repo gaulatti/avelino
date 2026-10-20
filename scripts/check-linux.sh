@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
+python3 scripts/generate-admin-shell-colours.py --check
 mkdir -p artifacts/linux
 python3 - <<'PY'
 import hashlib, json, subprocess

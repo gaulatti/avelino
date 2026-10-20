@@ -65,7 +65,8 @@ def verify():
         else:
             assert '264 passed, 0 failed' in log
             assert 'QT_SCALE_FACTOR=' + str(attempt - 3) in receipt['command']
-            evolved = {'src/Avelino/BleeckerAdminShell.qml', 'tests/components/tst_admin_shell.qml'}
+            evolved = {'src/Avelino/BleeckerAdminShell.qml', 'tests/components/tst_admin_shell.qml',
+                       'tests/consumer/AdminShellCase.qml'}
             for name, raw in original.items():
                 if name in evolved:
                     historical = subprocess.check_output([

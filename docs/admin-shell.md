@@ -44,8 +44,8 @@ The regular component tests and `InstalledConsumer --admin-shell` consume 80
 native profiles, six owner histories containing 160 states, and 168 fresh-window
 divider cases. The catalog fixture is `--fixture admin-shell`. Add
 `--admin-shell-report PREFIX` to retain raw consumer body captures and results.
-The fixture colours currently diagnose geometry; source colour inputs and
-window compositing still require visual comparison. Native symbols, chrome,
+The fixture colours now use the recorded native caller inputs; capture colour
+profiles and window compositing still require visual comparison. Native symbols, chrome,
 toolbar timing, physical input and screen-reader acceptance remain pending.
 
 The [source colour-input record](../evidence/reference-investigations/admin-shell-colour-inputs-20261020/README.md)
@@ -53,8 +53,21 @@ now resolves the original sidebar, header, content and white root colours inside
 the actual SwiftUI environment. It retains exact Float32 components for both
 appearances and initial visibility values. All 12 original control images remain
 byte-identical, with unchanged geometry and callbacks. These source inputs differ
-from pure diagnostic RGB and change with appearance. They are not yet integrated
-into the Linux fixtures; the fair input bridge and raster comparison remain open.
+from pure diagnostic RGB and change with appearance. They were not integrated
+into the Linux fixtures at that capture checkpoint. The ordinary fixture now
+uses these values, as described below; capture-profile handling and native raster
+comparison remain open.
+
+The [ordinary fixture colour integration](../evidence/development/admin-source-colour-fixture-20261020/README.md)
+generates light/dark caller colours from the exact Float32 inputs, retaining their
+bits and applying the standard sRGB transfer for Qt.rgba. Both consumer and
+catalog include the generated resource. Both scales pass 265 component cases,
+including retained callers updating with appearance. The 160 raw layout captures
+retain native geometry and callbacks; 158 visible caller pixels per scale exactly
+match their Qt inputs. These are input checks and do not accept native parity.
+Fresh consumer/catalog compilation and complete display-session verification
+remain pending. No capture-profile conversion, expected image, pin or comparator
+was changed.
 
 The [material observations](../evidence/reference-investigations/admin-shell-materials-20261020/README.md)
 identify a native one-device-pixel divider, sidebar glass, a 12-point split shadow
@@ -70,7 +83,7 @@ tests with the current interpreted QML. Rendered before/after controls show one
 physical column changing with adjacent columns unchanged. At that checkpoint the
 updated module had not yet been rebuilt or run through the installed consumer.
 The initial candidate's unchanged
-260-case receipt stays bound to its original Git producer for the two evolved
+260-case receipt stays bound to its original Git producer for the evolved
 files; it does not verify this later implementation.
 
 The subsequent [rebuilt package checkpoint](../evidence/development/admin-divider-package-20261020/README.md)
@@ -91,7 +104,8 @@ cases. Four raw renders retain the correction: the light controls are unchanged;
 only the two 44-point side strips change in dark controls. The card and detail
 pixels remain unchanged. These strips currently expose the white diagnostic
 caller background; native sidebar glass remains unresolved. The earlier divider
-receipt is bound to its exact producer for the two evolved QML files.
+receipt is bound to its exact producer for the evolved QML files. The later
+source-colour integration similarly preserves these diagnostic-colour receipts.
 
 The rebuilt divider display run subsequently stopped with a disk-full error.
 Seven contexts have complete reports and window/compositor captures. The final

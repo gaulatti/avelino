@@ -5,6 +5,7 @@ import QtTest
 import Avelino
 import "../consumer" as Fixtures
 import "native-admin-divider.js" as Divider
+import "../consumer/native-admin-shell-colours.js" as SourceColours
 
 Item {
     id: root
@@ -32,6 +33,7 @@ Item {
             verify(fixture); wait(30)
             compare(fixture.toolbarItem.parent, null, "Body must not host its toolbar")
             compareState(fixture, row.state, row.name)
+            compareCallerColours(fixture, row.dark)
             const background = findChild(fixture, "bleeckerAdminSidebarBackground")
             verify(background)
             compare(background.visible, row.initial && row.state.frames.sidebar !== undefined)
@@ -43,6 +45,29 @@ Item {
                 compare(background.width, caller.width + 32)
                 compare(background.height, Math.max(row.state.frames.root.height, caller.height + 32))
             }
+        }
+        function compareCallerColours(fixture, dark) {
+            const inputs = SourceColours.environments[dark ? "dark" : "light"]
+            const items = {root:findChild(fixture, "adminShellFixtureBackground"), sidebar:fixture.shell.sidebarItem,
+                header:fixture.shell.headerItem, content:fixture.shell.contentSlotItem}
+            verify(items.root)
+            for (const role of Object.keys(items)) {
+                if (!items[role]) continue
+                const v = inputs[role].encodedSRGB
+                compare(items[role].color, Qt.rgba(v[0], v[1], v[2], v[3]), role + " source colour")
+            }
+        }
+        function test_source_colour_scheme_updates_retained_callers() {
+            const row = nativeAdminShellWitnesses.profiles.find(row => row.definition.id === "standard" && row.initial && !row.dark)
+            const fixture = createTemporaryObject(factory, root, {definition:row.definition, initial:true})
+            verify(fixture); wait(30)
+            const sidebar = fixture.shell.sidebarItem, header = fixture.shell.headerItem, content = fixture.shell.contentSlotItem
+            compareCallerColours(fixture, false)
+            BleeckerTheme.dark = true; wait(30)
+            compare(fixture.shell.sidebarItem, sidebar); compare(fixture.shell.headerItem, header)
+            compare(fixture.shell.contentSlotItem, content)
+            compareCallerColours(fixture, true)
+            compareState(fixture, row.state, "appearance update")
         }
         function test_native_histories_data() { return nativeAdminShellWitnesses.histories.map(row => Object.assign({tag:row.owner + "-" + row.initial}, row)) }
         function test_native_histories(row) {
