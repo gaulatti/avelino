@@ -13,6 +13,8 @@ static void runTooltipConsumer(QQuickWindow *window,QGuiApplication &app,
     auto input=caller->property("inputItem").value<QQuickItem*>();
     auto popup=help->property("presentation").value<QObject*>();
     if(!check(input && popup,"Input or owned template popup missing"))return;
+    QSignalSpy opened(popup,SIGNAL(opened())),closed(popup,SIGNAL(closed()));
+    if(!check(opened.isValid() && closed.isValid(),"Native popup lifecycle signals missing"))return;
     QString phase="initial";
     auto frame=[&](QQuickWindow *owner){
         auto context=[&](){return QStringLiteral("%1: owner=%2 visible=%3 exposed=%4 size=%5x%6 transientParentIsCaller=%7")
@@ -23,6 +25,14 @@ static void runTooltipConsumer(QQuickWindow *window,QGuiApplication &app,
         if(!check(QTest::qWaitForWindowExposed(owner,3000),context()+": native window did not become exposed"))return false;
         QSignalSpy displayed(owner,&QQuickWindow::frameSwapped);owner->update();
         return check(displayed.count()>0 || displayed.wait(5000),context()+": exposed window did not display a frame");
+    };
+    auto observePopup=[&](){
+        auto currentContent=popup->property("contentItem").value<QQuickItem*>();
+        auto currentWindow=currentContent ? currentContent->window():nullptr;
+        qInfo("Installed Tooltip phase=%s popupVisible=%d opened=%lld closed=%lld content=%p window=%p exposed=%d",
+            qPrintable(phase),popup->property("visible").toBool(),static_cast<long long>(opened.count()),
+            static_cast<long long>(closed.count()),static_cast<void*>(currentContent),static_cast<void*>(currentWindow),
+            currentWindow && currentWindow->isExposed());
     };
     auto move=[&](QQuickItem *target){QTest::mouseMove(window,target->mapToScene(QPointF(target->width()/2,target->height()/2)).toPoint());QCoreApplication::processEvents();};
     auto away=[&](){QTest::mouseMove(window,QPoint(window->width()-2,window->height()-2));QCoreApplication::processEvents();};
@@ -69,17 +79,21 @@ static void runTooltipConsumer(QQuickWindow *window,QGuiApplication &app,
     if(!check(shown==afterHint,"Visible popup changed during hint update"))return;
     phase="caller departure";away();if(!waitVisible(help,false))return;
     phase="updated hint re-entry";move(caller);if(!waitVisible(help,true) || !check(popup->property("text").toString()=="Reviews the published edition","Next presentation did not read the updated hint"))return;
+    observePopup();
     phase="field hover";away();move(field);if(!waitVisible(secondary,true) || !check(!help->property("visible").toBool(),"Multiple help owners remained presented"))return;
+    observePopup();
     away();if(!waitVisible(secondary,false))return;
     field->forceActiveFocus(Qt::TabFocusReason);QTest::keyClick(window,Qt::Key_A,Qt::ControlModifier);QTest::keyClick(window,Qt::Key_Q);
     if(!check(window->property("hint").toString()=="q","Caller editor binding did not receive actual Qt typing"))return;
     phase="caller after typing";move(caller);if(!waitVisible(help,true))return;
+    observePopup();
     fixture->setProperty("mounted",false);QCoreApplication::processEvents();if(!waitVisible(help,false))return;
     fixture->setProperty("mounted",true);QTest::qWait(10);
     if(!check(fixture->property("localValue").toInt()==0 && fixture->property("appears").toInt()==2
         && fixture->property("destroyedCount").toInt()==1,"Remount did not create fresh caller state"))return;
     phase="remounted caller";caller=window->property("primaryCaller").value<QQuickItem*>();away();move(caller);if(!waitVisible(help,true))return;
     content=popup->property("contentItem").value<QQuickItem*>();tooltipWindow=content ? content->window():nullptr;
+    observePopup();
     if(!check(tooltipWindow && tooltipWindow!=window && tooltipWindow->isVisible(),"Remounted tooltip window missing")
         || !check(popup->property("parent").value<QQuickItem*>()==window->contentItem(),"Remounted tooltip lost its stable caller-window parent")
         || !frame(tooltipWindow))return;

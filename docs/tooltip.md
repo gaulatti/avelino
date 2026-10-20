@@ -215,3 +215,13 @@ space. Caller visibility/window/destruction still dismisses help. The installed
 consumer checks the stable parent after remount and still requires the real
 OpenGL frame; no capture reference or tolerance changed. This is a repair
 candidate pending the new native CI result, not a verified Qt platform diagnosis.
+
+Run39369445522 still failed on both architectures after that stable-parent check
+passed. The installed consumer now records popup opened/closed counts, exposure
+and current content/window identity after updated-hint re-entry, the field-owner
+switch, and the typed-hint resize, then again at remount. It adds no intermediate
+frame wait that could let pending teardown settle: the original rapid sequence
+and three-second exposure/five-second frame gates remain unchanged. Attached
+help visibility alone does not acknowledge native popup closure. These are
+lifecycle observations, not proof that intermediate frames rendered or that the
+underlying surface failure has been repaired.
