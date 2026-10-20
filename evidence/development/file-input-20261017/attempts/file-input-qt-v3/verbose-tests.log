@@ -1,0 +1,255 @@
+********* Start testing of FileChooserTests *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+INFO   : FileChooserTests::initTestCase() entering
+PASS   : FileChooserTests::initTestCase()
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() entering
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QVERIFY(root.isValid())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(20)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QVERIFY(file.open(QIODevice::WriteOnly))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(16)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QCOMPARE(file.write(contents), contents.size())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(16)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QVERIFY(file.open(QIODevice::WriteOnly))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(16)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QCOMPARE(file.write(contents), contents.size())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(16)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QVERIFY(file.open(QIODevice::WriteOnly))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(16)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QCOMPARE(file.write(contents), contents.size())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(16)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QVERIFY(file.open(QIODevice::WriteOnly))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(16)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QCOMPARE(file.write(contents), contents.size())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(16)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QVERIFY(file.open(QIODevice::WriteOnly))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(16)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QCOMPARE(file.write(contents), contents.size())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(16)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QVERIFY(directory.mkdir("folder"))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(23)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QVERIFY(file.open(QIODevice::WriteOnly))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(16)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QCOMPARE(file.write(contents), contents.size())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(16)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QCOMPARE(model.count(), 0)
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(26)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QVERIFY(model.open(url))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(27)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QVERIFY(!model.open(url))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(28)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QCOMPARE(model.count(), 5)
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(28)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QCOMPARE(row(model,".hidden.txt"), -1)
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(28)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QVERIFY(model.canChooseFiles())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(29)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QVERIFY(!model.canChooseDirectories())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(29)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QVERIFY(!model.canAccept())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(29)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QVERIFY(one>=0&&two>=0)
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(30)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QVERIFY(model.selectedUrls().isEmpty())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(31)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QCOMPARE(model.selectedUrls(), QVariantList({QUrl::fromLocalFile(directory.filePath("one.txt")),QUrl::fromLocalFile(directory.filePath("two.txt"))}))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(33)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QCOMPARE(result.count(), 1)
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(35)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QVERIFY(activeAtCallback)
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(35)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QVERIFY(!model.active())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(35)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QCOMPARE(callback["kind"], QVariant("success"))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(36)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QCOMPARE(callback["urls"].toList().size(), 2)
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(36)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QVERIFY(model.open(url))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(37)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QVERIFY(model.selectedUrls().isEmpty())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(37)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QCOMPARE(result.count(), 0)
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(37)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QVERIFY(model.open(url))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(38)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QVERIFY(model.entry(row(model,"fake.png"))["eligible"].toBool())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(39)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QVERIFY(!model.entry(row(model,"no-extension"))["eligible"].toBool())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(39)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QVERIFY(!model.canChooseFiles())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(40)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QVERIFY(!model.canChooseDirectories())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(40)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QVERIFY(!model.canAccept())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(40)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QVERIFY(model.canChooseFiles())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(42)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QVERIFY(model.selectedUrls().isEmpty())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(42)]
+INFO   : FileChooserTests::filtersSelectionAndLifecycle() QCOMPARE(model.selectedUrls().size(), 2)
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(44)]
+PASS   : FileChooserTests::filtersSelectionAndLifecycle()
+INFO   : FileChooserTests::directoriesNavigationAndUrlEncoding() entering
+INFO   : FileChooserTests::directoriesNavigationAndUrlEncoding() QVERIFY(directory.mkdir("folder"))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(47)]
+INFO   : FileChooserTests::directoriesNavigationAndUrlEncoding() QVERIFY(file.open(QIODevice::WriteOnly))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(16)]
+INFO   : FileChooserTests::directoriesNavigationAndUrlEncoding() QCOMPARE(file.write(contents), contents.size())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(16)]
+INFO   : FileChooserTests::directoriesNavigationAndUrlEncoding() QVERIFY(file.open(QIODevice::WriteOnly))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(16)]
+INFO   : FileChooserTests::directoriesNavigationAndUrlEncoding() QCOMPARE(file.write(contents), contents.size())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(16)]
+INFO   : FileChooserTests::directoriesNavigationAndUrlEncoding() QVERIFY(file.open(QIODevice::WriteOnly))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(16)]
+INFO   : FileChooserTests::directoriesNavigationAndUrlEncoding() QCOMPARE(file.write(contents), contents.size())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(16)]
+INFO   : FileChooserTests::directoriesNavigationAndUrlEncoding() QVERIFY(model.open(QUrl::fromLocalFile(root.path())))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(50)]
+INFO   : FileChooserTests::directoriesNavigationAndUrlEncoding() QVERIFY(model.canChooseFiles())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(50)]
+INFO   : FileChooserTests::directoriesNavigationAndUrlEncoding() QVERIFY(model.canChooseDirectories())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(50)]
+INFO   : FileChooserTests::directoriesNavigationAndUrlEncoding() QVERIFY(model.canAccept())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(51)]
+INFO   : FileChooserTests::directoriesNavigationAndUrlEncoding() QCOMPARE(urls.size(), 2)
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(52)]
+INFO   : FileChooserTests::directoriesNavigationAndUrlEncoding() QVERIFY(urls[0].toUrl().toString().endsWith("/folder/"))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(52)]
+INFO   : FileChooserTests::directoriesNavigationAndUrlEncoding() QCOMPARE(model.folderPath(), directory.filePath("folder"))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(53)]
+INFO   : FileChooserTests::directoriesNavigationAndUrlEncoding() QCOMPARE(model.count(), 0)
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(53)]
+INFO   : FileChooserTests::directoriesNavigationAndUrlEncoding() QVERIFY(model.canAccept())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(53)]
+INFO   : FileChooserTests::directoriesNavigationAndUrlEncoding() QVERIFY(model.goUp())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(54)]
+INFO   : FileChooserTests::directoriesNavigationAndUrlEncoding() QVERIFY(model.selectedUrls()[0].toUrl().toEncoded().contains("spaces%20in%20name.txt"))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(54)]
+INFO   : FileChooserTests::directoriesNavigationAndUrlEncoding() QVERIFY(model.selectedUrls()[0].toUrl().toEncoded().contains("unicod%C3%A9%20"))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(55)]
+INFO   : FileChooserTests::directoriesNavigationAndUrlEncoding() QVERIFY(!model.canChooseDirectories())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(56)]
+INFO   : FileChooserTests::directoriesNavigationAndUrlEncoding() QVERIFY(model.canChooseFiles())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(56)]
+INFO   : FileChooserTests::directoriesNavigationAndUrlEncoding() QVERIFY(!model.entry(row(model,"folder"))["eligible"].toBool())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(57)]
+QWARN  : FileChooserTests::directoriesNavigationAndUrlEncoding() Broken filename passed to function
+INFO   : FileChooserTests::directoriesNavigationAndUrlEncoding() QCOMPARE(model.count(), 0)
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(57)]
+PASS   : FileChooserTests::directoriesNavigationAndUrlEncoding()
+INFO   : FileChooserTests::aliasesAndDisappearingSelection() entering
+INFO   : FileChooserTests::aliasesAndDisappearingSelection() QVERIFY(file.open(QIODevice::WriteOnly))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(16)]
+INFO   : FileChooserTests::aliasesAndDisappearingSelection() QCOMPARE(file.write(contents), contents.size())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(16)]
+INFO   : FileChooserTests::aliasesAndDisappearingSelection() QVERIFY(QFile::link(directory.filePath("one.txt"),directory.filePath("symlink.txt")))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(61)]
+INFO   : FileChooserTests::aliasesAndDisappearingSelection() QVERIFY(model.open(QUrl::fromLocalFile(root.path())))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(62)]
+INFO   : FileChooserTests::aliasesAndDisappearingSelection() QCOMPARE(model.selectedUrls(), QVariantList{QUrl::fromLocalFile(directory.filePath("one.txt"))})
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(63)]
+INFO   : FileChooserTests::aliasesAndDisappearingSelection() QVERIFY(QFile::remove(directory.filePath("one.txt")))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(64)]
+INFO   : FileChooserTests::aliasesAndDisappearingSelection() QCOMPARE(result.count(), 0)
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(65)]
+INFO   : FileChooserTests::aliasesAndDisappearingSelection() QVERIFY(model.active())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(65)]
+INFO   : FileChooserTests::aliasesAndDisappearingSelection() QVERIFY(!model.error().isEmpty())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(65)]
+INFO   : FileChooserTests::aliasesAndDisappearingSelection() QVERIFY(model.selectedUrls().isEmpty())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(66)]
+INFO   : FileChooserTests::aliasesAndDisappearingSelection() QVERIFY(!model.canAccept())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(66)]
+INFO   : FileChooserTests::aliasesAndDisappearingSelection() QVERIFY(file.open(QIODevice::WriteOnly))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(16)]
+INFO   : FileChooserTests::aliasesAndDisappearingSelection() QCOMPARE(file.write(contents), contents.size())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(16)]
+INFO   : FileChooserTests::aliasesAndDisappearingSelection() QVERIFY(row(model,"two.txt")>=0)
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(67)]
+PASS   : FileChooserTests::aliasesAndDisappearingSelection()
+INFO   : FileChooserTests::invalidLocationNeverReturnsAnEmptySuccess() entering
+INFO   : FileChooserTests::invalidLocationNeverReturnsAnEmptySuccess() QVERIFY(model.open(QUrl::fromLocalFile(root.path()+"/missing")))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(72)]
+INFO   : FileChooserTests::invalidLocationNeverReturnsAnEmptySuccess() QVERIFY(!model.error().isEmpty())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(72)]
+INFO   : FileChooserTests::invalidLocationNeverReturnsAnEmptySuccess() QVERIFY(!model.canAccept())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(72)]
+INFO   : FileChooserTests::invalidLocationNeverReturnsAnEmptySuccess() QCOMPARE(result.count(), 0)
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(72)]
+INFO   : FileChooserTests::invalidLocationNeverReturnsAnEmptySuccess() QVERIFY(!model.navigate(QUrl("https://example.invalid/")))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(73)]
+INFO   : FileChooserTests::invalidLocationNeverReturnsAnEmptySuccess() QVERIFY(!model.canAccept())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(73)]
+INFO   : FileChooserTests::invalidLocationNeverReturnsAnEmptySuccess() QVERIFY(!model.goUp())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(74)]
+INFO   : FileChooserTests::invalidLocationNeverReturnsAnEmptySuccess() QCOMPARE(model.folder(), QUrl("https://example.invalid/"))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(74)]
+INFO   : FileChooserTests::invalidLocationNeverReturnsAnEmptySuccess() QVERIFY(model.navigate(QUrl::fromLocalFile(root.path())))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(75)]
+INFO   : FileChooserTests::invalidLocationNeverReturnsAnEmptySuccess() QVERIFY(model.error().isEmpty())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(75)]
+INFO   : FileChooserTests::invalidLocationNeverReturnsAnEmptySuccess() QVERIFY(!model.canAccept())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(75)]
+PASS   : FileChooserTests::invalidLocationNeverReturnsAnEmptySuccess()
+INFO   : FileChooserTests::invalidTypeUpdateCannotRetainThePreviousAllFilesRule() entering
+INFO   : FileChooserTests::invalidTypeUpdateCannotRetainThePreviousAllFilesRule() QVERIFY(file.open(QIODevice::WriteOnly))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(16)]
+INFO   : FileChooserTests::invalidTypeUpdateCannotRetainThePreviousAllFilesRule() QCOMPARE(file.write(contents), contents.size())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(16)]
+INFO   : FileChooserTests::invalidTypeUpdateCannotRetainThePreviousAllFilesRule() QVERIFY(model.open(QUrl::fromLocalFile(root.path())))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(79)]
+INFO   : FileChooserTests::invalidTypeUpdateCannotRetainThePreviousAllFilesRule() QCOMPARE(model.selectedUrls().size(), 1)
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(80)]
+INFO   : FileChooserTests::invalidTypeUpdateCannotRetainThePreviousAllFilesRule() QVERIFY(!model.canAccept())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(83)]
+INFO   : FileChooserTests::invalidTypeUpdateCannotRetainThePreviousAllFilesRule() QVERIFY(model.selectedUrls().isEmpty())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(83)]
+INFO   : FileChooserTests::invalidTypeUpdateCannotRetainThePreviousAllFilesRule() QVERIFY(!model.error().isEmpty())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(83)]
+INFO   : FileChooserTests::invalidTypeUpdateCannotRetainThePreviousAllFilesRule() QVERIFY(!model.error().isEmpty())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(84)]
+INFO   : FileChooserTests::invalidTypeUpdateCannotRetainThePreviousAllFilesRule() QVERIFY(!model.canAccept())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(84)]
+INFO   : FileChooserTests::invalidTypeUpdateCannotRetainThePreviousAllFilesRule() QVERIFY(model.error().isEmpty())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(85)]
+INFO   : FileChooserTests::invalidTypeUpdateCannotRetainThePreviousAllFilesRule() QCOMPARE(model.selectedUrls().size(), 1)
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(85)]
+PASS   : FileChooserTests::invalidTypeUpdateCannotRetainThePreviousAllFilesRule()
+INFO   : FileChooserTests::resultOwnerCanDestroyTheModel() entering
+INFO   : FileChooserTests::resultOwnerCanDestroyTheModel() QVERIFY(file.open(QIODevice::WriteOnly))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(16)]
+INFO   : FileChooserTests::resultOwnerCanDestroyTheModel() QCOMPARE(file.write(contents), contents.size())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(16)]
+INFO   : FileChooserTests::resultOwnerCanDestroyTheModel() QVERIFY(model->open(QUrl::fromLocalFile(root.path())))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(89)]
+INFO   : FileChooserTests::resultOwnerCanDestroyTheModel() QVERIFY(model.isNull())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(90)]
+PASS   : FileChooserTests::resultOwnerCanDestroyTheModel()
+INFO   : FileChooserTests::rangeToggleAndFilterUpdates() entering
+INFO   : FileChooserTests::rangeToggleAndFilterUpdates() QVERIFY(file.open(QIODevice::WriteOnly))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(16)]
+INFO   : FileChooserTests::rangeToggleAndFilterUpdates() QCOMPARE(file.write(contents), contents.size())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(16)]
+INFO   : FileChooserTests::rangeToggleAndFilterUpdates() QVERIFY(file.open(QIODevice::WriteOnly))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(16)]
+INFO   : FileChooserTests::rangeToggleAndFilterUpdates() QCOMPARE(file.write(contents), contents.size())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(16)]
+INFO   : FileChooserTests::rangeToggleAndFilterUpdates() QVERIFY(file.open(QIODevice::WriteOnly))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(16)]
+INFO   : FileChooserTests::rangeToggleAndFilterUpdates() QCOMPARE(file.write(contents), contents.size())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(16)]
+INFO   : FileChooserTests::rangeToggleAndFilterUpdates() QVERIFY(model.open(QUrl::fromLocalFile(root.path())))
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(94)]
+INFO   : FileChooserTests::rangeToggleAndFilterUpdates() QCOMPARE(model.selectedUrls().size(), 3)
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(95)]
+INFO   : FileChooserTests::rangeToggleAndFilterUpdates() QCOMPARE(model.selectedUrls().size(), 2)
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(96)]
+INFO   : FileChooserTests::rangeToggleAndFilterUpdates() QVERIFY(model.selectedUrls().isEmpty())
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(97)]
+INFO   : FileChooserTests::rangeToggleAndFilterUpdates() QCOMPARE(model.selectedUrls().size(), 1)
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v3/source/tests/components/filechoosermodel.cpp(97)]
+PASS   : FileChooserTests::rangeToggleAndFilterUpdates()
+INFO   : FileChooserTests::cleanupTestCase() entering
+PASS   : FileChooserTests::cleanupTestCase()
+Totals: 9 passed, 0 failed, 0 skipped, 0 blacklisted, 34ms
+********* Finished testing of FileChooserTests *********

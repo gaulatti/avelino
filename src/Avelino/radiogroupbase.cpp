@@ -9,6 +9,7 @@ RadioGroupBase::RadioGroupBase(QQuickItem *parent):QQuickControl(parent) {
     connect(this,&QQuickItem::paletteChanged,this,&RadioGroupBase::resolvedTextColorChanged);
     connect(this,&QQuickItem::enabledChanged,this,&RadioGroupBase::resolvedTextColorChanged);
 }
+RadioGroupBase::~RadioGroupBase(){disconnect(this,nullptr,this,nullptr);}
 void RadioGroupBase::cancelPointerPress(QQuickItem *option) const {
     if(option)option->ungrabMouse();
 }

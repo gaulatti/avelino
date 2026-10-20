@@ -1,0 +1,791 @@
+name: Linux
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  build-runtime-package:
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [ubuntu-24.04, ubuntu-24.04-arm]
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.14.0'
+      - run: node scripts/generate-tokens.mjs --check
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: tools/Dockerfile
+          tags: avelino-toolchain:qt6.8.3
+          load: true
+          cache-from: type=gha,scope=toolchain-${{ matrix.runner }}
+          cache-to: type=gha,mode=max,scope=toolchain-${{ matrix.runner }}
+      - name: Preserve Qt software-renderer build evidence
+        run: |
+          docker run --rm -v "$PWD/artifacts:/evidence" avelino-toolchain:qt6.8.3 bash -c '
+            mkdir -p /evidence/linux/toolchain
+            cp -R /opt/qt/share/avelino/qt-software-opacity /evidence/linux/toolchain/
+          '
+      - name: Seed obsolete package files for regeneration check
+        run: |
+          mkdir -p artifacts/package/consumer artifacts/package/install
+          printf '%s\n' 'obsolete consumer fixture' > artifacts/package/consumer/main.cpp
+          touch artifacts/package/install/obsolete-fixture
+      - run: docker run --rm -v "$PWD:/work" avelino-toolchain:qt6.8.3 bash scripts/check-linux.sh
+      - name: Verify package replaced stale sources and install files
+        run: |
+          cmp tests/consumer/main.cpp artifacts/package/consumer/main.cpp
+          cmp tests/consumer/Main.qml artifacts/package/consumer/Main.qml
+          test ! -e artifacts/package/install/obsolete-fixture
+          test ! -d artifacts/package/consumer/consumer
+      - name: Consumer with source and build trees absent
+        run: docker run --rm -v "$PWD/artifacts/package:/package" -w /package avelino-toolchain:qt6.8.3 bash -c 'bash check-installed.sh && bash check-display-sessions.sh && bash check-display-sessions-hero-carousel.sh "$PWD/display-evidence/hero-carousel"'
+      - name: Expose generated evidence to the artifact uploader
+        if: always()
+        run: |
+          for artifact_path in artifacts/linux artifacts/package build/linux/Testing/Temporary; do
+            if [[ -d "$artifact_path" ]]; then sudo chmod -R a+rX -- "$artifact_path"; fi
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: desktop-button-candidates-${{ matrix.runner }}
+          path: artifacts/linux
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: linux-evidence-${{ matrix.runner }}
+          path: |
+            artifacts/linux
+            artifacts/package/install
+            artifacts/package/environment.json
+            artifacts/package/display-evidence
+            artifacts/package/catalog-evidence
+            artifacts/package/hero-carousel-installed.*
+            build/linux/Testing/Temporary/LastTest.log
+  button-mirror-comparison:
+    needs: build-runtime-package
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        source-runner: [ubuntu-24.04, ubuntu-24.04-arm]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -m pip install -r tools/visual-requirements.txt
+      - run: python3 scripts/verify-references.py
+      - uses: actions/download-artifact@v4
+        with:
+          name: desktop-button-candidates-${{ matrix.source-runner }}
+          path: artifacts/candidate
+      - name: Strict preserved-source comparison
+        run: python3 scripts/compare-captures.py --reference reference/captures/desktop/buttons --candidate artifacts/candidate --output artifacts/comparison
+      - name: Record independent visual result
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          report = Path('artifacts/comparison/comparison.json')
+          if report.exists():
+              result = json.loads(report.read_text())
+              passed = sum(case['status'] == 'passed' for case in result['results'])
+              with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as summary:
+                  summary.write(f"Button source comparison: **{result['status']}** ({passed}/{len(result['results'])} cases).\n\n")
+                  summary.write('Zero pixel tolerance. Build, installed consumption, display sessions, accessibility and complete desktop acceptance have separate gates.\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: desktop-button-comparison-${{ matrix.source-runner }}
+          path: artifacts/comparison
+          if-no-files-found: error
+  proposal-mirror-diagnostics:
+    needs: build-runtime-package
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        source-runner: [ubuntu-24.04, ubuntu-24.04-arm]
+        reference-group: [desktop, composition, selectors, checkbox, secure-field, search-field, collection-filters, slider, tabs, pagination, pagination-integers, accordion, presentation-states, alert, navigation, sidebar-brand, data-metrics]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -m pip install -r tools/visual-requirements.txt
+      - run: python3 scripts/verify-proposals.py
+      - uses: actions/download-artifact@v4
+        with:
+          name: desktop-button-candidates-${{ matrix.source-runner }}
+          path: artifacts/candidate
+      - name: Compare every implemented isolated API against proposed source captures
+        run: |
+          python3 - <<'PY'
+          import importlib.util, json
+          from pathlib import Path
+          spec = importlib.util.spec_from_file_location('comparison', 'scripts/compare-captures.py')
+          comparison = importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(comparison)
+          group = '${{ matrix.reference-group }}'
+          directories = {'desktop': ('proposals', 'desktop-20261012'),
+                         'composition': ('composition-proposals', 'composition-20261012-v1'),
+                         'selectors': ('selector-proposals', 'selectors-20261013'),
+                         'checkbox': ('checkbox-proposals', 'checkbox-20261013'),
+                         'secure-field': ('secure-field-proposals', 'secure-field-20261014'),
+                         'search-field': ('search-field-proposals', 'search-field-20261014'),
+                         'collection-filters': ('collection-filters-proposals', 'collection-filters-20261014'),
+                         'slider': ('slider-proposals', 'slider-20261014-v2'),
+                         'tabs': ('tabs-proposals', 'tabs-20261014'),
+                         'pagination': ('pagination-proposals', 'pagination-20261014'),
+                         'pagination-integers': ('pagination-integer-proposals', 'pagination-integers-20261014'),
+                         'accordion': ('accordion-proposals', 'accordion-20261014'),
+                         'presentation-states': ('presentation-state-proposals', 'presentation-states-20261015-v2'),
+                         'alert': ('alert-proposals', 'alert-20261015'),
+                         'navigation': ('navigation-proposals', 'navigation-layout-20261015'),
+                         'sidebar-brand': ('sidebar-brand-proposals', 'sidebar-brand-20261015'),
+                         'data-metrics': ('data-metrics-proposals', 'data-metrics-20261015')}
+          capture_directory, reference_directory = directories[group]
+          captures = Path('artifacts/candidate') / capture_directory
+          reference = Path('evidence/reference-proposals') / reference_directory
+          result = json.loads((captures / 'capture-results.json').read_text())
+          assert result['status'] == 'captured'
+          raise SystemExit(comparison.compare(reference, captures,
+              Path('artifacts/proposal-comparison'), result['selectedApis']))
+          PY
+      - name: Report proposal diagnostics independently of baseline acceptance
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          path = Path('artifacts/proposal-comparison/comparison.json')
+          if path.is_file():
+              result = json.loads(path.read_text())
+              cases = result['results']
+              passed = sum(c['status'] == 'passed' for c in cases)
+              geometry = sum(c.get('geometryStatus') == 'passed' for c in cases)
+              with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as summary:
+                  summary.write(f"Proposed-reference diagnostics: **{result['status']}**; {passed}/{len(cases)} exact image and geometry matches; {geometry}/{len(cases)} geometry matches.\n\n")
+                  summary.write('References are proposed. These results approve no baseline, exception, component, animation phase, session, accessibility or installed-package gate.\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ${{ matrix.reference-group }}-proposal-comparison-${{ matrix.source-runner }}
+          path: artifacts/proposal-comparison
+          if-no-files-found: error
+  stepper-mirror-diagnostics:
+    needs: build-runtime-package
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        source-runner: [ubuntu-24.04, ubuntu-24.04-arm]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -m pip install -r tools/visual-requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: desktop-button-candidates-${{ matrix.source-runner }}
+          path: artifacts/candidate
+      - name: Strict hosted-source Stepper comparison
+        run: python3 scripts/compare-stepper-captures.py artifacts/candidate/stepper-source-candidates artifacts/stepper-comparison
+      - name: Record independent hosted-source result
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json,os
+          from pathlib import Path
+          path=Path('artifacts/stepper-comparison/comparison.json')
+          if path.is_file():
+              report=json.loads(path.read_text())
+              with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as out:
+                  out.write(f"Hosted Stepper comparison: **{report['status']}**; {report['summary']}.\n\n")
+                  out.write('Native source investigation only. No baseline, pixel tolerance, font/symbol exception, physical session or reader approval.\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: stepper-source-comparison-${{ matrix.source-runner }}
+          path: artifacts/stepper-comparison
+          if-no-files-found: error
+  radio-mirror-diagnostics:
+    needs: build-runtime-package
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        source-runner: [ubuntu-24.04, ubuntu-24.04-arm]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -m pip install -r tools/visual-requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: desktop-button-candidates-${{ matrix.source-runner }}
+          path: artifacts/candidate
+      - name: Strict hosted-source RadioGroup comparison
+        run: python3 scripts/compare-radio-captures.py artifacts/candidate/radio-source-candidates artifacts/radio-comparison
+      - name: Record independent hosted-source result
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json,os
+          from pathlib import Path
+          path=Path('artifacts/radio-comparison/comparison.json')
+          if path.is_file():
+              report=json.loads(path.read_text())
+              with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as out:
+                  out.write(f"Hosted RadioGroup comparison: **{report['status']}**; {report['summary']}.\n\n")
+                  out.write('Native source investigation only. No baseline, pixel tolerance, font/symbol exception, physical session or reader approval.\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: radio-source-comparison-${{ matrix.source-runner }}
+          path: artifacts/radio-comparison
+          if-no-files-found: error
+  otp-mirror-diagnostics:
+    needs: build-runtime-package
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        source-runner: [ubuntu-24.04, ubuntu-24.04-arm]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -m pip install -r tools/visual-requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: desktop-button-candidates-${{ matrix.source-runner }}
+          path: artifacts/candidate
+      - name: Strict hosted-source OTP comparison
+        run: python3 scripts/compare-otp-captures.py artifacts/candidate/otp-source-candidates artifacts/otp-comparison
+      - name: Record independent hosted-source result
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json,os
+          from pathlib import Path
+          path=Path('artifacts/otp-comparison/comparison.json')
+          if path.is_file():
+              report=json.loads(path.read_text())
+              with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as out:
+                  out.write(f"Hosted OTP comparison: **{report['status']}**; {report['summary']}.\n\n")
+                  out.write('Native source investigation only. No baseline, pixel tolerance, font/symbol exception, physical session or reader approval.\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: otp-source-comparison-${{ matrix.source-runner }}
+          path: artifacts/otp-comparison
+          if-no-files-found: error
+  activity-mirror-diagnostics:
+    needs: build-runtime-package
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        source-runner: [ubuntu-24.04, ubuntu-24.04-arm]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -m pip install -r tools/visual-requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: desktop-button-candidates-${{ matrix.source-runner }}
+          path: artifacts/candidate
+      - name: Strict hosted-source ActivityItem comparison
+        run: python3 scripts/compare-activity-captures.py artifacts/candidate/activity-source-candidates artifacts/activity-comparison
+      - name: Record independent hosted-source result
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json,os
+          from pathlib import Path
+          path=Path('artifacts/activity-comparison/comparison.json')
+          if path.is_file():
+              report=json.loads(path.read_text())
+              with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as out:
+                  out.write(f"Hosted ActivityItem comparison: **{report['status']}**; {report['summary']}.\n\n")
+                  out.write('Native source investigation only. No baseline, pixel tolerance, font/symbol exception, physical session or reader approval.\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: activity-source-comparison-${{ matrix.source-runner }}
+          path: artifacts/activity-comparison
+          if-no-files-found: error
+  modal-mirror-diagnostics:
+    needs: build-runtime-package
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        source-runner: [ubuntu-24.04, ubuntu-24.04-arm]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -m pip install -r tools/visual-requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: desktop-button-candidates-${{ matrix.source-runner }}
+          path: artifacts/candidate
+      - name: Strict hosted-source Modal comparison
+        run: python3 scripts/compare-modal-captures.py artifacts/candidate/modal-source-candidates artifacts/modal-comparison
+      - name: Record independent hosted-source result
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json,os
+          from pathlib import Path
+          path=Path('artifacts/modal-comparison/comparison.json')
+          if path.is_file():
+              report=json.loads(path.read_text())
+              with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as out:
+                  out.write(f"Hosted Modal comparison: **{report['status']}**; {report['summary']}.\n\n")
+                  out.write('Native source investigation only. No baseline, pixel tolerance, font/symbol exception, physical session or reader approval.\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: modal-source-comparison-${{ matrix.source-runner }}
+          path: artifacts/modal-comparison
+          if-no-files-found: error
+  tooltip-mirror-diagnostics:
+    needs: build-runtime-package
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        source-runner: [ubuntu-24.04, ubuntu-24.04-arm]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -m pip install -r tools/visual-requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: desktop-button-candidates-${{ matrix.source-runner }}
+          path: artifacts/candidate
+      - name: Strict closed-source Tooltip comparison
+        run: python3 scripts/compare-tooltip-captures.py artifacts/candidate/tooltip-source-candidates artifacts/tooltip-comparison
+      - name: Record independent closed-source result
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json,os
+          from pathlib import Path
+          path=Path('artifacts/tooltip-comparison/comparison.json')
+          if path.is_file():
+              report=json.loads(path.read_text())
+              with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as out:
+                  out.write(f"Closed Tooltip comparison: **{report['status']}**; {report['summary']}.\n\n")
+                  out.write('Closed body only. Shown popup, native timing/font/compositor, physical input and readers remain pending. No baseline, tolerance or exception approval.\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tooltip-source-comparison-${{ matrix.source-runner }}
+          path: artifacts/tooltip-comparison
+          if-no-files-found: error
+  button-style-mirror-diagnostics:
+    needs: build-runtime-package
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        source-runner: [ubuntu-24.04, ubuntu-24.04-arm]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -m pip install -r tools/visual-requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: desktop-button-candidates-${{ matrix.source-runner }}
+          path: artifacts/candidate
+      - name: Strict closed-source ButtonStyle comparison
+        run: python3 scripts/compare-button-style-captures.py artifacts/candidate/button-style-source-candidates artifacts/button-style-comparison
+      - name: Record independent closed-source result
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json,os
+          from pathlib import Path
+          path=Path('artifacts/button-style-comparison/comparison.json')
+          if path.is_file():
+              report=json.loads(path.read_text())
+              with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as out:
+                  out.write(f"Closed ButtonStyle comparison: **{report['status']}**; {report['summary']}.\n\n")
+                  out.write('Closed bodies and per-label frames only. Native font/raster, focused keyboard, animation timing, physical input and readers remain pending. No baseline, tolerance or exception approval.\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: button-style-source-comparison-${{ matrix.source-runner }}
+          path: artifacts/button-style-comparison
+          if-no-files-found: error
+  number-formatting-diagnostics:
+    needs: build-runtime-package
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        source-runner: [ubuntu-24.04, ubuntu-24.04-arm]
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: desktop-button-candidates-${{ matrix.source-runner }}
+          path: artifacts/candidate
+      - name: Strict native formatter comparison
+        run: |
+          python3 - <<'PY'
+          import json,os
+          from collections import Counter
+          from pathlib import Path
+          report=json.loads(Path('artifacts/candidate/number-formatting.json').read_text())
+          assert report['cases']==len(report['results'])==49448 and len(report['sourceFiles'])==9
+          assert dict(Counter(r['group'] for r in report['results']))==report['groups']=={'original':1330,'wide-double':19460,'compact-boundaries':28658}
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as out:
+              out.write(f"Native formatter strings: {report['matches']}/{report['cases']} exact; {report['mismatches']} unaccepted differences.\n")
+          assert all(r['status']=='passed' for r in report['results']), 'Native formatter differences remain unaccepted'
+          PY
+
+  font-modifier-mirror-diagnostics:
+    needs: build-runtime-package
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        source-runner: [ubuntu-24.04, ubuntu-24.04-arm]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -m pip install -r tools/visual-requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: desktop-button-candidates-${{ matrix.source-runner }}
+          path: artifacts/candidate
+      - name: Strict closed-source font modifier comparison
+        run: python3 scripts/compare-font-modifier-captures.py artifacts/candidate/font-modifier-source-candidates artifacts/font-modifier-comparison
+      - name: Record independent closed-source result
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json,os
+          from pathlib import Path
+          path=Path('artifacts/font-modifier-comparison/comparison.json')
+          if path.is_file():
+              report=json.loads(path.read_text())
+              with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as out:
+                  out.write(f"Closed font modifier comparison: **{report['status']}**; {report['summary']}.\n\n")
+                  out.write('Closed bodies and emitted frames and baseline guides only. Native font/raster, focused keyboard, animation timing, physical input and readers remain pending. No baseline, tolerance or exception approval.\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: font-modifier-source-comparison-${{ matrix.source-runner }}
+          path: artifacts/font-modifier-comparison
+          if-no-files-found: error
+
+  surface-modifier-mirror-diagnostics:
+    needs: build-runtime-package
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        source-runner: [ubuntu-24.04, ubuntu-24.04-arm]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -m pip install -r tools/visual-requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: desktop-button-candidates-${{ matrix.source-runner }}
+          path: artifacts/candidate
+      - name: Strict closed-source surface modifier comparison
+        run: python3 scripts/compare-surface-modifier-captures.py artifacts/candidate/surface-modifier-source-candidates artifacts/surface-modifier-comparison
+      - name: Record independent closed-source result
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json,os
+          from pathlib import Path
+          path=Path('artifacts/surface-modifier-comparison/comparison.json')
+          if path.is_file():
+              report=json.loads(path.read_text())
+              with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as out:
+                  out.write(f"Closed surface modifier comparison: **{report['status']}**; {report['summary']}.\n\n")
+                  out.write('Closed bodies and emitted frames only; centered baseline maps do not accept first-baseline behavior. Native font/raster/shadow and OS button, source hit tests, physical input and readers remain pending. No baseline, tolerance or exception approval.\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: surface-modifier-source-comparison-${{ matrix.source-runner }}
+          path: artifacts/surface-modifier-comparison
+          if-no-files-found: error
+
+  surface-supplement-mirror-diagnostics:
+    needs: build-runtime-package
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        source-runner: [ubuntu-24.04, ubuntu-24.04-arm]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -m pip install -r tools/visual-requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: desktop-button-candidates-${{ matrix.source-runner }}
+          path: artifacts/candidate
+      - name: Strict native surface guide, input and pixel comparison
+        run: python3 scripts/compare-surface-supplement.py artifacts/candidate/surface-supplement-source-candidates artifacts/surface-supplement-comparison
+      - name: Preserve complete comparison result
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json,os
+          from pathlib import Path
+          path=Path('artifacts/surface-supplement-comparison/comparison.json')
+          if path.is_file():
+              report=json.loads(path.read_text())
+              with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as out:
+                  out.write(f"Surface guide/input comparison: **{report['status']}**; {report['summary']}.\n\n")
+                  out.write('All native points, guides, frames and pixels remain in the strict comparison. Package/runtime readiness does not accept native differences, physical input or reader equivalence.\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: surface-supplement-comparison-${{ matrix.source-runner }}
+          path: artifacts/surface-supplement-comparison
+          if-no-files-found: error
+
+  pill-modifier-mirror-diagnostics:
+    needs: build-runtime-package
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        source-runner: [ubuntu-24.04, ubuntu-24.04-arm]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -m pip install -r tools/visual-requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: desktop-button-candidates-${{ matrix.source-runner }}
+          path: artifacts/candidate
+      - name: Strict complete-source pill modifier comparison
+        run: python3 scripts/compare-pill-modifier-captures.py artifacts/candidate/pill-modifier-source-candidates artifacts/pill-modifier-comparison
+      - name: Record independent complete-source result
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json,os
+          from pathlib import Path
+          path=Path('artifacts/pill-modifier-comparison/comparison.json')
+          if path.is_file():
+              report=json.loads(path.read_text())
+              with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as out:
+                  out.write(f"Closed pill modifier comparison: **{report['status']}**; {report['summary']}.\n\n")
+                  out.write('All public/bare contexts, retained histories, emitted frames and baseline guides. Native font/raster, focused keyboard, animation timing, physical input and readers remain pending. No baseline, tolerance or exception approval.\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pill-modifier-source-comparison-${{ matrix.source-runner }}
+          path: artifacts/pill-modifier-comparison
+          if-no-files-found: error
+
+  charts-mirror-diagnostics:
+    needs: build-runtime-package
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        source-runner: [ubuntu-24.04, ubuntu-24.04-arm]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -m pip install -r tools/visual-requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: desktop-button-candidates-${{ matrix.source-runner }}
+          path: artifacts/candidate
+      - name: Strict complete-source charts comparison
+        run: python3 scripts/compare-chart-captures.py artifacts/candidate/charts-source-candidates artifacts/charts-comparison
+      - name: Record independent complete-source result
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json,os
+          from pathlib import Path
+          path=Path('artifacts/charts-comparison/comparison.json')
+          if path.is_file():
+              report=json.loads(path.read_text())
+              with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as out:
+                  out.write(f"Closed charts comparison: **{report['status']}**; {report['summary']}.\n\n")
+                  out.write('All closed/edge inputs and all eight retained-history steps, source frames, metrics and pixels. Native bar NaN initialization, fonts, geometry, raster, physical input and readers remain pending. No baseline, tolerance or exception approval.\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: charts-source-comparison-${{ matrix.source-runner }}
+          path: artifacts/charts-comparison
+          if-no-files-found: error
+
+  media-library-mirror-diagnostics:
+    needs: build-runtime-package
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        source-runner: [ubuntu-24.04, ubuntu-24.04-arm]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -m pip install -r tools/visual-requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: desktop-button-candidates-${{ matrix.source-runner }}
+          path: artifacts/candidate
+      - name: Strict complete-source MediaLibrary comparison
+        run: python3 scripts/compare-media-library-captures.py artifacts/candidate/media-library-source-candidates artifacts/media-library-comparison
+      - name: Record independent complete-source result
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json,os
+          from pathlib import Path
+          path=Path('artifacts/media-library-comparison/comparison.json')
+          if path.is_file():
+              report=json.loads(path.read_text())
+              with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as out:
+                  out.write(f"MediaLibrary comparison: **{report['status']}**; {report['summary']}.\n\n")
+                  out.write('All 1608 observed pairs and all 21 retained-history steps remain strict; eight fatal processes are preserved. Direct sizing is unobserved. Native geometry, lifecycle, lazy timing, retained raster, physical input and readers remain pending. No baseline, tolerance or exception approval.\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: media-library-source-comparison-${{ matrix.source-runner }}
+          path: artifacts/media-library-comparison
+          if-no-files-found: error
+
+  app-tabs-mirror-diagnostics:
+    needs: build-runtime-package
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        source-runner: [ubuntu-24.04, ubuntu-24.04-arm]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -m pip install -r tools/visual-requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: desktop-button-candidates-${{ matrix.source-runner }}
+          path: artifacts/candidate
+      - name: Strict complete-source AppTabBar comparison
+        run: |
+          mkdir -p artifacts/app-tabs-comparison
+          python3 scripts/compare-app-tabs-captures.py artifacts/candidate/app-tabs-source-candidates --output artifacts/app-tabs-comparison/comparison.json
+      - name: Record independent complete-source result
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json,os
+          from pathlib import Path
+          path=Path('artifacts/app-tabs-comparison/comparison.json')
+          if path.is_file():
+              report=json.loads(path.read_text())
+              with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as out:
+                  out.write(f"AppTabBar comparison: **{report['status']}**; {report['summary']}.\n\n")
+                  out.write('All 1208 closed/history pairs remain strict. Direct sizing is unobserved. Native symbols, label fitting, raster, identities, input timing, accessibility, physical displays and readers remain pending. No baseline, tolerance or exception approval.\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: app-tabs-source-comparison-${{ matrix.source-runner }}
+          path: artifacts/app-tabs-comparison
+          if-no-files-found: error
+
+  chart-geometry-mirror-diagnostics:
+    needs: build-runtime-package
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        source-runner: [ubuntu-24.04, ubuntu-24.04-arm]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -m pip install -r tools/visual-requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: desktop-button-candidates-${{ matrix.source-runner }}
+          path: artifacts/candidate
+      - name: Strict supplemental chart geometry comparison
+        run: python3 scripts/compare-chart-geometry-captures.py artifacts/candidate/chart-geometry-source-candidates artifacts/chart-geometry-comparison
+      - name: Record independent complete-source result
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json,os
+          from pathlib import Path
+          path=Path('artifacts/chart-geometry-comparison/comparison.json')
+          if path.is_file():
+              report=json.loads(path.read_text())
+              with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as out:
+                  out.write(f"Supplemental chart geometry comparison: **{report['status']}**; {report['summary']}.\n\n")
+                  out.write('All 125 supplemental requested-scale, tiny-frame, RTL-category and long-legend contexts retain every source frame, metric and pixel. Native backing scale stays two; physical fractional displays, native fonts/layout/raster, input and readers remain pending. No baseline, tolerance or exception approval.\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: chart-geometry-source-comparison-${{ matrix.source-runner }}
+          path: artifacts/chart-geometry-comparison
+          if-no-files-found: error

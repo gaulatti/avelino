@@ -1,0 +1,28 @@
+Internal ctest changing into directory: /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/build
+Test project /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/build
+    Start 1: date-range-owned-input
+1/2 Test #1: date-range-owned-input ...........***Failed   16.29 sec
+********* Start testing of DateRangeUiTests *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : DateRangeUiTests::initTestCase()
+PASS   : DateRangeUiTests::fieldKeyboardOwners()
+FAIL!  : DateRangeUiTests::graphicalPreviewAndCommit() 'day' returned FALSE. ()
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/tests/components/daterangeui.cpp(55)]
+QWARN  : DateRangeUiTests::overlayInputWindow() This plugin does not support grabbing the keyboard
+FAIL!  : DateRangeUiTests::overlayInputWindow() 'f.window->property("sourceStart").toDouble()==1741536000.625' returned FALSE. ()
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/tests/components/daterangeui.cpp(74)]
+PASS   : DateRangeUiTests::disabledAndCallerOverflow()
+PASS   : DateRangeUiTests::cleanupTestCase()
+Totals: 4 passed, 2 failed, 0 skipped, 0 blacklisted, 16227ms
+********* Finished testing of DateRangeUiTests *********
+
+    Start 2: date-range-calendar-components
+2/2 Test #2: date-range-calendar-components ...   Passed    0.71 sec
+
+50% tests passed, 1 tests failed out of 2
+
+Total Test time (real) =  17.05 sec
+
+The following tests FAILED:
+	  1 - date-range-owned-input (Failed)
+Errors while running CTest

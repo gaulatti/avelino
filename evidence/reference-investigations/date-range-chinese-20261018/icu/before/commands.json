@@ -1,0 +1,49 @@
+[
+  {
+    "name": "build",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/date-range-chinese-icu-v1:/probe",
+      "-w",
+      "/probe",
+      "avelino-toolchain:recovered-weston13-v2-20261017-qt6.8.3",
+      "g++",
+      "-std=c++17",
+      "main.cpp",
+      "-licui18n",
+      "-licuuc",
+      "-licudata",
+      "-o",
+      "probe"
+    ],
+    "exitCode": 0,
+    "seconds": 1.097757790936157
+  },
+  {
+    "name": "format",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/date-range-chinese-icu-v1:/probe",
+      "-w",
+      "/probe",
+      "avelino-toolchain:recovered-weston13-v2-20261017-qt6.8.3",
+      "./probe"
+    ],
+    "exitCode": 0,
+    "seconds": 0.2388072090689093
+  }
+]

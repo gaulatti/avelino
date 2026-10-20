@@ -7,8 +7,52 @@ Window {
     width: 840; height: 560; visible: true
     title: "Avelino — composition consumer"
     property int reviewInvocations: 0
+    property int groupInvocations: 0
+    readonly property Component emptyGroupFactory: Component { BleeckerButtonGroup {} }
+    readonly property Component groupSlotsFactory: Component {
+        BleeckerButtonGroup {
+            Rectangle { objectName:"first"; width:80; height:20; color:BleeckerTheme.palette.sea }
+            Rectangle { objectName:"second"; width:40; height:30; color:BleeckerTheme.palette.desert }
+        }
+    }
+    readonly property Component overlappingGroupFactory: Component {
+        BleeckerButtonGroup {
+            spacing:-200
+            Rectangle { objectName:"first"; width:80; height:20; color:BleeckerTheme.palette.sea }
+            Rectangle { objectName:"second"; width:40; height:30; color:BleeckerTheme.palette.desert }
+        }
+    }
+    readonly property Component rtlGroupFactory: Component {
+        BleeckerButtonGroup {
+            LayoutMirroring.enabled:true; LayoutMirroring.childrenInherit:true
+            Rectangle { objectName:"first"; width:80; height:20; color:BleeckerTheme.palette.sea }
+            Rectangle { objectName:"second"; width:40; height:30; color:BleeckerTheme.palette.desert }
+        }
+    }
+    readonly property Component fractionalGroupFactory: Component {
+        BleeckerButtonGroup {
+            Rectangle { objectName:"first"; width:80.5; height:20.5; color:BleeckerTheme.palette.sea }
+            Rectangle { objectName:"second"; width:40.5; height:30.5; color:BleeckerTheme.palette.desert }
+        }
+    }
+    readonly property Component interactiveGroupFactory: Component {
+        BleeckerButtonGroup {
+            BleeckerButton { objectName:"first"; size:"xs"; text:"Short"; onClicked:window.groupInvocations++ }
+            BleeckerButton { objectName:"second"; size:"lg"; text:"Tall"; onClicked:window.groupInvocations++ }
+        }
+    }
     readonly property real fixtureTextScale: BleeckerTheme.textScale
     Component.onCompleted: { BleeckerTheme.dark = consumerDark; BleeckerTheme.textScale = consumerTextScale; BleeckerTheme.reducedMotion = true }
+    readonly property Component emptyFooterFactory: Component {
+        BleeckerFooter { width: 300 }
+    }
+    readonly property Component footerSlotsFactory: Component {
+        BleeckerFooter {
+            width: 300
+            Rectangle { objectName: "firstFooterSlot"; width: 80; height: 20; color: BleeckerTheme.palette.sea }
+            Rectangle { objectName: "secondFooterSlot"; width: 40; height: 30; color: BleeckerTheme.palette.desert }
+        }
+    }
     BleeckerAppShell {
         anchors.fill: parent
         objectName: "appShell"
@@ -51,7 +95,7 @@ Window {
             BleeckerFooter {
                 objectName: "footer"
                 anchors.bottom: parent.bottom; width: parent.width
-                T.Label { text: "Bleecker • Avelino"; color: palette.windowText; anchors.horizontalCenter: parent.horizontalCenter }
+                T.Label { text: "Bleecker • Avelino"; color: palette.windowText }
             }
         }
     }

@@ -1,0 +1,23 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--detach",
+    "--name",
+    "avelino-file-input-location-reader-17",
+    "--ulimit",
+    "core=0",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/file-input-location-reader-v17:/probe",
+    "-w",
+    "/probe",
+    "avelino-toolchain:recovered-weston13-20261017-qt6.8.3",
+    "dbus-run-session",
+    "--",
+    "python3",
+    "/probe/session.py"
+  ],
+  "containerId": "bda0439b72928225230026ce8d8e0cf9a3cb105deb76177a7390d63bec1ff79d"
+}

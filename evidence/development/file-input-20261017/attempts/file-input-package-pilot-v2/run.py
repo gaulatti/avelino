@@ -1,0 +1,11 @@
+from pathlib import Path
+import hashlib,json,shutil,subprocess,time
+p=Path(__file__).resolve().parent;r=p.parents[2];producer=p.parent/'file-input-qt-v8';assert json.loads((producer/'result.json').read_text())['exitCode']==0
+shutil.copytree(producer/'install',p/'install');shutil.copytree(producer/'source/tests/consumer',p/'consumer');(p/'output').mkdir();sha=lambda f:hashlib.sha256(f.read_bytes()).hexdigest();(p/'inputs.json').write_text(json.dumps(dict(accepted=False,producer=str(producer),packageFiles={str(f.relative_to(p/'install')):sha(f)for f in sorted((p/'install').rglob('*'))if f.is_file()},consumerFiles={str(f.relative_to(p/'consumer')):sha(f)for f in sorted((p/'consumer').rglob('*'))if f.is_file()}),indent=2)+'\n')
+base=['docker','--context','colima-avelino-verify','run','--rm','--ulimit','core=0','-v',str(p)+':/consumer-check','-w','/consumer-check','--env','QT_QPA_PLATFORM=offscreen','--env','QT_QUICK_BACKEND=software','--env','XDG_RUNTIME_DIR=/tmp/avelino-file-input-runtime','avelino-toolchain:data-metrics-qt6.8.3'];steps=[]
+for name,command in [('source-absence',['python3','-c',"from pathlib import Path; assert not Path('/work/src/Avelino').exists(); assert not Path('/work/CMakeLists.txt').exists(); assert not Path('/work/build').exists(); assert not Path('/Users/gaulatti/source/gaulatti/avelino').exists(); print('Library source and build absent')"]),('configure',['cmake','-S','consumer','-B','build','-G','Ninja','-DAvelino_DIR=/consumer-check/install/lib/cmake/Avelino','-DCMAKE_BUILD_TYPE=Debug']),('build',['cmake','--build','build','--parallel','2']),('file-input',['./build/InstalledConsumer','--file-input','--file-input-observe','--file-input-report','/consumer-check/output/light-text1-dpr1'])]:
+ start=time.monotonic()
+ with(p/(name+'.log')).open('w')as log:result=subprocess.run(base+command,stdout=log,stderr=subprocess.STDOUT)
+ steps.append(dict(name=name,command=base+command,exitCode=result.returncode,seconds=time.monotonic()-start));(p/'commands.json').write_text(json.dumps(steps,indent=2)+'\n');print(name,result.returncode,flush=True)
+ if result.returncode:(p/'result.json').write_text(json.dumps(dict(accepted=False,exitCode=result.returncode,failedStep=name),indent=2)+'\n');raise SystemExit(result.returncode)
+(p/'result.json').write_text(json.dumps(dict(accepted=False,exitCode=0),indent=2)+'\n')

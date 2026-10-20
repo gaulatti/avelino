@@ -1,0 +1,10 @@
+********* Start testing of DateRangeUiTests *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : DateRangeUiTests::initTestCase()
+FAIL!  : DateRangeUiTests::leapMonthKeepsIndependentDayPosition() Compared doubles are not the same (fuzzy compare)
+   Actual   (rectangle(0).x())                         : -13
+   Expected (input->property("leftPadding").toDouble()): 3
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/tests/components/daterangeui.cpp(322)]
+PASS   : DateRangeUiTests::cleanupTestCase()
+Totals: 2 passed, 1 failed, 0 skipped, 0 blacklisted, 209ms
+********* Finished testing of DateRangeUiTests *********

@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "/probe/exercise.py", line 100, in <module>
+    open_panel()
+  File "/probe/exercise.py", line 48, in open_panel
+    press('Choose file…')
+  File "/probe/exercise.py", line 40, in press
+    assert action(find(name, role), 'Press'), (name, 'Press rejected')
+                  ^^^^^^^^^^^^^^^^
+  File "/probe/exercise.py", line 32, in find
+    return next(o for o in walk(app()) if o.getState().contains(pyatspi.STATE_SHOWING) and o.name == name and (role is None or o.getRoleName() == role))
+                                ^^^^^
+  File "/probe/exercise.py", line 25, in app
+    return next(o for o in desktop if o is not None and o.get_process_id() == pid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+StopIteration

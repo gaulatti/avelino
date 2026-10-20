@@ -1,0 +1,68 @@
+[
+  {
+    "command": [
+      "node",
+      "scripts/generate-tokens.mjs",
+      "--check"
+    ],
+    "exitCode": 0,
+    "seconds": 0.22599712491501123
+  },
+  {
+    "command": [
+      "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+      "scripts/verify-references.py"
+    ],
+    "exitCode": 0,
+    "seconds": 0.2462468749145046
+  },
+  {
+    "command": [
+      "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+      "scripts/discover-reference.py",
+      "--check"
+    ],
+    "exitCode": 0,
+    "seconds": 0.20431862492114305
+  },
+  {
+    "command": [
+      "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+      "scripts/verify-proposals.py"
+    ],
+    "exitCode": 0,
+    "seconds": 1.9816856250399724
+  },
+  {
+    "command": [
+      "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+      "scripts/verify-font-modifier-source.py"
+    ],
+    "exitCode": 0,
+    "seconds": 1.1332323750248179
+  },
+  {
+    "command": [
+      "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+      "scripts/verify-font-baseline-source.py"
+    ],
+    "exitCode": 0,
+    "seconds": 0.944035374908708
+  },
+  {
+    "command": [
+      "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+      "scripts/verify-font-edges-source.py"
+    ],
+    "exitCode": 0,
+    "seconds": 0.5979843330569565
+  },
+  {
+    "command": [
+      "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+      "scripts/verify-navigation-layout-source.py"
+    ],
+    "exitCode": 1,
+    "seconds": 0.08738333301153034
+  }
+]

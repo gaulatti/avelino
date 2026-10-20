@@ -1,0 +1,56 @@
+{
+  "accepted": false,
+  "status": "running",
+  "phases": [
+    {
+      "phase": "location-current-menu",
+      "time": 1792287879.6504865,
+      "observations": {
+        "selected": [
+          "one.txt"
+        ],
+        "location": "/probe/fixtures"
+      },
+      "readerLogBytes": 218104
+    },
+    {
+      "phase": "location-current-preserves-selection",
+      "time": 1792287881.5191436,
+      "observations": {
+        "selected": [
+          "one.txt"
+        ],
+        "location": "/probe/fixtures"
+      },
+      "readerLogBytes": 251073
+    },
+    {
+      "phase": "location-native-keyboard-current",
+      "time": 1792287884.8443966,
+      "observations": {
+        "selected": [
+          "one.txt"
+        ],
+        "method": "AT-SPI SetFocus and native XTest Down/Up/Return"
+      },
+      "readerLogBytes": 383800
+    },
+    {
+      "phase": "location-ancestor-clears-selection",
+      "time": 1792287887.2287676,
+      "observations": {
+        "selected": [],
+        "location": "/probe"
+      },
+      "readerLogBytes": 599620
+    },
+    {
+      "phase": "operator-failure",
+      "time": 1792287890.1286595,
+      "observations": {
+        "error": "Traceback (most recent call last):\n  File \"/probe/exercise.py\", line 178, in <module>\n    assert not present('fixtures','menu item') and present('Open','frame') and selected_rows()==['one.txt'] and not owner()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+      },
+      "readerLogBytes": 740751
+    }
+  ]
+}

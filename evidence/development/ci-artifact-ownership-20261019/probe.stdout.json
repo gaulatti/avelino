@@ -1,0 +1,44 @@
+{
+  "rows": [
+    {
+      "fixed": false,
+      "hostPreparation": null,
+      "rootCopyPreservedFiles": 264,
+      "artifactsOwnerUid": 0,
+      "toolchainCopyOwnerUid": 0,
+      "seed": {
+        "command": "mkdir -p artifacts/package/consumer artifacts/package/install\nprintf '%s\\n' 'obsolete consumer fixture' > artifacts/package/consumer/main.cpp\ntouch artifacts/package/install/obsolete-fixture\n",
+        "uid": 1001,
+        "gid": 1001,
+        "exitCode": 1,
+        "stdout": "",
+        "stderr": "mkdir: cannot create directory \u2018artifacts/package\u2019: Permission denied\nmkdir: cannot create directory \u2018artifacts/package\u2019: Permission denied\n"
+      }
+    },
+    {
+      "fixed": true,
+      "hostPreparation": {
+        "command": "mkdir -p artifacts/linux/toolchain",
+        "uid": 1001,
+        "gid": 1001,
+        "exitCode": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "rootCopyPreservedFiles": 264,
+      "artifactsOwnerUid": 1001,
+      "toolchainCopyOwnerUid": 0,
+      "seed": {
+        "command": "mkdir -p artifacts/package/consumer artifacts/package/install\nprintf '%s\\n' 'obsolete consumer fixture' > artifacts/package/consumer/main.cpp\ntouch artifacts/package/install/obsolete-fixture\n",
+        "uid": 1001,
+        "gid": 1001,
+        "exitCode": 0,
+        "stdout": "",
+        "stderr": ""
+      }
+    }
+  ],
+  "actualLinuxPermissions": true,
+  "fullWorkflowExecuted": false,
+  "accepted": false
+}

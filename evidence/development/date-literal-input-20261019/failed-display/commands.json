@@ -1,0 +1,24 @@
+[
+  {
+    "name": "display-sessions",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/date-literal-display-v1/runtime:/display-check",
+      "-w",
+      "/display-check",
+      "avelino-toolchain:weston13-popup-parent-v2-20261018-qt6.8.3",
+      "bash",
+      "check.sh",
+      "/display-check/output"
+    ],
+    "exitCode": 1,
+    "seconds": 171.02415079204366
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "name": "build",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/date-literal-gl-diagnostic-v1:/consumer-check",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/date-literal-package-v1/runtime/install:/consumer-check/install:ro",
+      "-w",
+      "/consumer-check",
+      "avelino-toolchain:weston13-popup-parent-v2-20261018-qt6.8.3",
+      "bash",
+      "-c",
+      "touch consumer/daterangechecks.h && cmake --build consumer-build --parallel 2"
+    ],
+    "exitCode": 0,
+    "seconds": 28.69678350002505
+  },
+  {
+    "name": "case",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/date-literal-gl-diagnostic-v1/runtime:/display-check",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/date-literal-package-v1/runtime/install:/display-check/install:ro",
+      "-w",
+      "/display-check",
+      "avelino-toolchain:weston13-popup-parent-v2-20261018-qt6.8.3",
+      "bash",
+      "check.sh",
+      "/display-check/output"
+    ],
+    "exitCode": 1,
+    "seconds": 80.45850579102989
+  }
+]

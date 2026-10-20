@@ -1,0 +1,42 @@
+{
+  "accepted": false,
+  "baseGit": "a411c51b58810bf7df84eb72ae3271637c1274ab",
+  "status": "Linux teardown correction; native mirror acceptance pending",
+  "baselineCases": 40,
+  "baselineSurvived": 24,
+  "baselineIncorrectTypeAborts": 16,
+  "affectedClasses": [
+    "InheritedControl",
+    "RadioGroupBase",
+    "ChartRenderer",
+    "SpotlightRows",
+    "SoftwareContentMask"
+  ],
+  "fixedMatrixChecksPerScale": 42,
+  "fixedScales": [
+    1,
+    2
+  ],
+  "qmlRegressionChecksPerScale": 3,
+  "sourceAbsentConsumerModes": 37,
+  "installedCatalogs": 151,
+  "unchangedCatalogPairs": 151,
+  "physicalDisplay": false,
+  "readerAcceptance": "pending",
+  "expectedImagesChanged": false,
+  "tolerance": "none",
+  "approvedExceptions": [],
+  "sourceOverlay": {
+    "src/Avelino/inheritedcontrol.h": "817bbdd455b0c0db9b63f95982599906de43c4659290dabe0f13a4958ad15c4f",
+    "src/Avelino/inheritedcontrol.cpp": "2603caeeb4588912d9e2863b88e1af0c709d41a2539eb0cf36e737121ece2d99",
+    "src/Avelino/radiogroupbase.h": "bd4b30cf8061b91f3cdb5313b686668ca914497bceaebd96cc2d44ffba85aa7c",
+    "src/Avelino/radiogroupbase.cpp": "f5d3dcdebfb9abb33a2808dea962c888abe73765822442e6b9c32826f124b422",
+    "src/Avelino/chartrenderer.h": "68f3e45ca396591737d2b883b1b3039b52d67e58a1e8cd12be7d1dd7da1dc8f2",
+    "src/Avelino/chartrenderer.cpp": "3eabb6fba3318dc30da08bed9a3847aef61013cef7bb59237af53f82cc97d2e4",
+    "src/Avelino/spotlightrows.cpp": "84778a39259a2fadb586c8a950586db236238cf9babd23ba2cdd393b24db39f6",
+    "src/Avelino/softwarecontentmask.cpp": "3ef6db757969b5e7d0d7d30894859d3e6fe70335f701b8d6c116a933c0f3d4e7"
+  },
+  "testSupplement": "Current itemlifetime.cpp adds style-notification absence checks; tested separately against the same unchanged isolated library. The original fixed-build test source is retained.",
+  "fullCombinedRegression": "Separate file-input-qt-v14 47-target run; its result is not claimed by this record",
+  "portableSourceReplay": "passed; fresh corrected source restored from Git history plus overlay, without build-cache inputs"
+}

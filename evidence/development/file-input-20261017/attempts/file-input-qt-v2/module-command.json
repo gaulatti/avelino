@@ -1,0 +1,25 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--rm",
+    "--ulimit",
+    "core=0",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino:/work",
+    "-w",
+    "/work/artifacts/resumed-avelino-20261016/file-input-qt-v2/source",
+    "avelino-toolchain:data-metrics-qt6.8.3",
+    "cmake",
+    "--build",
+    "../build",
+    "--target",
+    "Avelino",
+    "--parallel",
+    "2"
+  ],
+  "exitCode": 0,
+  "seconds": 141.70919800002594
+}

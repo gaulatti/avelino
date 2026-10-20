@@ -1,0 +1,26 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--rm",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino:/work",
+    "-w",
+    "/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source",
+    "-e",
+    "QT_QPA_PLATFORM=offscreen",
+    "-e",
+    "QT_QUICK_BACKEND=software",
+    "avelino-toolchain:recovered-weston13-cjk-v1-20261018-qt6.8.3",
+    "../build/tests/components/AvelinoComponentTests",
+    "-input",
+    "/work/artifacts/resumed-avelino-20261016/navigation-cjk-ci-v1/tst_metric_probe.qml",
+    "-import",
+    "../build/qml"
+  ],
+  "exitCode": 133,
+  "seconds": 6.915984584018588,
+  "scope": "Diagnostic only; no product or expected source change"
+}

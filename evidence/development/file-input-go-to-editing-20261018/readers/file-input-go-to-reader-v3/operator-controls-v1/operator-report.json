@@ -1,0 +1,172 @@
+{
+  "accepted": false,
+  "status": "running",
+  "phases": [
+    {
+      "phase": "go-to-modal-reachable",
+      "time": 1792294935.1050055,
+      "observations": {
+        "raw": "/probe/fixtures",
+        "location": "/probe/fixtures",
+        "selected": [
+          "one.txt"
+        ],
+        "owner": ""
+      },
+      "readerLogBytes": 259045
+    },
+    {
+      "phase": "go-to-nonempty-close-clears",
+      "time": 1792294937.0151737,
+      "observations": {
+        "raw": "",
+        "proposals": [],
+        "selected": [
+          "one.txt"
+        ]
+      },
+      "readerLogBytes": 267237
+    },
+    {
+      "phase": "go-to-empty-close-dismisses",
+      "time": 1792294939.0483649,
+      "observations": {
+        "location": "/probe/fixtures",
+        "selected": [
+          "one.txt"
+        ]
+      },
+      "readerLogBytes": 309039
+    },
+    {
+      "phase": "go-to-native-prefix",
+      "time": 1792294942.6277168,
+      "observations": {
+        "raw": "/probe/fixtures/Al",
+        "proposals": [
+          "/probe/fixtures/Alpha",
+          "/probe/fixtures/Alpine",
+          "/probe/fixtures/Alphabet"
+        ],
+        "selected": [
+          "/probe/fixtures/Alpha"
+        ],
+        "method": "XTest keyboard"
+      },
+      "readerLogBytes": 755425
+    },
+    {
+      "phase": "go-to-native-arrows-preserve-input",
+      "time": 1792294945.6997695,
+      "observations": {
+        "raw": "/probe/fixtures/Al",
+        "selected": [
+          "/probe/fixtures/Alpine"
+        ]
+      },
+      "readerLogBytes": 829949
+    },
+    {
+      "phase": "go-to-return-navigates-without-owner",
+      "time": 1792294947.4213564,
+      "observations": {
+        "location": "/probe/fixtures/Alpine",
+        "selected": [],
+        "owner": ""
+      },
+      "readerLogBytes": 929255
+    },
+    {
+      "phase": "go-to-missing-remains-modal",
+      "time": 1792294951.033057,
+      "observations": {
+        "raw": "/probe/fixtures/missing",
+        "location": "/probe/fixtures/Alpine",
+        "selected": [],
+        "owner": ""
+      },
+      "readerLogBytes": 1342294
+    },
+    {
+      "phase": "go-to-tab-common-prefix",
+      "time": 1792294954.8650565,
+      "observations": {
+        "raw": "/probe/fixtures/Alp",
+        "proposals": [
+          "/probe/fixtures/Alpha",
+          "/probe/fixtures/Alpine",
+          "/probe/fixtures/Alphabet"
+        ]
+      },
+      "readerLogBytes": 1871427
+    },
+    {
+      "phase": "go-to-recent-select-keeps-empty-input",
+      "time": 1792294958.5429904,
+      "observations": {
+        "raw": "",
+        "selected": [
+          "/probe/fixtures/Alpine"
+        ],
+        "location": "/probe/fixtures/Alpine"
+      },
+      "readerLogBytes": 2118852
+    },
+    {
+      "phase": "go-to-path-selects-nonmatching-file",
+      "time": 1792294963.4114988,
+      "observations": {
+        "location": "/probe/fixtures",
+        "selected": [
+          "photo.png"
+        ],
+        "owner": ""
+      },
+      "readerLogBytes": 2681239
+    },
+    {
+      "phase": "go-to-main-open-delivers-owner",
+      "time": 1792294965.244043,
+      "observations": {
+        "owner": "Selected URLs: file:///probe/fixtures/photo.png"
+      },
+      "readerLogBytes": 2847077
+    },
+    {
+      "phase": "go-to-remount-retains-last-input",
+      "time": 1792294968.5588677,
+      "observations": {
+        "raw": "/probe/fixtures/photo.png",
+        "owner": "Selected URLs: file:///probe/fixtures/photo.png"
+      },
+      "readerLogBytes": 2963387
+    },
+    {
+      "phase": "go-to-editable-text-interface-unavailable",
+      "time": 1792294970.5793815,
+      "observations": {
+        "raw": "/probe/fixtures/photo.png",
+        "interfaceAvailable": false,
+        "states": [
+          "<enum ATSPI_STATE_EDITABLE of type Atspi.StateType>",
+          "<enum ATSPI_STATE_ENABLED of type Atspi.StateType>",
+          "<enum ATSPI_STATE_FOCUSABLE of type Atspi.StateType>",
+          "<enum ATSPI_STATE_FOCUSED of type Atspi.StateType>",
+          "<enum ATSPI_STATE_SENSITIVE of type Atspi.StateType>",
+          "<enum ATSPI_STATE_SHOWING of type Atspi.StateType>",
+          "<enum ATSPI_STATE_VISIBLE of type Atspi.StateType>"
+        ],
+        "limitation": "Direct assistive text mutation remains pending; native keyboard editing was exercised separately."
+      },
+      "readerLogBytes": 2963387
+    },
+    {
+      "phase": "go-to-final-cancel-restores-caller",
+      "time": 1792294973.1281042,
+      "observations": {
+        "owner": "Selected URLs: file:///probe/fixtures/photo.png"
+      },
+      "readerLogBytes": 3113570
+    }
+  ]
+}

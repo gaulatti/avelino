@@ -1,0 +1,1492 @@
+Preset CMake variables:
+
+  BUILD_TESTING="ON"
+  CMAKE_BUILD_TYPE="RelWithDebInfo"
+
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Performing Test HAVE_STDATOMIC
+-- Performing Test HAVE_STDATOMIC - Success
+-- Found WrapAtomic: TRUE  
+-- Found OpenGL: /usr/lib/aarch64-linux-gnu/libOpenGL.so   
+-- Found WrapOpenGL: TRUE  
+-- Found XKB: /usr/lib/aarch64-linux-gnu/libxkbcommon.so (found suitable version "1.6.0", minimum required is "0.5.0") 
+-- Found WrapVulkanHeaders: /usr/include  
+-- Found the following ICU libraries:
+--   i18n (required): /usr/lib/aarch64-linux-gnu/libicui18n.so.74
+--   uc (required): /usr/lib/aarch64-linux-gnu/libicuuc.so.74
+-- Found ICU: /usr/include (found suitable exact version "74.2") 
+-- Performing Test AVELINO_ICU_ABI_COHERENT
+-- Performing Test AVELINO_ICU_ABI_COHERENT - Success
+-- Configuring done (3.0s)
+-- Generating done (0.4s)
+-- Build files have been written to: /work/build/linux
+[0/2] Re-checking globbed directories...
+[1/569] Copying Avelino qml sources into build dir
+[2/569] Copying Avelino qml resources into build dir
+[3/569] Automatic MOC and UIC for target Avelinoplugin
+[4/569] Copying AvelinoCatalog qml sources into build dir
+[5/569] Copying AvelinoCatalog qml resources into build dir
+[6/569] Running qmlimportscanner for AvelinoCatalog
+[7/569] Copying AvelinoAppTabRasterTests qml sources into build dir
+[8/569] Copying AvelinoAppTabRasterTests qml resources into build dir
+[9/569] Running qmlimportscanner for AvelinoFileChooserTests
+[10/569] Automatic MOC and UIC for target AvelinoFileChooserTests
+[11/569] Running qmlimportscanner for AvelinoFileBrowserTests
+[12/569] Automatic MOC and UIC for target AvelinoFileBrowserTests
+[13/569] Running qmlimportscanner for AvelinoFilePlacesTests
+[14/569] Automatic MOC and UIC for target AvelinoFilePlacesTests
+[15/569] Running qmlimportscanner for AvelinoFilePathTests
+[16/569] Automatic MOC and UIC for target AvelinoFilePathTests
+[17/569] Running qmlimportscanner for AvelinoFileInputUiTests
+[18/569] Running qmlimportscanner for AvelinoItemLifetimeTests
+[19/569] Running qmlimportscanner for AvelinoComponentTests
+[20/569] Running qmlimportscanner for AvelinoDateRangeToolsTests
+[21/569] Running qmlimportscanner for AvelinoDateRangeUiTests
+[22/569] Running qmlimportscanner for AvelinoHeroCarouselTests
+[23/569] Running qmlimportscanner for AvelinoOTPSemanticsTests
+[24/569] Running qmlimportscanner for AvelinoAppTabRasterTests
+[25/569] Building CXX object tests/components/CMakeFiles/AvelinoFileChooserTests.dir/AvelinoFileChooserTests_autogen/mocs_compilation.cpp.o
+[26/569] Building CXX object tests/components/CMakeFiles/AvelinoFileChooserTests.dir/filechoosermodel.cpp.o
+[27/569] Automatic MOC and UIC for target Avelino
+[28/569] Running rcc for resource qmake_Avelino
+[29/569] Generating .rcc/qmlcache/Avelino_qmlcache_loader.cpp
+[30/569] Running rcc for resource Avelino_raw_qml_0
+[31/569] Running AUTOMOC file extraction for target Avelino
+[32/569] Running moc --collect-json for target Avelino
+[33/569] Automatic QML type registration for target Avelino
+[34/569] Generating .rcc/qmlcache/Avelino_BleeckerDateRangePicker_qml.cpp, .rcc/qmlcache/Avelino_BleeckerDateRangePicker_qml.cpp.aotstats
+[35/569] Generating .rcc/qmlcache/Avelino_DateRangeField_qml.cpp, .rcc/qmlcache/Avelino_DateRangeField_qml.cpp.aotstats
+[36/569] Generating .rcc/qmlcache/Avelino_DateRangeEditor_qml.cpp, .rcc/qmlcache/Avelino_DateRangeEditor_qml.cpp.aotstats
+[37/569] Generating .rcc/qmlcache/Avelino_DateRangeCalendar_qml.cpp, .rcc/qmlcache/Avelino_DateRangeCalendar_qml.cpp.aotstats
+[38/569] Generating .rcc/qmlcache/Avelino_DateRangeArrow_qml.cpp, .rcc/qmlcache/Avelino_DateRangeArrow_qml.cpp.aotstats
+[39/569] Generating .rcc/qmlcache/Avelino_BleeckerHeroCarousel_qml.cpp, .rcc/qmlcache/Avelino_BleeckerHeroCarousel_qml.cpp.aotstats
+[40/569] Building CXX object tests/components/CMakeFiles/AvelinoFileChooserTests.dir/__/__/src/Avelino/filechoosermodel.cpp.o
+[41/569] Generating .rcc/qmlcache/Avelino_BleeckerFileInput_qml.cpp, .rcc/qmlcache/Avelino_BleeckerFileInput_qml.cpp.aotstats
+[42/569] Generating .rcc/qmlcache/Avelino_FileChooserGoTo_qml.cpp, .rcc/qmlcache/Avelino_FileChooserGoTo_qml.cpp.aotstats
+[43/569] Generating .rcc/qmlcache/Avelino_FileChooserDialog_qml.cpp, .rcc/qmlcache/Avelino_FileChooserDialog_qml.cpp.aotstats
+[44/569] Generating .rcc/qmlcache/Avelino_FileChooserLocationMenu_qml.cpp, .rcc/qmlcache/Avelino_FileChooserLocationMenu_qml.cpp.aotstats
+[45/569] Generating .rcc/qmlcache/Avelino_FileChooserViews_qml.cpp, .rcc/qmlcache/Avelino_FileChooserViews_qml.cpp.aotstats
+[46/569] Generating .rcc/qmlcache/Avelino_FileChooserNewFolder_qml.cpp, .rcc/qmlcache/Avelino_FileChooserNewFolder_qml.cpp.aotstats
+[47/569] Generating .rcc/qmlcache/Avelino_FileChooserButton_qml.cpp, .rcc/qmlcache/Avelino_FileChooserButton_qml.cpp.aotstats
+[48/569] Generating .rcc/qmlcache/Avelino_FileChooserGlyph_qml.cpp, .rcc/qmlcache/Avelino_FileChooserGlyph_qml.cpp.aotstats
+[49/569] Generating .rcc/qmlcache/Avelino_BleeckerDropdownMenu_qml.cpp, .rcc/qmlcache/Avelino_BleeckerDropdownMenu_qml.cpp.aotstats
+[50/569] Generating .rcc/qmlcache/Avelino_BleeckerCommandSpotlight_qml.cpp, .rcc/qmlcache/Avelino_BleeckerCommandSpotlight_qml.cpp.aotstats
+[51/569] Generating .rcc/qmlcache/Avelino_BleeckerMediaLibrary_qml.cpp, .rcc/qmlcache/Avelino_BleeckerMediaLibrary_qml.cpp.aotstats
+[52/569] Generating .rcc/qmlcache/Avelino_BleeckerAppTabBar_qml.cpp, .rcc/qmlcache/Avelino_BleeckerAppTabBar_qml.cpp.aotstats
+[53/569] Generating .rcc/qmlcache/Avelino_ChartBase_qml.cpp, .rcc/qmlcache/Avelino_ChartBase_qml.cpp.aotstats
+[54/569] Generating .rcc/qmlcache/Avelino_BleeckerLineChart_qml.cpp, .rcc/qmlcache/Avelino_BleeckerLineChart_qml.cpp.aotstats
+[55/569] Generating .rcc/qmlcache/Avelino_BleeckerBarChart_qml.cpp, .rcc/qmlcache/Avelino_BleeckerBarChart_qml.cpp.aotstats
+[56/569] Generating .rcc/qmlcache/Avelino_BleeckerPieChart_qml.cpp, .rcc/qmlcache/Avelino_BleeckerPieChart_qml.cpp.aotstats
+[57/569] Generating .rcc/qmlcache/Avelino_BleeckerScatterChart_qml.cpp, .rcc/qmlcache/Avelino_BleeckerScatterChart_qml.cpp.aotstats
+[58/569] Generating .rcc/qmlcache/Avelino_BleeckerSparkline_qml.cpp, .rcc/qmlcache/Avelino_BleeckerSparkline_qml.cpp.aotstats
+[59/569] Generating .rcc/qmlcache/Avelino_BleeckerSurfaceModifier_qml.cpp, .rcc/qmlcache/Avelino_BleeckerSurfaceModifier_qml.cpp.aotstats
+[60/569] Generating .rcc/qmlcache/Avelino_SurfaceModifierPart_qml.cpp, .rcc/qmlcache/Avelino_SurfaceModifierPart_qml.cpp.aotstats
+[61/569] Generating .rcc/qmlcache/Avelino_BleeckerFont_qml.cpp, .rcc/qmlcache/Avelino_BleeckerFont_qml.cpp.aotstats
+[62/569] Generating .rcc/qmlcache/Avelino_BleeckerText_qml.cpp, .rcc/qmlcache/Avelino_BleeckerText_qml.cpp.aotstats
+[63/569] Generating .rcc/qmlcache/Avelino_BleeckerButtonStyle_qml.cpp, .rcc/qmlcache/Avelino_BleeckerButtonStyle_qml.cpp.aotstats
+[64/569] Generating .rcc/qmlcache/Avelino_ButtonStylePart_qml.cpp, .rcc/qmlcache/Avelino_ButtonStylePart_qml.cpp.aotstats
+[65/569] Generating .rcc/qmlcache/Avelino_BleeckerTooltip_qml.cpp, .rcc/qmlcache/Avelino_BleeckerTooltip_qml.cpp.aotstats
+[66/569] Generating .rcc/qmlcache/Avelino_TooltipHost_qml.cpp, .rcc/qmlcache/Avelino_TooltipHost_qml.cpp.aotstats
+[67/569] Generating .rcc/qmlcache/Avelino_BleeckerModal_qml.cpp, .rcc/qmlcache/Avelino_BleeckerModal_qml.cpp.aotstats
+[68/569] Generating .rcc/qmlcache/Avelino_BleeckerModalDialog_qml.cpp, .rcc/qmlcache/Avelino_BleeckerModalDialog_qml.cpp.aotstats
+[69/569] Generating .rcc/qmlcache/Avelino_ModalCloseGlyph_qml.cpp, .rcc/qmlcache/Avelino_ModalCloseGlyph_qml.cpp.aotstats
+[70/569] Generating .rcc/qmlcache/Avelino_BleeckerActivityItem_qml.cpp, .rcc/qmlcache/Avelino_BleeckerActivityItem_qml.cpp.aotstats
+[71/569] Generating .rcc/qmlcache/Avelino_ActivityGlyph_qml.cpp, .rcc/qmlcache/Avelino_ActivityGlyph_qml.cpp.aotstats
+[72/569] Generating .rcc/qmlcache/Avelino_BleeckerMetric_qml.cpp, .rcc/qmlcache/Avelino_BleeckerMetric_qml.cpp.aotstats
+[73/569] Generating .rcc/qmlcache/Avelino_BleeckerStatCard_qml.cpp, .rcc/qmlcache/Avelino_BleeckerStatCard_qml.cpp.aotstats
+[74/569] Generating .rcc/qmlcache/Avelino_BleeckerIconBadge_qml.cpp, .rcc/qmlcache/Avelino_BleeckerIconBadge_qml.cpp.aotstats
+[75/569] Generating .rcc/qmlcache/Avelino_BleeckerTokens_qml.cpp, .rcc/qmlcache/Avelino_BleeckerTokens_qml.cpp.aotstats
+[76/569] Generating .rcc/qmlcache/Avelino_BleeckerKbd_qml.cpp, .rcc/qmlcache/Avelino_BleeckerKbd_qml.cpp.aotstats
+[77/569] Generating .rcc/qmlcache/Avelino_BleeckerTheme_qml.cpp, .rcc/qmlcache/Avelino_BleeckerTheme_qml.cpp.aotstats
+[78/569] Generating .rcc/qmlcache/Avelino_BleeckerButton_qml.cpp, .rcc/qmlcache/Avelino_BleeckerButton_qml.cpp.aotstats
+[79/569] Generating .rcc/qmlcache/Avelino_BleeckerOTPInput_qml.cpp, .rcc/qmlcache/Avelino_BleeckerOTPInput_qml.cpp.aotstats
+[80/569] Generating .rcc/qmlcache/Avelino_BleeckerRadioGroup_qml.cpp, .rcc/qmlcache/Avelino_BleeckerRadioGroup_qml.cpp.aotstats
+[81/569] Generating .rcc/qmlcache/Avelino_RadioGlyph_qml.cpp, .rcc/qmlcache/Avelino_RadioGlyph_qml.cpp.aotstats
+[82/569] Generating .rcc/qmlcache/Avelino_BleeckerLoadingSpinner_qml.cpp, .rcc/qmlcache/Avelino_BleeckerLoadingSpinner_qml.cpp.aotstats
+[83/569] Generating .rcc/qmlcache/Avelino_BleeckerStepper_qml.cpp, .rcc/qmlcache/Avelino_BleeckerStepper_qml.cpp.aotstats
+[84/569] Generating .rcc/qmlcache/Avelino_StepperGlyph_qml.cpp, .rcc/qmlcache/Avelino_StepperGlyph_qml.cpp.aotstats
+[85/569] Generating .rcc/qmlcache/Avelino_AlertGlyph_qml.cpp, .rcc/qmlcache/Avelino_AlertGlyph_qml.cpp.aotstats
+[86/569] Generating .rcc/qmlcache/Avelino_BleeckerAlert_qml.cpp, .rcc/qmlcache/Avelino_BleeckerAlert_qml.cpp.aotstats
+[87/569] Generating .rcc/qmlcache/Avelino_CircularContent_qml.cpp, .rcc/qmlcache/Avelino_CircularContent_qml.cpp.aotstats
+[88/569] Generating .rcc/qmlcache/Avelino_BleeckerEmptyState_qml.cpp, .rcc/qmlcache/Avelino_BleeckerEmptyState_qml.cpp.aotstats
+[89/569] Generating .rcc/qmlcache/Avelino_BleeckerErrorState_qml.cpp, .rcc/qmlcache/Avelino_BleeckerErrorState_qml.cpp.aotstats
+[90/569] Generating .rcc/qmlcache/Avelino_BleeckerLoadingOverlay_qml.cpp, .rcc/qmlcache/Avelino_BleeckerLoadingOverlay_qml.cpp.aotstats
+[91/569] Generating .rcc/qmlcache/Avelino_StateGlyph_qml.cpp, .rcc/qmlcache/Avelino_StateGlyph_qml.cpp.aotstats
+[92/569] Generating .rcc/qmlcache/Avelino_BleeckerSeparator_qml.cpp, .rcc/qmlcache/Avelino_BleeckerSeparator_qml.cpp.aotstats
+[93/569] Generating .rcc/qmlcache/Avelino_BleeckerTextField_qml.cpp, .rcc/qmlcache/Avelino_BleeckerTextField_qml.cpp.aotstats
+[94/569] Generating .rcc/qmlcache/Avelino_BleeckerSkeleton_qml.cpp, .rcc/qmlcache/Avelino_BleeckerSkeleton_qml.cpp.aotstats
+[95/569] Generating .rcc/qmlcache/Avelino_BleeckerBauhausBackground_qml.cpp, .rcc/qmlcache/Avelino_BleeckerBauhausBackground_qml.cpp.aotstats
+[96/569] Generating .rcc/qmlcache/Avelino_BleeckerProgress_qml.cpp, .rcc/qmlcache/Avelino_BleeckerProgress_qml.cpp.aotstats
+[97/569] Generating .rcc/qmlcache/Avelino_BleeckerButtonGroup_qml.cpp, .rcc/qmlcache/Avelino_BleeckerButtonGroup_qml.cpp.aotstats
+[98/569] Generating .rcc/qmlcache/Avelino_BleeckerHeader_qml.cpp, .rcc/qmlcache/Avelino_BleeckerHeader_qml.cpp.aotstats
+[99/569] Generating .rcc/qmlcache/Avelino_BleeckerPanelLayout_qml.cpp, .rcc/qmlcache/Avelino_BleeckerPanelLayout_qml.cpp.aotstats
+[100/569] Generating .rcc/qmlcache/Avelino_BleeckerCard_qml.cpp, .rcc/qmlcache/Avelino_BleeckerCard_qml.cpp.aotstats
+[101/569] Generating .rcc/qmlcache/Avelino_BleeckerPanel_qml.cpp, .rcc/qmlcache/Avelino_BleeckerPanel_qml.cpp.aotstats
+[102/569] Generating .rcc/qmlcache/Avelino_BleeckerAttentionSurface_qml.cpp, .rcc/qmlcache/Avelino_BleeckerAttentionSurface_qml.cpp.aotstats
+[103/569] Generating .rcc/qmlcache/Avelino_BleeckerStatusBadge_qml.cpp, .rcc/qmlcache/Avelino_BleeckerStatusBadge_qml.cpp.aotstats
+[104/569] Generating .rcc/qmlcache/Avelino_BleeckerNotificationBadge_qml.cpp, .rcc/qmlcache/Avelino_BleeckerNotificationBadge_qml.cpp.aotstats
+[105/569] Generating .rcc/qmlcache/Avelino_BleeckerEyebrow_qml.cpp, .rcc/qmlcache/Avelino_BleeckerEyebrow_qml.cpp.aotstats
+[106/569] Generating .rcc/qmlcache/Avelino_BleeckerPill_qml.cpp, .rcc/qmlcache/Avelino_BleeckerPill_qml.cpp.aotstats
+[107/569] Generating .rcc/qmlcache/Avelino_PillModifierPart_qml.cpp, .rcc/qmlcache/Avelino_PillModifierPart_qml.cpp.aotstats
+[108/569] Generating .rcc/qmlcache/Avelino_BleeckerAvatar_qml.cpp, .rcc/qmlcache/Avelino_BleeckerAvatar_qml.cpp.aotstats
+[109/569] Generating .rcc/qmlcache/Avelino_BleeckerDataList_qml.cpp, .rcc/qmlcache/Avelino_BleeckerDataList_qml.cpp.aotstats
+[110/569] Generating .rcc/qmlcache/Avelino_BleeckerTimelineItem_qml.cpp, .rcc/qmlcache/Avelino_BleeckerTimelineItem_qml.cpp.aotstats
+[111/569] Generating .rcc/qmlcache/Avelino_BleeckerSurface_qml.cpp, .rcc/qmlcache/Avelino_BleeckerSurface_qml.cpp.aotstats
+[112/569] Generating .rcc/qmlcache/Avelino_BleeckerField_qml.cpp, .rcc/qmlcache/Avelino_BleeckerField_qml.cpp.aotstats
+[113/569] Generating .rcc/qmlcache/Avelino_BleeckerSwitch_qml.cpp, .rcc/qmlcache/Avelino_BleeckerSwitch_qml.cpp.aotstats
+[114/569] Generating .rcc/qmlcache/Avelino_BleeckerToggleButton_qml.cpp, .rcc/qmlcache/Avelino_BleeckerToggleButton_qml.cpp.aotstats
+[115/569] Generating .rcc/qmlcache/Avelino_BleeckerTabs_qml.cpp, .rcc/qmlcache/Avelino_BleeckerTabs_qml.cpp.aotstats
+[116/569] Generating .rcc/qmlcache/Avelino_BleeckerSegmentedControl_qml.cpp, .rcc/qmlcache/Avelino_BleeckerSegmentedControl_qml.cpp.aotstats
+[117/569] Generating .rcc/qmlcache/Avelino_BleeckerIconButton_qml.cpp, .rcc/qmlcache/Avelino_BleeckerIconButton_qml.cpp.aotstats
+[118/569] Generating .rcc/qmlcache/Avelino_BleeckerPagination_qml.cpp, .rcc/qmlcache/Avelino_BleeckerPagination_qml.cpp.aotstats
+[119/569] Generating .rcc/qmlcache/Avelino_NavigationGlyph_qml.cpp, .rcc/qmlcache/Avelino_NavigationGlyph_qml.cpp.aotstats
+[120/569] Generating .rcc/qmlcache/Avelino_BleeckerAccordion_qml.cpp, .rcc/qmlcache/Avelino_BleeckerAccordion_qml.cpp.aotstats
+[121/569] Generating .rcc/qmlcache/Avelino_BleeckerBrandMark_qml.cpp, .rcc/qmlcache/Avelino_BleeckerBrandMark_qml.cpp.aotstats
+[122/569] Generating .rcc/qmlcache/Avelino_BleeckerTextArea_qml.cpp, .rcc/qmlcache/Avelino_BleeckerTextArea_qml.cpp.aotstats
+[123/569] Generating .rcc/qmlcache/Avelino_BleeckerBrandLockup_qml.cpp, .rcc/qmlcache/Avelino_BleeckerBrandLockup_qml.cpp.aotstats
+[124/569] Generating .rcc/qmlcache/Avelino_BleeckerSidebarItem_qml.cpp, .rcc/qmlcache/Avelino_BleeckerSidebarItem_qml.cpp.aotstats
+[125/569] Generating .rcc/qmlcache/Avelino_BleeckerPageHeader_qml.cpp, .rcc/qmlcache/Avelino_BleeckerPageHeader_qml.cpp.aotstats
+[126/569] Generating .rcc/qmlcache/Avelino_BleeckerBreadcrumb_qml.cpp, .rcc/qmlcache/Avelino_BleeckerBreadcrumb_qml.cpp.aotstats
+[127/569] Generating .rcc/qmlcache/Avelino_BleeckerSectionHeader_qml.cpp, .rcc/qmlcache/Avelino_BleeckerSectionHeader_qml.cpp.aotstats
+[128/569] Generating .rcc/qmlcache/Avelino_BleeckerDashboardSection_qml.cpp, .rcc/qmlcache/Avelino_BleeckerDashboardSection_qml.cpp.aotstats
+[129/569] Generating .rcc/qmlcache/Avelino_BleeckerDashboardGrid_qml.cpp, .rcc/qmlcache/Avelino_BleeckerDashboardGrid_qml.cpp.aotstats
+[130/569] Generating .rcc/qmlcache/Avelino_BleeckerFooter_qml.cpp, .rcc/qmlcache/Avelino_BleeckerFooter_qml.cpp.aotstats
+[131/569] Generating .rcc/qmlcache/Avelino_BleeckerAppShell_qml.cpp, .rcc/qmlcache/Avelino_BleeckerAppShell_qml.cpp.aotstats
+[132/569] Generating .rcc/qmlcache/Avelino_BleeckerFeedItem_qml.cpp, .rcc/qmlcache/Avelino_BleeckerFeedItem_qml.cpp.aotstats
+[133/569] Generating .rcc/qmlcache/Avelino_BleeckerProgressStack_qml.cpp, .rcc/qmlcache/Avelino_BleeckerProgressStack_qml.cpp.aotstats
+[134/569] Generating .rcc/qmlcache/Avelino_SelectionGlyph_qml.cpp, .rcc/qmlcache/Avelino_SelectionGlyph_qml.cpp.aotstats
+[135/569] Generating .rcc/qmlcache/Avelino_BleeckerSelect_qml.cpp, .rcc/qmlcache/Avelino_BleeckerSelect_qml.cpp.aotstats
+[136/569] Generating .rcc/qmlcache/Avelino_CheckboxGlyph_qml.cpp, .rcc/qmlcache/Avelino_CheckboxGlyph_qml.cpp.aotstats
+[137/569] Generating .rcc/qmlcache/Avelino_BleeckerCheckbox_qml.cpp, .rcc/qmlcache/Avelino_BleeckerCheckbox_qml.cpp.aotstats
+[138/569] Generating .rcc/qmlcache/Avelino_BleeckerSecureField_qml.cpp, .rcc/qmlcache/Avelino_BleeckerSecureField_qml.cpp.aotstats
+[139/569] Generating .rcc/qmlcache/Avelino_SecureEyeGlyph_qml.cpp, .rcc/qmlcache/Avelino_SecureEyeGlyph_qml.cpp.aotstats
+[140/569] Generating .rcc/qmlcache/Avelino_InputGlyph_qml.cpp, .rcc/qmlcache/Avelino_InputGlyph_qml.cpp.aotstats
+[141/569] Generating .rcc/qmlcache/Avelino_BleeckerSearchField_qml.cpp, .rcc/qmlcache/Avelino_BleeckerSearchField_qml.cpp.aotstats
+[142/569] Generating .rcc/qmlcache/Avelino_BleeckerFilterChip_qml.cpp, .rcc/qmlcache/Avelino_BleeckerFilterChip_qml.cpp.aotstats
+[143/569] Generating .rcc/qmlcache/Avelino_BleeckerCollectionFilters_qml.cpp, .rcc/qmlcache/Avelino_BleeckerCollectionFilters_qml.cpp.aotstats
+[144/569] Generating .rcc/qmlcache/Avelino_CapsuleContent_qml.cpp, .rcc/qmlcache/Avelino_CapsuleContent_qml.cpp.aotstats
+[145/569] Generating .rcc/qmlcache/Avelino_BleeckerSlider_qml.cpp, .rcc/qmlcache/Avelino_BleeckerSlider_qml.cpp.aotstats
+[146/569] Generating .rcc/qmlcache/Avelino_OwnedText_qml.cpp, .rcc/qmlcache/Avelino_OwnedText_qml.cpp.aotstats
+[147/569] Generating .rcc/qmlcache/Avelino_RoundedContent_qml.cpp, .rcc/qmlcache/Avelino_RoundedContent_qml.cpp.aotstats
+[148/569] Generating .rcc/qmlcache/Avelino_SurfaceShadow_qml.cpp, .rcc/qmlcache/Avelino_SurfaceShadow_qml.cpp.aotstats
+[149/569] Generating .rcc/qmlcache/Avelino_attentioncolors_js.cpp
+[150/569] Generating .rcc/qmlcache/Avelino_continuouscorners_js.cpp
+[151/569] Generating .rcc/qmlcache/Avelino_spinnerpresentation_js.cpp
+[152/569] Generating .rcc/qmlcache/Avelino_ContinuousSurface_qml.cpp, .rcc/qmlcache/Avelino_ContinuousSurface_qml.cpp.aotstats
+[153/569] Linking CXX executable tests/components/AvelinoFileChooserTests
+[154/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/avelino_qmltyperegistrations.cpp.o
+[155/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.qt/rcc/qrc_qmake_Avelino.cpp.o
+[156/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/Avelino_autogen/mocs_compilation.cpp.o
+[157/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/filechooserpaths.cpp.o
+[158/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/filechooserbuttonbase.cpp.o
+[159/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/filechooserplaces.cpp.o
+[160/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/filechooserrow.cpp.o
+[161/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/filechooserlisting.cpp.o
+[162/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/filechooserdialogbase.cpp.o
+[163/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/filechooserbrowser.cpp.o
+[164/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/filechoosermodel.cpp.o
+[165/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/dropdowninput.cpp.o
+[166/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/menuitems.cpp.o
+[167/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/dropdownlabel.cpp.o
+[168/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/spotlightrows.cpp.o
+[169/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/apptabbutton.cpp.o
+[170/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/apptaboptions.cpp.o
+[171/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/apptabrow.cpp.o
+[172/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/medialibrarybase.cpp.o
+[173/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/chartrenderer.cpp.o
+/work/src/Avelino/chartrenderer.cpp: In lambda function:
+/work/src/Avelino/chartrenderer.cpp:263:53: note: parameter passing for argument of type ‘std::pair<double, double>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+  263 |         return QPair<double,double>{lower,lower+band};
+      |                                                     ^
+[174/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/surfaceborderinput.cpp.o
+[175/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/proposaloverlay.cpp.o
+[176/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/surfacedecorator.cpp.o
+[177/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/proposalcolumn.cpp.o
+[178/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/tooltipaccess.cpp.o
+[179/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/otptools.cpp.o
+[180/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/inheritedcontrol.cpp.o
+[181/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/selectionidentity.cpp.o
+[182/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/radiooptions.cpp.o
+[183/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/bleeckerfonts.cpp.o
+[184/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/pixelalignment.cpp.o
+[185/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/radiogroupbase.cpp.o
+[186/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/buttonlabel.cpp.o
+[187/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/valuetools.cpp.o
+[188/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/texttools.cpp.o
+[189/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/proposalrow.cpp.o
+[190/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/brandimage.cpp.o
+[191/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/softwarecontentmask.cpp.o
+[192/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/numbertools.cpp.o
+[193/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/filechooserpathinput.cpp.o
+[194/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/filechoosersuggestions.cpp.o
+[195/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/tooltipwindowlifecycle.cpp.o
+[196/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/herocarouselbase.cpp.o
+[197/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/daterangetools.cpp.o
+/work/src/Avelino/daterangetools.cpp: In function ‘QString {anonymous}::measurementText(QString, bool, bool)’:
+/work/src/Avelino/daterangetools.cpp:254:32: warning: ‘static QString QString::fromUcs4(const uint*, qsizetype)’ is deprecated: Use char32_t* overload. [-Wdeprecated-declarations]
+  254 |         value=QString::fromUcs4(points.constData(),points.size());
+      |               ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /opt/qt/include/QtCore/qobject.h:11,
+                 from /opt/qt/include/QtCore/QObject:1,
+                 from /work/src/Avelino/daterangetools.h:2,
+                 from /work/src/Avelino/daterangetools.cpp:1:
+/opt/qt/include/QtCore/qstring.h:696:20: note: declared here
+  696 |     static QString fromUcs4(const uint *str, qsizetype size = -1)
+      |                    ^~~~~~~~
+[198/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_qmlcache_loader.cpp.o
+[199/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerDateRangePicker_qml.cpp.o
+[200/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_DateRangeField_qml.cpp.o
+[201/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/daterangeinput.cpp.o
+[202/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_DateRangeEditor_qml.cpp.o
+[203/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_DateRangeCalendar_qml.cpp.o
+[204/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_DateRangeArrow_qml.cpp.o
+[205/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerHeroCarousel_qml.cpp.o
+[206/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerFileInput_qml.cpp.o
+[207/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_FileChooserDialog_qml.cpp.o
+[208/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_FileChooserGoTo_qml.cpp.o
+[209/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_FileChooserLocationMenu_qml.cpp.o
+[210/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_FileChooserNewFolder_qml.cpp.o
+[211/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_FileChooserViews_qml.cpp.o
+[212/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_FileChooserButton_qml.cpp.o
+[213/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_FileChooserGlyph_qml.cpp.o
+[214/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerCommandSpotlight_qml.cpp.o
+[215/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerAppTabBar_qml.cpp.o
+[216/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerDropdownMenu_qml.cpp.o
+[217/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerMediaLibrary_qml.cpp.o
+[218/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_ChartBase_qml.cpp.o
+[219/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerLineChart_qml.cpp.o
+[220/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerBarChart_qml.cpp.o
+[221/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerPieChart_qml.cpp.o
+[222/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerScatterChart_qml.cpp.o
+[223/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerSparkline_qml.cpp.o
+[224/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerSurfaceModifier_qml.cpp.o
+[225/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_SurfaceModifierPart_qml.cpp.o
+[226/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerFont_qml.cpp.o
+[227/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerText_qml.cpp.o
+[228/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerButtonStyle_qml.cpp.o
+[229/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_ButtonStylePart_qml.cpp.o
+[230/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerTooltip_qml.cpp.o
+[231/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_TooltipHost_qml.cpp.o
+[232/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerModalDialog_qml.cpp.o
+[233/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerModal_qml.cpp.o
+[234/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_ModalCloseGlyph_qml.cpp.o
+[235/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerActivityItem_qml.cpp.o
+[236/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_ActivityGlyph_qml.cpp.o
+[237/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerMetric_qml.cpp.o
+[238/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerStatCard_qml.cpp.o
+[239/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerIconBadge_qml.cpp.o
+[240/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerKbd_qml.cpp.o
+[241/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerTheme_qml.cpp.o
+[242/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerTokens_qml.cpp.o
+[243/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerButton_qml.cpp.o
+[244/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerOTPInput_qml.cpp.o
+[245/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerRadioGroup_qml.cpp.o
+[246/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_RadioGlyph_qml.cpp.o
+[247/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerLoadingSpinner_qml.cpp.o
+[248/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_StepperGlyph_qml.cpp.o
+[249/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerStepper_qml.cpp.o
+[250/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerAlert_qml.cpp.o
+[251/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_AlertGlyph_qml.cpp.o
+[252/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerEmptyState_qml.cpp.o
+[253/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_CircularContent_qml.cpp.o
+[254/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerErrorState_qml.cpp.o
+[255/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerLoadingOverlay_qml.cpp.o
+[256/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_StateGlyph_qml.cpp.o
+[257/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerSeparator_qml.cpp.o
+[258/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerTextField_qml.cpp.o
+[259/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerSkeleton_qml.cpp.o
+[260/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerBauhausBackground_qml.cpp.o
+[261/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerProgress_qml.cpp.o
+[262/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerButtonGroup_qml.cpp.o
+[263/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerHeader_qml.cpp.o
+[264/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerPanelLayout_qml.cpp.o
+[265/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerPanel_qml.cpp.o
+[266/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerCard_qml.cpp.o
+[267/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerAttentionSurface_qml.cpp.o
+[268/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerStatusBadge_qml.cpp.o
+[269/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerEyebrow_qml.cpp.o
+[270/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerNotificationBadge_qml.cpp.o
+[271/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerPill_qml.cpp.o
+[272/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_PillModifierPart_qml.cpp.o
+[273/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerDataList_qml.cpp.o
+[274/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerAvatar_qml.cpp.o
+[275/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerSurface_qml.cpp.o
+[276/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerTimelineItem_qml.cpp.o
+[277/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerField_qml.cpp.o
+[278/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerSwitch_qml.cpp.o
+[279/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerToggleButton_qml.cpp.o
+[280/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerSegmentedControl_qml.cpp.o
+[281/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerTabs_qml.cpp.o
+[282/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerIconButton_qml.cpp.o
+[283/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerPagination_qml.cpp.o
+[284/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_NavigationGlyph_qml.cpp.o
+[285/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerAccordion_qml.cpp.o
+[286/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerTextArea_qml.cpp.o
+[287/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerBrandMark_qml.cpp.o
+[288/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerBrandLockup_qml.cpp.o
+[289/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerSidebarItem_qml.cpp.o
+[290/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerPageHeader_qml.cpp.o
+[291/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerBreadcrumb_qml.cpp.o
+[292/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerSectionHeader_qml.cpp.o
+[293/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerDashboardSection_qml.cpp.o
+[294/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerDashboardGrid_qml.cpp.o
+[295/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerFooter_qml.cpp.o
+[296/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerAppShell_qml.cpp.o
+[297/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerFeedItem_qml.cpp.o
+[298/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerProgressStack_qml.cpp.o
+[299/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerSelect_qml.cpp.o
+[300/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_SelectionGlyph_qml.cpp.o
+[301/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_CheckboxGlyph_qml.cpp.o
+[302/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerCheckbox_qml.cpp.o
+[303/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_SecureEyeGlyph_qml.cpp.o
+[304/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerSecureField_qml.cpp.o
+[305/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerSearchField_qml.cpp.o
+[306/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_InputGlyph_qml.cpp.o
+[307/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerFilterChip_qml.cpp.o
+[308/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerCollectionFilters_qml.cpp.o
+[309/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_BleeckerSlider_qml.cpp.o
+[310/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_CapsuleContent_qml.cpp.o
+[311/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_OwnedText_qml.cpp.o
+[312/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_RoundedContent_qml.cpp.o
+[313/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_SurfaceShadow_qml.cpp.o
+[314/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_attentioncolors_js.cpp.o
+[315/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_ContinuousSurface_qml.cpp.o
+[316/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_continuouscorners_js.cpp.o
+[317/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.rcc/qmlcache/Avelino_spinnerpresentation_js.cpp.o
+[318/569] Building CXX object src/Avelino/CMakeFiles/Avelinoplugin.dir/Avelinoplugin_autogen/mocs_compilation.cpp.o
+[319/569] Building CXX object src/Avelino/CMakeFiles/Avelinoplugin.dir/Avelinoplugin_AvelinoPlugin.cpp.o
+[320/569] Building CXX object src/Avelino/CMakeFiles/Avelino.dir/.qt/rcc/qrc_Avelino_raw_qml_0.cpp.o
+[321/569] Building CXX object tests/components/CMakeFiles/AvelinoFileBrowserTests.dir/AvelinoFileBrowserTests_autogen/mocs_compilation.cpp.o
+[322/569] Linking CXX shared library src/Avelino/libAvelino.so
+[323/569] Linking CXX shared module qml/Avelino/libAvelinoplugin.so
+[324/569] Automatic MOC and UIC for target AvelinoCatalog
+[325/569] Running rcc for resource dropdown_menu_images
+[326/569] Running rcc for resource qmake_AvelinoCatalog
+[327/569] Generating .rcc/qmlcache/AvelinoCatalog_qmlcache_loader.cpp
+[328/569] Running rcc for resource AvelinoCatalog_raw_qml_0
+[329/569] Running rcc for resource catalog_fixture_assets
+[330/569] Running AUTOMOC file extraction for target AvelinoCatalog
+[331/569] Running moc --collect-json for target AvelinoCatalog
+[332/569] Automatic QML type registration for target AvelinoCatalog
+[333/569] Building CXX object tests/components/CMakeFiles/AvelinoFileBrowserTests.dir/filechooserbrowser.cpp.o
+[334/569] Generating .rcc/qmlcache/tests/consumer/DateRangePicker_qml.cpp, .rcc/qmlcache/tests/consumer/DateRangePicker_qml.cpp.aotstats
+[335/569] Generating .rcc/qmlcache/tests/consumer/DateRangePickerCase_qml.cpp, .rcc/qmlcache/tests/consumer/DateRangePickerCase_qml.cpp.aotstats
+[336/569] Generating .rcc/qmlcache/tests/consumer/HeroCarousel_qml.cpp, .rcc/qmlcache/tests/consumer/HeroCarousel_qml.cpp.aotstats
+[337/569] Generating .rcc/qmlcache/tests/consumer/HeroCarouselCase_qml.cpp, .rcc/qmlcache/tests/consumer/HeroCarouselCase_qml.cpp.aotstats
+[338/569] Generating .rcc/qmlcache/tests/consumer/HeroCarouselSlide_qml.cpp, .rcc/qmlcache/tests/consumer/HeroCarouselSlide_qml.cpp.aotstats
+[339/569] Generating .rcc/qmlcache/tests/consumer/FileInput_qml.cpp, .rcc/qmlcache/tests/consumer/FileInput_qml.cpp.aotstats
+[340/569] Generating .rcc/qmlcache/tests/consumer/FileInputCase_qml.cpp, .rcc/qmlcache/tests/consumer/FileInputCase_qml.cpp.aotstats
+[341/569] Generating .rcc/qmlcache/tests/consumer/DropdownMenu_qml.cpp, .rcc/qmlcache/tests/consumer/DropdownMenu_qml.cpp.aotstats
+[342/569] Generating .rcc/qmlcache/tests/consumer/DropdownMenuCase_qml.cpp, .rcc/qmlcache/tests/consumer/DropdownMenuCase_qml.cpp.aotstats
+[343/569] Generating .rcc/qmlcache/tests/consumer/DropdownMenuImage_qml.cpp, .rcc/qmlcache/tests/consumer/DropdownMenuImage_qml.cpp.aotstats
+[344/569] Generating .rcc/qmlcache/tests/consumer/CommandSpotlightCase_qml.cpp, .rcc/qmlcache/tests/consumer/CommandSpotlightCase_qml.cpp.aotstats
+[345/569] Generating .rcc/qmlcache/tests/consumer/CommandSpotlight_qml.cpp, .rcc/qmlcache/tests/consumer/CommandSpotlight_qml.cpp.aotstats
+[346/569] Generating .rcc/qmlcache/tests/consumer/CommandSpotlightRow_qml.cpp, .rcc/qmlcache/tests/consumer/CommandSpotlightRow_qml.cpp.aotstats
+[347/569] Generating .rcc/qmlcache/tests/consumer/AppTabs_qml.cpp, .rcc/qmlcache/tests/consumer/AppTabs_qml.cpp.aotstats
+[348/569] Generating .rcc/qmlcache/tests/consumer/AppTabsCase_qml.cpp, .rcc/qmlcache/tests/consumer/AppTabsCase_qml.cpp.aotstats
+[349/569] Generating .rcc/qmlcache/tests/consumer/apptabfixturemetrics_js.cpp
+[350/569] Generating .rcc/qmlcache/tests/consumer/AppTabGlyph_qml.cpp, .rcc/qmlcache/tests/consumer/AppTabGlyph_qml.cpp.aotstats
+[351/569] Generating .rcc/qmlcache/tests/consumer/MediaLibrary_qml.cpp, .rcc/qmlcache/tests/consumer/MediaLibrary_qml.cpp.aotstats
+[352/569] Generating .rcc/qmlcache/tests/consumer/MediaLibraryCase_qml.cpp, .rcc/qmlcache/tests/consumer/MediaLibraryCase_qml.cpp.aotstats
+[353/569] Generating .rcc/qmlcache/tests/consumer/MediaLibraryTile_qml.cpp, .rcc/qmlcache/tests/consumer/MediaLibraryTile_qml.cpp.aotstats
+[354/569] Generating .rcc/qmlcache/tests/consumer/Charts_qml.cpp, .rcc/qmlcache/tests/consumer/Charts_qml.cpp.aotstats
+[355/569] Generating .rcc/qmlcache/tests/consumer/ChartsCase_qml.cpp, .rcc/qmlcache/tests/consumer/ChartsCase_qml.cpp.aotstats
+[356/569] Generating .rcc/qmlcache/tests/consumer/PillModifier_qml.cpp, .rcc/qmlcache/tests/consumer/PillModifier_qml.cpp.aotstats
+[357/569] Generating .rcc/qmlcache/tests/consumer/PillModifierCase_qml.cpp, .rcc/qmlcache/tests/consumer/PillModifierCase_qml.cpp.aotstats
+[358/569] Generating .rcc/qmlcache/tests/consumer/SurfaceModifierCase_qml.cpp, .rcc/qmlcache/tests/consumer/SurfaceModifierCase_qml.cpp.aotstats
+[359/569] Generating .rcc/qmlcache/tests/consumer/SurfaceModifier_qml.cpp, .rcc/qmlcache/tests/consumer/SurfaceModifier_qml.cpp.aotstats
+[360/569] Generating .rcc/qmlcache/tests/consumer/FontModifierCase_qml.cpp, .rcc/qmlcache/tests/consumer/FontModifierCase_qml.cpp.aotstats
+[361/569] Generating .rcc/qmlcache/tests/consumer/FontModifier_qml.cpp, .rcc/qmlcache/tests/consumer/FontModifier_qml.cpp.aotstats
+[362/569] Generating .rcc/qmlcache/tests/consumer/ButtonStyleCase_qml.cpp, .rcc/qmlcache/tests/consumer/ButtonStyleCase_qml.cpp.aotstats
+[363/569] Generating .rcc/qmlcache/tests/consumer/ButtonStyle_qml.cpp, .rcc/qmlcache/tests/consumer/ButtonStyle_qml.cpp.aotstats
+[364/569] Generating .rcc/qmlcache/tests/consumer/Tooltip_qml.cpp, .rcc/qmlcache/tests/consumer/Tooltip_qml.cpp.aotstats
+[365/569] Generating .rcc/qmlcache/tests/consumer/TooltipCase_qml.cpp, .rcc/qmlcache/tests/consumer/TooltipCase_qml.cpp.aotstats
+[366/569] Generating .rcc/qmlcache/tests/consumer/ModalCase_qml.cpp, .rcc/qmlcache/tests/consumer/ModalCase_qml.cpp.aotstats
+[367/569] Generating .rcc/qmlcache/tests/consumer/Modal_qml.cpp, .rcc/qmlcache/tests/consumer/Modal_qml.cpp.aotstats
+[368/569] Generating .rcc/qmlcache/tests/consumer/ActivityItemCase_qml.cpp, .rcc/qmlcache/tests/consumer/ActivityItemCase_qml.cpp.aotstats
+[369/569] Generating .rcc/qmlcache/tests/consumer/ActivityItem_qml.cpp, .rcc/qmlcache/tests/consumer/ActivityItem_qml.cpp.aotstats
+[370/569] Generating .rcc/qmlcache/tests/consumer/ActivityCaseGlyph_qml.cpp, .rcc/qmlcache/tests/consumer/ActivityCaseGlyph_qml.cpp.aotstats
+[371/569] Generating .rcc/qmlcache/tests/consumer/OTPInput_qml.cpp, .rcc/qmlcache/tests/consumer/OTPInput_qml.cpp.aotstats
+[372/569] Generating .rcc/qmlcache/tests/consumer/OTPInputCase_qml.cpp, .rcc/qmlcache/tests/consumer/OTPInputCase_qml.cpp.aotstats
+[373/569] Generating .rcc/qmlcache/tests/consumer/RadioGroup_qml.cpp, .rcc/qmlcache/tests/consumer/RadioGroup_qml.cpp.aotstats
+[374/569] Generating .rcc/qmlcache/tests/consumer/RadioGroupCase_qml.cpp, .rcc/qmlcache/tests/consumer/RadioGroupCase_qml.cpp.aotstats
+[375/569] Generating .rcc/qmlcache/tests/consumer/Stepper_qml.cpp, .rcc/qmlcache/tests/consumer/Stepper_qml.cpp.aotstats
+[376/569] Generating .rcc/qmlcache/tests/consumer/StepperCase_qml.cpp, .rcc/qmlcache/tests/consumer/StepperCase_qml.cpp.aotstats
+[377/569] Generating .rcc/qmlcache/tests/consumer/DataMetrics_qml.cpp, .rcc/qmlcache/tests/consumer/DataMetrics_qml.cpp.aotstats
+[378/569] Generating .rcc/qmlcache/tests/consumer/DataMetricGlyph_qml.cpp, .rcc/qmlcache/tests/consumer/DataMetricGlyph_qml.cpp.aotstats
+[379/569] Generating .rcc/qmlcache/tests/consumer/DataMetricsCase_qml.cpp, .rcc/qmlcache/tests/consumer/DataMetricsCase_qml.cpp.aotstats
+[380/569] Generating .rcc/qmlcache/AvelinoCatalog_ButtonFixture_qml.cpp, .rcc/qmlcache/AvelinoCatalog_ButtonFixture_qml.cpp.aotstats
+[381/569] Generating .rcc/qmlcache/AvelinoCatalog_Main_qml.cpp, .rcc/qmlcache/AvelinoCatalog_Main_qml.cpp.aotstats
+[382/569] Generating .rcc/qmlcache/AvelinoCatalog_SurfacesFixture_qml.cpp, .rcc/qmlcache/AvelinoCatalog_SurfacesFixture_qml.cpp.aotstats
+[383/569] Generating .rcc/qmlcache/AvelinoCatalog_FoundationsFixture_qml.cpp, .rcc/qmlcache/AvelinoCatalog_FoundationsFixture_qml.cpp.aotstats
+[384/569] Generating .rcc/qmlcache/AvelinoCatalog_DataDisplayFixture_qml.cpp, .rcc/qmlcache/AvelinoCatalog_DataDisplayFixture_qml.cpp.aotstats
+[385/569] Generating .rcc/qmlcache/AvelinoCatalog_ControlsFixture_qml.cpp, .rcc/qmlcache/AvelinoCatalog_ControlsFixture_qml.cpp.aotstats
+[386/569] Generating .rcc/qmlcache/AvelinoCatalog_CompositionFixture_qml.cpp, .rcc/qmlcache/AvelinoCatalog_CompositionFixture_qml.cpp.aotstats
+[387/569] Generating .rcc/qmlcache/AvelinoCatalog_SelectionFixture_qml.cpp, .rcc/qmlcache/AvelinoCatalog_SelectionFixture_qml.cpp.aotstats
+[388/569] Generating .rcc/qmlcache/AvelinoCatalog_CheckboxFixture_qml.cpp, .rcc/qmlcache/AvelinoCatalog_CheckboxFixture_qml.cpp.aotstats
+[389/569] Generating .rcc/qmlcache/AvelinoCatalog_SecureFieldFixture_qml.cpp, .rcc/qmlcache/AvelinoCatalog_SecureFieldFixture_qml.cpp.aotstats
+[390/569] Generating .rcc/qmlcache/AvelinoCatalog_SearchFieldFixture_qml.cpp, .rcc/qmlcache/AvelinoCatalog_SearchFieldFixture_qml.cpp.aotstats
+[391/569] Generating .rcc/qmlcache/AvelinoCatalog_CollectionFiltersFixture_qml.cpp, .rcc/qmlcache/AvelinoCatalog_CollectionFiltersFixture_qml.cpp.aotstats
+[392/569] Generating .rcc/qmlcache/AvelinoCatalog_SliderFixture_qml.cpp, .rcc/qmlcache/AvelinoCatalog_SliderFixture_qml.cpp.aotstats
+[393/569] Generating .rcc/qmlcache/AvelinoCatalog_ReferenceCaseFixture_qml.cpp, .rcc/qmlcache/AvelinoCatalog_ReferenceCaseFixture_qml.cpp.aotstats
+[394/569] Generating .rcc/qmlcache/AvelinoCatalog_TabsFixture_qml.cpp, .rcc/qmlcache/AvelinoCatalog_TabsFixture_qml.cpp.aotstats
+[395/569] Generating .rcc/qmlcache/AvelinoCatalog_PaginationFixture_qml.cpp, .rcc/qmlcache/AvelinoCatalog_PaginationFixture_qml.cpp.aotstats
+[396/569] Generating .rcc/qmlcache/AvelinoCatalog_PaginationIntegerFixture_qml.cpp, .rcc/qmlcache/AvelinoCatalog_PaginationIntegerFixture_qml.cpp.aotstats
+[397/569] Generating .rcc/qmlcache/AvelinoCatalog_AccordionFixture_qml.cpp, .rcc/qmlcache/AvelinoCatalog_AccordionFixture_qml.cpp.aotstats
+[398/569] Generating .rcc/qmlcache/AvelinoCatalog_PresentationStatesFixture_qml.cpp, .rcc/qmlcache/AvelinoCatalog_PresentationStatesFixture_qml.cpp.aotstats
+[399/569] Generating .rcc/qmlcache/AvelinoCatalog_SpinnerFixture_qml.cpp, .rcc/qmlcache/AvelinoCatalog_SpinnerFixture_qml.cpp.aotstats
+[400/569] Generating .rcc/qmlcache/AvelinoCatalog_AlertFixture_qml.cpp, .rcc/qmlcache/AvelinoCatalog_AlertFixture_qml.cpp.aotstats
+[401/569] Generating .rcc/qmlcache/tests/consumer/SidebarBrand_qml.cpp, .rcc/qmlcache/tests/consumer/SidebarBrand_qml.cpp.aotstats
+[402/569] Generating .rcc/qmlcache/tests/consumer/SidebarBrandCase_qml.cpp, .rcc/qmlcache/tests/consumer/SidebarBrandCase_qml.cpp.aotstats
+[403/569] Generating .rcc/qmlcache/tests/consumer/SidebarGlyph_qml.cpp, .rcc/qmlcache/tests/consumer/SidebarGlyph_qml.cpp.aotstats
+[404/569] Generating .rcc/qmlcache/tests/consumer/Navigation_qml.cpp, .rcc/qmlcache/tests/consumer/Navigation_qml.cpp.aotstats
+[405/569] Generating .rcc/qmlcache/tests/consumer/NavigationCase_qml.cpp, .rcc/qmlcache/tests/consumer/NavigationCase_qml.cpp.aotstats
+[406/569] Generating .rcc/qmlcache/tests/consumer/BreadcrumbHouse_qml.cpp, .rcc/qmlcache/tests/consumer/BreadcrumbHouse_qml.cpp.aotstats
+[407/569] Generating .rcc/qmlcache/tests/consumer/Clipping_qml.cpp, .rcc/qmlcache/tests/consumer/Clipping_qml.cpp.aotstats
+[408/569] Generating .rcc/qmlcache/tests/consumer/AccordionText_qml.cpp, .rcc/qmlcache/tests/consumer/AccordionText_qml.cpp.aotstats
+[409/569] Generating .rcc/qmlcache/tests/consumer/NavigationIcon_qml.cpp, .rcc/qmlcache/tests/consumer/NavigationIcon_qml.cpp.aotstats
+[410/569] Generating .rcc/qmlcache/tests/consumer/SearchGlyph_qml.cpp, .rcc/qmlcache/tests/consumer/SearchGlyph_qml.cpp.aotstats
+[411/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/AvelinoCatalog_autogen/mocs_compilation.cpp.o
+[412/569] Building CXX object tests/components/CMakeFiles/AvelinoFileBrowserTests.dir/__/__/src/Avelino/filechooserplaces.cpp.o
+[413/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.qt/rcc/qrc_dropdown_menu_images.cpp.o
+[414/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/avelinocatalog_qmltyperegistrations.cpp.o
+[415/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.qt/rcc/qrc_qmake_AvelinoCatalog.cpp.o
+[416/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/AvelinoCatalog_qmlcache_loader.cpp.o
+[417/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/DateRangePicker_qml.cpp.o
+[418/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/DateRangePickerCase_qml.cpp.o
+[419/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/HeroCarousel_qml.cpp.o
+[420/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/HeroCarouselCase_qml.cpp.o
+[421/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/HeroCarouselSlide_qml.cpp.o
+[422/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/FileInput_qml.cpp.o
+[423/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/FileInputCase_qml.cpp.o
+[424/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/DropdownMenu_qml.cpp.o
+[425/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/main.cpp.o
+[426/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/DropdownMenuCase_qml.cpp.o
+[427/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/DropdownMenuImage_qml.cpp.o
+[428/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/CommandSpotlight_qml.cpp.o
+[429/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/CommandSpotlightCase_qml.cpp.o
+[430/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/CommandSpotlightRow_qml.cpp.o
+[431/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/AppTabs_qml.cpp.o
+[432/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/AppTabsCase_qml.cpp.o
+[433/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/apptabfixturemetrics_js.cpp.o
+[434/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/AppTabGlyph_qml.cpp.o
+[435/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/MediaLibraryCase_qml.cpp.o
+[436/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/MediaLibrary_qml.cpp.o
+[437/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/MediaLibraryTile_qml.cpp.o
+[438/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/Charts_qml.cpp.o
+[439/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/ChartsCase_qml.cpp.o
+[440/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/PillModifier_qml.cpp.o
+[441/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/PillModifierCase_qml.cpp.o
+[442/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/SurfaceModifier_qml.cpp.o
+[443/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/SurfaceModifierCase_qml.cpp.o
+[444/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/FontModifierCase_qml.cpp.o
+[445/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/FontModifier_qml.cpp.o
+[446/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/ButtonStyleCase_qml.cpp.o
+[447/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/ButtonStyle_qml.cpp.o
+[448/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/TooltipCase_qml.cpp.o
+[449/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/Tooltip_qml.cpp.o
+[450/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/ModalCase_qml.cpp.o
+[451/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/Modal_qml.cpp.o
+[452/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/ActivityItemCase_qml.cpp.o
+[453/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/ActivityItem_qml.cpp.o
+[454/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/ActivityCaseGlyph_qml.cpp.o
+[455/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/OTPInput_qml.cpp.o
+[456/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/OTPInputCase_qml.cpp.o
+[457/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/RadioGroup_qml.cpp.o
+[458/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/RadioGroupCase_qml.cpp.o
+[459/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/Stepper_qml.cpp.o
+[460/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/StepperCase_qml.cpp.o
+[461/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/DataMetrics_qml.cpp.o
+[462/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/DataMetricsCase_qml.cpp.o
+[463/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/DataMetricGlyph_qml.cpp.o
+[464/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/AvelinoCatalog_Main_qml.cpp.o
+[465/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/AvelinoCatalog_ButtonFixture_qml.cpp.o
+[466/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/AvelinoCatalog_FoundationsFixture_qml.cpp.o
+[467/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/AvelinoCatalog_SurfacesFixture_qml.cpp.o
+[468/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/AvelinoCatalog_DataDisplayFixture_qml.cpp.o
+[469/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/AvelinoCatalog_ControlsFixture_qml.cpp.o
+[470/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/AvelinoCatalog_ReferenceCaseFixture_qml.cpp.o
+[471/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/AvelinoCatalog_CompositionFixture_qml.cpp.o
+[472/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/AvelinoCatalog_SelectionFixture_qml.cpp.o
+[473/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/AvelinoCatalog_CheckboxFixture_qml.cpp.o
+[474/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/AvelinoCatalog_SecureFieldFixture_qml.cpp.o
+[475/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/AvelinoCatalog_SearchFieldFixture_qml.cpp.o
+[476/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/AvelinoCatalog_CollectionFiltersFixture_qml.cpp.o
+[477/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/AvelinoCatalog_SliderFixture_qml.cpp.o
+[478/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/AvelinoCatalog_TabsFixture_qml.cpp.o
+[479/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/AvelinoCatalog_PaginationFixture_qml.cpp.o
+[480/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/AvelinoCatalog_PaginationIntegerFixture_qml.cpp.o
+[481/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/AvelinoCatalog_AccordionFixture_qml.cpp.o
+[482/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/AvelinoCatalog_SpinnerFixture_qml.cpp.o
+[483/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/AvelinoCatalog_PresentationStatesFixture_qml.cpp.o
+[484/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/AvelinoCatalog_AlertFixture_qml.cpp.o
+[485/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/SidebarBrand_qml.cpp.o
+[486/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/SidebarBrandCase_qml.cpp.o
+[487/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/SidebarGlyph_qml.cpp.o
+[488/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/Navigation_qml.cpp.o
+[489/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/NavigationCase_qml.cpp.o
+[490/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/BreadcrumbHouse_qml.cpp.o
+[491/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/Clipping_qml.cpp.o
+[492/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/AccordionText_qml.cpp.o
+[493/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/NavigationIcon_qml.cpp.o
+[494/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.qt/rcc/qrc_AvelinoCatalog_raw_qml_0.cpp.o
+[495/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.qt/rcc/qrc_catalog_fixture_assets.cpp.o
+[496/569] Building CXX object samples/AvelinoCatalog/CMakeFiles/AvelinoCatalog.dir/.rcc/qmlcache/tests/consumer/SearchGlyph_qml.cpp.o
+[497/569] Linking CXX executable samples/AvelinoCatalog/AvelinoCatalog
+[498/569] Building CXX object tests/components/CMakeFiles/AvelinoFileBrowserTests.dir/__/__/src/Avelino/filechooserlisting.cpp.o
+[499/569] Building CXX object tests/components/CMakeFiles/AvelinoFileBrowserTests.dir/__/__/src/Avelino/filechooserbrowser.cpp.o
+[500/569] Automatic MOC and UIC for target AvelinoComponentTests
+[501/569] Building CXX object tests/components/CMakeFiles/AvelinoComponentTests.dir/AvelinoComponentTests_autogen/mocs_compilation.cpp.o
+[502/569] Building CXX object tests/components/CMakeFiles/AvelinoFileBrowserTests.dir/__/__/src/Avelino/filechoosermodel.cpp.o
+[503/569] Linking CXX executable tests/components/AvelinoFileBrowserTests
+[504/569] Automatic MOC and UIC for target AvelinoDateRangeToolsTests
+[505/569] Building CXX object tests/components/CMakeFiles/AvelinoDateRangeToolsTests.dir/AvelinoDateRangeToolsTests_autogen/mocs_compilation.cpp.o
+[506/569] Building CXX object tests/components/CMakeFiles/AvelinoComponentTests.dir/main.cpp.o
+[507/569] Linking CXX executable tests/components/AvelinoComponentTests
+[508/569] Automatic MOC and UIC for target AvelinoDateRangeUiTests
+[509/569] Running rcc for resource date_range_fixtures
+[510/569] Building CXX object tests/components/CMakeFiles/AvelinoDateRangeUiTests.dir/AvelinoDateRangeUiTests_autogen/mocs_compilation.cpp.o
+[511/569] Building CXX object tests/components/CMakeFiles/AvelinoDateRangeToolsTests.dir/daterangetools.cpp.o
+[512/569] Linking CXX executable tests/components/AvelinoDateRangeToolsTests
+[513/569] Building CXX object tests/components/CMakeFiles/AvelinoDateRangeUiTests.dir/.qt/rcc/qrc_date_range_fixtures.cpp.o
+[514/569] Automatic MOC and UIC for target AvelinoHeroCarouselTests
+[515/569] Running rcc for resource hero_carousel_fixtures
+[516/569] Building CXX object tests/components/CMakeFiles/AvelinoHeroCarouselTests.dir/AvelinoHeroCarouselTests_autogen/mocs_compilation.cpp.o
+[517/569] Building CXX object tests/components/CMakeFiles/AvelinoDateRangeUiTests.dir/daterangeui.cpp.o
+[518/569] Linking CXX executable tests/components/AvelinoDateRangeUiTests
+[519/569] Building CXX object tests/components/CMakeFiles/AvelinoHeroCarouselTests.dir/.qt/rcc/qrc_hero_carousel_fixtures.cpp.o
+[520/569] Automatic MOC and UIC for target AvelinoOTPSemanticsTests
+[521/569] Building CXX object tests/components/CMakeFiles/AvelinoOTPSemanticsTests.dir/AvelinoOTPSemanticsTests_autogen/mocs_compilation.cpp.o
+[522/569] Building CXX object tests/components/CMakeFiles/AvelinoHeroCarouselTests.dir/herocarousel.cpp.o
+[523/569] Linking CXX executable tests/components/AvelinoHeroCarouselTests
+[524/569] Automatic MOC and UIC for target AvelinoAppTabRasterTests
+[525/569] Running rcc for resource qmake_AvelinoAppTabRasterTests
+[526/569] Generating .rcc/qmlcache/AvelinoAppTabRasterTests_qmlcache_loader.cpp
+[527/569] Running rcc for resource AvelinoAppTabRasterTests_raw_qml_0
+[528/569] Running rcc for resource app_tab_raster_metrics
+[529/569] Running rcc for resource app_tab_raster_sequence
+[530/569] Running AUTOMOC file extraction for target AvelinoAppTabRasterTests
+[531/569] Running moc --collect-json for target AvelinoAppTabRasterTests
+[532/569] Automatic QML type registration for target AvelinoAppTabRasterTests
+[533/569] Generating .rcc/qmlcache/AvelinoAppTabRasterTests_../consumer/AppTabs_qml.cpp, .rcc/qmlcache/AvelinoAppTabRasterTests_../consumer/AppTabs_qml.cpp.aotstats
+[534/569] Generating .rcc/qmlcache/AvelinoAppTabRasterTests_../consumer/AppTabsCase_qml.cpp, .rcc/qmlcache/AvelinoAppTabRasterTests_../consumer/AppTabsCase_qml.cpp.aotstats
+[535/569] Generating .rcc/qmlcache/AvelinoAppTabRasterTests_../consumer/AppTabGlyph_qml.cpp, .rcc/qmlcache/AvelinoAppTabRasterTests_../consumer/AppTabGlyph_qml.cpp.aotstats
+[536/569] Generating .rcc/qmlcache/AvelinoAppTabRasterTests_../consumer/apptabfixturemetrics_js.cpp
+[537/569] Building CXX object tests/components/CMakeFiles/AvelinoAppTabRasterTests.dir/AvelinoAppTabRasterTests_autogen/mocs_compilation.cpp.o
+[538/569] Building CXX object tests/components/CMakeFiles/AvelinoOTPSemanticsTests.dir/otptools.cpp.o
+[539/569] Linking CXX executable tests/components/AvelinoOTPSemanticsTests
+[540/569] Building CXX object tests/components/CMakeFiles/AvelinoAppTabRasterTests.dir/avelinoapptabrastertests_qmltyperegistrations.cpp.o
+[541/569] Building CXX object tests/components/CMakeFiles/AvelinoAppTabRasterTests.dir/.qt/rcc/qrc_qmake_AvelinoAppTabRasterTests.cpp.o
+[542/569] Building CXX object tests/components/CMakeFiles/AvelinoAppTabRasterTests.dir/app-tabs-raster.cpp.o
+[543/569] Building CXX object tests/components/CMakeFiles/AvelinoAppTabRasterTests.dir/.rcc/qmlcache/AvelinoAppTabRasterTests_qmlcache_loader.cpp.o
+[544/569] Building CXX object tests/components/CMakeFiles/AvelinoAppTabRasterTests.dir/.rcc/qmlcache/AvelinoAppTabRasterTests___/consumer/AppTabsCase_qml.cpp.o
+[545/569] Building CXX object tests/components/CMakeFiles/AvelinoAppTabRasterTests.dir/.rcc/qmlcache/AvelinoAppTabRasterTests___/consumer/AppTabs_qml.cpp.o
+[546/569] Building CXX object tests/components/CMakeFiles/AvelinoAppTabRasterTests.dir/.rcc/qmlcache/AvelinoAppTabRasterTests___/consumer/AppTabGlyph_qml.cpp.o
+[547/569] Building CXX object tests/components/CMakeFiles/AvelinoAppTabRasterTests.dir/.qt/rcc/qrc_AvelinoAppTabRasterTests_raw_qml_0.cpp.o
+[548/569] Building CXX object tests/components/CMakeFiles/AvelinoAppTabRasterTests.dir/.qt/rcc/qrc_app_tab_raster_metrics.cpp.o
+[549/569] Building CXX object tests/components/CMakeFiles/AvelinoAppTabRasterTests.dir/.qt/rcc/qrc_app_tab_raster_sequence.cpp.o
+[550/569] Building CXX object tests/components/CMakeFiles/AvelinoAppTabRasterTests.dir/.rcc/qmlcache/AvelinoAppTabRasterTests___/consumer/apptabfixturemetrics_js.cpp.o
+[551/569] Linking CXX executable tests/components/AvelinoAppTabRasterTests
+[552/569] Building CXX object tests/components/CMakeFiles/AvelinoFilePlacesTests.dir/AvelinoFilePlacesTests_autogen/mocs_compilation.cpp.o
+[553/569] Building CXX object tests/components/CMakeFiles/AvelinoFilePlacesTests.dir/__/__/src/Avelino/filechooserplaces.cpp.o
+[554/569] Building CXX object tests/components/CMakeFiles/AvelinoFilePathTests.dir/AvelinoFilePathTests_autogen/mocs_compilation.cpp.o
+[555/569] Building CXX object tests/components/CMakeFiles/AvelinoFilePlacesTests.dir/filechooserplaces.cpp.o
+[556/569] Linking CXX executable tests/components/AvelinoFilePlacesTests
+[557/569] Building CXX object tests/components/CMakeFiles/AvelinoFilePathTests.dir/filechooserpaths.cpp.o
+[558/569] Building CXX object tests/components/CMakeFiles/AvelinoFilePathTests.dir/__/__/src/Avelino/filechooserpaths.cpp.o
+[559/569] Linking CXX executable tests/components/AvelinoFilePathTests
+[560/569] Automatic MOC and UIC for target AvelinoFileInputUiTests
+[561/569] Running rcc for resource file_input_ui_fixtures
+[562/569] Building CXX object tests/components/CMakeFiles/AvelinoFileInputUiTests.dir/AvelinoFileInputUiTests_autogen/mocs_compilation.cpp.o
+[563/569] Automatic MOC and UIC for target AvelinoItemLifetimeTests
+[564/569] Building CXX object tests/components/CMakeFiles/AvelinoFileInputUiTests.dir/.qt/rcc/qrc_file_input_ui_fixtures.cpp.o
+[565/569] Building CXX object tests/components/CMakeFiles/AvelinoItemLifetimeTests.dir/AvelinoItemLifetimeTests_autogen/mocs_compilation.cpp.o
+[566/569] Building CXX object tests/components/CMakeFiles/AvelinoItemLifetimeTests.dir/itemlifetime.cpp.o
+[567/569] Linking CXX executable tests/components/AvelinoItemLifetimeTests
+[568/569] Building CXX object tests/components/CMakeFiles/AvelinoFileInputUiTests.dir/fileinput-ui.cpp.o
+[569/569] Linking CXX executable tests/components/AvelinoFileInputUiTests
+Test project /work/build/linux
+      Start  1: date-range-owned-input
+ 1/55 Test  #1: date-range-owned-input ...............   Passed   33.96 sec
+      Start  2: date-range-owned-input-dpr2
+ 2/55 Test  #2: date-range-owned-input-dpr2 ..........   Passed   28.27 sec
+      Start  3: date-range-calendar-components
+ 3/55 Test  #3: date-range-calendar-components .......   Passed    1.39 sec
+      Start  4: hero-carousel-retained-slides
+ 4/55 Test  #4: hero-carousel-retained-slides ........   Passed    2.22 sec
+      Start  5: hero-carousel-retained-slides-dpr2
+ 5/55 Test  #5: hero-carousel-retained-slides-dpr2 ...   Passed    2.14 sec
+      Start  6: components
+ 6/55 Test  #6: components ...........................   Passed  286.09 sec
+      Start  7: components-dpr2
+ 7/55 Test  #7: components-dpr2 ......................   Passed  302.71 sec
+      Start  8: slider-invalid-config
+ 8/55 Test  #8: slider-invalid-config ................   Passed    2.20 sec
+      Start  9: pagination-invalid-config
+ 9/55 Test  #9: pagination-invalid-config ............   Passed    5.97 sec
+      Start 10: presentation-invalid-config
+10/55 Test #10: presentation-invalid-config ..........   Passed    6.63 sec
+      Start 11: navigation-invalid-config
+11/55 Test #11: navigation-invalid-config ............   Passed    3.65 sec
+      Start 12: sidebar-brand-invalid-config
+12/55 Test #12: sidebar-brand-invalid-config .........   Passed    3.76 sec
+      Start 13: data-metrics-invalid-config
+13/55 Test #13: data-metrics-invalid-config ..........   Passed    5.75 sec
+      Start 14: stepper-invalid-config
+14/55 Test #14: stepper-invalid-config ...............   Passed   17.83 sec
+      Start 15: radio-invalid-config
+15/55 Test #15: radio-invalid-config .................   Passed   11.09 sec
+      Start 16: radio-catalog-metadata
+16/55 Test #16: radio-catalog-metadata ...............   Passed    7.51 sec
+      Start 17: otp-native-transformation
+17/55 Test #17: otp-native-transformation ............   Passed    3.74 sec
+      Start 18: otp-invalid-transformation
+18/55 Test #18: otp-invalid-transformation ...........   Passed   13.72 sec
+      Start 19: otp-invalid-input
+19/55 Test #19: otp-invalid-input ....................   Passed    5.98 sec
+      Start 20: otp-catalog-metadata
+20/55 Test #20: otp-catalog-metadata .................   Passed    7.27 sec
+      Start 21: activity-invalid-config
+21/55 Test #21: activity-invalid-config ..............   Passed    2.23 sec
+      Start 22: activity-catalog-metadata
+22/55 Test #22: activity-catalog-metadata ............   Passed   13.22 sec
+      Start 23: modal-invalid-config
+23/55 Test #23: modal-invalid-config .................   Passed    5.57 sec
+      Start 24: modal-catalog-metadata
+24/55 Test #24: modal-catalog-metadata ...............   Passed   20.03 sec
+      Start 25: tooltip-invalid-config
+25/55 Test #25: tooltip-invalid-config ...............   Passed    2.74 sec
+      Start 26: tooltip-catalog-metadata
+26/55 Test #26: tooltip-catalog-metadata .............   Passed   17.34 sec
+      Start 27: button-style-invalid-config
+27/55 Test #27: button-style-invalid-config ..........   Passed    6.19 sec
+      Start 28: button-style-catalog-metadata
+28/55 Test #28: button-style-catalog-metadata ........   Passed   72.72 sec
+      Start 29: font-modifier-invalid-config
+29/55 Test #29: font-modifier-invalid-config .........   Passed    5.12 sec
+      Start 30: font-modifier-catalog-metadata
+30/55 Test #30: font-modifier-catalog-metadata .......   Passed   47.69 sec
+      Start 31: surface-modifier-invalid-config
+31/55 Test #31: surface-modifier-invalid-config ......   Passed    3.04 sec
+      Start 32: surface-modifier-catalog-metadata
+32/55 Test #32: surface-modifier-catalog-metadata ....   Passed   12.35 sec
+      Start 33: pill-modifier-invalid-config
+33/55 Test #33: pill-modifier-invalid-config .........   Passed   11.64 sec
+      Start 34: pill-modifier-catalog-metadata
+34/55 Test #34: pill-modifier-catalog-metadata .......   Passed   25.68 sec
+      Start 35: charts-invalid-config
+35/55 Test #35: charts-invalid-config ................   Passed    5.94 sec
+      Start 36: charts-catalog-metadata
+36/55 Test #36: charts-catalog-metadata ..............   Passed   38.72 sec
+      Start 37: media-library-invalid-config
+37/55 Test #37: media-library-invalid-config .........   Passed    9.49 sec
+      Start 38: media-library-catalog-metadata
+38/55 Test #38: media-library-catalog-metadata .......   Passed   17.05 sec
+      Start 39: hero-carousel-catalog-metadata
+39/55 Test #39: hero-carousel-catalog-metadata .......   Passed    4.98 sec
+      Start 40: app-tabs-invalid-config
+40/55 Test #40: app-tabs-invalid-config ..............   Passed   14.74 sec
+      Start 41: app-tabs-catalog-metadata
+41/55 Test #41: app-tabs-catalog-metadata ............   Passed   10.45 sec
+      Start 42: app-tabs-retained-raster
+42/55 Test #42: app-tabs-retained-raster .............   Passed   22.53 sec
+      Start 43: app-tabs-retained-raster-dpr2
+43/55 Test #43: app-tabs-retained-raster-dpr2 ........   Passed   24.72 sec
+      Start 44: command-spotlight-invalid-config
+44/55 Test #44: command-spotlight-invalid-config .....   Passed   10.51 sec
+      Start 45: command-spotlight-catalog-metadata
+45/55 Test #45: command-spotlight-catalog-metadata ...   Passed    8.00 sec
+      Start 46: dropdown-menu-invalid-config
+46/55 Test #46: dropdown-menu-invalid-config .........   Passed    6.93 sec
+      Start 47: dropdown-menu-catalog-metadata
+47/55 Test #47: dropdown-menu-catalog-metadata .......   Passed    7.43 sec
+      Start 48: file-chooser-filesystem
+48/55 Test #48: file-chooser-filesystem ..............   Passed    0.03 sec
+      Start 49: file-chooser-columns
+49/55 Test #49: file-chooser-columns .................   Passed    0.24 sec
+      Start 50: file-chooser-places
+50/55 Test #50: file-chooser-places ..................   Passed    0.23 sec
+      Start 51: file-chooser-paths
+51/55 Test #51: file-chooser-paths ...................   Passed    0.01 sec
+      Start 52: file-input-owned-ui
+52/55 Test #52: file-input-owned-ui ..................   Passed    1.97 sec
+      Start 53: file-input-owned-ui-dpr2
+53/55 Test #53: file-input-owned-ui-dpr2 .............   Passed    2.21 sec
+      Start 54: item-lifetime
+54/55 Test #54: item-lifetime ........................   Passed    0.30 sec
+      Start 55: item-lifetime-dpr2
+55/55 Test #55: item-lifetime-dpr2 ...................   Passed    0.28 sec
+
+100% tests passed, 0 tests failed out of 55
+
+Total Test time (real) = 1184.49 sec
+-- Install configuration: "RelWithDebInfo"
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/libAvelino.so
+-- Set non-toolchain portion of runtime path of "/tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/libAvelino.so" to "$ORIGIN"
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/libAvelinoplugin.so
+-- Set non-toolchain portion of runtime path of "/tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/libAvelinoplugin.so" to "$ORIGIN"
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/qmldir
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/Avelino.qmltypes
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerDateRangePicker.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/DateRangeField.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/DateRangeEditor.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/DateRangeCalendar.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/DateRangeArrow.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerHeroCarousel.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerFileInput.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/FileChooserDialog.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/FileChooserGoTo.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/FileChooserLocationMenu.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/FileChooserViews.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/FileChooserNewFolder.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/FileChooserButton.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/FileChooserGlyph.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerDropdownMenu.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerCommandSpotlight.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerAppTabBar.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerMediaLibrary.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/ChartBase.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerLineChart.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerBarChart.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerPieChart.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerScatterChart.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerSparkline.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerSurfaceModifier.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/SurfaceModifierPart.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerFont.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerText.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerButtonStyle.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/ButtonStylePart.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerTooltip.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/TooltipHost.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerModalDialog.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerModal.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/ModalCloseGlyph.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerActivityItem.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/ActivityGlyph.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerMetric.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerStatCard.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerIconBadge.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerKbd.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerTokens.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerTheme.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerButton.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerOTPInput.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerRadioGroup.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/RadioGlyph.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerLoadingSpinner.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerStepper.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/StepperGlyph.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerAlert.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/AlertGlyph.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/CircularContent.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerEmptyState.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerErrorState.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerLoadingOverlay.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/StateGlyph.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerTextField.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerSeparator.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerSkeleton.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerBauhausBackground.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerProgress.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerButtonGroup.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerHeader.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerPanelLayout.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerCard.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerPanel.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerAttentionSurface.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerStatusBadge.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerNotificationBadge.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerEyebrow.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerPill.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/PillModifierPart.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerAvatar.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerDataList.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerTimelineItem.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerSurface.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerField.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerSwitch.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerToggleButton.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerSegmentedControl.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerTabs.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerIconButton.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerPagination.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerAccordion.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/NavigationGlyph.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerTextArea.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerBrandMark.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerBrandLockup.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerSidebarItem.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerPageHeader.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerBreadcrumb.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerSectionHeader.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerDashboardSection.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerDashboardGrid.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerFooter.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerAppShell.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerFeedItem.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerProgressStack.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerSelect.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/SelectionGlyph.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerCheckbox.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/CheckboxGlyph.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerSecureField.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/SecureEyeGlyph.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerSearchField.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/InputGlyph.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerFilterChip.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerCollectionFilters.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/CapsuleContent.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/BleeckerSlider.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/OwnedText.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/RoundedContent.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/SurfaceShadow.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/attentioncolors.js
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/ContinuousSurface.qml
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/continuouscorners.js
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/qml/Avelino/spinnerpresentation.js
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/bin/AvelinoCatalog
+-- Set non-toolchain portion of runtime path of "/tmp/tmp.uT5YJM4a0b/install/bin/AvelinoCatalog" to "$ORIGIN"
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/cmake/Avelino/AvelinoTargets.cmake
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/cmake/Avelino/AvelinoTargets-relwithdebinfo.cmake
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/cmake/Avelino/AvelinoConfig.cmake
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/lib/cmake/Avelino/AvelinoConfigVersion.cmake
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/share/avelino/fonts
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/share/avelino/fonts/OFL-LibreFranklin.txt
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/share/avelino/fonts/README.md
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/share/avelino/fonts/OFL-EncodeSans.txt
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/share/avelino/provenance.json
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/share/avelino/selection-symbols.json
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/share/avelino/checkbox-symbols.json
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/share/avelino/secure-field-symbols.json
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/share/avelino/search-field-symbols.json
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/share/avelino/filter-chip-symbols.json
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/share/avelino/navigation-symbols.json
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/share/avelino/presentation-symbols.json
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/share/avelino/spinner-presentation.json
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/share/avelino/alert-symbols.json
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/share/avelino/brand-presentation.json
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/share/avelino/sidebar-symbols.json
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/share/avelino/data-metrics-presentation.json
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/share/avelino/brand/BleeckerLogo.png
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/share/avelino/stepper-presentation.json
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/share/avelino/radio-presentation.json
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/share/avelino/activity-presentation.json
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/share/avelino/tooltip-presentation.json
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/share/avelino/modal-presentation.json
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/share/avelino/unicode/LICENSE.txt
+-- Installing: /tmp/tmp.uT5YJM4a0b/install/share/avelino/unicode/provenance.json
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Performing Test HAVE_STDATOMIC
+-- Performing Test HAVE_STDATOMIC - Success
+-- Found WrapAtomic: TRUE  
+-- Found OpenGL: /usr/lib/aarch64-linux-gnu/libOpenGL.so   
+-- Found WrapOpenGL: TRUE  
+-- Found XKB: /usr/lib/aarch64-linux-gnu/libxkbcommon.so (found suitable version "1.6.0", minimum required is "0.5.0") 
+-- Found WrapVulkanHeaders: /usr/include  
+-- Configuring done (0.7s)
+-- Generating done (0.0s)
+-- Build files have been written to: /tmp/tmp.uT5YJM4a0b/build
+[1/169] Copying InstalledConsumer qml resources into build dir
+[2/169] Copying InstalledConsumer qml sources into build dir
+[3/169] Running qmlimportscanner for InstalledConsumer
+[4/169] Automatic MOC and UIC for target InstalledConsumer
+[5/169] Running rcc for resource qmake_InstalledConsumer
+[6/169] Generating .rcc/qmlcache/InstalledConsumer_qmlcache_loader.cpp
+[7/169] Running rcc for resource InstalledConsumer_raw_qml_0
+[8/169] Running rcc for resource dropdown_menu_images
+[9/169] Running AUTOMOC file extraction for target InstalledConsumer
+[10/169] Running moc --collect-json for target InstalledConsumer
+[11/169] Automatic QML type registration for target InstalledConsumer
+[12/169] Generating .rcc/qmlcache/InstalledConsumer_DateRangePicker_qml.cpp, .rcc/qmlcache/InstalledConsumer_DateRangePicker_qml.cpp.aotstats
+[13/169] Generating .rcc/qmlcache/InstalledConsumer_DateRangePickerCase_qml.cpp, .rcc/qmlcache/InstalledConsumer_DateRangePickerCase_qml.cpp.aotstats
+[14/169] Generating .rcc/qmlcache/InstalledConsumer_HeroCarousel_qml.cpp, .rcc/qmlcache/InstalledConsumer_HeroCarousel_qml.cpp.aotstats
+[15/169] Generating .rcc/qmlcache/InstalledConsumer_HeroCarouselCase_qml.cpp, .rcc/qmlcache/InstalledConsumer_HeroCarouselCase_qml.cpp.aotstats
+[16/169] Generating .rcc/qmlcache/InstalledConsumer_HeroCarouselSlide_qml.cpp, .rcc/qmlcache/InstalledConsumer_HeroCarouselSlide_qml.cpp.aotstats
+[17/169] Generating .rcc/qmlcache/InstalledConsumer_FileInput_qml.cpp, .rcc/qmlcache/InstalledConsumer_FileInput_qml.cpp.aotstats
+[18/169] Generating .rcc/qmlcache/InstalledConsumer_FileInputCase_qml.cpp, .rcc/qmlcache/InstalledConsumer_FileInputCase_qml.cpp.aotstats
+[19/169] Generating .rcc/qmlcache/InstalledConsumer_DropdownMenu_qml.cpp, .rcc/qmlcache/InstalledConsumer_DropdownMenu_qml.cpp.aotstats
+[20/169] Generating .rcc/qmlcache/InstalledConsumer_DropdownMenuCase_qml.cpp, .rcc/qmlcache/InstalledConsumer_DropdownMenuCase_qml.cpp.aotstats
+[21/169] Generating .rcc/qmlcache/InstalledConsumer_DropdownMenuImage_qml.cpp, .rcc/qmlcache/InstalledConsumer_DropdownMenuImage_qml.cpp.aotstats
+[22/169] Generating .rcc/qmlcache/InstalledConsumer_CommandSpotlight_qml.cpp, .rcc/qmlcache/InstalledConsumer_CommandSpotlight_qml.cpp.aotstats
+[23/169] Generating .rcc/qmlcache/InstalledConsumer_CommandSpotlightCase_qml.cpp, .rcc/qmlcache/InstalledConsumer_CommandSpotlightCase_qml.cpp.aotstats
+[24/169] Generating .rcc/qmlcache/InstalledConsumer_CommandSpotlightRow_qml.cpp, .rcc/qmlcache/InstalledConsumer_CommandSpotlightRow_qml.cpp.aotstats
+[25/169] Generating .rcc/qmlcache/InstalledConsumer_AppTabs_qml.cpp, .rcc/qmlcache/InstalledConsumer_AppTabs_qml.cpp.aotstats
+[26/169] Generating .rcc/qmlcache/InstalledConsumer_AppTabsCase_qml.cpp, .rcc/qmlcache/InstalledConsumer_AppTabsCase_qml.cpp.aotstats
+[27/169] Generating .rcc/qmlcache/InstalledConsumer_AppTabGlyph_qml.cpp, .rcc/qmlcache/InstalledConsumer_AppTabGlyph_qml.cpp.aotstats
+[28/169] Generating .rcc/qmlcache/InstalledConsumer_apptabfixturemetrics_js.cpp
+[29/169] Generating .rcc/qmlcache/InstalledConsumer_MediaLibrary_qml.cpp, .rcc/qmlcache/InstalledConsumer_MediaLibrary_qml.cpp.aotstats
+[30/169] Generating .rcc/qmlcache/InstalledConsumer_MediaLibraryCase_qml.cpp, .rcc/qmlcache/InstalledConsumer_MediaLibraryCase_qml.cpp.aotstats
+[31/169] Generating .rcc/qmlcache/InstalledConsumer_MediaLibraryTile_qml.cpp, .rcc/qmlcache/InstalledConsumer_MediaLibraryTile_qml.cpp.aotstats
+[32/169] Generating .rcc/qmlcache/InstalledConsumer_Charts_qml.cpp, .rcc/qmlcache/InstalledConsumer_Charts_qml.cpp.aotstats
+[33/169] Generating .rcc/qmlcache/InstalledConsumer_ChartsCase_qml.cpp, .rcc/qmlcache/InstalledConsumer_ChartsCase_qml.cpp.aotstats
+[34/169] Generating .rcc/qmlcache/InstalledConsumer_PillModifier_qml.cpp, .rcc/qmlcache/InstalledConsumer_PillModifier_qml.cpp.aotstats
+[35/169] Generating .rcc/qmlcache/InstalledConsumer_PillModifierCase_qml.cpp, .rcc/qmlcache/InstalledConsumer_PillModifierCase_qml.cpp.aotstats
+[36/169] Generating .rcc/qmlcache/InstalledConsumer_SurfaceSupplement_qml.cpp, .rcc/qmlcache/InstalledConsumer_SurfaceSupplement_qml.cpp.aotstats
+[37/169] Generating .rcc/qmlcache/InstalledConsumer_SurfaceInputCase_qml.cpp, .rcc/qmlcache/InstalledConsumer_SurfaceInputCase_qml.cpp.aotstats
+[38/169] Generating .rcc/qmlcache/InstalledConsumer_SurfaceModifier_qml.cpp, .rcc/qmlcache/InstalledConsumer_SurfaceModifier_qml.cpp.aotstats
+[39/169] Generating .rcc/qmlcache/InstalledConsumer_SurfaceModifierCase_qml.cpp, .rcc/qmlcache/InstalledConsumer_SurfaceModifierCase_qml.cpp.aotstats
+[40/169] Generating .rcc/qmlcache/InstalledConsumer_FontModifier_qml.cpp, .rcc/qmlcache/InstalledConsumer_FontModifier_qml.cpp.aotstats
+[41/169] Generating .rcc/qmlcache/InstalledConsumer_FontModifierCase_qml.cpp, .rcc/qmlcache/InstalledConsumer_FontModifierCase_qml.cpp.aotstats
+[42/169] Generating .rcc/qmlcache/InstalledConsumer_ButtonStyle_qml.cpp, .rcc/qmlcache/InstalledConsumer_ButtonStyle_qml.cpp.aotstats
+[43/169] Generating .rcc/qmlcache/InstalledConsumer_ButtonStyleCase_qml.cpp, .rcc/qmlcache/InstalledConsumer_ButtonStyleCase_qml.cpp.aotstats
+[44/169] Generating .rcc/qmlcache/InstalledConsumer_Tooltip_qml.cpp, .rcc/qmlcache/InstalledConsumer_Tooltip_qml.cpp.aotstats
+[45/169] Generating .rcc/qmlcache/InstalledConsumer_TooltipCase_qml.cpp, .rcc/qmlcache/InstalledConsumer_TooltipCase_qml.cpp.aotstats
+[46/169] Generating .rcc/qmlcache/InstalledConsumer_Modal_qml.cpp, .rcc/qmlcache/InstalledConsumer_Modal_qml.cpp.aotstats
+[47/169] Generating .rcc/qmlcache/InstalledConsumer_ModalCase_qml.cpp, .rcc/qmlcache/InstalledConsumer_ModalCase_qml.cpp.aotstats
+[48/169] Generating .rcc/qmlcache/InstalledConsumer_ActivityItem_qml.cpp, .rcc/qmlcache/InstalledConsumer_ActivityItem_qml.cpp.aotstats
+[49/169] Generating .rcc/qmlcache/InstalledConsumer_ActivityItemCase_qml.cpp, .rcc/qmlcache/InstalledConsumer_ActivityItemCase_qml.cpp.aotstats
+[50/169] Generating .rcc/qmlcache/InstalledConsumer_ActivityCaseGlyph_qml.cpp, .rcc/qmlcache/InstalledConsumer_ActivityCaseGlyph_qml.cpp.aotstats
+[51/169] Generating .rcc/qmlcache/InstalledConsumer_OTPInput_qml.cpp, .rcc/qmlcache/InstalledConsumer_OTPInput_qml.cpp.aotstats
+[52/169] Generating .rcc/qmlcache/InstalledConsumer_OTPInputCase_qml.cpp, .rcc/qmlcache/InstalledConsumer_OTPInputCase_qml.cpp.aotstats
+[53/169] Generating .rcc/qmlcache/InstalledConsumer_RadioGroup_qml.cpp, .rcc/qmlcache/InstalledConsumer_RadioGroup_qml.cpp.aotstats
+[54/169] Generating .rcc/qmlcache/InstalledConsumer_RadioGroupCase_qml.cpp, .rcc/qmlcache/InstalledConsumer_RadioGroupCase_qml.cpp.aotstats
+[55/169] Generating .rcc/qmlcache/InstalledConsumer_Stepper_qml.cpp, .rcc/qmlcache/InstalledConsumer_Stepper_qml.cpp.aotstats
+[56/169] Generating .rcc/qmlcache/InstalledConsumer_StepperCase_qml.cpp, .rcc/qmlcache/InstalledConsumer_StepperCase_qml.cpp.aotstats
+[57/169] Generating .rcc/qmlcache/InstalledConsumer_DataMetrics_qml.cpp, .rcc/qmlcache/InstalledConsumer_DataMetrics_qml.cpp.aotstats
+[58/169] Generating .rcc/qmlcache/InstalledConsumer_DataMetricsCase_qml.cpp, .rcc/qmlcache/InstalledConsumer_DataMetricsCase_qml.cpp.aotstats
+[59/169] Generating .rcc/qmlcache/InstalledConsumer_DataMetricGlyph_qml.cpp, .rcc/qmlcache/InstalledConsumer_DataMetricGlyph_qml.cpp.aotstats
+[60/169] Generating .rcc/qmlcache/InstalledConsumer_Main_qml.cpp, .rcc/qmlcache/InstalledConsumer_Main_qml.cpp.aotstats
+[61/169] Generating .rcc/qmlcache/InstalledConsumer_Controls_qml.cpp, .rcc/qmlcache/InstalledConsumer_Controls_qml.cpp.aotstats
+[62/169] Generating .rcc/qmlcache/InstalledConsumer_Composition_qml.cpp, .rcc/qmlcache/InstalledConsumer_Composition_qml.cpp.aotstats
+[63/169] Generating .rcc/qmlcache/InstalledConsumer_Selection_qml.cpp, .rcc/qmlcache/InstalledConsumer_Selection_qml.cpp.aotstats
+[64/169] Generating .rcc/qmlcache/InstalledConsumer_Checkbox_qml.cpp, .rcc/qmlcache/InstalledConsumer_Checkbox_qml.cpp.aotstats
+[65/169] Generating .rcc/qmlcache/InstalledConsumer_SecureField_qml.cpp, .rcc/qmlcache/InstalledConsumer_SecureField_qml.cpp.aotstats
+[66/169] Generating .rcc/qmlcache/InstalledConsumer_SearchField_qml.cpp, .rcc/qmlcache/InstalledConsumer_SearchField_qml.cpp.aotstats
+[67/169] Generating .rcc/qmlcache/InstalledConsumer_CollectionFilters_qml.cpp, .rcc/qmlcache/InstalledConsumer_CollectionFilters_qml.cpp.aotstats
+[68/169] Generating .rcc/qmlcache/InstalledConsumer_Slider_qml.cpp, .rcc/qmlcache/InstalledConsumer_Slider_qml.cpp.aotstats
+[69/169] Generating .rcc/qmlcache/InstalledConsumer_Tabs_qml.cpp, .rcc/qmlcache/InstalledConsumer_Tabs_qml.cpp.aotstats
+[70/169] Generating .rcc/qmlcache/InstalledConsumer_Pagination_qml.cpp, .rcc/qmlcache/InstalledConsumer_Pagination_qml.cpp.aotstats
+[71/169] Generating .rcc/qmlcache/InstalledConsumer_PaginationIntegers_qml.cpp, .rcc/qmlcache/InstalledConsumer_PaginationIntegers_qml.cpp.aotstats
+[72/169] Generating .rcc/qmlcache/InstalledConsumer_Accordion_qml.cpp, .rcc/qmlcache/InstalledConsumer_Accordion_qml.cpp.aotstats
+[73/169] Generating .rcc/qmlcache/InstalledConsumer_PresentationStates_qml.cpp, .rcc/qmlcache/InstalledConsumer_PresentationStates_qml.cpp.aotstats
+[74/169] Generating .rcc/qmlcache/InstalledConsumer_Spinner_qml.cpp, .rcc/qmlcache/InstalledConsumer_Spinner_qml.cpp.aotstats
+[75/169] Generating .rcc/qmlcache/InstalledConsumer_Alert_qml.cpp, .rcc/qmlcache/InstalledConsumer_Alert_qml.cpp.aotstats
+[76/169] Generating .rcc/qmlcache/InstalledConsumer_Clipping_qml.cpp, .rcc/qmlcache/InstalledConsumer_Clipping_qml.cpp.aotstats
+[77/169] Generating .rcc/qmlcache/InstalledConsumer_Navigation_qml.cpp, .rcc/qmlcache/InstalledConsumer_Navigation_qml.cpp.aotstats
+[78/169] Generating .rcc/qmlcache/InstalledConsumer_NavigationCase_qml.cpp, .rcc/qmlcache/InstalledConsumer_NavigationCase_qml.cpp.aotstats
+[79/169] Generating .rcc/qmlcache/InstalledConsumer_BreadcrumbHouse_qml.cpp, .rcc/qmlcache/InstalledConsumer_BreadcrumbHouse_qml.cpp.aotstats
+[80/169] Generating .rcc/qmlcache/InstalledConsumer_SidebarBrandCase_qml.cpp, .rcc/qmlcache/InstalledConsumer_SidebarBrandCase_qml.cpp.aotstats
+[81/169] Generating .rcc/qmlcache/InstalledConsumer_SidebarGlyph_qml.cpp, .rcc/qmlcache/InstalledConsumer_SidebarGlyph_qml.cpp.aotstats
+[82/169] Generating .rcc/qmlcache/InstalledConsumer_SidebarBrand_qml.cpp, .rcc/qmlcache/InstalledConsumer_SidebarBrand_qml.cpp.aotstats
+[83/169] Generating .rcc/qmlcache/InstalledConsumer_AccordionText_qml.cpp, .rcc/qmlcache/InstalledConsumer_AccordionText_qml.cpp.aotstats
+[84/169] Generating .rcc/qmlcache/InstalledConsumer_NavigationIcon_qml.cpp, .rcc/qmlcache/InstalledConsumer_NavigationIcon_qml.cpp.aotstats
+[85/169] Generating .rcc/qmlcache/InstalledConsumer_SearchGlyph_qml.cpp, .rcc/qmlcache/InstalledConsumer_SearchGlyph_qml.cpp.aotstats
+[86/169] Running rcc for resource consumer_fixture_assets
+[87/169] Building CXX object CMakeFiles/InstalledConsumer.dir/InstalledConsumer_autogen/mocs_compilation.cpp.o
+[88/169] Building CXX object CMakeFiles/InstalledConsumer.dir/installedconsumer_qmltyperegistrations.cpp.o
+[89/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.qt/rcc/qrc_qmake_InstalledConsumer.cpp.o
+[90/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_qmlcache_loader.cpp.o
+[91/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_DateRangePicker_qml.cpp.o
+[92/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_DateRangePickerCase_qml.cpp.o
+[93/169] Building CXX object CMakeFiles/InstalledConsumer.dir/main.cpp.o
+In file included from /tmp/tmp.uT5YJM4a0b/consumer/main.cpp:36:
+/tmp/tmp.uT5YJM4a0b/consumer/tabschecks.h: In function ‘void runTabsConsumer(QQuickWindow*, QGuiApplication&, const QCommandLineParser&, double)’:
+/tmp/tmp.uT5YJM4a0b/consumer/tabschecks.h:13:75: warning: format ‘%d’ expects argument of type ‘int’, but argument 7 has type ‘long long unsigned int’ [-Wformat=]
+   13 |     qInfo("Tabs interface: present=%d role=%d name=%s action=%d disabled=%d",bool(accessible),accessible ? int(accessible->role()) : -1,accessible ? qPrintable(accessible->text(QAccessible::Name)) : "missing",bool(accessible && accessible->actionInterface()),middleAccessible ? middleAccessible->state().disabled : -1);
+      |                                                                          ~^                                                                                                                                                                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                                           |                                                                                                                                                                                                         |
+      |                                                                           int                                                                                                                                                                                                       long long unsigned int
+      |                                                                          %lld
+/tmp/tmp.uT5YJM4a0b/consumer/main.cpp: In function ‘void runCheckboxConsumer(QQuickWindow*, QGuiApplication&, const QCommandLineParser&, double)’:
+/tmp/tmp.uT5YJM4a0b/consumer/main.cpp:81:86: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long long unsigned int’ [-Wformat=]
+   81 |         qCritical("Installed checkbox accessibility: interface=%d role=%d checkable=%d checked=%d name=%s",
+      |                                                                                     ~^
+      |                                                                                      |
+      |                                                                                      int
+      |                                                                                     %lld
+   82 |             accessible!=nullptr, accessible ? int(accessible->role()) : -1,
+   83 |             accessible ? accessible->state().checkable : -1,
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~                           
+      |                        |
+      |                        long long unsigned int
+/tmp/tmp.uT5YJM4a0b/consumer/main.cpp:81:97: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘long long unsigned int’ [-Wformat=]
+   81 |         qCritical("Installed checkbox accessibility: interface=%d role=%d checkable=%d checked=%d name=%s",
+      |                                                                                                ~^
+      |                                                                                                 |
+      |                                                                                                 int
+      |                                                                                                %lld
+......
+   84 |             accessible ? accessible->state().checked : -1,
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~                                        
+      |                        |
+      |                        long long unsigned int
+[94/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_HeroCarousel_qml.cpp.o
+[95/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_HeroCarouselCase_qml.cpp.o
+[96/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_HeroCarouselSlide_qml.cpp.o
+[97/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_FileInput_qml.cpp.o
+[98/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_FileInputCase_qml.cpp.o
+[99/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_DropdownMenu_qml.cpp.o
+[100/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_DropdownMenuCase_qml.cpp.o
+[101/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_DropdownMenuImage_qml.cpp.o
+[102/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_CommandSpotlight_qml.cpp.o
+[103/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_CommandSpotlightCase_qml.cpp.o
+[104/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_CommandSpotlightRow_qml.cpp.o
+[105/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_AppTabs_qml.cpp.o
+[106/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_AppTabsCase_qml.cpp.o
+[107/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_AppTabGlyph_qml.cpp.o
+[108/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_apptabfixturemetrics_js.cpp.o
+[109/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_MediaLibraryCase_qml.cpp.o
+[110/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_MediaLibrary_qml.cpp.o
+[111/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_MediaLibraryTile_qml.cpp.o
+[112/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_Charts_qml.cpp.o
+[113/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_ChartsCase_qml.cpp.o
+[114/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_PillModifier_qml.cpp.o
+[115/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_PillModifierCase_qml.cpp.o
+[116/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_SurfaceSupplement_qml.cpp.o
+[117/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_SurfaceInputCase_qml.cpp.o
+[118/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_SurfaceModifier_qml.cpp.o
+[119/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_SurfaceModifierCase_qml.cpp.o
+[120/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_FontModifier_qml.cpp.o
+[121/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_FontModifierCase_qml.cpp.o
+[122/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_ButtonStyle_qml.cpp.o
+[123/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_ButtonStyleCase_qml.cpp.o
+[124/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_Tooltip_qml.cpp.o
+[125/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_TooltipCase_qml.cpp.o
+[126/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_Modal_qml.cpp.o
+[127/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_ModalCase_qml.cpp.o
+[128/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_ActivityItem_qml.cpp.o
+[129/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_ActivityItemCase_qml.cpp.o
+[130/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_ActivityCaseGlyph_qml.cpp.o
+[131/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_OTPInput_qml.cpp.o
+[132/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_OTPInputCase_qml.cpp.o
+[133/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_RadioGroup_qml.cpp.o
+[134/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_RadioGroupCase_qml.cpp.o
+[135/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_Stepper_qml.cpp.o
+[136/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_StepperCase_qml.cpp.o
+[137/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_DataMetrics_qml.cpp.o
+[138/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_DataMetricsCase_qml.cpp.o
+[139/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_DataMetricGlyph_qml.cpp.o
+[140/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_Main_qml.cpp.o
+[141/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_Controls_qml.cpp.o
+[142/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_Composition_qml.cpp.o
+[143/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_Selection_qml.cpp.o
+[144/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_Checkbox_qml.cpp.o
+[145/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_SecureField_qml.cpp.o
+[146/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_SearchField_qml.cpp.o
+[147/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_CollectionFilters_qml.cpp.o
+[148/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_Slider_qml.cpp.o
+[149/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_Tabs_qml.cpp.o
+[150/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_Pagination_qml.cpp.o
+[151/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_PaginationIntegers_qml.cpp.o
+[152/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_Accordion_qml.cpp.o
+[153/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_PresentationStates_qml.cpp.o
+[154/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_Spinner_qml.cpp.o
+[155/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_Alert_qml.cpp.o
+[156/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_Clipping_qml.cpp.o
+[157/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_Navigation_qml.cpp.o
+[158/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_NavigationCase_qml.cpp.o
+[159/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_BreadcrumbHouse_qml.cpp.o
+[160/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_SidebarBrandCase_qml.cpp.o
+[161/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_SidebarGlyph_qml.cpp.o
+[162/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_SidebarBrand_qml.cpp.o
+[163/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_AccordionText_qml.cpp.o
+[164/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_NavigationIcon_qml.cpp.o
+[165/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.rcc/qmlcache/InstalledConsumer_SearchGlyph_qml.cpp.o
+[166/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.qt/rcc/qrc_InstalledConsumer_raw_qml_0.cpp.o
+[167/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.qt/rcc/qrc_dropdown_menu_images.cpp.o
+[168/169] Building CXX object CMakeFiles/InstalledConsumer.dir/.qt/rcc/qrc_consumer_fixture_assets.cpp.o
+[169/169] Linking CXX executable InstalledConsumer
+Installed consumer: actions, group/list keyboard navigation, editing, fonts, painted placement, foundations, cards, badges and data display passed
+Installed controls: editing, selection, multiline scrolling, switch/toggle actions, segmented disabled/tab order, and focus restoration passed
+Installed composition: adaptive grid reflow, slots, pointer/keyboard actions and focus through resize passed
+Installed selector: pointer/keyboard activation, disabled options, external selection, Escape/outside dismissal, focus restoration and scroll extent passed
+Installed checkbox: model updates, pointer/keyboard toggling, disabled input, tab order, wrapped label and real Qt accessibility role/name/state passed
+Installed secure field: caller value, masking, reveal, disabled input, clipboard, keyboard focus and real Qt accessibility interfaces passed
+Installed search field: editing, caller binding, pointer/keyboard clear, disabled traversal, Return, fixed slots and real Qt interfaces passed
+Collection final geometry: height=40 wrapped=45 rounded=1 api=1
+Installed collection filters: query binding, clear, Return, independent caller actions, removal, slot resizing, disabled focus and Qt interfaces passed
+Slider interface: present=1 role=51 name=Amount values=1 min=0 max=1
+Installed slider: pointer/drag/caller binding, native Qt keyboard/accessibility updates, disabled traversal, fractional intervals and dense ticks passed; source keyboard equivalence pending
+Tabs interface: present=1 role=43 name=Alpha action=1 disabled=1
+Installed tabs: pointer, keyboard, Qt accessibility action, disabled traversal, typed selection, shared model and subsequent external updates passed
+Pagination layout: narrowLabel=30 height=36 content=136 rtl=121/0 empty=0/0
+Installed pagination: pointer, keyboard, Qt accessibility actions, disabled bounds, caller ownership and subsequent external page/count updates passed
+Installed exact pagination: full Int64 labels, pointer/keyboard/accessibility string requests, disabled extremes and external caller updates passed
+Installed accordion: initializer ownership, title/spacer/glyph input, child creation/destruction/reset, keyboard/focus, disabled and actual Qt accessibility actions passed
+Installed presentation states: source-sized presentation, stateful action factories, producer updates, keyboard/focus, disabled/Qt accessibility actions and bounded loading pointer blocking passed
+Installed spinner: native sizes, fixed glyph frames, 24-frame animation, visibility/reduced motion, explicit color, actual Qt accessibility and loading-button suppression/restoration passed
+Installed alert: fitted layout, caller-owned generic content, producer/state/focus preservation, replacement/removal, real Qt accessibility and disabled actions passed
+Installed clipping: three outlines, patterned transparent corners, source/path/size/empty/visibility refresh, actual input/focus/editing/accessibility passed
+Installed navigation: producer/index callbacks, caller identity/state/focus, replacement/remount, canceled/disabled input and real Qt accessibility passed
+Installed sidebar/brand: caller selection/action binding, full hit region, disabled/canceled input, focus/editing, Qt accessibility, RTL/narrow layout, pinned mask, tiny/fractional sizing and producer updates passed
+Installed data metrics: producer identity, formatting/locale ownership, optional/zero/signed delta, fixed badges, RTL, key updates, normal actions/editing and actual Qt accessibility passed
+Installed stepper trace: normal setup
+Installed stepper trace: normal external update
+Installed stepper trace: labeled-initializer setup
+Installed stepper trace: labeled-initializer external update
+Installed stepper trace: observe-only setup
+Installed stepper trace: observe-only external update
+Installed stepper trace: lower setup
+Installed stepper trace: lower external update
+Installed stepper trace: upper setup
+Installed stepper trace: upper external update
+Installed stepper trace: below-range setup
+Installed stepper trace: below-range external update
+Installed stepper trace: above-range setup
+Installed stepper trace: above-range external update
+Installed stepper trace: equal-range setup
+Installed stepper trace: equal-range external update
+Installed stepper trace: equal-below setup
+Installed stepper trace: equal-below external update
+Installed stepper trace: equal-above setup
+Installed stepper trace: equal-above external update
+Installed stepper trace: step-zero setup
+Installed stepper trace: step-zero external update
+Installed stepper trace: step-negative setup
+Installed stepper trace: step-negative external update
+Installed stepper trace: step-negative-cross setup
+Installed stepper trace: step-negative-cross external update
+Installed stepper trace: step-four setup
+Installed stepper trace: step-four external update
+Installed stepper trace: offset setup
+Installed stepper trace: offset external update
+Installed stepper trace: negative-offset setup
+Installed stepper trace: negative-offset external update
+Installed stepper trace: integer-min setup
+Installed stepper trace: integer-min external update
+Installed stepper trace: integer-max setup
+Installed stepper trace: integer-max external update
+Installed stepper trace: beyond-js-safe setup
+Installed stepper trace: beyond-js-safe external update
+Installed stepper trace: disabled setup
+Installed stepper trace: disabled external update
+Installed stepper trace: rtl setup
+Installed stepper trace: rtl external update
+Installed stepper trace: narrow setup
+Installed stepper trace: narrow external update
+Installed stepper trace: parent-font30 setup
+Installed stepper trace: parent-font30 external update
+Installed stepper trace: subtract-int-min-safe setup
+Installed stepper trace: subtract-int-min-safe external update
+Installed stepper trace: add-int-min-safe setup
+Installed stepper trace: add-int-min-safe external update
+Installed stepper: 25 native action traces, 126 native Int64 formatter witnesses, release/cancel/hold, binding ownership and Qt pointer/keyboard/accessibility paths passed
+Installed RadioGroup trace: vertical
+Installed RadioGroup trace: horizontal
+Installed RadioGroup trace: vertical-width-12
+Installed RadioGroup trace: horizontal-width-12
+Installed RadioGroup trace: empty-vertical
+Installed RadioGroup trace: single
+Installed RadioGroup trace: outside
+Installed RadioGroup trace: observe-only
+Installed RadioGroup trace: disabled
+Installed RadioGroup trace: one-disabled
+Installed RadioGroup trace: selected-disabled
+Installed RadioGroup trace: all-disabled
+Installed RadioGroup trace: rtl-horizontal
+qrc:/qt/qml/Avelino/BleeckerRadioGroup.qml:86:13: TypeError: Cannot read property 'width' of null
+qrc:/qt/qml/Avelino/BleeckerRadioGroup.qml:86:13: TypeError: Cannot read property 'width' of null
+qrc:/qt/qml/Avelino/BleeckerRadioGroup.qml:86:13: TypeError: Cannot read property 'width' of null
+Installed RadioGroup trace: empty-title
+Installed RadioGroup trace: all-empty-titles
+Installed RadioGroup trace: space-title
+Installed RadioGroup trace: empty-value
+Installed RadioGroup trace: multiline
+Installed RadioGroup trace: unicode
+Installed RadioGroup trace: canonical-value
+Installed RadioGroup trace: primary-font-0.3
+Installed RadioGroup trace: primary-font-13.5
+Installed RadioGroup trace: primary-font-20.0
+Installed RadioGroup trace: primary-bold20
+Installed RadioGroup pointer phase: selected
+Installed RadioGroup pointer phase: unselected
+Installed RadioGroup pointer phase: disabled
+Installed RadioGroup pointer phase: cancel
+Installed RadioGroup pointer phase: hold
+Installed RadioGroup pointer phase: selection-during-down
+Installed RadioGroup pointer phase: disable-during-down
+Installed RadioGroup pointer phase: option-disable-during-down
+Installed RadioGroup pointer phase: remove-during-down
+Installed RadioGroup pointer phase: reorder-during-down
+Installed RadioGroup pointer phase: orientation-during-down
+Installed RadioGroup: 24 native action traces, 11 native pointer phase traces, 13762 native String pairs, controlled selection, stable identities and Qt pointer/keyboard/accessibility paths passed
+Installed OTP: 19 traces / 200 native model-editor snapshots passed; callback 36/143, selection 123/150 (strict lifecycle acceptance pending)
+Installed ActivityItem: 13 traces / 94 native action/lifecycle snapshots and Qt focus/accessibility passed
+This plugin does not support grabbing the keyboard
+This plugin does not support grabbing the keyboard
+This plugin does not support grabbing the keyboard
+This plugin does not support grabbing the keyboard
+This plugin does not support grabbing the keyboard
+This plugin does not support grabbing the keyboard
+This plugin does not support grabbing the keyboard
+This plugin does not support grabbing the keyboard
+This plugin does not support grabbing the keyboard
+This plugin does not support grabbing the keyboard
+This plugin does not support grabbing the keyboard
+This plugin does not support grabbing the keyboard
+This plugin does not support grabbing the keyboard
+Installed Modal: 80 native states, 170 clipping and 142 glyph queries plus Qt focus/accessibility passed
+Installed Tooltip: closed pixels, caller identity/input/binding, retained shown text, real separate popup, focus and Qt accessibility passed
+Installed ButtonStyle: 88 initial states, 85 exact frame sets, 13 native pointer phases, shared held pixels, retained caller and Qt keyboard/accessibility passed
+Installed font modifier: 207 source contexts, retained caller, live/restored pixels, pointer, keyboard and Qt accessibility passed; native comparison remains separate
+Inherited surface caller font: family=Encode Sans pointSize=24 rawPixelSize=-1 expectedPointSize=24
+Installed surface modifier: flat callers, explicit stack, inherited font, live/restored radius paint, retained state, focus, input and Qt accessibility passed
+Installed pill: 111 public/bare contexts, seven retained histories, 111/264 frame and 202/264 guide sets; native acceptance pending
+Installed charts: 120 closed inputs, 50 edge inputs, six retained histories; exact frame sets 168/168 and metric sets 78/168. Native raster/readers remain pending.
+Installed MediaLibrary: 62 closed, 14 edge and six retained cases; frames 163/201, lifecycle 201/201; direct sizing and native acceptance pending
+DateRangePicker native literal input: 16 Qt pointer/retained-field checks; native initial-field and RTL glyph acceptance pending
+DateRangePicker typed history: 17 steps, 17 model/lifecycle, 0 raw geometry, 17 editor identity and 17 calendar matches
+DateRangePicker: 48 cold contexts, 48 exact models, 0 exact geometry, 3 input owners, 0 gallery operators; acceptance pending
+DateRangePicker native literal input: 0 Qt pointer/retained-field checks; native initial-field and RTL glyph acceptance pending
+DateRangePicker typed history: 0 steps, 0 model/lifecycle, 0 raw geometry, 0 editor identity and 0 calendar matches
+DateRangePicker: 0 cold contexts, 0 exact models, 0 exact geometry, 0 input owners, 21 gallery operators; acceptance pending
+Installed HeroCarousel: 20 closed contexts, 2 history groups; active frames 51/52, lifecycle 28/52; native acceptance pending
+HeroCarousel gallery: 17 operator clicks, 21 observed states, caller Tab/Space and disabled input pass; native acceptance pending
+Installed AppTabs: 43 closed and six retained cases; frames 118/151, state 151/151; strict acceptance pending
+Surface supplement baseline: rows=55 exact frames=50 guides=53 input modes=0 points=0 mismatches=0
+Surface supplement input: rows=36 exact frames=72 guides=0 input modes=66 points=7224 mismatches=14
+This plugin does not support grabbing the keyboard
+This plugin does not support grabbing the keyboard
+This plugin does not support grabbing the keyboard
+This plugin does not support grabbing the keyboard
+This plugin does not support grabbing the keyboard
+Installed FileInput: 32 native closed contexts, 30 owner/input traces; frames 29/32, states 32/32; acceptance pending
+DateRangePicker installed catalog: four unmodified captures; strict parity pending
+Installed catalog: 159 fixture captures passed without source/build import paths
+captured: 724 cases across 25 APIs
+captured: 256 cases across 8 APIs
+captured: 80 cases across 2 APIs
+captured: 136 cases across 2 APIs
+captured: 48 cases across 2 APIs
+captured: 116 cases across 3 APIs
+captured: 180 cases across 3 APIs
+captured: 92 cases across 2 APIs
+captured: 240 cases across 3 APIs
+captured: 556 cases across 3 APIs
+captured: 184 cases across 2 APIs
+captured: 192 cases across 2 APIs
+captured: 272 cases across 4 APIs
+captured: 256 cases across 2 APIs
+captured: 392 cases across 3 APIs
+captured: 416 cases across 4 APIs
+captured: 1048 cases across 5 APIs
+Installed Stepper catalog: 344 captures from 43 native source fixtures
+Installed RadioGroup catalog: 440 captures from 55 native source fixtures
+Installed OTP catalog: 344 captures from 43 native source fixtures
+Installed ActivityItem catalog: 552 captures from 69 native source fixtures
+Installed Modal catalog: 288 captures from 36 native source fixtures
+168 installed closed Tooltip captures; all attached/bare pairs byte-identical
+ButtonStyle 16/704 captures
+ButtonStyle 32/704 captures
+ButtonStyle 48/704 captures
+ButtonStyle 64/704 captures
+ButtonStyle 80/704 captures
+ButtonStyle 96/704 captures
+ButtonStyle 112/704 captures
+ButtonStyle 128/704 captures
+ButtonStyle 144/704 captures
+ButtonStyle 160/704 captures
+ButtonStyle 176/704 captures
+ButtonStyle 192/704 captures
+ButtonStyle 208/704 captures
+ButtonStyle 224/704 captures
+ButtonStyle 240/704 captures
+ButtonStyle 256/704 captures
+ButtonStyle 272/704 captures
+ButtonStyle 288/704 captures
+ButtonStyle 304/704 captures
+ButtonStyle 320/704 captures
+ButtonStyle 336/704 captures
+ButtonStyle 352/704 captures
+ButtonStyle 368/704 captures
+ButtonStyle 384/704 captures
+ButtonStyle 400/704 captures
+ButtonStyle 416/704 captures
+ButtonStyle 432/704 captures
+ButtonStyle 448/704 captures
+ButtonStyle 464/704 captures
+ButtonStyle 480/704 captures
+ButtonStyle 496/704 captures
+ButtonStyle 512/704 captures
+ButtonStyle 528/704 captures
+ButtonStyle 544/704 captures
+ButtonStyle 560/704 captures
+ButtonStyle 576/704 captures
+ButtonStyle 592/704 captures
+ButtonStyle 608/704 captures
+ButtonStyle 624/704 captures
+ButtonStyle 640/704 captures
+ButtonStyle 656/704 captures
+ButtonStyle 672/704 captures
+ButtonStyle 688/704 captures
+ButtonStyle 704/704 captures
+Font modifier 24/1656 captures
+Font modifier 48/1656 captures
+Font modifier 72/1656 captures
+Font modifier 96/1656 captures
+Font modifier 120/1656 captures
+Font modifier 144/1656 captures
+Font modifier 168/1656 captures
+Font modifier 192/1656 captures
+Font modifier 216/1656 captures
+Font modifier 240/1656 captures
+Font modifier 264/1656 captures
+Font modifier 288/1656 captures
+Font modifier 312/1656 captures
+Font modifier 336/1656 captures
+Font modifier 360/1656 captures
+Font modifier 384/1656 captures
+Font modifier 408/1656 captures
+Font modifier 432/1656 captures
+Font modifier 456/1656 captures
+Font modifier 480/1656 captures
+Font modifier 504/1656 captures
+Font modifier 528/1656 captures
+Font modifier 552/1656 captures
+Font modifier 576/1656 captures
+Font modifier 600/1656 captures
+Font modifier 624/1656 captures
+Font modifier 648/1656 captures
+Font modifier 672/1656 captures
+Font modifier 696/1656 captures
+Font modifier 720/1656 captures
+Font modifier 744/1656 captures
+Font modifier 768/1656 captures
+Font modifier 792/1656 captures
+Font modifier 816/1656 captures
+Font modifier 840/1656 captures
+Font modifier 864/1656 captures
+Font modifier 888/1656 captures
+Font modifier 912/1656 captures
+Font modifier 936/1656 captures
+Font modifier 960/1656 captures
+Font modifier 984/1656 captures
+Font modifier 1008/1656 captures
+Font modifier 1032/1656 captures
+Font modifier 1056/1656 captures
+Font modifier 1080/1656 captures
+Font modifier 1104/1656 captures
+Font modifier 1128/1656 captures
+Font modifier 1152/1656 captures
+Font modifier 1176/1656 captures
+Font modifier 1200/1656 captures
+Font modifier 1224/1656 captures
+Font modifier 1248/1656 captures
+Font modifier 1272/1656 captures
+Font modifier 1296/1656 captures
+Font modifier 1320/1656 captures
+Font modifier 1344/1656 captures
+Font modifier 1368/1656 captures
+Font modifier 1392/1656 captures
+Font modifier 1416/1656 captures
+Font modifier 1440/1656 captures
+Font modifier 1464/1656 captures
+Font modifier 1488/1656 captures
+Font modifier 1512/1656 captures
+Font modifier 1536/1656 captures
+Font modifier 1560/1656 captures
+Font modifier 1584/1656 captures
+Font modifier 1608/1656 captures
+Font modifier 1632/1656 captures
+Font modifier 1656/1656 captures
+Surface modifier 16/416 captures
+Surface modifier 32/416 captures
+Surface modifier 48/416 captures
+Surface modifier 64/416 captures
+Surface modifier 80/416 captures
+Surface modifier 96/416 captures
+Surface modifier 112/416 captures
+Surface modifier 128/416 captures
+Surface modifier 144/416 captures
+Surface modifier 160/416 captures
+Surface modifier 176/416 captures
+Surface modifier 192/416 captures
+Surface modifier 208/416 captures
+Surface modifier 224/416 captures
+Surface modifier 240/416 captures
+Surface modifier 256/416 captures
+Surface modifier 272/416 captures
+Surface modifier 288/416 captures
+Surface modifier 304/416 captures
+Surface modifier 320/416 captures
+Surface modifier 336/416 captures
+Surface modifier 352/416 captures
+Surface modifier 368/416 captures
+Surface modifier 384/416 captures
+Surface modifier 400/416 captures
+Surface modifier 416/416 captures
+Surface supplement: complete native contexts captured; comparison and acceptance remain separate
+Pill light-text1-dpr1: 264 displayed measurements and images
+Pill light-text1-dpr2: 264 displayed measurements and images
+Pill light-text1.5-dpr1: 264 displayed measurements and images
+Pill light-text1.5-dpr2: 264 displayed measurements and images
+Pill dark-text1-dpr1: 264 displayed measurements and images
+Pill dark-text1.5-dpr1: 264 displayed measurements and images
+Pill dark-text1-dpr2: 264 displayed measurements and images
+Pill dark-text1.5-dpr2: 264 displayed measurements and images
+Charts light-text1-dpr1: 218 displayed observations and images
+Charts light-text1-dpr2: 218 displayed observations and images
+Charts light-text1.5-dpr1: 218 displayed observations and images
+Charts light-text1.5-dpr2: 218 displayed observations and images
+Charts dark-text1-dpr1: 218 displayed observations and images
+Charts dark-text1.5-dpr1: 218 displayed observations and images
+Charts dark-text1-dpr2: 218 displayed observations and images
+Charts dark-text1.5-dpr2: 218 displayed observations and images
+Installed supplemental charts: 125 cases; native acceptance pending
+MediaLibrary light-text1-dpr1: 201 displayed observations and one isolated fatal input
+MediaLibrary light-text1-dpr2: 201 displayed observations and one isolated fatal input
+MediaLibrary light-text1.5-dpr1: 201 displayed observations and one isolated fatal input
+MediaLibrary light-text1.5-dpr2: 201 displayed observations and one isolated fatal input
+MediaLibrary dark-text1-dpr1: 201 displayed observations and one isolated fatal input
+MediaLibrary dark-text1.5-dpr1: 201 displayed observations and one isolated fatal input
+MediaLibrary dark-text1-dpr2: 201 displayed observations and one isolated fatal input
+MediaLibrary dark-text1.5-dpr2: 201 displayed observations and one isolated fatal input
+[
+  {
+    "context": "light-text1-dpr1",
+    "cases": 151,
+    "exitCode": 0
+  },
+  {
+    "context": "light-text1-dpr2",
+    "cases": 151,
+    "exitCode": 0
+  },
+  {
+    "context": "light-text1.5-dpr1",
+    "cases": 151,
+    "exitCode": 0
+  },
+  {
+    "context": "light-text1.5-dpr2",
+    "cases": 151,
+    "exitCode": 0
+  },
+  {
+    "context": "dark-text1-dpr1",
+    "cases": 151,
+    "exitCode": 0
+  },
+  {
+    "context": "dark-text1-dpr2",
+    "cases": 151,
+    "exitCode": 0
+  },
+  {
+    "context": "dark-text1.5-dpr1",
+    "cases": 151,
+    "exitCode": 0
+  },
+  {
+    "context": "dark-text1.5-dpr2",
+    "cases": 151,
+    "exitCode": 0
+  }
+]

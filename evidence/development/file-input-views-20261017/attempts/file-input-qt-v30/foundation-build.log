@@ -1,0 +1,17 @@
+[0/2] Re-checking globbed directories...
+[1/240] Copying Avelino qml sources into build dir
+[2/240] Automatic MOC and UIC for target Avelino
+[3/240] Running rcc for resource qmake_Avelino
+[4/240] Generating .rcc/qmlcache/Avelino_qmlcache_loader.cpp
+[5/240] Running AUTOMOC file extraction for target Avelino
+[6/240] Running moc --collect-json for target Avelino
+[7/240] Automatic QML type registration for target Avelino
+[8/240] Generating .rcc/qmlcache/Avelino_BleeckerFileInput_qml.cpp, .rcc/qmlcache/Avelino_BleeckerFileInput_qml.cpp.aotstats
+[9/240] Generating .rcc/qmlcache/Avelino_FileChooserDialog_qml.cpp, .rcc/qmlcache/Avelino_FileChooserDialog_qml.cpp.aotstats
+[10/240] Generating .rcc/qmlcache/Avelino_FileChooserViews_qml.cpp, .rcc/qmlcache/Avelino_FileChooserViews_qml.cpp.aotstats
+FAILED: src/Avelino/.rcc/qmlcache/Avelino_FileChooserViews_qml.cpp src/Avelino/.rcc/qmlcache/Avelino_FileChooserViews_qml.cpp.aotstats /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/build/src/Avelino/.rcc/qmlcache/Avelino_FileChooserViews_qml.cpp /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/build/src/Avelino/.rcc/qmlcache/Avelino_FileChooserViews_qml.cpp.aotstats 
+cd /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/build/src/Avelino && /usr/bin/cmake -E make_directory /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/build/src/Avelino/.rcc/qmlcache && /opt/qt/libexec/qmlcachegen --bare --resource-path /qt/qml/Avelino/FileChooserViews.qml -I /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/build/qml/ -I /opt/qt/qml -i /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/build/qml/Avelino/qmldir --resource /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/build/src/Avelino/.qt/rcc/qmake_Avelino.qrc --resource /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/build/src/Avelino/.qt/rcc/Avelino_raw_qml_0.qrc --dump-aot-stats "--module-id=Avelino(Avelino)" -o /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/build/src/Avelino/.rcc/qmlcache/Avelino_FileChooserViews_qml.cpp /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/src/Avelino/FileChooserViews.qml
+Error compiling qml file: /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/src/Avelino/FileChooserViews.qml:119:169: error: Unexpected token `;'
+/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/src/Avelino/FileChooserViews.qml:161:165: error: Unexpected token `;'
+[11/240] Running rcc for resource Avelino_raw_qml_0
+ninja: build stopped: subcommand failed.

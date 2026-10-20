@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
+python3 scripts/generate-admin-shell-colours.py --check
 mkdir -p artifacts/linux
 python3 - <<'PY'
 import hashlib, json, subprocess
@@ -12,11 +13,27 @@ files = sorted([Path('CMakeLists.txt'), Path('CMakePresets.json')] +
 # The CI bind mount belongs to the runner UID, while the toolchain runs as root.
 # Trust only this explicit checkout for these read-only provenance commands.
 git = ['git', '-c', f'safe.directory={Path.cwd()}']
+qt_opacity_stage = json.loads(Path('/opt/qt/share/avelino/qt-software-opacity/provenance.json').read_text())
+qt_software_renderer = json.loads(Path('/opt/qt/share/avelino/qt-software-rectangle/provenance.json').read_text())
+qt_quick_sha256 = hashlib.sha256(Path('/opt/qt/lib/libQt6Quick.so.6.8.3').read_bytes()).hexdigest()
+qt_rectangle_header_sha256 = hashlib.sha256(Path('/opt/qt/include/QtQuick/6.8.3/QtQuick/private/qsgsoftwareinternalrectanglenode_p.h').read_bytes()).hexdigest()
+assert qt_opacity_stage['qt'] == '6.8.3' and not qt_opacity_stage['nativeAcceptance']
+assert qt_software_renderer['qt'] == '6.8.3' and not qt_software_renderer['nativeAcceptance']
+assert qt_software_renderer['previousStage'] == 'qt-software-opacity'
+assert qt_software_renderer['originalLibrarySha256'] == qt_opacity_stage['installedLibrarySha256']
+assert qt_software_renderer['archiveSha256'] == qt_opacity_stage['archiveSha256']
+assert qt_opacity_stage['patchSha256'] == hashlib.sha256(Path('tools/qt-software-opacity.patch').read_bytes()).hexdigest()
+assert qt_software_renderer['patchSha256'] == hashlib.sha256(Path('tools/qt-software-rectangle.patch').read_bytes()).hexdigest()
+assert qt_software_renderer['installedLibrarySha256'] == qt_quick_sha256
+assert qt_software_renderer['installedHeaderSha256'] == qt_rectangle_header_sha256
 metadata = {
     'sourceRevision': command(*git, 'rev-parse', 'HEAD'),
     'uncommittedChanges': bool(command(*git, 'status', '--porcelain')),
     'compiler': command('c++', '--version'),
     'qt': command('qmake', '-query', 'QT_VERSION'),
+    'qtQuickSha256': qt_quick_sha256,
+    'qtSoftwareRenderer': qt_software_renderer,
+    'qtSoftwareRendererStages': [qt_opacity_stage, qt_software_renderer],
     'cmake': command('cmake', '--version'),
     'installedPackages': command('dpkg-query', '-W'),
     'sourceInputs': {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in files},
@@ -55,6 +72,8 @@ cmake --build "$stage/build" --parallel 2
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer")
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --controls)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --composition)
+(cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --mobile-shell)
+(cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --admin-shell)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --selection)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --checkbox)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --secure-field)
@@ -84,15 +103,22 @@ cmake --build "$stage/build" --parallel 2
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --pill-modifier --pill-observe)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --charts --charts-observe)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --media-library --media-library-observe)
+(cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --date-range --date-range-observe)
+(cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --date-range --date-range-gallery --date-range-report "$stage/date-range-gallery")
+(cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --hero-carousel --hero-carousel-observe)
+(cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --hero-carousel --hero-carousel-gallery --hero-carousel-report "$stage/hero-carousel-gallery")
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --app-tabs --app-tabs-observe)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --surface-baseline --surface-supplement-observe)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --surface-input --surface-supplement-observe)
+(cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --file-input --file-input-observe)
 format_report="$PWD/artifacts/linux/number-formatting.json"
 set +e
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --data-metrics --format-diagnostics "$format_report")
 format_result=$?
 set -e
 if [[ "$format_result" != 0 && "$format_result" != 244 ]]; then exit "$format_result"; fi
+cp scripts/check-installed-date-range-catalog.sh "$stage/check-installed-date-range-catalog.sh"
+(cd "$stage" && bash check-installed-date-range-catalog.sh "$stage/date-range-catalog-evidence")
 cp scripts/check-installed-catalog.sh "$stage/check-installed-catalog.sh"
 (cd "$stage" && bash check-installed-catalog.sh "$stage/catalog-evidence")
 mkdir -p artifacts
@@ -103,14 +129,23 @@ mkdir artifacts/package
 cp -R "$stage/install" "$stage/consumer" artifacts/package/
 cp scripts/check-installed.sh artifacts/package/check-installed.sh
 cp scripts/check-installed-catalog.sh artifacts/package/check-installed-catalog.sh
+cp scripts/check-installed-date-range-catalog.sh artifacts/package/check-installed-date-range-catalog.sh
+cp scripts/check-display-sessions-date-range.sh artifacts/package/check-display-sessions-date-range.sh
 if [[ -e artifacts/linux/catalog-installed ]]; then mv artifacts/linux/catalog-installed "$stage/previous-catalog-installed"; fi
 cp -R "$stage/catalog-evidence" artifacts/linux/catalog-installed
+# Keep each earlier date catalog intact while publishing a fresh current tree.
+if [[ -e artifacts/linux/date-range-catalog-installed ]]; then
+  previous_date_catalog_dir="$(mktemp -d artifacts/linux/date-range-catalog-previous.XXXXXX)"
+  mv artifacts/linux/date-range-catalog-installed "$previous_date_catalog_dir/catalog-installed"
+fi
+cp -R "$stage/date-range-catalog-evidence" artifacts/linux/date-range-catalog-installed
 cp scripts/check-display-sessions.sh artifacts/package/check-display-sessions.sh
+cp scripts/check-display-sessions-hero-carousel.sh artifacts/package/check-display-sessions-hero-carousel.sh
 cp artifacts/linux/environment.json artifacts/package/environment.json
 mkdir -p artifacts/linux
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --capture artifacts/linux/actions-light.png
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --dark --capture artifacts/linux/actions-dark.png
-for fixture in foundations surfaces data-display controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper radio-group otp-input activity-item modal tooltip button-style font-modifier surface-modifier pill-modifier charts media-library app-tabs; do
+for fixture in foundations surfaces data-display controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper radio-group otp-input activity-item modal tooltip button-style font-modifier surface-modifier pill-modifier charts media-library hero-carousel app-tabs mobile-shell admin-shell; do
 for appearance in light dark; do
   for dpr in 1 2; do
     args=(--fixture "$fixture")

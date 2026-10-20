@@ -1,0 +1,134 @@
+[3389019.472]  -> wl_display@1.get_registry(new id wl_registry@2)
+[3389019.750]  -> wl_display@1.sync(new id wl_callback@3)
+[3389024.685] wl_display@1.delete_id(3)
+[3389024.830] wl_registry@2.global(1, "wl_compositor", 5)
+[3389024.964]  -> wl_registry@2.bind(1, "wl_compositor", 3, new id [unknown]@4)
+[3389025.094] wl_registry@2.global(2, "wl_subcompositor", 1)
+[3389025.236]  -> wl_registry@2.bind(2, "wl_subcompositor", 1, new id [unknown]@5)
+[3389025.450] wl_registry@2.global(3, "wp_viewporter", 1)
+[3389025.597] wl_registry@2.global(4, "zxdg_output_manager_v1", 2)
+[3389025.734]  -> wl_registry@2.bind(4, "zxdg_output_manager_v1", 2, new id [unknown]@6)
+[3389025.872]  -> wl_display@1.sync(new id wl_callback@7)
+[3389025.996] wl_registry@2.global(5, "wp_presentation", 1)
+[3389026.153] wl_registry@2.global(6, "wp_single_pixel_buffer_manager_v1", 1)
+[3389026.302] wl_registry@2.global(7, "wp_tearing_control_manager_v1", 1)
+[3389026.455] wl_registry@2.global(8, "zwp_relative_pointer_manager_v1", 1)
+[3389026.594] wl_registry@2.global(9, "zwp_pointer_constraints_v1", 1)
+[3389026.756] wl_registry@2.global(10, "zwp_input_timestamps_manager_v1", 1)
+[3389026.919] wl_registry@2.global(11, "weston_capture_v1", 1)
+[3389027.060] wl_registry@2.global(12, "wl_data_device_manager", 3)
+[3389027.206]  -> wl_registry@2.bind(12, "wl_data_device_manager", 3, new id [unknown]@8)
+[3389027.362] wl_registry@2.global(13, "wl_shm", 1)
+[3389027.483]  -> wl_registry@2.bind(13, "wl_shm", 1, new id [unknown]@9)
+[3389027.654] wl_registry@2.global(14, "wl_seat", 7)
+[3389027.818] wl_registry@2.global(15, "wl_output", 4)
+[3389027.953]  -> wl_registry@2.bind(15, "wl_output", 2, new id [unknown]@10)
+[3389028.128]  -> zxdg_output_manager_v1@6.get_xdg_output(new id zxdg_output_v1@11, wl_output@10)
+[3389028.279]  -> wl_display@1.sync(new id wl_callback@12)
+[3389028.426] wl_registry@2.global(16, "zwp_input_panel_v1", 1)
+[3389028.598] wl_registry@2.global(17, "zwp_input_method_v1", 1)
+[3389028.748] wl_registry@2.global(18, "zwp_text_input_manager_v1", 1)
+[3389028.901] wl_registry@2.global(19, "xdg_wm_base", 5)
+[3389029.037] wl_registry@2.global(20, "weston_desktop_shell", 1)
+[3389029.174] wl_callback@3.done(1)
+[3389029.388]  -> wl_shm@9.create_pool(new id wl_shm_pool@3, fd 12, 2304)
+[3389029.648]  -> wl_shm_pool@3.resize(6912)
+[3389029.890]  -> wl_shm_pool@3.resize(16128)
+[3389030.147]  -> wl_shm_pool@3.resize(34560)
+[3389030.475]  -> wl_shm_pool@3.resize(71424)
+[3389031.105]  -> wl_shm_pool@3.resize(145152)
+[3389031.295]  -> wl_shm_pool@3.resize(292608)
+[3389032.259]  -> wl_shm_pool@3.resize(587520)
+[3389035.011]  -> wl_registry@2.bind(14, "wl_seat", 5, new id [unknown]@13)
+[3389038.605]  -> wl_compositor@4.create_surface(new id wl_surface@14)
+[3389038.964]  -> wl_data_device_manager@8.get_data_device(new id wl_data_device@15, wl_seat@13)
+[3389039.241]  -> wl_compositor@4.create_surface(new id wl_surface@16)
+[3389039.605]  -> wl_display@1.sync(new id wl_callback@17)
+[3389043.625] wl_display@1.delete_id(7)
+[3389043.916] wl_display@1.delete_id(12)
+[3389044.070] wl_display@1.delete_id(17)
+[3389044.238] wl_callback@7.done(1)
+[3389044.397] wl_shm@9.format(0)
+[3389044.543] wl_shm@9.format(1)
+[3389044.688] wl_shm@9.format(909199186)
+[3389044.851] wl_shm@9.format(875709016)
+[3389044.993] wl_shm@9.format(875708993)
+[3389045.140] wl_shm@9.format(875714642)
+[3389045.317] wl_shm@9.format(875708754)
+[3389045.460] wl_shm@9.format(875714626)
+[3389045.609] wl_shm@9.format(875708738)
+[3389045.746] wl_shm@9.format(808669784)
+[3389045.869] wl_shm@9.format(808669761)
+[3389046.011] wl_shm@9.format(808665688)
+[3389046.159] wl_shm@9.format(808665665)
+[3389046.321] wl_output@10.geometry(0, 0, 609, 457, 0, "weston-X11", "none", 0)
+[3389046.481] wl_output@10.scale(1)
+[3389046.662] wl_output@10.mode(3, 2400, 1800, 60000)
+[3389046.844] wl_output@10.done()
+[3389047.006] zxdg_output_v1@11.logical_position(0, 0)
+[3389047.135] zxdg_output_v1@11.logical_size(2400, 1800)
+[3389047.386] zxdg_output_v1@11.name("screen0")
+[3389047.531] zxdg_output_v1@11.done()
+[3389047.711] wl_callback@12.done(1)
+[3389047.911] wl_seat@13.capabilities(3)
+[3389048.139]  -> wl_seat@13.get_pointer(new id wl_pointer@12)
+[3389048.319]  -> wl_seat@13.get_keyboard(new id wl_keyboard@7)
+[3389048.504] wl_seat@13.name("default")
+[3389048.645] wl_callback@17.done(1)
+[3389048.817]  -> wl_registry@2.bind(19, "xdg_wm_base", 5, new id [unknown]@17)
+[3389739.587] wl_keyboard@7.repeat_info(40, 400)
+[3389739.771] wl_keyboard@7.keymap(1, fd 21, 64756)
+
+(orca:29): dbind-WARNING **: 02:02:30.410: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+
+
+(orca:29): dbind-WARNING **: 02:02:33.603: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+
+
+(orca:29): dbind-WARNING **: 02:02:37.331: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+
+
+(orca:29): dbind-WARNING **: 02:02:40.297: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+
+
+(orca:29): dbind-WARNING **: 02:02:53.856: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+
+
+(orca:29): dbind-WARNING **: 02:02:55.524: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+
+
+(orca:29): dbind-WARNING **: 02:02:55.524: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+
+
+(orca:29): dbind-WARNING **: 02:02:55.524: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+
+
+(orca:29): dbind-WARNING **: 02:02:55.524: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+
+
+(orca:29): dbind-WARNING **: 02:02:55.525: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+
+
+(orca:29): dbind-WARNING **: 02:02:57.617: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+
+
+(orca:29): dbind-WARNING **: 02:02:57.618: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+
+
+(orca:29): dbind-WARNING **: 02:02:57.619: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+
+
+(orca:29): dbind-WARNING **: 02:02:57.619: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+
+
+(orca:29): dbind-WARNING **: 02:02:57.619: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+
+
+(orca:29): dbind-WARNING **: 02:02:57.620: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+
+
+(orca:29): dbind-WARNING **: 02:03:17.719: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+
+
+(orca:29): dbind-WARNING **: 02:03:23.226: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+

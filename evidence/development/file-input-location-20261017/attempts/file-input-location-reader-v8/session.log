@@ -1,0 +1,7 @@
+dbus-run-session: ignoring unknown child process 13
+dbus-run-session: ignoring unknown child process 14
+Traceback (most recent call last):
+  File "/probe/session.py", line 51, in <module>
+    assert weston.poll()is None and time.monotonic()<deadline,'Weston host did not become visible'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Weston host did not become visible

@@ -1,0 +1,67 @@
+[
+  {
+    "pid": 9,
+    "exitCode": null,
+    "command": [
+      "Xvfb",
+      "-displayfd",
+      "1",
+      "-screen",
+      "0",
+      "2560x1920x24",
+      "-nolisten",
+      "tcp",
+      "-noreset"
+    ]
+  },
+  {
+    "pid": 12,
+    "exitCode": null,
+    "command": [
+      "weston",
+      "--backend=x11",
+      "--renderer=pixman",
+      "--width=2400",
+      "--height=1800",
+      "--socket=avelino-errors",
+      "--idle-time=0",
+      "--config=/probe/weston.ini",
+      "--log=/probe/weston.log"
+    ]
+  },
+  {
+    "pid": 15,
+    "exitCode": null,
+    "command": [
+      "python3",
+      "/probe/event-monitor.py"
+    ]
+  },
+  {
+    "pid": 29,
+    "exitCode": null,
+    "command": [
+      "python3",
+      "/probe/reader-diagnostic.py",
+      "--replace",
+      "--user-prefs=/probe/orca-prefs",
+      "--disable=braille",
+      "--enable=speech",
+      "--debug-file=/probe/orca-debug.log"
+    ]
+  },
+  {
+    "pid": 90,
+    "exitCode": null,
+    "command": [
+      "install/bin/AvelinoCatalog",
+      "--fixture",
+      "file-input",
+      "--file-input-folder",
+      "/probe/fixtures",
+      "--dark",
+      "--text-scale",
+      "1.5"
+    ]
+  }
+]

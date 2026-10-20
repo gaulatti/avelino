@@ -1,0 +1,120 @@
+[
+  {
+    "name": "toolchain-evidence",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/qt-software-final-image-v2/output/artifacts:/evidence",
+      "sha256:e29f85ab0df39f3ae46c4d5ddcc075517701fc05359a230c8647b1174e862dd3",
+      "bash",
+      "-euc",
+      "mkdir -p /evidence/linux/toolchain\ncp -R /opt/qt/share/avelino/qt-software-opacity /evidence/linux/toolchain/"
+    ],
+    "exitCode": 0,
+    "seconds": 0.577995833940804
+  },
+  {
+    "name": "linux-core-runtime",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-e",
+      "GIT_OPTIONAL_LOCKS=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino:/work:ro",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/qt-software-final-image-v2/output/build:/work/build",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/qt-software-final-image-v2/output/artifacts:/work/artifacts",
+      "-w",
+      "/work",
+      "sha256:e29f85ab0df39f3ae46c4d5ddcc075517701fc05359a230c8647b1174e862dd3",
+      "bash",
+      "scripts/check-linux.sh"
+    ],
+    "exitCode": 0,
+    "seconds": 9218.796168249915
+  },
+  {
+    "name": "independent-consumer-configure",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/qt-software-final-image-v2/output/artifacts/package:/package",
+      "-w",
+      "/package",
+      "sha256:e29f85ab0df39f3ae46c4d5ddcc075517701fc05359a230c8647b1174e862dd3",
+      "cmake",
+      "-S",
+      "consumer",
+      "-B",
+      "consumer-build",
+      "-G",
+      "Ninja",
+      "-DCMAKE_PREFIX_PATH=/package/install;/opt/qt"
+    ],
+    "exitCode": 0,
+    "seconds": 2.0034397919662297
+  },
+  {
+    "name": "independent-consumer-build",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/qt-software-final-image-v2/output/artifacts/package:/package",
+      "-w",
+      "/package",
+      "sha256:e29f85ab0df39f3ae46c4d5ddcc075517701fc05359a230c8647b1174e862dd3",
+      "cmake",
+      "--build",
+      "consumer-build",
+      "--parallel",
+      "2"
+    ],
+    "exitCode": 0,
+    "seconds": 73.18962704204023
+  },
+  {
+    "name": "runtime-source-absence",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/qt-software-final-image-v2/runtime:/package",
+      "-w",
+      "/package",
+      "sha256:e29f85ab0df39f3ae46c4d5ddcc075517701fc05359a230c8647b1174e862dd3",
+      "python3",
+      "-c",
+      "from pathlib import Path; assert not any(Path(p).exists() for p in [\"/work\", \"/package/consumer\", \"/package/src\", \"/package/build\", \"/package/consumer-build/CMakeCache.txt\", \"/Users/gaulatti/source/gaulatti/avelino\"]); assert Path(\"/package/consumer-build/InstalledConsumer\").is_file(); print(\"Library and consumer project sources and producer builds absent\")"
+    ],
+    "exitCode": 1,
+    "seconds": 0.34800750005524606
+  }
+]

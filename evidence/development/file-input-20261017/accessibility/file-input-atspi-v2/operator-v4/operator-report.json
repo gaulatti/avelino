@@ -1,0 +1,211 @@
+{
+  "accepted": false,
+  "status": "passed",
+  "phases": [
+    {
+      "phase": "operator-initial",
+      "time": 1792270099.0286229,
+      "observations": {},
+      "readerLogBytes": 142982
+    },
+    {
+      "phase": "types-text",
+      "time": 1792270102.0860844,
+      "observations": {
+        "eligible": [
+          "one.txt",
+          "two.txt"
+        ],
+        "selection": [
+          "one.txt"
+        ]
+      },
+      "readerLogBytes": 142982
+    },
+    {
+      "phase": "types-images",
+      "time": 1792270106.8615634,
+      "observations": {
+        "eligible": [
+          "photo.png"
+        ],
+        "selection": [
+          "photo.png"
+        ]
+      },
+      "readerLogBytes": 142982
+    },
+    {
+      "phase": "types-folders",
+      "time": 1792270111.6481547,
+      "observations": {
+        "eligible": [
+          "Folder"
+        ],
+        "selection": []
+      },
+      "readerLogBytes": 142982
+    },
+    {
+      "phase": "types-text-and-images",
+      "time": 1792270117.8377285,
+      "observations": {
+        "eligible": [
+          "one.txt",
+          "photo.png",
+          "two.txt"
+        ],
+        "selection": [
+          "photo.png"
+        ]
+      },
+      "readerLogBytes": 142982
+    },
+    {
+      "phase": "types-folders-and-text",
+      "time": 1792270120.9785037,
+      "observations": {
+        "eligible": [
+          "Folder",
+          "one.txt",
+          "two.txt"
+        ],
+        "selection": [
+          "one.txt"
+        ]
+      },
+      "readerLogBytes": 142982
+    },
+    {
+      "phase": "types-all-files",
+      "time": 1792270123.9625173,
+      "observations": {
+        "eligible": [
+          "one.txt",
+          "photo.png",
+          "two.txt"
+        ],
+        "selection": [
+          "photo.png"
+        ]
+      },
+      "readerLogBytes": 142982
+    },
+    {
+      "phase": "types-empty-types",
+      "time": 1792270126.9318116,
+      "observations": {
+        "eligible": [],
+        "selection": []
+      },
+      "readerLogBytes": 142982
+    },
+    {
+      "phase": "types-undeclared",
+      "time": 1792270130.742527,
+      "observations": {
+        "eligible": [],
+        "selection": []
+      },
+      "readerLogBytes": 142982
+    },
+    {
+      "phase": "multiple-selected",
+      "time": 1792270134.1634622,
+      "observations": {
+        "selection": [
+          "one.txt",
+          "two.txt"
+        ]
+      },
+      "readerLogBytes": 142982
+    },
+    {
+      "phase": "multiple-result",
+      "time": 1792270135.6660926,
+      "observations": {
+        "owner": "Selected URLs: file:///probe/fixtures/one.txt, file:///probe/fixtures/two.txt"
+      },
+      "readerLogBytes": 142982
+    },
+    {
+      "phase": "cancel-preserves-result",
+      "time": 1792270137.558408,
+      "observations": {
+        "owner": "Selected URLs: file:///probe/fixtures/one.txt, file:///probe/fixtures/two.txt"
+      },
+      "readerLogBytes": 142982
+    },
+    {
+      "phase": "keyboard-reopened",
+      "time": 1792270139.6646616,
+      "observations": {},
+      "readerLogBytes": 142982
+    },
+    {
+      "phase": "keyboard-one-selected",
+      "time": 1792270141.622033,
+      "observations": {
+        "selection": [
+          "one.txt"
+        ]
+      },
+      "readerLogBytes": 142982
+    },
+    {
+      "phase": "keyboard-result",
+      "time": 1792270143.274756,
+      "observations": {
+        "owner": "Selected URLs: file:///probe/fixtures/one.txt, file:///probe/fixtures/two.txt \u2192 file:///probe/fixtures/one.txt"
+      },
+      "readerLogBytes": 142982
+    },
+    {
+      "phase": "title-changed",
+      "time": 1792270144.498058,
+      "observations": {},
+      "readerLogBytes": 142982
+    },
+    {
+      "phase": "disabled-trigger",
+      "time": 1792270146.813941,
+      "observations": {},
+      "readerLogBytes": 142982
+    },
+    {
+      "phase": "rtl-trigger",
+      "time": 1792270148.6766262,
+      "observations": {},
+      "readerLogBytes": 142982
+    },
+    {
+      "phase": "dark-trigger",
+      "time": 1792270150.6789272,
+      "observations": {},
+      "readerLogBytes": 142982
+    },
+    {
+      "phase": "scaled-trigger",
+      "time": 1792270152.6204417,
+      "observations": {},
+      "readerLogBytes": 142982
+    },
+    {
+      "phase": "owner-removed",
+      "time": 1792270156.343613,
+      "observations": {
+        "owner": "Selected URLs: file:///probe/fixtures/one.txt, file:///probe/fixtures/two.txt \u2192 file:///probe/fixtures/one.txt \u2192 file:///probe/fixtures/one.txt"
+      },
+      "readerLogBytes": 142982
+    },
+    {
+      "phase": "owner-remounted",
+      "time": 1792270157.5495157,
+      "observations": {},
+      "readerLogBytes": 142982
+    }
+  ],
+  "nativePanelAcceptance": "pending",
+  "physicalDisplay": false,
+  "physicalReaderAcceptance": "pending"
+}

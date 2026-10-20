@@ -1,0 +1,34 @@
+[
+  {
+    "name": "build",
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-hero-carousel-native-20261018-v2/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-hero-carousel-placement-sizing-20261018-v1/tool/HeroCommon.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-hero-carousel-placement-sizing-20261018-v1/tool/HeroSizing.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-hero-carousel-placement-sizing-20261018-v1/tool/PlacementSizing.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-hero-carousel-native-20261018-v2/build/out/Products/Debug/Sabella.o",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-hero-carousel-placement-sizing-20261018-v1/tool/PlacementSizing"
+    ],
+    "exitCode": 0,
+    "seconds": 2.404933707905002
+  },
+  {
+    "name": "run",
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-hero-carousel-placement-sizing-20261018-v1/tool/PlacementSizing",
+      "/Users/gaulatti/.codex/tmp/avelino-hero-carousel-placement-sizing-20261018-v1/fixtures.json",
+      "/Users/gaulatti/.codex/tmp/avelino-hero-carousel-placement-sizing-20261018-v1/placement-sizing.json"
+    ],
+    "exitCode": 0,
+    "seconds": 4.077247292036191
+  }
+]

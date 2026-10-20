@@ -1,0 +1,25 @@
+{
+  "accepted": false,
+  "status": "failed",
+  "error": "AssertionError('Selected URLs: file:///probe/fixtures/one.txt, file:///probe/fixtures/two.txt \u2192 file:///probe/fixtures/one.txt \u2192 file:///probe/fixtures/one.txt \u2192 file:///probe/fixtures/Folder/child.txt')",
+  "phases": [
+    {
+      "phase": "location-error",
+      "time": 1792270368.542041,
+      "observations": {
+        "error": "No such file or directory"
+      },
+      "readerLogBytes": 2916545
+    },
+    {
+      "phase": "child-column-selected",
+      "time": 1792270371.829541,
+      "observations": {
+        "selection": [
+          "child.txt"
+        ]
+      },
+      "readerLogBytes": 3239373
+    }
+  ]
+}

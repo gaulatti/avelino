@@ -1,0 +1,16 @@
+/Users/gaulatti/.codex/tmp/avelino-admin-colour-native-20261020-v1/ShellHost.swift:125:167: error: call to main actor-isolated global function 'capture' in a synchronous nonisolated context [#ActorIsolatedCall]
+ 96 |     window.isReleasedWhenClosed=false;window.title="Admin source probe";window.contentViewController=host;window.setContentSize(NSSize(width:root.fixture.width,height:root.fixture.height));settle(window);return(window,host)
+ 97 | }
+ 98 | @MainActor func capture(_ window:NSWindow,_ host:NSHostingController<Root>,_ model:Model,_ name:String,_ step:String,_ output:URL,_ action:[String:Any]=[:])throws->[String:Any]{
+    |                 `- note: calls to global function 'capture' from outside of its actor context are implicitly asynchronous
+ 99 |     settle(window);let before=try snapshot(host.view,output.appendingPathComponent(name+"-before.png"))
+100 |     let frames=model.frames.mapValues{$0.mapValues(rect)}
+    :
+123 |                 let fixture=fixtures[0];let model=Model(owner:owner,initial:initial);let(window,host)=makeWindow(Root(model:model,fixture:fixture,measured:measured,dark:false));defer{window.orderOut(nil);window.close()}
+124 |                 var states:[[String:Any]]=[]
+125 |                 func save(_ step:String,_ action:[String:Any]=[:])throws{let name="history-\(owner)-\(initial)-\(measured)-\(states.count)-\(step)";states.append(try capture(window,host,model,name,step,output,action))}
+    |                                                                                                                                                                       `- error: call to main actor-isolated global function 'capture' in a synchronous nonisolated context [#ActorIsolatedCall]
+126 |                 try save("initial");model.navigation=false;try save("external-false");model.navigation=true;try save("external-true")
+127 |                 guard let native=split(window)else{fatalError("No native split view")};precondition(native.arrangedSubviews.count==2)
+
+[#ActorIsolatedCall]: <https://docs.swift.org/compiler/documentation/diagnostics/actor-isolated-call>

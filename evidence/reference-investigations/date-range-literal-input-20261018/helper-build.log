@@ -1,0 +1,49 @@
+/Users/gaulatti/.codex/tmp/avelino-date-literal-input-20261018-v1/DateLiteralInput.swift:30:17: warning: result of call to 'button' is unused [#NoUsage]
+ 28 |             window.contentView!.addSubview(host)
+ 29 |             for (index,title) in ["Hebrew","Hebrew RTL","Arabic","Arabic RTL","English","English RTL","Disabled"].enumerated(){
+ 30 |                 button(title,NSRect(x:15+index*97,y:116,width:94,height:28),#selector(preset(_:)),index)
+    |                 `- warning: result of call to 'button' is unused [#NoUsage]
+ 31 |             }
+ 32 |             for (index,title) in ["Echo","Ignore","Delay"].enumerated(){
+
+/Users/gaulatti/.codex/tmp/avelino-date-literal-input-20261018-v1/DateLiteralInput.swift:33:17: warning: result of call to 'button' is unused [#NoUsage]
+ 31 |             }
+ 32 |             for (index,title) in ["Echo","Ignore","Delay"].enumerated(){
+ 33 |                 button(title,NSRect(x:15+index*83,y:78,width:80,height:28),#selector(owner(_:)),index)
+    |                 `- warning: result of call to 'button' is unused [#NoUsage]
+ 34 |             }
+ 35 |             button("Apply pending",NSRect(x:270,y:78,width:125,height:28),#selector(applyPending))
+
+/Users/gaulatti/.codex/tmp/avelino-date-literal-input-20261018-v1/DateLiteralInput.swift:35:13: warning: result of call to 'button' is unused [#NoUsage]
+ 33 |                 button(title,NSRect(x:15+index*83,y:78,width:80,height:28),#selector(owner(_:)),index)
+ 34 |             }
+ 35 |             button("Apply pending",NSRect(x:270,y:78,width:125,height:28),#selector(applyPending))
+    |             `- warning: result of call to 'button' is unused [#NoUsage]
+ 36 |             button("Reset",NSRect(x:405,y:78,width:90,height:28),#selector(reset))
+ 37 |             for index in 0...2{button("Mode \(index)",NSRect(x:15+index*90,y:40,width:87,height:28),#selector(selectMode(_:)),index)}
+
+/Users/gaulatti/.codex/tmp/avelino-date-literal-input-20261018-v1/DateLiteralInput.swift:36:13: warning: result of call to 'button' is unused [#NoUsage]
+ 34 |             }
+ 35 |             button("Apply pending",NSRect(x:270,y:78,width:125,height:28),#selector(applyPending))
+ 36 |             button("Reset",NSRect(x:405,y:78,width:90,height:28),#selector(reset))
+    |             `- warning: result of call to 'button' is unused [#NoUsage]
+ 37 |             for index in 0...2{button("Mode \(index)",NSRect(x:15+index*90,y:40,width:87,height:28),#selector(selectMode(_:)),index)}
+ 38 |             button("Checkpoint",NSRect(x:300,y:40,width:110,height:28),#selector(checkpoint))
+
+/Users/gaulatti/.codex/tmp/avelino-date-literal-input-20261018-v1/DateLiteralInput.swift:37:32: warning: result of call to 'button' is unused [#NoUsage]
+ 35 |             button("Apply pending",NSRect(x:270,y:78,width:125,height:28),#selector(applyPending))
+ 36 |             button("Reset",NSRect(x:405,y:78,width:90,height:28),#selector(reset))
+ 37 |             for index in 0...2{button("Mode \(index)",NSRect(x:15+index*90,y:40,width:87,height:28),#selector(selectMode(_:)),index)}
+    |                                `- warning: result of call to 'button' is unused [#NoUsage]
+ 38 |             button("Checkpoint",NSRect(x:300,y:40,width:110,height:28),#selector(checkpoint))
+ 39 |             status=NSTextField(labelWithString:"Reference only; no Linux parity acceptance")
+
+/Users/gaulatti/.codex/tmp/avelino-date-literal-input-20261018-v1/DateLiteralInput.swift:38:13: warning: result of call to 'button' is unused [#NoUsage]
+ 36 |             button("Reset",NSRect(x:405,y:78,width:90,height:28),#selector(reset))
+ 37 |             for index in 0...2{button("Mode \(index)",NSRect(x:15+index*90,y:40,width:87,height:28),#selector(selectMode(_:)),index)}
+ 38 |             button("Checkpoint",NSRect(x:300,y:40,width:110,height:28),#selector(checkpoint))
+    |             `- warning: result of call to 'button' is unused [#NoUsage]
+ 39 |             status=NSTextField(labelWithString:"Reference only; no Linux parity acceptance")
+ 40 |             status.frame=NSRect(x:15,y:10,width:670,height:22)
+
+[#NoUsage]: <https://docs.swift.org/compiler/documentation/diagnostics/no-usage>

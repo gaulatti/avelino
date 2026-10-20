@@ -1,0 +1,45 @@
+{
+  "accepted": false,
+  "status": "running",
+  "phases": [
+    {
+      "phase": "location-current-menu",
+      "time": 1792287460.764326,
+      "observations": {
+        "selected": [
+          "one.txt"
+        ],
+        "location": "/probe/fixtures"
+      },
+      "readerLogBytes": 267207
+    },
+    {
+      "phase": "location-current-preserves-selection",
+      "time": 1792287462.659907,
+      "observations": {
+        "selected": [
+          "one.txt"
+        ],
+        "location": "/probe/fixtures"
+      },
+      "readerLogBytes": 325527
+    },
+    {
+      "phase": "location-ancestor-clears-selection",
+      "time": 1792287465.1603708,
+      "observations": {
+        "selected": [],
+        "location": "/probe"
+      },
+      "readerLogBytes": 598850
+    },
+    {
+      "phase": "operator-failure",
+      "time": 1792287468.2117593,
+      "observations": {
+        "error": "Traceback (most recent call last):\n  File \"/probe/exercise.py\", line 171, in <module>\n    assert not present('fixtures','menu item') and present('Open','frame') and selected_rows()==['one.txt'] and not owner()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+      },
+      "readerLogBytes": 789146
+    }
+  ]
+}

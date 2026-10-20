@@ -157,14 +157,23 @@ using the same GNU install directories as the exported CMake package. Launch
 `QML_IMPORT_PATH` override is required. The Qt 6.8.3 runtime remains a prerequisite.
 The source-build catalog continues to use the documented build-tree import path.
 
-`check-installed-catalog.sh` exercises all thirty-three galleries at both appearances
-and DPRs, both action galleries, and the default button: 135 images with physical
-size/metadata checks. Both QML import environment variables are unset. A copied
+`check-installed-catalog.sh` exercises all thirty-nine galleries at both appearances
+and DPRs, both action galleries, and the default button: 159 images with physical
+size/metadata checks. It derives the complete expected filename set from the
+gallery list, rejecting missing and unexpected captures. Both QML import environment variables are unset. A copied
 executable without its module must fail with the missing-module error. The full
 Linux check runs this against the staged install, then the package-only check
 repeats it after relocation. CI preserves both capture sets. `catalog-evidence`
 refuses existing output; rerun against a fresh package copy. These startup checks
 do not close compositor, physical input, screen-reader or strict visual gates.
+
+The FileInput display-session contract includes the current 49 images, 30
+owner/input phases, 62 synthetic pointer deliveries and 164 synthetic key
+deliveries. Native comparison and physical/reader gates remain pending. CI makes
+only generated evidence trees readable to the host artifact uploader, including
+after a failed check: Qt's temporary evidence directories otherwise retain root's
+0700 mode from the verification container. This changes artifact readability,
+not application behavior, reference images or acceptance rules.
 
 The exact-pagination window verifies full Int64 labels and string requests across pointer, keyboard, actual accessibility actions and later caller updates. Unsafe numeric input and malformed/out-of-range string values are refused. Its virtual-session evidence remains separate from real reader/physical acceptance.
 

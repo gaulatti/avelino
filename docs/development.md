@@ -11,6 +11,12 @@ mask also builds against Qt QuickPrivate; the image provides `libxkbcommon-dev`
 for its private dependency graph. Installed consumers use public dependencies.
 See [content clipping](content-clipping.md) before changing the Qt pin.
 
+System-font date editors require CJK glyph coverage for Chinese lunar labels and
+Korean leap-month labels. On Ubuntu 24.04, install `fonts-noto-cjk` and
+`fontconfig`; the checked-in toolchain installs both. Glyph-run regression checks
+reject missing-glyph boxes in all 72 Chinese source endpoint strings. This
+coverage check is separate from native font metrics and raster acceptance.
+
 Keep the tracked tree Linux-only. `.gitignore` excludes Swift/Apple project files
 and the reference source cache. Before committing, run
 `python3 scripts/check-linux-boundary.py`; the References CI job also rejects
@@ -77,12 +83,37 @@ The default Weston input-method keyboard appears when the text field receives
 focus; the whole-output capture preserves it as session evidence.
 [Weston's backend documentation](https://wayland.pages.freedesktop.org/weston/toc/running-weston.html)
 describes how its X11 backend composites Wayland surfaces into the parent output.
+The toolchain builds Weston 13.0.4 from a checksummed upstream release using
+`tools/install-weston.sh`. Ubuntu 24.04's original Weston 13.0.0 crashes in its
+desktop-shell child-focus walk when another application activates while a
+non-grabbing popup is visible. A standalone stock Qt tooltip reproduces the
+failure without loading Avelino; the same executable survives on 13.0.4. Qt
+remains pinned to 6.8.3. The compositor build provides X11, nested Wayland and
+headless backends for verification; physical display and DRM acceptance remain
+separate gates.
+The toolchain also applies a checksummed local patch to Weston 13.0.4 for a
+separate popup-order crash. A parent can commit after `get_popup` creates the
+child view and before the child's first commit assigns its transform parent.
+Position updates defer that unconfigured view until its own commit. The
+standalone `tools/check-weston-popup-parent.sh` reproduces the failure without
+Qt or Avelino and verifies that the later 20×20 popup actually renders. Every
+toolchain image build runs it and retains its logs, full-output screenshot and
+exact popup/parent pixel counts under
+`/opt/weston-13.0.4/share/avelino/popup-parent-regression`. This dependency test
+does not replace the complete Qt display matrix or grant mirror acceptance.
+The installer accepts `AVELINO_WESTON_ARCHIVE` for an existing source archive;
+cached and downloaded bytes must pass the same pinned SHA-256 check. The
+[popup-order checkpoint](../evidence/development/weston-popup-parent-20261018/README.md)
+retains the failing stock compositor and passing patched compositor evidence.
+The Docker context explicitly includes the Dockerfile, installer, patch and
+standalone regression sources; repository sources and evidence remain excluded.
 Each configuration runs the base fixture, `--controls`, `--composition`,
 `--selection`, `--checkbox`, `--secure-field`, `--search-field`, `--collection-filters`, `--slider`, `--tabs`, `--pagination`, `--pagination-integers`, `--accordion`, `--presentation-states`, `--spinner`, `--alert`, `--clipping`, `--navigation`, `--sidebar-brand` and
 `--data-metrics`, `--stepper`, `--radio-group`, `--otp-input`, `--activity-item`,
 `--modal`, `--tooltip`, `--button-style`, `--font-modifier`, `--surface-modifier`,
 `--surface-baseline`, `--surface-input`, `--pill-modifier`, `--charts`,
-`--media-library` and `--app-tabs` independently. The configured matrix has 280
+`--media-library`, `--app-tabs`, `--command-spotlight`, `--file-input` and
+`--dropdown-menu` independently. The configured matrix has 304
 parent-window/full-output pairs; Modal and Tooltip also record their separate
 popup windows in each configuration. The harness reports live producers every
 30 seconds while waiting for their evidence; it does not kill them after a fixed
@@ -175,6 +206,10 @@ Default button labels use an owned `ButtonLabel` painted item. Qt shapes at
 font design-unit precision; the two bundled families now resolve sizes, line
 boxes and intrinsic view bounds using [measured native typography](typography.md).
 The requested logical size remains separate from the source-resolved glyph size.
+Shaping for the two bundled families uses typographic line metrics, including
+their fallback runs. This keeps CJK coverage from enlarging the native line box:
+the captured Unicode page header remains 68 points high with Noto CJK installed.
+Glyph size and fallback coverage remain separate from native raster acceptance.
 For example, a source custom-font request of 19.5 resolves to 20, with a 25-unit
 line box and baseline 21. This corrects the earlier assumption that preserving
 the fractional request as the rendered size reproduced the source.

@@ -23,6 +23,33 @@ jobs:
       - run: python3 scripts/verify-alert-source.py
       - run: python3 scripts/verify-navigation-layout-source.py
       - run: python3 scripts/verify-sidebar-brand-source.py
+      - run: python3 scripts/verify-footer-source.py
+      - run: python3 scripts/verify-button-group-source.py
+      - run: python3 scripts/verify-button-group-candidate.py
+      - run: python3 scripts/verify-font-raster-investigation.py
+      - run: python3 scripts/verify-mobile-shell-source.py
+      - run: python3 scripts/verify-admin-shell-source.py
+      - run: python3 scripts/verify-admin-shell-context.py
+      - run: python3 scripts/verify-admin-shell-pinned-matrix.py
+      - run: python3 scripts/verify-admin-shell-colour-inputs.py
+      - run: python3 scripts/generate-admin-shell-colours.py --check
+      - run: python3 scripts/verify-admin-source-colour-fixture.py
+      - run: python3 scripts/verify-admin-source-colour-package.py
+      - run: python3 scripts/verify-admin-source-colour-sessions.py
+      - run: python3 scripts/verify-admin-clipping.py
+      - run: python3 scripts/verify-admin-clipping-package.py
+      - run: python3 scripts/verify-admin-shell-materials.py
+      - run: python3 scripts/verify-admin-divider.py
+      - run: python3 scripts/verify-admin-divider-package.py
+      - run: python3 scripts/verify-admin-sidebar-background.py
+      - run: python3 scripts/generate-admin-shell-witnesses.py --check
+      - run: python3 scripts/verify-admin-shell-candidate.py
+      - run: python3 scripts/verify-admin-shell-package.py
+      - run: python3 scripts/verify-admin-shell-sessions.py --failed-attempt
+      - run: python3 scripts/verify-admin-shell-sessions.py
+      - run: python3 scripts/generate-mobile-shell-witnesses.py --check
+      - run: python3 scripts/verify-mobile-shell-candidate.py
+      - run: python3 scripts/verify-footer-candidate.py
       - run: python3 scripts/verify-data-metrics-source.py
       - run: python3 scripts/verify-native-source-rebuild.py
       - run: python3 scripts/verify-number-locales-source.py
@@ -53,6 +80,43 @@ jobs:
       - run: python3 scripts/verify-pill-modifier-source.py
       - run: python3 scripts/verify-charts-source.py
       - run: python3 scripts/verify-media-library-source.py
+      - run: python3 scripts/verify-hero-carousel-source.py
+      - run: python3 scripts/verify-hero-carousel-history.py
+      - run: python3 scripts/verify-date-range-source.py
+      - run: python3 scripts/verify-date-range-input.py
+      - run: python3 scripts/verify-date-range-interpretation.py
+      - run: python3 scripts/generate-date-range-witnesses.py --check
+      - run: python3 scripts/verify-date-range-owned-editors.py
+      - run: python3 scripts/verify-date-range-retained-history.py
+      - run: python3 scripts/verify-date-range-font-source.py
+      - run: python3 scripts/generate-date-editor-patterns.py --check
+      - run: python3 scripts/verify-date-range-editor-presentation.py
+      - run: python3 scripts/check-date-range-catalog-publication.py
+      - run: python3 scripts/verify-date-range-width-investigation.py
+      - run: python3 scripts/verify-date-range-chrome-correction.py
+      - run: python3 scripts/verify-date-range-reservation.py
+      - run: python3 scripts/verify-date-range-reservation-checkpoint.py
+      - run: python3 scripts/verify-date-chinese-source.py
+      - run: python3 scripts/generate-date-chinese-witnesses.py --check
+      - run: python3 scripts/verify-date-chinese-checkpoint.py
+      - run: python3 scripts/verify-date-range-fields-checkpoint.py
+      - run: python3 scripts/verify-navigation-cjk-metrics.py
+      - run: python3 scripts/verify-weston-popup-checkpoint.py
+      - run: python3 scripts/verify-weston-display-checkpoint.py
+      - run: python3 scripts/generate-date-literal-input-witnesses.py --check
+      - run: python3 scripts/verify-date-literal-input-checkpoint.py
+      - run: python3 scripts/verify-qt-software-opacity-controls.py
+      - run: python3 scripts/verify-qt-software-source-patch.py
+      - run: python3 scripts/verify-qt-software-rectangle-candidate.py
+      - run: python3 scripts/verify-qt-software-rectangle-toolchain.py
+      - run: python3 scripts/verify-qt-rectangle-linux-driver.py
+      - run: python3 scripts/verify-qt-rectangle-build-context.py
+      - run: python3 scripts/verify-qt-software-toolchain.py
+      - run: python3 scripts/verify-ci-artifact-ownership.py
+      - run: python3 scripts/generate-hero-carousel-witnesses.py --check
+      - run: python3 scripts/verify-hero-carousel-candidate.py
+      - run: python3 scripts/verify-ci-runtime-contracts.py
+      - run: python3 scripts/verify-item-lifetime.py
       - run: python3 scripts/verify-app-tabs-source.py
       - run: python3 scripts/verify-app-tabs-candidate.py
       - run: python3 scripts/verify-app-tabs-raster.py
@@ -60,6 +124,22 @@ jobs:
       - run: python3 scripts/verify-dropdown-menu-source.py
       - run: python3 scripts/verify-file-input-source.py
       - run: python3 scripts/verify-file-input-types.py
+      - run: python3 scripts/verify-file-input-controls.py
+      - run: python3 scripts/verify-file-input-views.py
+      - run: python3 scripts/verify-file-input-location.py
+      - run: python3 scripts/verify-file-input-location-policy.py
+      - run: python3 scripts/verify-file-input-go-to.py
+      - run: python3 scripts/verify-file-input-go-to-history.py
+      - run: python3 scripts/verify-file-input-go-to-close.py
+      - run: python3 scripts/verify-file-input-go-to-linux.py
+      - run: python3 scripts/verify-file-input-go-to-editing.py
+      - run: python3 scripts/verify-file-input-go-to-suggestions.py
+      - run: python3 scripts/generate-file-input-witnesses.py --check
+      - run: python3 scripts/verify-file-input-linux.py
+      - run: python3 scripts/verify-file-input-announcements.py
+      - run: python3 scripts/verify-file-input-navigation.py
+      - run: python3 scripts/verify-file-input-views-linux.py
+      - run: python3 scripts/verify-file-input-location-linux.py
       - run: python3 scripts/verify-dropdown-menu-supplement.py
       - run: python3 scripts/generate-dropdown-menu-witnesses.py --check
       - run: python3 scripts/verify-dropdown-menu-candidate.py

@@ -1,0 +1,39 @@
+Internal ctest changing into directory: /work/artifacts/resumed-avelino-20261016/file-input-build/build
+Test project /work/artifacts/resumed-avelino-20261016/file-input-build/build
+    Start 44: file-input-owned-ui
+1/2 Test #44: file-input-owned-ui ..............***Failed   15.90 sec
+********* Start testing of FileInputUiTests *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : FileInputUiTests::initTestCase()
+FAIL!  : FileInputUiTests::actualClicksMultiSelectionCancelAndReopen() 'input->hasActiveFocus()' returned FALSE. ()
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-build/source/tests/components/fileinput-ui.cpp(72)]
+PASS   : FileInputUiTests::actualColumnNavigationAndCallbackRemoval()
+PASS   : FileInputUiTests::actualLocationErrorRecoveryAndKeyboardAccept()
+PASS   : FileInputUiTests::typedCustomEmptyAndMixedFiltersReachActualControls()
+PASS   : FileInputUiTests::cleanupTestCase()
+Totals: 5 passed, 1 failed, 0 skipped, 0 blacklisted, 15863ms
+********* Finished testing of FileInputUiTests *********
+
+    Start 45: file-input-owned-ui-dpr2
+2/2 Test #45: file-input-owned-ui-dpr2 .........***Failed   16.00 sec
+********* Start testing of FileInputUiTests *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : FileInputUiTests::initTestCase()
+FAIL!  : FileInputUiTests::actualClicksMultiSelectionCancelAndReopen() 'input->hasActiveFocus()' returned FALSE. ()
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-build/source/tests/components/fileinput-ui.cpp(72)]
+PASS   : FileInputUiTests::actualColumnNavigationAndCallbackRemoval()
+PASS   : FileInputUiTests::actualLocationErrorRecoveryAndKeyboardAccept()
+PASS   : FileInputUiTests::typedCustomEmptyAndMixedFiltersReachActualControls()
+PASS   : FileInputUiTests::cleanupTestCase()
+Totals: 5 passed, 1 failed, 0 skipped, 0 blacklisted, 15951ms
+********* Finished testing of FileInputUiTests *********
+
+
+0% tests passed, 2 tests failed out of 2
+
+Total Test time (real) =  31.91 sec
+
+The following tests FAILED:
+	 44 - file-input-owned-ui (Failed)
+	 45 - file-input-owned-ui-dpr2 (Failed)
+Errors while running CTest

@@ -1,0 +1,40 @@
+Native surface modifier evidence missing
+Received signal 6 (SIGABRT)
+         [Non-test] function time: -2147483648ms, total time: -2147483648ms
+
+=== Stack trace ===
+[New LWP 7]
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/aarch64-linux-gnu/libthread_db.so.1".
+0x0000f1fa2a1f7a34 in wait4 () from /lib/aarch64-linux-gnu/libc.so.6
+
+Thread 2 (Thread 0xf1fa266cefe0 (LWP 7) "QQmlThread"):
+#0  0x0000f1fa2a200bdc in poll () from /lib/aarch64-linux-gnu/libc.so.6
+#1  0x0000f1fa29951b7c in ?? () from /lib/aarch64-linux-gnu/libglib-2.0.so.0
+#2  0x0000f1fa298eebc8 [PAC] in g_main_context_iteration () from /lib/aarch64-linux-gnu/libglib-2.0.so.0
+#3  0x0000f1fa2a9fd4b4 [PAC] in QEventDispatcherGlib::processEvents(QFlags<QEventLoop::ProcessEventsFlag>) () from /opt/qt/lib/libQt6Core.so.6
+#4  0x0000f1fa2a736b94 in QEventLoop::exec(QFlags<QEventLoop::ProcessEventsFlag>) () from /opt/qt/lib/libQt6Core.so.6
+#5  0x0000f1fa2a842de4 in QThread::exec() () from /opt/qt/lib/libQt6Core.so.6
+#6  0x0000f1fa2a8d5400 in ?? () from /opt/qt/lib/libQt6Core.so.6
+#7  0x0000f1fa2a1a582c in ?? () from /lib/aarch64-linux-gnu/libc.so.6
+#8  0x0000f1fa2a20b8dc in ?? () from /lib/aarch64-linux-gnu/libc.so.6
+
+Thread 1 (Thread 0xf1fa2c5d8860 (LWP 1) "AvelinoComponen"):
+#0  0x0000f1fa2a1f7a34 in wait4 () from /lib/aarch64-linux-gnu/libc.so.6
+#1  0x0000f1fa2c586890 in ?? () from /opt/qt/lib/libQt6Test.so.6
+#2  0x0000f1fa2c586d54 in QTest::CrashHandler::FatalSignalHandler::actionHandler(int, siginfo_t*, void*) () from /opt/qt/lib/libQt6Test.so.6
+#3  <signal handler called>
+#4  0x0000f1fa2a1a74d8 in ?? () from /lib/aarch64-linux-gnu/libc.so.6
+#5  0x0000f1fa2a15cb3c in raise () from /lib/aarch64-linux-gnu/libc.so.6
+#6  0x0000f1fa2a147e00 in abort () from /lib/aarch64-linux-gnu/libc.so.6
+#7  0x0000f1fa2a68a8dc in ?? () from /opt/qt/lib/libQt6Core.so.6
+#8  0x0000f1fa2a6aa550 in ?? () from /opt/qt/lib/libQt6Core.so.6
+#9  0x0000f1fa2a68b1cc in QMessageLogger::fatal(char const*, ...) const () from /opt/qt/lib/libQt6Core.so.6
+#10 0x0000ac2b6889b414 in FixtureSetup::qmlEngineAvailable (this=0xffffd0432758, engine=0xffffd04325a8) at /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/tests/components/main.cpp:89
+#11 0x0000ac2b688965d0 in FixtureSetup::qt_static_metacall (_o=0xffffd0432758, _c=QMetaObject::InvokeMetaMethod, _id=12, _a=0xffffd0432698) at /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/build/tests/components/AvelinoComponentTests_autogen/include/main.moc:195
+#12 0x0000f1fa2a7401e4 in QMetaMethodInvoker::invokeImpl(QMetaMethod, void*, Qt::ConnectionType, long long, void const* const*, char const* const*, QtPrivate::QMetaTypeInterface const* const*) () from /opt/qt/lib/libQt6Core.so.6
+#13 0x0000f1fa2a7410f8 in QMetaMethod::invokeImpl(QMetaMethod, void*, Qt::ConnectionType, long long, void const* const*, char const* const*, QtPrivate::QMetaTypeInterface const* const*) () from /opt/qt/lib/libQt6Core.so.6
+#14 0x0000f1fa2c5f4ac4 in quick_test_main_with_setup(int, char**, char const*, char const*, QObject*) () from /opt/qt/lib/libQt6QuickTest.so.6
+#15 0x0000ac2b688961d4 in main (argc=5, argv=0xffffd0432908) at /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/tests/components/main.cpp:306
+[Inferior 1 (process 1) detached]
+=== End of stack trace ===

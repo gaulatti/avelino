@@ -37,6 +37,8 @@ Before Linux implementation, establish these observable criteria:
 
 Desktop candidate coverage remains 75/80; FileInput is pending. The native
 helpers, Apple source archives and build products remain outside Avelino.
+The current Linux implementation checkpoint and its unresolved presentation,
+visual and accessibility gates are documented in [file-input-linux.md](file-input-linux.md).
 
 ## Native source investigation
 
@@ -123,8 +125,9 @@ Folder and the column scrollbar put controlled fixture files in view. Open
 returns both selected URLs in browser order while the panel remains visible.
 
 The native presentation includes a sidebar, back/forward and view controls,
-location menu, search and selection preview. The current Linux chooser lacks
-these surfaces; its path entry does not establish complete panel equivalence.
+location menu, search, selection preview, New Folder and group/sort controls.
+The owned Linux implementation remains in progress; path entry and columns do
+not establish complete panel equivalence.
 The native OS supplies text/document previews even though the public component
 itself does not read the selected files. Host sidebar names and ancestor folders
 are observations of this configured host, not Linux defaults to hard-code.
@@ -135,3 +138,125 @@ lossless panel captures for strict comparison remain pending. It reuses the reco
 library. Full context coverage, exact panel comparison, physical input/display,
 readers and independent behavior-source replay remain pending. Run
 `python3 scripts/verify-file-input-panel.py` to audit the supplement.
+
+The [controls supplement](../evidence/reference-investigations/file-input-controls-20261017/investigation.json)
+records actual Columns/List/Icons changes, group and Option-sort menu entries,
+location menu entries, a no-match search and its scopes, and nested New Folder input.
+An existing default name changes the suggestion from `untitled folder` to
+`untitled folder 2`. Existing file or directory names immediately disable Create
+and show `This name is already taken.` Empty input also disables Create. Return
+creates the folder and navigates inside it; actual Back and Forward return to
+the parent and created directory. Command+Shift+N opens the nested prompt, and
+Escape closes that prompt while leaving the chooser open. None of those actions
+send an owner result. Positive search, grouping/sort behavior, menu artwork and
+lossless raster equivalence remain unverified. Run
+`python3 scripts/verify-file-input-controls.py` to audit these observations.
+
+The native history-selection probe also shows that Back clears a prior single
+or multiple file selection, and Forward clears a previously selected child.
+Shift-clicking c after Back selects a,b,c in its controlled alphabetic fixture.
+The Linux history implementation follows those observations rather than retaining
+selected files across locations. Full selection/input context equivalence stays
+pending.
+
+The [views supplement](../evidence/reference-investigations/file-input-views-20261017/investigation.json)
+records inline List expansion, selection across root and child rows, pruning on
+collapse and view changes, Icons folder navigation through Open, and retained
+view/expansion state on reopening. Four callbacks preserve their exact observed
+URL order; general ordering across directories remains unresolved. List requires
+a hierarchy and selection shared with the other views. Owned Linux List and Icons
+have a scoped implementation; complete presentation, metadata and input parity
+remain pending. The supplement's README explains a separate Return
+acceptance during a menu experiment and the native panel's asynchronous AX update;
+neither is treated as automatic submission by a view change. Run
+`python3 scripts/verify-file-input-views.py` to audit the native observations.
+
+The [location supplement](../evidence/reference-investigations/file-input-location-20261017/investigation.json)
+records current-folder and ancestor choices, successful-folder Recent Places,
+ordering and a separately started process. Choosing the current folder preserves
+selection without adding a navigation step. Ancestor and recent navigation clear
+file selection and enter Back/Forward history. In the three single-file cases,
+Recent Places records the containing folder; browsing and cancellation do not add or reorder
+those entries. Reaccepting an older folder promotes it without duplication, and
+the observed order survives a fresh same-bundle process. Three successful
+callbacks preserve exact controlled URLs; the fresh process finishes without an
+owner result. These single-file observations leave capacity, cross-application
+scope and recent updates for cross-directory or directory selections unresolved.
+
+Go to Folder is a separate native sheet with path entry and suggestions. A
+verified missing path leaves it open without a candidate; Escape preserves the
+prior file selection. File-path input/dismissal experiments remain diagnostic
+because the minimal helper and immediate AX observations were inconsistent.
+The initial narrow-root callback redaction and snapshot-output binding limitations
+are retained explicitly. Original JPEGs and filtered AX records do not establish
+menu artwork, complete hierarchy, physical input, readers, timing or strict raster
+acceptance. Run `python3 scripts/verify-file-input-location.py` to audit the record.
+
+The later [recent-policy and path-input supplement](../evidence/reference-investigations/file-input-location-policy-20261017/investigation.json)
+records sixteen successful callbacks across three processes. Twelve accepted
+folder locations leave the latest ten Recent Places entries, newest first. A
+second consumer with a different bundle identifier sees that pool before making
+any selection. Cross-directory file selection and selected-directory acceptance
+record the visible folder, rather than each returned URL's parent. A directory
+chooser with no selected row can accept its current folder.
+
+With normal Edit responder menus, Go to Folder selects an existing file without
+calling the owner and preserves selection when the current folder is submitted.
+Successful path input persists as entered across openings and these consumer
+processes; cancelling invalid input keeps the previous saved input. The text-only
+configuration accepts a path-selected `Blocked.png`, while ordinary pointer
+selection of that same row remains disabled. This route-specific observation
+does not establish the path-selection rule for other type arrays. Explicit
+hidden-folder navigation succeeds; relative-input resolution and suggestion
+timing remain unresolved. The source library object is reused, and the initial
+missing-resource startup failure is preserved. This supplement does not establish
+an independent source rebuild, native artwork, reader or physical acceptance.
+Run `python3 scripts/verify-file-input-location-policy.py` to audit its bounded
+observations, capture provenance and exact callback URLs.
+
+The [Go to Folder lifecycle supplement](../evidence/reference-investigations/file-input-go-to-20261018/README.md)
+measures the sheet's clear control, selected suggestions, Return/Escape, pointer
+double-click and Tab completion against a controlled tree. The AX Close button
+clears rather than dismisses. A suggestion can navigate independently of the raw
+input retained for the next opening. Invalid input preserves the owner selection
+and saved input. Child, parent-relative and prefix trials are recorded exactly;
+general path normalization, ranking, history capacity and timing remain pending.
+It repeats the plain-text route-specific PNG result. Failed paste, Command+A,
+AX double-click and screenshot attempts remain visible with corrected trials;
+their actions do not count as completed input. Audit it with
+`python3 scripts/verify-file-input-go-to.py`.
+
+The [navigation-only history supplement](../evidence/reference-investigations/file-input-go-to-history-20261018/README.md)
+adds twelve successful Go to Folder navigations, three terminal processes and
+76 complete capture receipts without an owner callback. Its empty field shows
+five recent paths shared across two consumer identities; choosing an existing
+recent target promotes it without duplication and can retain empty raw input.
+Ordinary ancestor/folder-row browsing leaves that pool unchanged. Where Recent
+Places does not promote the navigation-only folders. These different update
+boundaries need separate persistence. Five is the observed displayed pool;
+general storage capacity and suggestion ranking remain pending. The earlier
+twelve-sibling capture is headed "Go to:", so it does not prove recent-history
+capacity. Run `python3 scripts/verify-file-input-go-to-history.py`.
+
+The [empty-field Close supplement](../evidence/reference-investigations/file-input-go-to-empty-close-20261018/README.md)
+adds its second behavior: Close dismisses the nested sheet when the field is
+empty. The nonempty-field action still clears it. The attempted relative setup
+and later keyboard retry are retained as excluded diagnostics; they establish
+no new resolution or input-timing rule. Audit the bounded transition with
+`python3 scripts/verify-file-input-go-to-close.py`.
+
+The [owned Linux location checkpoint](../evidence/development/file-input-location-20261017/validation.json)
+adds the Where menu and shared ten-folder Recent Places store. Current-folder
+choice preserves selection/history; ancestor/recent navigation clears selection
+without submitting. Its Qt, independent installed-consumer, virtual-display and
+AT-SPI/Orca evidence is scoped in [the Linux implementation notes](file-input-linux.md).
+FileInput and strict native parity remain pending, including the separate Go to
+Folder presentation and its path-selected file rules.
+
+The [owned Linux GoTo checkpoint](../evidence/development/file-input-go-to-20261018/README.md)
+now implements the separate sheet, independent recent targets/raw input and
+path-selected-file route. Source60 passes eight focused Qt targets, fresh
+source-free consumer checks in eight contexts and eight virtual display profiles.
+The new actual AT-SPI/Orca flow, general ranking/history capacity/relative rules,
+all native type/context/sizing/artwork and physical acceptance remain pending.
+FileInput stays pending; no closed expectation or reference pin changes.

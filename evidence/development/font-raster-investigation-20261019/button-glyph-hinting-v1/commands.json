@@ -1,0 +1,41 @@
+[
+  {
+    "name": "light-text1-dpr1-default",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--init",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/button-glyph-hinting-v1:/probe:ro",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/button-glyph-hinting-v1/output:/output",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/button-group-runtime-v2/runtime/install:/package/install:ro",
+      "-e",
+      "QML_IMPORT_PATH=/package/install/lib/qml",
+      "-e",
+      "QT_QPA_PLATFORM=offscreen",
+      "-e",
+      "QT_QUICK_BACKEND=software",
+      "-e",
+      "QT_SCALE_FACTOR=1",
+      "sha256:e29f85ab0df39f3ae46c4d5ddcc075517701fc05359a230c8647b1174e862dd3",
+      "qml",
+      "/probe/probe.qml",
+      "--",
+      "--hint",
+      "0",
+      "--scale",
+      "1",
+      "--output",
+      "/output/light-text1-dpr1-default.png"
+    ],
+    "exitCode": 0,
+    "seconds": 1.301484625088051
+  }
+]

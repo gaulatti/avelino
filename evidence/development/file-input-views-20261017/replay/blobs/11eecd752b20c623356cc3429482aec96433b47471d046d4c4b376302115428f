@@ -1,0 +1,17 @@
+#pragma once
+#include <QtQuickTemplates2/private/qquickitemdelegate_p.h>
+#include <QtQml/qqmlregistration.h>
+
+class FileChooserRow : public QQuickItemDelegate {
+    Q_OBJECT
+    QML_ELEMENT
+    Q_PROPERTY(bool hierarchical MEMBER m_hierarchical NOTIFY disclosureChanged)
+    Q_PROPERTY(bool folder MEMBER m_folder NOTIFY disclosureChanged)
+    Q_PROPERTY(bool expanded MEMBER m_expanded NOTIFY disclosureChanged)
+public:
+    explicit FileChooserRow(QQuickItem *parent=nullptr);
+    bool m_hierarchical=false,m_folder=false,m_expanded=false;
+signals:
+    void disclosureChanged();
+    void disclosureRequested();
+};

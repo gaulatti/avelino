@@ -1,0 +1,14 @@
+{
+  "accepted": false,
+  "status": "running",
+  "phases": [
+    {
+      "phase": "operator-failure",
+      "time": 1792294796.2819674,
+      "observations": {
+        "error": "Traceback (most recent call last):\n  File \"/probe/exercise.py\", line 141, in <module>\n    open_go();assert raw()=='/probe/fixtures'\n    ^^^^^^^^^\n  File \"/probe/exercise.py\", line 120, in open_go\n    key(shortcut);wait_for(lambda:present('Go to Folder','dialog'));modal('Go to Folder')\n                                                                    ^^^^^^^^^^^^^^^^^^^^^\n  File \"/probe/exercise.py\", line 103, in modal\n    assert len(rows)==1,(name,len(rows))\n           ^^^^^^^^^^^^\nAssertionError: ('Go to Folder', 2)\n"
+      },
+      "readerLogBytes": 251351
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+--- a/src/quick/scenegraph/adaptations/software/qsgsoftwareinternalrectanglenode.cpp
++++ b/src/quick/scenegraph/adaptations/software/qsgsoftwareinternalrectanglenode.cpp
+@@ -30,3 +30,3 @@
+-    QRect alignedRect = rect.toAlignedRect();
+-    if (m_rect != alignedRect) {
+-        m_rect = alignedRect;
++    if (m_exactRect != rect) {
++        m_exactRect = rect;
++        m_rect = rect.toAlignedRect();
+@@ -247,0 +248,14 @@
++    }
++
++    if (isPlainRect()) {
++        painter->save();
++        if (painter->transform().isRotating()) {
++            painter->setPen(Qt::NoPen);
++            painter->setBrush(m_brush);
++            painter->drawRect(m_exactRect);
++        } else {
++            painter->setRenderHint(QPainter::Antialiasing, false);
++            painter->fillRect(m_exactRect, m_brush);
++        }
++        painter->restore();
++        return;
+@@ -330,0 +345,8 @@
++bool QSGSoftwareInternalRectangleNode::isPlainRect() const
++{
++    return m_penWidth == 0 && m_radius == 0
++        && m_topLeftRadius <= 0 && m_topRightRadius <= 0
++        && m_bottomLeftRadius <= 0 && m_bottomRightRadius <= 0
++        && m_stops.isEmpty();
++}
++
+@@ -333,2 +355 @@
+-    //TODO: double check that this is correct.
+-    return m_rect;
++    return isPlainRect() ? m_exactRect : QRectF(m_rect);
+--- a/src/quick/scenegraph/adaptations/software/qsgsoftwareinternalrectanglenode_p.h
++++ b/src/quick/scenegraph/adaptations/software/qsgsoftwareinternalrectanglenode_p.h
+@@ -51,0 +52 @@
++    bool isPlainRect() const;
+@@ -56,0 +58 @@
++    QRectF m_exactRect;

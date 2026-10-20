@@ -1,0 +1,52 @@
+[
+  {
+    "label": "baseline",
+    "imageId": "sha256:e29f85ab0df39f3ae46c4d5ddcc075517701fc05359a230c8647b1174e862dd3",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--init",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/qt-rectangle-controls-v2:/probe:ro",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/qt-rectangle-controls-v2/baseline:/result",
+      "sha256:e29f85ab0df39f3ae46c4d5ddcc075517701fc05359a230c8647b1174e862dd3",
+      "bash",
+      "/probe/check-qt-software-rectangle.sh",
+      "/result/captures",
+      "1"
+    ],
+    "exitCode": 0,
+    "seconds": 22.963670832919888
+  },
+  {
+    "label": "patched",
+    "imageId": "sha256:478a1669218e3d2a3dc302a4929a8ebd7fe2d21b21b140eba5d15bd3a24296e3",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--init",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/qt-rectangle-controls-v2:/probe:ro",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/qt-rectangle-controls-v2/patched:/result",
+      "sha256:478a1669218e3d2a3dc302a4929a8ebd7fe2d21b21b140eba5d15bd3a24296e3",
+      "bash",
+      "/probe/check-qt-software-rectangle.sh",
+      "/result/captures",
+      "0"
+    ],
+    "exitCode": 0,
+    "seconds": 22.844606167054735
+  }
+]

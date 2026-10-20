@@ -1,0 +1,46 @@
+[
+  {
+    "name": "library-build",
+    "command": [
+      "swift",
+      "build",
+      "--package-path",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-native-20261018-v4/source",
+      "--scratch-path",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-native-20261018-v4/build",
+      "--jobs",
+      "2",
+      "--target",
+      "Sabella",
+      "--disable-automatic-resolution",
+      "-Xswiftc",
+      "-target",
+      "-Xswiftc",
+      "arm64-apple-macosx26.0"
+    ],
+    "exitCode": 0,
+    "seconds": 36.90759562503081
+  },
+  {
+    "name": "helper-build",
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-native-20261018-v4/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-native-20261018-v4/tool/DateCommon.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-native-20261018-v4/tool/DateMain.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-native-20261018-v4/tool/DateSizing.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-native-20261018-v4/build/out/Products/Debug/Sabella.o",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-native-20261018-v4/tool/NativeDateRange"
+    ],
+    "exitCode": 0,
+    "seconds": 2.147817000048235
+  }
+]

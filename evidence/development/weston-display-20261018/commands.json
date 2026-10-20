@@ -1,0 +1,30 @@
+[
+  {
+    "name": "complete-display",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--name",
+      "avelino-weston-popup-display-v1-20261018",
+      "--ulimit",
+      "core=268435456:268435456",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/weston-popup-display-v1/runtime:/display-check",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/navigation-cjk-package-v2/runtime/install:/display-check/install:ro",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/navigation-cjk-package-v2/runtime/consumer-build/InstalledConsumer:/display-check/consumer-build/InstalledConsumer:ro",
+      "-w",
+      "/display-check",
+      "avelino-toolchain:weston13-popup-parent-v2-20261018-qt6.8.3",
+      "python3",
+      "-c",
+      "from pathlib import Path;import os;assert not Path('/work/src/Avelino').exists() and not Path('/consumer-check').exists() and not Path('/display-check/consumer').exists();os.execv('/bin/bash',['bash','check.sh','/display-check/output'])"
+    ],
+    "exitCode": 0,
+    "seconds": 2555.0039857910015
+  }
+]

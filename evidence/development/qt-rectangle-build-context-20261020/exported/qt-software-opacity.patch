@@ -1,0 +1,14 @@
+--- a/src/quick/scenegraph/adaptations/software/qsgsoftwarerenderablenode.cpp
++++ b/src/quick/scenegraph/adaptations/software/qsgsoftwarerenderablenode.cpp
+@@ -177,7 +177,10 @@ void QSGSoftwareRenderableNode::update()
+     }
+ 
+     // Overrides
+-    if (m_opacity < 1.0f)
++    // Fractional bounds have fringe pixels outside the opaque inset. Keep
++    // these nodes in alpha dirty-region propagation so a backing store that
++    // clears its update region also repaints the content below those fringes.
++    if (m_opacity < 1.0f || m_boundingRectMin != m_boundingRectMax)
+         m_isOpaque = false;
+ 
+     m_dirtyRegion = QRegion(m_boundingRectMax);

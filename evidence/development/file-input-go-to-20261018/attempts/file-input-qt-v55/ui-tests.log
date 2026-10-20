@@ -1,0 +1,73 @@
+Internal ctest changing into directory: /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/build
+Test project /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/build
+    Start 46: file-input-owned-ui
+1/2 Test #46: file-input-owned-ui ..............***Failed   17.01 sec
+********* Start testing of FileInputUiTests *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : FileInputUiTests::initTestCase()
+QWARN  : FileInputUiTests::actualLocationMenuSelectionHistoryRecentAndRemoval() This plugin does not support grabbing the keyboard
+QWARN  : FileInputUiTests::actualLocationMenuSelectionHistoryRecentAndRemoval() This plugin does not support grabbing the keyboard
+QWARN  : FileInputUiTests::actualLocationMenuSelectionHistoryRecentAndRemoval() This plugin does not support grabbing the keyboard
+QWARN  : FileInputUiTests::actualLocationMenuSelectionHistoryRecentAndRemoval() This plugin does not support grabbing the keyboard
+FAIL!  : FileInputUiTests::actualLocationMenuSelectionHistoryRecentAndRemoval() 'item->window()' returned FALSE. ()
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/tests/components/fileinput-ui.cpp(54)]
+FAIL!  : FileInputUiTests::actualLocationMenuSelectionHistoryRecentAndRemoval() '!findVisible("bleeckerFileChooserLocation_0")' returned FALSE. ()
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/tests/components/fileinput-ui.cpp(119)]
+PASS   : FileInputUiTests::actualViewMenuListDisclosureAndIconsNavigation()
+PASS   : FileInputUiTests::removingListOwnerDuringAccessibleAccept()
+PASS   : FileInputUiTests::actualClicksMultiSelectionCancelAndReopen()
+PASS   : FileInputUiTests::actualColumnNavigationAndCallbackRemoval()
+PASS   : FileInputUiTests::accessibleRowsSelectThroughTheChooser()
+FAIL!  : FileInputUiTests::actualGoToInvalidCancelClearSuggestionsAndPathSelectedFile() 'prompt->property("visible").toBool()' returned FALSE. ()
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/tests/components/fileinput-ui.cpp(319)]
+PASS   : FileInputUiTests::removingOwnerClosesGoToWindow()
+PASS   : FileInputUiTests::initialLocationErrorAndClosedAnnouncement()
+PASS   : FileInputUiTests::actualNewFolderValidationNestedEscapeAndHistory()
+PASS   : FileInputUiTests::removingOwnerClosesNestedFolderPrompt()
+PASS   : FileInputUiTests::actualBackClearsSelectionAndStartsFreshShiftRange()
+PASS   : FileInputUiTests::directoryFilterKeepsReturnInsideNewFolderPrompt()
+PASS   : FileInputUiTests::typedCustomEmptyAndMixedFiltersReachActualControls()
+PASS   : FileInputUiTests::cleanupTestCase()
+Totals: 14 passed, 2 failed, 0 skipped, 0 blacklisted, 16969ms
+********* Finished testing of FileInputUiTests *********
+
+    Start 47: file-input-owned-ui-dpr2
+2/2 Test #47: file-input-owned-ui-dpr2 .........***Failed   17.21 sec
+********* Start testing of FileInputUiTests *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : FileInputUiTests::initTestCase()
+QWARN  : FileInputUiTests::actualLocationMenuSelectionHistoryRecentAndRemoval() This plugin does not support grabbing the keyboard
+QWARN  : FileInputUiTests::actualLocationMenuSelectionHistoryRecentAndRemoval() This plugin does not support grabbing the keyboard
+QWARN  : FileInputUiTests::actualLocationMenuSelectionHistoryRecentAndRemoval() This plugin does not support grabbing the keyboard
+QWARN  : FileInputUiTests::actualLocationMenuSelectionHistoryRecentAndRemoval() This plugin does not support grabbing the keyboard
+FAIL!  : FileInputUiTests::actualLocationMenuSelectionHistoryRecentAndRemoval() 'item->window()' returned FALSE. ()
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/tests/components/fileinput-ui.cpp(54)]
+FAIL!  : FileInputUiTests::actualLocationMenuSelectionHistoryRecentAndRemoval() '!findVisible("bleeckerFileChooserLocation_0")' returned FALSE. ()
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/tests/components/fileinput-ui.cpp(119)]
+PASS   : FileInputUiTests::actualViewMenuListDisclosureAndIconsNavigation()
+PASS   : FileInputUiTests::removingListOwnerDuringAccessibleAccept()
+PASS   : FileInputUiTests::actualClicksMultiSelectionCancelAndReopen()
+PASS   : FileInputUiTests::actualColumnNavigationAndCallbackRemoval()
+PASS   : FileInputUiTests::accessibleRowsSelectThroughTheChooser()
+FAIL!  : FileInputUiTests::actualGoToInvalidCancelClearSuggestionsAndPathSelectedFile() 'prompt->property("visible").toBool()' returned FALSE. ()
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/tests/components/fileinput-ui.cpp(319)]
+PASS   : FileInputUiTests::removingOwnerClosesGoToWindow()
+PASS   : FileInputUiTests::initialLocationErrorAndClosedAnnouncement()
+PASS   : FileInputUiTests::actualNewFolderValidationNestedEscapeAndHistory()
+PASS   : FileInputUiTests::removingOwnerClosesNestedFolderPrompt()
+PASS   : FileInputUiTests::actualBackClearsSelectionAndStartsFreshShiftRange()
+PASS   : FileInputUiTests::directoryFilterKeepsReturnInsideNewFolderPrompt()
+PASS   : FileInputUiTests::typedCustomEmptyAndMixedFiltersReachActualControls()
+PASS   : FileInputUiTests::cleanupTestCase()
+Totals: 14 passed, 2 failed, 0 skipped, 0 blacklisted, 17165ms
+********* Finished testing of FileInputUiTests *********
+
+
+0% tests passed, 2 tests failed out of 2
+
+Total Test time (real) =  34.23 sec
+
+The following tests FAILED:
+	 46 - file-input-owned-ui (Failed)
+	 47 - file-input-owned-ui-dpr2 (Failed)
+Errors while running CTest

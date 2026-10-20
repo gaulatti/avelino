@@ -224,6 +224,28 @@ public slots:
         if(dataCases.size()!=1048)qFatal("Native metric source matrix invalid");
         engine->rootContext()->setContextProperty("nativeDataMetricsCaptures",dataCases.toVariantList());
         engine->rootContext()->setContextProperty("nativeMetricFormatting",dataMetric.value("formatting").toArray().toVariantList());
+        QFile footer(QStringLiteral(NATIVE_FOOTER_FILE));
+        if(!footer.open(QIODevice::ReadOnly))qFatal("Native footer source evidence missing");
+        const auto footerData=QJsonDocument::fromJson(footer.readAll()).object();
+        if(footerData.value("reference").toString()!="fe8a1d462fbd793d883fb92086a16aa2947e32c9" || footerData.value("captures").toArray().size()!=120)qFatal("Native footer source matrix invalid");
+        engine->rootContext()->setContextProperty("nativeFooterCaptures",footerData.value("captures").toArray().toVariantList());
+        QFile adminShell(QStringLiteral(NATIVE_ADMIN_SHELL_FILE));
+        if(!adminShell.open(QIODevice::ReadOnly))qFatal("Native admin shell witnesses missing");
+        const auto adminData=QJsonDocument::fromJson(adminShell.readAll()).object();
+        if(adminData.value("reference").toString()!="fe8a1d462fbd793d883fb92086a16aa2947e32c9"
+            || adminData.value("profiles").toArray().size()!=80 || adminData.value("histories").toArray().size()!=6
+            || adminData.value("boundaries").toArray().size()!=168)qFatal("Native admin shell matrix invalid");
+        engine->rootContext()->setContextProperty("nativeAdminShellWitnesses",adminData.toVariantMap());
+        QFile mobileShell(QStringLiteral(NATIVE_MOBILE_SHELL_FILE));
+        if(!mobileShell.open(QIODevice::ReadOnly))qFatal("Native mobile shell slot evidence missing");
+        const auto mobileShellData=QJsonDocument::fromJson(mobileShell.readAll()).object();
+        if(mobileShellData.value("reference").toString()!="fe8a1d462fbd793d883fb92086a16aa2947e32c9" || mobileShellData.value("profiles").toArray().size()!=72)qFatal("Native mobile shell matrix invalid");
+        engine->rootContext()->setContextProperty("nativeMobileShellProfiles",mobileShellData.value("profiles").toArray().toVariantList());
+        QFile buttonGroup(QStringLiteral(NATIVE_BUTTON_GROUP_FILE));
+        if(!buttonGroup.open(QIODevice::ReadOnly))qFatal("Native button group source evidence missing");
+        const auto buttonGroupData=QJsonDocument::fromJson(buttonGroup.readAll()).object();
+        if(buttonGroupData.value("reference").toString()!="fe8a1d462fbd793d883fb92086a16aa2947e32c9" || buttonGroupData.value("captures").toArray().size()!=184)qFatal("Native button group source matrix invalid");
+        engine->rootContext()->setContextProperty("nativeButtonGroupCaptures",buttonGroupData.value("captures").toArray().toVariantList());
         QFile sidebarBrand(QStringLiteral(NATIVE_SIDEBAR_BRAND_FILE));
         if(!sidebarBrand.open(QIODevice::ReadOnly))qFatal("Native sidebar/brand evidence missing");
         const auto sidebarData=QJsonDocument::fromJson(sidebarBrand.readAll()).object();

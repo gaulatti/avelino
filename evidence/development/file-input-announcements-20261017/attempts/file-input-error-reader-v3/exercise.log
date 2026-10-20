@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/probe/exercise.py", line 112, in <module>
+    count+=1;event=expect_error(count,start)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/probe/exercise.py", line 96, in expect_error
+    wait_for(lambda:"SPEECH OUTPUT: 'No such file or directory" in (p/'orca-debug.log').read_bytes()[start:].decode())
+  File "/probe/exercise.py", line 84, in wait_for
+    if time.monotonic()>end:raise AssertionError('Expected AT-SPI/Orca observation did not arrive')
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected AT-SPI/Orca observation did not arrive

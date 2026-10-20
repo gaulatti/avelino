@@ -1,0 +1,10 @@
+********* Start testing of avelino *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : avelino::ControlLifetime::initTestCase()
+Received signal 6 (SIGABRT)
+         ControlLifetime::test_destroy_control_under_disabled_parent function time: 20ms, total time: 21ms
+QFATAL : avelino::ControlLifetime::test_destroy_control_under_disabled_parent() ASSERT failure in InheritedControl: "Called object is not of the correct type (class destructor may have already run)", file /opt/qt/include/QtCore/qobjectdefs_impl.h, line 130
+FAIL!  : avelino::ControlLifetime::test_destroy_control_under_disabled_parent() Received a fatal error.
+   Loc: [/opt/qt/include/QtCore/qobjectdefs_impl.h(130)]
+Totals: 1 passed, 1 failed, 0 skipped, 0 blacklisted, 21ms
+********* Finished testing of avelino *********

@@ -1,0 +1,113 @@
+Start testing: Oct 18 19:36 UTC
+----------------------------------------------------------
+1/55 Testing: date-range-owned-input
+1/55 Test: date-range-owned-input
+Command: "/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/build/tests/components/AvelinoDateRangeUiTests"
+Directory: /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/build/tests/components
+"date-range-owned-input" start time: Oct 18 19:36 UTC
+Output:
+----------------------------------------------------------
+********* Start testing of DateRangeUiTests *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : DateRangeUiTests::initTestCase()
+PASS   : DateRangeUiTests::fieldKeyboardOwners()
+PASS   : DateRangeUiTests::graphicalPreviewAndCommit()
+QWARN  : DateRangeUiTests::overlayInputWindow() This plugin does not support grabbing the keyboard
+PASS   : DateRangeUiTests::overlayInputWindow()
+PASS   : DateRangeUiTests::disabledAndCallerOverflow()
+PASS   : DateRangeUiTests::rangeEditorLifetime()
+PASS   : DateRangeUiTests::delayedOwnerAndExternalUpdate()
+PASS   : DateRangeUiTests::ownerRemovalDuringRequest()
+PASS   : DateRangeUiTests::independentEndpointsAndExactBounds()
+PASS   : DateRangeUiTests::numericYearAfterDayEdit()
+PASS   : DateRangeUiTests::ownerRemovalWhileCommittingTypedField()
+PASS   : DateRangeUiTests::localeDirectionInsideCallerLayout()
+PASS   : DateRangeUiTests::nativeChromeProfilesReachOwnedEditors()
+FAIL!  : DateRangeUiTests::widthsStayFixedAcrossNativeDates() Compared doubles are not the same (fuzzy compare)
+   Actual   (fields[index]->width()): 90
+   Expected (widths[index])         : 88
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/tests/components/daterangeui.cpp(250)]
+PASS   : DateRangeUiTests::cleanupTestCase()
+Totals: 14 passed, 1 failed, 0 skipped, 0 blacklisted, 12052ms
+********* Finished testing of DateRangeUiTests *********
+<end of output>
+Test time =  12.09 sec
+----------------------------------------------------------
+Test Failed.
+"date-range-owned-input" end time: Oct 18 19:36 UTC
+"date-range-owned-input" time elapsed: 00:00:12
+----------------------------------------------------------
+
+2/55 Testing: date-range-owned-input-dpr2
+2/55 Test: date-range-owned-input-dpr2
+Command: "/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/build/tests/components/AvelinoDateRangeUiTests"
+Directory: /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/build/tests/components
+"date-range-owned-input-dpr2" start time: Oct 18 19:36 UTC
+Output:
+----------------------------------------------------------
+********* Start testing of DateRangeUiTests *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : DateRangeUiTests::initTestCase()
+PASS   : DateRangeUiTests::fieldKeyboardOwners()
+PASS   : DateRangeUiTests::graphicalPreviewAndCommit()
+QWARN  : DateRangeUiTests::overlayInputWindow() This plugin does not support grabbing the keyboard
+PASS   : DateRangeUiTests::overlayInputWindow()
+PASS   : DateRangeUiTests::disabledAndCallerOverflow()
+PASS   : DateRangeUiTests::rangeEditorLifetime()
+PASS   : DateRangeUiTests::delayedOwnerAndExternalUpdate()
+PASS   : DateRangeUiTests::ownerRemovalDuringRequest()
+PASS   : DateRangeUiTests::independentEndpointsAndExactBounds()
+PASS   : DateRangeUiTests::numericYearAfterDayEdit()
+PASS   : DateRangeUiTests::ownerRemovalWhileCommittingTypedField()
+PASS   : DateRangeUiTests::localeDirectionInsideCallerLayout()
+PASS   : DateRangeUiTests::nativeChromeProfilesReachOwnedEditors()
+FAIL!  : DateRangeUiTests::widthsStayFixedAcrossNativeDates() Compared doubles are not the same (fuzzy compare)
+   Actual   (fields[index]->width()): 90
+   Expected (widths[index])         : 88
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/tests/components/daterangeui.cpp(250)]
+PASS   : DateRangeUiTests::cleanupTestCase()
+Totals: 14 passed, 1 failed, 0 skipped, 0 blacklisted, 10102ms
+********* Finished testing of DateRangeUiTests *********
+<end of output>
+Test time =  10.14 sec
+----------------------------------------------------------
+Test Failed.
+"date-range-owned-input-dpr2" end time: Oct 18 19:37 UTC
+"date-range-owned-input-dpr2" time elapsed: 00:00:10
+----------------------------------------------------------
+
+3/55 Testing: date-range-calendar-components
+3/55 Test: date-range-calendar-components
+Command: "/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/build/tests/components/AvelinoDateRangeToolsTests"
+Directory: /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/build/tests/components
+"date-range-calendar-components" start time: Oct 18 19:37 UTC
+Output:
+----------------------------------------------------------
+********* Start testing of DateRangeToolsTests *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : DateRangeToolsTests::initTestCase()
+PASS   : DateRangeToolsTests::sourceDateConstructionAndDisplayClamp()
+PASS   : DateRangeToolsTests::sourceCalendarHistoryComponents()
+PASS   : DateRangeToolsTests::nativeInputArithmetic()
+PASS   : DateRangeToolsTests::localizedSegmentBoundaries()
+PASS   : DateRangeToolsTests::ownedCalendarGrid()
+PASS   : DateRangeToolsTests::editableFieldParsing()
+PASS   : DateRangeToolsTests::editorPresentationAndRoundTrip()
+PASS   : DateRangeToolsTests::nativeNumericFontContract()
+PASS   : DateRangeToolsTests::nativeChromeProfiles()
+FAIL!  : DateRangeToolsTests::widthsStayFixedAcrossNativeDates() Compared doubles are not the same (fuzzy compare)
+   Actual   (tools.fieldTextWidth(update["requestedDate"].toDouble(),locale,calendar,zone,pixels)): 65.796875
+   Expected (initial)                                                                             : 67.09375
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/tests/components/daterangetools.cpp(214)]
+PASS   : DateRangeToolsTests::cleanupTestCase()
+Totals: 11 passed, 1 failed, 0 skipped, 0 blacklisted, 578ms
+********* Finished testing of DateRangeToolsTests *********
+<end of output>
+Test time =   0.65 sec
+----------------------------------------------------------
+Test Failed.
+"date-range-calendar-components" end time: Oct 18 19:37 UTC
+"date-range-calendar-components" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 18 19:37 UTC

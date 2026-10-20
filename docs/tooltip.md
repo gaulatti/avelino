@@ -128,6 +128,31 @@ grab. Caller hover, input, focus, layout and local state remain with the caller.
 The shown text is retained until the next presentation; editing the hint updates
 the accessible description independently.
 
+The owned tooltip window allows Qt to release its graphics and scene graph
+resources when hidden so a remount can create resources for its new native
+surface. The policy follows the popup content's window
+and applies only to `Qt::ToolTip`; the caller window keeps its graphics policy.
+The installed consumer repeatedly removes and remounts a visible help owner,
+requiring twenty displayed popup frames, fresh caller state and retained editor
+focus. The popup remains a separate `Popup.Window` throughout.
+
+The October 18 development checkpoint retains unresolved runtime failures.
+The identical consumer passes 19 of 20 focused runs; the other run crashes
+Weston 13.0.4. A sanitizer build of that exact compositor catches a null parent
+view in `weston_desktop_surface_update_view_position`. Forty ordinary runs pass
+without reproducing the crash, which does not establish its resolution. All
+eight tooltip display profiles pass, but the complete display gate fails at
+303/304 records because scaled Wayland/OpenGL FileInput cannot save a capture.
+The runtime gate and mirror acceptance remain pending; see the
+[checkpoint evidence](../evidence/development/navigation-cjk-metrics-20261018/README.md).
+The later97fe54c compositor checkpoint fixes the independently reproduced popup
+parent-order crash. Its
+[complete display run](../evidence/development/weston-display-20261018/README.md)
+passes304/304 records, including160 tooltip remount frames and all eight FileInput
+profiles. This closes that run's gate; the earlier capture failure remains
+preserved without claiming its permanent cause is established. Native visual,
+reader and physical acceptance remain separate.
+
 `TooltipAccess` supplies the hint through the actual Qt accessible interface. A
 read-only metadata layer overlays description reads while leaving native
 description fields, writes, bindings, Action proxies and Behaviors intact. On
@@ -235,7 +260,9 @@ Wayland/OpenGL cannot display the remounted popup within the original frame
 deadline. A native surface/frame trace changes timing and can complete despite
 an earlier EGL_BAD_SURFACE, so that diagnostic pass is not acceptance evidence.
 
-`TooltipWindowResources` follows only the owned popup content item's window.
+The October20 tested branch used `TooltipWindowResources`, which follows only
+the owned popup content item's window. The integrated candidate retains main's
+equivalent `TooltipWindowLifecycle` implementation instead of a duplicate helper.
 Before that content is shown in a real Qt tooltip window, it disables scene-graph
 and graphics persistence for that window. Qt may then release the hidden
 renderer's resources and recreate them when the native Wayland surface returns.
@@ -252,3 +279,21 @@ byte-identical to the original installed module. Separate read-only observations
 confirm both resource hints are false before the first tooltip Show and remain
 true on the caller. Full hosted CI remains required. Native appearance, physical input and
 reader acceptance remain separate pending gates.
+
+
+## Integration with the current Linux peer
+
+The PR integrates main `7a753b787a09eb4b2206b6b4dab5d9dc476acb38` and
+retains its `TooltipWindowLifecycle`, full module registration, patched-toolchain
+history, twenty visible-owner remount iterations, and per-iteration caller-editor
+focus assertions. The branch adds stable caller-window parenting and contextual
+exposure/lifecycle diagnostics around that complete sequence. It does not replace
+main's newer controls, registered resources, or accepted reference inputs.
+
+The October20 eight-profile resource-lifetime receipt binds the older
+`aaf755371ba9508dae81d943c46293cf0a604881` branch inputs; it does not qualify
+this integration. Main already supplies the equivalent hidden-renderer policy.
+The additional stable-parent mapping still needs source-bound runtime evidence
+on this integrated candidate. Current-head CI and native acceptance remain
+required, and no image reference, comparison tolerance, remount count, or existing
+frame deadline is waived by the merge.

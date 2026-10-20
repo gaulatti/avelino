@@ -1,5 +1,10 @@
 # Native typography metrics
 
+The [font raster investigation](font-raster-investigation.md) independently checks
+physical font tables, glyph sequences, hinting and fractional placement. It rules
+out the tested global snapping model and preserves the current renderer; exact
+raster and complete mirror acceptance remain pending.
+
 The owned label renderer now uses measured typography from the pinned desktop
 source. It remains verification-pending for exact rasterization, system fonts,
 glyph fallback and complete component acceptance. Expected source images,

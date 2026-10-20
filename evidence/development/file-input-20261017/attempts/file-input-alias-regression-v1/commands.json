@@ -1,0 +1,73 @@
+[
+  {
+    "name": "configure",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino:/work",
+      "-w",
+      "/work/artifacts/resumed-avelino-20261016/file-input-alias-regression-v1/source",
+      "avelino-toolchain:data-metrics-qt6.8.3",
+      "cmake",
+      "-S",
+      ".",
+      "-B",
+      "../build",
+      "-G",
+      "Ninja",
+      "-DCMAKE_BUILD_TYPE=Debug"
+    ],
+    "exitCode": 0,
+    "seconds": 1.3686783330049366
+  },
+  {
+    "name": "build",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino:/work",
+      "-w",
+      "/work/artifacts/resumed-avelino-20261016/file-input-alias-regression-v1/source",
+      "avelino-toolchain:data-metrics-qt6.8.3",
+      "cmake",
+      "--build",
+      "../build",
+      "--parallel",
+      "2"
+    ],
+    "exitCode": 0,
+    "seconds": 10.565189709072001
+  },
+  {
+    "name": "regression",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino:/work",
+      "-w",
+      "/work/artifacts/resumed-avelino-20261016/file-input-alias-regression-v1/source",
+      "avelino-toolchain:data-metrics-qt6.8.3",
+      "../build/Regression"
+    ],
+    "exitCode": 133,
+    "seconds": 0.46821337507572025
+  }
+]

@@ -1,0 +1,507 @@
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	﻿2026-10-20T04:35:56.2400787Z ##[group]Run docker/build-push-action@v6
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.2401086Z with:
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.2401286Z   context: .
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.2401494Z   file: tools/Dockerfile
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.2401744Z   tags: avelino-toolchain:qt6.8.3
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.2401990Z   load: true
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.2402237Z   cache-from: type=gha,scope=toolchain-ubuntu-24.04
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.2402598Z   cache-to: type=gha,mode=max,scope=toolchain-ubuntu-24.04
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.2402909Z   no-cache: false
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.2403109Z   pull: false
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.2403305Z   push: false
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.2405987Z   github-token: ***
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.2406213Z ##[endgroup]
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.4748487Z (node:2910) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.4749858Z (Use `node --trace-deprecation ...` to show where the warning was created)
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.4766698Z ##[group]GitHub Actions runtime token ACs
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.4774099Z refs/heads/main: read/write
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.4774951Z ##[endgroup]
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.4775796Z ##[group]Docker info
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.4811210Z [command]/usr/bin/docker version
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5042521Z Client: Docker Engine - Community
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5046068Z  Version:           28.0.4
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5046655Z  API version:       1.48
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5047205Z  Go version:        go1.23.7
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5047736Z  Git commit:        b8034c0
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5048342Z  Built:             Tue Mar 25 15:07:16 2025
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5048987Z  OS/Arch:           linux/amd64
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5049513Z  Context:           default
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5049868Z 
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5050255Z Server: Docker Engine - Community
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5050848Z  Engine:
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5051289Z   Version:          28.0.4
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5051855Z   API version:      1.48 (minimum version 1.24)
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5052418Z   Go version:       go1.23.7
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5052898Z   Git commit:       6430e49
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5053400Z   Built:            Tue Mar 25 15:07:16 2025
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5053963Z   OS/Arch:          linux/amd64
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5054438Z   Experimental:     false
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5054908Z  containerd:
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5055330Z   Version:          v2.4.1
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5056240Z   GitCommit:        f2551031d7276a770f65f98c9b52e57e7dad07e8
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5056812Z  runc:
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5057200Z   Version:          1.5.2
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5057675Z   GitCommit:        v1.5.2-0-g29dd3dc2
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5058178Z  docker-init:
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5058582Z   Version:          0.19.0
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5059018Z   GitCommit:        de40ad0
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5079972Z [command]/usr/bin/docker info
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5578538Z Client: Docker Engine - Community
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5579528Z  Version:    28.0.4
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5580086Z  Context:    default
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5580754Z  Debug Mode: false
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5581250Z  Plugins:
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5581847Z   buildx: Docker Buildx (Docker Inc.)
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5582468Z     Version:  v0.38.0
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5583164Z     Path:     /usr/libexec/docker/cli-plugins/docker-buildx
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5583922Z   compose: Docker Compose (Docker Inc.)
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5584490Z     Version:  v2.38.2
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5585146Z     Path:     /usr/libexec/docker/cli-plugins/docker-compose
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5585797Z 
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5586052Z Server:
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5586455Z  Containers: 1
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5586868Z   Running: 1
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5587269Z   Paused: 0
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5587675Z   Stopped: 0
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5588141Z  Images: 7
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5588559Z  Server Version: 28.0.4
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5589023Z  Storage Driver: overlay2
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5589521Z   Backing Filesystem: extfs
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5590000Z   Supports d_type: true
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5590452Z   Using metacopy: false
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5590909Z   Native Overlay Diff: false
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5591869Z   userxattr: false
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5592376Z  Logging Driver: json-file
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5592867Z  Cgroup Driver: systemd
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5593312Z  Cgroup Version: 2
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5593735Z  Plugins:
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5594128Z   Volume: local
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5594655Z   Network: bridge host ipvlan macvlan null overlay
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5595653Z   Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5596388Z  Swarm: inactive
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5596866Z  Runtimes: io.containerd.runc.v2 runc
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5597375Z  Default Runtime: runc
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5597817Z  Init Binary: docker-init
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5598427Z  containerd version: f2551031d7276a770f65f98c9b52e57e7dad07e8
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5599092Z  runc version: v1.5.2-0-g29dd3dc2
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5599587Z  init version: de40ad0
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5600030Z  Security Options:
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5600450Z   apparmor
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5600840Z   seccomp
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5601300Z    Profile: builtin
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5601702Z   cgroupns
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5602138Z  Kernel Version: 6.17.0-1022-azure
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5602678Z  Operating System: Ubuntu 24.04.5 LTS
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5603178Z  OSType: linux
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5603587Z  Architecture: x86_64
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5604006Z  CPUs: 4
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5604398Z  Total Memory: 15.61GiB
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5604828Z  Name: runnervm8k3b6
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5605316Z  ID: 6134b6ae-8eb1-4f62-889e-a360c80bcfbf
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5606193Z  Docker Root Dir: /var/lib/docker
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5606730Z  Debug Mode: false
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5607164Z  Username: githubactions
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5607611Z  Experimental: false
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5608073Z  Insecure Registries:
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5608566Z   ::1/128
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5608981Z   127.0.0.0/8
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5609935Z  Live Restore Enabled: false
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5610302Z 
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5610908Z ##[endgroup]
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5611548Z ##[group]Proxy configuration
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5612062Z No proxy configuration found
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.5612799Z ##[endgroup]
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.6180202Z ##[group]Buildx version
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.6198739Z [command]/usr/bin/docker buildx version
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.6681066Z github.com/docker/buildx v0.38.0 0dbe87f36ed472fe36b6796c3f70b4210a731fc5
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.6701606Z ##[endgroup]
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.6702147Z ##[group]Builder info
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7564371Z {
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7565077Z   "nodes": [
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7565388Z     {
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7566235Z       "name": "builder-23bc92ef-209a-45c7-8eb0-d9e39b9b81060",
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7566815Z       "endpoint": "unix:///var/run/docker.sock",
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7567220Z       "status": "running",
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7568487Z       "buildkitd-flags": "--allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host",
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7569271Z       "buildkit": "v0.33.1",
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7569751Z       "platforms": "linux/amd64,linux/amd64/v2,linux/amd64/v3,linux/amd64/v4,linux/386",
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7570213Z       "features": {
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7570597Z         "Automatically load images to the Docker Engine image store": true,
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7570992Z         "Cache export": true,
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7571245Z         "Direct push": true,
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7571507Z         "Docker exporter": true,
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7571816Z         "Multi-platform build": true,
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7572096Z         "OCI exporter": true
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7572322Z       },
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7572518Z       "labels": {
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7572816Z         "org.mobyproject.buildkit.worker.executor": "oci",
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7573245Z         "org.mobyproject.buildkit.worker.hostname": "1af45034e8f4",
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7573667Z         "org.mobyproject.buildkit.worker.network": "host",
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7574141Z         "org.mobyproject.buildkit.worker.oci.process-mode": "sandbox",
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7574750Z         "org.mobyproject.buildkit.worker.selinux.enabled": "false",
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7575209Z         "org.mobyproject.buildkit.worker.snapshotter": "overlayfs"
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7575722Z       },
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7575983Z       "gcPolicy": [
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7576325Z         {
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7576615Z           "all": false,
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7576846Z           "filter": [
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7577215Z             "type==source.local type==exec.cachemount type==source.git.checkout"
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7577572Z           ],
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7577854Z           "keepDuration": "48h0m0s",
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7578149Z           "maxUsedSpace": "488.3MiB"
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7578389Z         },
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7578571Z         {
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7578775Z           "all": false,
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7579023Z           "keepDuration": "1440h0m0s",
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7579338Z           "reservedSpace": "9.313GiB",
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7579632Z           "maxUsedSpace": "93.13GiB",
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7579911Z           "minFreeSpace": "27.01GiB"
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7580194Z         },
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7580389Z         {
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7580580Z           "all": false,
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7580826Z           "reservedSpace": "9.313GiB",
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7581096Z           "maxUsedSpace": "93.13GiB",
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7581364Z           "minFreeSpace": "27.01GiB"
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7581598Z         },
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7581791Z         {
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7582007Z           "all": true,
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7582287Z           "reservedSpace": "9.313GiB",
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7582575Z           "maxUsedSpace": "93.13GiB",
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7582882Z           "minFreeSpace": "27.01GiB"
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7583121Z         }
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7583318Z       ]
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7583504Z     }
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7583696Z   ],
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7583978Z   "name": "builder-23bc92ef-209a-45c7-8eb0-d9e39b9b8106",
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7584325Z   "driver": "docker-container",
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7584672Z   "lastActivity": "2026-10-20T04:35:44.000Z"
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7584962Z }
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.7585417Z ##[endgroup]
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:56.9104392Z [command]/usr/bin/docker buildx build --cache-from type=gha,scope=toolchain-ubuntu-24.04 --cache-to type=gha,mode=max,scope=toolchain-ubuntu-24.04 --file tools/Dockerfile --iidfile /home/runner/work/_temp/docker-actions-toolkit-ISgZF6/build-iidfile-8db4b3dcdc.txt --tag avelino-toolchain:qt6.8.3 --load --metadata-file /home/runner/work/_temp/docker-actions-toolkit-ISgZF6/build-metadata-ac6a338f2b.json .
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:57.4159359Z #0 building with "builder-23bc92ef-209a-45c7-8eb0-d9e39b9b8106" instance using docker-container driver
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:57.4160286Z 
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:57.4160789Z #1 [internal] load build definition from Dockerfile
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:57.4162037Z #1 transferring dockerfile: 2.31kB done
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:57.4162441Z #1 DONE 0.0s
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:57.4162644Z 
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:57.4163451Z #2 [internal] load metadata for docker.io/library/ubuntu:24.04@sha256:534baea6a22c03a63003dbc8dbe78fe34bc0d7e595d9a9dc9834884ff530eb55
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:57.5679400Z #2 ...
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:57.5679727Z 
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:57.5680165Z #3 [auth] library/ubuntu:pull token for registry-1.docker.io
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:57.5680711Z #3 DONE 0.0s
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:57.7173905Z 
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:57.7175027Z #2 [internal] load metadata for docker.io/library/ubuntu:24.04@sha256:534baea6a22c03a63003dbc8dbe78fe34bc0d7e595d9a9dc9834884ff530eb55
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.0020902Z #2 DONE 0.7s
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.1711501Z 
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.1712399Z #4 [internal] load .dockerignore
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.1712892Z #4 transferring context: 322B done
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.1713184Z #4 DONE 0.0s
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.1713335Z 
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.1713530Z #5 [internal] load build context
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.1713806Z #5 DONE 0.0s
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.1713939Z 
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.1714455Z #6 [ 1/11] FROM docker.io/library/ubuntu:24.04@sha256:534baea6a22c03a63003dbc8dbe78fe34bc0d7e595d9a9dc9834884ff530eb55
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.1716084Z #6 resolve docker.io/library/ubuntu:24.04@sha256:534baea6a22c03a63003dbc8dbe78fe34bc0d7e595d9a9dc9834884ff530eb55 done
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.1716603Z #6 DONE 0.0s
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.1716721Z 
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.1716925Z #7 importing cache manifest from gha:10556358103838341808
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.3731356Z #7 DONE 0.4s
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4013861Z 
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4014542Z #5 [internal] load build context
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4015731Z #5 transferring context: 37.23kB done
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4016084Z #5 DONE 0.0s
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4016232Z 
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4017037Z #8 [ 5/11] COPY tools/install-weston.sh tools/weston-popup-parent.patch tools/weston-popup-order.c tools/check-weston-popup-parent.sh /usr/local/lib/avelino/
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4017776Z #8 CACHED
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4017895Z 
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4018356Z #9 [ 7/11] RUN bash /usr/local/lib/avelino/check-weston-popup-parent.sh /opt/weston-13.0.4/share/avelino/popup-parent-regression
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4018886Z #9 CACHED
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4018990Z 
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4019201Z #10 [ 6/11] RUN bash /usr/local/lib/avelino/install-weston.sh
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4019511Z #10 CACHED
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4019625Z 
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4020264Z #11 [ 8/11] COPY tools/install-qt-software-opacity.sh tools/qt-software-opacity.patch tools/qt-software-opacity.cpp tools/check-qt-software-opacity.sh /usr/local/lib/avelino/
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4021143Z #11 CACHED
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4021297Z 
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4021704Z #12 [ 3/11] RUN python3 -m venv /opt/aqt && /opt/aqt/bin/pip install --no-cache-dir aqtinstall==3.3.0
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4022218Z #12 CACHED
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4022394Z 
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4026097Z #13 [ 2/11] RUN apt-get update && apt-get install -y --no-install-recommends     build-essential cmake ninja-build python3 python3-venv ca-certificates git libicu-dev fontconfig fonts-noto-cjk     libgl1 libegl1 libopengl0 libgl-dev libegl-dev libopengl-dev libvulkan-dev libdbus-1-3 libfontconfig1 libxkbcommon0 libxkbcommon-dev     libxcb-cursor0 libxcb-icccm4 libxcb-keysyms1 libxcb-shape0 libxcb-xinerama0     libxcb-randr0 libxcb-render-util0 libxcb-xkb1 libxkbcommon-x11-0     libxcb-image0 libxcb-sync1 libxcb-xfixes0 libxcb-util1 libx11-xcb1     xvfb xauth x11-utils x11-apps xdotool weston dbus-x11 imagemagick     && rm -rf /var/lib/apt/lists/*
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4028623Z #13 CACHED
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4028735Z 
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4030842Z #14 [ 4/11] RUN case "amd64" in       arm64) qt_host=linux_arm64; qt_arch=linux_gcc_arm64 ;;       amd64) qt_host=linux; qt_arch=linux_gcc_64 ;;       *) exit 1 ;;     esac && /opt/aqt/bin/aqt install-qt "$qt_host" desktop 6.8.3 "$qt_arch"       --outputdir /opt/Qt --archives icu qtbase qtdeclarative qttools qtsvg qtwayland     && /opt/aqt/bin/aqt install-qt "$qt_host" desktop 6.8.3 "$qt_arch"       --outputdir /opt/Qt --noarchives --modules qtshadertools     && ln -s /opt/Qt/6.8.3/* /opt/qt
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4033305Z #14 CACHED
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4033426Z 
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4034125Z #15 [ 9/11] COPY tools/install-qt-software-rectangle.sh tools/qt-software-rectangle.patch tools/qt-software-rectangle.cpp tools/check-qt-software-rectangle.sh /usr/local/lib/avelino/
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4035297Z #15 ERROR: failed to calculate checksum of ref vnq71s6to9ot6lzoq4nb7lliy::4cxitkm4rloi639ho345w3izh: "/tools/qt-software-rectangle.patch": not found
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4036224Z ------
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4037325Z  > [ 9/11] COPY tools/install-qt-software-rectangle.sh tools/qt-software-rectangle.patch tools/qt-software-rectangle.cpp tools/check-qt-software-rectangle.sh /usr/local/lib/avelino/:
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4038348Z ------
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4044347Z Dockerfile:30
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4044785Z --------------------
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4045387Z   28 |     ENV CMAKE_PREFIX_PATH=/opt/qt
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4047293Z   29 |     COPY tools/install-qt-software-opacity.sh tools/qt-software-opacity.patch tools/qt-software-opacity.cpp tools/check-qt-software-opacity.sh /usr/local/lib/avelino/
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4049094Z   30 | >>> COPY tools/install-qt-software-rectangle.sh tools/qt-software-rectangle.patch tools/qt-software-rectangle.cpp tools/check-qt-software-rectangle.sh /usr/local/lib/avelino/
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4049984Z   31 |     RUN bash /usr/local/lib/avelino/install-qt-software-opacity.sh
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4050510Z   32 |     WORKDIR /work
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4050837Z --------------------
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4051987Z ERROR: failed to build: failed to solve: failed to compute cache key: failed to calculate checksum of ref vnq71s6to9ot6lzoq4nb7lliy::4cxitkm4rloi639ho345w3izh: "/tools/qt-software-rectangle.patch": not found
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4123117Z ##[group]Reference
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4989795Z builder-23bc92ef-209a-45c7-8eb0-d9e39b9b8106/builder-23bc92ef-209a-45c7-8eb0-d9e39b9b81060/mxu2y4uoskxugzobcw7omc3yn
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4991120Z ##[endgroup]
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4991709Z ##[group]Check build summary support
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4992424Z Build summary supported!
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.4994988Z ##[endgroup]
+build-runtime-package (ubuntu-24.04)	Run docker/build-push-action@v6	2026-10-20T04:35:58.5024833Z ##[error]buildx failed with: ERROR: failed to build: failed to solve: failed to compute cache key: failed to calculate checksum of ref vnq71s6to9ot6lzoq4nb7lliy::4cxitkm4rloi639ho345w3izh: "/tools/qt-software-rectangle.patch": not found
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	﻿2026-10-20T04:35:34.3409704Z ##[group]Run docker/build-push-action@v6
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.3410015Z with:
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.3410175Z   context: .
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.3410345Z   file: tools/Dockerfile
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.3410555Z   tags: avelino-toolchain:qt6.8.3
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.3410770Z   load: true
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.3410993Z   cache-from: type=gha,scope=toolchain-ubuntu-24.04-arm
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.3411356Z   cache-to: type=gha,mode=max,scope=toolchain-ubuntu-24.04-arm
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.3411659Z   no-cache: false
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.3411829Z   pull: false
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.3411996Z   push: false
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.3414413Z   github-token: ***
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.3414600Z ##[endgroup]
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.5393713Z (node:2920) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.5394568Z (Use `node --trace-deprecation ...` to show where the warning was created)
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.5410837Z ##[group]GitHub Actions runtime token ACs
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.5418010Z refs/heads/main: read/write
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.5418542Z ##[endgroup]
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.5418949Z ##[group]Docker info
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.5499413Z [command]/usr/bin/docker version
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.5657128Z Client: Docker Engine - Community
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.5657695Z  Version:           28.0.4
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.5658226Z  API version:       1.48
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.5658769Z  Go version:        go1.23.7
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.5659323Z  Git commit:        b8034c0
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.5659784Z  Built:             Tue Mar 25 15:07:55 2025
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.5660179Z  OS/Arch:           linux/arm64
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.5660519Z  Context:           default
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.5660765Z 
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.5661053Z Server: Docker Engine - Community
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.5661387Z  Engine:
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.5661667Z   Version:          28.0.4
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.5662037Z   API version:      1.48 (minimum version 1.24)
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.5662423Z   Go version:       go1.23.7
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.5662759Z   Git commit:       6430e49
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.5663134Z   Built:            Tue Mar 25 15:07:55 2025
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.5663514Z   OS/Arch:          linux/arm64
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.5663849Z   Experimental:     false
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.5664166Z  containerd:
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.5664457Z   Version:          v2.4.1
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.5664855Z   GitCommit:        f2551031d7276a770f65f98c9b52e57e7dad07e8
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.5665248Z  runc:
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.5665529Z   Version:          1.5.2
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.5665873Z   GitCommit:        v1.5.2-0-g29dd3dc2
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.5666218Z  docker-init:
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.5666503Z   Version:          0.19.0
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.5666813Z   GitCommit:        de40ad0
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.5713400Z [command]/usr/bin/docker info
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6115174Z Client: Docker Engine - Community
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6115971Z  Version:    28.0.4
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6116238Z  Context:    default
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6116453Z  Debug Mode: false
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6116636Z  Plugins:
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6116889Z   buildx: Docker Buildx (Docker Inc.)
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6117136Z     Version:  v0.38.0
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6117425Z     Path:     /usr/libexec/docker/cli-plugins/docker-buildx
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6117759Z   compose: Docker Compose (Docker Inc.)
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6118001Z     Version:  v2.38.2
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6118411Z     Path:     /usr/libexec/docker/cli-plugins/docker-compose
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6118648Z 
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6118728Z Server:
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6118893Z  Containers: 1
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6119068Z   Running: 1
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6119237Z   Paused: 0
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6119401Z   Stopped: 0
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6119566Z  Images: 7
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6120260Z  Server Version: 28.0.4
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6120475Z  Storage Driver: overlay2
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6120690Z   Backing Filesystem: extfs
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6120904Z   Supports d_type: true
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6121109Z   Using metacopy: false
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6121318Z   Native Overlay Diff: false
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6122059Z   userxattr: false
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6122263Z  Logging Driver: json-file
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6122476Z  Cgroup Driver: systemd
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6122676Z  Cgroup Version: 2
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6122855Z  Plugins:
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6123022Z   Volume: local
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6123272Z   Network: bridge host ipvlan macvlan null overlay
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6123694Z   Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6124036Z  Swarm: inactive
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6124263Z  Runtimes: io.containerd.runc.v2 runc
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6124511Z  Default Runtime: runc
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6124713Z  Init Binary: docker-init
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6125032Z  containerd version: f2551031d7276a770f65f98c9b52e57e7dad07e8
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6125367Z  runc version: v1.5.2-0-g29dd3dc2
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6125597Z  init version: de40ad0
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6125792Z  Security Options:
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6125973Z   apparmor
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6126133Z   seccomp
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6126305Z    Profile: builtin
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6126491Z   cgroupns
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6126688Z  Kernel Version: 6.17.0-1022-azure
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6126951Z  Operating System: Ubuntu 24.04.5 LTS
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6127189Z  OSType: linux
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6127373Z  Architecture: aarch64
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6127578Z  CPUs: 4
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6127761Z  Total Memory: 15.57GiB
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6137920Z  Name: runnervmidgih
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6141167Z  ID: e2938b2a-aa6c-4d1c-8c80-7a5269b28f30
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6141842Z  Docker Root Dir: /var/lib/docker
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6142485Z  Debug Mode: false
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6142767Z  Username: githubactions
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6143013Z  Experimental: false
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6143212Z  Insecure Registries:
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6143444Z   ::1/128
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6143608Z   127.0.0.0/8
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6143791Z  Live Restore Enabled: false
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6143933Z 
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6144228Z ##[endgroup]
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6144551Z ##[group]Proxy configuration
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6144797Z No proxy configuration found
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6145347Z ##[endgroup]
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6732430Z ##[group]Buildx version
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.6754653Z [command]/usr/bin/docker buildx version
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.7172668Z github.com/docker/buildx v0.38.0 0dbe87f36ed472fe36b6796c3f70b4210a731fc5
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.7196983Z ##[endgroup]
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.7197506Z ##[group]Builder info
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8003894Z {
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8005207Z   "nodes": [
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8005422Z     {
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8005982Z       "name": "builder-cfe0e8f8-b522-4e65-9b07-73372af4c4380",
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8006368Z       "endpoint": "unix:///var/run/docker.sock",
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8006754Z       "status": "running",
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8007301Z       "buildkitd-flags": "--allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host",
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8007804Z       "buildkit": "v0.33.1",
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8008114Z       "platforms": "linux/arm64,linux/arm/v7,linux/arm/v6",
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8008666Z       "features": {
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8009016Z         "Automatically load images to the Docker Engine image store": true,
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8009364Z         "Cache export": true,
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8009585Z         "Direct push": true,
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8009823Z         "Docker exporter": true,
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8010078Z         "Multi-platform build": true,
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8010326Z         "OCI exporter": true
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8010532Z       },
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8010694Z       "labels": {
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8010972Z         "org.mobyproject.buildkit.worker.executor": "oci",
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8012132Z         "org.mobyproject.buildkit.worker.hostname": "19e02145b56c",
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8012548Z         "org.mobyproject.buildkit.worker.network": "host",
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8012987Z         "org.mobyproject.buildkit.worker.oci.process-mode": "sandbox",
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8013455Z         "org.mobyproject.buildkit.worker.selinux.enabled": "false",
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8014145Z         "org.mobyproject.buildkit.worker.snapshotter": "overlayfs"
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8014464Z       },
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8014630Z       "gcPolicy": [
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8014811Z         {
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8014974Z           "all": false,
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8015165Z           "filter": [
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8015505Z             "type==source.local type==exec.cachemount type==source.git.checkout"
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8015851Z           ],
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8016049Z           "keepDuration": "48h0m0s",
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8016312Z           "maxUsedSpace": "488.3MiB"
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8016533Z         },
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8016703Z         {
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8016866Z           "all": false,
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8017091Z           "keepDuration": "1440h0m0s",
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8017359Z           "reservedSpace": "9.313GiB",
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8017626Z           "maxUsedSpace": "93.13GiB",
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8017894Z           "minFreeSpace": "27.01GiB"
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8018112Z         },
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8018656Z         {
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8018882Z           "all": false,
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8019127Z           "reservedSpace": "9.313GiB",
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8019398Z           "maxUsedSpace": "93.13GiB",
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8019660Z           "minFreeSpace": "27.01GiB"
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8019881Z         },
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8020040Z         {
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8020199Z           "all": true,
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8020618Z           "reservedSpace": "9.313GiB",
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8020884Z           "maxUsedSpace": "93.13GiB",
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8021145Z           "minFreeSpace": "27.01GiB"
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8021372Z         }
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8021527Z       ]
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8021678Z     }
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8021829Z   ],
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8022078Z   "name": "builder-cfe0e8f8-b522-4e65-9b07-73372af4c438",
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8022401Z   "driver": "docker-container",
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8022673Z   "lastActivity": "2026-10-20T04:35:27.000Z"
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8022913Z }
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.8023320Z ##[endgroup]
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:34.9367198Z [command]/usr/bin/docker buildx build --cache-from type=gha,scope=toolchain-ubuntu-24.04-arm --cache-to type=gha,mode=max,scope=toolchain-ubuntu-24.04-arm --file tools/Dockerfile --iidfile /home/runner/work/_temp/docker-actions-toolkit-NtkBc1/build-iidfile-46274c002e.txt --tag avelino-toolchain:qt6.8.3 --load --metadata-file /home/runner/work/_temp/docker-actions-toolkit-NtkBc1/build-metadata-a69c6bec87.json .
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:35.3327169Z #0 building with "builder-cfe0e8f8-b522-4e65-9b07-73372af4c438" instance using docker-container driver
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:35.3330375Z 
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:35.3330909Z #1 [internal] load build definition from Dockerfile
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:35.3331325Z #1 transferring dockerfile: 2.31kB done
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:35.3331569Z #1 DONE 0.0s
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:35.3331676Z 
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:35.3331888Z #2 [auth] library/ubuntu:pull token for registry-1.docker.io
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:35.4834702Z #2 DONE 0.0s
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:35.4834950Z 
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:35.4835545Z #3 [internal] load metadata for docker.io/library/ubuntu:24.04@sha256:534baea6a22c03a63003dbc8dbe78fe34bc0d7e595d9a9dc9834884ff530eb55
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:35.8238889Z #3 DONE 0.6s
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:35.9925132Z 
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:35.9925841Z #4 [internal] load .dockerignore
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:35.9926236Z #4 transferring context: 322B done
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:35.9926469Z #4 DONE 0.0s
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:35.9926571Z 
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:35.9926697Z #5 [internal] load build context
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:35.9926922Z #5 DONE 0.0s
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:35.9927025Z 
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:35.9927483Z #6 [ 1/11] FROM docker.io/library/ubuntu:24.04@sha256:534baea6a22c03a63003dbc8dbe78fe34bc0d7e595d9a9dc9834884ff530eb55
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:35.9929302Z #6 resolve docker.io/library/ubuntu:24.04@sha256:534baea6a22c03a63003dbc8dbe78fe34bc0d7e595d9a9dc9834884ff530eb55 done
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:35.9929801Z #6 DONE 0.0s
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:35.9929904Z 
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:35.9930355Z #7 importing cache manifest from gha:1410078874348598114
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.0896591Z #7 DONE 0.3s
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1314727Z 
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1315441Z #5 [internal] load build context
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1315815Z #5 transferring context: 37.23kB done
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1316065Z #5 DONE 0.0s
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1316168Z 
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1317088Z #8 [ 7/11] RUN bash /usr/local/lib/avelino/check-weston-popup-parent.sh /opt/weston-13.0.4/share/avelino/popup-parent-regression
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1317677Z #8 CACHED
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1317779Z 
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1320667Z #9 [ 2/11] RUN apt-get update && apt-get install -y --no-install-recommends     build-essential cmake ninja-build python3 python3-venv ca-certificates git libicu-dev fontconfig fonts-noto-cjk     libgl1 libegl1 libopengl0 libgl-dev libegl-dev libopengl-dev libvulkan-dev libdbus-1-3 libfontconfig1 libxkbcommon0 libxkbcommon-dev     libxcb-cursor0 libxcb-icccm4 libxcb-keysyms1 libxcb-shape0 libxcb-xinerama0     libxcb-randr0 libxcb-render-util0 libxcb-xkb1 libxkbcommon-x11-0     libxcb-image0 libxcb-sync1 libxcb-xfixes0 libxcb-util1 libx11-xcb1     xvfb xauth x11-utils x11-apps xdotool weston dbus-x11 imagemagick     && rm -rf /var/lib/apt/lists/*
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1323031Z #9 CACHED
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1323128Z 
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1323844Z #10 [ 8/11] COPY tools/install-qt-software-opacity.sh tools/qt-software-opacity.patch tools/qt-software-opacity.cpp tools/check-qt-software-opacity.sh /usr/local/lib/avelino/
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1324526Z #10 CACHED
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1324625Z 
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1326451Z #11 [ 4/11] RUN case "arm64" in       arm64) qt_host=linux_arm64; qt_arch=linux_gcc_arm64 ;;       amd64) qt_host=linux; qt_arch=linux_gcc_64 ;;       *) exit 1 ;;     esac && /opt/aqt/bin/aqt install-qt "$qt_host" desktop 6.8.3 "$qt_arch"       --outputdir /opt/Qt --archives icu qtbase qtdeclarative qttools qtsvg qtwayland     && /opt/aqt/bin/aqt install-qt "$qt_host" desktop 6.8.3 "$qt_arch"       --outputdir /opt/Qt --noarchives --modules qtshadertools     && ln -s /opt/Qt/6.8.3/* /opt/qt
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1327929Z #11 CACHED
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1328023Z 
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1328731Z #12 [ 5/11] COPY tools/install-weston.sh tools/weston-popup-parent.patch tools/weston-popup-order.c tools/check-weston-popup-parent.sh /usr/local/lib/avelino/
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1329368Z #12 CACHED
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1329465Z 
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1329663Z #13 [ 6/11] RUN bash /usr/local/lib/avelino/install-weston.sh
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1329948Z #13 CACHED
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1330039Z 
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1330405Z #14 [ 3/11] RUN python3 -m venv /opt/aqt && /opt/aqt/bin/pip install --no-cache-dir aqtinstall==3.3.0
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1330811Z #14 CACHED
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1330909Z 
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1331650Z #15 [ 9/11] COPY tools/install-qt-software-rectangle.sh tools/qt-software-rectangle.patch tools/qt-software-rectangle.cpp tools/check-qt-software-rectangle.sh /usr/local/lib/avelino/
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1332929Z #15 ERROR: failed to calculate checksum of ref t0vl6l043rtwo7c0lgb2s1dve::tj9h3vomfd7z2zi8vswmtelvr: "/tools/qt-software-rectangle.patch": not found
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1333526Z ------
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1334269Z  > [ 9/11] COPY tools/install-qt-software-rectangle.sh tools/qt-software-rectangle.patch tools/qt-software-rectangle.cpp tools/check-qt-software-rectangle.sh /usr/local/lib/avelino/:
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1334982Z ------
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1340522Z Dockerfile:30
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1341102Z --------------------
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1341539Z   28 |     ENV CMAKE_PREFIX_PATH=/opt/qt
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1342497Z   29 |     COPY tools/install-qt-software-opacity.sh tools/qt-software-opacity.patch tools/qt-software-opacity.cpp tools/check-qt-software-opacity.sh /usr/local/lib/avelino/
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1346330Z   30 | >>> COPY tools/install-qt-software-rectangle.sh tools/qt-software-rectangle.patch tools/qt-software-rectangle.cpp tools/check-qt-software-rectangle.sh /usr/local/lib/avelino/
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1347807Z   31 |     RUN bash /usr/local/lib/avelino/install-qt-software-opacity.sh
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1348488Z   32 |     WORKDIR /work
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1348940Z --------------------
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1350089Z ERROR: failed to build: failed to solve: failed to compute cache key: failed to calculate checksum of ref t0vl6l043rtwo7c0lgb2s1dve::tj9h3vomfd7z2zi8vswmtelvr: "/tools/qt-software-rectangle.patch": not found
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.1413466Z ##[group]Reference
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.2169748Z builder-cfe0e8f8-b522-4e65-9b07-73372af4c438/builder-cfe0e8f8-b522-4e65-9b07-73372af4c4380/shkstjp29zh1u3n9aefas7u5r
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.2170586Z ##[endgroup]
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.2170925Z ##[group]Check build summary support
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.2173700Z Build summary supported!
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.2174368Z ##[endgroup]
+build-runtime-package (ubuntu-24.04-arm)	Run docker/build-push-action@v6	2026-10-20T04:35:36.2197848Z ##[error]buildx failed with: ERROR: failed to build: failed to solve: failed to compute cache key: failed to calculate checksum of ref t0vl6l043rtwo7c0lgb2s1dve::tj9h3vomfd7z2zi8vswmtelvr: "/tools/qt-software-rectangle.patch": not found

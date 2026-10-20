@@ -1,0 +1,36 @@
+warning: Error disabling address space randomization: Operation not permitted
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/aarch64-linux-gnu/libthread_db.so.1".
+[Detaching after fork from child process 18]
+[Detaching after fork from child process 19]
+could not load cursor 'dnd-move'
+could not load cursor 'dnd-copy'
+could not load cursor 'dnd-none'
+could not load cursor 'dnd-move'
+could not load cursor 'dnd-copy'
+could not load cursor 'dnd-none'
+
+Program received signal SIGSEGV, Segmentation fault.
+0x0000f6b9af7e884c in ?? () from /usr/lib/aarch64-linux-gnu/weston/desktop-shell.so
+
+Thread 1 (Thread 0xf6b9b177c020 (LWP 16) "weston"):
+#0  0x0000f6b9af7e884c in ?? () from /usr/lib/aarch64-linux-gnu/weston/desktop-shell.so
+#1  0x0000f6b9b1532d8c [PAC] in weston_desktop_surface_foreach_child () from /lib/aarch64-linux-gnu/libweston-13.so.0
+#2  0x0000f6b9af7e82f8 [PAC] in ?? () from /usr/lib/aarch64-linux-gnu/weston/desktop-shell.so
+#3  0x0000f6b9af7eba24 [PAC] in ?? () from /usr/lib/aarch64-linux-gnu/weston/desktop-shell.so
+#4  0x0000f6b9af7ebfdc [PAC] in ?? () from /usr/lib/aarch64-linux-gnu/weston/desktop-shell.so
+#5  0x0000f6b9b152fdc0 [PAC] in ?? () from /lib/aarch64-linux-gnu/libweston-13.so.0
+#6  0x0000f6b9b1535130 [PAC] in ?? () from /lib/aarch64-linux-gnu/libweston-13.so.0
+#7  0x0000f6b9b1532714 [PAC] in ?? () from /lib/aarch64-linux-gnu/libweston-13.so.0
+#8  0x0000f6b9b1510b04 [PAC] in ?? () from /lib/aarch64-linux-gnu/libweston-13.so.0
+#9  0x0000f6b9b1511620 [PAC] in ?? () from /lib/aarch64-linux-gnu/libweston-13.so.0
+#10 0x0000f6b9b1206624 [PAC] in ?? () from /lib/aarch64-linux-gnu/libffi.so.8
+#11 0x0000f6b9b120383c in ?? () from /lib/aarch64-linux-gnu/libffi.so.8
+#12 0x0000f6b9b1488470 [PAC] in ?? () from /lib/aarch64-linux-gnu/libwayland-server.so.0
+#13 0x0000f6b9b148d160 [PAC] in ?? () from /lib/aarch64-linux-gnu/libwayland-server.so.0
+#14 0x0000f6b9b148bbe8 [PAC] in wl_event_loop_dispatch () from /lib/aarch64-linux-gnu/libwayland-server.so.0
+#15 0x0000f6b9b148c3d4 [PAC] in wl_display_run () from /lib/aarch64-linux-gnu/libwayland-server.so.0
+#16 0x0000f6b9b174dbf4 [PAC] in wet_main () from /usr/lib/aarch64-linux-gnu/weston/libexec_weston.so.0
+#17 0x0000f6b9b15a84c4 [PAC] in ?? () from /lib/aarch64-linux-gnu/libc.so.6
+#18 0x0000f6b9b15a8598 in __libc_start_main () from /lib/aarch64-linux-gnu/libc.so.6
+#19 0x0000bc2a0bb606f0 in ?? ()

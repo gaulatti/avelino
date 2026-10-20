@@ -1,0 +1,24 @@
+{
+  "accepted": false,
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--rm",
+    "--ulimit",
+    "core=0",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/file-input-package-pilot-v7:/consumer-check",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/file-input-display-v3:/display-driver",
+    "-w",
+    "/consumer-check",
+    "avelino-toolchain:clipping-qt6.8.3",
+    "bash",
+    "/display-driver/check-display-sessions-file-input.sh",
+    "/display-driver/output"
+  ],
+  "exitCode": 1,
+  "seconds": 44.2172873748932
+}

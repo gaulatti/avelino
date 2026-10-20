@@ -1,0 +1,37 @@
+import QtQuick
+import QtQuick.Shapes
+import "continuouscorners.js" as Corners
+
+Shape {
+    id: surface
+    // Qt 6.8.3 restarts a curve computation with queued path edits only in
+    // asynchronous mode. Label/layout changes can arrive before the first sync.
+    asynchronous: true
+    property color color: "transparent"
+    property color borderColor: "transparent"
+    property real borderWidth: 1
+    property real radius: 7
+    property alias fillGradient: fillPath.fillGradient
+    readonly property QtObject strokeOutline:strokePath
+    readonly property string outerPath: Corners.svg(width, height, radius, 0)
+    readonly property string borderPath: Corners.svg(width, height, radius, borderWidth / 2)
+    antialiasing: true
+    preferredRendererType: Shape.CurveRenderer
+    PixelAlignment { id: alignment; target: surface.parent; origin: Qt.point(surface.x, surface.y) }
+    transform: Translate { x: alignment.offset.x; y: alignment.offset.y }
+    ShapePath {
+        id: fillPath
+        fillColor: surface.color
+        strokeColor: "transparent"
+        strokeWidth: -1
+        PathSvg { path: surface.outerPath }
+    }
+    ShapePath {
+        id:strokePath
+        fillColor: "transparent"
+        strokeColor: surface.borderColor
+        strokeWidth: surface.borderWidth
+        joinStyle:ShapePath.MiterJoin
+        PathSvg { path: surface.borderPath }
+    }
+}

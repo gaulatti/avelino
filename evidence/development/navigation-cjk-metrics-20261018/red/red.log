@@ -1,0 +1,22 @@
+********* Start testing of avelino *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : avelino::NavigationContract::initTestCase()
+FAIL!  : avelino::NavigationContract::test_unicode_fallback_line_box(page-header-unicode-light-text1.0-offscreen-dpr1.0.png) Source fallback line box
+   Actual   (): 36
+   Expected (): 32
+   Loc: [/work/tests/components/tst_navigation.qml(40)]
+FAIL!  : avelino::NavigationContract::test_unicode_fallback_line_box(page-header-unicode-light-text1.5-offscreen-dpr1.0.png) Source fallback line box
+   Actual   (): 36
+   Expected (): 32
+   Loc: [/work/tests/components/tst_navigation.qml(40)]
+FAIL!  : avelino::NavigationContract::test_unicode_fallback_line_box(page-header-unicode-dark-text1.0-offscreen-dpr1.0.png) Source fallback line box
+   Actual   (): 36
+   Expected (): 32
+   Loc: [/work/tests/components/tst_navigation.qml(40)]
+FAIL!  : avelino::NavigationContract::test_unicode_fallback_line_box(page-header-unicode-dark-text1.5-offscreen-dpr1.0.png) Source fallback line box
+   Actual   (): 36
+   Expected (): 32
+   Loc: [/work/tests/components/tst_navigation.qml(40)]
+PASS   : avelino::NavigationContract::cleanupTestCase()
+Totals: 2 passed, 4 failed, 0 skipped, 0 blacklisted, 811ms
+********* Finished testing of avelino *********

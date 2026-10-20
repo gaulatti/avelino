@@ -7,15 +7,21 @@ T.Control {
     font.family: BleeckerTheme.secondaryFont
     font.pointSize: BleeckerFonts.pointSizeForPixels(12)
     palette.windowText: BleeckerTheme.palette.textSecondary
-    implicitWidth: host.implicitWidth
-    implicitHeight: host.implicitHeight + 41
+    BleeckerLayout.minimumWidth: Math.max(0, host.minimumWidth - 40)
+    BleeckerLayout.idealWidth: Math.max(0, host.naturalWidth - 40)
+    BleeckerLayout.fillsWidth: true
+    implicitWidth: BleeckerLayout.idealWidth
+    implicitHeight: host.implicitHeight + 1
     contentItem: Item {
         BleeckerSeparator { width: parent.width }
-        Item {
+        ProposalColumn {
             id: host
             objectName: "bleeckerFooterContent"
-            y: 21; width: parent.width; height: implicitHeight
-            implicitWidth: childrenRect.width; implicitHeight: childrenRect.height
+            y: 1; width: parent.width; height: implicitHeight
+            padding: 20
+            // The shared column pads both axes. Cancel its horizontal padding
+            // in the proposal and natural width; retain each child's vertical padding.
+            maximumWidth: width + 40
         }
     }
 }

@@ -1,0 +1,35 @@
+Thread 0x0000e09e9e284180 (most recent call first):
+  File "/usr/lib/python3/dist-packages/speechd/client.py", line 261 in _readline
+  File "/usr/lib/python3/dist-packages/speechd/client.py", line 278 in _recv_message
+  File "/usr/lib/python3/dist-packages/speechd/client.py", line 231 in _communication
+  File "/usr/lib/python3.12/threading.py", line 1010 in run
+  File "/usr/lib/python3.12/threading.py", line 1073 in _bootstrap_inner
+  File "/usr/lib/python3.12/threading.py", line 1030 in _bootstrap
+
+Thread 0x0000e09e9f5cf180 (most recent call first):
+  File "/usr/lib/python3/dist-packages/orca/ax_value.py", line 61 in _clear_stored_data
+  File "/usr/lib/python3.12/threading.py", line 1010 in run
+  File "/usr/lib/python3.12/threading.py", line 1073 in _bootstrap_inner
+  File "/usr/lib/python3.12/threading.py", line 1030 in _bootstrap
+
+Thread 0x0000e09e9fddf180 (most recent call first):
+  File "/usr/lib/python3/dist-packages/orca/ax_table.py", line 89 in _clear_stored_data
+  File "/usr/lib/python3.12/threading.py", line 1010 in run
+  File "/usr/lib/python3.12/threading.py", line 1073 in _bootstrap_inner
+  File "/usr/lib/python3.12/threading.py", line 1030 in _bootstrap
+
+Thread 0x0000e09ec3666180 (most recent call first):
+  File "/usr/lib/python3/dist-packages/orca/ax_object.py", line 63 in _clear_stored_data
+  File "/usr/lib/python3.12/threading.py", line 1010 in run
+  File "/usr/lib/python3.12/threading.py", line 1073 in _bootstrap_inner
+  File "/usr/lib/python3.12/threading.py", line 1030 in _bootstrap
+
+Current thread 0x0000e09ec4489720 (most recent call first):
+  File "/usr/lib/python3/dist-packages/orca/orca.py", line 332 in start
+  File "/usr/lib/python3/dist-packages/orca/orca.py", line 535 in main
+  File "/usr/bin/orca", line 291 in main
+  File "/usr/bin/orca", line 294 in <module>
+  File "<frozen runpy>", line 88 in _run_code
+  File "<frozen runpy>", line 98 in _run_module_code
+  File "<frozen runpy>", line 286 in run_path
+  File "/probe/reader-diagnostic.py", line 5 in <module>

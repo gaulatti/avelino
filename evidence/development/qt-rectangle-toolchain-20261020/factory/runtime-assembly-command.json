@@ -1,0 +1,20 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--name",
+    "avelino-qt-rectangle-runtime-20261020-v1",
+    "--init",
+    "--ulimit",
+    "core=0",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/qt-rectangle-installer-v1:/result",
+    "sha256:e29f85ab0df39f3ae46c4d5ddcc075517701fc05359a230c8647b1174e862dd3",
+    "python3",
+    "/result/assemble-runtime.py"
+  ],
+  "exitCode": 0,
+  "seconds": 9.487304083071649
+}

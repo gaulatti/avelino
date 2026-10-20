@@ -126,6 +126,10 @@ void ButtonLabel::relayout(bool reuseWrapMeasurements) {
         return sourceFont ? std::ceil(advance * dpr) / dpr : advance;
     };
     QFont shapeFont = m_font;
+    // Source-owned text uses typographic line boxes. Noto CJK's Windows
+    // metrics otherwise enlarge a mixed-script line without changing its size.
+    if (sourceFont)
+        shapeFont.setStyleStrategy(QFont::StyleStrategy(shapeFont.styleStrategy() | QFont::PreferTypoLineMetrics));
     shapeFont.setPixelSize(units);
     if (shapeFont.letterSpacingType() == QFont::AbsoluteSpacing)
         shapeFont.setLetterSpacing(QFont::AbsoluteSpacing, shapeFont.letterSpacing() / ratio);

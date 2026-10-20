@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/probe/operator.py", line 2, in <module>
+    from pathlib import Path
+  File "/usr/lib/python3.12/pathlib.py", line 8, in <module>
+    import fnmatch
+  File "/usr/lib/python3.12/fnmatch.py", line 14, in <module>
+    import re
+  File "/usr/lib/python3.12/re/__init__.py", line 124, in <module>
+    import enum
+  File "/usr/lib/python3.12/enum.py", line 4, in <module>
+    from operator import or_ as _or_
+  File "/probe/operator.py", line 2, in <module>
+    from pathlib import Path
+ImportError: cannot import name 'Path' from partially initialized module 'pathlib' (most likely due to a circular import) (/usr/lib/python3.12/pathlib.py)

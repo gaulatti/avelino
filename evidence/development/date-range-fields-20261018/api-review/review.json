@@ -1,0 +1,92 @@
+{
+  "qt": "6.8.3",
+  "tag": "v6.8.3",
+  "officialDocumentation": [
+    "https://doc.qt.io/qt-6.8/qml-qtquick-textinput.html",
+    "https://doc.qt.io/qt-6.8/qsgtextnode.html"
+  ],
+  "reviewedSourceBase": "https://raw.githubusercontent.com/qt/qtdeclarative/v6.8.3/src/",
+  "observations": [
+    "QQuickTextField owns a clipped QQuickTextInput and delegates input/focus behavior",
+    "QSGInternalTextNode doAddTextLayout consumes inclusive selectionEnd in this exact version",
+    "QQuickTextInput mouse handlers use a private joined layout and need a calendar field mapping after the template mouse path",
+    "QQuickTextInput retains logical UTF16 text/selection and provides composition state, formats and blink status",
+    "QAccessibleQuickItem has no character rectangles or point offsets in this version; the segmented input supplies them"
+  ],
+  "sourceFiles": {
+    "qquicktextinput_p.h": {
+      "bytes": 15053,
+      "sha256": "ecf04678040a2c014912f104e117078d2cd1304e286ffe630973f577496df665"
+    },
+    "qquicktextinput.cpp": {
+      "bytes": 155846,
+      "sha256": "61e2272c8edffa1bc365a729c9a269a41bba7b261bead4b5123a54fdc2e1cc4d"
+    },
+    "qsginternaltextnode.cpp": {
+      "bytes": 10372,
+      "sha256": "7490b8bb7abe71623cb8ab5f947c2008ee4466d341f0ebe920553a511e8a283f"
+    },
+    "qquicktextfield.cpp": {
+      "bytes": 27864,
+      "sha256": "0c4e0e9a45c1d5f7825276cbdcd26f96751ebc35880bff0e8a5c74cf52a8a4e8"
+    },
+    "qsgtextnode.cpp": {
+      "bytes": 11323,
+      "sha256": "bd1cc0171c6afe9e04b416c356c3e57f6bb94e618051d48ef6553d7b4cbcb895"
+    },
+    "qquickitem.cpp": {
+      "bytes": 323293,
+      "sha256": "c712a4825d462a23a99195e7d99fc4b27c35fb52cbc36c31129ea954db61a1b5"
+    },
+    "qquicktextnodeengine.cpp": {
+      "bytes": 48148,
+      "sha256": "0fd4ae6d60c854e4e31b7d866b459198478612c092f9d66c9157db4f9192e26f"
+    },
+    "qquicktextinput_p_p.h": {
+      "bytes": 15492,
+      "sha256": "5e30e31015970cfb4f1fb0ec69f0d42d9aa02995655ea4d3bfcfbc20bba5d417"
+    },
+    "qquicktextfield_p.h": {
+      "bytes": 5978,
+      "sha256": "68f59084d69acfc431463f0f650c21c54977d0b1d4a14c79b77b494f7fab3dfd"
+    },
+    "qsginternaltextnode_p.h": {
+      "bytes": 5195,
+      "sha256": "6f16b7479b23790e17cd3d9f8c986940003debbc65a4930a29e009f169d95609"
+    },
+    "qaccessiblequickitem_p.h": {
+      "bytes": 4132,
+      "sha256": "64dc39179cf2150a184be19211617909b5efa6873fce3415244d26b3513eeb6b"
+    },
+    "qaccessiblequickitem.cpp": {
+      "bytes": 28639,
+      "sha256": "15fbdc474ec930e3f40c0b678939282677403a06904f5bac1e4ce1267d5f093e"
+    },
+    "qsgtextnode.h": {
+      "bytes": 3058,
+      "sha256": "70f8ad01caea9957e2e0452e4e52198e4b519cbfcb40a5237f648a803582a805"
+    }
+  },
+  "sourceLocators": {
+    "qquicktextinput_p.h": "https://raw.githubusercontent.com/qt/qtdeclarative/v6.8.3/src/quick/items/qquicktextinput_p.h",
+    "qquicktextinput_p_p.h": "https://raw.githubusercontent.com/qt/qtdeclarative/v6.8.3/src/quick/items/qquicktextinput_p_p.h",
+    "qquicktextinput.cpp": "https://raw.githubusercontent.com/qt/qtdeclarative/v6.8.3/src/quick/items/qquicktextinput.cpp",
+    "qquickitem.cpp": "https://raw.githubusercontent.com/qt/qtdeclarative/v6.8.3/src/quick/items/qquickitem.cpp",
+    "qquicktextnodeengine.cpp": "https://raw.githubusercontent.com/qt/qtdeclarative/v6.8.3/src/quick/items/qquicktextnodeengine.cpp",
+    "qsginternaltextnode.cpp": "https://raw.githubusercontent.com/qt/qtdeclarative/v6.8.3/src/quick/items/qsginternaltextnode.cpp",
+    "qsginternaltextnode_p.h": "https://raw.githubusercontent.com/qt/qtdeclarative/v6.8.3/src/quick/items/qsginternaltextnode_p.h",
+    "qsgtextnode.h": "https://raw.githubusercontent.com/qt/qtdeclarative/v6.8.3/src/quick/scenegraph/util/qsgtextnode.h",
+    "qsgtextnode.cpp": "https://raw.githubusercontent.com/qt/qtdeclarative/v6.8.3/src/quick/scenegraph/util/qsgtextnode.cpp",
+    "qquicktextfield_p.h": "https://raw.githubusercontent.com/qt/qtdeclarative/v6.8.3/src/quicktemplates/qquicktextfield_p.h",
+    "qquicktextfield.cpp": "https://raw.githubusercontent.com/qt/qtdeclarative/v6.8.3/src/quicktemplates/qquicktextfield.cpp",
+    "qaccessiblequickitem.cpp": "https://raw.githubusercontent.com/qt/qtdeclarative/v6.8.3/src/quick/accessible/qaccessiblequickitem.cpp",
+    "qaccessiblequickitem_p.h": "https://raw.githubusercontent.com/qt/qtdeclarative/v6.8.3/src/quick/accessible/qaccessiblequickitem_p.h"
+  },
+  "installedHeaders": {
+    "qquicktextinput_p.h": "ecf04678040a2c014912f104e117078d2cd1304e286ffe630973f577496df665",
+    "qquicktextinput_p_p.h": "5e30e31015970cfb4f1fb0ec69f0d42d9aa02995655ea4d3bfcfbc20bba5d417",
+    "qquicktextfield_p.h": "68f59084d69acfc431463f0f650c21c54977d0b1d4a14c79b77b494f7fab3dfd",
+    "qsgtextnode.h": "70f8ad01caea9957e2e0452e4e52198e4b519cbfcb40a5237f648a803582a805"
+  },
+  "installedHeadersEqualReviewedReleaseSources": true
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/navigation-cjk-catalog-v2:/catalog-check",
+      "-w",
+      "/catalog-check",
+      "avelino-toolchain:recovered-weston13-cjk-v1-20261018-qt6.8.3",
+      "bash",
+      "check.sh",
+      "/catalog-check/output"
+    ],
+    "exitCode": 0,
+    "seconds": 239.58900345803704
+  }
+]

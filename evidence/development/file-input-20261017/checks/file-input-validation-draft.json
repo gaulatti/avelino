@@ -1,0 +1,129 @@
+{
+  "accepted": false,
+  "implementationStatus": "in-progress",
+  "reference": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+  "desktopCandidateCoverage": [
+    75,
+    80
+  ],
+  "tolerance": "none",
+  "approvedExceptions": [],
+  "expectedImagesChanged": false,
+  "physicalDisplay": false,
+  "gates": {
+    "nativeRaster": "pending",
+    "directSizing": "pending",
+    "nativeTypes": "pending",
+    "completeChooser": "pending",
+    "nativeAccessibility": "pending",
+    "physicalInput": "pending",
+    "physicalReader": "pending",
+    "independentMachine": "pending"
+  },
+  "missingNativeSurfaces": [
+    "sidebar",
+    "back/forward",
+    "view controls",
+    "location menu",
+    "search",
+    "selection preview"
+  ],
+  "fullQtRegression": {
+    "source": "file-input-qt-v14",
+    "targets": 47,
+    "exitCode": 0,
+    "finalSourceBinding": "qt/regression-source-binding.json",
+    "fullSuiteRepeatedOnFinalSource": false
+  },
+  "finalQtFocused": {
+    "source": "file-input-qt-v18",
+    "targets": 6,
+    "exitCode": 0
+  },
+  "fullInstalledRegression": {
+    "package": "file-input-package-pilot-v7",
+    "consumerModes": 38,
+    "catalogCaptures": 155,
+    "unchangedPriorCatalogPairs": 151,
+    "exitCode": 0
+  },
+  "finalFocusedPackage": {
+    "package": "file-input-package-pilot-v9",
+    "closedContexts": 256,
+    "contexts": 8,
+    "expectedImages": 280,
+    "captureMethod": "Native-window closed images; asynchronous entire-scene popup readbacks at native DPR",
+    "exitCode": 0
+  },
+  "freshSourceReplay": {
+    "source": "file-input-qt-v17",
+    "attempt": "file-input-source-replay-v2",
+    "testTargets": 4,
+    "cacheInputs": false,
+    "finalConsumerHeaderIsOnlySourceDifference": true,
+    "exitCode": 0
+  },
+  "virtualDisplay": {
+    "attempt": "file-input-display-v5",
+    "expectedProfiles": 8,
+    "protocols": [
+      "xcb",
+      "wayland"
+    ],
+    "renderers": [
+      "software",
+      "OpenGL llvmpipe"
+    ],
+    "dpr": [
+      1,
+      2
+    ],
+    "hardwareAcceleration": false,
+    "physicalDisplay": false,
+    "completedProfiles": 8,
+    "exitCode": 0
+  },
+  "strictComparison": {
+    "pairs": 256,
+    "exactPixels": 0,
+    "completeFrames": 232,
+    "contractStates": 256
+  },
+  "accessibility": {
+    "attempt": "file-input-atspi-v4",
+    "operatorPhases": 26,
+    "reader": "Orca 46.1",
+    "speechEngine": "Speech Dispatcher espeak-ng",
+    "audioOutput": "ALSA null device",
+    "physicalAudioHeard": false,
+    "nativeReaderComparison": "pending",
+    "locationErrorAnnounced": false,
+    "editableTextInterface": "not exposed; actual keyboard editing verified"
+  },
+  "externalWaylandOperator": {
+    "attempt": "file-input-wayland-operator-v1",
+    "cycles": 3,
+    "eglSwapBuffersErrors": 0,
+    "captureMethod": "External compositor output; no native-window readback calls",
+    "profiles": [
+      "light/text1/DPR1",
+      "dark/text1.5/DPR2"
+    ],
+    "cyclesPerProfile": 3,
+    "attempts": [
+      "file-input-wayland-operator-v1",
+      "file-input-wayland-operator-v2"
+    ],
+    "totalCycles": 6
+  },
+  "limitations": [
+    "Complete native chooser surfaces missing",
+    "Every closed strict pixel pair differs",
+    "Direct two-axis sizing and native type conformance pending",
+    "Native input/callback timing and error result equivalence pending",
+    "Visible location error not announced by Orca",
+    "AT-SPI EditableText interface not exposed in this Qt environment",
+    "Physical display/input/listening and independent-machine acceptance pending"
+  ],
+  "linuxPlatform": "linux/arm64"
+}

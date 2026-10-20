@@ -1,0 +1,33 @@
+[
+  {
+    "name": "build",
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-native-20261018-v4/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-slot-vocabulary-20261018-v2/DateCommon.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-slot-vocabulary-20261018-v2/DateSlotVocabulary.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-native-20261018-v4/build/out/Products/Debug/Sabella.o",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-slot-vocabulary-20261018-v2/DateSlotVocabulary"
+    ],
+    "exitCode": 0,
+    "seconds": 2.6149664589902386
+  },
+  {
+    "name": "capture",
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-slot-vocabulary-20261018-v2/DateSlotVocabulary",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-slot-vocabulary-20261018-v2/fixtures.json",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-slot-vocabulary-20261018-v2/output"
+    ],
+    "exitCode": 0,
+    "seconds": 13.446326207951643
+  }
+]

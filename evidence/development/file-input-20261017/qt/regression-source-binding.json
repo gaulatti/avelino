@@ -1,0 +1,28 @@
+{
+  "accepted": false,
+  "fullSuiteSource": "file-input-qt-v14",
+  "fullSuiteTargets": 47,
+  "fullSuiteExitCode": 0,
+  "finalSource": "file-input-qt-v18",
+  "changedFiles": [
+    "src/Avelino/FileChooserDialog.qml",
+    "tests/components/fileinput-ui.cpp",
+    "tests/components/itemlifetime.cpp",
+    "tests/consumer/fileinputchecks.h"
+  ],
+  "productionChanges": [
+    "src/Avelino/FileChooserDialog.qml"
+  ],
+  "productionChangeScope": "FileInput accessible focus, selectable states and Press selection action only; covered by the FileInput UI target at DPR 1 and 2",
+  "focusedFinalTargets": [
+    "item-lifetime",
+    "item-lifetime-dpr2",
+    "file-chooser-filesystem",
+    "file-chooser-columns",
+    "file-input-owned-ui",
+    "file-input-owned-ui-dpr2"
+  ],
+  "finalFocusedExitCode": 0,
+  "fullSuiteRerunOnV16": false,
+  "finalConsumerChange": "Asynchronous full popup scene capture; closed strict images remain native-window captures"
+}

@@ -1,0 +1,135 @@
+#pragma once
+#include <QQuickItemGrabResult>
+#include <QElapsedTimer>
+#include <QFileInfo>
+
+static void runMobileShellConsumer(QQuickWindow *window, QGuiApplication &app,
+                                  const QCommandLineParser &parser, double textScale) {
+    auto check = [&](bool value, const char *message) {
+        if (!value) { qCritical("MobileShell: %s", message); app.exit(99); }
+        return value;
+    };
+    QFile file(":/avelino/fixtures/native-mobile-shell-witnesses.json");
+    if (!check(file.open(QIODevice::ReadOnly), "Native slot witnesses missing")) return;
+    const auto native = QJsonDocument::fromJson(file.readAll()).object();
+    if (!check(native["reference"] == "fe8a1d462fbd793d883fb92086a16aa2947e32c9"
+               && native["profiles"].toArray().size() == 72, "Native slot matrix invalid")) return;
+    QFile inputFile(":/avelino/fixtures/native-mobile-shell-input-witnesses.json");
+    if (!check(inputFile.open(QIODevice::ReadOnly), "Native input witnesses missing")) return;
+    const auto inputs = QJsonDocument::fromJson(inputFile.readAll()).object();
+    if (!check(inputs["histories"].toArray().size() == 3 && inputs["accepted"] == false,
+               "Native input histories invalid")) return;
+    const auto prefix = parser.isSet("evidence") ? parser.value("evidence") : parser.value("mobile-shell-report");
+    if (!prefix.isEmpty()) {
+        if (!check(!QFile::exists(prefix + ".json"), "Evidence path exists")) return;
+        QDir().mkpath(QFileInfo(prefix).absolutePath());
+    }
+    auto fixture = window->property("primaryFixture").value<QQuickItem *>();
+    auto shell = fixture ? fixture->property("shell").value<QQuickItem *>() : nullptr;
+    auto toolbar = fixture ? fixture->property("toolbarItem").value<QQuickItem *>() : nullptr;
+    if (!check(fixture && shell && toolbar, "Public shell or hosted toolbar missing")) return;
+    auto configure = [&](QJsonObject value) {
+        return check(QMetaObject::invokeMethod(window, "configure", Q_ARG(QVariant, value.toVariantMap()))
+                     && waitForShapeFrame(window), "Caller configuration failed");
+    };
+    auto segment = [&](int index) {
+        QQuickItem *item = nullptr;
+        QMetaObject::invokeMethod(toolbar, "segmentAt", Q_RETURN_ARG(QQuickItem *, item), Q_ARG(int, index));
+        return item;
+    };
+    auto click = [&](int index) {
+        auto button = segment(index);
+        if (!check(button && button->isEnabled(), "Actual toolbar input unavailable")) return false;
+        QTest::mouseClick(window, Qt::LeftButton, Qt::NoModifier,
+                          button->mapToScene(QPointF(button->width()/2, button->height()/2)).toPoint());
+        return check(waitForShapeFrame(window), "Pointer result frame missing");
+    };
+    QJsonArray layouts, histories;
+    int geometry = 0, stateChecks = 0, pointerActions = 0;
+    for (const auto &entry : native["profiles"].toArray()) {
+        const auto row = entry.toObject();
+        if (row["dark"].toBool() != parser.isSet("dark") || row["dpr"].toDouble() != window->devicePixelRatio()) continue;
+        if (!configure(row)) return;
+        const auto snapshot = chartMap(fixture, "snapshot");
+        if (!check(snapshot["frames"] == row["frames"], "Native slot frames differ")) return;
+        QJsonObject record{{"name", row["name"]}, {"frames", snapshot["frames"]}, {"geometryPassed", true}};
+        if (!prefix.isEmpty()) {
+            const QString path = prefix + "-" + row["name"].toString() + ".png";
+            if (!check(!QFile::exists(path), "Capture path exists")) return;
+            auto grab = fixture->grabToImage();
+            if (!check(bool(grab), "Body capture unavailable")) return;
+            QElapsedTimer timer; timer.start();
+            while (grab->image().isNull() && timer.elapsed() < 5000) QTest::qWait(10);
+            if (!check(!grab->image().isNull() && grab->saveToFile(path), "Body capture failed")) return;
+            record["capture"] = QFileInfo(path).fileName();
+            record["pixelWidth"] = grab->image().width(); record["pixelHeight"] = grab->image().height();
+        }
+        layouts.append(record); ++geometry;
+    }
+    if (!check(geometry == 18, "Incomplete native geometry profile")) return;
+    QJsonObject configuration{{"width",360},{"height",240},{"header",36},{"footer",24},
+        {"content","flex"},{"hiddenHeader",false},{"dark",parser.isSet("dark")},
+        {"tabs",QJsonArray{QJsonObject{{"value","news"},{"label","News"},{"systemImage","newspaper"},{"badge",8}},
+                           QJsonObject{{"value","saved"},{"label","Saved"},{"systemImage","bookmark"},{"disabled",true},{"accessibilityLabel","Stored items"}}}}};
+    for (const auto &entry : inputs["histories"].toArray()) {
+        const auto history = entry.toObject();
+        shell->setEnabled(true);
+        if (!configure(configuration)) return;
+        if (!check(QMetaObject::invokeMethod(window,"resetOwner",Q_ARG(QVariant,history["owner"].toString()))
+                   && waitForShapeFrame(window), "Owner reset failed")) return;
+        QJsonArray steps;
+        for (const auto &value : history["history"].toArray()) {
+            const auto expected = value.toObject(); const auto step = expected["step"].toString();
+            if (step.endsWith("-immediate") || step == "right-arrow") continue;
+            if (step.startsWith("action-") && step.endsWith("-settled")) {
+                if (!click(step.split('-')[1].toInt())) return;
+                ++pointerActions;
+            } else if (step == "before-disable") {
+                if (!click(1)) return; ++pointerActions;
+            } else if (step == "flush-pending") {
+                if (!check(QMetaObject::invokeMethod(window,"applyPending"), "Pending writeback failed")) return;
+            } else if (step == "external-news" || step == "external-unknown") {
+                shell->setEnabled(true);
+                if (!check(QMetaObject::invokeMethod(window,"externalSelection",Q_ARG(QVariant,expected["selection"].toString())),
+                           "Explicit caller selection failed")) return;
+            } else if (step == "parent-disabled") shell->setEnabled(false);
+            else if (step != "initial") { check(false,"Unexpected native history step"); return; }
+            if (!check(waitForShapeFrame(window), "History frame missing")) return;
+            auto actual = chartMap(window,"ownerState");
+            actual["selectedSegment"] = toolbar->property("displayedIndex").toInt();
+            actual["enabled"] = toolbar->isEnabled(); actual["step"] = step;
+            if (!check(chartSubset(actual,expected), "Native caller/display history differs")) return;
+            steps.append(actual); ++stateChecks;
+        }
+        histories.append(QJsonObject{{"owner",history["owner"]},{"steps",steps}});
+    }
+    shell->setEnabled(true);
+    if (!check(QMetaObject::invokeMethod(window,"resetOwner",Q_ARG(QVariant,QString("echo")))
+               && waitForShapeFrame(window), "Keyboard owner reset failed")) return;
+    auto first = segment(0);
+    if (!check(first, "Keyboard segment missing")) return;
+    first->forceActiveFocus();
+    QTest::keyClick(window, Qt::Key_Space);
+    if (!check(waitForShapeFrame(window) && chartMap(window,"ownerState")["requests"].toArray().size()==1,
+               "Qt Space activation failed")) return;
+    int interfaces = 0;
+    for (int i=0; i<2; ++i) {
+        auto item = segment(i); auto accessible = item ? QAccessible::queryAccessibleInterface(item) : nullptr;
+        if (!check(accessible && accessible->role()==QAccessible::RadioButton
+                   && accessible->text(QAccessible::Name)==(i==0 ? "News":"Saved")
+                   && accessible->state().checked==item->property("selected").toBool(), "Qt segment accessibility differs")) return;
+        ++interfaces;
+    }
+    QJsonObject result{{"reference",native["reference"]},{"qt",qVersion()},{"platform",QGuiApplication::platformName()},
+        {"dpr",window->devicePixelRatio()},{"textScale",textScale},{"geometryPassed",geometry},{"layouts",layouts},
+        {"nativeOwnerHistories",histories},{"nativeStateChecks",stateChecks},{"pointerActions",pointerActions},
+        {"qtSpaceActivation",true},{"qtAccessibilityInterfaces",interfaces},{"nativeKeyboardEquivalentVerified",false},
+        {"nativeToolbarRasterAccepted",false},{"physicalDisplay",false},{"readerAcceptance",false},{"accepted",false}};
+    if (!prefix.isEmpty()) {
+        QFile output(prefix+".json");
+        if (!check(output.open(QIODevice::WriteOnly|QIODevice::NewOnly), "Report path exists or cannot be opened")) return;
+        output.write(QJsonDocument(result).toJson());
+    }
+    qInfo("MobileShell: %d native layouts, %d native state checks, %d pointer actions, two Qt accessibility interfaces; mirror acceptance pending",geometry,stateChecks,pointerActions);
+    app.exit(0);
+}

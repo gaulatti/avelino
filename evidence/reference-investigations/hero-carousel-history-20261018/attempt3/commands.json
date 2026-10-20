@@ -1,0 +1,33 @@
+[
+  {
+    "name": "build",
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-hero-carousel-native-20261018-v2/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-hero-carousel-history-20261018-v3/tool/HeroCommon.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-hero-carousel-history-20261018-v3/tool/History.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-hero-carousel-native-20261018-v2/build/out/Products/Debug/Sabella.o",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-hero-carousel-history-20261018-v3/tool/NativeHeroHistory"
+    ],
+    "exitCode": 0,
+    "seconds": 1.8584532500244677
+  },
+  {
+    "name": "run",
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-hero-carousel-history-20261018-v3/tool/NativeHeroHistory",
+      "/Users/gaulatti/.codex/tmp/avelino-hero-carousel-history-20261018-v3/fixture.json",
+      "/Users/gaulatti/.codex/tmp/avelino-hero-carousel-history-20261018-v3/output"
+    ],
+    "exitCode": 0,
+    "seconds": 37.81313595804386
+  }
+]

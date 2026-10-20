@@ -1,0 +1,53 @@
+{
+  "accepted": false,
+  "reference": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+  "baseGit": "ab287b391ac529981bee85bbc602ce51d9d00261",
+  "desktopCandidateCoverage": [
+    75,
+    80
+  ],
+  "acceptedDesktopEntries": 0,
+  "expectedImagesChanged": false,
+  "approvedExceptions": [],
+  "tolerance": "none",
+  "physicalDisplay": false,
+  "physicalInput": false,
+  "physicalListening": false,
+  "finalFullQtSuiteRerun": false,
+  "finalSource": "file-input-qt-v54",
+  "sourceFiles": 563,
+  "sourceAttempts": 9,
+  "focusedQtTargets": 7,
+  "packageContexts": 8,
+  "displayProfiles": 8,
+  "readerPhases": {
+    "xcb": 24,
+    "wayland": 25
+  },
+  "freshConsumer": "file-input-location-package-v1",
+  "consumerSource": "file-input-qt-v50",
+  "finalConsumerSourceIdentical": true,
+  "finalPackage": "file-input-location-package-v5",
+  "toolchain": "sha256:2fdc6216ef3446ebd904a1999d3e0c909c7b667e844149ad2830d68d069e77f8",
+  "gates": {
+    "completeChooser": "pending",
+    "nativeRaster": "pending",
+    "nativeTypes": "pending",
+    "nativeAccessibility": "pending",
+    "nativeReader": "pending",
+    "nativeTiming": "pending",
+    "independentMachine": "pending",
+    "nativeMenuArtwork": "pending",
+    "nativePathPresentation": "pending",
+    "physicalDisplayInput": "pending",
+    "speechEngineAudio": "pending"
+  },
+  "scope": "Owned location menu and shared ten-folder persistence; incremental library producer plus fresh installed consumer, virtual displays and actual AT-SPI/Orca workflows. Full chooser and strict native acceptance remain pending.",
+  "compositor": "Stock Qt tooltip reproduces Weston13.0.0 child-focus crash; identical helper survives upstream13.0.4. Final readers and profiles use the exact repository installer image.",
+  "retainedLimitations": [
+    "Qt6.8.3 ChildrenChanged signature warnings remain in reader logs; native hierarchy acceptance is pending.",
+    "No physical display/input or heard/generated engine-audio acceptance.",
+    "Native menu artwork, nested Go to Folder and path-selected file semantics remain pending.",
+    "Sidebar/search/preview/group-sort, metadata/sizing and full native context coverage remain pending."
+  ]
+}

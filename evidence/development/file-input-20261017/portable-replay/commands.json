@@ -1,0 +1,60 @@
+[
+  {
+    "name": "source-absence",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/file-input-restored-v1/package:/consumer-check",
+      "-w",
+      "/consumer-check",
+      "--env",
+      "QT_QPA_PLATFORM=offscreen",
+      "--env",
+      "QT_QUICK_BACKEND=software",
+      "--env",
+      "XDG_RUNTIME_DIR=/tmp/avelino-file-input-portable",
+      "avelino-toolchain:clipping-qt6.8.3",
+      "python3",
+      "-c",
+      "from pathlib import Path; assert not Path('/work/src/Avelino').exists(); assert not Path('/consumer-check/consumer').exists(); assert not Path('/consumer-check/src').exists(); assert not Path('/replay/source').exists(); print('Only restored installed prefix and compiled independent consumer mounted')"
+    ],
+    "exitCode": 0,
+    "seconds": 0.56360687490087
+  },
+  {
+    "name": "file-input",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/file-input-restored-v1/package:/consumer-check",
+      "-w",
+      "/consumer-check",
+      "--env",
+      "QT_QPA_PLATFORM=offscreen",
+      "--env",
+      "QT_QUICK_BACKEND=software",
+      "--env",
+      "XDG_RUNTIME_DIR=/tmp/avelino-file-input-portable",
+      "avelino-toolchain:clipping-qt6.8.3",
+      "./consumer-build/InstalledConsumer",
+      "--file-input",
+      "--file-input-observe",
+      "--file-input-report",
+      "/consumer-check/replay-output/light-text1-dpr1"
+    ],
+    "exitCode": 0,
+    "seconds": 4.770262082922272
+  }
+]

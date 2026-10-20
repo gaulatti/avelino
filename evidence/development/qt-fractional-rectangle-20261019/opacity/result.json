@@ -1,0 +1,23 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--init",
+    "--rm",
+    "--ulimit",
+    "core=0",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/qt-rectangle-regression-v1:/result",
+    "sha256:478a1669218e3d2a3dc302a4929a8ebd7fe2d21b21b140eba5d15bd3a24296e3",
+    "bash",
+    "/result/check-qt-software-opacity.sh",
+    "/result/output"
+  ],
+  "exitCode": 0,
+  "seconds": 9.75830562505871,
+  "experimentalOnly": true,
+  "productSdkChanged": false,
+  "accepted": false
+}

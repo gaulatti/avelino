@@ -44,11 +44,19 @@ and [search fields](docs/search-field.md), plus [collection filters](docs/collec
 The [shared spinner contract](docs/spinner.md) records measured native sizes and
 model-frame timing, with visual and physical acceptance still pending.
 Shared label sizing follows [measured native typography](docs/typography.md).
+The [desktop application shell candidate](docs/mobile-shell.md) adds retained caller slots and a window-hosted section picker; complete mirror acceptance remains pending.
+
+The [desktop administration shell candidate](docs/admin-shell.md) adds a retained
+split view, caller-owned navigation requests, and separate native/caller toolbar
+actions. Its catalog and installed-consumer fixture is `admin-shell`; strict
+visual, input and accessibility acceptance remains pending.
+The [font raster investigation](docs/font-raster-investigation.md) retains font,
+hinting and fractional-placement controls without promoting a rendering model.
 The [empty/error/loading source investigation](docs/presentation-states.md)
 now has [Linux presentation-state candidates](docs/presentation-states.md); complete mirror acceptance remains pending.
 The [alert candidate](docs/alert.md) adds typed feedback with caller-owned content
 and native prose-layout evidence.
-Sixty-three of the 80 discovered desktop entries have Linux candidates;
+Seventy-seven of the 80 discovered desktop entries have Linux candidates;
 no component has passed its complete mirror gate.
 The public GitHub wiki remote is unavailable; documentation currently lives here.
 
@@ -78,6 +86,12 @@ Generic child clipping now has a [software renderer candidate](docs/content-clip
 sharing the existing continuous/circular/capsule paths; strict native acceptance
 remains pending.
 
+The [fractional rectangle stage](docs/qt-fractional-rectangle.md) improves the
+shell's exact body images from 76 to 80 of 144. The toolchain recipe retains both
+SDK provenance stages. The [completed pre-AdminShell Linux driver](evidence/development/qt-rectangle-linux-driver-20261020/scope.json)
+retains all 55 test groups, a fresh consumer, regenerated package and a manifest
+of 49,164 output members. Current-head CI and full mirror acceptance remain pending.
+
 The [Modal source investigation](docs/modal.md) records fixed-width layout,
 per-child padding and contextual sheet dismissal, with a clean source-only replay.
 Its Linux candidate adds caller content, separate-window presentation, catalog
@@ -106,7 +120,7 @@ closed source contexts remain in strict comparison: 76 exact pixel/frame matches
 1,168 frame matches and all produced states matching. Full Qt tests, independent
 packaging, eight virtual display profiles and actual gallery toolbar input pass.
 Native fonts/raster, complete contexts, physical displays and readers remain open.
-Desktop candidate coverage is 75/80; none are accepted.
+That checkpoint recorded desktop candidate coverage of 75/80; none were accepted.
 
 The [pill candidate](docs/pill-modifier.md) retains a single text caller, fixed mono 9
 font and 7/4 capsule padding, caller formatting and baseline guides. All 2,112
@@ -135,6 +149,34 @@ difference; Linux direct sizing remains unobserved. Fractional/text geometry,
 lazy height estimates, fonts/raster, native input timing,
 physical displays and readers remain pending; no mirror acceptance is claimed.
 
+The [HeroCarousel candidate](docs/hero-carousel-linux.md) supplies an owned
+horizontal viewport and retained caller slides, with catalog, independent
+package and eight virtual display profiles. All 192 observations remain strict:
+108 images, 184 active-frame sets and 168 lifecycle records match; 84 match all
+three together. Eight gallery contexts pass actual operator clicks and caller
+Tab/Space/disabled checks. Native sizing, complete geometry, lazy/gesture timing,
+font/raster, reader, physical and independent-machine acceptance remain pending.
+
+The [DateRangePicker reference investigation](docs/date-range-picker.md) preserves
+384 closed contexts, 17,280 sizing queries and 17 matching typed history steps.
+Its source-only rebuild replays all 1,206 files exactly on this machine. A native
+input supplement retains 82 OS events and 21 milestones, including identical
+ignore/delay images across three source variants, exact range clamping and
+graphical preview/Space-commit differences. The owned Qt editors now run in the
+catalog and independent consumer. Eight source-absent package/gallery profiles
+match all 384 native model/displayed-date observations; complete geometry matches
+in 8. All 401 strict closed/history image comparisons fail. Eight virtual display
+profiles pass structural/input checks. All 17 typed caller-history steps match model,
+editor identity, calendar and environment observations. Complete native input,
+geometry/raster, reader and physical acceptance remain pending. Desktop candidate coverage remains 76/80,
+with zero accepted APIs. The editor now has native-observed numeric slots, locale
+number formatting and locale-directed steppers; its new font/format source-only
+probe reproduces all 97 outputs exactly. A further 1,848-update native investigation
+finds stable intrinsic widths in 23 contexts, while the current Qt label advances
+vary in ten; its fresh source-only replay reproduces all 355 width/bounds/style files.
+The owned control now applies the measured size-specific stepper widths and field
+heights. Reserved-column sizing, font, raster and reader acceptance remain open.
+
 The [desktop app tab bar candidate](docs/app-tabs.md) preserves caller-owned
 selection requests, retained typed identities, integer badges and narrow overflow.
 All 1,208 native state observations agree; 940 frame sets and 56 images match.
@@ -149,7 +191,7 @@ zero complete frame sets or pixels match, with 48 body/caller-only frame matches
 The installed package, eight virtual display profiles and 24 exact gallery caller
 states pass. Native label/update timing, fonts/symbols/raster, popup presentation,
 sizing, accessibility, physical displays and readers remain pending. Desktop
-candidate coverage is 75/80 with zero accepted APIs.
+candidate coverage is 76/80 with zero accepted APIs.
 
 The [file input source investigation](docs/file-input.md) records 256 native
 closed contexts, 11,520 sizing responses and scoped chooser selection/cancel

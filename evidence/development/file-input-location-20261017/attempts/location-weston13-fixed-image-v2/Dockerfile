@@ -1,0 +1,8 @@
+FROM avelino-toolchain:recovered-a11y-20261017-qt6.8.3
+RUN apt-get update && apt-get install -y --no-install-recommends meson pkg-config libwayland-dev wayland-protocols libpixman-1-dev libinput-dev libudev-dev libdrm-dev libgbm-dev libegl-dev libgles-dev libcairo2-dev libpango1.0-dev libjpeg-dev libwebp-dev liblcms2-dev libxcb-composite0-dev libxcursor-dev libxcb-xfixes0-dev libxcb-shm0-dev libxcb-xkb-dev libxcb-render0-dev libxcb-xinput-dev libxcb-xinerama0-dev libxcb-randr0-dev libxkbcommon-dev libxkbcommon-x11-dev libpng-dev libglib2.0-dev && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y --no-install-recommends libx11-xcb-dev && rm -rf /var/lib/apt/lists/*
+COPY weston-13.0.4.tar.xz /tmp/weston-13.0.4.tar.xz
+RUN echo '66252c9c5bbc45ab402e2518b76e6d824f09ebc1d0040ee2f51b096a1bc585b1  /tmp/weston-13.0.4.tar.xz' | sha256sum -c - && tar -xf /tmp/weston-13.0.4.tar.xz -C /tmp && meson setup /tmp/weston-build /tmp/weston-13.0.4 --prefix=/opt/weston-13.0.4 --libdir=lib --buildtype=release -Dbackend-drm=false -Dbackend-drm-screencast-vaapi=false -Dbackend-pipewire=false -Dbackend-rdp=false -Dbackend-vnc=false -Dbackend-default=headless -Dscreenshare=false -Dxwayland=false -Dsystemd=false -Dremoting=false -Dpipewire=false -Dshell-fullscreen=false -Dshell-ivi=false -Dshell-kiosk=false -Dcolor-management-lcms=false -Dtools=[] -Ddemo-clients=false -Dsimple-clients=[] -Dwcap-decode=false -Dtest-junit-xml=false -Ddoc=false && meson compile -C /tmp/weston-build -j2 && meson install -C /tmp/weston-build && rm -rf /tmp/weston-build /tmp/weston-13.0.4 /tmp/weston-13.0.4.tar.xz
+ENV PATH=/opt/weston-13.0.4/bin:$PATH
+ENV LD_LIBRARY_PATH=/opt/weston-13.0.4/lib:/opt/qt/lib
+RUN weston --version && qmake -query QT_VERSION

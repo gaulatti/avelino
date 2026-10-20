@@ -97,6 +97,19 @@ static void runTooltipConsumer(QQuickWindow *window,QGuiApplication &app,
     if(!check(tooltipWindow && tooltipWindow!=window && tooltipWindow->isVisible(),"Remounted tooltip window missing")
         || !check(popup->property("parent").value<QQuickItem*>()==window->contentItem(),"Remounted tooltip lost its stable caller-window parent")
         || !frame(tooltipWindow))return;
+    for(int iteration=0;iteration<20;++iteration){
+        phase=QStringLiteral("repeated visible-owner remount %1").arg(iteration+1);
+        fixture->setProperty("mounted",false);QCoreApplication::processEvents();if(!waitVisible(help,false))return;
+        fixture->setProperty("mounted",true);QTest::qWait(10);
+        if(!check(fixture->property("localValue").toInt()==0 && fixture->property("appears").toInt()==iteration+3
+            && fixture->property("destroyedCount").toInt()==iteration+2,"Repeated remount did not retain the caller lifecycle"))return;
+        caller=window->property("primaryCaller").value<QQuickItem*>();away();move(caller);if(!waitVisible(help,true))return;
+        content=popup->property("contentItem").value<QQuickItem*>();tooltipWindow=content ? content->window():nullptr;
+        if(!check(tooltipWindow && tooltipWindow!=window && tooltipWindow->isVisible(),"Repeated tooltip window missing")
+            || !check(popup->property("parent").value<QQuickItem*>()==window->contentItem(),"Repeated tooltip lost its stable caller-window parent")
+            || !frame(tooltipWindow))return;
+        if(!check(field->hasActiveFocus(),"Repeated tooltip presentation stole the caller editor focus"))return;
+    }
     qInfo("Installed Tooltip: closed pixels, caller identity/input/binding, retained shown text, real separate popup, focus and Qt accessibility passed");
     if(!parser.isSet("evidence")){app.exit(0);return;}
     const auto path=parser.value("evidence");
@@ -110,6 +123,7 @@ static void runTooltipConsumer(QQuickWindow *window,QGuiApplication &app,
         {"inputMethod","QTest synthetic pointer and keyboard; actual Qt accessible interfaces"},
         {"windowCaptureMethod","QQuickWindow::grabWindow separately for parent and tooltip; compositor captured separately"},
         {"tooltipChecks","passed"},{"qtAccessibilityChecks","passed"},{"focusChecks","passed"},
+        {"repeatedRemountFrames",20},{"retainedCallerEditorFocus",true},
         {"separateTooltipWindow",true},{"tooltipWindowType",int(tooltipWindow->flags() & Qt::WindowType_Mask)},
         {"tooltipWidth",tooltipWindow->width()},{"tooltipHeight",tooltipWindow->height()},
         {"defaultTooltipPhysicalWidth",shown.width()},{"defaultTooltipPhysicalHeight",shown.height()},

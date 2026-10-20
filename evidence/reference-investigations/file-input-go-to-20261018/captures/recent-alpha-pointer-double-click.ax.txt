@@ -1,0 +1,49 @@
+Window: "Open", App: Avelino locations A.
+0 sheet Description: open, ID: open-panel, Secondary Actions: Raise
+	1 split group
+		2 scroll area Secondary Actions: Scroll Up, Scroll Down
+		34 splitter (disabled, settable, float) 159
+		35 scroll area
+			36 outline Description: list view, ID: ListView
+				37 row (selectable)
+					38 cell Secondary Actions: Open Finder item
+						39 image
+						40 text field (settable) Value: A.txt, Secondary Actions: Open Finder item, URL: file:///Users/gaulatti/.codex/tmp/avelino-file-input-go-to-20261018-v1/fixtures/Navigator%20Root/Alpha/A.txt
+					41 cell
+						42 text 50 bytes
+					43 cell
+						44 text Plain Text
+					45 cell
+						46 text Today at 22:22
+				47 row (selectable, collapsed) Secondary Actions: Expand
+					48 cell Secondary Actions: Open Finder item
+						49 image
+						50 text field (settable) Value: Child, Secondary Actions: Open Finder item, URL: file:///Users/gaulatti/.codex/tmp/avelino-file-input-go-to-20261018-v1/fixtures/Navigator%20Root/Alpha/Child/
+						51 disclosure triangle 0
+					52 cell
+						53 text --
+					54 cell
+						55 text Folder
+					56 cell
+						57 text Today at 22:22
+				58 container ListViewHeader
+					59 button Description: Name, Value: AXAscendingSortDirection, ID: name
+					60 button Description: Size, ID: size
+					61 button Description: Kind, ID: kind
+					62 button Description: Date Added, ID: dateAdded
+		63 container
+			64 button back
+			65 button (disabled) forward
+		66 menu button Description: List, Help: Show as Icons, List, or Columns, and hide/show the sidebar, ID: View Options
+		67 menu button Description: Three-by-one square grid below a one-by-two line grid, Help: Change the item grouping (hold down Option to change the sort), ID: Group or Sort By
+		68 pop up button Where:, Value: Alpha, ID: where popup
+		69 search text field Search
+			70 button search
+		71 button New Folder, ID: NewFolderButton
+		72 button Cancel, ID: CancelButton
+		73 button (disabled) Open, ID: OKButton
+74 menu bar
+	75 Avelino locations A
+	76 Edit
+
+The focused UI element is 36 outline Description: list view, ID: ListView

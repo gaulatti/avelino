@@ -4,7 +4,7 @@ import Avelino
 Window {
     id:window;width:840;height:560;visible:true;color:BleeckerTheme.palette.background
     title:"Avelino navigation and caller actions"
-    property string heading:"Editions"
+    property string heading:"Éditions 東京"
     property bool showHeader:true
     property bool replaceAction:false
     property var path:[{title:"Home",icon:house},{title:"Workspace"},{title:"Editions"}]

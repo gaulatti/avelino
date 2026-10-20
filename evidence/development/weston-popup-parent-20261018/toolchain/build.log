@@ -1,0 +1,668 @@
+#0 building with "colima-avelino-verify" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 553B 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/avelino-toolchain:recovered-weston13-cjk-v1-20261018-qt6.8.3
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/library/avelino-toolchain:recovered-weston13-cjk-v1-20261018-qt6.8.3@sha256:05ed336701790c156dc6f59b48c195d6ac36144205c0eb75696001e9c9893fc6
+#4 resolve docker.io/library/avelino-toolchain:recovered-weston13-cjk-v1-20261018-qt6.8.3@sha256:05ed336701790c156dc6f59b48c195d6ac36144205c0eb75696001e9c9893fc6 0.0s done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 2.00MB 0.1s done
+#5 DONE 0.1s
+
+#4 [1/5] FROM docker.io/library/avelino-toolchain:recovered-weston13-cjk-v1-20261018-qt6.8.3@sha256:05ed336701790c156dc6f59b48c195d6ac36144205c0eb75696001e9c9893fc6
+#4 CACHED
+
+#6 [2/5] COPY tools/install-weston.sh tools/weston-popup-parent.patch tools/weston-popup-order.c tools/check-weston-popup-parent.sh /usr/local/lib/avelino/
+#6 DONE 0.1s
+
+#7 [3/5] COPY weston-13.0.4.tar.xz /tmp/weston-source.tar.xz
+#7 DONE 0.1s
+
+#8 [4/5] RUN AVELINO_WESTON_ARCHIVE=/tmp/weston-source.tar.xz bash /usr/local/lib/avelino/install-weston.sh && rm /tmp/weston-source.tar.xz
+#8 1.072 Get:1 http://ports.ubuntu.com/ubuntu-ports noble InRelease [256 kB]
+#8 1.643 Get:2 http://ports.ubuntu.com/ubuntu-ports noble-updates InRelease [126 kB]
+#8 1.801 Get:3 http://ports.ubuntu.com/ubuntu-ports noble-backports InRelease [126 kB]
+#8 2.040 Get:4 http://ports.ubuntu.com/ubuntu-ports noble-security InRelease [126 kB]
+#8 2.178 Get:5 http://ports.ubuntu.com/ubuntu-ports noble/multiverse arm64 Packages [274 kB]
+#8 2.296 Get:6 http://ports.ubuntu.com/ubuntu-ports noble/restricted arm64 Packages [113 kB]
+#8 2.338 Get:7 http://ports.ubuntu.com/ubuntu-ports noble/universe arm64 Packages [19.0 MB]
+#8 3.310 Get:8 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 Packages [1776 kB]
+#8 3.364 Get:9 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 Packages [1786 kB]
+#8 3.404 Get:10 http://ports.ubuntu.com/ubuntu-ports noble-updates/universe arm64 Packages [2214 kB]
+#8 3.535 Get:11 http://ports.ubuntu.com/ubuntu-ports noble-updates/multiverse arm64 Packages [104 kB]
+#8 3.536 Get:12 http://ports.ubuntu.com/ubuntu-ports noble-updates/restricted arm64 Packages [3251 kB]
+#8 3.994 Get:13 http://ports.ubuntu.com/ubuntu-ports noble-backports/multiverse arm64 Packages [669 B]
+#8 3.997 Get:14 http://ports.ubuntu.com/ubuntu-ports noble-backports/universe arm64 Packages [36.3 kB]
+#8 3.999 Get:15 http://ports.ubuntu.com/ubuntu-ports noble-backports/main arm64 Packages [49.0 kB]
+#8 4.005 Get:16 http://ports.ubuntu.com/ubuntu-ports noble-security/main arm64 Packages [1475 kB]
+#8 4.087 Get:17 http://ports.ubuntu.com/ubuntu-ports noble-security/universe arm64 Packages [1638 kB]
+#8 4.129 Get:18 http://ports.ubuntu.com/ubuntu-ports noble-security/restricted arm64 Packages [3129 kB]
+#8 4.198 Get:19 http://ports.ubuntu.com/ubuntu-ports noble-security/multiverse arm64 Packages [99.1 kB]
+#8 5.713 Fetched 35.6 MB in 5s (7221 kB/s)
+#8 5.713 Reading package lists...
+#8 6.654 Reading package lists...
+#8 7.604 Building dependency tree...
+#8 7.987 Reading state information...
+#8 8.495 meson is already the newest version (1.3.2-1ubuntu1).
+#8 8.495 pkg-config is already the newest version (1.8.1-2build1).
+#8 8.495 patch is already the newest version (2.7.6-7build3).
+#8 8.495 patch set to manually installed.
+#8 8.495 libwayland-dev is already the newest version (1.22.0-2.1build1).
+#8 8.495 wayland-protocols is already the newest version (1.45-1~ubuntu0.24.04.2).
+#8 8.495 libpixman-1-dev is already the newest version (0.42.2-1build1).
+#8 8.495 libinput-dev is already the newest version (1.25.0-1ubuntu3.7).
+#8 8.495 libudev-dev is already the newest version (255.4-1ubuntu8.18).
+#8 8.495 libdrm-dev is already the newest version (2.4.125-1ubuntu0.1~24.04.2).
+#8 8.495 libgbm-dev is already the newest version (25.2.8-0ubuntu0.24.04.4).
+#8 8.495 libegl-dev is already the newest version (1.7.0-1build1).
+#8 8.495 libgles-dev is already the newest version (1.7.0-1build1).
+#8 8.495 libcairo2-dev is already the newest version (1.18.0-3build1).
+#8 8.495 libpango1.0-dev is already the newest version (1.52.1+ds-1build1).
+#8 8.495 libjpeg-dev is already the newest version (8c-2ubuntu11).
+#8 8.495 libwebp-dev is already the newest version (1.3.2-0.4build3).
+#8 8.495 liblcms2-dev is already the newest version (2.14-2ubuntu0.1).
+#8 8.495 libx11-xcb-dev is already the newest version (2:1.8.7-1ubuntu0.1).
+#8 8.495 libxcb-composite0-dev is already the newest version (1.15-1ubuntu2).
+#8 8.495 libxcursor-dev is already the newest version (1:1.2.1-1build1).
+#8 8.495 libxcb-xfixes0-dev is already the newest version (1.15-1ubuntu2).
+#8 8.495 libxcb-shm0-dev is already the newest version (1.15-1ubuntu2).
+#8 8.495 libxcb-xkb-dev is already the newest version (1.15-1ubuntu2).
+#8 8.495 libxcb-render0-dev is already the newest version (1.15-1ubuntu2).
+#8 8.495 libxcb-xinput-dev is already the newest version (1.15-1ubuntu2).
+#8 8.495 libxcb-xinerama0-dev is already the newest version (1.15-1ubuntu2).
+#8 8.495 libxcb-randr0-dev is already the newest version (1.15-1ubuntu2).
+#8 8.495 libxkbcommon-dev is already the newest version (1.6.0-1build1).
+#8 8.495 libxkbcommon-x11-dev is already the newest version (1.6.0-1build1).
+#8 8.495 libpng-dev is already the newest version (1.6.43-5ubuntu0.7).
+#8 8.495 libglib2.0-dev is already the newest version (2.80.0-6ubuntu3.9).
+#8 8.495 0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+#8 8.853 patching file libweston/desktop/surface.c
+#8 11.53 The Meson build system
+#8 11.53 Version: 1.3.2
+#8 11.53 Source dir: /tmp/tmp.H30xEX2yvO/weston-13.0.4
+#8 11.53 Build dir: /tmp/tmp.H30xEX2yvO/build
+#8 11.53 Build type: native build
+#8 11.53 Project name: weston
+#8 11.53 Project version: 13.0.4
+#8 11.53 C compiler for the host machine: cc (gcc 13.3.0 "cc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0")
+#8 11.53 C linker for the host machine: cc ld.bfd 2.42
+#8 11.53 Host machine cpu family: aarch64
+#8 11.53 Host machine cpu: aarch64
+#8 11.53 Compiler for C supports arguments -Wmissing-prototypes: YES 
+#8 11.53 Compiler for C supports arguments -Wno-unused-parameter: YES 
+#8 11.53 Compiler for C supports arguments -Wno-shift-negative-value: YES 
+#8 11.53 Compiler for C supports arguments -Wno-missing-field-initializers: YES 
+#8 11.53 Compiler for C supports arguments -Wno-pedantic: YES 
+#8 11.53 Compiler for C supports arguments -Wundef: YES 
+#8 11.53 Compiler for C supports arguments -fvisibility=hidden: YES 
+#8 11.53 Header "sys/sysmacros.h" has symbol "major" : YES 
+#8 11.53 Checking for function "mkostemp" : YES 
+#8 11.53 Checking for function "strchrnul" : YES 
+#8 11.53 Checking for function "initgroups" : YES 
+#8 11.53 Checking for function "posix_fallocate" : YES 
+#8 11.53 Checking for function "memfd_create" : YES 
+#8 11.53 Checking for function "unreachable" : YES 
+#8 11.53 Has header "linux/sync_file.h" : YES 
+#8 11.53 Message: The default backend is headless
+#8 11.53 Found pkg-config: YES (/usr/bin/pkg-config) 1.8.1
+#8 11.53 Run-time dependency xkbcommon found: YES 1.6.0
+#8 11.53 Run-time dependency wayland-server found: YES 1.22.0
+#8 11.53 Run-time dependency wayland-client found: YES 1.22.0
+#8 11.53 Run-time dependency pixman-1 found: YES 0.42.2
+#8 11.53 Run-time dependency libinput found: YES 1.25.0
+#8 11.53 Run-time dependency libevdev found: YES 1.13.1
+#8 11.53 Library m found: YES
+#8 11.53 Library dl found: YES
+#8 11.53 Run-time dependency libdrm found: YES 2.4.125
+#8 11.53 Run-time dependency threads found: YES
+#8 11.53 Run-time dependency lcms2 found: YES 2.14
+#8 11.53 Program python3 found: YES (/usr/bin/python3)
+#8 11.53 Configuring version.h using configuration
+#8 11.53 Build-time dependency wayland-scanner found: YES 1.22.0
+#8 11.53 Program /usr/bin/wayland-scanner found: YES (/usr/bin/wayland-scanner)
+#8 11.53 Run-time dependency wayland-protocols found: YES 1.45
+#8 11.53 Run-time dependency xcb found: YES 1.15
+#8 11.53 Run-time dependency cairo found: YES 1.18.0
+#8 11.53 Run-time dependency libpng found: YES 1.6.43
+#8 11.53 Run-time dependency pango found: YES 1.52.1
+#8 11.53 Run-time dependency pangocairo found: YES 1.52.1
+#8 11.53 Run-time dependency fontconfig found: YES 2.15.0
+#8 11.53 Run-time dependency glib-2.0 found: YES 2.80.0
+#8 11.53 Run-time dependency libjpeg found: YES 2.1.5
+#8 11.53 Run-time dependency libwebp found: YES 1.3.2
+#8 11.53 Run-time dependency egl found: YES 1.5
+#8 11.53 Run-time dependency libudev found: YES 255
+#8 11.53 Dependency egl found: YES 1.5 (cached)
+#8 11.53 Run-time dependency glesv2 found: YES 3.2
+#8 11.53 Dependency wayland-client found: YES 1.22.0 (cached)
+#8 11.53 Run-time dependency wayland-cursor found: YES 1.22.0
+#8 11.53 Run-time dependency wayland-egl found: YES 18.1.0
+#8 11.53 Dependency xcb found: YES 1.15 (cached)
+#8 11.53 Run-time dependency xcb-shm found: YES 1.15
+#8 11.53 Run-time dependency x11 found: YES 1.8.7
+#8 11.53 Run-time dependency x11-xcb found: YES 1.8.7
+#8 11.53 Run-time dependency xcb-xkb found: YES 1.15
+#8 11.53 Configuring weston.ini using configuration
+#8 11.53 Dependency wayland-cursor found: YES 1.22.0 (cached)
+#8 11.53 Library util found: YES
+#8 11.53 Run-time dependency gbm found: YES 25.2.8-0ubuntu0.24.04.4
+#8 11.53 Dependency libudev found: YES 255 (cached)
+#8 11.53 Dependency gbm found: YES 25.2.8-0ubuntu0.24.04.4 (cached)
+#8 11.53 Dependency cairo found: YES 1.18.0 (cached)
+#8 11.53 Dependency libudev found: YES 255 (cached)
+#8 11.53 Configuring test-config.h using configuration
+#8 11.53 Configuring weston.1 using configuration
+#8 11.53 Configuring weston-bindings.7 using configuration
+#8 11.53 Configuring weston-debug.1 using configuration
+#8 11.53 Configuring weston.ini.5 using configuration
+#8 11.53 Configuring config.h using configuration
+#8 11.53 Message: Documentation will not be built. Use -Ddoc to build it.
+#8 11.53 Build targets in project: 158
+#8 11.53 
+#8 11.53 weston 13.0.4
+#8 11.53 
+#8 11.53   User defined options
+#8 11.53     buildtype                   : release
+#8 11.53     libdir                      : lib
+#8 11.53     prefix                      : /opt/weston-13.0.4
+#8 11.53     backend-default             : headless
+#8 11.53     backend-drm                 : false
+#8 11.53     backend-drm-screencast-vaapi: false
+#8 11.53     backend-pipewire            : false
+#8 11.53     backend-rdp                 : false
+#8 11.53     backend-vnc                 : false
+#8 11.53     color-management-lcms       : false
+#8 11.53     demo-clients                : false
+#8 11.53     doc                         : false
+#8 11.53     pipewire                    : false
+#8 11.53     remoting                    : false
+#8 11.53     screenshare                 : false
+#8 11.53     shell-fullscreen            : false
+#8 11.53     shell-ivi                   : false
+#8 11.53     shell-kiosk                 : false
+#8 11.53     simple-clients              : []
+#8 11.53     systemd                     : false
+#8 11.53     test-junit-xml              : false
+#8 11.53     tools                       : []
+#8 11.53     wcap-decode                 : false
+#8 11.53     xwayland                    : false
+#8 11.53 
+#8 11.53 Found ninja-1.11.1 at /usr/bin/ninja
+#8 11.97 ninja: Entering directory `/tmp/tmp.H30xEX2yvO/build'
+#8 11.99 [1/329] Generating protocol/fullscreen-shell-unstable-v1 client-header with a custom command
+#8 12.00 [2/329] Generating protocol/fullscreen-shell-unstable-v1 private-code with a custom command
+#8 12.00 [3/329] Generating protocol/input-method-unstable-v1 client-header with a custom command
+#8 12.01 [4/329] Generating protocol/input-method-unstable-v1 server-header with a custom command
+#8 12.02 [5/329] Generating protocol/input-method-unstable-v1 private-code with a custom command
+#8 12.02 [6/329] Generating protocol/input-timestamps-unstable-v1 client-header with a custom command
+#8 12.02 [7/329] Generating protocol/input-timestamps-unstable-v1 server-header with a custom command
+#8 12.03 [8/329] Generating protocol/input-timestamps-unstable-v1 private-code with a custom command
+#8 12.03 [9/329] Generating protocol/ivi-application client-header with a custom command
+#8 12.04 [10/329] Generating protocol/ivi-application private-code with a custom command
+#8 12.04 [11/329] Generating protocol/linux-dmabuf-unstable-v1 server-header with a custom command
+#8 12.04 [12/329] Generating protocol/linux-dmabuf-unstable-v1 private-code with a custom command
+#8 12.05 [13/329] Generating protocol/linux-explicit-synchronization-unstable-v1 client-header with a custom command
+#8 12.05 [14/329] Generating protocol/linux-explicit-synchronization-unstable-v1 server-header with a custom command
+#8 12.05 [15/329] Generating protocol/linux-explicit-synchronization-unstable-v1 private-code with a custom command
+#8 12.05 [16/329] Generating git-version.h with a custom command
+#8 12.06 [17/329] Generating protocol/presentation-time server-header with a custom command
+#8 12.06 [18/329] Generating protocol/presentation-time client-header with a custom command
+#8 12.06 [19/329] Generating protocol/presentation-time private-code with a custom command
+#8 12.07 [20/329] Generating protocol/pointer-constraints-unstable-v1 client-header with a custom command
+#8 12.07 [21/329] Generating protocol/pointer-constraints-unstable-v1 server-header with a custom command
+#8 12.07 [22/329] Generating protocol/pointer-constraints-unstable-v1 private-code with a custom command
+#8 12.07 [23/329] Generating protocol/relative-pointer-unstable-v1 client-header with a custom command
+#8 12.08 [24/329] Generating protocol/relative-pointer-unstable-v1 private-code with a custom command
+#8 12.08 [25/329] Generating protocol/relative-pointer-unstable-v1 server-header with a custom command
+#8 12.08 [26/329] Generating protocol/single-pixel-buffer-v1 client-header with a custom command
+#8 12.09 [27/329] Generating protocol/single-pixel-buffer-v1 server-header with a custom command
+#8 12.09 [28/329] Generating protocol/single-pixel-buffer-v1 private-code with a custom command
+#8 12.11 [29/329] Generating protocol/tablet-unstable-v2 server-header with a custom command
+#8 12.11 [30/329] Generating protocol/tablet-unstable-v2 client-header with a custom command
+#8 12.13 [31/329] Generating protocol/tablet-unstable-v2 private-code with a custom command
+#8 12.13 [32/329] Generating protocol/tearing-control-v1 private-code with a custom command
+#8 12.14 [33/329] Generating protocol/tearing-control-v1 server-header with a custom command
+#8 12.14 [34/329] Generating protocol/text-cursor-position server-header with a custom command
+#8 12.14 [35/329] Generating protocol/text-cursor-position client-header with a custom command
+#8 12.14 [36/329] Generating protocol/text-cursor-position private-code with a custom command
+#8 12.15 [37/329] Generating protocol/text-input-unstable-v1 client-header with a custom command
+#8 12.15 [38/329] Generating protocol/text-input-unstable-v1 server-header with a custom command
+#8 12.15 [39/329] Generating protocol/viewporter client-header with a custom command
+#8 12.16 [40/329] Generating protocol/text-input-unstable-v1 private-code with a custom command
+#8 12.16 [41/329] Generating protocol/viewporter server-header with a custom command
+#8 12.16 [42/329] Generating protocol/viewporter private-code with a custom command
+#8 12.17 [43/329] Generating protocol/weston-debug private-code with a custom command
+#8 12.17 [44/329] Generating protocol/weston-debug server-header with a custom command
+#8 12.17 [45/329] Generating protocol/weston-desktop-shell client-header with a custom command
+#8 12.17 [46/329] Generating protocol/weston-desktop-shell private-code with a custom command
+#8 12.17 [47/329] Generating protocol/weston-desktop-shell server-header with a custom command
+#8 12.18 [48/329] Generating protocol/weston-output-capture server-header with a custom command
+#8 12.18 [49/329] Generating protocol/weston-output-capture client-header with a custom command
+#8 12.18 [50/329] Generating protocol/weston-output-capture private-code with a custom command
+#8 12.18 [51/329] Generating protocol/weston-content-protection server-header with a custom command
+#8 12.18 [52/329] Generating protocol/weston-content-protection private-code with a custom command
+#8 12.19 [53/329] Generating protocol/weston-test client-header with a custom command
+#8 12.19 [54/329] Generating protocol/weston-test server-header with a custom command
+#8 12.19 [55/329] Generating protocol/weston-touch-calibration server-header with a custom command
+#8 12.19 [56/329] Generating protocol/weston-touch-calibration private-code with a custom command
+#8 12.20 [57/329] Generating protocol/weston-test private-code with a custom command
+#8 12.21 [58/329] Generating protocol/weston-direct-display server-header with a custom command
+#8 12.21 [59/329] Generating protocol/weston-direct-display private-code with a custom command
+#8 12.22 [60/329] Generating protocol/xdg-output-unstable-v1 server-header with a custom command
+#8 12.22 [61/329] Generating protocol/xdg-output-unstable-v1 private-code with a custom command
+#8 12.23 [62/329] Generating protocol/xdg-shell-unstable-v6 private-code with a custom command
+#8 12.23 [63/329] Generating protocol/xdg-shell-unstable-v6 server-header with a custom command
+#8 12.24 [64/329] Generating protocol/xdg-shell server-header with a custom command
+#8 12.24 [65/329] Generating protocol/xdg-shell client-header with a custom command
+#8 12.25 [66/329] Generating protocol/xdg-shell private-code with a custom command
+#8 12.37 [67/329] Compiling C object shared/libshared.a.p/option-parser.c.o
+#8 12.40 [68/329] Compiling C object shared/libshared.a.p/signal.c.o
+#8 12.45 [69/329] Compiling C object shared/libshared.a.p/file-util.c.o
+#8 12.52 [70/329] Compiling C object shared/libshared.a.p/config-parser.c.o
+#8 12.61 [71/329] Compiling C object shared/libshared.a.p/os-compatibility.c.o
+#8 12.65 [72/329] Compiling C object shared/libshared.a.p/process-util.c.o
+#8 12.67 [73/329] Compiling C object shared/libshared.a.p/hash.c.o
+#8 12.68 [74/329] Linking static target shared/libshared.a
+#8 12.84 [75/329] Compiling C object shared/libcairo-shared.a.p/image-loader.c.o
+#8 13.41 [76/329] Compiling C object shared/libcairo-shared.a.p/cairo-util.c.o
+#8 13.46 [77/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_linux-dmabuf-unstable-v1-protocol.c.o
+#8 13.50 [78/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_linux-explicit-synchronization-unstable-v1-protocol.c.o
+#8 13.52 [79/329] Compiling C object shared/libcairo-shared.a.p/frame.c.o
+#8 13.53 [80/329] Linking static target shared/libcairo-shared.a
+#8 13.56 [81/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_input-method-unstable-v1-protocol.c.o
+#8 13.59 [82/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_input-timestamps-unstable-v1-protocol.c.o
+#8 13.59 [83/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_presentation-time-protocol.c.o
+#8 13.63 [84/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_relative-pointer-unstable-v1-protocol.c.o
+#8 13.63 [85/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_pointer-constraints-unstable-v1-protocol.c.o
+#8 13.66 [86/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_tearing-control-v1-protocol.c.o
+#8 13.68 [87/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_single-pixel-buffer-v1-protocol.c.o
+#8 13.70 [88/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_text-cursor-position-protocol.c.o
+#8 13.71 [89/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_text-input-unstable-v1-protocol.c.o
+#8 13.72 [90/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_weston-touch-calibration-protocol.c.o
+#8 13.74 [91/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_weston-content-protection-protocol.c.o
+#8 13.76 [92/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_viewporter-protocol.c.o
+#8 13.78 [93/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_xdg-output-unstable-v1-protocol.c.o
+#8 13.81 [94/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_weston-debug-protocol.c.o
+#8 13.82 [95/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_weston-direct-display-protocol.c.o
+#8 13.83 [96/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_weston-output-capture-protocol.c.o
+#8 13.87 [97/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_tablet-unstable-v2-protocol.c.o
+#8 13.88 [98/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_xdg-shell-unstable-v6-protocol.c.o
+#8 13.91 [99/329] Compiling C object libweston/libweston-13.so.0.0.4.p/meson-generated_.._.._protocol_xdg-shell-protocol.c.o
+#8 14.01 [100/329] Compiling C object libweston/libweston-13.so.0.0.4.p/auth.c.o
+#8 14.12 [101/329] Compiling C object libweston/libweston-13.so.0.0.4.p/animation.c.o
+#8 14.18 [102/329] Compiling C object libweston/libweston-13.so.0.0.4.p/bindings.c.o
+#8 14.23 [103/329] Compiling C object libweston/libweston-13.so.0.0.4.p/clipboard.c.o
+#8 14.33 [104/329] Compiling C object libweston/libweston-13.so.0.0.4.p/color.c.o
+#8 14.39 [105/329] Compiling C object libweston/libweston-13.so.0.0.4.p/color-noop.c.o
+#8 14.70 [106/329] Compiling C object libweston/libweston-13.so.0.0.4.p/content-protection.c.o
+#8 15.31 [107/329] Compiling C object libweston/libweston-13.so.0.0.4.p/data-device.c.o
+#8 15.50 [108/329] Compiling C object libweston/libweston-13.so.0.0.4.p/drm-formats.c.o
+#8 17.24 [109/329] Compiling C object libweston/libweston-13.so.0.0.4.p/input.c.o
+#8 17.24 ../weston-13.0.4/libweston/input.c: In function ‘weston_pointer_send_motion’:
+#8 17.24 ../weston-13.0.4/libweston/input.c:578:59: warning: ‘old_sx’ may be used uninitialized [-Wmaybe-uninitialized]
+#8 17.24   578 |         if (pointer->focus && old_focus == pointer->focus &&
+#8 17.24       |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+#8 17.24   579 |             (old_sx != pointer->sx || old_sy != pointer->sy)) {
+#8 17.24       |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#8 17.24 ../weston-13.0.4/libweston/input.c:558:20: note: ‘old_sx’ was declared here
+#8 17.24   558 |         wl_fixed_t old_sx;
+#8 17.24       |                    ^~~~~~
+#8 17.24 ../weston-13.0.4/libweston/input.c:579:36: warning: ‘old_sy’ may be used uninitialized [-Wmaybe-uninitialized]
+#8 17.24   579 |             (old_sx != pointer->sx || old_sy != pointer->sy)) {
+#8 17.24       |             ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#8 17.24 ../weston-13.0.4/libweston/input.c:559:20: note: ‘old_sy’ was declared here
+#8 17.24   559 |         wl_fixed_t old_sy;
+#8 17.24       |                    ^~~~~~
+#8 17.24 ../weston-13.0.4/libweston/input.c: In function ‘weston_pointer_set_focus’:
+#8 17.24 ../weston-13.0.4/libweston/input.c:1991:29: warning: ‘sx’ may be used uninitialized [-Wmaybe-uninitialized]
+#8 17.24  1991 |                 pointer->sx = sx;
+#8 17.24       |                 ~~~~~~~~~~~~^~~~
+#8 17.24 ../weston-13.0.4/libweston/input.c:1916:20: note: ‘sx’ was declared here
+#8 17.24  1916 |         wl_fixed_t sx, sy;
+#8 17.24       |                    ^~
+#8 17.24 ../weston-13.0.4/libweston/input.c:1992:29: warning: ‘sy’ may be used uninitialized [-Wmaybe-uninitialized]
+#8 17.24  1992 |                 pointer->sy = sy;
+#8 17.24       |                 ~~~~~~~~~~~~^~~~
+#8 17.24 ../weston-13.0.4/libweston/input.c:1916:24: note: ‘sy’ was declared here
+#8 17.24  1916 |         wl_fixed_t sx, sy;
+#8 17.24       |                        ^~
+#8 17.41 [110/329] Compiling C object libweston/libweston-13.so.0.0.4.p/compositor.c.o
+#8 17.58 [111/329] Compiling C object libweston/libweston-13.so.0.0.4.p/linux-explicit-synchronization.c.o
+#8 17.68 [112/329] Compiling C object libweston/libweston-13.so.0.0.4.p/linux-dmabuf.c.o
+#8 17.69 [113/329] Compiling C object libweston/libweston-13.so.0.0.4.p/linux-sync-file.c.o
+#8 17.75 [114/329] Compiling C object libweston/libweston-13.so.0.0.4.p/log.c.o
+#8 17.78 [115/329] Compiling C object libweston/libweston-13.so.0.0.4.p/noop-renderer.c.o
+#8 17.93 [116/329] Compiling C object libweston/libweston-13.so.0.0.4.p/output-capture.c.o
+#8 17.95 [117/329] Compiling C object libweston/libweston-13.so.0.0.4.p/pixel-formats.c.o
+#8 18.09 [118/329] Compiling C object libweston/libweston-13.so.0.0.4.p/plugin-registry.c.o
+#8 18.24 [119/329] Compiling C object libweston/libweston-13.so.0.0.4.p/screenshooter.c.o
+#8 18.26 [120/329] Compiling C object libweston/libweston-13.so.0.0.4.p/pixman-renderer.c.o
+#8 18.37 [121/329] Compiling C object libweston/libweston-13.so.0.0.4.p/timeline.c.o
+#8 18.42 [122/329] Compiling C object libweston/libweston-13.so.0.0.4.p/touch-calibration.c.o
+#8 18.45 [123/329] Compiling C object libweston/libweston-13.so.0.0.4.p/weston-log-wayland.c.o
+#8 18.46 [124/329] Compiling C object libweston/libweston-13.so.0.0.4.p/weston-log-file.c.o
+#8 18.55 [125/329] Compiling C object libweston/libweston-13.so.0.0.4.p/weston-log-flight-rec.c.o
+#8 18.61 [126/329] Compiling C object libweston/libweston-13.so.0.0.4.p/weston-direct-display.c.o
+#8 18.66 [127/329] Compiling C object libweston/libweston-13.so.0.0.4.p/weston-log.c.o
+#8 18.69 [128/329] Compiling C object libweston/libweston-13.so.0.0.4.p/desktop_libweston-desktop.c.o
+#8 18.75 [129/329] Compiling C object libweston/libweston-13.so.0.0.4.p/desktop_client.c.o
+#8 18.82 [130/329] Compiling C object libweston/libweston-13.so.0.0.4.p/desktop_seat.c.o
+#8 19.04 [131/329] Compiling C object libweston/libweston-13.so.0.0.4.p/desktop_xwayland.c.o
+#8 19.06 [132/329] Compiling C object libweston/libweston-13.so.0.0.4.p/desktop_surface.c.o
+#8 19.43 [133/329] Compiling C object libweston/libweston-13.so.0.0.4.p/desktop_xdg-shell-v6.c.o
+#8 19.47 [134/329] Compiling C object libweston/libweston-13.so.0.0.4.p/desktop_xdg-shell.c.o
+#8 19.61 [135/329] Compiling C object libweston/libweston-13.so.0.0.4.p/shell-utils_shell-utils.c.o
+#8 19.71 [136/329] Compiling C object libweston/libweston-13.so.0.0.4.p/.._shared_matrix.c.o
+#8 19.78 [137/329] Linking target libweston/libweston-13.so.0.0.4
+#8 19.84 [138/329] Compiling C object libweston/liblibinput-backend.a.p/libinput-device.c.o
+#8 20.41 [139/329] Generating symbol file libweston/libweston-13.so.0.0.4.p/libweston-13.so.0.0.4.symbols
+#8 20.71 [140/329] Compiling C object libweston/liblibinput-backend.a.p/libinput-seat.c.o
+#8 20.72 [141/329] Linking static target libweston/liblibinput-backend.a
+#8 20.82 [142/329] Generating libweston/renderer-gl/vertex-shader.h with a custom command
+#8 20.84 [143/329] Generating libweston/renderer-gl/fragment-shader.h with a custom command
+#8 20.90 [144/329] Compiling C object libweston/renderer-gl/gl-renderer.so.p/meson-generated_.._.._.._protocol_linux-dmabuf-unstable-v1-protocol.c.o
+#8 20.95 [145/329] Compiling C object libweston/libgl-borders.a.p/gl-borders.c.o
+#8 20.96 [146/329] Linking static target libweston/libgl-borders.a
+#8 21.30 [147/329] Compiling C object libweston/renderer-gl/gl-renderer.so.p/egl-glue.c.o
+#8 21.59 [148/329] Compiling C object libweston/renderer-gl/gl-renderer.so.p/gl-shaders.c.o
+#8 21.77 [149/329] Compiling C object libweston/renderer-gl/gl-renderer.so.p/gl-shader-config-color-transformation.c.o
+#8 21.88 [150/329] Compiling C object libweston/renderer-gl/gl-renderer.so.p/.._vertex-clipping.c.o
+#8 22.08 [151/329] Compiling C object libweston/renderer-gl/gl-renderer.so.p/gl-renderer.c.o
+#8 22.11 [152/329] Linking target libweston/renderer-gl/gl-renderer.so
+#8 22.13 [153/329] Compiling C object libweston/backend-headless/headless-backend.so.p/headless.c.o
+#8 22.13 In function ‘headless_backend_create’,
+#8 22.13     inlined from ‘weston_backend_init’ at ../weston-13.0.4/libweston/backend-headless/headless.c:661:6:
+#8 22.13 ../weston-13.0.4/libweston/backend-headless/headless.c:604:20: warning: ‘ret’ may be used uninitialized [-Wmaybe-uninitialized]
+#8 22.13   604 |                 if (ret < 0)
+#8 22.13       |                    ^
+#8 22.13 ../weston-13.0.4/libweston/backend-headless/headless.c: In function ‘weston_backend_init’:
+#8 22.13 ../weston-13.0.4/libweston/backend-headless/headless.c:541:13: note: ‘ret’ was declared here
+#8 22.13   541 |         int ret;
+#8 22.13       |             ^~~
+#8 22.21 [154/329] Generating symbol file libweston/renderer-gl/gl-renderer.so.p/gl-renderer.so.symbols
+#8 22.22 [155/329] Linking target libweston/backend-headless/headless-backend.so
+#8 22.25 [156/329] Compiling C object libweston/backend-wayland/wayland-backend.so.p/meson-generated_.._.._.._protocol_presentation-time-protocol.c.o
+#8 22.28 [157/329] Compiling C object libweston/backend-wayland/wayland-backend.so.p/meson-generated_.._.._.._protocol_xdg-shell-protocol.c.o
+#8 22.30 [158/329] Compiling C object libweston/backend-wayland/wayland-backend.so.p/meson-generated_.._.._.._protocol_fullscreen-shell-unstable-v1-protocol.c.o
+#8 22.84 [159/329] Compiling C object libweston/backend-x11/x11-backend.so.p/x11.c.o
+#8 22.93 [160/329] Linking target libweston/backend-x11/x11-backend.so
+#8 22.98 [161/329] Compiling C object compositor/libexec_weston.so.0.0.0.p/meson-generated_.._.._protocol_text-input-unstable-v1-protocol.c.o
+#8 23.01 [162/329] Compiling C object compositor/libexec_weston.so.0.0.0.p/meson-generated_.._.._protocol_input-method-unstable-v1-protocol.c.o
+#8 23.08 [163/329] Compiling C object libweston/backend-wayland/wayland-backend.so.p/wayland.c.o
+#8 23.15 [164/329] Linking target libweston/backend-wayland/wayland-backend.so
+#8 23.45 [165/329] Compiling C object compositor/libexec_weston.so.0.0.0.p/text-backend.c.o
+#8 23.56 [166/329] Compiling C object compositor/libexec_weston.so.0.0.0.p/config-helpers.c.o
+#8 23.67 [167/329] Compiling C object compositor/libexec_weston.so.0.0.0.p/weston-screenshooter.c.o
+#8 23.78 [168/329] Compiling C object compositor/weston.p/executable.c.o
+#8 23.85 [169/329] Compiling C object desktop-shell/desktop-shell.so.p/meson-generated_.._.._protocol_weston-desktop-shell-protocol.c.o
+#8 23.88 [170/329] Compiling C object desktop-shell/desktop-shell.so.p/meson-generated_.._.._protocol_input-method-unstable-v1-protocol.c.o
+#8 24.21 [171/329] Compiling C object compositor/libexec_weston.so.0.0.0.p/main.c.o
+#8 24.21 ../weston-13.0.4/compositor/main.c: In function ‘wet_output_set_eotf_mode’:
+#8 24.21 ../weston-13.0.4/compositor/main.c:1435:6: warning: "HAVE_LIBDISPLAY_INFO" is not defined, evaluates to 0 [-Wundef]
+#8 24.21  1435 | #if !HAVE_LIBDISPLAY_INFO
+#8 24.21       |      ^~~~~~~~~~~~~~~~~~~~
+#8 24.26 [172/329] Linking target compositor/libexec_weston.so.0.0.0
+#8 24.34 [173/329] Generating symbol file compositor/libexec_weston.so.0.0.0.p/libexec_weston.so.0.0.0.symbols
+#8 24.42 [174/329] Linking target compositor/weston
+#8 24.63 [175/329] Compiling C object desktop-shell/desktop-shell.so.p/input-panel.c.o
+#8 24.69 [176/329] Compiling C object clients/libtoytoolkit.a.p/meson-generated_.._.._protocol_xdg-shell-protocol.c.o
+#8 24.73 [177/329] Compiling C object clients/libtoytoolkit.a.p/meson-generated_.._.._protocol_text-cursor-position-protocol.c.o
+#8 24.75 [178/329] Compiling C object clients/libtoytoolkit.a.p/meson-generated_.._.._protocol_relative-pointer-unstable-v1-protocol.c.o
+#8 24.77 [179/329] Compiling C object clients/libtoytoolkit.a.p/meson-generated_.._.._protocol_pointer-constraints-unstable-v1-protocol.c.o
+#8 24.80 [180/329] Compiling C object clients/libtoytoolkit.a.p/meson-generated_.._.._protocol_tablet-unstable-v2-protocol.c.o
+#8 24.83 [181/329] Compiling C object clients/libtoytoolkit.a.p/meson-generated_.._.._protocol_ivi-application-protocol.c.o
+#8 24.89 [182/329] Compiling C object clients/libtoytoolkit.a.p/meson-generated_.._.._protocol_viewporter-protocol.c.o
+#8 24.98 [183/329] Compiling C object desktop-shell/desktop-shell.so.p/shell.c.o
+#8 25.03 [184/329] Linking target desktop-shell/desktop-shell.so
+#8 25.18 [185/329] Compiling C object clients/libtoytoolkit.a.p/.._shared_matrix.c.o
+#8 25.22 [186/329] Compiling C object clients/weston-keyboard.p/meson-generated_.._.._protocol_text-input-unstable-v1-protocol.c.o
+#8 25.25 [187/329] Compiling C object clients/weston-keyboard.p/meson-generated_.._.._protocol_input-method-unstable-v1-protocol.c.o
+#8 25.47 [188/329] Compiling C object clients/weston-keyboard.p/keyboard.c.o
+#8 25.61 [189/329] Compiling C object clients/weston-keyboard.p/.._shared_matrix.c.o
+#8 25.68 [190/329] Compiling C object clients/weston-desktop-shell.p/meson-generated_.._.._protocol_weston-desktop-shell-protocol.c.o
+#8 25.71 [191/329] Compiling C object clients/weston-desktop-shell.p/meson-generated_.._.._protocol_tablet-unstable-v2-protocol.c.o
+#8 26.29 [192/329] Compiling C object clients/weston-desktop-shell.p/desktop-shell.c.o
+#8 26.51 [193/329] Compiling C object clients/weston-desktop-shell.p/.._shared_matrix.c.o
+#8 26.54 [194/329] Compiling C object clients/weston-screenshooter.p/meson-generated_.._.._protocol_weston-output-capture-protocol.c.o
+#8 26.63 [195/329] Compiling C object clients/libtoytoolkit.a.p/window.c.o
+#8 26.64 [196/329] Linking static target clients/libtoytoolkit.a
+#8 26.72 [197/329] Compiling C object clients/weston-screenshooter.p/screenshot.c.o
+#8 26.73 [198/329] Linking target clients/weston-keyboard
+#8 26.80 [199/329] Linking target clients/weston-desktop-shell
+#8 26.86 [200/329] Compiling C object clients/weston-screenshooter.p/.._shared_matrix.c.o
+#8 26.89 [201/329] Compiling C object tests/weston-test-desktop-shell.so.p/weston-test-desktop-shell.c.o
+#8 26.92 [202/329] Linking target tests/weston-test-desktop-shell.so
+#8 26.97 [203/329] Linking target clients/weston-screenshooter
+#8 27.02 [204/329] Compiling C object tests/libtest-client.a.p/meson-generated_.._.._protocol_weston-test-protocol.c.o
+#8 27.07 [205/329] Compiling C object tests/libtest-client.a.p/meson-generated_.._.._protocol_weston-output-capture-protocol.c.o
+#8 27.09 [206/329] Compiling C object tests/libtest-client.a.p/meson-generated_.._.._protocol_viewporter-protocol.c.o
+#8 27.11 [207/329] Compiling C object tests/libtest-runner.a.p/weston-test-runner.c.o
+#8 27.11 [208/329] Linking static target tests/libtest-runner.a
+#8 27.26 [209/329] Compiling C object tests/libtest-client.a.p/weston-test-fixture-compositor.c.o
+#8 27.26 ../weston-13.0.4/tests/weston-test-fixture-compositor.c: In function ‘execute_compositor’:
+#8 27.26 ../weston-13.0.4/tests/weston-test-fixture-compositor.c:279:21: warning: unused variable ‘drm_device’ [-Wunused-variable]
+#8 27.26   279 |         const char *drm_device;
+#8 27.26       |                     ^~~~~~~~~~
+#8 27.26 ../weston-13.0.4/tests/weston-test-fixture-compositor.c: At top level:
+#8 27.26 ../weston-13.0.4/tests/weston-test-fixture-compositor.c:142:1: warning: ‘wait_for_lock’ defined but not used [-Wunused-function]
+#8 27.26   142 | wait_for_lock(void)
+#8 27.26       | ^~~~~~~~~~~~~
+#8 27.73 [210/329] Compiling C object tests/libtest-client.a.p/color_util.c.o
+#8 27.77 [211/329] Compiling C object tests/libtest-client.a.p/weston-test-client-helper.c.o
+#8 27.77 [212/329] Compiling C object tests/test-plugin.so.p/meson-generated_.._.._protocol_weston-test-protocol.c.o
+#8 27.79 [213/329] Linking static target tests/libtest-client.a
+#8 27.95 [214/329] Compiling C object tests/libzunitc.a.p/.._tools_zunitc_src_zuc_base_logger.c.o
+#8 27.97 [215/329] Compiling C object tests/libzunitc.a.p/.._tools_zunitc_src_zuc_junit_reporter.c.o
+#8 28.19 [216/329] Compiling C object tests/test-plugin.so.p/weston-test.c.o
+#8 28.20 [217/329] Linking target tests/test-plugin.so
+#8 28.25 [218/329] Compiling C object tests/libzunitcmain.a.p/.._tools_zunitc_src_main.c.o
+#8 28.25 [219/329] Linking static target tests/libzunitcmain.a
+#8 28.45 [220/329] Compiling C object tests/test-surface-screenshot.so.p/surface-screenshot-test.c.o
+#8 28.46 [221/329] Linking target tests/test-surface-screenshot.so
+#8 28.65 [222/329] Compiling C object tests/libzunitc.a.p/.._tools_zunitc_src_zunitc_impl.c.o
+#8 28.65 [223/329] Linking static target tests/libzunitc.a
+#8 28.78 [224/329] Compiling C object tests/test-alpha-blending.p/alpha-blending-test.c.o
+#8 28.82 [225/329] Linking target tests/test-alpha-blending
+#8 28.83 [226/329] Compiling C object tests/test-assert.p/assert-test.c.o
+#8 28.88 [227/329] Linking target tests/test-assert
+#8 28.94 [228/329] Compiling C object tests/test-bad-buffer.p/bad-buffer-test.c.o
+#8 28.99 [229/329] Compiling C object tests/test-buffer-transforms.p/buffer-transforms-test.c.o
+#8 29.04 [230/329] Linking target tests/test-bad-buffer
+#8 29.06 [231/329] Linking target tests/test-buffer-transforms
+#8 29.13 [232/329] Compiling C object tests/test-color-manager.p/color-manager-test.c.o
+#8 29.17 [233/329] Linking target tests/test-color-manager
+#8 29.23 [234/329] Compiling C object tests/test-color-metadata-errors.p/color-metadata-errors-test.c.o
+#8 29.24 [235/329] Compiling C object tests/test-constraints.p/meson-generated_.._.._protocol_pointer-constraints-unstable-v1-protocol.c.o
+#8 29.27 [236/329] Linking target tests/test-color-metadata-errors
+#8 29.36 [237/329] Compiling C object tests/test-custom-env.p/custom-env-test.c.o
+#8 29.40 [238/329] Compiling C object tests/test-constraints.p/constraints-test.c.o
+#8 29.45 [239/329] Linking target tests/test-custom-env
+#8 29.50 [240/329] Linking target tests/test-constraints
+#8 29.75 [241/329] Compiling C object tests/test-devices.p/devices-test.c.o
+#8 29.78 [242/329] Linking target tests/test-devices
+#8 29.96 [243/329] Compiling C object tests/test-drm-smoke.p/drm-smoke-test.c.o
+#8 30.00 [244/329] Linking target tests/test-drm-smoke
+#8 30.16 [245/329] Compiling C object tests/test-drm-formats.p/drm-formats-test.c.o
+#8 30.21 [246/329] Compiling C object tests/test-drm-writeback-screenshot.p/drm-writeback-screenshot-test.c.o
+#8 30.28 [247/329] Linking target tests/test-drm-formats
+#8 30.30 [248/329] Linking target tests/test-drm-writeback-screenshot
+#8 30.41 [249/329] Compiling C object tests/test-event.p/event-test.c.o
+#8 30.44 [250/329] Compiling C object tests/test-internal-screenshot.p/internal-screenshot-test.c.o
+#8 30.45 [251/329] Linking target tests/test-event
+#8 30.49 [252/329] Compiling C object tests/test-keyboard.p/meson-generated_.._.._protocol_input-timestamps-unstable-v1-protocol.c.o
+#8 30.50 [253/329] Linking target tests/test-internal-screenshot
+#8 30.62 [254/329] Compiling C object tests/test-keyboard.p/input-timestamps-helper.c.o
+#8 30.65 [255/329] Compiling C object tests/test-keyboard.p/keyboard-test.c.o
+#8 30.66 [256/329] Compiling C object tests/test-linux-explicit-synchronization.p/meson-generated_.._.._protocol_linux-explicit-synchronization-unstable-v1-protocol.c.o
+#8 30.69 [257/329] Linking target tests/test-keyboard
+#8 30.82 [258/329] Compiling C object tests/test-matrix.p/matrix-test.c.o
+#8 30.85 [259/329] Linking target tests/test-matrix
+#8 30.88 [260/329] Compiling C object tests/test-linux-explicit-synchronization.p/linux-explicit-synchronization-test.c.o
+#8 30.97 [261/329] Linking target tests/test-linux-explicit-synchronization
+#8 31.02 [262/329] Compiling C object tests/test-output-capture-protocol.p/meson-generated_.._.._protocol_weston-output-capture-protocol.c.o
+#8 31.20 [263/329] Compiling C object tests/test-matrix-transform.p/matrix-transform-test.c.o
+#8 31.26 [264/329] Linking target tests/test-matrix-transform
+#8 31.31 [265/329] Compiling C object tests/test-output-capture-protocol.p/output-capture-protocol-test.c.o
+#8 31.35 [266/329] Linking target tests/test-output-capture-protocol
+#8 31.44 [267/329] Compiling C object tests/test-output-damage.p/output-damage-test.c.o
+#8 31.46 [268/329] Compiling C object tests/test-output-decorations.p/output-decorations-test.c.o
+#8 31.48 [269/329] Linking target tests/test-output-damage
+#8 31.49 [270/329] Linking target tests/test-output-decorations
+#8 31.58 [271/329] Compiling C object tests/test-output-transforms.p/output-transforms-test.c.o
+#8 31.59 [272/329] Compiling C object tests/test-plugin-registry.p/plugin-registry-test.c.o
+#8 31.61 [273/329] Linking target tests/test-plugin-registry
+#8 31.62 [274/329] Linking target tests/test-output-transforms
+#8 31.66 [275/329] Compiling C object tests/test-pointer.p/meson-generated_.._.._protocol_input-timestamps-unstable-v1-protocol.c.o
+#8 31.78 [276/329] Compiling C object tests/test-paint-node.p/paint-node-test.c.o
+#8 31.89 [277/329] Linking target tests/test-paint-node
+#8 32.02 [278/329] Compiling C object tests/test-pointer.p/input-timestamps-helper.c.o
+#8 32.03 [279/329] Compiling C object tests/test-pointer.p/pointer-test.c.o
+#8 32.08 [280/329] Linking target tests/test-pointer
+#8 32.11 [281/329] Compiling C object tests/test-presentation.p/meson-generated_.._.._protocol_presentation-time-protocol.c.o
+#8 32.13 [282/329] Compiling C object tests/test-pointer-shot.p/pointer-shot-test.c.o
+#8 32.19 [283/329] Linking target tests/test-pointer-shot
+#8 32.28 [284/329] Compiling C object tests/test-roles.p/meson-generated_.._.._protocol_xdg-shell-protocol.c.o
+#8 32.29 [285/329] Compiling C object tests/test-presentation.p/presentation-test.c.o
+#8 32.34 [286/329] Linking target tests/test-presentation
+#8 32.39 [287/329] Compiling C object tests/test-single-pixel-buffer.p/meson-generated_.._.._protocol_single-pixel-buffer-v1-protocol.c.o
+#8 32.59 [288/329] Compiling C object tests/test-roles.p/roles-test.c.o
+#8 32.61 [289/329] Compiling C object tests/test-single-pixel-buffer.p/single-pixel-buffer-test.c.o
+#8 32.63 [290/329] Linking target tests/test-roles
+#8 32.70 [291/329] Linking target tests/test-single-pixel-buffer
+#8 32.84 [292/329] Compiling C object tests/test-string.p/string-test.c.o
+#8 32.89 [293/329] Linking target tests/test-string
+#8 33.30 [294/329] Compiling C object tests/test-subsurface.p/subsurface-test.c.o
+#8 33.35 [295/329] Compiling C object tests/test-subsurface-shot.p/subsurface-shot-test.c.o
+#8 33.38 [296/329] Linking target tests/test-subsurface
+#8 33.56 [297/329] Linking target tests/test-subsurface-shot
+#8 33.73 [298/329] Compiling C object tests/test-surface.p/surface-test.c.o
+#8 33.77 [299/329] Compiling C object tests/test-surface-global.p/surface-global-test.c.o
+#8 33.84 [300/329] Linking target tests/test-surface
+#8 33.89 [301/329] Linking target tests/test-surface-global
+#8 33.89 [302/329] Compiling C object tests/test-text.p/meson-generated_.._.._protocol_text-input-unstable-v1-protocol.c.o
+#8 33.94 [303/329] Compiling C object tests/test-touch.p/meson-generated_.._.._protocol_input-timestamps-unstable-v1-protocol.c.o
+#8 34.04 [304/329] Compiling C object tests/test-text.p/text-test.c.o
+#8 34.12 [305/329] Compiling C object tests/test-touch.p/touch-test.c.o
+#8 34.14 [306/329] Linking target tests/test-text
+#8 34.36 [307/329] Compiling C object tests/test-touch.p/input-timestamps-helper.c.o
+#8 34.42 [308/329] Linking target tests/test-touch
+#8 34.43 [309/329] Compiling C object tests/test-viewporter.p/viewporter-test.c.o
+#8 34.50 [310/329] Linking target tests/test-viewporter
+#8 34.66 [311/329] Compiling C object tests/test-viewporter-shot.p/viewporter-shot-test.c.o
+#8 34.74 [312/329] Linking target tests/test-viewporter-shot
+#8 34.85 [313/329] Compiling C object tests/test-yuv-buffer.p/yuv-buffer-test.c.o
+#8 34.86 [314/329] Compiling C object tests/test-safe-signal.p/safe-signal-test.c.o
+#8 34.91 [315/329] Linking target tests/test-yuv-buffer
+#8 35.03 [316/329] Linking target tests/test-safe-signal
+#8 35.15 [317/329] Compiling C object tests/test-safe-signal-output-removal.p/safe-signal-output-removal-test.c.o
+#8 35.16 [318/329] Compiling C object tests/test-iterate-debug-scopes.p/iterate-debug-scopes-test.c.o
+#8 35.23 [319/329] Linking target tests/test-iterate-debug-scopes
+#8 35.24 [320/329] Linking target tests/test-safe-signal-output-removal
+#8 35.36 [321/329] Compiling C object tests/test-vertex-clip.p/vertex-clip-test.c.o
+#8 35.43 [322/329] Linking target tests/test-vertex-clip
+#8 35.61 [323/329] Compiling C object tests/test-config-parser.p/config-parser-test.c.o
+#8 35.62 [324/329] Compiling C object tests/test-timespec.p/timespec-test.c.o
+#8 35.63 [325/329] Linking target tests/test-config-parser
+#8 35.64 [326/329] Linking target tests/test-timespec
+#8 35.68 [327/329] Compiling C object tests/test-zuc.p/.._tools_zunitc_test_fixtures_test.c.o
+#8 35.78 [328/329] Compiling C object tests/test-zuc.p/.._tools_zunitc_test_zunitc_test.c.o
+#8 35.82 [329/329] Linking target tests/test-zuc
+#8 35.84 INFO: autodetecting backend as ninja
+#8 35.84 INFO: calculating backend command to run: /usr/bin/ninja -C /tmp/tmp.H30xEX2yvO/build -j 2
+#8 36.31 ninja: Entering directory `/tmp/tmp.H30xEX2yvO/build'
+#8 36.37 [1/61] Generating git-version.h with a custom command
+#8 36.45 Installing libweston/libweston-13.so.0.0.4 to /opt/weston-13.0.4/lib
+#8 36.45 Installing libweston/renderer-gl/gl-renderer.so to /opt/weston-13.0.4/lib/libweston-13
+#8 36.45 Installing libweston/backend-headless/headless-backend.so to /opt/weston-13.0.4/lib/libweston-13
+#8 36.45 Installing libweston/backend-wayland/wayland-backend.so to /opt/weston-13.0.4/lib/libweston-13
+#8 36.45 Installing libweston/backend-x11/x11-backend.so to /opt/weston-13.0.4/lib/libweston-13
+#8 36.45 Installing compositor/libexec_weston.so.0.0.0 to /opt/weston-13.0.4/lib/weston
+#8 36.45 Installing compositor/weston to /opt/weston-13.0.4/bin
+#8 36.45 Installing desktop-shell/desktop-shell.so to /opt/weston-13.0.4/lib/weston
+#8 36.45 Installing clients/weston-keyboard to /opt/weston-13.0.4/libexec
+#8 36.45 Installing clients/weston-desktop-shell to /opt/weston-13.0.4/libexec
+#8 36.45 Installing clients/weston-screenshooter to /opt/weston-13.0.4/bin
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/include/libweston/config-parser.h to /opt/weston-13.0.4/include/libweston-13/libweston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/include/libweston/libweston.h to /opt/weston-13.0.4/include/libweston-13/libweston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/include/libweston/desktop.h to /opt/weston-13.0.4/include/libweston-13/libweston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/include/libweston/matrix.h to /opt/weston-13.0.4/include/libweston-13/libweston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/include/libweston/plugin-registry.h to /opt/weston-13.0.4/include/libweston-13/libweston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/include/libweston/windowed-output-api.h to /opt/weston-13.0.4/include/libweston-13/libweston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/include/libweston/weston-log.h to /opt/weston-13.0.4/include/libweston-13/libweston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/include/libweston/zalloc.h to /opt/weston-13.0.4/include/libweston-13/libweston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/include/libweston/remoting-plugin.h to /opt/weston-13.0.4/include/libweston-13/libweston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/include/libweston/pipewire-plugin.h to /opt/weston-13.0.4/include/libweston-13/libweston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/include/libweston/shell-utils.h to /opt/weston-13.0.4/include/libweston-13/libweston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/build/include/libweston/version.h to /opt/weston-13.0.4/include/libweston-13/libweston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/include/libweston/backend-headless.h to /opt/weston-13.0.4/include/libweston-13/libweston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/include/libweston/backend-wayland.h to /opt/weston-13.0.4/include/libweston-13/libweston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/include/libweston/backend-x11.h to /opt/weston-13.0.4/include/libweston-13/libweston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/compositor/weston.h to /opt/weston-13.0.4/include/weston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/protocol/weston-content-protection.xml to /opt/weston-13.0.4/share/libweston-13/protocols
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/protocol/weston-debug.xml to /opt/weston-13.0.4/share/libweston-13/protocols
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/protocol/weston-direct-display.xml to /opt/weston-13.0.4/share/libweston-13/protocols
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/protocol/weston-output-capture.xml to /opt/weston-13.0.4/share/libweston-13/protocols
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/build/meson-private/libweston-13.pc to /opt/weston-13.0.4/lib/pkgconfig
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/build/meson-private/libweston-13-protocols.pc to /opt/weston-13.0.4/share/pkgconfig
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/build/meson-private/weston.pc to /opt/weston-13.0.4/lib/pkgconfig
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/compositor/weston.desktop to /opt/weston-13.0.4/share/wayland-sessions
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/data/background.png to /opt/weston-13.0.4/share/weston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/data/border.png to /opt/weston-13.0.4/share/weston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/data/fullscreen.png to /opt/weston-13.0.4/share/weston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/data/home.png to /opt/weston-13.0.4/share/weston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/data/icon_editor.png to /opt/weston-13.0.4/share/weston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/data/icon_flower.png to /opt/weston-13.0.4/share/weston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/data/icon_ivi_clickdot.png to /opt/weston-13.0.4/share/weston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/data/icon_ivi_flower.png to /opt/weston-13.0.4/share/weston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/data/icon_ivi_simple-egl.png to /opt/weston-13.0.4/share/weston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/data/icon_ivi_simple-shm.png to /opt/weston-13.0.4/share/weston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/data/icon_ivi_smoke.png to /opt/weston-13.0.4/share/weston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/data/icon_terminal.png to /opt/weston-13.0.4/share/weston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/data/icon_window.png to /opt/weston-13.0.4/share/weston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/data/panel.png to /opt/weston-13.0.4/share/weston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/data/pattern.png to /opt/weston-13.0.4/share/weston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/data/random.png to /opt/weston-13.0.4/share/weston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/data/sidebyside.png to /opt/weston-13.0.4/share/weston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/data/sign_close.png to /opt/weston-13.0.4/share/weston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/data/sign_maximize.png to /opt/weston-13.0.4/share/weston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/data/sign_minimize.png to /opt/weston-13.0.4/share/weston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/data/terminal.png to /opt/weston-13.0.4/share/weston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/data/tiling.png to /opt/weston-13.0.4/share/weston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/data/wayland.png to /opt/weston-13.0.4/share/weston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/weston-13.0.4/data/wayland.svg to /opt/weston-13.0.4/share/weston
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/build/man/weston.1 to /opt/weston-13.0.4/share/man/man1
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/build/man/weston-bindings.7 to /opt/weston-13.0.4/share/man/man7
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/build/man/weston-debug.1 to /opt/weston-13.0.4/share/man/man1
+#8 36.45 Installing /tmp/tmp.H30xEX2yvO/build/man/weston.ini.5 to /opt/weston-13.0.4/share/man/man5
+#8 36.45 Installing symlink pointing to libweston-13.so.0.0.4 to /opt/weston-13.0.4/lib/libweston-13.so.0
+#8 36.45 Installing symlink pointing to libweston-13.so.0 to /opt/weston-13.0.4/lib/libweston-13.so
+#8 36.45 Installing symlink pointing to libexec_weston.so.0.0.0 to /opt/weston-13.0.4/lib/weston/libexec_weston.so.0
+#8 36.45 Installing symlink pointing to libexec_weston.so.0 to /opt/weston-13.0.4/lib/weston/libexec_weston.so
+#8 36.54 weston 13.0.4
+#8 DONE 36.7s
+
+#9 [5/5] RUN bash /usr/local/lib/avelino/check-weston-popup-parent.sh /opt/weston-13.0.4/share/avelino/popup-parent-regression
+#9 1.722 Weston popup parent-order regression: parent commit survived; popup400 and parent9600 exact pixels
+#9 DONE 1.8s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 0.4s done
+#10 exporting manifest sha256:1fe3802eb600d557efa6a62af2f13045ded6e37f5caec18ef162045d9061f76e 0.0s done
+#10 exporting config sha256:c478e88883c270a63c47078070d12cfe67dd4d077b07c6e34fef0f5f332164b9 done
+#10 exporting attestation manifest sha256:66949cb8f3657d53efbbf4a045aff74b87ad762dec451f74b6cfbec579113986 0.1s done
+#10 exporting manifest list sha256:b970d61e5315d9c1a3ffb56b57ecae08922acdcdccf321c99e705984b30ae437 done
+#10 naming to docker.io/library/avelino-toolchain:weston13-popup-parent-v2-20261018-qt6.8.3 done
+#10 unpacking to docker.io/library/avelino-toolchain:weston13-popup-parent-v2-20261018-qt6.8.3
+#10 unpacking to docker.io/library/avelino-toolchain:weston13-popup-parent-v2-20261018-qt6.8.3 0.2s done
+#10 DONE 0.7s

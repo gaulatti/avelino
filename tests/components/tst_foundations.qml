@@ -148,6 +148,9 @@ Item {
             item.spacing = 12
             tryCompare(tall, "x", 42)
             tall.visible = false
+            // Source .hidden() preserves allocation; absent content does not.
+            tryCompare(item, "implicitWidth", 112)
+            tall.BleeckerLayout.participates = false
             tryCompare(item, "implicitWidth", 30)
         }
         function test_header_slots_and_height() {

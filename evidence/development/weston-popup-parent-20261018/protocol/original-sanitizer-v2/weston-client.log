@@ -1,0 +1,22 @@
+../../weston-13.0.4/libweston/desktop/surface.c:117:58: runtime error: member access within null pointer of type 'struct weston_view'
+    #0 0xec26a20e17b0 in weston_desktop_surface_update_view_position ../../weston-13.0.4/libweston/desktop/surface.c:117
+    #1 0xec26a20e1e1c in weston_desktop_surface_surface_committed ../../weston-13.0.4/libweston/desktop/surface.c:213
+    #2 0xec26a2040794 in wl_signal_emit /usr/include/wayland-server-core.h:496
+    #3 0xec26a2040794 in weston_surface_commit_state ../../weston-13.0.4/libweston/compositor.c:4556
+    #4 0xec26a204450c in weston_surface_commit ../../weston-13.0.4/libweston/compositor.c:4571
+    #5 0xec26a204450c in surface_commit ../../weston-13.0.4/libweston/compositor.c:4656
+    #6 0xec26a18c6620  (/lib/aarch64-linux-gnu/libffi.so.8+0x6620) (BuildId: c83f4770dcc3642c708366f1abe3890418bc0170)
+    #7 0xec26a18c3838  (/lib/aarch64-linux-gnu/libffi.so.8+0x3838) (BuildId: c83f4770dcc3642c708366f1abe3890418bc0170)
+    #8 0xec26a1da846c  (/lib/aarch64-linux-gnu/libwayland-server.so.0+0x846c) (BuildId: a4a9738e6585c4ab834ec8023c82efdcfdc28498)
+    #9 0xec26a1dad15c  (/lib/aarch64-linux-gnu/libwayland-server.so.0+0xd15c) (BuildId: a4a9738e6585c4ab834ec8023c82efdcfdc28498)
+    #10 0xec26a1dabbe4 in wl_event_loop_dispatch (/lib/aarch64-linux-gnu/libwayland-server.so.0+0xbbe4) (BuildId: a4a9738e6585c4ab834ec8023c82efdcfdc28498)
+    #11 0xec26a1dac3d0 in wl_display_run (/lib/aarch64-linux-gnu/libwayland-server.so.0+0xc3d0) (BuildId: a4a9738e6585c4ab834ec8023c82efdcfdc28498)
+    #12 0xec26a2d278b0 in wet_main ../../weston-13.0.4/compositor/main.c:4369
+    #13 0xec26a24b84c0  (/lib/aarch64-linux-gnu/libc.so.6+0x284c0) (BuildId: 27027b96e5b8c475fc327aa445bea1c71d37b4e2)
+    #14 0xec26a24b8594 in __libc_start_main (/lib/aarch64-linux-gnu/libc.so.6+0x28594) (BuildId: 27027b96e5b8c475fc327aa445bea1c71d37b4e2)
+    #15 0xc6f04dbe07ec in _start (/probe/install/bin/weston+0x7ec) (BuildId: 15550f96d7856eaf767c30e93a71e69370b42f68)
+
+Failed to process Wayland connection: Connection reset by peer
+failed to create display: Connection reset by peer
+Failed to process Wayland connection: Connection reset by peer
+failed to create display: Connection reset by peer

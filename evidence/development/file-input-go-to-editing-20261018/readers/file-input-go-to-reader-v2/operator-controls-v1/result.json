@@ -1,0 +1,161 @@
+{
+  "accepted": false,
+  "status": "failed",
+  "profile": {
+    "platform": "xcb",
+    "renderer": "software",
+    "dark": false,
+    "textScale": 1,
+    "dpr": 1
+  },
+  "phases": [
+    {
+      "phase": "go-to-modal-reachable",
+      "time": 1792294845.8608413,
+      "observations": {
+        "raw": "/probe/fixtures",
+        "location": "/probe/fixtures",
+        "selected": [
+          "one.txt"
+        ],
+        "owner": ""
+      },
+      "readerLogBytes": 251908
+    },
+    {
+      "phase": "go-to-nonempty-close-clears",
+      "time": 1792294848.6517131,
+      "observations": {
+        "raw": "",
+        "proposals": [],
+        "selected": [
+          "one.txt"
+        ]
+      },
+      "readerLogBytes": 260452
+    },
+    {
+      "phase": "go-to-empty-close-dismisses",
+      "time": 1792294850.442464,
+      "observations": {
+        "location": "/probe/fixtures",
+        "selected": [
+          "one.txt"
+        ]
+      },
+      "readerLogBytes": 302237
+    },
+    {
+      "phase": "go-to-native-prefix",
+      "time": 1792294854.1670778,
+      "observations": {
+        "raw": "/probe/fixtures/Al",
+        "proposals": [
+          "/probe/fixtures/Alpha",
+          "/probe/fixtures/Alpine",
+          "/probe/fixtures/Alphabet"
+        ],
+        "selected": [
+          "/probe/fixtures/Alpha"
+        ],
+        "method": "XTest keyboard"
+      },
+      "readerLogBytes": 715564
+    },
+    {
+      "phase": "go-to-native-arrows-preserve-input",
+      "time": 1792294856.9828532,
+      "observations": {
+        "raw": "/probe/fixtures/Al",
+        "selected": [
+          "/probe/fixtures/Alpine"
+        ]
+      },
+      "readerLogBytes": 723779
+    },
+    {
+      "phase": "go-to-return-navigates-without-owner",
+      "time": 1792294859.3110514,
+      "observations": {
+        "location": "/probe/fixtures/Alpine",
+        "selected": [],
+        "owner": ""
+      },
+      "readerLogBytes": 798160
+    },
+    {
+      "phase": "go-to-missing-remains-modal",
+      "time": 1792294863.6099322,
+      "observations": {
+        "raw": "/probe/fixtures/missing",
+        "location": "/probe/fixtures/Alpine",
+        "selected": [],
+        "owner": ""
+      },
+      "readerLogBytes": 1268747
+    },
+    {
+      "phase": "go-to-tab-common-prefix",
+      "time": 1792294868.0634418,
+      "observations": {
+        "raw": "/probe/fixtures/Alp",
+        "proposals": [
+          "/probe/fixtures/Alpha",
+          "/probe/fixtures/Alpine",
+          "/probe/fixtures/Alphabet"
+        ]
+      },
+      "readerLogBytes": 1756416
+    },
+    {
+      "phase": "go-to-recent-select-keeps-empty-input",
+      "time": 1792294871.7171984,
+      "observations": {
+        "raw": "",
+        "selected": [
+          "/probe/fixtures/Alpine"
+        ],
+        "location": "/probe/fixtures/Alpine"
+      },
+      "readerLogBytes": 1896806
+    },
+    {
+      "phase": "go-to-path-selects-nonmatching-file",
+      "time": 1792294876.701281,
+      "observations": {
+        "location": "/probe/fixtures",
+        "selected": [
+          "photo.png"
+        ],
+        "owner": ""
+      },
+      "readerLogBytes": 2434658
+    },
+    {
+      "phase": "go-to-main-open-delivers-owner",
+      "time": 1792294878.3796306,
+      "observations": {
+        "owner": "Selected URLs: file:///probe/fixtures/photo.png"
+      },
+      "readerLogBytes": 2492333
+    },
+    {
+      "phase": "go-to-remount-retains-last-input",
+      "time": 1792294880.4336061,
+      "observations": {
+        "raw": "/probe/fixtures/photo.png",
+        "owner": "Selected URLs: file:///probe/fixtures/photo.png"
+      },
+      "readerLogBytes": 2650033
+    },
+    {
+      "phase": "operator-failure",
+      "time": 1792294881.384725,
+      "observations": {
+        "error": "Traceback (most recent call last):\n  File \"/probe/exercise.py\", line 188, in <module>\n    changed=path_field().queryEditableText().setTextContents('/probe/fixtures/Al');spin(.8)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3/dist-packages/pyatspi/Accessibility.py\", line 147, in <lambda>\n    Atspi.Accessible.queryEditableText = lambda x: EditableText(getInterface(Atspi.Accessible.get_editable_text_iface, x))\n                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3/dist-packages/pyatspi/Accessibility.py\", line 68, in getInterface\n    raise NotImplementedError\nNotImplementedError\n"
+      },
+      "readerLogBytes": 2650033
+    }
+  ],
+  "error": "Traceback (most recent call last):\n  File \"/probe/exercise.py\", line 188, in <module>\n    changed=path_field().queryEditableText().setTextContents('/probe/fixtures/Al');spin(.8)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3/dist-packages/pyatspi/Accessibility.py\", line 147, in <lambda>\n    Atspi.Accessible.queryEditableText = lambda x: EditableText(getInterface(Atspi.Accessible.get_editable_text_iface, x))\n                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3/dist-packages/pyatspi/Accessibility.py\", line 68, in getInterface\n    raise NotImplementedError\nNotImplementedError\n"
+}

@@ -53,7 +53,7 @@ Window {
         anchors.alignWhenCentered: false
         sourceComponent: {
             const components = {
-                "BleeckerDropdownMenu":dropdownMenuCase,"BleeckerCommandSpotlight":commandSpotlightCase,"BleeckerAppTabBar":appTabsCase,"BleeckerMediaLibrary":mediaCase,"BleeckerLineChart":chartsCase,"BleeckerBarChart":chartsCase,"BleeckerPieChart":chartsCase,"BleeckerScatterChart":chartsCase,"BleeckerSparkline":chartsCase,"Text.bleeckerPill":pillModifierCase,"BleeckerSurfaceModifier":surfaceModifierCase,"View.bleeckerFont":fontModifierCase,"BleeckerButtonStyle":buttonStyleCase,"BleeckerTooltip":tooltipCase,"BleeckerModal":modalCase,"BleeckerActivityItem":activityCase, "BleeckerButton": button, "BleeckerOTPInput":otpCase, "BleeckerRadioGroup":radioCase, "BleeckerStepper":stepperCase, "BleeckerLoadingSpinner": spinner,
+                "BleeckerFileInput":fileInputCase,"BleeckerDropdownMenu":dropdownMenuCase,"BleeckerCommandSpotlight":commandSpotlightCase,"BleeckerAppTabBar":appTabsCase,"BleeckerHeroCarousel":heroCase,"BleeckerMediaLibrary":mediaCase,"BleeckerLineChart":chartsCase,"BleeckerBarChart":chartsCase,"BleeckerPieChart":chartsCase,"BleeckerScatterChart":chartsCase,"BleeckerSparkline":chartsCase,"Text.bleeckerPill":pillModifierCase,"BleeckerSurfaceModifier":surfaceModifierCase,"View.bleeckerFont":fontModifierCase,"BleeckerButtonStyle":buttonStyleCase,"BleeckerTooltip":tooltipCase,"BleeckerModal":modalCase,"BleeckerActivityItem":activityCase, "BleeckerButton": button, "BleeckerOTPInput":otpCase, "BleeckerRadioGroup":radioCase, "BleeckerStepper":stepperCase, "BleeckerLoadingSpinner": spinner,
                 "BleeckerSidebarItem":sidebarBrandCase, "BleeckerMetric":dataMetricsCase, "BleeckerStatCard":dataMetricsCase, "BleeckerKbd":dataMetricsCase, "BleeckerIconBadge":dataMetricsCase,"BleeckerBrandMark":sidebarBrandCase,"BleeckerBrandLockup":sidebarBrandCase,"BleeckerPageHeader":navigationCase,"BleeckerBreadcrumb":navigationCase,"BleeckerAlert":alert,"BleeckerEmptyState":emptyState,"BleeckerErrorState":errorState,"BleeckerLoadingOverlay":loadingOverlay,
                 "BleeckerTextField": textField, "BleeckerTextArea": textArea,
                 "BleeckerField": field, "BleeckerSwitchStyle": switchControl,
@@ -85,8 +85,10 @@ Window {
     Component {id:activityCase;ActivityItemCase {definition:window.definition}}
     Component {id:surfaceModifierCase;SurfaceModifierCase {definition:window.definition}}
     Component {id:dropdownMenuCase;DropdownMenuCase {configuration:window.definition.configuration}}
+    Component {id:fileInputCase;FileInputCase {configuration:window.definition.configuration;linuxContentTypes:window.definition.linuxContentTypes;fixtureFolder:typeof fileInputFolder==="undefined" ? "":fileInputFolder}}
     Component {id:commandSpotlightCase;CommandSpotlightCase {definition:window.definition}}
     Component {id:appTabsCase;AppTabsCase {definition:Object.assign({},window.definition,{width:window.definition.tabWidth,height:window.definition.tabHeight});selection:window.appTabSelection;onSelectionRequested:value=>window.appTabRequest(value)}}
+    Component {id:heroCase;HeroCarouselCase {definition:Object.assign({},window.definition,{width:window.definition.carouselWidth,height:window.definition.carouselHeight})}}
     Component {id:mediaCase;MediaLibraryCase {definition:Object.assign({},window.definition,{width:window.definition.libraryWidth,height:window.definition.libraryHeight})}}
     Component {id:chartsCase;ChartsCase {definition:Object.assign({},window.definition,{width:window.definition.chartWidth,height:window.definition.chartHeight})}}
     Component {id:pillModifierCase;PillModifierCase {definition:window.definition}}
@@ -430,16 +432,8 @@ Window {
     }
     Component {
         id: footer
-        BleeckerFooter {
-            width: 300
-            Loader {
-                anchors.horizontalCenter: parent.horizontalCenter
-                sourceComponent: definition.variant === "block" ? footerBlock : footerText
-            }
-        }
+        FooterCase { definition: window.definition }
     }
-    Component { id: footerBlock; Rectangle { width: 180; height: 40; color: BleeckerTheme.palette.sea } }
-    Component { id: footerText; T.Label { text: definition.text; color: palette.windowText } }
     Component {
         id: feed
         BleeckerFeedItem {
@@ -501,7 +495,7 @@ Window {
     Component { id: progress; BleeckerProgress { width: 240; value: definition.value; size: definition.size; variant: definition.variant } }
     Component {
         id: buttonGroup
-        BleeckerButtonGroup { BleeckerButton { size: "xs"; text: "Short" } BleeckerButton { size: "lg"; text: "Tall" } }
+        ButtonGroupCase { definition: window.definition }
     }
     Component {
         id: header

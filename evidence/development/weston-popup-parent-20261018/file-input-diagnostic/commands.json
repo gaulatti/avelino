@@ -1,0 +1,81 @@
+[
+  {
+    "name": "configure",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/file-input-capture-repro-v1:/consumer-check",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/navigation-cjk-package-v2/runtime/install:/consumer-check/install:ro",
+      "-w",
+      "/consumer-check",
+      "avelino-toolchain:recovered-weston13-cjk-v1-20261018-qt6.8.3",
+      "cmake",
+      "-S",
+      "consumer",
+      "-B",
+      "consumer-build",
+      "-G",
+      "Ninja",
+      "-DCMAKE_PREFIX_PATH=/consumer-check/install;/opt/qt"
+    ],
+    "exitCode": 0,
+    "seconds": 4.92959474993404
+  },
+  {
+    "name": "build",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/file-input-capture-repro-v1:/consumer-check",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/navigation-cjk-package-v2/runtime/install:/consumer-check/install:ro",
+      "-w",
+      "/consumer-check",
+      "avelino-toolchain:recovered-weston13-cjk-v1-20261018-qt6.8.3",
+      "cmake",
+      "--build",
+      "consumer-build",
+      "--parallel",
+      "2"
+    ],
+    "exitCode": 0,
+    "seconds": 142.73884629202075
+  },
+  {
+    "name": "case",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/file-input-capture-repro-v1/runtime:/display-check",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/navigation-cjk-package-v2/runtime/install:/display-check/install:ro",
+      "-w",
+      "/display-check",
+      "avelino-toolchain:recovered-weston13-cjk-v1-20261018-qt6.8.3",
+      "bash",
+      "check.sh",
+      "/display-check/output"
+    ],
+    "exitCode": 0,
+    "seconds": 32.35082412499469
+  }
+]

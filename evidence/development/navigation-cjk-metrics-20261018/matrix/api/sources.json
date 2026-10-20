@@ -1,0 +1,24 @@
+{
+  "qt": "6.8.3",
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/qt/qtbase/v6.8.3/src/gui/text/freetype/qfontengine_ft.cpp",
+      "file": "qfontengine_ft.cpp",
+      "sha256": "5fedb3dec08bd84de656da1ab24778d9f41589ae61b44f411fcf556b5b628c8f"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/qt/qtbase/v6.8.3/src/gui/text/qfont.h",
+      "file": "qfont.h",
+      "sha256": "c50c01b7984c9d77b4a65025b7867a2cb4b9d02115b84bc618d1106bd6fe44e9"
+    },
+    {
+      "file": "qfontengine.cpp",
+      "url": "https://raw.githubusercontent.com/qt/qtbase/v6.8.3/src/gui/text/qfontengine.cpp",
+      "sha256": "34be7eb7e19fb131e67fab1cb831fa237cffb22467125c0bcc12ef805e913c9b"
+    }
+  ],
+  "installedHeaderSha256": "c50c01b7984c9d77b4a65025b7867a2cb4b9d02115b84bc618d1106bd6fe44e9",
+  "installedHeaderMatchesRelease": true,
+  "implementation": "QFontEngine::processOS2Table chooses typographic ascent/descent/gap for PreferTypoLineMetrics; otherwise Windows ascent/descent",
+  "headerVersion": "6.8.3"
+}

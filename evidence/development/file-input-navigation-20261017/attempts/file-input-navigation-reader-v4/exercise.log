@@ -1,0 +1,17 @@
+new-folder-default-modal
+duplicate-name-disabled
+empty-name-disabled
+nested-escape-no-mutation
+created-and-navigated
+history-back
+history-forward
+invalid-location-announced
+history-recovers-location-error
+Traceback (most recent call last):
+  File "/probe/exercise.py", line 143, in <module>
+    close_panel();assert not owner()
+    ^^^^^^^^^^^^^
+  File "/probe/exercise.py", line 53, in close_panel
+    assert find('Choose file…', 'push button').getState().contains(pyatspi.STATE_FOCUSED)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

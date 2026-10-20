@@ -1,0 +1,506 @@
+{
+  "initial-calendar-request": {
+    "action": "CUA click From date-time area index 2",
+    "observationOrdinal": 4,
+    "observedRequests": [
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710000000.625
+      }
+    ],
+    "inputEvents": 2,
+    "observation": "calendar overlay visible in CUA screenshot; year segment highlighted",
+    "image": "0004-root.png",
+    "imageSha256": "690d2f992b7f0ebe3564e7ef729f452e9e3c58090c386c167407143fdc65cf25"
+  },
+  "ignore-mode0": {
+    "action": "Reset; Ignore; click From; Up",
+    "observationOrdinal": 37,
+    "observedRequests": [
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710000000.625
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1741536000.625
+      }
+    ],
+    "inputEvents": 32,
+    "observation": "Native displayed year advances while raw owner model remains unchanged",
+    "image": "0037-root.png",
+    "imageSha256": "7ea693541f52b08535fdd0164c58d1008670362fc9ce8f49e8b7b6b8c1c51990"
+  },
+  "delay-mode0": {
+    "action": "Reset; Delay; click From; Up",
+    "observationOrdinal": 45,
+    "observedRequests": [
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1741536000.625
+      }
+    ],
+    "inputEvents": 36,
+    "observation": "Native year advances; model unchanged, requested date stored in owner pending map",
+    "image": "0045-root.png",
+    "imageSha256": "734c76ec2e06f0f049a9c770ddfc1f733ed654992757a6347cdb71dc37b6c740"
+  },
+  "calendar-pointer-selection": {
+    "action": "Apply pending; click From; previous calendar month; select February 18 2025",
+    "observationOrdinal": 52,
+    "observedRequests": [
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1741536000.625
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1741536000.625,
+        "requested": 1741536000.625
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1741536000.625,
+        "requested": 1739894400.625
+      }
+    ],
+    "inputEvents": 42,
+    "observation": "Actual calendar pointer selection under delayed owner; overlay image and raw requested epoch retained",
+    "image": "0052-root.png",
+    "imageSha256": "9d44c6cb4a7193bcd2ddc3c51c12dd3724270da6b4e04fff0165c3c0b191a5cd"
+  },
+  "ignore-mode1": {
+    "action": "Mode 1; Reset; Ignore; click From; Up",
+    "observationOrdinal": 61,
+    "inputEvents": 46,
+    "observedRequests": [
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710000000.625
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1741536000.625
+      }
+    ],
+    "observation": "Ignoring owner invariant matches public reference: raw model unchanged, displayed year advances, sub-day fraction preserved",
+    "image": "0061-root.png",
+    "imageSha256": "7ea693541f52b08535fdd0164c58d1008670362fc9ce8f49e8b7b6b8c1c51990"
+  },
+  "delay-mode1": {
+    "action": "Mode 1; Reset; Delay; click From; Up",
+    "observationOrdinal": 67,
+    "inputEvents": 50,
+    "observedRequests": [
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1741536000.625
+      }
+    ],
+    "observation": "Delayed owner invariant matches public reference: model unchanged; pending and native year advance",
+    "image": "0067-root.png",
+    "imageSha256": "734c76ec2e06f0f049a9c770ddfc1f733ed654992757a6347cdb71dc37b6c740"
+  },
+  "ignore-mode2": {
+    "action": "Mode 2; Reset; Ignore; click From; Up",
+    "observationOrdinal": 75,
+    "inputEvents": 54,
+    "observedRequests": [
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710000000.625
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1741536000.625
+      }
+    ],
+    "observation": "Ignoring owner invariant matches public/probed reference",
+    "image": "0075-root.png",
+    "imageSha256": "7ea693541f52b08535fdd0164c58d1008670362fc9ce8f49e8b7b6b8c1c51990"
+  },
+  "delay-mode2": {
+    "action": "Mode 2; Reset; Delay; click From; Up",
+    "observationOrdinal": 81,
+    "inputEvents": 58,
+    "observedRequests": [
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1741536000.625
+      }
+    ],
+    "observation": "Delayed owner invariant matches public/probed reference",
+    "image": "0081-root.png",
+    "imageSha256": "734c76ec2e06f0f049a9c770ddfc1f733ed654992757a6347cdb71dc37b6c740"
+  },
+  "independent-end-crossing": {
+    "action": "Mode 0; Reset; click To; Down",
+    "observationOrdinal": 88,
+    "inputEvents": 62,
+    "observedRequests": [
+      {
+        "endpoint": "end",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710864000.125
+      },
+      {
+        "endpoint": "end",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1679241600.125
+      }
+    ],
+    "observation": "Real native end-date edit crosses start without reordering and preserves .125 seconds/time of day",
+    "image": "0088-root.png",
+    "imageSha256": "a3610a8675d11f49ec6c8e86d9e25ab3e3e979eb101e12370b45f9678272dd26"
+  },
+  "upper-bound-clamp": {
+    "action": "Bounded; click From; Up",
+    "observationOrdinal": 94,
+    "inputEvents": 66,
+    "observedRequests": [
+      {
+        "endpoint": "end",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710864000.125
+      },
+      {
+        "endpoint": "end",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1679241600.125
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710000000.625
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1711843200
+      }
+    ],
+    "observation": "Year edit clamps to exact upper instant 1711843200, replacing hidden time; UI shows March 31 UTC while CUA compact AX date string shows March 30",
+    "image": "0094-root.png",
+    "imageSha256": "4502ce550ef4e0efb0fbc70435c44252d51e7cb10afb121b7b922688fb590dd2"
+  },
+  "lower-bound-clamp": {
+    "action": "Bounded From year Down after upper clamp",
+    "observationOrdinal": 96,
+    "inputEvents": 68,
+    "observedRequests": [
+      {
+        "endpoint": "end",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710864000.125
+      },
+      {
+        "endpoint": "end",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1679241600.125
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710000000.625
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1711843200
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1711843200,
+        "requested": 1709251200
+      }
+    ],
+    "observation": "Native year decrement clamps to exact lower instant 1709251200",
+    "image": "0096-root.png",
+    "imageSha256": "367106e76e23d8c449ab5f9ffd1f4e2a0f644d4d6c899a0849b30bae9e725ec3"
+  },
+  "disabled-input": {
+    "action": "Disabled fixture; actual coordinate click From; Up",
+    "observationOrdinal": 102,
+    "inputEvents": 72,
+    "observedRequests": [
+      {
+        "endpoint": "end",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710864000.125
+      },
+      {
+        "endpoint": "end",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1679241600.125
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710000000.625
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1711843200
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1711843200,
+        "requested": 1709251200
+      }
+    ],
+    "observation": "Mouse and Up events recorded; disabled fields emit no additional request and both date values remain unchanged",
+    "image": "0102-root.png",
+    "imageSha256": "831390f10230b504ff3d297859ce84a6d11b3cb79b19d7eaf7fb8bfd7ce46d08"
+  },
+  "graphical-keyboard-preview": {
+    "action": "Graphical fixture; select March 12; Right",
+    "observationOrdinal": 107,
+    "inputEvents": 76,
+    "observedRequests": [
+      {
+        "endpoint": "end",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710864000.125
+      },
+      {
+        "endpoint": "end",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1679241600.125
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710000000.625
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1711843200
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1711843200,
+        "requested": 1709251200
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710259200.625
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710259200.625,
+        "requested": 1710259200.625
+      }
+    ],
+    "observation": "Graphical Right previews March 13 at 16:00:00 UTC, discarding only the .625 fractional second; the model remains March 12 at 16:00:00.625 with seven requests",
+    "image": "0107-root.png",
+    "imageSha256": "7cdeb15f307c6992e593cc79701ac7dd9912e4d125cc709d44ce6327e2b03c4d"
+  },
+  "graphical-space-commit": {
+    "action": "Graphical Space after Right preview",
+    "observationOrdinal": 109,
+    "inputEvents": 78,
+    "observedRequests": [
+      {
+        "endpoint": "end",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710864000.125
+      },
+      {
+        "endpoint": "end",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1679241600.125
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710000000.625
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1711843200
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1711843200,
+        "requested": 1709251200
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710259200.625
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710259200.625,
+        "requested": 1710259200.625
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710259200.625,
+        "requested": 1710345600
+      }
+    ],
+    "observation": "Space commits the 16:00:00 UTC preview with its fractional second removed",
+    "image": "0109-root.png",
+    "imageSha256": "7cdeb15f307c6992e593cc79701ac7dd9912e4d125cc709d44ce6327e2b03c4d"
+  },
+  "field-month-increment": {
+    "action": "Field fixture; click From; Up",
+    "observationOrdinal": 114,
+    "inputEvents": 82,
+    "observedRequests": [
+      {
+        "endpoint": "end",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710864000.125
+      },
+      {
+        "endpoint": "end",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1679241600.125
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710000000.625
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1711843200
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1711843200,
+        "requested": 1709251200
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710259200.625
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710259200.625,
+        "requested": 1710259200.625
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710259200.625,
+        "requested": 1710345600
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1712678400.625
+      }
+    ],
+    "observation": "Field-only click selects month; Up changes March to April while preserving 16:00:00.625; no calendar overlay is present",
+    "image": "0114-root.png",
+    "imageSha256": "feeec37e83f3debca0f9095362a973125f47cea104c8d31d916f79e1f420c8dc"
+  },
+  "keyboard-year": {
+    "action": "CUA Up on selected default year",
+    "observationOrdinal": 6,
+    "image": "0006-root.png",
+    "imageSha256": "7ea693541f52b08535fdd0164c58d1008670362fc9ce8f49e8b7b6b8c1c51990"
+  },
+  "keyboard-day": {
+    "action": "CUA Left then Up",
+    "observationOrdinal": 10,
+    "image": "0010-root.png",
+    "imageSha256": "6679184835f61da3710db8431621ded0ebf9787ee2c2b3be8a5879eb5117473b"
+  },
+  "typed-year": {
+    "action": "CUA Right, type 2026, Tab",
+    "observationOrdinal": 22,
+    "image": "0022-root.png",
+    "imageSha256": "fe064f95ed16d38fbd49a753dbfd93938eebc8bd466f2bf9d0c98933fb455bbc"
+  },
+  "stepper-month": {
+    "action": "CUA exposed Increment action on native stepper",
+    "observationOrdinal": 23,
+    "image": "0023-root.png",
+    "imageSha256": "0d3f8aec93a82ddf1e94c5752f2089204a76f8ff625e166bcb536df21dadba24"
+  },
+  "ignored-caller-update": {
+    "action": "CUA Echo button changes caller configuration after ignored edit",
+    "observationOrdinal": 39,
+    "image": "0039-root.png",
+    "imageSha256": "690d2f992b7f0ebe3564e7ef729f452e9e3c58090c386c167407143fdc65cf25"
+  },
+  "delayed-owner-apply": {
+    "action": "CUA Apply pending button commits stored date",
+    "observationOrdinal": 46,
+    "image": "0046-root.png",
+    "imageSha256": "734c76ec2e06f0f049a9c770ddfc1f733ed654992757a6347cdb71dc37b6c740"
+  }
+}

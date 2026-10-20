@@ -1,0 +1,49 @@
+[
+  {
+    "name": "configure",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/date-range-width-measure-v2:/measure-check",
+      "-w",
+      "/measure-check",
+      "avelino-toolchain:recovered-weston13-v2-20261017-qt6.8.3",
+      "cmake",
+      "-S",
+      "source",
+      "-B",
+      "build",
+      "-G",
+      "Ninja",
+      "-DCMAKE_PREFIX_PATH=/opt/qt"
+    ],
+    "exitCode": 0,
+    "seconds": 1.2955957090016454
+  },
+  {
+    "name": "build",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/date-range-width-measure-v2:/measure-check",
+      "-w",
+      "/measure-check",
+      "avelino-toolchain:recovered-weston13-v2-20261017-qt6.8.3",
+      "cmake",
+      "--build",
+      "build",
+      "--parallel",
+      "2"
+    ],
+    "exitCode": 0,
+    "seconds": 2.1816505000460893
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--rm",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/evidence/development/qt-fractional-rectangle-20261019:/evidence:ro",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/tools/qt-software-rectangle.patch:/candidate.patch:ro",
+    "sha256:e29f85ab0df39f3ae46c4d5ddcc075517701fc05359a230c8647b1174e862dd3",
+    "python3",
+    "-c",
+    "from pathlib import Path\nimport hashlib,json,shutil,subprocess,tempfile\nexpected=json.loads(Path('/evidence/source-build/applied-patch.json').read_text())['after']\nwith tempfile.TemporaryDirectory() as tmp:\n target=Path(tmp)/'src/quick/scenegraph/adaptations/software';target.mkdir(parents=True)\n for name in expected:shutil.copyfile(Path('/evidence/source-build/original')/name,target/name)\n command=['patch','--batch','--forward','--fuzz=0','-p1','-d',tmp,'-i','/candidate.patch']\n r=subprocess.run(command,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True)\n assert r.returncode==0,r.stdout\n actual={n:hashlib.sha256((target/n).read_bytes()).hexdigest()for n in expected}\n assert actual==expected\n print(json.dumps(dict(exitCode=0,gnuPatch=True,patchedSourceSha256=actual,compiledSourceBytesChanged=False,accepted=False),indent=2))\n"
+  ],
+  "exitCode": 0
+}

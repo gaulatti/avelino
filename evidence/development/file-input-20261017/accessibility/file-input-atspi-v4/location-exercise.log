@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "/probe/location-exercise.py", line 82, in <module>
+    assert location.queryEditableText().setTextContents('/probe/fixtures/missing')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/pyatspi/Accessibility.py", line 147, in <lambda>
+    Atspi.Accessible.queryEditableText = lambda x: EditableText(getInterface(Atspi.Accessible.get_editable_text_iface, x))
+                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/pyatspi/Accessibility.py", line 68, in getInterface
+    raise NotImplementedError
+NotImplementedError
+Traceback (most recent call last):
+  File "/probe/location-exercise.py", line 82, in <module>
+    assert location.queryEditableText().setTextContents('/probe/fixtures/missing')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/pyatspi/Accessibility.py", line 147, in <lambda>
+    Atspi.Accessible.queryEditableText = lambda x: EditableText(getInterface(Atspi.Accessible.get_editable_text_iface, x))
+                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/pyatspi/Accessibility.py", line 68, in getInterface
+    raise NotImplementedError
+NotImplementedError

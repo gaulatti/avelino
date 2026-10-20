@@ -1,0 +1,27 @@
+Internal ctest changing into directory: /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/build
+Test project /work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/build
+    Start 1: date-range-calendar-components
+1/1 Test #1: date-range-calendar-components ...***Failed    0.30 sec
+********* Start testing of DateRangeToolsTests *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 13.3.0), ubuntu 24.04
+PASS   : DateRangeToolsTests::initTestCase()
+PASS   : DateRangeToolsTests::sourceDateConstructionAndDisplayClamp()
+PASS   : DateRangeToolsTests::sourceCalendarHistoryComponents()
+FAIL!  : DateRangeToolsTests::nativeInputArithmetic() Compared doubles are not the same (fuzzy compare)
+   Actual   (preview)                          : 1710288000
+   Expected (instant("graphical-space-commit")): 1710345600
+   Loc: [/work/artifacts/resumed-avelino-20261016/file-input-qt-v21/fresh-build/source/tests/components/daterangetools.cpp(92)]
+PASS   : DateRangeToolsTests::localizedSegmentBoundaries()
+PASS   : DateRangeToolsTests::ownedCalendarGrid()
+PASS   : DateRangeToolsTests::cleanupTestCase()
+Totals: 6 passed, 1 failed, 0 skipped, 0 blacklisted, 262ms
+********* Finished testing of DateRangeToolsTests *********
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   0.32 sec
+
+The following tests FAILED:
+	  1 - date-range-calendar-components (Failed)
+Errors while running CTest

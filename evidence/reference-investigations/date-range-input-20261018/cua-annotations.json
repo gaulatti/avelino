@@ -1,0 +1,440 @@
+[
+  {
+    "action": "CUA click From date-time area index 2",
+    "observationOrdinal": 4,
+    "observedRequests": [
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710000000.625
+      }
+    ],
+    "inputEvents": 2,
+    "observation": "calendar overlay visible in CUA screenshot; year segment highlighted"
+  },
+  {
+    "action": "Reset; Ignore; click From; Up",
+    "observationOrdinal": 37,
+    "observedRequests": [
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710000000.625
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1741536000.625
+      }
+    ],
+    "inputEvents": 32,
+    "observation": "Native displayed year advances while raw owner model remains unchanged"
+  },
+  {
+    "action": "Reset; Delay; click From; Up",
+    "observationOrdinal": 45,
+    "observedRequests": [
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1741536000.625
+      }
+    ],
+    "inputEvents": 36,
+    "observation": "Native year advances; model unchanged, requested date stored in owner pending map"
+  },
+  {
+    "action": "Apply pending; click From; previous calendar month; select February 18 2025",
+    "observationOrdinal": 52,
+    "observedRequests": [
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1741536000.625
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1741536000.625,
+        "requested": 1741536000.625
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1741536000.625,
+        "requested": 1739894400.625
+      }
+    ],
+    "inputEvents": 42,
+    "observation": "Actual calendar pointer selection under delayed owner; overlay image and raw requested epoch retained"
+  },
+  {
+    "action": "Mode 1; Reset; Ignore; click From; Up",
+    "observationOrdinal": 61,
+    "inputEvents": 46,
+    "observedRequests": [
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710000000.625
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1741536000.625
+      }
+    ],
+    "observation": "Ignoring owner invariant matches public reference: raw model unchanged, displayed year advances, sub-day fraction preserved"
+  },
+  {
+    "action": "Mode 1; Reset; Delay; click From; Up",
+    "observationOrdinal": 67,
+    "inputEvents": 50,
+    "observedRequests": [
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1741536000.625
+      }
+    ],
+    "observation": "Delayed owner invariant matches public reference: model unchanged; pending and native year advance"
+  },
+  {
+    "action": "Mode 2; Reset; Ignore; click From; Up",
+    "observationOrdinal": 75,
+    "inputEvents": 54,
+    "observedRequests": [
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710000000.625
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1741536000.625
+      }
+    ],
+    "observation": "Ignoring owner invariant matches public/probed reference"
+  },
+  {
+    "action": "Mode 2; Reset; Delay; click From; Up",
+    "observationOrdinal": 81,
+    "inputEvents": 58,
+    "observedRequests": [
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1741536000.625
+      }
+    ],
+    "observation": "Delayed owner invariant matches public/probed reference"
+  },
+  {
+    "action": "Mode 0; Reset; click To; Down",
+    "observationOrdinal": 88,
+    "inputEvents": 62,
+    "observedRequests": [
+      {
+        "endpoint": "end",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710864000.125
+      },
+      {
+        "endpoint": "end",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1679241600.125
+      }
+    ],
+    "observation": "Real native end-date edit crosses start without reordering and preserves .125 seconds/time of day"
+  },
+  {
+    "action": "Bounded; click From; Up",
+    "observationOrdinal": 94,
+    "inputEvents": 66,
+    "observedRequests": [
+      {
+        "endpoint": "end",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710864000.125
+      },
+      {
+        "endpoint": "end",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1679241600.125
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710000000.625
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1711843200
+      }
+    ],
+    "observation": "Year edit clamps to exact upper instant 1711843200, replacing hidden time; UI shows March 31 UTC while CUA compact AX date string shows March 30"
+  },
+  {
+    "action": "Bounded From year Down after upper clamp",
+    "observationOrdinal": 96,
+    "inputEvents": 68,
+    "observedRequests": [
+      {
+        "endpoint": "end",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710864000.125
+      },
+      {
+        "endpoint": "end",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1679241600.125
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710000000.625
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1711843200
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1711843200,
+        "requested": 1709251200
+      }
+    ],
+    "observation": "Native year decrement clamps to exact lower instant 1709251200"
+  },
+  {
+    "action": "Disabled fixture; actual coordinate click From; Up",
+    "observationOrdinal": 102,
+    "inputEvents": 72,
+    "observedRequests": [
+      {
+        "endpoint": "end",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710864000.125
+      },
+      {
+        "endpoint": "end",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1679241600.125
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710000000.625
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1711843200
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1711843200,
+        "requested": 1709251200
+      }
+    ],
+    "observation": "Mouse and Up events recorded; disabled fields emit no additional request and both date values remain unchanged"
+  },
+  {
+    "action": "Graphical fixture; select March 12; Right",
+    "observationOrdinal": 107,
+    "inputEvents": 76,
+    "observedRequests": [
+      {
+        "endpoint": "end",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710864000.125
+      },
+      {
+        "endpoint": "end",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1679241600.125
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710000000.625
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1711843200
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1711843200,
+        "requested": 1709251200
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710259200.625
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710259200.625,
+        "requested": 1710259200.625
+      }
+    ],
+    "observation": "Graphical Right previews March 13 at 16:00:00 UTC, discarding only the .625 fractional second; the model remains March 12 at 16:00:00.625 with seven requests"
+  },
+  {
+    "action": "Graphical Space after Right preview",
+    "observationOrdinal": 109,
+    "inputEvents": 78,
+    "observedRequests": [
+      {
+        "endpoint": "end",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710864000.125
+      },
+      {
+        "endpoint": "end",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1679241600.125
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710000000.625
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1711843200
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1711843200,
+        "requested": 1709251200
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710259200.625
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710259200.625,
+        "requested": 1710259200.625
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710259200.625,
+        "requested": 1710345600
+      }
+    ],
+    "observation": "Space commits the 16:00:00 UTC preview with its fractional second removed"
+  },
+  {
+    "action": "Field fixture; click From; Up",
+    "observationOrdinal": 114,
+    "inputEvents": 82,
+    "observedRequests": [
+      {
+        "endpoint": "end",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710864000.125
+      },
+      {
+        "endpoint": "end",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1679241600.125
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710000000.625
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1711843200
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1711843200,
+        "requested": 1709251200
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1710259200.625
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710259200.625,
+        "requested": 1710259200.625
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710259200.625,
+        "requested": 1710345600
+      },
+      {
+        "endpoint": "start",
+        "previousEnd": 1710864000.125,
+        "previousStart": 1710000000.625,
+        "requested": 1712678400.625
+      }
+    ],
+    "observation": "Field-only click selects month; Up changes March to April while preserving 16:00:00.625; no calendar overlay is present"
+  }
+]

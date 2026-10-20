@@ -1,0 +1,36 @@
+Date: 2026-10-19 UTC
+[02:48:45.205] weston 13.0.4
+               https://wayland.freedesktop.org
+               Bug reports to: https://gitlab.freedesktop.org/wayland/weston/issues/
+               Build: 13.0.4
+[02:48:45.210] Command line: /probe/install/bin/weston --backend=x11 --renderer=pixman --width=480 --height=360 --socket=avelino-order --idle-time=0 --config=/tmp/tmp.4JAOOBRDbi/weston.ini --log=/probe/candidate-sanitizer/weston.log
+[02:48:45.211] OS: Linux, 6.8.0-117-generic, #117-Ubuntu SMP PREEMPT_DYNAMIC Thu May  7 17:26:37 UTC 2026, aarch64
+[02:48:45.212] Flight recorder: enabled
+[02:48:45.213] Using config file '/tmp/tmp.4JAOOBRDbi/weston.ini'
+[02:48:45.223] Output repaint window is 7 ms maximum.
+[02:48:45.229] Loading module '/probe/install/lib/libweston-13/x11-backend.so'
+[02:48:45.308] Using Pixman renderer
+[02:48:45.330] Registered plugin API 'weston_windowed_output_api_v2' of size 16
+[02:48:45.330] Color manager: no-op
+[02:48:45.332] Output 'screen0' attempts EOTF mode: SDR
+[02:48:45.332] Output 'screen0' using color profile: stock sRGB color profile
+[02:48:45.335] Found visual, bits per value: 8, red_mask: 00ff0000, green_mask: 0000ff00, blue_mask: 000000ff
+[02:48:45.336] Visual depth is 24
+[02:48:45.336] Found format for depth 24, bpp: 32
+[02:48:45.336] Will use x8r8g8b8 format for SHM surfaces
+[02:48:45.336] x11 output 480x360, window id 2097157
+[02:48:45.337] Output 'screen0' enabled with head(s) screen0
+[02:48:45.337] Compositor capabilities:
+               arbitrary surface rotation: yes
+               screen capture uses y-flip: no
+               cursor planes: no
+               arbitrary resolutions: no
+               view mask clipping: yes
+               explicit sync: no
+               color operations: no
+               presentation clock: CLOCK_MONOTONIC_RAW, id 4
+               presentation clock resolution: 0.000000001 s
+[02:48:45.342] Loading module '/probe/install/lib/weston/desktop-shell.so'
+[02:48:45.350] launching '/probe/install/libexec/weston-keyboard'
+[02:48:45.353] launching '/probe/install/libexec/weston-desktop-shell'
+[02:48:45.599] caught signal 15

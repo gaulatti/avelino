@@ -1,0 +1,53 @@
+Thread 0x0000f99641bc4180 (most recent call first):
+  File "/usr/lib/python3/dist-packages/speechd/client.py", line 261 in _readline
+  File "/usr/lib/python3/dist-packages/speechd/client.py", line 278 in _recv_message
+  File "/usr/lib/python3/dist-packages/speechd/client.py", line 231 in _communication
+  File "/usr/lib/python3.12/threading.py", line 1010 in run
+  File "/usr/lib/python3.12/threading.py", line 1073 in _bootstrap_inner
+  File "/usr/lib/python3.12/threading.py", line 1030 in _bootstrap
+
+Thread 0x0000f99642f4f180 (most recent call first):
+  File "/usr/lib/python3/dist-packages/orca/ax_value.py", line 61 in _clear_stored_data
+  File "/usr/lib/python3.12/threading.py", line 1010 in run
+  File "/usr/lib/python3.12/threading.py", line 1073 in _bootstrap_inner
+  File "/usr/lib/python3.12/threading.py", line 1030 in _bootstrap
+
+Thread 0x0000f9964375f180 (most recent call first):
+  File "/usr/lib/python3/dist-packages/orca/ax_table.py", line 89 in _clear_stored_data
+  File "/usr/lib/python3.12/threading.py", line 1010 in run
+  File "/usr/lib/python3.12/threading.py", line 1073 in _bootstrap_inner
+  File "/usr/lib/python3.12/threading.py", line 1030 in _bootstrap
+
+Thread 0x0000f99666f63180 (most recent call first):
+  File "/usr/lib/python3/dist-packages/orca/ax_object.py", line 63 in _clear_stored_data
+  File "/usr/lib/python3.12/threading.py", line 1010 in run
+  File "/usr/lib/python3.12/threading.py", line 1073 in _bootstrap_inner
+  File "/usr/lib/python3.12/threading.py", line 1030 in _bootstrap
+
+Current thread 0x0000f99667dbb720 (most recent call first):
+  File "/usr/lib/python3.12/threading.py", line 355 in wait
+  File "/usr/lib/python3.12/threading.py", line 507 in acquire
+  File "/usr/lib/python3/dist-packages/speechd/client.py", line 296 in _recv_response
+  File "/usr/lib/python3/dist-packages/speechd/client.py", line 361 in send_data
+  File "/usr/lib/python3/dist-packages/speechd/client.py", line 755 in speak
+  File "/usr/lib/python3/dist-packages/orca/speechdispatcherfactory.py", line 193 in _send_command
+  File "/usr/lib/python3/dist-packages/orca/speechdispatcherfactory.py", line 314 in _speak
+  File "/usr/lib/python3/dist-packages/orca/speechdispatcherfactory.py", line 481 in speak
+  File "/usr/lib/python3/dist-packages/orca/speech.py", line 173 in _speak
+  File "/usr/lib/python3/dist-packages/orca/speech.py", line 245 in speak
+  File "/usr/lib/python3/dist-packages/orca/speech.py", line 217 in speak
+  File "/usr/lib/python3/dist-packages/orca/scripts/default.py", line 705 in locusOfFocusChanged
+  File "/usr/lib/python3/dist-packages/orca/focus_manager.py", line 221 in set_locus_of_focus
+  File "/usr/lib/python3/dist-packages/orca/scripts/default.py", line 1632 in onFocusedChanged
+  File "/usr/lib/python3/dist-packages/orca/scripts/toolkits/Qt/script.py", line 83 in onFocusedChanged
+  File "/usr/lib/python3/dist-packages/orca/script.py", line 339 in processObjectEvent
+  File "/usr/lib/python3/dist-packages/orca/event_manager.py", line 862 in _processObjectEvent
+  File "/usr/lib/python3/dist-packages/orca/event_manager.py", line 435 in _dequeue_object_event
+  File "/usr/lib/python3/dist-packages/orca/orca.py", line 332 in start
+  File "/usr/lib/python3/dist-packages/orca/orca.py", line 535 in main
+  File "/usr/bin/orca", line 291 in main
+  File "/usr/bin/orca", line 294 in <module>
+  File "<frozen runpy>", line 88 in _run_code
+  File "<frozen runpy>", line 98 in _run_module_code
+  File "<frozen runpy>", line 286 in run_path
+  File "/probe/reader-diagnostic.py", line 5 in <module>

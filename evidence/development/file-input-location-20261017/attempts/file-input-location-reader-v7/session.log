@@ -1,0 +1,12 @@
+dbus-run-session: ignoring unknown child process 12
+dbus-run-session: ignoring unknown child process 13
+Traceback (most recent call last):
+  File "/probe/session.py", line 46, in <module>
+    hosts=subprocess.check_output(command,text=True).split();assert len(hosts)==1,hosts
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['xdotool', 'search', '--onlyvisible', '--name', '^Weston Compositor - screen0$']' returned non-zero exit status 1.

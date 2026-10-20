@@ -1,0 +1,33 @@
+[
+  {
+    "label": "bootstrap",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "exec",
+      "avelino-qt-rectangle-installer-20261020-v1",
+      "python3",
+      "/result/bootstrap.py"
+    ],
+    "exitCode": 0,
+    "seconds": 4.897628542035818
+  },
+  {
+    "label": "installer",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "exec",
+      "avelino-qt-rectangle-installer-20261020-v1",
+      "bash",
+      "/recipe/install-qt-software-rectangle.sh",
+      "/qt-source/qtdeclarative-everywhere-src-6.8.3",
+      "/qt-build",
+      "/opt/qt"
+    ],
+    "exitCode": 0,
+    "seconds": 114.04933700000402
+  }
+]

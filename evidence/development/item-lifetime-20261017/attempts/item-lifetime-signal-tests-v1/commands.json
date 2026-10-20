@@ -1,0 +1,33 @@
+[
+  {
+    "name": "configure",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino:/work",
+      "-w",
+      "/work/artifacts/resumed-avelino-20261016/item-lifetime-signal-tests-v1",
+      "--env",
+      "QT_QPA_PLATFORM=offscreen",
+      "--env",
+      "QT_QUICK_BACKEND=software",
+      "avelino-toolchain:data-metrics-qt6.8.3",
+      "cmake",
+      "-S",
+      ".",
+      "-B",
+      "build",
+      "-G",
+      "Ninja",
+      "-DCMAKE_BUILD_TYPE=Debug"
+    ],
+    "exitCode": 1,
+    "seconds": 7.864889541058801
+  }
+]

@@ -1,0 +1,70 @@
+Window: "Open", App: Avelino locations A.
+0 sheet Description: open, ID: open-panel, Secondary Actions: Raise
+	1 split group
+		2 scroll area Secondary Actions: Scroll Up, Scroll Down
+			3 outline sidebar
+				4 row (selectable) Description: clock, Value: Recents
+				5 row (selectable) Description: Two people, Value: Shared
+				6 row (selectable, expanded) Value: Favorites, Secondary Actions: Collapse
+				7 row (selectable) Description: App Store letter A icon, Value: Applications
+				8 row (selectable) Description: Menu bar with dock on a rectangle, Value: Desktop
+				9 row (selectable) Description: Document page, Value: Documents
+				10 row (selectable) Description: Arrow Down Circle, Value: Downloads
+				11 row (selectable) Description: movie, Value: Movies
+				12 row (selectable) Description: Music note, Value: Music
+				13 row (selectable, expanded) Value: Locations, Secondary Actions: Collapse
+				14 row (selectable) Description: iCloud, Value: iCloud Drive
+				15 row (selectable) Description: home, Value: gaulatti
+				16 row (selectable) Description: Macbook, Value: Jack’s MacBook Pro
+				17 row (selectable) Description: Internal hard drive, Value: Macintosh HD
+				18 row (selectable) Eject, Value: ZoomLauncher, Description: External hard drive
+eject
+				19 row (selectable, expanded) Value: Tags, Secondary Actions: Collapse
+				20 row (selectable) Description: Small circle badge, filled, Value: Orange
+				21 row (selectable) Description: Small circle badge, filled, Value: Blue
+				22 row (selectable) Description: Small circle badge, filled, Value: Gris
+				23 row (selectable) Description: Small circle badge, Value: Important
+				24 row (selectable) Description: Small circle badge, filled, Value: Gray
+				25 row (selectable) Description: Small circle badge, filled, Value: Purple
+				26 row (selectable) Description: Small circle badge, filled, Value: Red
+				27 row (selectable) Description: Two small circle badges, Value: All Tags…
+			28 scroll bar (settable, float) 0
+				29 value indicator (settable, float) 0
+				30 increment arrow button
+				31 decrement arrow button
+				32 increment page button
+				33 decrement page button
+		34 splitter (disabled, settable, float) 159
+		35 scroll area
+			36 outline Description: list view, ID: ListView
+				37 row (selectable)
+					38 cell Secondary Actions: Open Finder item
+						39 image
+						40 text field (settable) Value: Mark.txt, Secondary Actions: Open Finder item, URL: file:///Users/gaulatti/.codex/tmp/avelino-file-input-location-harness-20261017-v1/fixtures/Recent-01/Mark.txt
+					41 cell
+						42 text 40 bytes
+					43 cell
+						44 text Plain Text
+					45 cell
+						46 text Today at 20:46
+				47 container ListViewHeader
+					48 button Description: Name, Value: AXAscendingSortDirection, ID: name
+					49 button Description: Size, ID: size
+					50 button Description: Kind, ID: kind
+					51 button Description: Date Added, ID: dateAdded
+		52 container
+			53 button (disabled) back
+			54 button (disabled) forward
+		55 menu button Description: List, Help: Show as Icons, List, or Columns, and hide/show the sidebar, ID: View Options
+		56 menu button Description: Three-by-one square grid below a one-by-two line grid, Help: Change the item grouping (hold down Option to change the sort), ID: Group or Sort By
+		57 pop up button Where:, Value: Recent-01, ID: where popup
+		58 search text field Search
+			59 button search
+		60 button New Folder, ID: NewFolderButton
+		61 button Cancel, ID: CancelButton
+		62 button (disabled) Open, ID: OKButton
+63 menu bar
+	64 Avelino locations A
+	65 Edit
+
+The focused UI element is 36 outline Description: list view, ID: ListView

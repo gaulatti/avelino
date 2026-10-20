@@ -1,9 +1,12 @@
 #include <QLocale>
+#include <QDir>
 #include "apptabfixtures.h"
 #include <limits>
 #include <QtQml/qqml.h>
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QQmlComponent>
+#include <memory>
 #include <QTimer>
 #include <QQuickWindow>
 #include <QQuickItem>
@@ -48,9 +51,14 @@ static QQuickItem *findVisualItem(QQuickItem *item, const QString &name) {
 #include "pillchecks.h"
 #include "chartchecks.h"
 #include "medialibrarychecks.h"
+#include "herocarouselchecks.h"
+#include "daterangechecks.h"
 #include "apptabschecks.h"
+#include "mobileshellchecks.h"
+#include "adminshellchecks.h"
 #include "commandspotlightchecks.h"
 #include "dropdownmenuchecks.h"
+#include "fileinputchecks.h"
 #include "paginationintegerchecks.h"
 #include "accordionchecks.h"
 #include "presentationchecks.h"
@@ -205,6 +213,60 @@ static void runSelectionConsumer(QQuickWindow *window, QGuiApplication &app,
     QObject::connect(timer,&QTimer::timeout,&app,[&app,path] { if (QFile::exists(path+".captured")) app.exit(0); });
     timer->start(100); QTimer::singleShot(10000,&app,[&app] { app.exit(77); });
 }
+static bool verifyInstalledButtonGroupSlots(QQuickWindow *window) {
+    struct Case { const char *factory; qreal width,height,firstX,secondX; };
+    for(const auto &row: {Case{"emptyGroupFactory",0,0,0,0},
+        Case{"groupSlotsFactory",128,30,0,88},Case{"overlappingGroupFactory",80,30,0,-120},
+        Case{"rtlGroupFactory",128,30,48,0},Case{"fractionalGroupFactory",129,30.5,0,88.5}}) {
+        const auto component=window->property(row.factory).value<QQmlComponent *>();
+        if(!component)return false;
+        std::unique_ptr<QObject> object(component->create(qmlContext(window)));
+        const auto group=qobject_cast<QQuickItem *>(object.get());
+        if(!group)return false;
+        group->setParentItem(window->contentItem());QTest::qWait(80);
+        if(group->width()!=row.width || group->height()!=row.height)return false;
+        if(row.width>0) {
+            const auto first=findVisualItem(group,"first"),second=findVisualItem(group,"second");
+            if(!first || !second || first->mapToItem(group,QPointF())!=QPointF(row.firstX,5)
+                || second->mapToItem(group,QPointF())!=QPointF(row.secondX,0))return false;
+        }
+    }
+    const auto component=window->property("interactiveGroupFactory").value<QQmlComponent *>();
+    if(!component)return false;
+    std::unique_ptr<QObject> object(component->create(qmlContext(window)));
+    const auto group=qobject_cast<QQuickItem *>(object.get());
+    if(!group)return false;
+    group->setParentItem(window->contentItem());group->setPosition(QPointF(300,200));QTest::qWait(80);
+    const auto first=findVisualItem(group,"first"),second=findVisualItem(group,"second");
+    if(!first || !second)return false;
+    QTest::mouseClick(window,Qt::LeftButton,Qt::NoModifier,first->mapToScene(QPointF(first->width()/2,first->height()/2)).toPoint());
+    first->forceActiveFocus();QTest::keyClick(window,Qt::Key_Space);QTest::qWait(40);
+    if(window->property("groupInvocations").toInt()!=2)return false;
+    qInfo("Installed ButtonGroup: five bare slot cases and pointer/keyboard activation passed");
+    return true;
+}
+static bool verifyInstalledFooterSlots(QQuickWindow *window) {
+    for (const auto &name : {"emptyFooterFactory", "footerSlotsFactory"}) {
+        const auto component=window->property(name).value<QQmlComponent *>();
+        if (!component) return false;
+        std::unique_ptr<QObject> object(component->create(qmlContext(window)));
+        const auto footer=qobject_cast<QQuickItem *>(object.get());
+        if (!footer) return false;
+        footer->setParentItem(window->contentItem());
+        QTest::qWait(80);
+        const bool empty=std::strcmp(name,"emptyFooterFactory")==0;
+        if (footer->width()!=300 || footer->height()!=(empty ? 1 : 131)) return false;
+        if (!empty) {
+            const auto first=findVisualItem(footer,"firstFooterSlot");
+            const auto second=findVisualItem(footer,"secondFooterSlot");
+            if (!first || !second || first->width()!=80 || first->height()!=20
+                || second->width()!=40 || second->height()!=30
+                || first->mapToItem(footer,QPointF())!=QPointF(110,21)
+                || second->mapToItem(footer,QPointF())!=QPointF(130,81)) return false;
+        }
+    }
+    return true;
+}
 static void runCompositionConsumer(QQuickWindow *window, QGuiApplication &app,
                                    const QCommandLineParser &parser, double textScale) {
     auto item = [window](const QString &name) { return findVisualItem(window->contentItem(),name); };
@@ -214,6 +276,12 @@ static void runCompositionConsumer(QQuickWindow *window, QGuiApplication &app,
     const auto first=item("bleeckerDashboardTile0"), second=item("bleeckerDashboardTile1");
     if (!shell || !grid || !section || !action || !feed || !footer || !sidebar || !content || !first || !second) {
         qCritical("Installed composition is missing a visual slot"); app.exit(50); return;
+    }
+    if (!verifyInstalledFooterSlots(window)) {
+        qCritical("Installed footer absent/multiple-slot source geometry differs"); app.exit(55); return;
+    }
+    if (!verifyInstalledButtonGroupSlots(window)) {
+        qCritical("Installed button group source geometry or activation differs"); app.exit(56); return;
     }
     if (grid->property("columns").toInt()!=2 || sidebar->width()!=240 || content->width()!=519
         || first->width()!=251.5 || second->x()!=267.5 || first->height()<=0 || footer->height()<=41) {
@@ -337,16 +405,31 @@ int main(int argc, char **argv) {
     parser.addOption(QCommandLineOption("data-metrics", "Exercise data metrics, locale and badge/key presentation."));
     parser.addOption(QCommandLineOption("radio-group", "Exercise native RadioGroup binding and canonical String witnesses."));
     parser.addOption(QCommandLineOption("otp-input", "Exercise native OTP model/editor witnesses and Qt input."));
+    parser.addOption(QCommandLineOption("date-range", "Exercise independent date bindings and owned editors."));
+    parser.addOption(QCommandLineOption("date-range-report", "Write DateRangePicker observations and unedited captures to a fresh prefix.", "prefix"));
+    parser.addOption(QCommandLineOption("date-range-observe", "Retain native differences; structural/input failures remain fatal."));
+    parser.addOption(QCommandLineOption("date-range-gallery", "Exercise actual date gallery operators."));
+    parser.addOption(QCommandLineOption("hero-carousel", "Exercise viewport slides, retained identities and owned scrolling."));
+    parser.addOption(QCommandLineOption("hero-carousel-report", "Write HeroCarousel observations and unedited captures to a fresh prefix.", "prefix"));
+    parser.addOption(QCommandLineOption("hero-carousel-observe", "Retain native differences; structural failures remain fatal."));
+    parser.addOption(QCommandLineOption("hero-carousel-gallery", "Exercise actual gallery operators and caller keyboard focus."));
     parser.addOption(QCommandLineOption("media-library", "Exercise caller tiles, retained identity and lazy viewport behavior."));
     parser.addOption(QCommandLineOption("media-library-report", "Write complete media grid observations and images to a fresh prefix.", "prefix"));
     parser.addOption(QCommandLineOption("media-library-observe", "Preserve native differences; structural failures remain fatal."));
     parser.addOption(QCommandLineOption("media-library-fatal", "Exercise the isolated native minimum-width failure input."));
+    parser.addOption(QCommandLineOption("file-input", "Exercise the owned FileInput chooser and all native closed contexts."));
+    parser.addOption(QCommandLineOption("file-input-observe", "Retain strict native differences; contract or runtime failures remain fatal."));
+    parser.addOption(QCommandLineOption("file-input-report", "Write FileInput observations and images to a fresh prefix.", "prefix"));
     parser.addOption(QCommandLineOption("dropdown-menu", "Compare native dropdown triggers and exercise actual menu windows."));
     parser.addOption(QCommandLineOption("dropdown-menu-report", "Write complete dropdown observations and images to a fresh prefix.", "prefix"));
     parser.addOption(QCommandLineOption("dropdown-menu-observe", "Preserve native differences; structural failures remain fatal."));
     parser.addOption(QCommandLineOption("command-spotlight", "Compare native command spotlight and retained caller histories."));
     parser.addOption(QCommandLineOption("command-spotlight-report", "Write reports and captures to a fresh prefix.", "prefix"));
     parser.addOption(QCommandLineOption("command-spotlight-observe", "Record native differences; structural failures remain fatal."));
+    parser.addOption(QCommandLineOption("admin-shell", "Exercise the desktop admin shell and caller-owned visibility."));
+    parser.addOption(QCommandLineOption("admin-shell-report", "Retain raw admin body captures and native state comparisons.", "prefix"));
+    parser.addOption(QCommandLineOption("mobile-shell", "Compare native desktop shell slots and hosted section writeback."));
+    parser.addOption(QCommandLineOption("mobile-shell-report", "Write desktop shell observations and body captures to a fresh prefix.", "prefix"));
     parser.addOption(QCommandLineOption("app-tabs", "Compare native desktop app-tab contexts and caller binding histories."));
     parser.addOption(QCommandLineOption("app-tabs-report", "Write complete app-tab reports and captures to a fresh prefix.", "prefix"));
     parser.addOption(QCommandLineOption("app-tabs-observe", "Record every native difference; structural errors remain fatal."));
@@ -384,26 +467,39 @@ int main(int argc, char **argv) {
     parser.addOption(QCommandLineOption("secure-field", "Exercise secure editing, reveal and Qt accessibility."));
     parser.addOption(QCommandLineOption("text-scale", "Exercise text scaling.", "factor", "1"));
     parser.process(app);
-    if (int(parser.isSet("dropdown-menu"))+int(parser.isSet("command-spotlight"))+int(parser.isSet("app-tabs"))+int(parser.isSet("media-library"))+int(parser.isSet("charts"))+int(parser.isSet("pill-modifier"))+int(parser.isSet("surface-baseline"))+int(parser.isSet("surface-input"))+int(parser.isSet("surface-modifier"))+int(parser.isSet("font-modifier"))+int(parser.isSet("button-style"))+int(parser.isSet("tooltip"))+int(parser.isSet("modal"))+int(parser.isSet("activity-item"))+int(parser.isSet("otp-input"))+int(parser.isSet("radio-group"))+int(parser.isSet("stepper"))+int(parser.isSet("data-metrics"))+int(parser.isSet("navigation"))+int(parser.isSet("sidebar-brand"))+int(parser.isSet("controls"))+int(parser.isSet("composition"))+int(parser.isSet("selection"))+int(parser.isSet("checkbox"))+int(parser.isSet("secure-field"))+int(parser.isSet("search-field"))+int(parser.isSet("collection-filters"))+int(parser.isSet("slider"))+int(parser.isSet("tabs"))+int(parser.isSet("pagination"))+int(parser.isSet("pagination-integers"))+int(parser.isSet("accordion"))+int(parser.isSet("presentation-states"))+int(parser.isSet("spinner"))+int(parser.isSet("alert"))+int(parser.isSet("clipping"))>1) return 58;
+    if(parser.isSet("mobile-shell-report") && !parser.isSet("mobile-shell"))return 58;
+    if (int(parser.isSet("mobile-shell"))+int(parser.isSet("date-range"))+int(parser.isSet("hero-carousel"))+int(parser.isSet("file-input"))+int(parser.isSet("dropdown-menu"))+int(parser.isSet("command-spotlight"))+int(parser.isSet("app-tabs"))+int(parser.isSet("media-library"))+int(parser.isSet("charts"))+int(parser.isSet("pill-modifier"))+int(parser.isSet("surface-baseline"))+int(parser.isSet("surface-input"))+int(parser.isSet("surface-modifier"))+int(parser.isSet("font-modifier"))+int(parser.isSet("button-style"))+int(parser.isSet("tooltip"))+int(parser.isSet("modal"))+int(parser.isSet("activity-item"))+int(parser.isSet("otp-input"))+int(parser.isSet("radio-group"))+int(parser.isSet("stepper"))+int(parser.isSet("data-metrics"))+int(parser.isSet("navigation"))+int(parser.isSet("sidebar-brand"))+int(parser.isSet("controls"))+int(parser.isSet("composition"))+int(parser.isSet("selection"))+int(parser.isSet("checkbox"))+int(parser.isSet("secure-field"))+int(parser.isSet("search-field"))+int(parser.isSet("collection-filters"))+int(parser.isSet("slider"))+int(parser.isSet("tabs"))+int(parser.isSet("pagination"))+int(parser.isSet("pagination-integers"))+int(parser.isSet("accordion"))+int(parser.isSet("presentation-states"))+int(parser.isSet("spinner"))+int(parser.isSet("alert"))+int(parser.isSet("clipping"))>1) return 58;
     bool validScale = false;
     const double textScale = parser.value("text-scale").toDouble(&validScale);
     if (!validScale || !std::isfinite(textScale) || textScale <= 0) return 12;
-    if(parser.isSet("button-style") || parser.isSet("stepper") || parser.isSet("data-metrics"))QLocale::setDefault(QLocale("en_US"));
+    if(parser.isSet("file-input") || parser.isSet("button-style") || parser.isSet("stepper") || parser.isSet("data-metrics"))QLocale::setDefault(QLocale("en_US"));
+    if((parser.isSet("file-input-report")||parser.isSet("file-input-observe"))&&!parser.isSet("file-input"))return 58;
+    if((parser.isSet("hero-carousel-report")||parser.isSet("hero-carousel-observe")||parser.isSet("hero-carousel-gallery"))&&!parser.isSet("hero-carousel"))return 58;
+    if((parser.isSet("date-range-report")||parser.isSet("date-range-observe")||parser.isSet("date-range-gallery"))&&!parser.isSet("date-range"))return 58;
+    if(parser.isSet("admin-shell-report")&&!parser.isSet("admin-shell"))return 58;
+    if(parser.isSet("file-input") || parser.isSet("admin-shell"))QAccessible::setActive(true);
     QQmlApplicationEngine engine;
     installAppTabFixtureMetrics(engine);
     engine.rootContext()->setContextProperty("consumerSurfaceInput",parser.isSet("surface-input"));
     engine.rootContext()->setContextProperty("consumerDark", parser.isSet("dark"));
     engine.rootContext()->setContextProperty("consumerTextScale", textScale);
+    engine.rootContext()->setContextProperty("consumerDateGallery",parser.isSet("date-range-gallery"));
+    engine.rootContext()->setContextProperty("consumerHeroGallery",parser.isSet("hero-carousel-gallery"));
     engine.rootContext()->setContextProperty("captureDark", parser.isSet("dark"));
     engine.rootContext()->setContextProperty("captureTextScale", textScale);
-    engine.addImportPath(QStringLiteral(AVELINO_INSTALLED_IMPORT_PATH));
+    engine.addImportPath(QDir(QCoreApplication::applicationDirPath()).filePath(QStringLiteral(AVELINO_INSTALLED_IMPORT_PATH)));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreationFailed, &app, [] { QCoreApplication::exit(1); }, Qt::QueuedConnection);
-    engine.loadFromModule("InstalledConsumer", parser.isSet("dropdown-menu") ? "DropdownMenu" : parser.isSet("command-spotlight") ? "CommandSpotlight" : parser.isSet("app-tabs") ? "AppTabs" : parser.isSet("media-library") ? "MediaLibrary" : parser.isSet("charts") ? "Charts" : parser.isSet("pill-modifier") ? "PillModifier" : (parser.isSet("surface-baseline") ||parser.isSet("surface-input")) ? "SurfaceSupplement" : parser.isSet("surface-modifier") ? "SurfaceModifier" : parser.isSet("font-modifier") ? "FontModifier" : parser.isSet("button-style") ? "ButtonStyle" : parser.isSet("tooltip") ? "Tooltip" : parser.isSet("modal") ? "Modal" : parser.isSet("activity-item") ? "ActivityItem" : parser.isSet("otp-input") ? "OTPInput" : parser.isSet("radio-group") ? "RadioGroup" : parser.isSet("stepper") ? "Stepper" : parser.isSet("data-metrics") ? "DataMetrics" : parser.isSet("sidebar-brand") ? "SidebarBrand" : parser.isSet("navigation") ? "Navigation" : parser.isSet("clipping") ? "Clipping" : parser.isSet("alert") ? "Alert" : parser.isSet("spinner") ? "Spinner" : parser.isSet("presentation-states") ? "PresentationStates" : parser.isSet("accordion") ? "Accordion" : parser.isSet("pagination-integers") ? "PaginationIntegers" : parser.isSet("pagination") ? "Pagination" : parser.isSet("tabs") ? "Tabs" : parser.isSet("slider") ? "Slider" : parser.isSet("collection-filters") ? "CollectionFilters" : parser.isSet("search-field") ? "SearchField" : parser.isSet("secure-field") ? "SecureField" : parser.isSet("checkbox") ? "Checkbox" : parser.isSet("selection") ? "Selection" : parser.isSet("composition") ? "Composition" : parser.isSet("controls") ? "Controls" : "Main");
+    engine.loadFromModule("InstalledConsumer", parser.isSet("admin-shell") ? "AdminShell" : parser.isSet("mobile-shell") ? "MobileShell" : parser.isSet("date-range") ? "DateRangePicker" : parser.isSet("hero-carousel") ? "HeroCarousel" : parser.isSet("file-input") ? "FileInput" : parser.isSet("dropdown-menu") ? "DropdownMenu" : parser.isSet("command-spotlight") ? "CommandSpotlight" : parser.isSet("app-tabs") ? "AppTabs" : parser.isSet("media-library") ? "MediaLibrary" : parser.isSet("charts") ? "Charts" : parser.isSet("pill-modifier") ? "PillModifier" : (parser.isSet("surface-baseline") ||parser.isSet("surface-input")) ? "SurfaceSupplement" : parser.isSet("surface-modifier") ? "SurfaceModifier" : parser.isSet("font-modifier") ? "FontModifier" : parser.isSet("button-style") ? "ButtonStyle" : parser.isSet("tooltip") ? "Tooltip" : parser.isSet("modal") ? "Modal" : parser.isSet("activity-item") ? "ActivityItem" : parser.isSet("otp-input") ? "OTPInput" : parser.isSet("radio-group") ? "RadioGroup" : parser.isSet("stepper") ? "Stepper" : parser.isSet("data-metrics") ? "DataMetrics" : parser.isSet("sidebar-brand") ? "SidebarBrand" : parser.isSet("navigation") ? "Navigation" : parser.isSet("clipping") ? "Clipping" : parser.isSet("alert") ? "Alert" : parser.isSet("spinner") ? "Spinner" : parser.isSet("presentation-states") ? "PresentationStates" : parser.isSet("accordion") ? "Accordion" : parser.isSet("pagination-integers") ? "PaginationIntegers" : parser.isSet("pagination") ? "Pagination" : parser.isSet("tabs") ? "Tabs" : parser.isSet("slider") ? "Slider" : parser.isSet("collection-filters") ? "CollectionFilters" : parser.isSet("search-field") ? "SearchField" : parser.isSet("secure-field") ? "SecureField" : parser.isSet("checkbox") ? "Checkbox" : parser.isSet("selection") ? "Selection" : parser.isSet("composition") ? "Composition" : parser.isSet("controls") ? "Controls" : "Main");
     QTimer::singleShot(500, &app, [&engine, &app, &parser, textScale] {
         auto window = qobject_cast<QQuickWindow *>(engine.rootObjects().value(0));
         if (!window) { app.exit(2); return; }
+        if (parser.isSet("date-range")) {runDateRangeConsumer(window,app,parser,textScale);return;}
+        if (parser.isSet("hero-carousel")) {runHeroCarouselConsumer(window,app,parser,textScale);return;}
+        if (parser.isSet("file-input")) {runFileInputConsumer(window,app,parser,textScale);return;}
         if (parser.isSet("dropdown-menu")) {runDropdownMenuConsumer(window,app,parser,textScale);return;}
         if (parser.isSet("command-spotlight")) {runCommandSpotlightConsumer(window,app,parser,textScale);return;}
+        if (parser.isSet("admin-shell")) {runAdminShellConsumer(window,app,parser,textScale);return;}
+        if (parser.isSet("mobile-shell")) {runMobileShellConsumer(window,app,parser,textScale);return;}
         if (parser.isSet("app-tabs")) {runAppTabsConsumer(window,app,parser,textScale);return;}
         if (parser.isSet("media-library")) {runMediaLibraryConsumer(window,app,parser,textScale);return;}
         if (parser.isSet("charts")) {runChartsConsumer(window,app,parser,textScale);return;}

@@ -4,7 +4,7 @@ set -euo pipefail
 evidence="${1:-$PWD/catalog-evidence}"
 mkdir "$evidence"
 catalog="$PWD/install/bin/AvelinoCatalog"
-fixtures=(foundations surfaces data-display controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper radio-group otp-input activity-item modal tooltip button-style font-modifier surface-modifier pill-modifier charts media-library app-tabs command-spotlight dropdown-menu)
+fixtures=(foundations surfaces data-display controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper radio-group otp-input activity-item modal tooltip button-style font-modifier surface-modifier pill-modifier charts media-library hero-carousel app-tabs command-spotlight dropdown-menu file-input mobile-shell admin-shell)
 for fixture in "${fixtures[@]}"; do
   for appearance in light dark; do
     for dpr in 1 2; do
@@ -38,16 +38,21 @@ from pathlib import Path
 import sys
 assert 'module "Avelino" is not installed' in Path(sys.argv[1]).read_text()
 PYCODE
-python3 - "$evidence" <<'PY'
+python3 - "$evidence" "${fixtures[@]}" <<'PY'
 import hashlib,json,struct,sys
 from pathlib import Path
 root=Path(sys.argv[1]);records=[]
+fixtures=sys.argv[2:]
+assert fixtures and len(fixtures)==len(set(fixtures)),fixtures
+expected={f'{fixture}-{appearance}-dpr{dpr}.png'for fixture in fixtures for appearance in ['light','dark']for dpr in [1,2]}
+expected.update({'actions-light.png','actions-dark.png','button-light-primary-md-enabled.png'})
 for image in sorted(root.glob('*.png')):
  meta=json.loads(image.with_name(image.name+'.json').read_text())
  assert meta['qt']=='6.8.3' and meta['platform']=='offscreen'
  assert struct.unpack('>II',image.read_bytes()[16:24])==(meta['width']*meta['dpr'],meta['height']*meta['dpr'])
  records.append({'path':image.name,'sha256':hashlib.sha256(image.read_bytes()).hexdigest(),'metadataSha256':hashlib.sha256(image.with_name(image.name+'.json').read_bytes()).hexdigest()})
-assert len(records)==151,len(records)
+actual={record['path']for record in records}
+assert actual==expected,{'missing':sorted(expected-actual),'unexpected':sorted(actual-expected)}
 (root/'catalog-results.json').write_text(json.dumps({'status':'passed','method':'installed executable; QML_IMPORT_PATH and QML2_IMPORT_PATH explicitly unset; offscreen software','captures':records,'missingModuleRefusal':'passed','acceptance':'startup/relocation evidence only; strict mirror and physical/session gates remain separate'},indent=2)+'\n')
-print('Installed catalog: 151 fixture captures passed without source/build import paths')
+print(f'Installed catalog: {len(records)} fixture captures passed without source/build import paths')
 PY

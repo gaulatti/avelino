@@ -1,0 +1,245 @@
+{
+  "accepted": false,
+  "status": "running",
+  "phases": [
+    {
+      "phase": "location-current-menu",
+      "time": 1792288951.1196468,
+      "observations": {
+        "selected": [
+          "one.txt"
+        ],
+        "location": "/probe/fixtures"
+      },
+      "readerLogBytes": 250271
+    },
+    {
+      "phase": "location-current-preserves-selection",
+      "time": 1792288953.1207135,
+      "observations": {
+        "selected": [
+          "one.txt"
+        ],
+        "location": "/probe/fixtures"
+      },
+      "readerLogBytes": 283409
+    },
+    {
+      "phase": "location-native-keyboard-current",
+      "time": 1792288956.465128,
+      "observations": {
+        "selected": [
+          "one.txt"
+        ],
+        "method": "AT-SPI SetFocus and native XTest Down/Up/Return"
+      },
+      "readerLogBytes": 440759
+    },
+    {
+      "phase": "location-ancestor-clears-selection",
+      "time": 1792288958.9722066,
+      "observations": {
+        "selected": [],
+        "location": "/probe"
+      },
+      "readerLogBytes": 705260
+    },
+    {
+      "phase": "location-menu-escape-keeps-chooser",
+      "time": 1792288961.834101,
+      "observations": {
+        "selected": [
+          "one.txt"
+        ],
+        "location": "/probe/fixtures"
+      },
+      "readerLogBytes": 887297
+    },
+    {
+      "phase": "list-retains-column-selection",
+      "time": 1792288964.2610075,
+      "observations": {
+        "selected": [
+          "one.txt"
+        ],
+        "dateAdded": "unavailable",
+        "modal": true
+      },
+      "readerLogBytes": 1027978
+    },
+    {
+      "phase": "list-accessible-disclosure",
+      "time": 1792288966.0232675,
+      "observations": {
+        "expanded": true,
+        "location": "/probe/fixtures"
+      },
+      "readerLogBytes": 1135682
+    },
+    {
+      "phase": "list-cross-level-selection",
+      "time": 1792288968.2328916,
+      "observations": {
+        "selected": [
+          "child.txt",
+          "one.txt"
+        ],
+        "method": "AT-SPI Selection.selectChild"
+      },
+      "readerLogBytes": 1193814
+    },
+    {
+      "phase": "list-sort-preserves-identities",
+      "time": 1792288970.0335355,
+      "observations": {
+        "selected": [
+          "child.txt",
+          "one.txt"
+        ],
+        "nameOrder": "descending"
+      },
+      "readerLogBytes": 1300806
+    },
+    {
+      "phase": "icons-prunes-hidden-child",
+      "time": 1792288972.6021793,
+      "observations": {
+        "selected": [
+          "one.txt"
+        ]
+      },
+      "readerLogBytes": 1449848
+    },
+    {
+      "phase": "icons-folder-open-navigates",
+      "time": 1792288974.9778535,
+      "observations": {
+        "location": "/probe/fixtures/folder",
+        "ownerResult": false
+      },
+      "readerLogBytes": 1541414
+    },
+    {
+      "phase": "history-clears-view-selection",
+      "time": 1792288976.4942088,
+      "observations": {
+        "location": "/probe/fixtures"
+      },
+      "readerLogBytes": 1608378
+    },
+    {
+      "phase": "list-left-collapses",
+      "time": 1792288980.316665,
+      "observations": {
+        "selected": [
+          "folder"
+        ]
+      },
+      "readerLogBytes": 1947841
+    },
+    {
+      "phase": "list-keyboard-selects-child",
+      "time": 1792288982.359622,
+      "observations": {
+        "selected": [
+          "child.txt"
+        ]
+      },
+      "readerLogBytes": 2080072
+    },
+    {
+      "phase": "child-owner-result",
+      "time": 1792288984.0945144,
+      "observations": {
+        "owner": "Selected URLs: file:///probe/fixtures/folder/child.txt"
+      },
+      "readerLogBytes": 2187648
+    },
+    {
+      "phase": "reopen-retains-list-and-disclosure",
+      "time": 1792288986.0350845,
+      "observations": {
+        "location": "/probe/fixtures",
+        "selected": []
+      },
+      "readerLogBytes": 2312802
+    },
+    {
+      "phase": "invalid-location-announced",
+      "time": 1792288988.1708179,
+      "observations": {
+        "location": "/probe/fixtures/missing"
+      },
+      "readerLogBytes": 2544225
+    },
+    {
+      "phase": "list-history-recovers-location",
+      "time": 1792288990.7412615,
+      "observations": {
+        "location": "/probe/fixtures"
+      },
+      "readerLogBytes": 2635643
+    },
+    {
+      "phase": "nested-folder-error-announced",
+      "time": 1792288993.298563,
+      "observations": {
+        "modal": true
+      },
+      "readerLogBytes": 2742652
+    },
+    {
+      "phase": "list-new-folder-creates-and-navigates",
+      "time": 1792288997.1081223,
+      "observations": {
+        "location": "/probe/fixtures/Created by views reader",
+        "owner": "Selected URLs: file:///probe/fixtures/folder/child.txt"
+      },
+      "readerLogBytes": 3106918
+    },
+    {
+      "phase": "location-recent-menu-after-reopen",
+      "time": 1792288998.8585932,
+      "observations": {
+        "location": "/probe/fixtures/Created by views reader",
+        "matchingFolderItems": 2,
+        "owner": "Selected URLs: file:///probe/fixtures/folder/child.txt"
+      },
+      "readerLogBytes": 3190111
+    },
+    {
+      "phase": "location-recent-navigates-without-owner",
+      "time": 1792289000.5639505,
+      "observations": {
+        "location": "/probe/fixtures",
+        "owner": "Selected URLs: file:///probe/fixtures/folder/child.txt"
+      },
+      "readerLogBytes": 3314587
+    },
+    {
+      "phase": "list-history-after-creation",
+      "time": 1792289002.6084828,
+      "observations": {
+        "location": "/probe/fixtures"
+      },
+      "readerLogBytes": 3472298
+    },
+    {
+      "phase": "location-deactivation-closes-menu",
+      "time": 1792289004.680193,
+      "observations": {
+        "owner": "Selected URLs: file:///probe/fixtures/folder/child.txt",
+        "otherPid": 379
+      },
+      "readerLogBytes": 3662587
+    },
+    {
+      "phase": "final-cancel-preserves-owner",
+      "time": 1792289006.6200664,
+      "observations": {
+        "owner": "Selected URLs: file:///probe/fixtures/folder/child.txt"
+      },
+      "readerLogBytes": 3703861
+    }
+  ]
+}

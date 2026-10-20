@@ -1,0 +1,164 @@
+{
+  "accepted": false,
+  "status": "running",
+  "phases": [
+    {
+      "phase": "list-retains-column-selection",
+      "time": 1792282682.4343607,
+      "observations": {
+        "selected": [
+          "one.txt"
+        ],
+        "dateAdded": "unavailable",
+        "modal": true
+      },
+      "readerLogBytes": 300148
+    },
+    {
+      "phase": "list-accessible-disclosure",
+      "time": 1792282684.0657594,
+      "observations": {
+        "expanded": true,
+        "location": "/probe/fixtures"
+      },
+      "readerLogBytes": 399549
+    },
+    {
+      "phase": "list-cross-level-selection",
+      "time": 1792282685.8382742,
+      "observations": {
+        "selected": [
+          "child.txt",
+          "one.txt"
+        ],
+        "method": "AT-SPI Selection.selectChild"
+      },
+      "readerLogBytes": 466099
+    },
+    {
+      "phase": "list-sort-preserves-identities",
+      "time": 1792282687.3930728,
+      "observations": {
+        "selected": [
+          "child.txt",
+          "one.txt"
+        ],
+        "nameOrder": "descending"
+      },
+      "readerLogBytes": 574075
+    },
+    {
+      "phase": "icons-prunes-hidden-child",
+      "time": 1792282689.628282,
+      "observations": {
+        "selected": [
+          "one.txt"
+        ]
+      },
+      "readerLogBytes": 715332
+    },
+    {
+      "phase": "icons-folder-open-navigates",
+      "time": 1792282691.5171134,
+      "observations": {
+        "location": "/probe/fixtures/folder",
+        "ownerResult": false
+      },
+      "readerLogBytes": 806668
+    },
+    {
+      "phase": "history-clears-view-selection",
+      "time": 1792282692.8068163,
+      "observations": {
+        "location": "/probe/fixtures"
+      },
+      "readerLogBytes": 872732
+    },
+    {
+      "phase": "list-left-collapses",
+      "time": 1792282696.0922046,
+      "observations": {
+        "selected": [
+          "folder"
+        ]
+      },
+      "readerLogBytes": 1213198
+    },
+    {
+      "phase": "list-keyboard-selects-child",
+      "time": 1792282697.9700224,
+      "observations": {
+        "selected": [
+          "child.txt"
+        ]
+      },
+      "readerLogBytes": 1346011
+    },
+    {
+      "phase": "child-owner-result",
+      "time": 1792282699.21982,
+      "observations": {
+        "owner": "Selected URLs: file:///probe/fixtures/folder/child.txt"
+      },
+      "readerLogBytes": 1411910
+    },
+    {
+      "phase": "reopen-retains-list-and-disclosure",
+      "time": 1792282700.9880176,
+      "observations": {
+        "location": "/probe/fixtures",
+        "selected": []
+      },
+      "readerLogBytes": 1543929
+    },
+    {
+      "phase": "invalid-location-announced",
+      "time": 1792282703.2616,
+      "observations": {
+        "location": "/probe/fixtures/missing"
+      },
+      "readerLogBytes": 1775907
+    },
+    {
+      "phase": "list-history-recovers-location",
+      "time": 1792282704.5894854,
+      "observations": {
+        "location": "/probe/fixtures"
+      },
+      "readerLogBytes": 1850264
+    },
+    {
+      "phase": "nested-folder-error-announced",
+      "time": 1792282706.9131598,
+      "observations": {
+        "modal": true
+      },
+      "readerLogBytes": 1958090
+    },
+    {
+      "phase": "list-new-folder-creates-and-navigates",
+      "time": 1792282710.1485598,
+      "observations": {
+        "location": "/probe/fixtures/Created by views reader",
+        "owner": "Selected URLs: file:///probe/fixtures/folder/child.txt"
+      },
+      "readerLogBytes": 2289687
+    },
+    {
+      "phase": "list-history-after-creation",
+      "time": 1792282711.5902975,
+      "observations": {
+        "location": "/probe/fixtures"
+      },
+      "readerLogBytes": 2372991
+    },
+    {
+      "phase": "final-cancel-preserves-owner",
+      "time": 1792282713.0466647,
+      "observations": {
+        "owner": "Selected URLs: file:///probe/fixtures/folder/child.txt"
+      },
+      "readerLogBytes": 2438931
+    }
+  ]
+}

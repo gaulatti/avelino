@@ -1,0 +1,16 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--rm",
+    "-v",
+    "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/qt-rectangle-sdk-v2:/result",
+    "sha256:478a1669218e3d2a3dc302a4929a8ebd7fe2d21b21b140eba5d15bd3a24296e3",
+    "python3",
+    "/result/audit-image.py"
+  ],
+  "exitCode": 0,
+  "seconds": 3.129835999920033
+}

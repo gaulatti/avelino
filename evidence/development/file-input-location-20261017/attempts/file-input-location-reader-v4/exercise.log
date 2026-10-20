@@ -1,0 +1,18 @@
+
+(process:102): dbind-WARNING **: 01:35:18.055: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+
+location-current-menu
+location-current-preserves-selection
+
+(process:102): dbind-WARNING **: 01:35:22.605: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+
+location-ancestor-clears-selection
+
+(process:102): dbind-WARNING **: 01:35:25.802: Got invalid signature siisa{sv} for signal ChildrenChanged from interface org.a11y.atspi.Event.Object
+
+Traceback (most recent call last):
+  File "/probe/exercise.py", line 168, in <module>
+operator-failure
+    assert not present('fixtures','menu item') and present('Open','frame') and selected_rows()==['one.txt'] and not owner()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

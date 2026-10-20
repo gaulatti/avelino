@@ -9,6 +9,10 @@ InheritedControl::InheritedControl(QQuickItem *parent):QQuickControl(parent) {
     connect(this,&QQuickItem::paletteChanged,this,&InheritedControl::resolvedTextColorChanged);
     connect(this,&QQuickItem::enabledChanged,this,&InheritedControl::resolvedTextColorChanged);
 }
+InheritedControl::~InheritedControl() {
+    // Base-item detachment can change inherited enabled/font/palette values.
+    disconnect(this,nullptr,this,nullptr);
+}
 QFont InheritedControl::presentationFont() const {
     auto resolved=font();resolved.setResolveMask(QFont::AllPropertiesResolved);return resolved;
 }

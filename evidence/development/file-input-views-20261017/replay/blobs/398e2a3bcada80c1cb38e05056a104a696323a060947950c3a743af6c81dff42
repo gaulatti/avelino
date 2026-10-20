@@ -1,0 +1,279 @@
+#include "filechooserrow.h"
+#include <QtQuick/private/qaccessiblequickitem_p.h>
+#include <QAccessible>
+#include <QQuickWindow>
+#include <QTimer>
+
+static_assert(QT_VERSION==QT_VERSION_CHECK(6,8,3),"Revalidate chooser table accessibility before upgrading Qt");
+namespace {
+FileChooserListing *directory(QQuickItem *view){
+    return view?view->property("directoryModel").value<FileChooserListing*>():nullptr;
+}
+QAccessibleInterface *header(QQuickItem *view,int column){
+    static const QStringList names={"name","size","kind","added"};
+    if(!view||!view->parentItem()||column<0||column>=names.size())return nullptr;
+    return QAccessible::queryAccessibleInterface(view->parentItem()->findChild<QQuickItem*>("bleeckerFileChooserSort_"+names[column]));
+}
+QRect cellRect(QQuickItemView *view,int row,int column){
+    auto item=view?view->itemAtIndex(row):nullptr;
+    if(!item||!view->window())return {};
+    qreal left=0,width=item->width();
+    if(auto tree=qobject_cast<FileChooserTree*>(view)){
+        if(tree->m_columnWidths.size()!=4)return {};
+        for(int i=0;i<column;++i)left+=tree->m_columnWidths[i].toReal();
+        width=tree->m_columnWidths[column].toReal();
+    }
+    return QRect(view->window()->mapToGlobal(item->mapToScene(QPointF(left,0)).toPoint()),QSize(qRound(width),qRound(item->height())));
+}
+bool selectModelRow(FileChooserListing *model,int row,bool selected){
+    if(!model||row<0||row>=model->count())return false;
+    const auto value=model->entry(row);
+    if(value["selected"].toBool()==selected)return true;
+    if(!selected){auto urls=model->selection();urls.removeAll(value["url"]);model->setSelection(urls);return true;}
+    if(!value["eligible"].toBool()){
+        if(!value["directory"].toBool()||!model->selection().isEmpty())return false;
+        model->select(row);
+    }else model->select(row,Qt::ControlModifier);
+    return model->entry(row)["selected"].toBool();
+}
+
+// Metadata and offscreen cells have no scene object. Their IDs are owned by the
+// view interface and discarded before a model reset changes their row indices.
+class VirtualCell final : public QAccessibleInterface,public QAccessibleTableCellInterface,
+                          public QAccessibleActionInterface,public QAccessibleAttributesInterface {
+    QPointer<QQuickItemView> m_view;
+    int m_row,m_column;
+    FileChooserListing *model()const{return directory(m_view);}
+    QVariantMap value()const{return model()?model()->entry(m_row):QVariantMap{};}
+    bool tree()const{return qobject_cast<FileChooserTree*>(m_view.data());}
+public:
+    VirtualCell(QQuickItemView *view,int row,int column):m_view(view),m_row(row),m_column(column){}
+    bool isValid()const override{return m_view&&model()&&m_row>=0&&m_row<model()->count();}
+    QObject *object()const override{return nullptr;}
+    QWindow *window()const override{return m_view?m_view->window():nullptr;}
+    QAccessibleInterface *parent()const override{return m_view?QAccessible::queryAccessibleInterface(m_view):nullptr;}
+    QAccessibleInterface *child(int)const override{return nullptr;}
+    QAccessibleInterface *childAt(int,int)const override{return nullptr;}
+    int childCount()const override{return 0;}
+    int indexOfChild(const QAccessibleInterface*)const override{return -1;}
+    QString text(QAccessible::Text kind)const override{
+        const auto row=value();
+        if(kind==QAccessible::Name||kind==QAccessible::Value){
+            if(m_column==0)return row["name"].toString();
+            if(m_column==1)return row["size"].toString();
+            if(m_column==2)return row["kind"].toString();
+            return QStringLiteral("--");
+        }
+        if(kind==QAccessible::Description)return m_column==3?QStringLiteral("Date Added is unavailable"):m_column==0?row["error"].toString():QString();
+        return {};
+    }
+    void setText(QAccessible::Text,const QString&)override{}
+    QRect rect()const override{return isValid()?cellRect(m_view,m_row,m_column):QRect{};}
+    QAccessible::Role role()const override{return tree()?(m_column==0?QAccessible::TreeItem:QAccessible::Cell):QAccessible::ListItem;}
+    QAccessible::State state()const override{
+        QAccessible::State state;const auto row=value();state.invalid=!isValid();state.readOnly=true;
+        state.selected=row["selected"].toBool();state.selectable=row["eligible"].toBool()||row["directory"].toBool();
+        state.focusable=m_column==0&&state.selectable;state.disabled=!state.selectable;
+        state.expandable=tree()&&m_column==0&&row["directory"].toBool();
+        state.expanded=state.expandable&&row["expanded"].toBool();state.collapsed=state.expandable&&!state.expanded;
+        auto root=parent();state.invisible=!root||root->state().invisible;
+        state.offscreen=rect().isEmpty()||!root||!root->rect().intersects(rect());return state;
+    }
+    void *interface_cast(QAccessible::InterfaceType type)override{
+        if(type==QAccessible::TableCellInterface&&tree())return static_cast<QAccessibleTableCellInterface*>(this);
+        if(type==QAccessible::ActionInterface&&m_column==0)return static_cast<QAccessibleActionInterface*>(this);
+        if(type==QAccessible::AttributesInterface&&tree()&&m_column==0)return static_cast<QAccessibleAttributesInterface*>(this);
+        return nullptr;
+    }
+    bool isSelected()const override{return value()["selected"].toBool();}
+    QList<QAccessibleInterface*> columnHeaderCells()const override{auto h=header(m_view,m_column);return h?QList<QAccessibleInterface*>{h}:QList<QAccessibleInterface*>{};}
+    QList<QAccessibleInterface*> rowHeaderCells()const override{return {};}
+    int columnIndex()const override{return m_column;}
+    int rowIndex()const override{return m_row;}
+    int columnExtent()const override{return 1;}
+    int rowExtent()const override{return 1;}
+    QAccessibleInterface *table()const override{return parent();}
+    QStringList actionNames()const override{
+        if(m_column||!state().selectable)return {};
+        QStringList names={pressAction(),setFocusAction()};if(state().expandable)names.append(toggleAction());return names;
+    }
+    void doAction(const QString &name)override{
+        if(!isValid()||m_column)return;
+        auto view=m_view;auto listing=model();const auto row=m_row;view->forceActiveFocus();
+        view->positionViewAtIndex(row,QQuickItemView::Contain);
+        if(name==toggleAction()&&state().expandable)listing->toggleExpanded(row);
+        else if(name==pressAction()||name==setFocusAction())listing->selectFromInput(row);
+    }
+    QStringList keyBindingsForAction(const QString&)const override{return {};}
+    QList<QAccessible::Attribute> attributeKeys()const override{return {QAccessible::Attribute::Level};}
+    QVariant attributeValue(QAccessible::Attribute key)const override{return key==QAccessible::Attribute::Level?QVariant(value()["depth"].toInt()+1):QVariant{};}
+};
+
+class ViewAccessible : public QAccessibleQuickItem,public QAccessibleSelectionInterface {
+    mutable QHash<int,QAccessible::Id> m_cells;
+protected:
+    QQuickItemView *view()const{return qobject_cast<QQuickItemView*>(object());}
+    FileChooserListing *model()const{return directory(view());}
+    int columns()const{return qobject_cast<FileChooserTree*>(object())?4:1;}
+public:
+    using QAccessibleQuickItem::QAccessibleQuickItem;
+    ~ViewAccessible()override{invalidate();}
+    void invalidate(){for(auto id:m_cells)QAccessible::deleteAccessibleInterface(id);m_cells.clear();}
+    QAccessible::Role role()const override{return columns()==4?QAccessible::Tree:QAccessible::List;}
+    QAccessible::State state()const override{auto s=QAccessibleQuickItem::state();s.multiSelectable=s.extSelectable=true;return s;}
+    QAccessibleInterface *cell(int row,int column)const{
+        if(!model()||row<0||row>=model()->count()||column<0||column>=columns())return nullptr;
+        const auto index=row*columns()+column;
+        if(column==0)if(auto item=qobject_cast<FileChooserRow*>(view()->itemAtIndex(row))){
+            if(m_cells.contains(index))QAccessible::deleteAccessibleInterface(m_cells.take(index));
+            return QAccessible::queryAccessibleInterface(item);
+        }
+        if(!m_cells.contains(index))m_cells.insert(index,QAccessible::registerAccessibleInterface(new VirtualCell(view(),row,column)));
+        return QAccessible::accessibleInterface(m_cells.value(index));
+    }
+    int childCount()const override{return model()?model()->count()*columns():0;}
+    QAccessibleInterface *child(int index)const override{return index>=0?cell(index/columns(),index%columns()):nullptr;}
+    int indexOfChild(const QAccessibleInterface *child)const override{
+        if(!child)return -1;
+        if(auto c=child->tableCellInterface())return c->table()==this?c->rowIndex()*columns()+c->columnIndex():-1;
+        if(auto item=qobject_cast<FileChooserRow*>(child->object()))return item->view()==view()?item->m_index:-1;
+        for(auto it=m_cells.cbegin();it!=m_cells.cend();++it)if(QAccessible::accessibleInterface(it.value())==child)return it.key();
+        return -1;
+    }
+    QAccessibleInterface *childAt(int x,int y)const override{
+        for(int row=0;model()&&row<model()->count();++row)if(view()->itemAtIndex(row))for(int column=0;column<columns();++column)
+            if(cellRect(view(),row,column).contains(x,y))return cell(row,column);
+        return nullptr;
+    }
+    QAccessibleInterface *focusChild()const override{return model()&&view()->hasActiveFocus()?cell(model()->currentIndex(),0):nullptr;}
+    void *interface_cast(QAccessible::InterfaceType type)override{
+        if(type==QAccessible::SelectionInterface)return static_cast<QAccessibleSelectionInterface*>(this);
+        return QAccessibleQuickItem::interface_cast(type);
+    }
+    int selectedItemCount()const override{return selectedItems().size();}
+    QList<QAccessibleInterface*> selectedItems()const override{
+        QList<QAccessibleInterface*> items;
+        for(int row=0;model()&&row<model()->count();++row)if(model()->entry(row)["selected"].toBool())for(int column=0;column<columns();++column)items.append(cell(row,column));
+        return items;
+    }
+    bool select(QAccessibleInterface *item)override{const auto index=indexOfChild(item);return index>=0&&selectModelRow(model(),index/columns(),true);}
+    bool unselect(QAccessibleInterface *item)override{const auto index=indexOfChild(item);return index>=0&&selectModelRow(model(),index/columns(),false);}
+    bool selectAll()override{if(!model())return false;model()->selectAll();return true;}
+    bool clear()override{if(!model())return false;model()->setSelection({});return true;}
+};
+
+class TreeAccessible final : public ViewAccessible,public QAccessibleTableInterface {
+public:
+    using ViewAccessible::ViewAccessible;
+    void *interface_cast(QAccessible::InterfaceType type)override{
+        if(type==QAccessible::TableInterface)return static_cast<QAccessibleTableInterface*>(this);
+        return ViewAccessible::interface_cast(type);
+    }
+    QAccessibleInterface *caption()const override{return nullptr;}
+    QAccessibleInterface *summary()const override{return nullptr;}
+    QAccessibleInterface *cellAt(int row,int column)const override{return cell(row,column);}
+    int selectedCellCount()const override{return selectedItemCount();}
+    QList<QAccessibleInterface*> selectedCells()const override{return selectedItems();}
+    QString columnDescription(int column)const override{static const QStringList labels={"Name","Size","Kind","Date Added"};return column>=0&&column<labels.size()?labels[column]:QString();}
+    QString rowDescription(int row)const override{return model()?model()->entry(row)["name"].toString():QString();}
+    int selectedColumnCount()const override{return selectedColumns().size();}
+    int selectedRowCount()const override{return selectedRows().size();}
+    int columnCount()const override{return 4;}
+    int rowCount()const override{return model()?model()->count():0;}
+    QList<int> selectedColumns()const override{return rowCount()&&selectedRowCount()==rowCount()?QList<int>{0,1,2,3}:QList<int>{};}
+    QList<int> selectedRows()const override{QList<int> rows;for(int row=0;row<rowCount();++row)if(isRowSelected(row))rows.append(row);return rows;}
+    bool isColumnSelected(int column)const override{return column>=0&&column<4&&selectedColumns().contains(column);}
+    bool isRowSelected(int row)const override{return model()&&model()->entry(row)["selected"].toBool();}
+    bool selectRow(int row)override{return selectModelRow(model(),row,true);}
+    bool selectColumn(int)override{return false;}
+    bool unselectRow(int row)override{return selectModelRow(model(),row,false);}
+    bool unselectColumn(int)override{return false;}
+    void modelChange(QAccessibleTableModelChangeEvent *event)override{if(event->modelChangeType()==QAccessibleTableModelChangeEvent::ModelReset)invalidate();}
+};
+
+class RowAccessible final : public QAccessibleQuickItem,public QAccessibleTableCellInterface,public QAccessibleAttributesInterface {
+    FileChooserRow *row()const{return qobject_cast<FileChooserRow*>(object());}
+public:
+    using QAccessibleQuickItem::QAccessibleQuickItem;
+    QAccessible::Role role()const override{return row()&&row()->m_hierarchical?QAccessible::TreeItem:QAccessible::ListItem;}
+    QAccessibleInterface *parent()const override{return row()&&row()->view()?QAccessible::queryAccessibleInterface(row()->view()):QAccessibleQuickItem::parent();}
+    int childCount()const override{return 0;}
+    QAccessibleInterface *child(int)const override{return nullptr;}
+    QAccessibleInterface *childAt(int,int)const override{return nullptr;}
+    int indexOfChild(const QAccessibleInterface*)const override{return -1;}
+    QAccessible::State state()const override{
+        auto result=QAccessibleQuickItem::state();
+        if(const auto item=row()){
+            result.expandable=item->m_hierarchical&&item->m_folder;
+            result.expanded=result.expandable&&item->m_expanded;result.collapsed=result.expandable&&!item->m_expanded;
+        }
+        return result;
+    }
+    void *interface_cast(QAccessible::InterfaceType type)override{
+        if(row()&&row()->m_hierarchical){
+            if(type==QAccessible::TableCellInterface)return static_cast<QAccessibleTableCellInterface*>(this);
+            if(type==QAccessible::AttributesInterface)return static_cast<QAccessibleAttributesInterface*>(this);
+        }
+        return QAccessibleQuickItem::interface_cast(type);
+    }
+    QStringList actionNames()const override{
+        auto actions=QAccessibleQuickItem::actionNames();if(state().expandable)actions.append(QAccessibleActionInterface::toggleAction());return actions;
+    }
+    void doAction(const QString &name)override{
+        if(const auto item=row();item&&state().expandable&&name==QAccessibleActionInterface::toggleAction()){
+            emit item->disclosureRequested();return;
+        }
+        QAccessibleQuickItem::doAction(name);
+    }
+    bool isSelected()const override{return state().selected;}
+    QList<QAccessibleInterface*> columnHeaderCells()const override{auto h=row()?header(row()->view(),0):nullptr;return h?QList<QAccessibleInterface*>{h}:QList<QAccessibleInterface*>{};}
+    QList<QAccessibleInterface*> rowHeaderCells()const override{return {};}
+    int columnIndex()const override{return 0;}
+    int rowIndex()const override{return row()?row()->m_index:-1;}
+    int columnExtent()const override{return 1;}
+    int rowExtent()const override{return 1;}
+    QAccessibleInterface *table()const override{return parent();}
+    QList<QAccessible::Attribute> attributeKeys()const override{return {QAccessible::Attribute::Level};}
+    QVariant attributeValue(QAccessible::Attribute key)const override{
+        const auto model=row()?directory(row()->view()):nullptr;
+        return model&&key==QAccessible::Attribute::Level?QVariant(model->entry(row()->m_index)["depth"].toInt()+1):QVariant{};
+    }
+};
+QAccessibleInterface *chooserFactory(const QString &,QObject *object){
+    if(auto tree=qobject_cast<FileChooserTree*>(object))return new TreeAccessible(tree);
+    if(auto grid=qobject_cast<FileChooserGrid*>(object))return new ViewAccessible(grid);
+    if(auto row=qobject_cast<FileChooserRow*>(object))return new RowAccessible(row);
+    return nullptr;
+}
+void installFactory(){static const bool registered=[] {QAccessible::installFactory(chooserFactory);return true;}();Q_UNUSED(registered);}
+void invalidate(QQuickItemView *view){if(auto iface=dynamic_cast<ViewAccessible*>(QAccessible::queryAccessibleInterface(view)))iface->invalidate();}
+QList<QMetaObject::Connection> observe(QQuickItemView *view,FileChooserListing *model){
+    if(!model)return {};
+    return {
+        QObject::connect(model,&QAbstractItemModel::modelAboutToBeReset,view,[view]{invalidate(view);}),
+        QObject::connect(model,&QAbstractItemModel::modelReset,view,[view]{
+            if(qobject_cast<FileChooserTree*>(view)){
+                QAccessibleTableModelChangeEvent event(view,QAccessibleTableModelChangeEvent::ModelReset);QAccessible::updateAccessibility(&event);
+            }else {QAccessibleEvent event(view,QAccessible::ObjectReorder);QAccessible::updateAccessibility(&event);}
+        }),
+        QObject::connect(model,&QAbstractItemModel::dataChanged,view,[view]{
+            QTimer::singleShot(0,view,[view]{QAccessibleEvent event(view,QAccessible::SelectionWithin);QAccessible::updateAccessibility(&event);});
+        })};
+}
+}
+FileChooserTree::FileChooserTree(QQuickItem *parent):QQuickListView(parent){installFactory();}
+void FileChooserTree::setDirectoryModel(FileChooserListing *model){
+    if(model==m_directory)return;for(auto connection:m_connections)disconnect(connection);invalidate(this);
+    m_directory=model;m_connections=observe(this,model);emit directoryModelChanged();
+}
+FileChooserGrid::FileChooserGrid(QQuickItem *parent):QQuickGridView(parent){installFactory();}
+void FileChooserGrid::setDirectoryModel(FileChooserListing *model){
+    if(model==m_directory)return;for(auto connection:m_connections)disconnect(connection);invalidate(this);
+    m_directory=model;m_connections=observe(this,model);emit directoryModelChanged();
+}
+FileChooserRow::FileChooserRow(QQuickItem *parent):QQuickItemDelegate(parent){
+    installFactory();connect(this,&FileChooserRow::disclosureChanged,this,[this]{
+        QAccessible::State changed;changed.expandable=changed.expanded=changed.collapsed=true;
+        QAccessibleStateChangeEvent event(this,changed);QAccessible::updateAccessibility(&event);
+    });
+}

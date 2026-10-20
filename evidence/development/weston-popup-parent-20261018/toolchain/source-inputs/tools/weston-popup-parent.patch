@@ -1,0 +1,15 @@
+--- a/libweston/desktop/surface.c
++++ b/libweston/desktop/surface.c
+@@ -114,6 +114,12 @@
+ 		struct weston_coord_surface offset;
+ 		struct weston_view *wv = view->view;
+ 
++		/* A parent can commit after get_popup but before the popup
++		 * first commits and acquires its transform parent. The popup
++		 * commit will set its parent and update its position. */
++		if (!wv->geometry.parent)
++			continue;
++
+ 		offset = weston_coord_surface(x, y, wv->geometry.parent->surface);
+ 		weston_view_set_rel_position(view->view, offset);
+ 	}

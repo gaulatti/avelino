@@ -1,0 +1,47 @@
+[
+  {
+    "name": "build",
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-hero-carousel-native-20261018-v2/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-native-20261018-v3/tool/DateCommon.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-native-20261018-v3/tool/DateMain.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-native-20261018-v3/tool/DateSizing.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-hero-carousel-native-20261018-v2/build/out/Products/Debug/Sabella.o",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-native-20261018-v3/tool/NativeDateRange"
+    ],
+    "exitCode": 0,
+    "seconds": 2.2389584579505026
+  },
+  {
+    "name": "pilot-output",
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-native-20261018-v3/tool/NativeDateRange",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-native-20261018-v3/pilot-fixtures.json",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-native-20261018-v3/pilot-output",
+      "--pilot"
+    ],
+    "exitCode": 0,
+    "seconds": 2.768661041976884
+  },
+  {
+    "name": "pilot-sizing",
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-native-20261018-v3/tool/NativeDateRange",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-native-20261018-v3/pilot-fixtures.json",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-native-20261018-v3/pilot-sizing",
+      "--pilot",
+      "--sizing"
+    ],
+    "exitCode": 0,
+    "seconds": 2.448731374926865
+  }
+]

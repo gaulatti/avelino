@@ -1,0 +1,141 @@
+{
+  "accepted": false,
+  "status": "passed",
+  "profile": {
+    "platform": "xcb",
+    "renderer": "software",
+    "dark": false,
+    "textScale": 1,
+    "dpr": 1
+  },
+  "phases": [
+    {
+      "phase": "new-folder-default-modal",
+      "time": 1792276309.202918,
+      "observations": {
+        "defaultName": "untitled folder 2",
+        "modal": true
+      },
+      "readerLogBytes": 159801
+    },
+    {
+      "phase": "duplicate-name-disabled",
+      "time": 1792276310.8880389,
+      "observations": {
+        "announcements": [
+          {
+            "time": 1792276309.8302395,
+            "event": "object:announcement",
+            "detail1": 2,
+            "detail2": 0,
+            "name": "This name is already taken.",
+            "role": "label",
+            "pid": 85,
+            "message": "This name is already taken."
+          }
+        ]
+      },
+      "readerLogBytes": 226022
+    },
+    {
+      "phase": "empty-name-disabled",
+      "time": 1792276312.5093327,
+      "observations": {},
+      "readerLogBytes": 251241
+    },
+    {
+      "phase": "nested-escape-no-mutation",
+      "time": 1792276314.0948746,
+      "observations": {},
+      "readerLogBytes": 284285
+    },
+    {
+      "phase": "created-and-navigated",
+      "time": 1792276316.9462419,
+      "observations": {
+        "location": "/probe/fixtures/Created by reader",
+        "ownerResult": false
+      },
+      "readerLogBytes": 557769
+    },
+    {
+      "phase": "history-back",
+      "time": 1792276318.4632144,
+      "observations": {
+        "location": "/probe/fixtures"
+      },
+      "readerLogBytes": 615702
+    },
+    {
+      "phase": "history-forward",
+      "time": 1792276319.9524755,
+      "observations": {
+        "location": "/probe/fixtures/Created by reader"
+      },
+      "readerLogBytes": 682330
+    },
+    {
+      "phase": "invalid-location-announced",
+      "time": 1792276321.826415,
+      "observations": {
+        "location": "/probe/fixtures/missing"
+      },
+      "readerLogBytes": 914365
+    },
+    {
+      "phase": "history-recovers-location-error",
+      "time": 1792276323.2047882,
+      "observations": {
+        "location": "/probe/fixtures/Created by reader"
+      },
+      "readerLogBytes": 988833
+    },
+    {
+      "phase": "cancel-no-owner-result",
+      "time": 1792276324.5269234,
+      "observations": {},
+      "readerLogBytes": 1038542
+    },
+    {
+      "phase": "reopen-retained-folder-fresh-history",
+      "time": 1792276325.8779426,
+      "observations": {
+        "location": "/probe/fixtures/Created by reader"
+      },
+      "readerLogBytes": 1129252
+    },
+    {
+      "phase": "final-cancel-no-owner-result",
+      "time": 1792276327.2421515,
+      "observations": {},
+      "readerLogBytes": 1179259
+    }
+  ],
+  "announcementEvents": [
+    {
+      "time": 1792276309.8302395,
+      "event": "object:announcement",
+      "detail1": 2,
+      "detail2": 0,
+      "name": "This name is already taken.",
+      "role": "label",
+      "pid": 85,
+      "message": "This name is already taken."
+    },
+    {
+      "time": 1792276320.742955,
+      "event": "object:announcement",
+      "detail1": 2,
+      "detail2": 0,
+      "name": "No such file or directory",
+      "role": "label",
+      "pid": 85,
+      "message": "No such file or directory"
+    }
+  ],
+  "modalStateExposed": true,
+  "physicalInput": false,
+  "physicalListening": false,
+  "nativeAccessibilityAcceptance": "pending",
+  "nativeReaderComparison": "pending"
+}

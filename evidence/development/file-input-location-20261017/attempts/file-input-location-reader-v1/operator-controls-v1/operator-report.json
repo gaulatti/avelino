@@ -1,0 +1,14 @@
+{
+  "accepted": false,
+  "status": "running",
+  "phases": [
+    {
+      "phase": "operator-failure",
+      "time": 1792287042.6733778,
+      "observations": {
+        "error": "Traceback (most recent call last):\n  File \"/probe/exercise.py\", line 157, in <module>\n    press_any('Where:');wait_for(lambda:present('fixtures','menu item'))\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/probe/exercise.py\", line 90, in wait_for\n    if time.monotonic()>end:raise AssertionError('Expected AT-SPI/Orca observation did not arrive')\n                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Expected AT-SPI/Orca observation did not arrive\n"
+      },
+      "readerLogBytes": 202145
+    }
+  ]
+}

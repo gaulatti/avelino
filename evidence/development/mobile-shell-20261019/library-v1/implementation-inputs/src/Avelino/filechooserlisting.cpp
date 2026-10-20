@@ -1,0 +1,232 @@
+#include "filechooserlisting.h"
+#include <QCollator>
+#include <QDir>
+#include <QGuiApplication>
+#include <QLocale>
+#include <QMimeDatabase>
+#include <QTimer>
+#include <algorithm>
+
+QHash<int,QByteArray> FileChooserListing::roleNames()const{
+    return {{NameRole,"fileName"},{UrlRole,"fileUrl"},{DirectoryRole,"fileDirectory"},
+        {EligibleRole,"fileEligible"},{SelectedRole,"fileSelected"},{DepthRole,"fileDepth"},
+        {ExpandedRole,"fileExpanded"},{SizeRole,"fileSize"},{KindRole,"fileKind"},{ErrorRole,"fileError"}};
+}
+QVariant FileChooserListing::data(const QModelIndex &index,int role)const{
+    if(!index.isValid()||index.row()<0||index.row()>=m_rows.size())return {};
+    const auto &row=m_rows[index.row()];const auto key=row.value["url"].toUrl().toString();
+    switch(role){
+    case NameRole:return row.value["name"];
+    case UrlRole:return row.value["url"];
+    case DirectoryRole:return row.value["directory"];
+    case EligibleRole:return row.value["eligible"];
+    case SelectedRole:return m_selected.contains(key);
+    case DepthRole:return row.depth;
+    case ExpandedRole:return m_expanded.contains(key);
+    case SizeRole:return row.value["size"];
+    case KindRole:return row.value["kind"];
+    case ErrorRole:return row.value["error"];
+    default:return {};
+    }
+}
+void FileChooserListing::setRoot(FileChooserModel *root){
+    if(root==m_root)return;
+    disconnect(m_listingConnection);disconnect(m_typeConnection);disconnect(m_destroyConnection);
+    for(auto model:m_children){disconnect(model,nullptr,this,nullptr);model->cancel();model->deleteLater();}
+    m_children.clear();m_root=root;m_selected.clear();m_pathSelected=QUrl();m_current.clear();m_anchor.clear();m_error.clear();
+    if(root){
+        m_listingConnection=connect(root,&FileChooserModel::listingChanged,this,&FileChooserListing::scheduleRebuild);
+        m_typeConnection=connect(root,&FileChooserModel::allowedContentTypesChanged,this,[this]{
+            for(auto child:m_children)child->setAllowedContentTypes(m_root->allowedContentTypes());
+            scheduleRebuild();
+        });
+        m_destroyConnection=connect(root,&QObject::destroyed,this,[this]{
+            for(auto child:m_children){disconnect(child,nullptr,this,nullptr);child->cancel();child->deleteLater();}
+            m_children.clear();m_root=nullptr;rebuild();
+        });
+    }
+    rebuild();
+}
+FileChooserModel *FileChooserListing::directory(const QUrl &url){
+    const auto key=url.toString();auto model=m_children.value(key);
+    if(!model){
+        model=new FileChooserModel(this);m_children.insert(key,model);
+        model->setAllowedContentTypes(m_root->allowedContentTypes());model->open(url);
+        connect(model,&FileChooserModel::listingChanged,this,&FileChooserListing::scheduleRebuild);
+    }else if(!model->active())model->open(url);
+    return model;
+}
+void FileChooserListing::appendRows(FileChooserModel *model,int depth,const QString &parent){
+    QList<QVariantMap> rows;QMimeDatabase database;
+    for(int i=0;i<model->count();++i){
+        auto value=model->entry(i);const QFileInfo info(value["url"].toUrl().toLocalFile());
+        const bool folder=value["directory"].toBool();
+        value["bytes"]=folder?qint64(-1):info.size();
+        value["size"]=folder?QStringLiteral("--"):QLocale().formattedDataSize(info.size(),1,QLocale::DataSizeSIFormat);
+        value["kind"]=folder?QStringLiteral("Folder"):database.mimeTypeForFile(info,QMimeDatabase::MatchExtension).comment();
+        value["error"]=QString();rows.append(value);
+    }
+    QCollator collator;collator.setCaseSensitivity(Qt::CaseInsensitive);collator.setNumericMode(true);
+    std::stable_sort(rows.begin(),rows.end(),[&](const QVariantMap &a,const QVariantMap &b){
+        int order=m_sort=="size"?((a["bytes"].toLongLong()>b["bytes"].toLongLong())-(a["bytes"].toLongLong()<b["bytes"].toLongLong()))
+            :collator.compare(a[m_sort].toString(),b[m_sort].toString());
+        if(!order)order=collator.compare(a["name"].toString(),b["name"].toString());
+        if(!order)order=QString::compare(a["name"].toString(),b["name"].toString());
+        return m_ascending?order<0:order>0;
+    });
+    for(auto value:rows){
+        const auto url=value["url"].toUrl();const auto key=url.toString();
+        const bool expanded=m_tree&&value["directory"].toBool()&&m_expanded.contains(key);
+        auto child=expanded?directory(url):nullptr;
+        if(child)value["error"]=child->error();
+        m_rows.append({value,depth,parent});
+        if(child)appendRows(child,depth+1,key);
+    }
+}
+void FileChooserListing::scheduleRebuild(){
+    if(m_queued||m_building)return;m_queued=true;
+    QTimer::singleShot(0,this,[this]{m_queued=false;rebuild();});
+}
+void FileChooserListing::rebuild(){
+    if(m_building)return;m_building=true;beginResetModel();m_rows.clear();
+    if(m_root&&m_root->active())appendRows(m_root,0,{});
+    QSet<QString> visible;
+    for(const auto &row:m_rows){
+        const auto url=row.value["url"].toUrl();
+        if(row.value["eligible"].toBool()||row.value["directory"].toBool()||(url==m_pathSelected&&m_root->pathFileAvailable(url)))visible.insert(url.toString());
+    }
+    m_selected.intersect(visible);
+    if(!m_selected.contains(m_pathSelected.toString()))m_pathSelected=QUrl();
+    if(!visible.contains(m_current))m_current.clear();
+    if(!visible.contains(m_anchor))m_anchor.clear();
+    endResetModel();m_building=false;emit changed();
+}
+void FileChooserListing::setTreeMode(bool tree){if(m_tree==tree)return;m_tree=tree;rebuild();}
+int FileChooserListing::currentIndex()const{
+    for(int i=0;i<m_rows.size();++i)if(m_rows[i].value["url"].toUrl().toString()==m_current)return i;
+    return -1;
+}
+QVariantMap FileChooserListing::entry(int row)const{
+    if(row<0||row>=m_rows.size())return {};
+    auto value=m_rows[row].value;const auto key=value["url"].toUrl().toString();
+    value["selected"]=m_selected.contains(key);value["depth"]=m_rows[row].depth;value["expanded"]=m_expanded.contains(key);return value;
+}
+QVariantList FileChooserListing::selection()const{
+    QVariantList result;for(const auto &row:m_rows)if(m_selected.contains(row.value["url"].toUrl().toString()))result.append(row.value["url"]);return result;
+}
+void FileChooserListing::setSelection(const QVariantList &urls,const QUrl &pathSelected){
+    m_pathSelected=QUrl();
+    if(!pathSelected.isEmpty())selectPath(pathSelected);
+    m_selected.clear();for(const auto &url:urls)m_selected.insert(url.toUrl().toString());rebuild();
+    for(const auto &row:m_rows)if(m_selected.contains(row.value["url"].toUrl().toString())){m_current=m_anchor=row.value["url"].toUrl().toString();break;}
+    selectionChanged();
+}
+bool FileChooserListing::selectPath(const QUrl &url){
+    if(!m_root||!m_root->selectPath(url))return false;
+    m_pathSelected=m_root->pathSelectedUrl();m_selected={m_pathSelected.toString()};
+    m_current=m_anchor=m_pathSelected.toString();m_error.clear();rebuild();selectionChanged();return true;
+}
+void FileChooserListing::selectionChanged(){
+    if(!m_selected.contains(m_pathSelected.toString()))m_pathSelected=QUrl();
+    if(!m_rows.isEmpty())emit dataChanged(index(0),index(m_rows.size()-1),{SelectedRole});emit changed();
+}
+void FileChooserListing::select(int row,int modifiers){
+    if(!m_root||!m_root->active()||row<0||row>=m_rows.size())return;
+    const auto value=entry(row);const bool eligible=value["eligible"].toBool(),folder=value["directory"].toBool();
+    if(!eligible&&!folder)return;
+    const bool toggle=modifiers&(Qt::ControlModifier|Qt::MetaModifier),range=modifiers&Qt::ShiftModifier;
+    if(!eligible&&(toggle||range))return;
+    const auto key=value["url"].toUrl().toString();m_error.clear();
+    if(!toggle)m_selected.clear();
+    if(range){
+        int anchor=0;for(int i=0;i<m_rows.size();++i)if(m_rows[i].value["url"].toUrl().toString()==m_anchor){anchor=i;break;}
+        for(int i=std::min(anchor,row);i<=std::max(anchor,row);++i)if(m_rows[i].value["eligible"].toBool())m_selected.insert(m_rows[i].value["url"].toUrl().toString());
+    }else{
+        // A noneligible folder is a single navigation selection, never part of
+        // a multi-file owner result.
+        if(eligible)for(const auto &item:m_rows)if(!item.value["eligible"].toBool())m_selected.remove(item.value["url"].toUrl().toString());
+        if(toggle&&m_selected.contains(key))m_selected.remove(key);else m_selected.insert(key);
+        m_anchor=key;
+    }
+    m_current=key;selectionChanged();
+}
+void FileChooserListing::selectAll(){
+    if(!m_root||!m_root->active())return;m_selected.clear();m_error.clear();
+    for(const auto &row:m_rows)if(row.value["eligible"].toBool())m_selected.insert(row.value["url"].toUrl().toString());selectionChanged();
+}
+void FileChooserListing::selectFromInput(int row){select(row,int(QGuiApplication::keyboardModifiers()));}
+void FileChooserListing::move(int offset,int modifiers){
+    if(!offset||m_rows.isEmpty())return;
+    const auto current=currentIndex();const auto step=offset>0?1:-1;
+    int row=current<0?(step>0?0:count()-1):current+offset;
+    for(;row>=0&&row<count();row+=step)if(m_rows[row].value["eligible"].toBool()||m_rows[row].value["directory"].toBool()){select(row,modifiers);return;}
+}
+void FileChooserListing::setExpanded(int row,bool expanded){
+    if(!m_tree||row<0||row>=count()||!m_rows[row].value["directory"].toBool())return;
+    const auto key=m_rows[row].value["url"].toUrl().toString();
+    if(expanded)m_expanded.insert(key);else m_expanded.remove(key);rebuild();
+}
+void FileChooserListing::toggleExpanded(int row){if(row>=0&&row<count())setExpanded(row,!m_expanded.contains(m_rows[row].value["url"].toUrl().toString()));}
+void FileChooserListing::right(){
+    const auto row=currentIndex();if(row<0||!m_tree)return;
+    if(m_rows[row].value["directory"].toBool()){
+        if(!m_expanded.contains(m_current))setExpanded(row,true);
+        else if(row+1<count()&&m_rows[row+1].parent==m_current)select(row+1);
+    }
+}
+void FileChooserListing::left(){
+    const auto row=currentIndex();if(row<0||!m_tree)return;
+    if(m_expanded.contains(m_current)){setExpanded(row,false);return;}
+    const auto parent=m_rows[row].parent;if(parent.isEmpty())return;
+    for(int i=0;i<count();++i)if(m_rows[i].value["url"].toUrl().toString()==parent){select(i);return;}
+}
+void FileChooserListing::sortBy(const QString &key){
+    if(key!="name"&&key!="size"&&key!="kind")return;
+    m_ascending=key==m_sort?!m_ascending:true;m_sort=key;rebuild();
+}
+QVariantList FileChooserListing::selectedUrls()const{
+    QList<Row> selected;
+    for(const auto &row:m_rows)if((row.value["eligible"].toBool()||row.value["url"].toUrl()==m_pathSelected)&&m_selected.contains(row.value["url"].toUrl().toString()))selected.append(row);
+    // The measured native cross-level case returns its child group first.
+    // Broader cross-directory ordering remains an explicit parity gate.
+    std::stable_sort(selected.begin(),selected.end(),[](const Row &a,const Row &b){return a.depth>b.depth;});
+    QVariantList result;for(const auto &row:selected){
+        QFileInfo info(row.value["url"].toUrl().toLocalFile());auto path=info.canonicalFilePath();
+        if(path.isEmpty()){result.append(QUrl());continue;}
+        if(info.isDir()&&!path.endsWith('/'))path+='/';result.append(QUrl::fromLocalFile(path));
+    }
+    return result;
+}
+QUrl FileChooserListing::navigationTarget()const{
+    if(m_selected.size()!=1)return {};
+    for(const auto &row:m_rows)if(m_selected.contains(row.value["url"].toUrl().toString())&&row.value["directory"].toBool()&&!row.value["eligible"].toBool())return row.value["url"].toUrl();
+    return {};
+}
+bool FileChooserListing::canOpen()const{
+    return m_root&&m_root->active()&&m_root->error().isEmpty()&&(!m_selected.isEmpty()||m_root->canChooseDirectories());
+}
+void FileChooserListing::activate(int row){
+    if(!m_root||!m_root->active()||m_completing)return;
+    const auto value=entry(row);if(value.isEmpty())return;
+    if(value["directory"].toBool()){emit navigateRequested(value["url"].toUrl());return;}
+    if(value["eligible"].toBool()){select(row);acceptSelection();}
+}
+void FileChooserListing::acceptSelection(){
+    if(!canOpen()||m_completing)return;
+    const auto navigation=navigationTarget();if(!navigation.isEmpty()){emit navigateRequested(navigation);return;}
+    for(const auto &url:selection())if((url.toUrl()==m_pathSelected?!m_root->pathFileAvailable(url.toUrl()):!m_root->eligible(url.toUrl()))||QFileInfo(url.toUrl().toLocalFile()).canonicalFilePath().isEmpty()){
+        m_error="A selected item is no longer available for this file type";emit changed();return;
+    }
+    auto urls=selectedUrls();
+    if(urls.isEmpty()){
+        QFileInfo folder(m_root->folderPath());
+        if(!m_root->canChooseDirectories()||!folder.isDir()){
+            m_error="The selected directory is no longer available";emit changed();return;
+        }
+        auto path=folder.canonicalFilePath();
+        if(path.isEmpty()){m_error="The selected directory could not be resolved";emit changed();return;}
+        if(!path.endsWith('/'))path+='/';urls.append(QUrl::fromLocalFile(path));
+    }
+    m_completing=true;QPointer<FileChooserListing> guard(this);emit result({{"kind","success"},{"urls",urls}});
+    if(!guard)return;m_completing=false;
+}

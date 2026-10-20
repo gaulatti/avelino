@@ -14,6 +14,7 @@ class BleeckerLayout : public QObject {
     Q_PROPERTY(qreal minimumWidth MEMBER minimumWidth NOTIFY metricsChanged)
     Q_PROPERTY(qreal idealWidth MEMBER idealWidth NOTIFY metricsChanged)
     Q_PROPERTY(bool fillsWidth MEMBER fillsWidth NOTIFY metricsChanged)
+    Q_PROPERTY(bool fillsHeight MEMBER fillsHeight NOTIFY metricsChanged)
     Q_PROPERTY(bool flattenChildren MEMBER flattenChildren NOTIFY structureChanged)
     Q_PROPERTY(bool participates MEMBER participates NOTIFY structureChanged)
     Q_PROPERTY(qreal proposedWidth READ proposedWidth NOTIFY proposalChanged)
@@ -26,7 +27,7 @@ public:
     qreal firstBaseline=std::numeric_limits<qreal>::quiet_NaN();
     struct Baseline {qreal offset;bool containsText;};
     static Baseline baselineFor(QQuickItem *item);
-    bool fillsWidth=false;
+    bool fillsWidth=false, fillsHeight=false;
     bool flattenChildren=false,participates=true;
     qreal proposedWidth() const {return m_proposal;}
     Q_INVOKABLE void propose(qreal value) {if(m_proposal!=value){m_proposal=value;emit proposalChanged();}}

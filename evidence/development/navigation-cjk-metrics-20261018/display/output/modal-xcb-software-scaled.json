@@ -1,0 +1,1379 @@
+{
+  "accepted": false,
+  "appearance": "dark",
+  "callerStateChecks": "passed",
+  "clippingQueries": 170,
+  "dpr": 2,
+  "fixture": "modal",
+  "focusChecks": "passed",
+  "glyphQueries": 142,
+  "graphicsApi": 1,
+  "height": 850,
+  "inputMethod": "Fractional Qt synthetic mouse/key events; inactive native Escape/outside guards do not establish active native keyboard policy; physical input, IME and readers pending",
+  "lifecycleScope": "Qt destruction and native onDisappear retained separately; hosting-window dismissal uses caller presentation callback",
+  "modalChecks": "passed",
+  "nativeReplayTextScale": 1,
+  "nativeSnapshots": 80,
+  "nativeTraces": [
+    {
+      "events": [
+        {
+          "action": "initial",
+          "actual": {
+            "appears": 1,
+            "calls": [],
+            "mountValues": [
+              0
+            ],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "increment",
+          "actual": {
+            "appears": 1,
+            "calls": [
+              "counter:1"
+            ],
+            "mountValues": [
+              0
+            ],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "producer-update",
+          "actual": {
+            "appears": 1,
+            "calls": [
+              "counter:1"
+            ],
+            "mountValues": [
+              0
+            ],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "increment-after-update",
+          "actual": {
+            "appears": 1,
+            "calls": [
+              "counter:1",
+              "counter:2"
+            ],
+            "mountValues": [
+              0
+            ],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "disabled-counter",
+          "actual": {
+            "appears": 1,
+            "calls": [
+              "counter:1",
+              "counter:2"
+            ],
+            "mountValues": [
+              0
+            ],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "enabled-counter",
+          "actual": {
+            "appears": 1,
+            "calls": [
+              "counter:1",
+              "counter:2",
+              "counter:3"
+            ],
+            "mountValues": [
+              0
+            ],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "remove-content",
+          "actual": {
+            "appears": 1,
+            "calls": [
+              "counter:1",
+              "counter:2",
+              "counter:3"
+            ],
+            "mountValues": [
+              0
+            ],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 1,
+          "qtDestroyed": 1
+        },
+        {
+          "action": "restore-content",
+          "actual": {
+            "appears": 2,
+            "calls": [
+              "counter:1",
+              "counter:2",
+              "counter:3"
+            ],
+            "mountValues": [
+              0,
+              0
+            ],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 1,
+          "qtDestroyed": 1
+        },
+        {
+          "action": "increment-remounted",
+          "actual": {
+            "appears": 2,
+            "calls": [
+              "counter:1",
+              "counter:2",
+              "counter:3",
+              "counter:1"
+            ],
+            "mountValues": [
+              0,
+              0
+            ],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 1,
+          "qtDestroyed": 1
+        },
+        {
+          "action": "unmount-modal",
+          "actual": {
+            "appears": 2,
+            "calls": [
+              "counter:1",
+              "counter:2",
+              "counter:3",
+              "counter:1"
+            ],
+            "mountValues": [
+              0,
+              0
+            ],
+            "mounted": false,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 2,
+          "qtDestroyed": 1
+        },
+        {
+          "action": "remount-modal",
+          "actual": {
+            "appears": 3,
+            "calls": [
+              "counter:1",
+              "counter:2",
+              "counter:3",
+              "counter:1"
+            ],
+            "mountValues": [
+              0,
+              0,
+              0
+            ],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 2,
+          "qtDestroyed": 1
+        },
+        {
+          "action": "increment-after-modal-remount",
+          "actual": {
+            "appears": 3,
+            "calls": [
+              "counter:1",
+              "counter:2",
+              "counter:3",
+              "counter:1",
+              "counter:1"
+            ],
+            "mountValues": [
+              0,
+              0,
+              0
+            ],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 2,
+          "qtDestroyed": 1
+        },
+        {
+          "action": "embedded-close",
+          "actual": {
+            "appears": 3,
+            "calls": [
+              "counter:1",
+              "counter:2",
+              "counter:3",
+              "counter:1",
+              "counter:1"
+            ],
+            "mountValues": [
+              0,
+              0,
+              0
+            ],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": false
+          },
+          "nativeDisappearObservation": 2,
+          "qtDestroyed": 1
+        }
+      ],
+      "id": "counter-lifecycle"
+    },
+    {
+      "events": [
+        {
+          "action": "initial",
+          "actual": {
+            "appears": 0,
+            "calls": [],
+            "mountValues": [],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "producer-text",
+          "actual": {
+            "appears": 0,
+            "calls": [],
+            "mountValues": [],
+            "mounted": true,
+            "text": "Producer renamed edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "producer-layout",
+          "actual": {
+            "appears": 0,
+            "calls": [],
+            "mountValues": [],
+            "mounted": true,
+            "text": "Producer renamed edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "embedded-close",
+          "actual": {
+            "appears": 0,
+            "calls": [],
+            "mountValues": [],
+            "mounted": true,
+            "text": "Producer renamed edition",
+            "windowVisible": false
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        }
+      ],
+      "id": "editor-binding"
+    },
+    {
+      "events": [
+        {
+          "action": "initial",
+          "actual": {
+            "appears": 0,
+            "calls": [],
+            "mountValues": [],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "click-title",
+          "actual": {
+            "appears": 0,
+            "calls": [],
+            "mountValues": [],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "click-outside",
+          "actual": {
+            "appears": 0,
+            "calls": [],
+            "mountValues": [],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "escape",
+          "actual": {
+            "appears": 0,
+            "calls": [],
+            "mountValues": [],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "embedded-close",
+          "actual": {
+            "appears": 0,
+            "calls": [],
+            "mountValues": [],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": false
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        }
+      ],
+      "id": "ordinary"
+    },
+    {
+      "events": [
+        {
+          "action": "initial",
+          "actual": {
+            "appears": 0,
+            "calls": [],
+            "mountValues": [],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "click-title",
+          "actual": {
+            "appears": 0,
+            "calls": [],
+            "mountValues": [],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "click-outside",
+          "actual": {
+            "appears": 0,
+            "calls": [],
+            "mountValues": [],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "escape",
+          "actual": {
+            "appears": 0,
+            "calls": [],
+            "mountValues": [],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "embedded-close",
+          "actual": {
+            "appears": 0,
+            "calls": [],
+            "mountValues": [],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        }
+      ],
+      "id": "disabled"
+    },
+    {
+      "events": [
+        {
+          "action": "initial",
+          "actual": {
+            "appears": 0,
+            "calls": [],
+            "mountValues": [],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "click-title",
+          "actual": {
+            "appears": 0,
+            "calls": [],
+            "mountValues": [],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "click-outside",
+          "actual": {
+            "appears": 0,
+            "calls": [],
+            "mountValues": [],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "escape",
+          "actual": {
+            "appears": 0,
+            "calls": [],
+            "mountValues": [],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "embedded-close",
+          "actual": {
+            "appears": 0,
+            "calls": [],
+            "mountValues": [],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": false
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        }
+      ],
+      "id": "rtl"
+    },
+    {
+      "events": [
+        {
+          "action": "initial",
+          "actual": {
+            "appears": 1,
+            "calls": [],
+            "mountValues": [
+              0
+            ],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "down",
+          "actual": {
+            "appears": 1,
+            "calls": [],
+            "mountValues": [
+              0
+            ],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "hold-or-update",
+          "actual": {
+            "appears": 1,
+            "calls": [],
+            "mountValues": [
+              0
+            ],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "up",
+          "actual": {
+            "appears": 1,
+            "calls": [
+              "counter:1"
+            ],
+            "mountValues": [
+              0
+            ],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        }
+      ],
+      "id": "during-down-hold"
+    },
+    {
+      "events": [
+        {
+          "action": "initial",
+          "actual": {
+            "appears": 1,
+            "calls": [],
+            "mountValues": [
+              0
+            ],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "down",
+          "actual": {
+            "appears": 1,
+            "calls": [],
+            "mountValues": [
+              0
+            ],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "hold-or-update",
+          "actual": {
+            "appears": 1,
+            "calls": [],
+            "mountValues": [
+              0
+            ],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "up",
+          "actual": {
+            "appears": 1,
+            "calls": [],
+            "mountValues": [
+              0
+            ],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        }
+      ],
+      "id": "during-down-disable"
+    },
+    {
+      "events": [
+        {
+          "action": "initial",
+          "actual": {
+            "appears": 1,
+            "calls": [],
+            "mountValues": [
+              0
+            ],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "down",
+          "actual": {
+            "appears": 1,
+            "calls": [],
+            "mountValues": [
+              0
+            ],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "hold-or-update",
+          "actual": {
+            "appears": 1,
+            "calls": [],
+            "mountValues": [
+              0
+            ],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 1,
+          "qtDestroyed": 1
+        },
+        {
+          "action": "up",
+          "actual": {
+            "appears": 1,
+            "calls": [],
+            "mountValues": [
+              0
+            ],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 1,
+          "qtDestroyed": 1
+        }
+      ],
+      "id": "during-down-remove"
+    },
+    {
+      "events": [
+        {
+          "action": "initial",
+          "actual": {
+            "appears": 1,
+            "calls": [],
+            "mountValues": [
+              0
+            ],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "down",
+          "actual": {
+            "appears": 1,
+            "calls": [],
+            "mountValues": [
+              0
+            ],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "hold-or-update",
+          "actual": {
+            "appears": 1,
+            "calls": [],
+            "mountValues": [
+              0
+            ],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "up",
+          "actual": {
+            "appears": 1,
+            "calls": [
+              "counter:1"
+            ],
+            "mountValues": [
+              0
+            ],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        }
+      ],
+      "id": "during-down-width"
+    },
+    {
+      "events": [
+        {
+          "action": "initial",
+          "actual": {
+            "appears": 1,
+            "calls": [],
+            "mountValues": [
+              0
+            ],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "down",
+          "actual": {
+            "appears": 1,
+            "calls": [],
+            "mountValues": [
+              0
+            ],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "hold-or-update",
+          "actual": {
+            "appears": 1,
+            "calls": [],
+            "mountValues": [
+              0
+            ],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "up",
+          "actual": {
+            "appears": 1,
+            "calls": [
+              "counter:1"
+            ],
+            "mountValues": [
+              0
+            ],
+            "mounted": true,
+            "text": "Draft edition",
+            "windowVisible": true
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        }
+      ],
+      "id": "during-down-title"
+    },
+    {
+      "events": [
+        {
+          "action": "initial",
+          "actual": {
+            "appears": 1,
+            "calls": [],
+            "mountValues": [
+              0
+            ],
+            "windowVisible": true
+          }
+        },
+        {
+          "action": "increment",
+          "actual": {
+            "appears": 1,
+            "calls": [
+              "counter:1"
+            ],
+            "mountValues": [
+              0
+            ],
+            "windowVisible": true
+          }
+        },
+        {
+          "action": "close",
+          "actual": {
+            "appears": 1,
+            "calls": [
+              "counter:1"
+            ],
+            "mountValues": [
+              0
+            ],
+            "windowVisible": false
+          }
+        },
+        {
+          "action": "reopen",
+          "actual": {
+            "appears": 1,
+            "calls": [
+              "counter:1"
+            ],
+            "mountValues": [
+              0
+            ],
+            "windowVisible": true
+          }
+        },
+        {
+          "action": "increment-again",
+          "actual": {
+            "appears": 1,
+            "calls": [
+              "counter:1",
+              "counter:2"
+            ],
+            "mountValues": [
+              0
+            ],
+            "windowVisible": true
+          }
+        },
+        {
+          "action": "close-again",
+          "actual": {
+            "appears": 1,
+            "calls": [
+              "counter:1",
+              "counter:2"
+            ],
+            "mountValues": [
+              0
+            ],
+            "windowVisible": false
+          }
+        }
+      ],
+      "id": "retained-window"
+    },
+    {
+      "events": [
+        {
+          "action": "initial",
+          "actual": {
+            "appears": 1,
+            "calls": [],
+            "mountValues": [
+              0
+            ],
+            "parentVisible": true,
+            "presented": true,
+            "sheetCount": 1,
+            "sheetDismissCount": 0
+          }
+        },
+        {
+          "action": "close-click",
+          "actual": {
+            "appears": 1,
+            "calls": [],
+            "mountValues": [
+              0
+            ],
+            "parentVisible": true,
+            "presented": false,
+            "sheetCount": 0,
+            "sheetDismissCount": 1
+          }
+        }
+      ],
+      "id": "sheet-close"
+    },
+    {
+      "events": [
+        {
+          "action": "initial",
+          "actual": {
+            "appears": 1,
+            "calls": [],
+            "mountValues": [
+              0
+            ],
+            "parentVisible": true,
+            "presented": true,
+            "sheetCount": 1,
+            "sheetDismissCount": 0
+          }
+        },
+        {
+          "action": "close-click",
+          "actual": {
+            "appears": 1,
+            "calls": [],
+            "mountValues": [
+              0
+            ],
+            "parentVisible": true,
+            "presented": true,
+            "sheetCount": 1,
+            "sheetDismissCount": 0
+          }
+        }
+      ],
+      "id": "sheet-disabled-close"
+    },
+    {
+      "events": [
+        {
+          "action": "initial",
+          "actual": {
+            "appears": 1,
+            "calls": [],
+            "mountValues": [
+              0
+            ],
+            "parentVisible": true,
+            "presented": true,
+            "sheetCount": 1,
+            "sheetDismissCount": 0
+          }
+        },
+        {
+          "action": "escape",
+          "actual": {
+            "appears": 1,
+            "calls": [],
+            "mountValues": [
+              0
+            ],
+            "parentVisible": true,
+            "presented": true,
+            "sheetCount": 1,
+            "sheetDismissCount": 0
+          }
+        }
+      ],
+      "id": "sheet-escape"
+    },
+    {
+      "events": [
+        {
+          "action": "initial",
+          "actual": {
+            "appears": 1,
+            "calls": [],
+            "mountValues": [
+              0
+            ],
+            "parentVisible": true,
+            "presented": true,
+            "sheetCount": 1,
+            "sheetDismissCount": 0
+          }
+        },
+        {
+          "action": "click-parent",
+          "actual": {
+            "appears": 1,
+            "calls": [],
+            "mountValues": [
+              0
+            ],
+            "parentVisible": true,
+            "presented": true,
+            "sheetCount": 1,
+            "sheetDismissCount": 0
+          }
+        }
+      ],
+      "id": "sheet-outside"
+    },
+    {
+      "events": [
+        {
+          "action": "initial",
+          "actual": {
+            "appears": 1,
+            "calls": [],
+            "mountValues": [
+              0
+            ],
+            "parentVisible": true,
+            "presented": true,
+            "sheetCount": 1,
+            "sheetDismissCount": 0,
+            "text": "Draft edition"
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "update",
+          "actual": {
+            "appears": 1,
+            "calls": [
+              "counter:1"
+            ],
+            "mountValues": [
+              0
+            ],
+            "parentVisible": true,
+            "presented": true,
+            "sheetCount": 1,
+            "sheetDismissCount": 0,
+            "text": "Draft edition"
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "close",
+          "actual": {
+            "appears": 1,
+            "calls": [
+              "counter:1"
+            ],
+            "mountValues": [
+              0
+            ],
+            "parentVisible": true,
+            "presented": false,
+            "sheetCount": 0,
+            "sheetDismissCount": 1,
+            "text": "Draft edition"
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 1
+        },
+        {
+          "action": "reopen",
+          "actual": {
+            "appears": 2,
+            "calls": [
+              "counter:1"
+            ],
+            "mountValues": [
+              0,
+              0
+            ],
+            "parentVisible": true,
+            "presented": true,
+            "sheetCount": 1,
+            "sheetDismissCount": 1,
+            "text": "Draft edition"
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 1
+        },
+        {
+          "action": "update-after-reopen",
+          "actual": {
+            "appears": 2,
+            "calls": [
+              "counter:1",
+              "counter:1"
+            ],
+            "mountValues": [
+              0,
+              0
+            ],
+            "parentVisible": true,
+            "presented": true,
+            "sheetCount": 1,
+            "sheetDismissCount": 1,
+            "text": "Draft edition"
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 1
+        },
+        {
+          "action": "close-again",
+          "actual": {
+            "appears": 2,
+            "calls": [
+              "counter:1",
+              "counter:1"
+            ],
+            "mountValues": [
+              0,
+              0
+            ],
+            "parentVisible": true,
+            "presented": false,
+            "sheetCount": 0,
+            "sheetDismissCount": 2,
+            "text": "Draft edition"
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 2
+        },
+        {
+          "action": "reopen-again",
+          "actual": {
+            "appears": 3,
+            "calls": [
+              "counter:1",
+              "counter:1"
+            ],
+            "mountValues": [
+              0,
+              0,
+              0
+            ],
+            "parentVisible": true,
+            "presented": true,
+            "sheetCount": 1,
+            "sheetDismissCount": 2,
+            "text": "Draft edition"
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 2
+        }
+      ],
+      "id": "sheet-counter"
+    },
+    {
+      "events": [
+        {
+          "action": "initial",
+          "actual": {
+            "appears": 0,
+            "calls": [],
+            "mountValues": [],
+            "parentVisible": true,
+            "presented": true,
+            "sheetCount": 1,
+            "sheetDismissCount": 0,
+            "text": "Draft edition"
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "update",
+          "actual": {
+            "appears": 0,
+            "calls": [],
+            "mountValues": [],
+            "parentVisible": true,
+            "presented": true,
+            "sheetCount": 1,
+            "sheetDismissCount": 0,
+            "text": "Caller retains this edition"
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "close",
+          "actual": {
+            "appears": 0,
+            "calls": [],
+            "mountValues": [],
+            "parentVisible": true,
+            "presented": false,
+            "sheetCount": 0,
+            "sheetDismissCount": 1,
+            "text": "Caller retains this edition"
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "reopen",
+          "actual": {
+            "appears": 0,
+            "calls": [],
+            "mountValues": [],
+            "parentVisible": true,
+            "presented": true,
+            "sheetCount": 1,
+            "sheetDismissCount": 1,
+            "text": "Caller retains this edition"
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "update-after-reopen",
+          "actual": {
+            "appears": 0,
+            "calls": [],
+            "mountValues": [],
+            "parentVisible": true,
+            "presented": true,
+            "sheetCount": 1,
+            "sheetDismissCount": 1,
+            "text": "Caller changes the reopened edition"
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "close-again",
+          "actual": {
+            "appears": 0,
+            "calls": [],
+            "mountValues": [],
+            "parentVisible": true,
+            "presented": false,
+            "sheetCount": 0,
+            "sheetDismissCount": 2,
+            "text": "Caller changes the reopened edition"
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        },
+        {
+          "action": "reopen-again",
+          "actual": {
+            "appears": 0,
+            "calls": [],
+            "mountValues": [],
+            "parentVisible": true,
+            "presented": true,
+            "sheetCount": 1,
+            "sheetDismissCount": 2,
+            "text": "Caller changes the reopened edition"
+          },
+          "nativeDisappearObservation": 0,
+          "qtDestroyed": 0
+        }
+      ],
+      "id": "sheet-editor"
+    }
+  ],
+  "nativeTypingAcceptance": "pending",
+  "peakSourceWindows": 2,
+  "platform": "xcb",
+  "popupHeight": 153,
+  "popupWidth": 480,
+  "producerFramesAwaited": 156,
+  "qt": "6.8.3",
+  "qtAccessibilityChecks": "passed",
+  "qtEditedAndReopenedValue": "q",
+  "qtEditorChecks": "passed",
+  "quickBackend": "software",
+  "requestedGraphicsBackend": "",
+  "separatePresentationWindow": true,
+  "sourceWindowCleanup": "Immediate deletion between traces; retained-window lifecycle is preserved within its own trace",
+  "textScale": 1.5,
+  "width": 1100,
+  "windowCaptureMethod": "QQuickWindow::grabWindow; parent and popup separately; full session captured separately",
+  "environmentRecord": "environment.json",
+  "session": "Xvfb X11",
+  "sessionCaptureMethod": "ImageMagick import -window root (full X11 output)",
+  "physicalDisplay": false,
+  "hardwareAcceleration": false,
+  "nativePointerControl": "parked outside clients and nested compositor; consumer pointer input is synthetic Qt input",
+  "nativePointerRecord": "native-pointer.txt",
+  "sessionOutputSize": [
+    2560,
+    1920
+  ],
+  "clientOutputSize": [
+    2560,
+    1920
+  ],
+  "sessionCapture": "modal-xcb-software-scaled-session.png",
+  "sessionCaptureSha256": "7356f24c958e581dd109d29d9fc857e648dcaebc5d3f4d6a7b093fd09161eefc",
+  "windowCaptureSha256": "6e0fe1b5cdedb7c3be269fe4334dc67937774fa31cf4924dc51260e0531a4b54"
+}

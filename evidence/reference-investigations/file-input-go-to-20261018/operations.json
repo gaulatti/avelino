@@ -1,0 +1,136 @@
+[
+  {
+    "before": "prompt-initial",
+    "action": "Click native CloseButton",
+    "after": "close-control-result"
+  },
+  {
+    "before": "close-control-result",
+    "action": "Attempt app.paste of absolute Alpha path; no visible change",
+    "after": "absolute-alpha-proposal",
+    "claim": "diagnostic only"
+  },
+  {
+    "before": "absolute-alpha-proposal",
+    "action": "typeText absolute Alpha path",
+    "after": "absolute-alpha-typed"
+  },
+  {
+    "before": "absolute-alpha-typed",
+    "action": "Return",
+    "after": "absolute-alpha-submitted"
+  },
+  {
+    "before": "relative-child-initial",
+    "action": "Replace initially selected field with Child",
+    "after": "relative-child-proposal"
+  },
+  {
+    "before": "relative-child-proposal",
+    "action": "Return",
+    "after": "relative-child-submitted"
+  },
+  {
+    "before": "relative-parent-proposal",
+    "action": "Return on ..",
+    "after": "relative-parent-return"
+  },
+  {
+    "before": "relative-parent-return",
+    "action": "Append /",
+    "after": "relative-parent-slash-proposal"
+  },
+  {
+    "before": "relative-parent-slash-proposal",
+    "action": "Return",
+    "after": "relative-parent-slash-submitted"
+  },
+  {
+    "before": "relative-parent-file-proposal",
+    "action": "Return on ../A.txt",
+    "after": "relative-parent-file-return"
+  },
+  {
+    "before": "relative-parent-file-return",
+    "action": "Escape",
+    "after": "relative-parent-file-cancel"
+  },
+  {
+    "before": "absolute-missing-proposal",
+    "action": "Return",
+    "after": "absolute-missing-return"
+  },
+  {
+    "before": "absolute-missing-return",
+    "action": "Escape",
+    "after": "absolute-missing-cancel"
+  },
+  {
+    "before": "recents-after-clear",
+    "action": "Click Alpha recent row",
+    "after": "recent-alpha-single-click"
+  },
+  {
+    "before": "recent-alpha-single-click",
+    "action": "Attempt AX row double-click; element invalidated during UI change",
+    "after": "recent-double-click-element-error",
+    "claim": "Partial tool failure; exact click sequence unproven"
+  },
+  {
+    "before": "recent-pointer-clear",
+    "action": "Pointer double-click at screenshot pixel [788,202]",
+    "after": "recent-alpha-pointer-double-click"
+  },
+  {
+    "before": "absolute-prefix-proposal",
+    "action": "Down",
+    "after": "absolute-prefix-down"
+  },
+  {
+    "before": "absolute-prefix-down",
+    "action": "Return",
+    "after": "absolute-prefix-selected-submit"
+  },
+  {
+    "before": "absolute-prefix-retained",
+    "action": "Attempt app.paste Beta; no visible change",
+    "after": "paste-beta-result",
+    "claim": "diagnostic only"
+  },
+  {
+    "before": "tab-trial-initial",
+    "action": "Tab with Edit menu closed",
+    "after": "tab-trial-result"
+  },
+  {
+    "before": "tab-trial-result",
+    "action": "Attempt Command+A then type root; text appended instead",
+    "after": "root-proposal",
+    "claim": "Malformed input; no path-resolution claim"
+  },
+  {
+    "before": "root-retry-selected-input",
+    "action": "Click native clear control then type root",
+    "after": "root-retry-proposal"
+  },
+  {
+    "before": "root-retry-proposal",
+    "action": "Return",
+    "after": "root-retry-submitted"
+  },
+  {
+    "before": "root-retry-submitted",
+    "action": "Click Other.png ordinary row",
+    "after": "other-png-ordinary-click"
+  },
+  {
+    "before": "other-png-path-proposal",
+    "action": "Return",
+    "after": "other-png-path-submitted"
+  },
+  {
+    "before": "other-png-path-submitted",
+    "action": "Click Open",
+    "after": "other-png-owner-accepted"
+  }
+]

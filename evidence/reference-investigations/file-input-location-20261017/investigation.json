@@ -1,0 +1,490 @@
+{
+  "accepted": false,
+  "baseGit": "3db5e8ea5318f3c5a694c984a43d01e0cfe211ac",
+  "reference": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+  "method": "Normal CUA native interactions in controlled fixture directories; later path experiments also use observed AX selection/value APIs",
+  "helperSha256": "8e3db8c9c0089e3365def776393f3b0b5ddeccbf8835aea9079e94022d907b70",
+  "sourceLibrary": "evidence/reference-investigations/file-input-types-20261017",
+  "hostVersion": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0\nBuildVersion:\t\t26A428\n",
+  "sdk": "27.0",
+  "independentBehaviorSourceReplay": false,
+  "physicalInput": false,
+  "physicalDisplayAcceptance": "pending",
+  "nativeReaderAcceptance": "pending",
+  "strictRasterAcceptance": "pending",
+  "completeContextCoverage": "pending",
+  "linuxImplementation": "pending",
+  "expectedImagesChanged": false,
+  "approvedExceptions": [],
+  "tolerance": "none",
+  "images": {
+    "corrected/ancestor-parent-chosen.jpg": {
+      "sourceSha256": "946fa07ebc302daefde8a9e0bd1abd06e170ed9a9cea24984c8ec2632dd519b2",
+      "pixels": [
+        1760,
+        896
+      ],
+      "format": "JPEG",
+      "resized": false,
+      "cropped": false,
+      "masked": false,
+      "artworkVerified": false
+    },
+    "corrected/recent-parent-navigation.jpg": {
+      "sourceSha256": "174c19ab4a9ae672f41a7924ec34e30161656a53fccf277c8daa2c5992cccc8b",
+      "pixels": [
+        1760,
+        896
+      ],
+      "format": "JPEG",
+      "resized": false,
+      "cropped": false,
+      "masked": false,
+      "artworkVerified": false
+    },
+    "fresh-process/go-to-file-result.jpg": {
+      "sourceSha256": "b3e0fabecdf33979580d7c697808e5e45a8973d4d74e6d59237be77b17ecec71",
+      "pixels": [
+        920,
+        366
+      ],
+      "format": "JPEG",
+      "resized": false,
+      "cropped": false,
+      "masked": false,
+      "artworkVerified": false
+    },
+    "fresh-process/go-to-folder-initial.jpg": {
+      "sourceSha256": "6257db4852b2bf7e8421145cd53ecec1eeb73c6ae3f83d796c3f7c8cfc5ef771",
+      "pixels": [
+        920,
+        690
+      ],
+      "format": "JPEG",
+      "resized": false,
+      "cropped": false,
+      "masked": false,
+      "artworkVerified": false
+    },
+    "fresh-process/go-to-folder-missing.jpg": {
+      "sourceSha256": "d36f2f79bf8132fd6f8d27d513e628f5f4bb645af46db6c36225bd182137fe66",
+      "pixels": [
+        920,
+        690
+      ],
+      "format": "JPEG",
+      "resized": false,
+      "cropped": false,
+      "masked": false,
+      "artworkVerified": false
+    }
+  },
+  "accessibility": [
+    {
+      "path": "corrected/leaf-ready.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v1/output/leaf-ready.ax.txt",
+      "sourceSha256": "04c10dd95c298837e12a9d3e43a52a95c680ce58012f970d1fba13e5b2c84562",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "corrected/leaf-selected.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v1/output/leaf-selected.ax.txt",
+      "sourceSha256": "edde213488526db9a3166d6adf863321f9ae6cbde2f0ac914a7ef67ea8709681",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "corrected/ancestor-parent-chosen.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v1/output/ancestor-parent-chosen.ax.txt",
+      "sourceSha256": "bdca5d750d14d09a1e2e3f7edac100cb696fb3b68111d84a228616b719277a2a",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "corrected/ancestor-back.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v1/output/ancestor-back.ax.txt",
+      "sourceSha256": "fe1c21fcf86da049cf8f3b48bd938a522ddbc4b2bfd2a86022dc880a4f04486d",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "corrected/ancestor-forward.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v1/output/ancestor-forward.ax.txt",
+      "sourceSha256": "7bf89e3499dca9768fd4eb9994d5168e02de4d2c35e3e4a5847e5e16fd138272",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "corrected/parent-file-selected.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v1/output/parent-file-selected.ax.txt",
+      "sourceSha256": "401b447e8ba63ee7e23895835f375d89f37cc9b8218575fe6b42fd6f262ce083",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "corrected/reopened-after-success.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v1/output/reopened-after-success.ax.txt",
+      "sourceSha256": "d2dc1a960596e343033b4c1814f933bdab87eae83aa0d3bd8df983c38aaf3f0c",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "corrected/fresh-history-selected.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v1/output/fresh-history-selected.ax.txt",
+      "sourceSha256": "e61d6cb2df627777939c17151e77fdb7100647266c2d983de7fa0e1ec32f7960",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "corrected/current-item-keeps-selection.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v1/output/current-item-keeps-selection.ax.txt",
+      "sourceSha256": "13c62b30f6e2a47c50915d1cbd7ce5f396c23720338347136e26ccad4c1feee6",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "corrected/current-item-keeps-selection-settled.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v1/output/current-item-keeps-selection-settled.ax.txt",
+      "sourceSha256": "e61d6cb2df627777939c17151e77fdb7100647266c2d983de7fa0e1ec32f7960",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "corrected/alternate-visited.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v1/output/alternate-visited.ax.txt",
+      "sourceSha256": "b7212406f38985733b85672d124ad33f968257a089f41b703266d9057f398008",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "corrected/alternate-reopened-after-cancel.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v1/output/alternate-reopened-after-cancel.ax.txt",
+      "sourceSha256": "a7a029a3a1cde023492bc6878339fb9908b0131c61060dedc5c3cf4e5622291b",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "corrected/recent-parent-navigation.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v1/output/recent-parent-navigation.ax.txt",
+      "sourceSha256": "7bf89e3499dca9768fd4eb9994d5168e02de4d2c35e3e4a5847e5e16fd138272",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "corrected/recent-navigation-back.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v1/output/recent-navigation-back.ax.txt",
+      "sourceSha256": "cf4a39f4d41312020fe53da49446a2fa60dff89b7114c86a1dcfd6b995765378",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "corrected/leaf-before-success.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v1/output/leaf-before-success.ax.txt",
+      "sourceSha256": "04c10dd95c298837e12a9d3e43a52a95c680ce58012f970d1fba13e5b2c84562",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "corrected/leaf-first-selected.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v1/output/leaf-first-selected.ax.txt",
+      "sourceSha256": "edde213488526db9a3166d6adf863321f9ae6cbde2f0ac914a7ef67ea8709681",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "corrected/reopened-after-leaf-success.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v1/output/reopened-after-leaf-success.ax.txt",
+      "sourceSha256": "af9edfe6cfa31cbf0ad0abc6e2ddc8cc2e7121c26512fa29e5382cee9e5ee144",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "corrected/older-recent-parent-visited.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v1/output/older-recent-parent-visited.ax.txt",
+      "sourceSha256": "7bf89e3499dca9768fd4eb9994d5168e02de4d2c35e3e4a5847e5e16fd138272",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "corrected/nested-menu-escape.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v1/output/nested-menu-escape.ax.txt",
+      "sourceSha256": "7bf89e3499dca9768fd4eb9994d5168e02de4d2c35e3e4a5847e5e16fd138272",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "corrected/parent-selected-again.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v1/output/parent-selected-again.ax.txt",
+      "sourceSha256": "401b447e8ba63ee7e23895835f375d89f37cc9b8218575fe6b42fd6f262ce083",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "corrected/reopened-after-parent-reaccept.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v1/output/reopened-after-parent-reaccept.ax.txt",
+      "sourceSha256": "d2dc1a960596e343033b4c1814f933bdab87eae83aa0d3bd8df983c38aaf3f0c",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "fresh-process/fresh-process-open.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v1/output/fresh-process-open.ax.txt",
+      "sourceSha256": "a28ce77c4621c4c94931c978807d052c9daa22e8f5931522db56cbff34b00be9",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "fresh-process/persisted-recent-leaf-selected.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v1/output/persisted-recent-leaf-selected.ax.txt",
+      "sourceSha256": "48cab3d10532f491eb376f84e2a092f97666b82a078ee01728b6fd9eed82a423",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "fresh-process/persisted-recent-leaf-selected-settled.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v1/output/persisted-recent-leaf-selected-settled.ax.txt",
+      "sourceSha256": "d6c809861ed73dc628a7056b889bd2ccdadf01e819dcf88efe5f96f1f1b19585",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "fresh-process/before-go-to-folder.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v1/output/before-go-to-folder.ax.txt",
+      "sourceSha256": "1a780bc30fea311a53945bc3fe8658956a6331ab441e3168e4a500f0797b3b86",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "fresh-process/go-to-folder-cancel-preserves-selection.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v1/output/go-to-folder-cancel-preserves-selection.ax.txt",
+      "sourceSha256": "ce0a6c1c45309fb7b223c05ee0bae64dde2ae9404db08107d0e9c4cba19fea67",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "fresh-process/go-to-file-result.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v1/output/go-to-file-result.ax.txt",
+      "sourceSha256": "5778e742df72300f9363dd57223b46632be7f7ef9d4458a3fd3431d9b41d4e81",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "corrected/after-success-menu.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v2/output/after-success-menu.ax.txt",
+      "sourceSha256": "6f67337f940b478bd8cd5b3455e5f0582e286b2222f24d3661f9c55e7a71e71d",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "corrected/alternate-cancelled.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v2/output/alternate-cancelled.ax.txt",
+      "sourceSha256": "daffe8203addf8d9c2ce274f6456e7c303f5345a2c54e464cb1f3a84fe6d6979",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "corrected/before-final-cancel.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v2/output/before-final-cancel.ax.txt",
+      "sourceSha256": "d2dc1a960596e343033b4c1814f933bdab87eae83aa0d3bd8df983c38aaf3f0c",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "corrected/final-cancel.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v2/output/final-cancel.ax.txt",
+      "sourceSha256": "b9e4e08e858fae3cc517a01d7c7048827824f2cbb997cfdba4026183adfec52c",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "corrected/leaf-first-accepted.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v2/output/leaf-first-accepted.ax.txt",
+      "sourceSha256": "aa96e6080dac1091a5a0f0a522c98830cb75dc1806ef69f562c9a537c164c138",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "corrected/leaf-location-menu.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v2/output/leaf-location-menu.ax.txt",
+      "sourceSha256": "3f0a5d2dd7aab5a3a37bc01599e58f9466d848b2beae26fa8c41f58f5c326e1c",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "corrected/parent-accepted-again.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v2/output/parent-accepted-again.ax.txt",
+      "sourceSha256": "a9d38f99d9d9af664e59fd4196fd6f9ec5cb78ac1e2a4b21da2beaa3d1648184",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "corrected/parent-file-accepted.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v2/output/parent-file-accepted.ax.txt",
+      "sourceSha256": "a9d38f99d9d9af664e59fd4196fd6f9ec5cb78ac1e2a4b21da2beaa3d1648184",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "corrected/recent-after-cancel.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v2/output/recent-after-cancel.ax.txt",
+      "sourceSha256": "8d06602f0e2f0e831e9da707a76873200d1dafc1ac6db34d2fcd9e956a9edb06",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "corrected/recents-after-browsing-older.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v2/output/recents-after-browsing-older.ax.txt",
+      "sourceSha256": "74812eec2000a9b1e6ae071e962d1dad9082ee83a4b63c52ccfa77fb62be7b18",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "corrected/recents-after-reaccept.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v2/output/recents-after-reaccept.ax.txt",
+      "sourceSha256": "09c9e236e034eef6e1cfa24c76e836d699d2626294c18b191a22b269519d62e9",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "corrected/two-successful-recents.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v2/output/two-successful-recents.ax.txt",
+      "sourceSha256": "6bd94fb81a8fa30a983c488efa149a3a58413e5f167463e107d0313eddef8186",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "fresh-process/after-file-path-prompt-cancel.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v3/output/after-file-path-prompt-cancel.ax.txt",
+      "sourceSha256": "ceb003fc7d1682dd92e7f3eae9911688c0a86cf83ccf95ea2be879e6a207cd3e",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "fresh-process/final-cancel.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v3/output/final-cancel.ax.txt",
+      "sourceSha256": "c499a9d9bfbeea19c82c043e4117ad103df189bf3ffd3e0d6bd044c343e383b3",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "fresh-process/fresh-process-recents.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v3/output/fresh-process-recents.ax.txt",
+      "sourceSha256": "627f3528897f83dec0b9bd45c7a644946713714e37f74b21a134b7ec976a417f",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "fresh-process/go-to-file-early-typing.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v3/output/go-to-file-early-typing.ax.txt",
+      "sourceSha256": "b01f2a4d215de722db70bdf2329cc0a9b3a859305a1f73e09b00a908039a3a69",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "fresh-process/go-to-file-keyboard-result.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v3/output/go-to-file-keyboard-result.ax.txt",
+      "sourceSha256": "5778e742df72300f9363dd57223b46632be7f7ef9d4458a3fd3431d9b41d4e81",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "fresh-process/go-to-file-return.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v3/output/go-to-file-return.ax.txt",
+      "sourceSha256": "c82b7c4e79d9c3956871c903be1028d07dae339733eab15aacd557db0a694c21",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "fresh-process/go-to-file-selected-text-typed.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v3/output/go-to-file-selected-text-typed.ax.txt",
+      "sourceSha256": "27847fef957b5b28e5a87e9caf54c050a6b9a0eb3d1b9bdb720488da60aa2021",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "fresh-process/go-to-file-set-value.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v3/output/go-to-file-set-value.ax.txt",
+      "sourceSha256": "9f22ec95a6a98632c4771313c257299bd00c416758e2d99ed634b3e910181995",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "fresh-process/go-to-file-setter-return.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v3/output/go-to-file-setter-return.ax.txt",
+      "sourceSha256": "5778e742df72300f9363dd57223b46632be7f7ef9d4458a3fd3431d9b41d4e81",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "fresh-process/go-to-file-typed.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v3/output/go-to-file-typed.ax.txt",
+      "sourceSha256": "7e1968dac8b00ebf4fd176e33134c77473054964bd8e08e724493c708843e5a1",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "fresh-process/go-to-folder-initial.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v3/output/go-to-folder-initial.ax.txt",
+      "sourceSha256": "7fa43d48fe2a3c303bec194046962ca1c2258584e2e1b194884b3c1cab85c488",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    },
+    {
+      "path": "fresh-process/go-to-folder-missing.ax.txt",
+      "sourcePath": "/Users/gaulatti/.codex/tmp/avelino-file-input-location-20261017-v3/output/go-to-folder-missing.ax.txt",
+      "sourceSha256": "67bcfaa23199b61e9734df51273995fcd58ccf76e98be826588063dddf9c8361",
+      "filtered": true,
+      "filter": "Unrelated URL rows and configured recent-place names omitted; images unchanged"
+    }
+  ],
+  "observations": {
+    "ancestorOrder": [
+      "Leaf",
+      "Menu Parent",
+      "fixtures"
+    ],
+    "currentItemPreservesSelection": true,
+    "currentItemAddsHistory": false,
+    "ancestorClearsFileSelection": true,
+    "ancestorAddsNavigationHistory": true,
+    "backAndForwardClearFileSelection": true,
+    "successfulFolderAddedToRecent": true,
+    "browsingAndCancelDoNotAddRecent": true,
+    "browsingOlderRecentDoesNotReorder": true,
+    "successfulReacceptPromotesWithoutDuplicate": true,
+    "freshProcessRetainsRecentOrder": true,
+    "recentOrderAfterTwoSuccesses": [
+      "Leaf",
+      "Menu Parent"
+    ],
+    "recentOrderAfterBrowsingOlder": [
+      "Leaf",
+      "Menu Parent"
+    ],
+    "recentOrderAfterReaccept": [
+      "Menu Parent",
+      "Leaf"
+    ],
+    "freshProcessRecentOrder": [
+      "Menu Parent",
+      "Leaf"
+    ],
+    "successfulCallbackFiles": [
+      "Menu Parent/Parent.txt",
+      "Menu Parent/Leaf/First.txt",
+      "Menu Parent/Parent.txt"
+    ],
+    "freshProcessOwnerResults": [],
+    "goToFolderPresentation": "Separate GoToWindow sheet with a path text field and suggestions",
+    "missingPath": "Return leaves the prompt open with the verified missing path and no suggestion rows; Escape preserves the selected file",
+    "filePathSubmission": "Input and prompt-dismissal sequence unresolved; stable main panel later shows Parent.txt selected, without an owner callback",
+    "generalRecentCapacityAndCrossApplicationScope": "pending",
+    "inputTiming": "pending",
+    "recentUpdatesAcrossDirectoriesAndDirectorySelections": "pending"
+  },
+  "snapshotTransport": "The first REPL snapshot helper retained its original output directory; per-file source paths and raw hashes identify the copied bytes. Later corrected/fresh-process phases are assigned explicitly. Overwritten earlier phase bytes are not reconstructed.",
+  "rootTooNarrowAttempt": "The first helper used the nested initial directory as its redaction root, hiding its controlled parent callback URL. Its launch, trace, result and limitation remain preserved; corrected callbacks all belong to the complete controlled root.",
+  "pathInputLimitations": "Command+A did not reliably replace text in this minimal helper; AX value/selection and keyboard retries produced inconsistent prompt observations. General file-path submission and dismissal semantics remain pending.",
+  "menuArtworkVerified": false
+}

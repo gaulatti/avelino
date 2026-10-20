@@ -1,0 +1,19 @@
+immutable-inputs	Run python3 scripts/verify-admin-sidebar-background.py	﻿2026-10-20T16:24:34.6418780Z ##[group]Run python3 scripts/verify-admin-sidebar-background.py
+immutable-inputs	Run python3 scripts/verify-admin-sidebar-background.py	2026-10-20T16:24:34.6419277Z ^[[36;1mpython3 scripts/verify-admin-sidebar-background.py^[[0m
+immutable-inputs	Run python3 scripts/verify-admin-sidebar-background.py	2026-10-20T16:24:34.6482630Z shell: /usr/bin/bash -e {0}
+immutable-inputs	Run python3 scripts/verify-admin-sidebar-background.py	2026-10-20T16:24:34.6482885Z env:
+immutable-inputs	Run python3 scripts/verify-admin-sidebar-background.py	2026-10-20T16:24:34.6483149Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+immutable-inputs	Run python3 scripts/verify-admin-sidebar-background.py	2026-10-20T16:24:34.6483919Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+immutable-inputs	Run python3 scripts/verify-admin-sidebar-background.py	2026-10-20T16:24:34.6484583Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+immutable-inputs	Run python3 scripts/verify-admin-sidebar-background.py	2026-10-20T16:24:34.6484985Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+immutable-inputs	Run python3 scripts/verify-admin-sidebar-background.py	2026-10-20T16:24:34.6485370Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+immutable-inputs	Run python3 scripts/verify-admin-sidebar-background.py	2026-10-20T16:24:34.6485752Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+immutable-inputs	Run python3 scripts/verify-admin-sidebar-background.py	2026-10-20T16:24:34.6486079Z ##[endgroup]
+immutable-inputs	Run python3 scripts/verify-admin-sidebar-background.py	2026-10-20T16:24:34.8204548Z Traceback (most recent call last):
+immutable-inputs	Run python3 scripts/verify-admin-sidebar-background.py	2026-10-20T16:24:34.8213398Z   File "/home/runner/work/avelino/avelino/scripts/verify-admin-sidebar-background.py", line 132, in <module>
+immutable-inputs	Run python3 scripts/verify-admin-sidebar-background.py	2026-10-20T16:24:34.8214491Z     verify()
+immutable-inputs	Run python3 scripts/verify-admin-sidebar-background.py	2026-10-20T16:24:34.8215100Z   File "/home/runner/work/avelino/avelino/scripts/verify-admin-sidebar-background.py", line 81, in verify
+immutable-inputs	Run python3 scripts/verify-admin-sidebar-background.py	2026-10-20T16:24:34.8215814Z     assert all(source_bytes(n) == b for n, b in original.items())
+immutable-inputs	Run python3 scripts/verify-admin-sidebar-background.py	2026-10-20T16:24:34.8216254Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+immutable-inputs	Run python3 scripts/verify-admin-sidebar-background.py	2026-10-20T16:24:34.8216588Z AssertionError
+immutable-inputs	Run python3 scripts/verify-admin-sidebar-background.py	2026-10-20T16:24:34.8332221Z ##[error]Process completed with exit code 1.

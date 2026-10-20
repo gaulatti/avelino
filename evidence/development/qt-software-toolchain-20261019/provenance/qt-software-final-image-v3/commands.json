@@ -1,0 +1,88 @@
+[
+  {
+    "name": "runtime-source-absence",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/qt-software-final-image-v3/runtime:/package",
+      "-w",
+      "/package",
+      "sha256:e29f85ab0df39f3ae46c4d5ddcc075517701fc05359a230c8647b1174e862dd3",
+      "python3",
+      "-c",
+      "from pathlib import Path\nwork = Path('/work')\nassert not work.exists() or (work.is_dir() and not any(work.iterdir())), 'SDK workdir contains files'\npaths = ['/work/src/Avelino', '/work/CMakeLists.txt', '/work/build',\n         '/package/consumer', '/package/src', '/package/build',\n         '/package/consumer-build/CMakeCache.txt', '/Users/gaulatti/source/gaulatti/avelino']\nassert not any(Path(name).exists() for name in paths)\nassert Path('/package/consumer-build/InstalledConsumer').is_file()\nprint('SDK workdir empty; library and consumer project sources and producer build trees absent')\n"
+    ],
+    "exitCode": 0,
+    "seconds": 0.3296322920359671
+  },
+  {
+    "name": "installed-runtime-and-date",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/qt-software-final-image-v3/runtime:/package",
+      "-w",
+      "/package",
+      "sha256:e29f85ab0df39f3ae46c4d5ddcc075517701fc05359a230c8647b1174e862dd3",
+      "bash",
+      "check-runtime.sh"
+    ],
+    "exitCode": 0,
+    "seconds": 541.7361054170178
+  },
+  {
+    "name": "general-display-sessions",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/qt-software-final-image-v3/runtime:/package",
+      "-w",
+      "/package",
+      "sha256:e29f85ab0df39f3ae46c4d5ddcc075517701fc05359a230c8647b1174e862dd3",
+      "bash",
+      "check-display-sessions.sh"
+    ],
+    "exitCode": 0,
+    "seconds": 2277.0210909170564
+  },
+  {
+    "name": "hero-display-sessions",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/qt-software-final-image-v3/runtime:/package",
+      "-w",
+      "/package",
+      "sha256:e29f85ab0df39f3ae46c4d5ddcc075517701fc05359a230c8647b1174e862dd3",
+      "bash",
+      "check-display-sessions-hero-carousel.sh",
+      "/package/display-evidence/hero-carousel"
+    ],
+    "exitCode": 0,
+    "seconds": 66.84274708398152
+  }
+]

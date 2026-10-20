@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.24)
+project(FontFaceAudit LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 17)
+find_package(Qt6 6.8.3 EXACT REQUIRED COMPONENTS Gui)
+add_executable(FontFaceAudit main.cpp)
+target_link_libraries(FontFaceAudit PRIVATE Qt6::Gui)

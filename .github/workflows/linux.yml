@@ -24,6 +24,13 @@ jobs:
           load: true
           cache-from: type=gha,scope=toolchain-${{ matrix.runner }}
           cache-to: type=gha,mode=max,scope=toolchain-${{ matrix.runner }}
+      - name: Preserve Qt software-renderer build evidence
+        run: |
+          mkdir -p artifacts/linux/toolchain
+          docker run --rm -v "$PWD/artifacts/linux/toolchain:/evidence" avelino-toolchain:qt6.8.3 bash -c '
+            cp -R /opt/qt/share/avelino/qt-software-opacity /evidence/
+            cp -R /opt/qt/share/avelino/qt-software-rectangle /evidence/
+          '
       - name: Seed obsolete package files for regeneration check
         run: |
           mkdir -p artifacts/package/consumer artifacts/package/install
@@ -37,7 +44,13 @@ jobs:
           test ! -e artifacts/package/install/obsolete-fixture
           test ! -d artifacts/package/consumer/consumer
       - name: Consumer with source and build trees absent
-        run: docker run --rm -v "$PWD/artifacts/package:/package" -w /package avelino-toolchain:qt6.8.3 bash -c 'bash check-installed.sh && bash check-display-sessions.sh'
+        run: docker run --rm -v "$PWD/artifacts/package:/package" -w /package avelino-toolchain:qt6.8.3 bash -c 'bash check-installed.sh && bash check-display-sessions.sh && bash check-display-sessions-hero-carousel.sh "$PWD/display-evidence/hero-carousel"'
+      - name: Expose generated evidence to the artifact uploader
+        if: always()
+        run: |
+          for artifact_path in artifacts/linux artifacts/package build/linux/Testing/Temporary; do
+            if [[ -d "$artifact_path" ]]; then sudo chmod -R a+rX -- "$artifact_path"; fi
+          done
       - uses: actions/upload-artifact@v4
         with:
           name: desktop-button-candidates-${{ matrix.runner }}
@@ -53,6 +66,7 @@ jobs:
             artifacts/package/environment.json
             artifacts/package/display-evidence
             artifacts/package/catalog-evidence
+            artifacts/package/hero-carousel-installed.*
             build/linux/Testing/Temporary/LastTest.log
   button-mirror-comparison:
     needs: build-runtime-package

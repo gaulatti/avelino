@@ -1,0 +1,67 @@
+import QtQuick
+import QtQml.Models
+import QtQuick.Templates as T
+
+FileChooserButton {
+    id:control
+    required property FileChooserBrowser browser
+    property var menuEntries:[]
+    readonly property QtObject popup:menu
+    objectName:"bleeckerFileChooserLocation"
+    text:browser.folderLabel+" ▾"
+    Accessible.role:Accessible.ButtonMenu;Accessible.name:"Where:"
+    Accessible.description:browser.folderPath
+    Accessible.onPressAction:control.click()
+    function choose(url:url):void {browser.chooseLocation(url)}
+    onClicked:{
+        browser.refreshPlaces()
+        // A navigation changes the provider while MenuItem.triggered runs.
+        // Keep this open menu's data detached from that live property.
+        menuEntries=Array.from(browser.places.entries,row=>({
+            label:row.label,url:row.url,path:row.path,available:row.available,
+            heading:row.heading,recent:row.recent
+        }))
+        menu.open()
+    }
+    T.Menu {
+        id:menu;objectName:"bleeckerFileChooserLocationMenu";parent:control;y:26;width:300;padding:5
+        implicitHeight:contentItem.implicitHeight+topPadding+bottomPadding
+        popupType:T.Popup.Window;enter:null;exit:null
+        background:Rectangle {radius:7;color:BleeckerTheme.dark ? "#303030":"white";border.width:0.5;border.color:BleeckerTheme.dark ? "#575757":"#c6c6c6"}
+        contentItem:ListView {
+            implicitHeight:contentHeight;model:menu.contentModel;clip:true
+            boundsBehavior:Flickable.StopAtBounds
+            T.ScrollBar.vertical:T.ScrollBar {
+                width:7;policy:T.ScrollBar.AsNeeded
+                contentItem:Rectangle {radius:3;color:"#999999";implicitWidth:5;implicitHeight:24}
+                background:null
+            }
+        }
+        Instantiator {
+            model:control.menuEntries
+            delegate:T.MenuItem {
+                id:entry
+                required property var modelData
+                required property int index
+                objectName:"bleeckerFileChooserLocation_"+index
+                width:menu.width-10;height:modelData.heading ? 22:26;implicitHeight:height;padding:0
+                text:modelData.label
+                enabled:modelData.available===true&&control.browser.active
+                Accessible.role:Accessible.MenuItem;Accessible.name:text
+                Accessible.description:modelData.path??""
+                Accessible.onPressAction:entry.click()
+                onTriggered:control.choose(modelData.url)
+                background:Rectangle {radius:4;color:entry.highlighted ? "#0063e1":"transparent"}
+                contentItem:Text {
+                    leftPadding:8;rightPadding:8;text:entry.text;textFormat:Text.PlainText
+                    verticalAlignment:Text.AlignVCenter;elide:Text.ElideMiddle
+                    color:entry.highlighted ? "white":!entry.enabled ? "#888888":BleeckerTheme.dark ? "#eeeeee":"#222222"
+                    font.family:Qt.application.font.family;font.pixelSize:13;Accessible.ignored:true
+                }
+                indicator:null
+            }
+            onObjectAdded:(index,object)=>menu.insertItem(index,object)
+            onObjectRemoved:(index,object)=>menu.removeItem(object)
+        }
+    }
+}

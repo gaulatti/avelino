@@ -1,0 +1,123 @@
+name: References
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  immutable-inputs:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 scripts/check-linux-boundary.py
+      - run: python3 -m pip install -r tools/visual-requirements.txt
+      - run: python3 scripts/verify-references.py
+      - run: python3 scripts/discover-reference.py --check
+      - run: python3 scripts/verify-proposals.py
+      - run: python3 scripts/verify-presentation-state-source.py
+      - run: python3 scripts/verify-native-loading.py
+      - run: python3 scripts/verify-spinner-source.py
+      - run: python3 scripts/verify-alert-source.py
+      - run: python3 scripts/verify-navigation-layout-source.py
+      - run: python3 scripts/verify-sidebar-brand-source.py
+      - run: python3 scripts/verify-data-metrics-source.py
+      - run: python3 scripts/verify-native-source-rebuild.py
+      - run: python3 scripts/verify-number-locales-source.py
+      - run: python3 scripts/verify-stepper-source.py
+      - run: python3 scripts/verify-radio-source.py
+      - run: python3 scripts/verify-otp-source.py
+      - run: python3 scripts/verify-activity-source.py
+      - run: python3 scripts/verify-activity-text-source.py
+      - run: python3 scripts/verify-activity-layout-source.py
+      - run: python3 scripts/verify-activity-alignment-source.py
+      - run: python3 scripts/verify-modal-source.py
+      - run: python3 scripts/verify-modal-input-source.py
+      - run: python3 scripts/verify-tooltip-source.py
+      - run: python3 scripts/verify-button-style-source.py
+      - run: python3 scripts/verify-button-style-colors.py
+      - run: python3 scripts/verify-button-style-candidate.py
+      - run: python3 scripts/verify-font-modifier-source.py
+      - run: python3 scripts/verify-font-baseline-source.py
+      - run: python3 scripts/verify-font-edges-source.py
+      - run: python3 scripts/verify-surface-modifier-source.py
+      - run: python3 scripts/verify-surface-baseline-input-source.py
+      - run: python3 scripts/generate-font-modifier-witnesses.py --check
+      - run: python3 scripts/generate-surface-modifier-witnesses.py --check
+      - run: python3 scripts/generate-surface-supplement-witnesses.py --check
+      - run: python3 scripts/verify-surface-modifier-candidate.py
+      - run: python3 scripts/verify-surface-supplement-candidate.py
+      - run: python3 scripts/verify-surface-stroke-dense.py
+      - run: python3 scripts/verify-pill-modifier-source.py
+      - run: python3 scripts/verify-charts-source.py
+      - run: python3 scripts/verify-media-library-source.py
+      - run: python3 scripts/verify-hero-carousel-source.py
+      - run: python3 scripts/verify-hero-carousel-history.py
+      - run: python3 scripts/verify-date-range-source.py
+      - run: python3 scripts/verify-date-range-input.py
+      - run: python3 scripts/verify-date-range-interpretation.py
+      - run: python3 scripts/generate-date-range-witnesses.py --check
+      - run: python3 scripts/verify-date-range-owned-editors.py
+      - run: python3 scripts/verify-date-range-retained-history.py
+      - run: python3 scripts/verify-date-range-font-source.py
+      - run: python3 scripts/generate-date-editor-patterns.py --check
+      - run: python3 scripts/verify-date-range-editor-presentation.py
+      - run: python3 scripts/check-date-range-catalog-publication.py
+      - run: python3 scripts/verify-date-range-width-investigation.py
+      - run: python3 scripts/generate-hero-carousel-witnesses.py --check
+      - run: python3 scripts/verify-hero-carousel-candidate.py
+      - run: python3 scripts/verify-ci-runtime-contracts.py
+      - run: python3 scripts/verify-item-lifetime.py
+      - run: python3 scripts/verify-app-tabs-source.py
+      - run: python3 scripts/verify-app-tabs-candidate.py
+      - run: python3 scripts/verify-app-tabs-raster.py
+      - run: python3 scripts/verify-command-spotlight-source.py
+      - run: python3 scripts/verify-dropdown-menu-source.py
+      - run: python3 scripts/verify-file-input-source.py
+      - run: python3 scripts/verify-file-input-types.py
+      - run: python3 scripts/verify-file-input-controls.py
+      - run: python3 scripts/verify-file-input-views.py
+      - run: python3 scripts/verify-file-input-location.py
+      - run: python3 scripts/verify-file-input-location-policy.py
+      - run: python3 scripts/verify-file-input-go-to.py
+      - run: python3 scripts/verify-file-input-go-to-history.py
+      - run: python3 scripts/verify-file-input-go-to-close.py
+      - run: python3 scripts/verify-file-input-go-to-linux.py
+      - run: python3 scripts/verify-file-input-go-to-editing.py
+      - run: python3 scripts/verify-file-input-go-to-suggestions.py
+      - run: python3 scripts/generate-file-input-witnesses.py --check
+      - run: python3 scripts/verify-file-input-linux.py
+      - run: python3 scripts/verify-file-input-announcements.py
+      - run: python3 scripts/verify-file-input-navigation.py
+      - run: python3 scripts/verify-file-input-views-linux.py
+      - run: python3 scripts/verify-file-input-location-linux.py
+      - run: python3 scripts/verify-dropdown-menu-supplement.py
+      - run: python3 scripts/generate-dropdown-menu-witnesses.py --check
+      - run: python3 scripts/verify-dropdown-menu-candidate.py
+      - run: python3 scripts/generate-command-spotlight-witnesses.py --check
+      - run: python3 scripts/verify-command-spotlight-candidate.py
+      - run: python3 scripts/generate-app-tabs-witnesses.py --check
+      - run: python3 scripts/generate-media-library-witnesses.py --check
+      - run: python3 scripts/verify-pill-modifier-candidate.py
+      - run: python3 scripts/verify-pill-marker-raster.py evidence/development/pill-modifier-20261017/native-marker-raster.json --check
+      - run: python3 scripts/generate-pill-witnesses.py --check
+      - run: python3 scripts/generate-chart-witnesses.py --check
+      - run: python3 scripts/verify-chart-candidate.py
+      - run: python3 scripts/verify-chart-geometry-source.py
+      - run: python3 scripts/verify-chart-geometry-candidate.py
+      - run: python3 scripts/verify-media-library-candidate.py
+      - run: python3 scripts/verify-media-library-reflow.py
+      - run: python3 scripts/verify-media-library-caption.py
+      - run: python3 scripts/verify-font-modifier-candidate.py
+      - run: python3 scripts/generate-otp-unicode.py --check
+      - run: python3 scripts/generate-otp-witnesses.py --check
+      - run: python3 scripts/generate-activity-witnesses.py --check
+      - run: python3 scripts/generate-modal-witnesses.py --check
+      - run: python3 scripts/generate-button-style-witnesses.py --check
+      - run: python3 scripts/generate-radio-witnesses.py --check
+      - run: python3 scripts/generate-stepper-witnesses.py --check
+      - run: python3 scripts/generate-number-format-witnesses.py --check
+      - run: python3 scripts/verify-data-metrics-inputs.py
+      - run: python3 -m unittest discover -s tests/contracts -v

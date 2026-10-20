@@ -31,6 +31,7 @@ class ChartRenderer : public QQuickPaintedItem {
     Q_PROPERTY(int pointCount READ pointCount NOTIFY layoutChanged)
 public:
     explicit ChartRenderer(QQuickItem *parent=nullptr);
+    ~ChartRenderer() override;
     QString kind() const{return m_kind;} void setKind(const QString &);
     QVariant points() const{return m_points;} void setPoints(const QVariant &);
     QVariant values() const{return m_values;} void setValues(const QVariant &);

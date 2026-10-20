@@ -1,0 +1,35 @@
+[
+  {
+    "name": "build",
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-I",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-native-20261018-v4/build/out/Products/Debug",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-history-20261018-v1/tool/DateCommon.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-history-20261018-v1/tool/DateHistory.swift",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-native-20261018-v4/build/out/Products/Debug/Sabella.o",
+      "-o",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-history-20261018-v1/tool/NativeDateHistory"
+    ],
+    "exitCode": 0,
+    "seconds": 1.8383699998958036
+  },
+  {
+    "name": "run",
+    "command": [
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-history-20261018-v1/tool/NativeDateHistory",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-history-20261018-v1/fixtures.json",
+      "/Users/gaulatti/.codex/tmp/avelino-date-range-history-20261018-v1/output",
+      "-AppleLocale",
+      "en_US"
+    ],
+    "exitCode": 0,
+    "seconds": 6.640403625089675
+  }
+]

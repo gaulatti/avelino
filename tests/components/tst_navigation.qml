@@ -31,6 +31,15 @@ Item {
         function init(){BleeckerTheme.dark=false;BleeckerTheme.textScale=1;BleeckerTheme.reducedMotion=true;failOnWarning(/Binding loop/)}
         function cleanup(){BleeckerTheme.dark=false;BleeckerTheme.textScale=1}
         function test_native_geometry_data(){return nativeNavigationCaptures.filter(c=>c.api!=="BleeckerButton" && c.dpr===metrics.devicePixelRatio).map(c=>({tag:c.path,row:c}))}
+        function test_unicode_fallback_line_box_data(){return nativeNavigationCaptures.filter(c=>c.api==="BleeckerPageHeader"&&c.variant==="unicode"&&c.dpr===metrics.devicePixelRatio).map(c=>({tag:c.path,row:c}))}
+        function test_unicode_fallback_line_box(data){
+            const row=data.row;BleeckerTheme.dark=row.appearance==="dark";BleeckerTheme.textScale=row.textScale
+            const item=createTemporaryObject(factory,root,{definition:row});wait(30)
+            const title=findChild(item,"bleeckerPageHeaderTitle");verify(title)
+            compare(title.text,row.title,"Keep the full Unicode title")
+            compare(title.naturalHeight,row.layoutWitnessRects.title.height,"Source fallback line box")
+            compare(item.presentationItem.implicitHeight,row.componentSize.height,"Source header height with CJK glyph coverage")
+        }
         function test_unmodified_source_text_bounds_data(){return nativeNavigationText.filter(c=>c.dpr===metrics.devicePixelRatio).map(c=>({tag:c.path,row:c}))}
         function test_unmodified_source_text_bounds(data){
             const row=data.row,item=createTemporaryObject(textFactory,root,{style:row.key,text:row.text,wrapWidth:row.offeredWidth})
