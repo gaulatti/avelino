@@ -121,6 +121,8 @@ static void runAdminShellConsumer(QQuickWindow *window, QGuiApplication &app,
     toolbar = shell()->property("toolbarItem").value<QQuickItem *>();
     visibilityButton = toolbar->property("visibilityButton").value<QQuickItem *>();
     requestButton = toolbar->property("requestButton").value<QQuickItem *>();
+    window->requestActivate();
+    if (!check(QTest::qWaitForWindowActive(window, 5000), "Keyboard test window did not become active")) return;
     visibilityButton->forceActiveFocus(Qt::TabFocusReason);
     QTest::keyClick(window, Qt::Key_Tab);
     if (!check(waitForShapeFrame(window) && requestButton->hasActiveFocus(), "Toolbar tab order failed")) return;
