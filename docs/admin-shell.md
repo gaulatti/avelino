@@ -48,13 +48,22 @@ The fixture colours currently diagnose geometry; source colour inputs and
 window compositing still require visual comparison. Native symbols, chrome,
 toolbar timing, physical input and screen-reader acceptance remain pending.
 
+The [source colour-input record](../evidence/reference-investigations/admin-shell-colour-inputs-20261020/README.md)
+now resolves the original sidebar, header, content and white root colours inside
+the actual SwiftUI environment. It retains exact Float32 components for both
+appearances and initial visibility values. All 12 original control images remain
+byte-identical, with unchanged geometry and callbacks. These source inputs differ
+from pure diagnostic RGB and change with appearance. They are not yet integrated
+into the Linux fixtures; the fair input bridge and raster comparison remain open.
+
 The [initial public-candidate checkpoint](../evidence/development/admin-shell-20261020/result.json)
 retains 260 passing QtTest cases in each of four contexts: offscreen at scale 1
 and 2, X11 at scale 1 and Wayland at scale 2. It loads the current public QML
 files with the unchanged compiled base module. It covers actual toolbar and
 divider input, disabled state, retained caller controls, Tab/Space, the shortcut,
-window hosting and viewport resizing. It is an interpreted-source result;
-fresh compilation and execution of the new installed consumer remain pending.
+window hosting and viewport resizing. It is an interpreted-source result; at that
+checkpoint, fresh compilation and execution of the new installed consumer had
+not run.
 Earlier attempts and their exact input snapshots remain in the capsule.
 
 The subsequent [compiled/package checkpoint](../evidence/development/admin-shell-package-20261020/result.json)
@@ -82,10 +91,26 @@ retains its original command, script, logs, eight reports and all 655 produced
 PNGs, including the compositor image from the incomplete final context. Seven
 window captures exist; the eighth remains absent. The consumer now
 saves the window first and publishes the report atomically. The failed run stays
-intact; a complete successful session matrix remains pending.
+intact.
 
 ```sh
 python3 scripts/verify-admin-shell-sessions.py --failed-attempt
+```
+
+The subsequent [installed-session matrix](../evidence/development/admin-shell-sessions-20261020/README.md)
+passes all eight combinations of X11/Wayland, software/OpenGL and standard/scaled
+configuration. The readiness repair is rebuilt into the independent consumer;
+the installed core library is unchanged. Sources and the product build are absent
+from runtime. Each context matches all 80 native layouts, 160 owner-history states
+and 168 divider cases. All 640 body, eight window and eight compositor PNGs remain
+available as exact bytes. The canonical script is filtered only to the AdminShell
+fixture; its renderer, scaling, pointer and screenshot checks remain intact.
+OpenGL uses Mesa llvmpipe. These are virtual session and Qt input results; native
+pixels, complete caller/toolbar equivalence, physical input, hardware acceleration
+and reader acceptance remain pending.
+
+```sh
+python3 scripts/verify-admin-shell-sessions.py
 ```
 
 ## Capture scope
