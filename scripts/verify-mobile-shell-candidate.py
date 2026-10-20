@@ -190,7 +190,10 @@ def verify():
     smoke = read("installed-smoke/result.json")
     assert smoke["exitCode"] == 0 and smoke["consumerSmokeCommands"] == 43
     assert smoke["sourceProjectsMounted"] is smoke["otherInstalledScriptStepsExecuted"] is False
-    assert smoke["sourceSha256"] == digest(ROOT / "scripts/check-installed.sh")
+    smoke_source = subprocess.check_output([
+        "git", "show", "240feec4ba6af1723028eb6308700b876c25c9f4:scripts/check-installed.sh"
+    ], cwd=ROOT)
+    assert smoke["sourceSha256"] == hashlib.sha256(smoke_source).hexdigest()
     gallery = read("gallery/result.json")
     assert gallery["exitCode"] == 0 and gallery["sourceFree"] is True
     assert len(gallery["captures"]) == 4 and gallery["nativeToolbarRasterAccepted"] is False

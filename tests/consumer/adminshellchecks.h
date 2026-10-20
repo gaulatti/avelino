@@ -107,16 +107,16 @@ static void runAdminShellConsumer(QQuickWindow *window, QGuiApplication &app,
     };
     if (!click(visibilityButton) || !check(!shell()->property("displayedNavigation").toBool()
         && fixture()->property("navigation").toBool(), "Ignoring owner lost caller/display distinction")) return;
-    if (!click(requestButton) || !check(chartMap(fixture(),"snapshot")["requests"] == QJsonArray{false,false},
+    if (!click(requestButton) || !check(chartMap(fixture(),"snapshot")["requests"].toArray() == QJsonArray{false,false},
                                       "Explicit toolbar action did not toggle caller value")) return;
     if (!click(visibilityButton) || !check(shell()->property("displayedNavigation").toBool()
-        && chartMap(fixture(),"snapshot")["requests"] == QJsonArray{false,false,true}, "Native visibility toggle failed")) return;
+        && chartMap(fixture(),"snapshot")["requests"].toArray() == QJsonArray{false,false,true}, "Native visibility toggle failed")) return;
     if (!check(side && head && content && shell()->property("sidebarItem").value<QQuickItem *>() == side
         && shell()->property("headerItem").value<QQuickItem *>() == head
         && shell()->property("contentSlotItem").value<QQuickItem *>() == content, "Caller identity changed")) return;
     shell()->setEnabled(false);
     if (!click(requestButton) || !check(!visibilityButton->isEnabled() && !requestButton->isEnabled()
-        && chartMap(fixture(),"snapshot")["requests"] == QJsonArray{false,false,true}, "Disabled toolbar accepted input")) return;
+        && chartMap(fixture(),"snapshot")["requests"].toArray() == QJsonArray{false,false,true}, "Disabled toolbar accepted input")) return;
     if (!configure(config)) return;
     toolbar = shell()->property("toolbarItem").value<QQuickItem *>();
     visibilityButton = toolbar->property("visibilityButton").value<QQuickItem *>();

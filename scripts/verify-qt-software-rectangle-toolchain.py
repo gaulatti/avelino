@@ -90,7 +90,9 @@ def verify():
   module.CAPSULE=directory
   assert module.profiles('installed',{n:0 for n in ['xcb-dpr1','xcb-dpr2','wayland-dpr1','wayland-dpr2']})==(120,12,0)
  preflight=read('driver-preflight/result.json');assert preflight['exitCode']==0 and preflight['cases']==6 and preflight['invalidSdkConfigurationsRejected']==5
- assert digest(ROOT/'scripts/check-linux.sh')==read('driver-preflight/inputs.json')['driverSha256']
+ # The six preflight cases ran the sealed pre-Admin driver, not later smoke additions.
+ preflight_source=subprocess.check_output(['git','show','8213635e91c08dff9ed1cfca1bfa757fd0c94e64:scripts/check-linux.sh'],cwd=ROOT)
+ assert hashlib.sha256(preflight_source).hexdigest()==read('driver-preflight/inputs.json')['driverSha256']
  for row in read('driver-preflight/commands.json'):
   assert row['exitCode']==row['expectedExitCode']
   folder=CAPSULE/'driver-preflight'/row['case']

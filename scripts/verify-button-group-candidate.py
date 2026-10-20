@@ -174,13 +174,11 @@ def verify():
     smoke = read("installed-smoke/result.json")
     assert smoke["exitCode"] == 0 and smoke["consumerSmokeCommands"] == 42
     assert smoke["sourceProjectsMounted"] is smoke["otherInstalledScriptStepsExecuted"] is smoke["accepted"] is False
-    source_script = ROOT / "scripts/check-installed.sh"
-    # Retain the exact 42 original commands while the current script adds the
-    # independently verified desktop-shell command.
-    current_script = source_script.read_text()
-    mobile_line = "QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software consumer-build/InstalledConsumer --mobile-shell\n"
-    assert current_script.count(mobile_line) == 1
-    original_script = current_script.replace(mobile_line, "", 1)
+    # This receipt executed the exact 42-command producer before MobileShell
+    # and AdminShell were added. Preserve its source and recorded command list.
+    original_script = subprocess.check_output([
+        "git", "show", "0b3665b913411399e616ba82990f991920996acb:scripts/check-installed.sh"
+    ], cwd=ROOT, text=True)
     assert smoke["sourceSha256"] == hashlib.sha256(original_script.encode()).hexdigest()
     original = [line for line in original_script.splitlines()
                 if line.startswith("QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software consumer-build/InstalledConsumer")]
