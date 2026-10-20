@@ -1,0 +1,16 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--init",
+    "--rm",
+    "-i",
+    "sha256:c32e246cda73ab6992d808ceb551fa569fdf8ee85308f82d2bf1b15a96e69b14",
+    "/usr/bin/python3",
+    "-"
+  ],
+  "probeSha256": "c7cb0f442906dc041bb881d5aff6f515f33bcc60194733721a5c5dc00af60bbc",
+  "changes": "Controlled fixtures under /home, with private XDG paths and explicit eligibility diagnostics; no host mounts or permissions changed."
+}

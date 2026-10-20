@@ -457,3 +457,22 @@ state; no image is edited. The [Qt 6.8.3 ScrollBar documentation](https://github
 defines that policy. A native empty-field Close transition is separately retained
 in the [diagnostic supplement](../evidence/reference-investigations/file-input-go-to-empty-close-20261018/README.md);
 its failed relative/setup retry adds no path-resolution claim.
+
+The [indexed-search capability experiment](../evidence/development/file-input-search-provider-20261020/README.md)
+uses Ubuntu 24.04 arm64 Tracker 3.7.1 through public bound statements. The
+isolated `/home` fixture returns filename-only and content matches in global
+and recursive folder scopes, excluding a similarly prefixed sibling directory.
+Both earlier failures are retained: missing Python GI and the `/tmp` fixture
+not entering the observed index. A separate eligibility check rejects that
+`/tmp` file. Raw service/extractor warnings remain visible; the passing probe
+uses the default container security profile and no host mounts.
+
+This establishes one provider capability. It adds no product UI, backend,
+package dependency or accepted native case. The private test bus and indexing
+configuration must not become an application policy that silently reconfigures
+user indexing. Supported desktop-provider policy, arbitrary query semantics,
+async cancellation/lifecycle, indexed/unindexed locations, both search modes and
+scopes, selection/type validation, owner delivery, source-free consumer, display
+sessions, accessibility and native equivalence remain unresolved implementation
+work. A directory filename filter alone would omit the now-observed native
+content results. The current FileInput search UI remains missing.

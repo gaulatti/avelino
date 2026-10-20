@@ -1,0 +1,66 @@
+#0 building with "colima-avelino-verify" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 183B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/avelino-file-search-provider:20261020-no-gi
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/2] FROM docker.io/library/avelino-file-search-provider:20261020-no-gi@sha256:7efbf0b2c2f6ce32190b68dd0c8cff1bd01609742753b3de50771a2576ebdbe8
+#4 resolve docker.io/library/avelino-file-search-provider:20261020-no-gi@sha256:7efbf0b2c2f6ce32190b68dd0c8cff1bd01609742753b3de50771a2576ebdbe8 done
+#4 DONE 0.0s
+
+#5 [2/2] RUN apt-get update && apt-get install -y --no-install-recommends python3-gi gir1.2-tracker-3.0
+#5 0.377 Hit:1 http://ports.ubuntu.com/ubuntu-ports noble InRelease
+#5 0.466 Hit:2 http://ports.ubuntu.com/ubuntu-ports noble-updates InRelease
+#5 0.559 Hit:3 http://ports.ubuntu.com/ubuntu-ports noble-backports InRelease
+#5 0.651 Hit:4 http://ports.ubuntu.com/ubuntu-ports noble-security InRelease
+#5 0.680 Reading package lists...
+#5 1.413 Reading package lists...
+#5 2.108 Building dependency tree...
+#5 2.308 Reading state information...
+#5 2.589 gir1.2-tracker-3.0 is already the newest version (3.7.1-1build1).
+#5 2.589 gir1.2-tracker-3.0 set to manually installed.
+#5 2.589 The following additional packages will be installed:
+#5 2.590   gir1.2-girepository-2.0 libgirepository-1.0-1
+#5 2.614 The following NEW packages will be installed:
+#5 2.615   gir1.2-girepository-2.0 libgirepository-1.0-1 python3-gi
+#5 2.672 0 upgraded, 3 newly installed, 0 to remove and 10 not upgraded.
+#5 2.672 Need to get 339 kB of archives.
+#5 2.672 After this operation, 1217 kB of additional disk space will be used.
+#5 2.672 Get:1 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libgirepository-1.0-1 arm64 1.80.1-1 [81.2 kB]
+#5 2.719 Get:2 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 gir1.2-girepository-2.0 arm64 1.80.1-1 [24.5 kB]
+#5 2.720 Get:3 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 python3-gi arm64 3.48.2-1 [233 kB]
+#5 2.973 debconf: delaying package configuration, since apt-utils is not installed
+#5 3.006 Fetched 339 kB in 0s (1641 kB/s)
+#5 3.022 Selecting previously unselected package libgirepository-1.0-1:arm64.
+#5 3.022 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 27029 files and directories currently installed.)
+#5 3.033 Preparing to unpack .../libgirepository-1.0-1_1.80.1-1_arm64.deb ...
+#5 3.039 Unpacking libgirepository-1.0-1:arm64 (1.80.1-1) ...
+#5 3.058 Selecting previously unselected package gir1.2-girepository-2.0:arm64.
+#5 3.063 Preparing to unpack .../gir1.2-girepository-2.0_1.80.1-1_arm64.deb ...
+#5 3.064 Unpacking gir1.2-girepository-2.0:arm64 (1.80.1-1) ...
+#5 3.078 Selecting previously unselected package python3-gi.
+#5 3.079 Preparing to unpack .../python3-gi_3.48.2-1_arm64.deb ...
+#5 3.080 Unpacking python3-gi (3.48.2-1) ...
+#5 3.108 Setting up libgirepository-1.0-1:arm64 (1.80.1-1) ...
+#5 3.114 Setting up gir1.2-girepository-2.0:arm64 (1.80.1-1) ...
+#5 3.117 Setting up python3-gi (3.48.2-1) ...
+#5 3.227 Processing triggers for libc-bin (2.39-0ubuntu8.9) ...
+#5 DONE 3.3s
+
+#6 exporting to image
+#6 exporting layers 0.1s done
+#6 exporting manifest sha256:8d8932391fe12001f74b31cd0291929b4966bd13243308f16827cfa7957efc2c
+#6 exporting manifest sha256:8d8932391fe12001f74b31cd0291929b4966bd13243308f16827cfa7957efc2c done
+#6 exporting config sha256:37fe08b92b473c10f793130d18d5394a30b1a68f193a55c94c313b956c0c684a done
+#6 exporting attestation manifest sha256:d8cad5d07dc323d3217153e5f03fe5411ef0e09ea6c97849a47d48c4a004996e done
+#6 exporting manifest list sha256:c32e246cda73ab6992d808ceb551fa569fdf8ee85308f82d2bf1b15a96e69b14 done
+#6 naming to docker.io/library/avelino-file-search-provider:20261020-v2 done
+#6 unpacking to docker.io/library/avelino-file-search-provider:20261020-v2 0.0s done
+#6 DONE 0.2s

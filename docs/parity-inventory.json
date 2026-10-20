@@ -80286,7 +80286,7 @@
           "src/Avelino/filechoosersuggestions.h",
           "src/Avelino/filechoosersuggestions.cpp"
         ],
-        "caseDiscovery": "Source64 adds an owned single-choice accessible suggestion list, explicit selection notifications and actual editor focus after clearing. Twenty-one-phase X11/software and scaled dark Wayland/OpenGL AT-SPI/Orca probes verify selection queries, native arrow events, destination output and speech-dispatcher commands before Return, plus editable text, Unicode, native undo/redo, cancellation and owner delivery. Source62 teardown failure, source63 provisional consumer, reader11/12 failures and the diagnostic-only log flush are preserved. Eight focused Qt targets pass. Native hierarchy, object identity, timing, reader comparison, engine audio, complete chooser, physical and independent-machine acceptance remain pending. Desktop coverage remains 75/80 candidates and 0/80 accepted. All 256 native closed contexts retain strict mismatches; prior closed Linux images and raw closed/sizing metadata must remain byte-identical. General suggestion ranking/history capacity/relative resolution, other native type arrays, source input/timing, Date Added metadata, column resizing/formatting, artwork/thumbnails, remaining sort/group modes, sidebar, search, preview, complete native hierarchy/sizing/raster/reader/physical/independent-machine acceptance remain pending. Fresh installed-consumer and eight virtual display profiles pass with sources absent at runtime; all 256 previous closed PNGs remain byte-identical. Native parity remains pending.",
+        "caseDiscovery": "Source64 adds an owned single-choice accessible suggestion list, explicit selection notifications and actual editor focus after clearing. Twenty-one-phase X11/software and scaled dark Wayland/OpenGL AT-SPI/Orca probes verify selection queries, native arrow events, destination output and speech-dispatcher commands before Return, plus editable text, Unicode, native undo/redo, cancellation and owner delivery. Source62 teardown failure, source63 provisional consumer, reader11/12 failures and the diagnostic-only log flush are preserved. Eight focused Qt targets pass. Native hierarchy, object identity, timing, reader comparison, engine audio, complete chooser, physical and independent-machine acceptance remain pending. Desktop coverage remains 75/80 candidates and 0/80 accepted. All 256 native closed contexts retain strict mismatches; prior closed Linux images and raw closed/sizing metadata must remain byte-identical. General suggestion ranking/history capacity/relative resolution, other native type arrays, source input/timing, Date Added metadata, column resizing/formatting, artwork/thumbnails, remaining sort/group modes, sidebar, search, preview, complete native hierarchy/sizing/raster/reader/physical/independent-machine acceptance remain pending. Fresh installed-consumer and eight virtual display profiles pass with sources absent at runtime; all 256 previous closed PNGs remain byte-identical. Native parity remains pending. Positive search now has controlled native name/content and Filename-token observations with recursive current-folder inclusion. This is a projection, not a raw AX archive or independent replay; completion, owner delivery, cross-folder exclusion and general matching remain unverified. An isolated Ubuntu24.04 arm64 Tracker3.7.1 capability probe passes both modes/scopes; product integration and all acceptance gates remain pending.",
         "cases": [
           {
             "id": "BleeckerFileInput-default-light-text1-dpr1",
@@ -84127,6 +84127,61 @@
               "evidence/development/file-input-20261017/comparison/observations.json"
             ],
             "notes": "Linux development observation; strict pixel mismatch retained. Complete chooser and all mirror acceptance remain pending."
+          },
+          {
+            "id": "BleeckerFileInput-search-general-content",
+            "status": "pending",
+            "referenceCapture": null,
+            "candidateCapture": null,
+            "evidence": [
+              "evidence/reference-investigations/file-input-search-20261020/observations.json",
+              "evidence/development/file-input-search-provider-20261020/validation.json"
+            ],
+            "notes": "Controlled single-word native raw query exposes a filename match and a body-only match. Native projection only; query completion, owner delivery, general semantics and Linux UI remain unverified."
+          },
+          {
+            "id": "BleeckerFileInput-search-filename-token",
+            "status": "pending",
+            "referenceCapture": null,
+            "candidateCapture": null,
+            "evidence": [
+              "evidence/reference-investigations/file-input-search-20261020/observations.json",
+              "evidence/development/file-input-search-provider-20261020/validation.json"
+            ],
+            "notes": "Native Down/Return Name Contains selection exposes a Filename token and excludes the body-only control. Native projection only; broad filename rules and Linux input remain unverified."
+          },
+          {
+            "id": "BleeckerFileInput-search-recursive-folder",
+            "status": "pending",
+            "referenceCapture": null,
+            "candidateCapture": null,
+            "evidence": [
+              "evidence/reference-investigations/file-input-search-20261020/observations.json",
+              "evidence/development/file-input-search-provider-20261020/validation.json"
+            ],
+            "notes": "Native current-folder query includes a nested matching file. Cross-folder exclusion is unverified; the unobserved sibling has null queried Spotlight metadata."
+          },
+          {
+            "id": "BleeckerFileInput-search-clear-browse",
+            "status": "pending",
+            "referenceCapture": null,
+            "candidateCapture": null,
+            "evidence": [
+              "evidence/reference-investigations/file-input-search-20261020/observations.json",
+              "evidence/development/file-input-search-provider-20261020/validation.json"
+            ],
+            "notes": "CUA search-field cancel returns to the original controlled browse folder after rebinding to recover AX. Owner delivery, focus/timing equivalence and full context coverage remain unverified."
+          },
+          {
+            "id": "BleeckerFileInput-search-provider-capability",
+            "status": "pending",
+            "referenceCapture": null,
+            "candidateCapture": null,
+            "evidence": [
+              "evidence/reference-investigations/file-input-search-20261020/observations.json",
+              "evidence/development/file-input-search-provider-20261020/validation.json"
+            ],
+            "notes": "Private Ubuntu24.04 arm64 Tracker3.7.1 probe passes filename/general and global/folder queries. Product dependencies/provider policy, async cancellation/lifecycle, UI, owner delivery and installed consumer remain unimplemented."
           }
         ],
         "tests": [
@@ -84158,7 +84213,8 @@
           "scripts/verify-file-input-go-to-close.py",
           "scripts/verify-file-input-go-to-linux.py",
           "scripts/verify-file-input-go-to-editing.py",
-          "scripts/verify-file-input-go-to-suggestions.py"
+          "scripts/verify-file-input-go-to-suggestions.py",
+          "scripts/verify-file-input-search.py"
         ],
         "captures": [
           "evidence/reference-investigations/file-input-20261017/output/captures.json",
@@ -84175,7 +84231,8 @@
           "evidence/reference-investigations/file-input-go-to-empty-close-20261018/investigation.json",
           "evidence/development/file-input-go-to-20261018/validation.json",
           "evidence/development/file-input-go-to-editing-20261018/validation.json",
-          "evidence/development/file-input-go-to-suggestions-20261018/validation.json"
+          "evidence/development/file-input-go-to-suggestions-20261018/validation.json",
+          "evidence/reference-investigations/file-input-search-20261020/observations.json"
         ],
         "comparisonResults": [
           "evidence/reference-investigations/file-input-20261017/source-replay.json",
@@ -84189,7 +84246,8 @@
           "evidence/reference-investigations/file-input-go-to-history-20261018/investigation.json",
           "evidence/reference-investigations/file-input-go-to-empty-close-20261018/investigation.json",
           "evidence/development/file-input-go-to-20261018/validation.json",
-          "evidence/development/file-input-go-to-editing-20261018/validation.json"
+          "evidence/development/file-input-go-to-editing-20261018/validation.json",
+          "evidence/development/file-input-search-provider-20261020/validation.json"
         ],
         "exceptions": [],
         "runtimeGates": {
