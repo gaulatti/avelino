@@ -94,6 +94,13 @@ The earlier invalid DPR test and missing-resource native helper run are retained
 Fresh compiled, installed-consumer and display-session execution of this clipping
 change remain pending; the preceding package receipts stay bound to source 4a0a06b.
 
+The component test now waits for Qt layout polishing before exact geometry and
+binding-state comparisons. A Wayland run observed the initial zero-width content
+before its layout reached the native 180-point width; a fixed 30-millisecond
+delay did not establish readiness. Expected values and tolerances are unchanged.
+The earlier clipping test receipts remain bound to producer 7253695, and the
+padded-sidebar receipts use producer 3948906 for the evolved component and tests.
+
 The [material observations](../evidence/reference-investigations/admin-shell-materials-20261020/README.md)
 identify a native one-device-pixel divider, sidebar glass, a 12-point split shadow
 and 52-point titlebar scroll pockets. All 36 control paths across the three

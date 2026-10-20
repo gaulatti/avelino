@@ -47,6 +47,7 @@ Item {
         function init() { BleeckerTheme.dark = false; failOnWarning(/Binding loop/) }
         function cleanup() { BleeckerTheme.dark = false }
         function compareState(fixture, state, step) {
+            verify(waitForPolish(fixture.Window.window), step + " layout did not finish polishing")
             const actual = fixture.snapshot()
             for (const key of ["navigation", "requests", "pending", "displayedNavigation", "columnWidth"])
                 compare(actual[key], state[key], step + " " + key)

@@ -20,7 +20,7 @@ def sha(raw):
 
 
 def source_bytes(name):
-    if name in {'tests/components/tst_admin_shell.qml', 'tests/consumer/AdminShellCase.qml'}:
+    if name in {'src/Avelino/BleeckerAdminShell.qml', 'tests/components/tst_admin_shell.qml', 'tests/consumer/AdminShellCase.qml'}:
         return subprocess.check_output(['git', 'show', '39489069c52ac40c7a4dadfdec33b0fd1d76261a:' + name], cwd=ROOT)
     return (ROOT / name).read_bytes()
 
