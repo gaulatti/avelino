@@ -139,6 +139,8 @@ static void runAdminShellConsumer(QQuickWindow *window, QGuiApplication &app,
     if (!check(geometry == 80 && historyStates == 160 && boundaries.size() == 168, "Native matrix incomplete")) return;
     QJsonObject result{{"reference",native["reference"]},{"fixture","admin-shell"},{"qt",qVersion()},
         {"platform",QGuiApplication::platformName()},{"dpr",window->devicePixelRatio()},{"textScale",textScale},
+        {"structuralChecks","passed"},{"graphicsApi",int(window->rendererInterface()->graphicsApi())},
+        {"width",window->width()},{"height",window->height()},{"appearance",parser.isSet("dark") ? "dark" : "light"},
         {"nativeLayouts",geometry},{"nativeHistoryStates",historyStates},{"nativeDividerCases",boundaries.size()},
         {"layouts",layouts},{"histories",histories},{"boundaries",boundaries},{"qtToolbarPointerActions",4},
         {"qtCallerIdentityRetained",true},{"qtKeyboardActivation",true},{"qtShortcutActivation",true},

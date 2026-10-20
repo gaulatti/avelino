@@ -95,6 +95,7 @@ jobs:
       - run: python3 scripts/verify-qt-software-source-patch.py
       - run: python3 scripts/verify-qt-software-rectangle-candidate.py
       - run: python3 scripts/verify-qt-software-rectangle-toolchain.py
+      - run: python3 scripts/verify-qt-rectangle-linux-driver.py
       - run: python3 scripts/verify-qt-rectangle-build-context.py
       - run: python3 scripts/verify-qt-software-toolchain.py
       - run: python3 scripts/verify-ci-artifact-ownership.py

@@ -246,6 +246,16 @@ elif fixture == 'dropdown-menu':
     assert record['pointerDeliveries']==11 and record['keyDeliveries']==1 and len(record['actions'])==6,record
     assert record['nativeRasterAcceptance']==record['physicalInputAcceptance']==record['readerAcceptance']=='pending',record
     assert record['nativeAccessibilityAcceptance']=='unobserved',record
+elif fixture == 'admin-shell':
+    assert record['structuralChecks']=='passed' and record['accepted'] is False,record
+    assert record['nativeLayouts']==len(record['layouts'])==80,record
+    assert record['nativeHistoryStates']==160 and len(record['histories'])==6,record
+    assert record['nativeDividerCases']==len(record['boundaries'])==168,record
+    assert record['qtToolbarPointerActions']==4 and record['qtCallerIdentityRetained'],record
+    assert record['qtKeyboardActivation'] and record['qtShortcutActivation'],record
+    assert record['qtAccessibilityInterfaces']==2,record
+    assert record['nativeToolbarEquivalentVerified'] is record['nativeKeyboardEquivalentVerified'] is False,record
+    assert record['nativeRasterAccepted'] is record['physicalInput'] is record['readerAcceptance'] is False,record
 elif fixture == 'mobile-shell':
     assert record['structuralChecks']=='passed' and record['accepted'] is False,record
     assert record['geometryPassed']==len(record['layouts'])==18,record

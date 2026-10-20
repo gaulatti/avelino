@@ -88,7 +88,9 @@ remains pending.
 
 The [fractional rectangle stage](docs/qt-fractional-rectangle.md) improves the
 shell's exact body images from 76 to 80 of 144. The toolchain recipe retains both
-SDK provenance stages; complete driver, CI and mirror acceptance remain pending.
+SDK provenance stages. The [completed pre-AdminShell Linux driver](evidence/development/qt-rectangle-linux-driver-20261020/scope.json)
+retains all 55 test groups, a fresh consumer, regenerated package and a manifest
+of 49,164 output members. Current-head CI and full mirror acceptance remain pending.
 
 The [Modal source investigation](docs/modal.md) records fixed-width layout,
 per-child padding and contextual sheet dismissal, with a clean source-only replay.

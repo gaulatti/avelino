@@ -1,0 +1,48 @@
+[
+  {
+    "label": "retain-toolchain-stages",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--rm",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/qt-rectangle-linux-driver-v1/output/artifacts/linux/toolchain:/evidence",
+      "sha256:40ab3fe5897ee697937db7429956381f67d4f9d9c7acb98130ebfddaa751e3f7",
+      "bash",
+      "-euc",
+      "cp -R /opt/qt/share/avelino/qt-software-opacity /evidence/\ncp -R /opt/qt/share/avelino/qt-software-rectangle /evidence/"
+    ],
+    "exitCode": 0,
+    "seconds": 1.4182195420144126
+  },
+  {
+    "label": "linux-driver",
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "run",
+      "--name",
+      "avelino-qt-rectangle-linux-driver-20261020-v1",
+      "--init",
+      "--rm",
+      "--ulimit",
+      "core=0",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino:/work:ro",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/qt-rectangle-linux-driver-v1/output/build:/work/build",
+      "-v",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/qt-rectangle-linux-driver-v1/output/artifacts:/work/artifacts",
+      "-w",
+      "/work",
+      "sha256:40ab3fe5897ee697937db7429956381f67d4f9d9c7acb98130ebfddaa751e3f7",
+      "bash",
+      "scripts/check-linux.sh"
+    ],
+    "exitCode": 0,
+    "seconds": 12358.520969625097
+  }
+]
