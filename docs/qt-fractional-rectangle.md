@@ -77,6 +77,15 @@ before compiling the application. CI retains both metadata directories in the
 existing host-owned toolchain artifact path. An older toolchain image must be
 rebuilt; the driver does not accept an opacity-only image for this recipe.
 
+The first fresh CI build failed on both architectures before compilation: the
+Docker context allowlist omitted the four rectangle-stage files. The corrected
+`.dockerignore` includes them. A [retained Docker context control](../evidence/development/qt-rectangle-build-context-20261020/result.json)
+reproduces the original missing-patch failure, then exports all 12 source inputs
+from the canonical Dockerfile's actual `COPY` instructions with matching hashes.
+`python3 scripts/verify-qt-rectangle-build-context.py` audits this evidence. This
+minimal scratch-image check runs no compiler; the complete fresh CI build
+remains a separate gate.
+
 The locally assembled runtime image is
 `sha256:40ab3fe5897ee697937db7429956381f67d4f9d9c7acb98130ebfddaa751e3f7`.
 Its 9,236 SDK entries are byte-identical to the tested experimental SDK. Its
