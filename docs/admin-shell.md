@@ -71,9 +71,15 @@ at each scale, installs the module, and builds a freshly configured independent 
 All 865 source inputs and the four audited original build/package artifacts
 remain unchanged. Four source-absent offscreen contexts each pass 80 layouts,
 160 owner states and 168 divider boundaries. Their 320 raw body images are
-byte-identical to the committed interpreted colour inputs. Complete display-session
-verification remains pending. No capture-profile conversion, expected image,
-pin or comparator was changed.
+byte-identical to the committed interpreted colour inputs.
+The [installed source-colour display checkpoint](../evidence/development/admin-source-colour-sessions-20261020/README.md)
+now passes all eight X11/Wayland, software/OpenGL and scale contexts. Each retains
+80 layouts, 160 owner states and 168 divider boundaries, plus a final report and
+window/compositor captures. All 656 raw PNGs are retained, with unchanged installed
+binary hashes and an audited canonical script whose only filter selects AdminShell.
+These virtual sessions use llvmpipe; native raster/material, physical input/display
+and reader acceptance remain pending. No capture-profile conversion, expected
+image, pin or comparator was changed.
 
 The [material observations](../evidence/reference-investigations/admin-shell-materials-20261020/README.md)
 identify a native one-device-pixel divider, sidebar glass, a 12-point split shadow
@@ -116,8 +122,9 @@ source-colour integration similarly preserves these diagnostic-colour receipts.
 The rebuilt divider display run subsequently stopped with a disk-full error.
 Seven contexts have complete reports and window/compositor captures. The final
 Wayland/OpenGL scaled context retains 80 body images but lacks its report and
-window/compositor captures. That attempt did not pass the eight-context matrix;
-the compiled source-colour package is undergoing a separate complete run.
+window/compositor captures. That attempt did not pass the eight-context matrix.
+The later compiled source-colour package completes all eight virtual contexts in
+its separate retained run, as described above; the disk-full attempt stays unchanged.
 
 The source-colour experiment uses Qt's standard sRGB-to-profile conversion and
 retains the recipe. The canonical comparator refuses all 80 ICC-managed cases,
