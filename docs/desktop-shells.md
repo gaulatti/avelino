@@ -56,8 +56,10 @@ key; AppKit cached their own views without capturing the user's screen.
 The initial admin records include raw content/chrome images, toolbar items and
 the native split-view hierarchy. The later [AdminShell investigation](admin-shell.md)
 adds paired caller layouts, native divider calls, visibility writeback and
-resizing in hidden windows. Its immutable-host replay also exposes a capture
-environment difference from the older pixels; visual continuity remains open.
+resizing in hidden windows. Its immutable-host replay exposed a capture
+environment difference from the older pixels. Pinning the owned windows'
+appearance and ICC profile now reproduces the earlier controls and the expanded
+matrix without changing its geometry or callbacks. Linux parity remains open.
 The picker owner histories above cover the application shell separately. Other value types,
 duplicate identities, animation, physical input and reader acceptance remain
 separate work. All Apple tooling and binaries remain external to this tree.

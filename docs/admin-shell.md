@@ -74,12 +74,22 @@ older captures' embedded ICC profile. All 32 original application/admin body and
 chrome PNGs reproduce byte-for-byte. This changes the capture environment, not
 the expected images or pixels after capture. It establishes a reproducible
 context for those controls; it does not attribute the earlier differences to
-either setting individually. The expanded caller matrix still needs this pinned
-context before visual acceptance.
+either setting individually.
+
+The [expanded replay](../evidence/reference-investigations/admin-shell-pinned-matrix-20261020/audit.json)
+now runs all 20 caller configurations and all six paired owner histories under
+that pinned context. All 480 states retain their earlier geometry, requests and
+owner values. All 1,440 PNGs retain the requested embedded profile; the 480
+before/after observation pairs, 80 static bare/measured pairs and six history
+pairs are byte-identical. The four earlier body controls also reproduce
+byte-for-byte. The corpus stores 1,440 original paths as 138 exact PNG blobs.
+This closes capture-context reproducibility for this matrix. Linux visual,
+toolbar, physical input and reader acceptance remain pending.
 
 ```sh
 python3 scripts/verify-admin-shell-source.py
 python3 scripts/verify-admin-shell-context.py
+python3 scripts/verify-admin-shell-pinned-matrix.py
 ```
 
 The verifier checks PNG decoding, every original-path mapping, probe identity,
