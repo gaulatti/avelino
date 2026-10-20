@@ -19,8 +19,16 @@ def verify():
     actual = {str(p.relative_to(CAPSULE)) for p in CAPSULE.rglob("*")
               if p.is_file() and p.name != "files.json"}
     assert actual == set(members)
+    relative = CAPSULE.relative_to(ROOT)
+    tracked = set(subprocess.check_output(
+        ["git", "ls-files", "--", str(relative)], cwd=ROOT, text=True).splitlines())
+    expected = {str(relative / name) for name in members} | {str(relative / "files.json")}
+    assert tracked == expected, "Every capsule member must be included in the Git index"
+    assert subprocess.check_output(["git", "show", ":" + str(relative / "files.json")], cwd=ROOT) == (CAPSULE / "files.json").read_bytes()
     for name, checksum in members.items():
         assert digest(CAPSULE / name) == checksum, name
+        staged = subprocess.check_output(["git", "show", ":" + str(relative / name)], cwd=ROOT)
+        assert hashlib.sha256(staged).hexdigest() == checksum, name
     inputs = json.loads((CAPSULE / "inputs.json").read_text())
     result = json.loads((CAPSULE / "result.json").read_text())
     canonical = (ROOT / "tools/Dockerfile").read_bytes()

@@ -1,0 +1,26 @@
+#0 building with "colima-avelino-verify" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 533B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 468B done
+#2 DONE 0.0s
+
+#3 [internal] load build context
+#3 transferring context: 22.59kB done
+#3 DONE 0.0s
+
+#4 [1/3] COPY tools/install-weston.sh tools/weston-popup-parent.patch tools/weston-popup-order.c tools/check-weston-popup-parent.sh /usr/local/lib/avelino/
+#4 DONE 0.0s
+
+#5 [2/3] COPY tools/install-qt-software-opacity.sh tools/qt-software-opacity.patch tools/qt-software-opacity.cpp tools/check-qt-software-opacity.sh /usr/local/lib/avelino/
+#5 DONE 0.0s
+
+#6 [3/3] COPY tools/install-qt-software-rectangle.sh tools/qt-software-rectangle.patch tools/qt-software-rectangle.cpp tools/check-qt-software-rectangle.sh /usr/local/lib/avelino/
+#6 DONE 0.1s
+
+#7 exporting to client directory
+#7 copying files 59.63kB 0.0s done
+#7 DONE 0.0s

@@ -85,6 +85,9 @@ from the canonical Dockerfile's actual `COPY` instructions with matching hashes.
 `python3 scripts/verify-qt-rectangle-build-context.py` audits this evidence. This
 minimal scratch-image check runs no compiler; the complete fresh CI build
 remains a separate gate.
+The context verifier checks every retained file against both its working copy
+and Git-staged bytes, including the raw logs, so missing or normalized evidence
+fails before publication.
 
 The locally assembled runtime image is
 `sha256:40ab3fe5897ee697937db7429956381f67d4f9d9c7acb98130ebfddaa751e3f7`.
