@@ -48,6 +48,15 @@ The fixture colours currently diagnose geometry; source colour inputs and
 window compositing still require visual comparison. Native symbols, chrome,
 toolbar timing, physical input and screen-reader acceptance remain pending.
 
+The [initial public-candidate checkpoint](../evidence/development/admin-shell-20261020/result.json)
+retains 260 passing QtTest cases in each of four contexts: offscreen at scale 1
+and 2, X11 at scale 1 and Wayland at scale 2. It loads the current public QML
+files with the unchanged compiled base module. It covers actual toolbar and
+divider input, disabled state, retained caller controls, Tab/Space, the shortcut,
+window hosting and viewport resizing. It is an interpreted-source result;
+fresh compilation and execution of the new installed consumer remain pending.
+Earlier attempts and their exact input snapshots remain in the capsule.
+
 ## Capture scope
 
 The [retained evidence](../evidence/reference-investigations/admin-shell-20261020/result.json)
