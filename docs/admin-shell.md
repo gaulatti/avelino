@@ -91,8 +91,22 @@ All 266 source-interpreted component cases pass at each scale. A corrected test
 uses the window DPR for pixel coordinates within the returned Qt Quick Test
 [window crop](https://github.com/qt/qtdeclarative/blob/v6.8.3/src/qmltest/quicktestresult.cpp).
 The earlier invalid DPR test and missing-resource native helper run are retained.
-Fresh compiled, installed-consumer and display-session execution of this clipping
-change remain pending; the preceding package receipts stay bound to source 4a0a06b.
+The [compiled clipping package](../evidence/development/admin-clipping-package-20261020/README.md)
+now retains the fresh module/catalog build, 266 AdminShell and 40 MobileShell cases
+at each scale, install and fresh independent consumer build from source 7253695.
+All 868 producer inputs were unchanged during that build, and the four audited
+original artifact hashes match. Four source-absent consumer contexts pass; their
+320 ordinary body images are byte-identical to the prior colour package.
+Normal installed-module imports also pass the oversized-header regression at
+both offscreen scales and all eight X11/Wayland, software/OpenGL and DPR 1/2
+contexts. The latter uses the settled test harness at 043352d, with product,
+library and consumer sources unchanged from module producer 7253695.
+A separate canonical consumer matrix passes all eight virtual contexts, retaining
+640 bodies, eight window and eight compositor captures with unchanged binary
+hashes. The earlier Wayland timing failure, diagnostic records and CI producer-
+binding failure remain intact. All 80 current strict native comparisons still
+fail at the unchanged ICC review gate; native raster/material, physical display
+and input, hardware acceleration and reader acceptance remain pending.
 
 The component test now waits for Qt layout polishing before exact geometry and
 binding-state comparisons. A Wayland run observed the initial zero-width content
