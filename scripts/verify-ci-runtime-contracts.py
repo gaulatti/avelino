@@ -35,22 +35,13 @@ def verify():
         'catalog-missing-capture', 'catalog-unexpected-capture'}
     earlier = read('attempts/v1/commands.json')
     assert earlier[-1]['name'] == 'artifact-permissions' and earlier[-1]['exitCode'] == 1
+    # Keep this closed repair tied to the exact producer of its eight display
+    # profiles and 159 catalog captures. Later shell fixture additions have
+    # their own runtime evidence and do not alter this historical receipt.
     for name in ['scripts/check-installed-catalog.sh', 'scripts/check-display-sessions.sh', '.github/workflows/linux.yml']:
-        actual = (subprocess.check_output(['git', 'show', '2b837a5fd52b462b59d8d66dae4a71a3a88bce20:'+name], cwd=ROOT)
-                  if name == '.github/workflows/linux.yml' else (ROOT / name).read_bytes())
-        if name == 'scripts/check-display-sessions.sh':
-            # Only the new fixture branch is outside this earlier repair's
-            # producer. All existing branches and live readiness logic retain
-            # their exact original bytes.
-            text = actual.decode()
-            text = text.replace('app-tabs mobile-shell command-spotlight', 'app-tabs command-spotlight', 1)
-            text = text.replace('      if [[ "$fixture" == mobile-shell ]]; then prefix="$evidence/mobile-shell-$protocol-$backend-$configuration"; fi\n', '', 1)
-            text = text.replace('      if [[ "$fixture" == mobile-shell ]]; then args+=(--mobile-shell); fi\n', '', 1)
-            start = text.index("elif fixture == 'mobile-shell':")
-            end = text.index("elif fixture == 'app-tabs':", start)
-            actual = (text[:start] + text[end:]).encode()
-        if name == 'scripts/check-installed-catalog.sh':
-            actual = actual.replace(b' mobile-shell)', b')', 1)
+        actual = subprocess.check_output([
+            'git', 'show', '2b837a5fd52b462b59d8d66dae4a71a3a88bce20:' + name
+        ], cwd=ROOT)
         assert (DIRECTORY / 'after' / name).read_bytes() == actual, name
     source = ROOT / 'evidence/development/file-input-go-to-suggestions-20261018/display/output'
     inputs = read('input-reports.json')

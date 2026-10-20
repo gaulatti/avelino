@@ -4,7 +4,7 @@ set -euo pipefail
 evidence="${1:-$PWD/catalog-evidence}"
 mkdir "$evidence"
 catalog="$PWD/install/bin/AvelinoCatalog"
-fixtures=(foundations surfaces data-display controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper radio-group otp-input activity-item modal tooltip button-style font-modifier surface-modifier pill-modifier charts media-library hero-carousel app-tabs command-spotlight dropdown-menu file-input mobile-shell)
+fixtures=(foundations surfaces data-display controls composition selection checkbox secure-field search-field collection-filters slider tabs pagination pagination-integers accordion presentation-states spinner alert clipping navigation sidebar-brand data-metrics stepper radio-group otp-input activity-item modal tooltip button-style font-modifier surface-modifier pill-modifier charts media-library hero-carousel app-tabs command-spotlight dropdown-menu file-input mobile-shell admin-shell)
 for fixture in "${fixtures[@]}"; do
   for appearance in light dark; do
     for dpr in 1 2; do
