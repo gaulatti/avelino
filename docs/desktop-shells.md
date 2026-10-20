@@ -53,9 +53,11 @@ shell and eight for the admin shell, covering widths 360/840, both visibility
 states and bare/measured forms. Its hidden NSWindows were neither visible nor
 key; AppKit cached their own views without capturing the user's screen.
 
-The admin records include raw content/chrome images, toolbar items and the native
-split-view hierarchy. They do not establish complete sizing, splitter input,
-visibility writeback, public-versus-probed equivalence, focus or accessibility.
-Later owner histories cover the application-shell picker only. Other value types,
+The initial admin records include raw content/chrome images, toolbar items and
+the native split-view hierarchy. The later [AdminShell investigation](admin-shell.md)
+adds paired caller layouts, native divider calls, visibility writeback and
+resizing in hidden windows. Its immutable-host replay also exposes a capture
+environment difference from the older pixels; visual continuity remains open.
+The picker owner histories above cover the application shell separately. Other value types,
 duplicate identities, animation, physical input and reader acceptance remain
 separate work. All Apple tooling and binaries remain external to this tree.
