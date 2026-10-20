@@ -34,6 +34,10 @@ def verify():
     historical_git_tools={
         'scripts/check-linux.sh':'2b837a5fd52b462b59d8d66dae4a71a3a88bce20',
         '.github/workflows/linux.yml':'2b837a5fd52b462b59d8d66dae4a71a3a88bce20',
+        # The shell adds independent catalog/display routes. Keep this older
+        # receipt bound to the exact scripts that produced its recorded runs.
+        'scripts/check-installed-catalog.sh':'0b3665b913411399e616ba82990f991920996acb',
+        'scripts/check-display-sessions.sh':'0b3665b913411399e616ba82990f991920996acb',
     }
     for name,value in spec['liveScripts'].items():
         if name in historical_git_tools:

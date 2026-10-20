@@ -131,3 +131,10 @@ pass. Cold replays preserve 437 date, 120 footer and 184 button-group PNGs byte
 for byte. Four light/dark and DPR 1/2 catalog captures were inspected for layout
 and legibility; they establish startup and capture, with gallery-operator input
 acceptance still pending. No source pin, expected image, mask or tolerance changes.
+
+The earlier CJK checkpoint's verifier reads its catalog and display scripts from
+`0b3665b913411399e616ba82990f991920996acb`, whose bytes match that checkpoint's
+recorded hashes. The shell adds routes to both shared scripts, so their current
+bytes no longer describe the earlier runs. The recorded evidence stays sealed;
+current routing remains covered by the CI runtime-contract verifier and this
+shell's compiled checkpoint. This provenance repair grants no mirror acceptance.
