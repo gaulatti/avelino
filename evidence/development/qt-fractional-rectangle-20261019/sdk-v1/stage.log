@@ -1,0 +1,14 @@
+In file included from <command-line>:
+/opt/qt/include/QtQml/6.8.3/QtQml/private/qtqml-config_p.h:26:14: error: missing binary operator before token "("
+   26 | #if QT_CONFIG(qml_jit) && !(defined(Q_OS_MACOS) && defined(Q_PROCESSOR_ARM))
+      |              ^
+Traceback (most recent call last):
+  File "/result/stage-image.py", line 21, in <module>
+    raw=subprocess.check_output(command,input=b'').decode()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['c++', '-E', '-dM', '-x', 'c++', '-std=c++17', '-I/opt/qt/include', '-include', '/opt/qt/include/QtQml/6.8.3/QtQml/private/qtqml-config_p.h', '-']' returned non-zero exit status 1.

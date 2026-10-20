@@ -81,6 +81,10 @@ Generic child clipping now has a [software renderer candidate](docs/content-clip
 sharing the existing continuous/circular/capsule paths; strict native acceptance
 remains pending.
 
+The [fractional rectangle experiment](docs/qt-fractional-rectangle.md) improves
+the shell's exact body images from 76 to 80 of 144 in an isolated Qt SDK. The
+canonical toolchain and complete mirror acceptance remain pending.
+
 The [Modal source investigation](docs/modal.md) records fixed-width layout,
 per-child padding and contextual sheet dismissal, with a clean source-only replay.
 Its Linux candidate adds caller content, separate-window presentation, catalog

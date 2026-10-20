@@ -1,0 +1,21 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "exec",
+    "avelino-qt-rectangle-experiment-20261019-v1",
+    "cmake",
+    "--build",
+    "/qt-build",
+    "--target",
+    "Quick",
+    "--parallel",
+    "1"
+  ],
+  "startedAt": 1792463615.771817,
+  "parallel": 1,
+  "experimentalOnly": true,
+  "productSdkChanged": false,
+  "accepted": false
+}

@@ -1,0 +1,72 @@
+--- a/src/quick/scenegraph/adaptations/software/qsgsoftwareinternalrectanglenode.cpp
++++ b/src/quick/scenegraph/adaptations/software/qsgsoftwareinternalrectanglenode.cpp
+@@ -27,9 +27,9 @@
+ 
+ void QSGSoftwareInternalRectangleNode::setRect(const QRectF &rect)
+ {
+-    QRect alignedRect = rect.toAlignedRect();
+-    if (m_rect != alignedRect) {
+-        m_rect = alignedRect;
++    if (m_exactRect != rect) {
++        m_exactRect = rect;
++        m_rect = rect.toAlignedRect();
+         markDirty(DirtyMaterial);
+     }
+ }
+@@ -245,6 +245,20 @@
+     if (!qFuzzyCompare(painter->device()->devicePixelRatio(), m_devicePixelRatio)) {
+         m_devicePixelRatio = painter->device()->devicePixelRatio();
+         generateCornerPixmap();
++    }
++
++    if (isPlainRect()) {
++        painter->save();
++        if (painter->transform().isRotating()) {
++            painter->setPen(Qt::NoPen);
++            painter->setBrush(m_brush);
++            painter->drawRect(m_exactRect);
++        } else {
++            painter->setRenderHint(QPainter::Antialiasing, false);
++            painter->fillRect(m_exactRect, m_brush);
++        }
++        painter->restore();
++        return;
+     }
+ 
+     if (painter->transform().isRotating()) {
+@@ -328,10 +342,17 @@
+     return true;
+ }
+ 
++bool QSGSoftwareInternalRectangleNode::isPlainRect() const
++{
++    return m_penWidth == 0 && m_radius == 0
++        && m_topLeftRadius <= 0 && m_topRightRadius <= 0
++        && m_bottomLeftRadius <= 0 && m_bottomRightRadius <= 0
++        && m_stops.isEmpty();
++}
++
+ QRectF QSGSoftwareInternalRectangleNode::rect() const
+ {
+-    //TODO: double check that this is correct.
+-    return m_rect;
++    return isPlainRect() ? m_exactRect : QRectF(m_rect);
+ }
+ 
+ void QSGSoftwareInternalRectangleNode::paintRectangle(QPainter *painter, const QRect &rect)
+--- a/src/quick/scenegraph/adaptations/software/qsgsoftwareinternalrectanglenode_p.h
++++ b/src/quick/scenegraph/adaptations/software/qsgsoftwareinternalrectanglenode_p.h
+@@ -49,11 +49,13 @@
+     bool isOpaque() const;
+     QRectF rect() const;
+ private:
++    bool isPlainRect() const;
+     void paintRectangle(QPainter *painter, const QRect &rect);
+     void paintRectangleIndividualCorners(QPainter *painter, const QRect &rect);
+     void generateCornerPixmap();
+ 
+     QRect m_rect;
++    QRectF m_exactRect;
+     QColor m_color;
+     QColor m_penColor;
+     qreal m_penWidth;

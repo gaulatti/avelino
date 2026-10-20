@@ -1,0 +1,20 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "commit",
+    "--change",
+    "CMD [\"bash\"]",
+    "--change",
+    "WORKDIR /work",
+    "avelino-qt-rectangle-sdk-20261019-v2"
+  ],
+  "exitCode": 0,
+  "seconds": 7.305613874923438,
+  "imageId": "sha256:478a1669218e3d2a3dc302a4929a8ebd7fe2d21b21b140eba5d15bd3a24296e3",
+  "baseImage": "sha256:e29f85ab0df39f3ae46c4d5ddcc075517701fc05359a230c8647b1174e862dd3",
+  "experimentalOnly": true,
+  "productSdkChanged": false,
+  "accepted": false
+}
