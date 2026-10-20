@@ -3,9 +3,9 @@
 The isolated Qt 6.8.3 software-renderer candidate improves the shell's native
 body comparison from 76 to 80 exact images out of 144. Eight captures have fewer
 mismatched pixels, none have more, and 136 remain byte-identical. All 144 body
-layouts and eight virtual display contexts pass. This checkpoint does not update
-the canonical toolchain: `tools/Dockerfile` still installs the earlier opacity
-patch. No mirror API is accepted.
+layouts and eight virtual display contexts pass. The toolchain recipe now applies
+this stage after the opacity stage, updates the matching private header, and
+retains both stages' provenance. No mirror API is accepted.
 
 ## Cause and candidate
 
@@ -62,9 +62,39 @@ that attempt is preserved alongside the corrected attempt.
 
 ## Verification and next gates
 
+`install-qt-software-opacity.sh` finishes and seals its original SDK receipt, then
+calls `install-qt-software-rectangle.sh` while the verified source and build cache
+still exist. The rectangle stage requires the original source/header hashes and
+all 49 feature settings, runs a failing control on the opacity-only SDK, applies
+the patch, rebuilds Qt Quick, and installs the library and matching header. It
+then requires 120 floating references, 360 unchanged legacy captures, 120 opaque
+frames and 12 Canvas frames to pass. The original QML and GUI libraries stay in
+the SDK.
+
+The Linux driver requires both provenance records. It verifies the library chain,
+the current library and header hashes, the source archive, and both patch hashes
+before compiling the application. CI retains both metadata directories in the
+existing host-owned toolchain artifact path. An older toolchain image must be
+rebuilt; the driver does not accept an opacity-only image for this recipe.
+
+The locally assembled runtime image is
+`sha256:40ab3fe5897ee697937db7429956381f67d4f9d9c7acb98130ebfddaa751e3f7`.
+Its 9,236 SDK entries are byte-identical to the tested experimental SDK. Its
+rectangle stage was executed from the retained verified source cache after
+seeding the exact opacity-stage SDK from the prior product image. This is not a
+claim that the complete Dockerfile was rebuilt from scratch; fresh CI builds and
+independent-machine replay remain separate gates.
+
 ```sh
 python3 scripts/verify-qt-software-rectangle-candidate.py
+python3 scripts/verify-qt-software-rectangle-toolchain.py
 ```
+
+The [toolchain-stage validation](../evidence/development/qt-rectangle-toolchain-20261020/result.json)
+retains the completed component suite, fresh consumer build, both direct-control
+attempts, the canonical rectangle installer execution and SDK identity audit,
+and the six driver-preflight cases. The complete Linux driver is recorded
+separately and is not claimed by this validation snapshot.
 
 The verifier applies the patch to the original rectangle files, audits the actual
 image's recorded SDK inventory, decodes every native before/after image and raw
@@ -72,9 +102,14 @@ parent capture, checks the virtual-session reports, and independently decodes th
 opacity/Canvas controls. Comparison tolerance remains zero. Existing native
 images, pins, masks and exceptions are unchanged.
 
-At this checkpoint, the fresh full component suite was still running and direct
-rectangle controls were prepared separately; this capsule claims neither result.
-Canonical installer and
-Docker wiring, a complete driver run with accurate chained SDK provenance,
+At the earlier capsule's capture close, the fresh full component suite was still
+running and direct rectangle controls were prepared separately; that capsule
+claims neither result. Subsequent local validation passed all 55 component
+groups and the fresh independent-consumer build. Direct Qt controls reduce 114
+geometry mismatches to zero across 120 floating references; all 360 bordered,
+rounded and gradient captures remain byte-identical. These are Qt regression
+checks, not native gradient or complete-control acceptance.
+
+A complete Linux driver run with the chained provenance, fresh CI execution,
 independent-machine replay, physical-device checks and reader acceptance remain
 pending. Desktop candidate coverage stays 77/80, with zero accepted entries.

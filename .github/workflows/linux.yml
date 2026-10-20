@@ -29,6 +29,7 @@ jobs:
           mkdir -p artifacts/linux/toolchain
           docker run --rm -v "$PWD/artifacts/linux/toolchain:/evidence" avelino-toolchain:qt6.8.3 bash -c '
             cp -R /opt/qt/share/avelino/qt-software-opacity /evidence/
+            cp -R /opt/qt/share/avelino/qt-software-rectangle /evidence/
           '
       - name: Seed obsolete package files for regeneration check
         run: |

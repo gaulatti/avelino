@@ -1,0 +1,38 @@
+[
+  {
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "cp",
+      "avelino-qt-rectangle-installer-20261020-v1:/opt/qt/lib/libQt6Quick.so.6.8.3",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/qt-rectangle-installer-v1/installed-quick.so"
+    ],
+    "exitCode": 0,
+    "output": ""
+  },
+  {
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "cp",
+      "avelino-qt-rectangle-installer-20261020-v1:/opt/qt/include/QtQuick/6.8.3/QtQuick/private/qsgsoftwareinternalrectanglenode_p.h",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/qt-rectangle-installer-v1/installed-rectangle.h"
+    ],
+    "exitCode": 0,
+    "output": ""
+  },
+  {
+    "command": [
+      "docker",
+      "--context",
+      "colima-avelino-verify",
+      "cp",
+      "avelino-qt-rectangle-installer-20261020-v1:/opt/qt/share/avelino/qt-software-rectangle",
+      "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/qt-rectangle-installer-v1/rectangle-stage"
+    ],
+    "exitCode": 0,
+    "output": ""
+  }
+]

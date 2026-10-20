@@ -79,13 +79,22 @@ def verify():
     assert not stream.read()
     build_inputs = read('provenance/qt-software-toolchain-build-v4/inputs.json')
     for name, checksum in build_inputs.items():
-        assert digest(CAPSULE / 'implementation-inputs' / name) == checksum == digest(ROOT / name), name
+        assert digest(CAPSULE / 'implementation-inputs' / name) == checksum, name
+        if name in {'tools/Dockerfile', 'tools/install-qt-software-opacity.sh'}:
+            original = subprocess.check_output(['git', 'show',
+                '7d0e6221fcc9245135c21919f01d692c279d022c:' + name], cwd=ROOT)
+            assert hashlib.sha256(original).hexdigest() == checksum, name
+        else:
+            assert checksum == digest(ROOT / name), name
     # The retained workflow belongs to this toolchain checkpoint. Later CI
     # orchestration repairs have their own live workflow evidence and verifier.
     workflow = subprocess.check_output(['git', 'show',
         '53606010b9e8f7c804275da3f57b543f875afb93:.github/workflows/linux.yml'], cwd=ROOT)
     assert hashlib.sha256(workflow).hexdigest() == digest(CAPSULE / 'implementation-inputs/.github/workflows/linux.yml')
-    current_check = (ROOT / 'scripts/check-linux.sh').read_text()
+    # This receipt predates the chained rectangle/header stage. Its producer
+    # driver remains sealed; the new stage has separate live-driver evidence.
+    current_check = subprocess.check_output(['git', 'show',
+        '7d0e6221fcc9245135c21919f01d692c279d022c:scripts/check-linux.sh'], cwd=ROOT, text=True)
     current_check = current_check.replace('(cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --mobile-shell)\n', '', 1)
     current_check = current_check.replace('hero-carousel app-tabs mobile-shell; do', 'hero-carousel app-tabs; do', 1)
     assert hashlib.sha256(current_check.encode()).hexdigest() == digest(CAPSULE / 'implementation-inputs/scripts/check-linux.sh')

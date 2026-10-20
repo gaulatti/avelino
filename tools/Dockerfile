@@ -27,5 +27,6 @@ ENV PATH=/opt/weston-13.0.4/bin:/opt/qt/bin:$PATH
 ENV LD_LIBRARY_PATH=/opt/weston-13.0.4/lib:/opt/qt/lib
 ENV CMAKE_PREFIX_PATH=/opt/qt
 COPY tools/install-qt-software-opacity.sh tools/qt-software-opacity.patch tools/qt-software-opacity.cpp tools/check-qt-software-opacity.sh /usr/local/lib/avelino/
+COPY tools/install-qt-software-rectangle.sh tools/qt-software-rectangle.patch tools/qt-software-rectangle.cpp tools/check-qt-software-rectangle.sh /usr/local/lib/avelino/
 RUN bash /usr/local/lib/avelino/install-qt-software-opacity.sh
 WORKDIR /work

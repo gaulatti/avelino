@@ -30,7 +30,11 @@ def verify(directory=DIRECTORY):
         b'        run: |\n          mkdir -p artifacts/linux/toolchain\n          docker run --rm -v "$PWD/artifacts/linux/toolchain:/evidence"', 1)
     expected = expected.replace(b'            mkdir -p /evidence/linux/toolchain\n            cp -R /opt/qt/share/avelino/qt-software-opacity /evidence/linux/toolchain/',
         b'            cp -R /opt/qt/share/avelino/qt-software-opacity /evidence/', 1)
-    assert before != after == expected == (ROOT / ".github/workflows/linux.yml").read_bytes()
+    current = (ROOT / ".github/workflows/linux.yml").read_bytes()
+    # The later rectangle stage has its own SDK receipt. Preserve this repair's
+    # exact ownership and copy destination while allowing that additive receipt.
+    current = current.replace(b'            cp -R /opt/qt/share/avelino/qt-software-rectangle /evidence/\n', b'', 1)
+    assert before != after == expected == current
     job = (directory / "x86-job-118142225917.log.txt").read_text()
     assert "mkdir: cannot create directory ‘artifacts/package’: Permission denied" in job
     assert "Process completed with exit code 1" in job

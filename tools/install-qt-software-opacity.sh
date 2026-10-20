@@ -156,3 +156,6 @@ assert before[changed[0]]['sha256'] == record['originalLibrarySha256']
 (metadata / 'sdk-changes.json').write_text(json.dumps(dict(changed=changed, added=[], removed=[],
     unchangedEntries=len(before)-1, nativeAcceptance=False), indent=2) + '\n')
 PY
+
+# Retain the completed opacity stage before the rectangle/header replacement.
+bash "$script_directory/install-qt-software-rectangle.sh" "$qt_source" "$qt_opacity_build/build" "$qt_prefix"
