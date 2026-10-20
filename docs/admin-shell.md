@@ -67,10 +67,20 @@ The [divider checkpoint](../evidence/development/admin-divider-20261020/README.m
 adds the visible divider inside the existing zero-layout-width input handle,
 using the existing native separator colour. Both scale factors pass 264 component
 tests with the current interpreted QML. Rendered before/after controls show one
-physical column changing with adjacent columns unchanged. A fresh updated module
-build and installed-consumer run remain pending. The initial candidate's unchanged
+physical column changing with adjacent columns unchanged. At that checkpoint the
+updated module had not yet been rebuilt or run through the installed consumer.
+The initial candidate's unchanged
 260-case receipt stays bound to its original Git producer for the two evolved
 files; it does not verify this later implementation.
+
+The subsequent [rebuilt package checkpoint](../evidence/development/admin-divider-package-20261020/README.md)
+passes 264 compiled AdminShell and 40 MobileShell cases at each scale. The module
+rebuild uses a separate APFS clone; installation and a fresh independent consumer
+configure/build pass. The earlier build and package retain their checked bytes.
+Four source-absent light/dark and DPR 1/2 runs each match all 80 layouts, 160 owner
+states and 168 divider boundaries. All 320 raw body captures are retained. The
+updated display-session matrix was still live at capture and is excluded from
+this checkpoint. Native pixel and reader/physical acceptance remain pending.
 
 The source-colour experiment uses Qt's standard sRGB-to-profile conversion and
 retains the recipe. The canonical comparator refuses all 80 ICC-managed cases,
