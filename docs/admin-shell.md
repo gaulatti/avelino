@@ -74,8 +74,12 @@ screen-reader equivalence.
 
 The initial X11 session failed its shortcut check. That attempt and its 80 body
 captures remain intact. The consumer now explicitly activates its own window and
-waits for keyboard focus before Tab, Space and the shortcut. The complete installed
-session matrix is retained separately after its current run finishes.
+waits for keyboard focus before Tab, Space and the shortcut. The next installed
+session run passed seven complete configurations and all structural checks in
+the eighth, scaled Wayland/OpenGL. Its session validator then failed because the
+JSON readiness report preceded completion of the window PNG. The consumer now
+saves the window first and publishes the report atomically. The failed run stays
+intact; a complete successful session matrix remains pending.
 
 ## Capture scope
 

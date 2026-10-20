@@ -3,6 +3,7 @@
 #include <QFileInfo>
 #include <QQuickItemGrabResult>
 #include <QPointer>
+#include <QSaveFile>
 
 static void runAdminShellConsumer(QQuickWindow *window, QGuiApplication &app,
                                  const QCommandLineParser &parser, double textScale) {
@@ -148,13 +149,19 @@ static void runAdminShellConsumer(QQuickWindow *window, QGuiApplication &app,
         {"qtCallerIdentityRetained",true},{"qtKeyboardActivation",true},{"qtShortcutActivation",true},
         {"qtAccessibilityInterfaces",interfaces},{"nativeToolbarEquivalentVerified",false},{"nativeKeyboardEquivalentVerified",false},
         {"nativeRasterAccepted",false},{"physicalDisplay",false},{"physicalInput",false},{"readerAcceptance",false},{"accepted",false}};
+    if (parser.isSet("evidence")) {
+        if (!check(!QFile::exists(prefix + ".png"), "Window evidence already exists")) return;
+        if (!check(window->grabWindow().save(prefix + ".png"), "Window evidence capture failed")) return;
+    }
     if (!prefix.isEmpty()) {
-        QFile output(prefix + ".json");
-        if (!check(output.open(QIODevice::WriteOnly | QIODevice::NewOnly), "Report cannot be written")) return;
-        output.write(QJsonDocument(result).toJson());
+        // The session runner treats the report as readiness. Publish it only
+        // after the window capture is complete, and never expose partial JSON.
+        QSaveFile output(prefix + ".json");
+        if (!check(output.open(QIODevice::WriteOnly), "Report cannot be written")) return;
+        const auto bytes = QJsonDocument(result).toJson();
+        if (!check(output.write(bytes) == bytes.size() && output.commit(), "Report cannot be published")) return;
     }
     if (parser.isSet("evidence")) {
-        if (!check(window->grabWindow().save(prefix + ".png"), "Window evidence capture failed")) return;
         auto timer = new QTimer(&app);
         QObject::connect(timer,&QTimer::timeout,&app,[&app,prefix]{if(QFile::exists(prefix+".captured"))app.exit(0);});
         timer->start(100); QTimer::singleShot(10000,&app,[&app]{app.exit(93);});
