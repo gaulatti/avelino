@@ -1,10 +1,84 @@
 # Atomic search expressions: observations and integration work
 
-The native search field holds independent token objects, with raw draft text
-before, after or between them. The current production editor, search request and
-browser history still hold one scalar query/mode. They cannot represent these
-states. This checkpoint publishes observations and an isolated Qt mechanism;
-it does not claim an integrated compound-search feature.
+The candidate represents search as ordered raw-text segments and independent
+token objects. The editor stores token metadata in Qt document object formats;
+the controller, cancellable Tracker requests and browser history carry the full
+expression. The [integrated candidate checkpoint](../evidence/development/file-input-search-atomic-integration-20261021/README.md)
+records the actual source47 product and installed-runtime checks. Native
+acceptance remains pending. The isolated prototype receipts below retain their
+mechanism scope.
+
+The internal expression is a list of `{kind: "text", text: "draft"}` and
+`{kind: "token", mode: "filename" | "everything", query: "term"}` objects.
+Raw runs retain their positions between tokens. Adjacent raw segments are
+rejected because they must be one document run; malformed expressions are not
+silently converted into a different query. Each request joins independently
+bound segment groups. An Everything/raw group combines name containment and a
+literal content phrase; a Filename group uses name containment. The controlled
+native conjunction below informs this candidate; arbitrary native matching and
+unfinished-draft readiness remain pending.
+
+Each token has a stable row keyed to its document object identity. Changing its
+mode updates its existing button/menu and accessible object. In the first
+integration attempt a QVariantList-backed Repeater recreated those objects;
+a retained accessibility interface then crashed on the next Press. The captured
+trace identifies that lifetime failure. The model now uses row updates, insertion,
+removal and moves. It does not reset retained delegates when a mode changes.
+
+Token commits publish their settled document and Undo baseline after Qt completes
+the edit. Notification delivery checks for synchronous control destruction.
+Qt owns text command creation and grouping; supplemental selection metadata
+restores a selected token when Undo brings it back. External expression loading
+clears that metadata and starts a new baseline. Suggestions refer to the current
+raw run. Escape first dismisses visible suggestions; the existing candidate
+clear action applies after that dismissal or when no suggestions are visible.
+The full native Escape sequence remains unaccepted.
+
+Source47 passes23 indexed input cases with one expected separate-provider skip,
+nine focused Qt groups, normal build/install and14 independent-consumer phases.
+Two actual AT-SPI/Orca runs pass26 phases each on X11/software and scaled dark
+Wayland/OpenGL; the latter uses software GL. Both production projects are absent
+in those runs. Eight portable display profiles pass15 phases each with both
+projects and the build absent. All256 prior closed PNG/frame/state pairs remain
+exact. The ordinary package consumer contains its copied consumer project;
+its library project and product build are absent. Source45's inaccurate legacy
+scope flag is qualified by a separate receipt without changing its raw result.
+
+The full58-group suite passed on source45. Source46 changes three selected
+noncompiled inputs while all158 installed prefix files match45. A visual review
+of its dark selected token found white text on light blue. Source47 binds that
+caption to the editor's selectedTextColor, adds actual light/dark selection
+assertions and diagnostic captures, and repeats the relevant current checks.
+The source45 full-suite result is not relabeled as47. Build and installed module
+hashes differ only by CMake's exact zero-padded RPATH replacement from
+`/opt/qt/lib:` to `$ORIGIN`; measured receipts preserve both hashes and the
+unchanged remaining bytes. Runtime evidence identifies the installed module.
+
+The checkpoint preserves the three red source41 atomic regressions, source42's
+stale token accessibility-interface crash and debugger trace, source43's anonymous
+final-model registration failure, and source44's empty assistive-deletion failure.
+The debugger exits0 after recording SIGSEGV; that is not a passing application.
+The stable token model and normal Qt removal command resolve those two runtime
+failures in the subsequent checks. Selected-token Undo, partial assistive deletion,
+Unicode IME, external history resets, independent menus and synchronous destruction
+are exercised through their respective Qt, consumer and reader paths.
+
+Native active-field sizing and long-token elision, clipboard behavior, general
+matching/readiness, complete hierarchy/timing, raster and reader equivalence,
+physical input and independent-machine acceptance remain open. Actual reader logs
+retain ChildrenChanged signature warnings also seen before this integration;
+complete accessibility event delivery is unaccepted. Speech-dispatcher commands
+use null audio, so physical listening is unverified. No expected image, tolerance,
+mask, reference pin, exception or acceptance field changes.
+
+Run `python3 scripts/verify-file-input-search-atomic-integration.py` to audit the
+content-addressed records, exact41-47 source reconstruction, distinct execution
+identities, module/prefix bindings, compound semantics, speech windows, display
+captures, all256 closed pairs, current runtime sources and31503 preexisting
+protected inventory fields. Its contracts reject relabeled full-suite evidence,
+broadened conjunction, lost token/selection metadata, changed raw bytes and scope
+or acceptance promotion. The verifier reads saved evidence; it does not rerun
+the application or approve native parity.
 
 The [native capsule](../evidence/reference-investigations/file-input-search-atomic-20261021/README.md)
 contains 31 scoped projections bound to a captured CUA JSON export. First
@@ -40,7 +114,7 @@ creation and grouping; the prototype stores selection metadata at public documen
 Undo positions. The diagnostic PNGs were visually inspected for attempt3 and are
 not native comparisons.
 
-Production integration must cover the complete path:
+The integration contract covers the complete path:
 
 1. Represent ordered tokens and raw segments in the editor and controller. Keep
    token metadata in document object formats, expose the current draft for

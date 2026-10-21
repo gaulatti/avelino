@@ -6,11 +6,13 @@ verification remain open. The candidate uses the pinned desktop observations;
 it does not change their images, tolerances, references or approval gates.
 
 The latest [atomic-token investigation](file-input-search-atomic.md) records
-independent token objects and compound expressions. The current production
-editor and Tracker request still hold one scalar query/mode and cannot represent
-those states. The isolated document prototypes establish a mechanism; production
-integration and all acceptance remain pending. The earlier candidate behavior
-and execution receipts below retain their original scope.
+independent token objects and compound expressions. The candidate now carries
+ordered segments through its document editor, controller, Tracker requests and
+browser history. The [integration checkpoint](../evidence/development/file-input-search-atomic-integration-20261021/README.md)
+passes current source47 indexed input, focused, installed-consumer, reader,
+display and closed-state checks. The complete58-group execution belongs to
+source45. Native acceptance remains pending; the isolated prototypes and earlier
+receipts below retain their original source and scope.
 
 The owned Search field opens results from the existing session index. Raw text
 matches filenames and indexed contents. Down/Return selects Name Contains and
@@ -27,10 +29,10 @@ unverified. Both helpers use the same unchanged cached pinned library object;
 only their callers were rebuilt. The actual runtime is macOS 27.0.1 (26A434), with
 SDK 27.0; the minimum compilation target macOS 26.0 is a separate fact.
 
-The Linux candidate has three presentation states: raw `general`, `filename`
-and tokenized `everything`. General/Everything combine case-insensitive filename
+The Linux candidate represents raw text and independent `filename`/`everything`
+tokens in an ordered expression. Each raw/Everything term combines case-insensitive filename
 containment with a bound literal full-text phrase in Tracker; Filename uses only
-filename containment. Arbitrary native phrase/punctuation, normalization,
+filename containment; the request joins the term groups. Arbitrary native phrase/punctuation, normalization,
 stemming, ranking and additional criteria remain unverified. Token editing and
 menu artwork/hierarchy are also pending native equivalence. From either token,
 the native menu offers exactly Filename and Everything, in that order. The Linux
@@ -108,9 +110,13 @@ Source 26's earlier two-scale failure and the passing direct-provider diagnostic
 are retained; the precise provider timing cause is unproven. The full 58-group
 result belongs to the historical source 24 checkpoint.
 
-The search-specific editable adapter also keeps token metadata with Qt's undo
-positions. Replacing a complete token by keyboard or the editable-text interface
-returns to raw input; Undo and Redo restore the associated token presentation.
+The historical scalar search adapter kept token metadata with Qt's undo
+positions. Its receipts below retain their captured source identity. The new
+document editor stores independent metadata in token object formats and uses
+public document Undo positions for restored selection. In the historical adapter,
+replacing a complete token by
+keyboard or the editable-text interface returned to raw input; Undo and Redo
+restored the associated token presentation.
 Committing a Filename or Everything token starts a new Undo baseline: earlier
 literal edits become unavailable, and Undo leaves the committed token unchanged.
 Qt retains its normal grouping for subsequent edits. The adapter uses the undo

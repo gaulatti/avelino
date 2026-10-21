@@ -3,16 +3,28 @@
 #include <QDir>
 #include <QFile>
 #include <QImage>
+#include <QInputMethodEvent>
 #include <QJSValue>
 #include <QQmlEngine>
+#include <QQmlComponent>
+#include <QJsonDocument>
 #include <QQuickItem>
 #include <QQuickItemGrabResult>
 #include <QQuickView>
 #include <QRegularExpression>
 #include <QSettings>
+#include <QScopeGuard>
 #include <QSignalSpy>
 #include <QTemporaryDir>
 #include <QtTest>
+
+class SearchEditorDestroyer:public QObject {
+    Q_OBJECT
+public:
+    QPointer<QObject> target;
+public slots:
+    void destroy(){delete target.data();}
+};
 
 class FileSearchTests:public QObject {
     Q_OBJECT
@@ -43,9 +55,20 @@ class FileSearchTests:public QObject {
         return control->property("browser").value<FileChooserBrowser*>();
     }
     int row(FileChooserSearch *search,const QString &name){for(int i=0;i<search->count();++i)if(search->entry(i)["name"]==name)return i;return -1;}
+    static QVariantList raw(const QString &text){return text.isEmpty()?QVariantList{}:QVariantList{QVariantMap{{"kind","text"},{"text",text}}};}
+    static QVariantList committed(const QString &mode,const QString &query){return {QVariantMap{{"kind","token"},{"mode",mode},{"query",query}}};}
+    static void setRaw(FileChooserSearch *search,const QString &text){search->setExpression(raw(text));}
+    static QString singleTermText(FileChooserSearch *search){
+        const auto value=search->expression();if(value.size()!=1)return {};
+        const auto row=value[0].toMap();return row.value(row.value("kind")=="token"?"query":"text").toString();
+    }
+    static QString singleTermMode(FileChooserSearch *search){
+        const auto value=search->expression();if(value.size()!=1)return {};
+        const auto row=value[0].toMap();return row.value("kind")=="token"?row.value("mode").toString():QStringLiteral("general");
+    }
     QString indexState(FileChooserSearch *search){
         QStringList names;for(int i=0;i<search->count();++i)names.append(search->entry(i)["name"].toString());
-        return QString("busy=%1 error=%2 mode=%3 folderOnly=%4 names=[%5]").arg(search->busy()).arg(search->error()).arg(search->mode()).arg(search->folderOnly()).arg(names.join(", "));
+        return QString("busy=%1 error=%2 expression=%3 folderOnly=%4 names=[%5]").arg(search->busy()).arg(search->error()).arg(QString::fromUtf8(QJsonDocument::fromVariant(search->expression()).toJson(QJsonDocument::Compact))).arg(search->folderOnly()).arg(names.join(", "));
     }
     QVariantList results(QQuickItem *fixture){return fixture->property("results").value<QJSValue>().toVariant().toList();}
     void put(const QString &path,const QByteArray &data){QFile file(path);QVERIFY(file.open(QIODevice::WriteOnly));QCOMPARE(file.write(data),qint64(data.size()));}
@@ -69,13 +92,13 @@ private slots:
         auto location=visible("bleeckerFileChooserLocation");QVERIFY(location);
         QVERIFY(!editor->mapRectToScene(editor->boundingRect()).intersects(location->mapRectToScene(location->boundingRect())));
         auto search=browser->search();QTRY_VERIFY_WITH_TIMEOUT(!search->busy()&&row(search,"pine-only.txt")>=0,15000);
-        QVERIFY(search->error().isEmpty());QCOMPARE(search->mode(),"general");QVERIFY(!search->folderOnly());
+        QVERIFY(search->error().isEmpty());QCOMPARE(singleTermMode(search),"general");QVERIFY(!search->folderOnly());
         QTRY_VERIFY_WITH_TIMEOUT(row(search,token+"-outside.txt")>=0&&row(search,"pine-peer.txt")>=0,15000);
         capture(editor,"general-global");
         click(visible("bleeckerFileChooserSearchFolder"));QTRY_VERIFY(search->folderOnly());
         QTRY_VERIFY(!search->busy()&&row(search,token+"-outside.txt")<0&&row(search,"pine-peer.txt")<0&&row(search,token+"-child.txt")>=0);
         click(editor);QTest::keyClick(editor->window(),Qt::Key_Down);QTest::keyClick(editor->window(),Qt::Key_Return);
-        QTRY_COMPARE(search->mode(),"filename");QTRY_VERIFY(!search->busy()&&row(search,"pine-only.txt")<0&&row(search,token+"-name.txt")>=0);
+        QTRY_COMPARE(singleTermMode(search),"filename");QTRY_VERIFY(!search->busy()&&row(search,"pine-only.txt")<0&&row(search,token+"-name.txt")>=0);
         capture(editor,"filename-folder");
         auto tokenControl=visible("bleeckerFileChooserSearchToken");QVERIFY(tokenControl);
         auto tokenAccessible=QAccessible::queryAccessibleInterface(tokenControl);QVERIFY(tokenAccessible&&tokenAccessible->actionInterface());
@@ -88,8 +111,9 @@ private slots:
         capture(editor,"token-menu");
         auto everythingAccessible=QAccessible::queryAccessibleInterface(visible("bleeckerFileChooserSearchMode_everything"));
         QVERIFY(everythingAccessible&&everythingAccessible->actionInterface());QCOMPARE(everythingAccessible->role(),QAccessible::MenuItem);
-        everythingAccessible->actionInterface()->doAction(QAccessibleActionInterface::pressAction());QTRY_COMPARE(search->mode(),"everything");
+        everythingAccessible->actionInterface()->doAction(QAccessibleActionInterface::pressAction());QTRY_COMPARE(singleTermMode(search),"everything");
         QTRY_VERIFY(!search->busy()&&row(search,"pine-only.txt")>=0&&row(search,token+"-name.txt")>=0);
+        QCOMPARE(visible("bleeckerFileChooserSearchToken"),tokenControl);
         tokenAccessible->actionInterface()->doAction(QAccessibleActionInterface::pressAction());
         QTRY_VERIFY(visible("bleeckerFileChooserSearchMode_everything"));
         QVERIFY(visible("bleeckerFileChooserSearchMode_filename"));
@@ -97,7 +121,7 @@ private slots:
         everythingAccessible=QAccessible::queryAccessibleInterface(visible("bleeckerFileChooserSearchMode_everything"));
         QVERIFY(everythingAccessible&&everythingAccessible->state().checked);
         everythingAccessible->actionInterface()->doAction(QAccessibleActionInterface::pressAction());
-        QTRY_VERIFY(!visible("bleeckerFileChooserSearchMode_everything"));QCOMPARE(search->mode(),"everything");
+        QTRY_VERIFY(!visible("bleeckerFileChooserSearchMode_everything"));QCOMPARE(singleTermMode(search),"everything");
         const auto index=row(search,"pine-only.txt");auto item=visible("bleeckerFileChooserSearchRow_"+QString::number(index));QVERIFY(item);
         auto accessible=QAccessible::queryAccessibleInterface(item);QVERIFY(accessible&&accessible->actionInterface());
         accessible->actionInterface()->doAction(QAccessibleActionInterface::pressAction());QTRY_VERIFY(browser->canAccept());
@@ -108,7 +132,7 @@ private slots:
     }
     void liveIndexUpdatesAndTypeRevalidation(){
         FileChooserBrowser browser;browser.setAllowedContentTypes({"text/plain"});QVERIFY(browser.open(QUrl::fromLocalFile(m_root)));
-        auto search=browser.search();search->setFolderOnly(true);search->setQuery(token);
+        auto search=browser.search();search->setFolderOnly(true);setRaw(search,token);
         QTRY_VERIFY_WITH_TIMEOUT(!search->busy()&&row(search,"pine-only.txt")>=0,15000);
         const auto path=m_root+"/live-body.txt";put(path,("Live content "+token+"\n").toUtf8());
         QTRY_VERIFY_WITH_TIMEOUT(row(search,"live-body.txt")>=0,15000);
@@ -129,7 +153,7 @@ private slots:
     }
     void accessibleResultSelectionAndOffscreenRows(){
         QQuickView view;QVERIFY(load(view));auto browser=open(view);QVERIFY(browser);
-        auto search=browser->search();search->setQuery(token);
+        auto search=browser->search();setRaw(search,token);
         QTRY_VERIFY2_WITH_TIMEOUT(!search->busy()&&row(search,"pine-only.txt")>=0&&row(search,"pine-peer.txt")>=0
             &&row(search,token+"-image.png")>=0&&row(search,token+"-name.txt")>=0,qPrintable(indexState(search)),15000);
         auto rows=visible("bleeckerFileChooserSearchResults");QVERIFY(rows);
@@ -152,7 +176,7 @@ private slots:
         QCOMPARE(peer->text(QAccessible::Name),QString("pine-peer.txt"));
         QVERIFY(peer->state().offscreen);QVERIFY(selection->select(peer));
         QCOMPARE(selection->selectedItemCount(),1);QCOMPARE(selection->selectedItem(0)->text(QAccessible::Name),QString("pine-peer.txt"));
-        search->setQuery("no-matching-controlled-result");QTRY_VERIFY(!search->busy());
+        setRaw(search,"no-matching-controlled-result");QTRY_VERIFY(!search->busy());
         QCOMPARE(accessible->childCount(),0);QCOMPARE(selection->selectedItemCount(),0);QVERIFY(results(view.rootObject()).isEmpty());browser->cancel();
     }
     void assistiveEditingUsesTheNormalQueryAndUndo(){
@@ -162,16 +186,16 @@ private slots:
         auto editable=accessible->editableTextInterface();QVERIFY2(editable,"Assistive clients must be able to edit the search query");
         auto text=accessible->textInterface();QVERIFY(text);
         editable->replaceText(0,text->characterCount(),token);
-        auto search=browser->search();QTRY_COMPARE(search->query(),token);
+        auto search=browser->search();QTRY_COMPARE(singleTermText(search),token);
         QTRY_VERIFY_WITH_TIMEOUT(!search->busy()&&row(search,"pine-only.txt")>=0,15000);
-        editable->replaceText(0,text->characterCount(),token+"x");QTRY_COMPARE(search->query(),token+"x");
+        editable->replaceText(0,text->characterCount(),token+"x");QTRY_COMPARE(singleTermText(search),token+"x");
         // Qt may group consecutive input-method replacements. Preserve that
         // grouping and require the exact redo round trip through the query.
         QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
-        QTRY_COMPARE(search->query(),editor->property("text").toString());QVERIFY(search->query()!=token+"x");
+        QTRY_COMPARE(singleTermText(search),editor->property("text").toString());QVERIFY(singleTermText(search)!=token+"x");
         QTRY_VERIFY(editor->hasActiveFocus());
-        QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier|Qt::ShiftModifier);QTRY_COMPARE(search->query(),token+"x");
-        editor->setProperty("readOnly",true);editable->replaceText(0,text->characterCount(),"blocked");QCOMPARE(search->query(),token+"x");
+        QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier|Qt::ShiftModifier);QTRY_COMPARE(singleTermText(search),token+"x");
+        editor->setProperty("readOnly",true);editable->replaceText(0,text->characterCount(),"blocked");QCOMPARE(singleTermText(search),token+"x");
         editor->setProperty("readOnly",false);editable->deleteText(0,text->characterCount());QTRY_VERIFY(!search->active());
         QVERIFY(results(view.rootObject()).isEmpty());browser->cancel();
     }
@@ -185,10 +209,10 @@ private slots:
         QQuickView view;QVERIFY(load(view));auto browser=open(view);QVERIFY(browser);
         auto editor=visible("bleeckerFileChooserSearch");QVERIFY(editor);click(editor);
         QTRY_VERIFY(editor->hasActiveFocus());type(editor->window(),token);
-        auto search=browser->search();QTRY_COMPARE(search->query(),token);
+        auto search=browser->search();QTRY_COMPARE(singleTermText(search),token);
         QVERIFY(editor->property("canUndo").toBool());
         QTest::keyClick(editor->window(),Qt::Key_Down);QTest::keyClick(editor->window(),Qt::Key_Return);
-        QTRY_COMPARE(search->mode(),"filename");
+        QTRY_COMPARE(singleTermMode(search),"filename");
         if(mode=="everything"){
             auto tokenAccessible=QAccessible::queryAccessibleInterface(visible("bleeckerFileChooserSearchToken"));
             QVERIFY(tokenAccessible&&tokenAccessible->actionInterface());
@@ -196,17 +220,17 @@ private slots:
             QTRY_VERIFY(visible("bleeckerFileChooserSearchMode_everything"));
             auto choice=QAccessible::queryAccessibleInterface(visible("bleeckerFileChooserSearchMode_everything"));
             QVERIFY(choice&&choice->actionInterface());choice->actionInterface()->doAction(QAccessibleActionInterface::pressAction());
-            QTRY_COMPARE(search->mode(),mode);
+            QTRY_COMPARE(singleTermMode(search),mode);
             editor->window()->requestActivate();
             QVERIFY(QTest::qWaitForWindowActive(editor->window()));
-            QTest::mouseClick(editor->window(),Qt::LeftButton,{},editor->mapToScene(QPointF(editor->width()-35,editor->height()/2)).toPoint());
+            auto host=visible("bleeckerFileChooserSearchHost");QVERIFY(host);QTest::mouseClick(editor->window(),Qt::LeftButton,{},host->mapToScene(QPointF(1,host->height()/2)).toPoint());
             QTRY_VERIFY(editor->hasActiveFocus());
         }
-        QCOMPARE(search->query(),token);
+        QCOMPARE(singleTermText(search),token);
         QVERIFY2(!editor->property("canUndo").toBool(),"Committing a native search token makes earlier literal edits unavailable to Undo");
         QVERIFY(!editor->property("canRedo").toBool());
         QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
-        QCOMPARE(search->query(),token);QCOMPARE(search->mode(),mode);
+        QCOMPARE(singleTermText(search),token);QCOMPARE(singleTermMode(search),mode);
         browser->cancel();
     }
     void wholeTokenReplacementAndUndo(){
@@ -214,48 +238,170 @@ private slots:
         auto editor=visible("bleeckerFileChooserSearch");QVERIFY(editor);click(editor);
         const auto previous=token+"-name";type(editor->window(),previous);
         QTest::keyClick(editor->window(),Qt::Key_Down);QTest::keyClick(editor->window(),Qt::Key_Return);
-        auto search=browser->search();QTRY_COMPARE(search->mode(),"filename");
+        auto search=browser->search();QTRY_COMPARE(singleTermMode(search),"filename");
         QTest::keyClick(editor->window(),Qt::Key_A,Qt::ControlModifier);type(editor->window(),token);
-        QTRY_COMPARE(search->query(),token);QTRY_COMPARE(search->mode(),"general");
+        QTRY_COMPARE(singleTermText(search),token);QTRY_COMPARE(singleTermMode(search),"general");
         QVERIFY(!visible("bleeckerFileChooserSearchToken"));QVERIFY(visible("bleeckerFileChooserSearchSuggestion_0"));
         QVERIFY(visible("bleeckerFileChooserSearchSuggestion_1"));
         // Qt owns grouping; a replacement can have separate insertion/removal
         // undo steps. The recovered token must retain its original mode.
-        for(int i=0;i<6&&search->query()!=previous;++i)QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
-        QTRY_COMPARE(search->query(),previous);QCOMPARE(search->mode(),"filename");
-        for(int i=0;i<6&&search->query()!=token;++i)QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier|Qt::ShiftModifier);
-        QTRY_COMPARE(search->query(),token);QCOMPARE(search->mode(),"general");
+        for(int i=0;i<6&&singleTermText(search)!=previous;++i)QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
+        QTRY_COMPARE(singleTermText(search),previous);QCOMPARE(singleTermMode(search),"filename");
+        for(int i=0;i<6&&singleTermText(search)!=token;++i)QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier|Qt::ShiftModifier);
+        QTRY_COMPARE(singleTermText(search),token);QCOMPARE(singleTermMode(search),"general");
         browser->cancel();
     }
     void assistiveTokenReplacementUndoAndReadOnly(){
         QQuickView view;QVERIFY(load(view));auto browser=open(view);QVERIFY(browser);
         auto editor=visible("bleeckerFileChooserSearch");QVERIFY(editor);click(editor);
         const auto previous=token+"-name";type(editor->window(),previous);
-        auto search=browser->search();search->setMode("everything");QTRY_COMPARE(editor->property("tokenMode").toString(),"everything");
+        auto search=browser->search();QTest::keyClick(editor->window(),Qt::Key_Down);QTest::keyClick(editor->window(),Qt::Key_Down);QTest::keyClick(editor->window(),Qt::Key_Return);QTRY_COMPARE(editor->property("expression").toList(),committed("everything",previous));
         auto accessible=QAccessible::queryAccessibleInterface(editor);QVERIFY(accessible&&accessible->editableTextInterface()&&accessible->textInterface());
         auto editable=accessible->editableTextInterface();auto text=accessible->textInterface();
         editor->setProperty("readOnly",true);editable->replaceText(0,text->characterCount(),token);
-        QCOMPARE(search->query(),previous);QCOMPARE(search->mode(),"everything");
+        QCOMPARE(singleTermText(search),previous);QCOMPARE(singleTermMode(search),"everything");
         editor->setProperty("readOnly",false);editable->replaceText(0,text->characterCount(),token);
-        QTRY_COMPARE(search->query(),token);QCOMPARE(search->mode(),"general");
-        for(int i=0;i<6&&search->query()!=previous;++i)QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
-        QTRY_COMPARE(search->query(),previous);QCOMPARE(search->mode(),"everything");
+        QTRY_COMPARE(singleTermText(search),token);QCOMPARE(singleTermMode(search),"general");
+        for(int i=0;i<6&&singleTermText(search)!=previous;++i)QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
+        QTRY_COMPARE(singleTermText(search),previous);QCOMPARE(singleTermMode(search),"everything");
         editable->replaceText(0,text->characterCount(),previous);
-        QCOMPARE(search->query(),previous);QCOMPARE(search->mode(),"general");
-        for(int i=0;i<6&&search->mode()!="everything";++i)QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
-        QCOMPARE(search->query(),previous);QCOMPARE(search->mode(),"everything");
+        QCOMPARE(singleTermText(search),previous);QCOMPARE(singleTermMode(search),"general");
+        for(int i=0;i<6&&singleTermMode(search)!="everything";++i)QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
+        QCOMPARE(singleTermText(search),previous);QCOMPARE(singleTermMode(search),"everything");
         QTest::keyClick(editor->window(),Qt::Key_A,Qt::ControlModifier);QTest::keyClick(editor->window(),Qt::Key_Left);
-        QCOMPARE(search->mode(),"everything");
+        QCOMPARE(singleTermMode(search),"everything");
         QTest::keyClick(editor->window(),Qt::Key_A,Qt::ControlModifier);type(editor->window(),token+"-branch");
-        QTRY_COMPARE(search->mode(),"general");QVERIFY(!editor->property("canRedo").toBool());
-        search->setMode("filename");search->setQuery("external-query");QTRY_COMPARE(editor->property("text").toString(),"external-query");
-        QVERIFY(!editor->property("canUndo").toBool());QCOMPARE(search->mode(),"filename");
+        QTRY_COMPARE(singleTermMode(search),"general");QVERIFY(!editor->property("canRedo").toBool());
+        search->setExpression(committed("filename","external-query"));QTRY_COMPARE(editor->property("text").toString(),QString(QChar::ObjectReplacementCharacter));
+        QVERIFY(!editor->property("canUndo").toBool());QCOMPARE(singleTermMode(search),"filename");
         browser->cancel();
+    }
+    void atomicTokensAndCompoundIndexedResults(){
+        QQuickView view;QVERIFY(load(view));auto browser=open(view);QVERIFY(browser);
+        auto editor=visible("bleeckerFileChooserSearch");QVERIFY(editor);click(editor);type(editor->window(),token);
+        click(visible("bleeckerFileChooserSearchFolder"));click(editor);
+        QTest::keyClick(editor->window(),Qt::Key_Down);QTest::keyClick(editor->window(),Qt::Key_Down);QTest::keyClick(editor->window(),Qt::Key_Return);
+        const QString object(QChar::ObjectReplacementCharacter);
+        QCOMPARE(editor->property("text").toString(),object);
+        QTest::keyClick(editor->window(),Qt::Key_Backspace);
+        QCOMPARE(editor->property("selectedText").toString(),object);QVERIFY(browser->search()->active());
+        QTest::keyClick(editor->window(),Qt::Key_Right);type(editor->window(),"pine");
+        QCOMPARE(editor->property("text").toString(),object+"pine");
+        QTest::keyClick(editor->window(),Qt::Key_Down);QTest::keyClick(editor->window(),Qt::Key_Return);
+        QCOMPARE(editor->property("text").toString(),object+object);
+        const QVariantList compound{QVariantMap{{"kind","token"},{"mode","everything"},{"query",token}},QVariantMap{{"kind","token"},{"mode","filename"},{"query","pine"}}};
+        auto search=browser->search();QTRY_COMPARE(search->property("expression").toList(),compound);
+        QTRY_VERIFY2_WITH_TIMEOUT(!search->busy()&&search->count()==1&&row(search,"pine-only.txt")==0,qPrintable(indexState(search)),15000);
+        auto second=visible("bleeckerFileChooserSearchToken_1");QVERIFY(second);
+        auto accessible=QAccessible::queryAccessibleInterface(second);QVERIFY(accessible&&accessible->actionInterface());
+        QCOMPARE(accessible->text(QAccessible::Name),QString("Filename: pine"));accessible->actionInterface()->doAction(QAccessibleActionInterface::pressAction());
+        QTRY_VERIFY(visible("bleeckerFileChooserSearchMode_everything_1"));
+        auto everything=QAccessible::queryAccessibleInterface(visible("bleeckerFileChooserSearchMode_everything_1"));QVERIFY(everything&&everything->actionInterface());
+        everything->actionInterface()->doAction(QAccessibleActionInterface::pressAction());
+        auto both=compound;auto last=both[1].toMap();last["mode"]="everything";both[1]=last;
+        QTRY_COMPARE(search->property("expression").toList(),both);
+        QTRY_VERIFY(!search->busy()&&search->count()==1&&row(search,"pine-only.txt")==0);
+        search->select(0);QVERIFY(browser->canAccept());browser->acceptSelection();
+        QTRY_COMPARE(results(view.rootObject()).size(),1);
+        QCOMPARE(results(view.rootObject())[0].toMap()["urls"].toList(),QVariantList{QUrl::fromLocalFile(m_root+"/pine-only.txt")});
+        QVERIFY(view.rootObject()->property("visibleAtCallback").toBool());
+    }
+    void atomicReplacementSelectionUndoAndHistory_data(){
+        QTest::addColumn<bool>("dark");QTest::newRow("light")<<false;QTest::newRow("dark")<<true;
+    }
+    void atomicReplacementSelectionUndoAndHistory(){
+        QFETCH(bool,dark);QQuickView view;QVERIFY(load(view));
+        auto theme=view.engine()->singletonInstance<QObject*>("Avelino","BleeckerTheme");QVERIFY(theme);
+        const auto previous=theme->property("dark");const auto restore=qScopeGuard([theme,previous]{theme->setProperty("dark",previous);});
+        theme->setProperty("dark",dark);auto browser=open(view);QVERIFY(browser);
+        auto editor=visible("bleeckerFileChooserSearch");QVERIFY(editor);click(editor);type(editor->window(),token);
+        QTest::keyClick(editor->window(),Qt::Key_Down);QTest::keyClick(editor->window(),Qt::Key_Down);QTest::keyClick(editor->window(),Qt::Key_Return);
+        const QString object(QChar::ObjectReplacementCharacter);QCOMPARE(editor->property("text").toString(),object);
+        type(editor->window(),"pine");QTest::keyClick(editor->window(),Qt::Key_Down);QTest::keyClick(editor->window(),Qt::Key_Return);
+        auto search=browser->search();const auto compound=search->property("expression").toList();QCOMPARE(compound.size(),2);
+        QTest::keyClick(editor->window(),Qt::Key_Home);QTest::keyClick(editor->window(),Qt::Key_Right);
+        QCOMPARE(editor->property("selectedText").toString(),object);type(editor->window(),"name");
+        QCOMPARE(editor->property("text").toString(),"name"+object);
+        QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
+        QCOMPARE(editor->property("text").toString(),object+object);QCOMPARE(editor->property("selectedText").toString(),object);
+        QCOMPARE(search->property("expression").toList(),compound);
+        auto selectedToken=visible("bleeckerFileChooserSearchToken");QVERIFY(selectedToken);
+        auto caption=selectedToken->property("contentItem").value<QQuickItem*>();QVERIFY(caption);
+        QCOMPARE(caption->property("color").value<QColor>(),editor->property("selectedTextColor").value<QColor>());
+        capture(editor,dark?"atomic-selected-dark":"atomic-selected-light");
+        QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier|Qt::ShiftModifier);
+        QCOMPARE(editor->property("text").toString(),"name"+object);
+        QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
+        click(visible("bleeckerFileChooserBack"));QTRY_VERIFY(!search->active());QVERIFY(browser->canGoForward());
+        click(visible("bleeckerFileChooserForward"));QTRY_COMPARE(search->property("expression").toList(),compound);
+        QCOMPARE(editor->property("text").toString(),object+object);QVERIFY(!editor->property("canUndo").toBool());
+        browser->cancel();QVERIFY(results(view.rootObject()).isEmpty());
+    }
+    void atomicAssistiveCompositionAndExternalReset(){
+        QQuickView view;QVERIFY(load(view));auto browser=open(view);QVERIFY(browser);
+        auto editor=visible("bleeckerFileChooserSearch");QVERIFY(editor);click(editor);type(editor->window(),token);
+        QTest::keyClick(editor->window(),Qt::Key_Down);QTest::keyClick(editor->window(),Qt::Key_Return);
+        const QString object(QChar::ObjectReplacementCharacter);QCOMPARE(editor->property("text").toString(),object);
+        type(editor->window(),"pine");QTest::keyClick(editor->window(),Qt::Key_Down);QTest::keyClick(editor->window(),Qt::Key_Return);
+        auto search=browser->search();const auto compound=search->property("expression").toList();QCOMPARE(compound.size(),2);
+        auto accessible=QAccessible::queryAccessibleInterface(editor);QVERIFY(accessible&&accessible->editableTextInterface()&&accessible->textInterface());
+        auto editable=accessible->editableTextInterface();editable->replaceText(0,1,"name");
+        QCOMPARE(editor->property("text").toString(),"name"+object);
+        QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
+        QCOMPARE(search->property("expression").toList(),compound);QCOMPARE(editor->property("selectedText").toString(),object);
+        editable->deleteText(0,1);QCOMPARE(editor->property("text").toString(),object);
+        QCOMPARE(search->property("expression").toList(),QVariantList{compound[1]});
+        QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
+        QCOMPARE(search->property("expression").toList(),compound);QCOMPARE(editor->property("selectedText").toString(),object);
+        QTest::keyClick(editor->window(),Qt::Key_Right);
+        QInputMethodEvent preedit(QString::fromUtf8("かな"),{});QCoreApplication::sendEvent(editor,&preedit);
+        QCOMPARE(search->property("expression").toList(),compound);
+        QInputMethodEvent commit;commit.setCommitString(QString::fromUtf8("かな"));QCoreApplication::sendEvent(editor,&commit);
+        QCOMPARE(editor->property("text").toString(),object+QString::fromUtf8("かな")+object);
+        QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);QCOMPARE(search->property("expression").toList(),compound);
+        const QVariantList external{QVariantMap{{"kind","text"},{"text","external-query"}}};
+        QVERIFY(search->setProperty("expression",external));QTRY_COMPARE(editor->property("text").toString(),"external-query");
+        QVERIFY(!editor->property("canUndo").toBool());QVERIFY(!editor->property("canRedo").toBool());
+        type(editor->window(),"x");QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
+        QCOMPARE(editor->property("text").toString(),"external-query");QCOMPARE(editor->property("selectedText").toString(),QString());
+        browser->cancel();QVERIFY(results(view.rootObject()).isEmpty());
+    }
+    void adjacentRawSegmentsAreRejectedWithoutReplacingTheExpression(){
+        FileChooserBrowser browser;QVERIFY(browser.open(QUrl::fromLocalFile(m_root)));auto search=browser.search();setRaw(search,token);
+        const auto before=search->expression();QSignalSpy changed(search,&FileChooserSearch::changed);
+        QTest::ignoreMessage(QtWarningMsg,"Adjacent raw search segments must be one text segment");
+        search->setExpression({QVariantMap{{"kind","text"},{"text","a"}},QVariantMap{{"kind","text"},{"text","b"}}});
+        QCOMPARE(search->expression(),before);QVERIFY(changed.isEmpty());browser.cancel();
+    }
+    void tokenNotificationsAllowSynchronousControlDestruction_data(){
+        QTest::addColumn<QByteArray>("notification");
+        QTest::newRow("Undo")<<QByteArray("canUndoChanged()");
+        QTest::newRow("Redo")<<QByteArray("canRedoChanged()");
+        QTest::newRow("Expression")<<QByteArray("expressionChanged()");
+    }
+    void tokenNotificationsAllowSynchronousControlDestruction(){
+        QFETCH(QByteArray,notification);QQmlEngine engine;engine.addImportPath(AVELINO_FILE_INPUT_IMPORT_PATH);
+        QQmlComponent component(&engine);component.setData("import QtQuick\nimport Avelino\nFileChooserSearchText {}",QUrl());
+        QPointer<QObject> editor=component.create();QVERIFY2(editor,qPrintable(component.errorString()));
+        QVERIFY(editor->setProperty("expression",raw(token)));
+        if(notification!="expressionChanged()"){
+            QVERIFY(QMetaObject::invokeMethod(editor,"insert",Q_ARG(int,token.size()),Q_ARG(QString,QStringLiteral("x"))));
+            QVERIFY(editor->property("canUndo").toBool());
+            if(notification=="canRedoChanged()"){
+                QVERIFY(QMetaObject::invokeMethod(editor,"undo"));QVERIFY(editor->property("canRedo").toBool());
+            }
+        }
+        SearchEditorDestroyer destroyer;destroyer.target=editor;QSignalSpy destroyed(editor,&QObject::destroyed);
+        const auto signal=editor->metaObject()->method(editor->metaObject()->indexOfSignal(notification));
+        const auto slot=destroyer.metaObject()->method(destroyer.metaObject()->indexOfSlot("destroy()"));
+        QVERIFY(QObject::connect(editor,signal,&destroyer,slot,Qt::DirectConnection));
+        QVERIFY(QMetaObject::invokeMethod(editor,"commitDraft",Q_ARG(QString,QStringLiteral("filename"))));
+        QVERIFY(!editor);QCOMPARE(destroyed.size(),1);
     }
     void selectionCanSynchronouslyRemoveItsOwner(){
         for(const auto &operation:QStringList{"selection","press","activate"}){
             QQuickView view;QVERIFY(load(view));QPointer<FileChooserBrowser> browser=open(view);QVERIFY(browser);
-            auto search=browser->search();search->setQuery(token);
+            auto search=browser->search();setRaw(search,token);
             QTRY_VERIFY_WITH_TIMEOUT(!search->busy()&&row(search,"pine-only.txt")>=0,15000);
             const auto index=row(search,"pine-only.txt");
             QSignalSpy owner(browser,&FileChooserBrowser::result);
@@ -278,7 +424,7 @@ private slots:
     void coreSelectionCanSynchronouslyDestroyItsBrowser(){
         QPointer<FileChooserBrowser> browser=new FileChooserBrowser;
         browser->setAllowedContentTypes({"text/plain"});QVERIFY(browser->open(QUrl::fromLocalFile(m_root)));
-        auto search=browser->search();search->setQuery(token);
+        auto search=browser->search();setRaw(search,token);
         QTRY_VERIFY_WITH_TIMEOUT(!search->busy()&&row(search,"pine-only.txt")>=0,15000);
         const auto index=row(search,"pine-only.txt");QSignalSpy owner(browser,&FileChooserBrowser::result);
         connect(search,&QAbstractItemModel::dataChanged,this,[&browser]{delete browser.data();});
@@ -290,9 +436,9 @@ private slots:
         auto search=browser->search();QTRY_VERIFY_WITH_TIMEOUT(!search->busy()&&row(search,"pine-only.txt")>=0,15000);
         click(visible("bleeckerFileChooserSearchFolder"));click(editor);
         QTest::keyClick(editor->window(),Qt::Key_Down);QTest::keyClick(editor->window(),Qt::Key_Down);QTest::keyClick(editor->window(),Qt::Key_Return);
-        QTRY_COMPARE(search->mode(),"everything");QTRY_VERIFY(search->folderOnly()&&!search->busy());
+        QTRY_COMPARE(singleTermMode(search),"everything");QTRY_VERIFY(search->folderOnly()&&!search->busy());
         QTest::keyClick(editor->window(),Qt::Key_Escape);QTRY_VERIFY(!search->active());QVERIFY(browser->canGoForward());QVERIFY(!browser->canGoBack());QCOMPARE(browser->folderPath(),m_root);
-        click(visible("bleeckerFileChooserForward"));QTRY_VERIFY(search->active());QCOMPARE(search->query(),token);QCOMPARE(search->mode(),"everything");QVERIFY(search->folderOnly());
+        click(visible("bleeckerFileChooserForward"));QTRY_VERIFY(search->active());QCOMPARE(singleTermText(search),token);QCOMPARE(singleTermMode(search),"everything");QVERIFY(search->folderOnly());
         QTRY_VERIFY(!search->busy()&&row(search,"pine-only.txt")>=0&&row(search,token+"-outside.txt")<0);
         click(visible("bleeckerFileChooserBack"));QTRY_VERIFY(!search->active());QVERIFY(browser->canGoForward());
         click(editor);type(editor->window(),"another-control");QTRY_VERIFY(search->active());QVERIFY(!browser->canGoForward());QVERIFY(results(view.rootObject()).isEmpty());browser->cancel();
@@ -300,10 +446,10 @@ private slots:
     void literalQuotesAndFolderNavigation(){
         FileChooserBrowser browser;browser.setAllowedContentTypes({"text/plain"});QVERIFY(browser.open(QUrl::fromLocalFile(m_root)));
         auto search=browser.search();search->setFolderOnly(true);const auto name=token+"-quote\".txt";const auto path=m_root+"/"+name;
-        put(path,"Controlled quoted filename.\n");search->setQuery(name);
+        put(path,"Controlled quoted filename.\n");setRaw(search,name);
         QTRY_VERIFY_WITH_TIMEOUT(!search->busy()&&row(search,name)>=0,15000);QVERIFY(search->error().isEmpty());
         QVERIFY(QFile::remove(path));
-        const auto folder=m_root+"/"+token+"-folder";QVERIFY(QDir().mkdir(folder));search->setQuery(token+"-folder");
+        const auto folder=m_root+"/"+token+"-folder";QVERIFY(QDir().mkdir(folder));setRaw(search,token+"-folder");
         QTRY_VERIFY_WITH_TIMEOUT(!search->busy()&&row(search,token+"-folder")>=0,15000);
         search->select(row(search,token+"-folder"));QVERIFY(browser.canAccept());QSignalSpy owner(&browser,&FileChooserBrowser::result);
         browser.acceptSelection();QCOMPARE(browser.folderPath(),folder);QVERIFY(!search->active());QVERIFY(owner.isEmpty());browser.cancel();QVERIFY(QDir().rmdir(folder));
@@ -312,11 +458,11 @@ private slots:
         QQuickView view;QVERIFY(load(view));QPointer<FileChooserBrowser> browser=open(view);QVERIFY(browser);
         auto editor=visible("bleeckerFileChooserSearch");QVERIFY(editor);click(editor);type(editor->window(),token);
         click(visible("bleeckerFileChooserCancel"));QTRY_VERIFY(!browser->active());QVERIFY(!browser->search()->active());
-        browser=open(view);QVERIFY(browser);browser->search()->setQuery("previous-nonmatching-query");browser->search()->setQuery(token);browser->search()->setFolderOnly(true);
+        browser=open(view);QVERIFY(browser);setRaw(browser->search(),"previous-nonmatching-query");setRaw(browser->search(),token);browser->search()->setFolderOnly(true);
         QTRY_VERIFY_WITH_TIMEOUT(!browser->search()->busy()&&row(browser->search(),"pine-only.txt")>=0,15000);
         view.rootObject()->setProperty("mounted",false);QTRY_VERIFY(!browser);QTest::qWait(100);
         view.rootObject()->setProperty("mounted",true);QTRY_VERIFY(view.rootObject()->findChild<QQuickItem*>("fileInput"));browser=open(view);QVERIFY(browser);
-        browser->search()->setFolderOnly(true);browser->search()->setQuery(token);
+        browser->search()->setFolderOnly(true);setRaw(browser->search(),token);
         QTRY_VERIFY_WITH_TIMEOUT(!browser->search()->busy()&&row(browser->search(),"pine-only.txt")>=0,15000);
         view.rootObject()->setProperty("removeOnResult",true);browser->search()->select(row(browser->search(),"pine-only.txt"));browser->acceptSelection();
         QTRY_VERIFY(!browser);QCOMPARE(results(view.rootObject()).size(),1);QVERIFY(view.rootObject()->property("visibleAtCallback").toBool());QTest::qWait(100);

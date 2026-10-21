@@ -10,8 +10,7 @@ class FileSearchQuery;
 class FileChooserSearch : public FileChooserRows {
     Q_OBJECT
     QML_ANONYMOUS
-    Q_PROPERTY(QString query READ query WRITE setQuery NOTIFY changed)
-    Q_PROPERTY(QString mode READ mode WRITE setMode NOTIFY changed)
+    Q_PROPERTY(QVariantList expression READ expression WRITE setExpression NOTIFY changed)
     Q_PROPERTY(bool folderOnly READ folderOnly WRITE setFolderOnly NOTIFY changed)
     Q_PROPERTY(bool active READ active NOTIFY changed)
     Q_PROPERTY(bool busy READ busy NOTIFY changed)
@@ -26,13 +25,11 @@ public:
     int rowCount(const QModelIndex &parent={})const override{return parent.isValid()?0:m_rows.size();}
     QVariant data(const QModelIndex &index,int role)const override;
     QHash<int,QByteArray> roleNames()const override;
-    QString query()const{return m_query;}
-    void setQuery(const QString &value);
-    QString mode()const{return m_mode;}
-    void setMode(const QString &value);
+    QVariantList expression()const{return m_expression;}
+    void setExpression(const QVariantList &value);
     bool folderOnly()const{return m_folderOnly;}
     void setFolderOnly(bool value);
-    bool active()const{return m_open&&!m_query.isEmpty();}
+    bool active()const{return m_open&&!m_expression.isEmpty();}
     bool busy()const{return m_busy;}
     QString error()const{return m_error;}
     int count()const{return m_rows.size();}
@@ -59,12 +56,12 @@ private:
     void restart(bool retainSelection=false);
     void stop();
     void selectionChanged();
-    QVariantList m_rows,m_types;
+    QVariantList m_rows,m_types,m_expression;
     FileChooserModel m_validator;
     QList<QPointer<FileSearchQuery>> m_jobs;
     QSet<QString> m_selected;
     QUrl m_folder;
-    QString m_query,m_mode="general",m_error,m_current,m_anchor;
+    QString m_error,m_current,m_anchor;
     quint64 m_generation=0;
     bool m_open=false,m_folderOnly=false,m_busy=false,m_completing=false;
 };

@@ -98,15 +98,26 @@ standard = configuration == 'standard'
 assert record['dpr'] == (1 if standard else 2) and record['textScale'] == (1 if standard else 1.5)
 assert record['appearance'] == ('light' if standard else 'dark')
 phases = record['phases']
-assert [p['phase'] for p in phases] == ['global','folder','filename','token-replacement','token-undo','token-redo','selected','owner-result','cancelled-query','session-selected']
+expected = ['global','folder','filename','token-replacement','token-undo','token-redo','compound-mixed','compound-everything','compound-replacement','compound-undo','compound-redo','selected','owner-result','cancelled-query','session-selected']
+assert [p['phase'] for p in phases] == expected
 assert all(not p['busy'] and not p['error'] for p in phases)
-assert 'pine-only.txt' in phases[0]['names'] and 'pine-peer.txt' in phases[0]['names']
-assert 'pine-peer.txt' not in phases[1]['names'] and 'avelinoulnacerulean-child.txt' in phases[1]['names']
-assert phases[2]['mode'] == 'filename' and 'pine-only.txt' not in phases[2]['names']
-assert phases[3]['query'] == phases[5]['query'] == 'avelinoulnacerulean-name' and phases[3]['mode'] == phases[5]['mode'] == 'general'
-assert phases[4]['query'] == 'avelinoulnacerulean' and phases[4]['mode'] == 'filename'
-assert phases[6]['mode'] == phases[9]['mode'] == 'everything' and 'pine-only.txt' in phases[9]['names']
-assert phases[9]['folderOnly'] is True
+rows = {phase['phase']: phase for phase in phases}
+assert 'pine-only.txt' in rows['global']['names'] and 'pine-peer.txt' in rows['global']['names']
+assert 'pine-peer.txt' not in rows['folder']['names'] and 'avelinoulnacerulean-child.txt' in rows['folder']['names']
+assert rows['filename']['expression'] == [{'kind':'token','mode':'filename','query':'avelinoulnacerulean'}]
+assert 'pine-only.txt' not in rows['filename']['names']
+replacement = [{'kind':'text','text':'avelinoulnacerulean-name'}]
+assert rows['token-replacement']['expression'] == rows['token-redo']['expression'] == replacement
+assert rows['token-undo']['expression'] == rows['filename']['expression'] and rows['token-undo']['selectedText'] == '\ufffc'
+compound = [{'kind':'token','mode':'everything','query':'avelinoulnacerulean'},{'kind':'token','mode':'filename','query':'pine'}]
+assert rows['compound-mixed']['expression'] == compound
+assert rows['compound-mixed']['names'] == rows['compound-everything']['names'] == ['pine-only.txt']
+both = [compound[0], {'kind':'token','mode':'everything','query':'pine'}]
+assert rows['compound-everything']['expression'] == rows['compound-undo']['expression'] == rows['selected']['expression'] == both
+assert rows['compound-undo']['selectedText'] == '\ufffc'
+assert rows['compound-replacement']['expression'] == rows['compound-redo']['expression'] == [{'kind':'text','text':'name'}, both[1]]
+assert rows['session-selected']['expression'] == [compound[0]] and 'pine-only.txt' in rows['session-selected']['names']
+assert rows['session-selected']['folderOnly'] is True
 for key in ['nativeRasterAccepted','readerAcceptance','physicalInput']:
     assert record[key] is False
 final_image = Path(prefix + '.png')

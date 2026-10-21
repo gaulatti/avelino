@@ -1,6 +1,7 @@
 // Include GLib before Qt's signals macro.
 #include <libtracker-sparql/tracker-sparql.h>
 #include "filechoosersearch.h"
+#include "filechooserexpression.h"
 #include <QDir>
 #include <QGuiApplication>
 #include <QJSEngine>
@@ -12,7 +13,7 @@
 class FileSearchQuery final : public QThread {
     Q_OBJECT
 public:
-    struct Request {quint64 generation;QString text,mode;bool folderOnly;QUrl folder;QVariantList types;};
+    struct Request {quint64 generation;QVariantList expression;bool folderOnly;QUrl folder;QVariantList types;};
     explicit FileSearchQuery(Request request):m_request(std::move(request)),m_cancel(g_cancellable_new()){}
     ~FileSearchQuery()override{g_object_unref(m_cancel);}
     void cancel(){g_cancellable_cancel(m_cancel);}
@@ -58,21 +59,31 @@ private:
         if(!m_connection){fail(error);return;}
         m_pending=false;if(cancelled()){g_main_loop_quit(m_loop);return;}
         QString expression="?file a nfo:FileDataObject ; nie:url ?url ; nfo:fileName ?name . ";
-        const QString name="?file nfo:fileName ?matchedName . FILTER(CONTAINS(LCASE(?matchedName),LCASE(~name)))";
-        const QString content="?file nie:interpretedAs ?document . ?document fts:match ~content";
-        if(m_request.mode=="filename")expression+=name;
-        else expression+="{ "+name+" } UNION { "+content+" }";
+        for(int index=0;index<m_request.expression.size();++index){
+            const auto row=m_request.expression[index].toMap();
+            const auto suffix=QString::number(index);
+            const auto name="?file nfo:fileName ?matchedName"+suffix+" . FILTER(CONTAINS(LCASE(?matchedName"+suffix+"),LCASE(~name"+suffix+")))";
+            const auto content="?file nie:interpretedAs ?document"+suffix+" . ?document"+suffix+" fts:match ~content"+suffix;
+            // Join one group per segment. Each Everything/raw segment retains
+            // its own name-or-content union; distinct groups form conjunction.
+            expression+=" { ";
+            if(row.value("mode")=="filename")expression+=name;
+            else expression+="{ "+name+" } UNION { "+content+" }";
+            expression+=" } ";
+        }
         if(m_request.folderOnly)expression+=" FILTER(STRSTARTS(?url,~folder))";
         const auto query=("SELECT DISTINCT ?url WHERE { "+expression+" } ORDER BY LCASE(?name) ?url").toUtf8();
         m_statement=tracker_sparql_connection_query_statement(m_connection,query.constData(),m_cancel,&error);
         if(!m_statement){fail(error);return;}
-        const auto text=m_request.text.toUtf8();
-        tracker_sparql_statement_bind_string(m_statement,"name",text.constData());
-        if(m_request.mode!="filename"){
-            // Bind a literal FTS phrase, rather than allowing typed punctuation
-            // to become query operators. Broader native query rules stay open.
-            QString phrase=m_request.text;phrase.replace('"',"\"\"");phrase='"'+phrase+'"';
-            const auto literal=phrase.toUtf8();tracker_sparql_statement_bind_string(m_statement,"content",literal.constData());
+        for(int index=0;index<m_request.expression.size();++index){
+            const auto row=m_request.expression[index].toMap();const auto suffix=QByteArray::number(index);
+            const auto text=fileSearchSegmentText(row).toUtf8();
+            tracker_sparql_statement_bind_string(m_statement,("name"+suffix).constData(),text.constData());
+            if(row.value("mode")!="filename"){
+                // Bind each literal phrase; input never becomes FTS operators.
+                QString phrase=fileSearchSegmentText(row);phrase.replace('"',"\"\"");phrase='"'+phrase+'"';
+                const auto literal=phrase.toUtf8();tracker_sparql_statement_bind_string(m_statement,("content"+suffix).constData(),literal.constData());
+            }
         }
         if(m_request.folderOnly){
             auto folder=m_request.folder.toEncoded(QUrl::FullyEncoded);if(!folder.endsWith('/'))folder+='/';
@@ -156,20 +167,20 @@ void FileChooserSearch::stop(){
 void FileChooserSearch::setContext(bool open,const QVariantList &types,const QUrl &folder){
     if(open==m_open&&types==m_types&&folder==m_folder)return;
     const bool opening=open&&!m_open;m_open=open;m_types=types;m_folder=folder;m_validator.setAllowedContentTypes(types);
-    if(opening||!open){m_query.clear();m_mode="general";m_folderOnly=false;}
+    if(opening||!open){m_expression.clear();m_folderOnly=false;}
     restart(true);
 }
-void FileChooserSearch::setQuery(const QString &value){if(value==m_query)return;m_query=value;if(value.isEmpty())m_mode="general";restart();}
-void FileChooserSearch::setMode(const QString &value){
-    if(value==m_mode)return;
-    if(value!="general"&&value!="filename"&&value!="everything"){
-        if(auto engine=qjsEngine(this))engine->throwError(QStringLiteral("Search mode must be general, filename or everything"));
-        else qWarning("Search mode must be general, filename or everything");return;
+void FileChooserSearch::setExpression(const QVariantList &value){
+    if(value==m_expression)return;
+    const auto error=fileSearchExpressionError(value);
+    if(!error.isEmpty()){
+        if(auto engine=qjsEngine(this))engine->throwError(error);else qWarning().noquote()<<error;
+        return;
     }
-    m_mode=value;restart();
+    m_expression=value;restart();
 }
 void FileChooserSearch::setFolderOnly(bool value){if(value==m_folderOnly)return;m_folderOnly=value;restart();}
-void FileChooserSearch::clear(){if(m_query.isEmpty())return;m_query.clear();m_mode="general";restart();}
+void FileChooserSearch::clear(){if(m_expression.isEmpty())return;m_expression.clear();restart();}
 void FileChooserSearch::refresh(){restart(true);}
 void FileChooserSearch::restart(bool retainSelection){
     stop();m_error.clear();m_busy=false;
@@ -177,12 +188,12 @@ void FileChooserSearch::restart(bool retainSelection){
         beginResetModel();m_rows.clear();m_selected.clear();m_current.clear();m_anchor.clear();endResetModel();
     }
     if(!active()){emit changed();return;}
-    if(m_query.contains(QChar::Null))m_error="Search text cannot contain NUL.";
-    else if(m_folderOnly&&(!m_folder.isLocalFile()||!QDir::isAbsolutePath(m_folder.toLocalFile())||!QFileInfo(m_folder.toLocalFile()).isDir()))m_error="The search folder is no longer available.";
+    for(const auto &part:m_expression)if(fileSearchSegmentText(part).contains(QChar::Null))m_error="Search text cannot contain NUL.";
+    if(m_error.isEmpty()&&m_folderOnly&&(!m_folder.isLocalFile()||!QDir::isAbsolutePath(m_folder.toLocalFile())||!QFileInfo(m_folder.toLocalFile()).isDir()))m_error="The search folder is no longer available.";
     else if(!FileChooserModel::contentTypeError(m_types).isEmpty())m_error=FileChooserModel::contentTypeError(m_types);
     if(!m_error.isEmpty()){emit changed();return;}
     m_busy=true;
-    auto job=new FileSearchQuery({m_generation,m_query,m_mode,m_folderOnly,m_folder,m_types});m_jobs.append(job);
+    auto job=new FileSearchQuery({m_generation,m_expression,m_folderOnly,m_folder,m_types});m_jobs.append(job);
     connect(job,&FileSearchQuery::querying,this,[this](quint64 generation){if(generation==m_generation){m_busy=true;emit changed();}});
     connect(job,&FileSearchQuery::snapshot,this,[this](quint64 generation,const QVariantList &rows,const QString &error){
         if(generation!=m_generation||!active())return;

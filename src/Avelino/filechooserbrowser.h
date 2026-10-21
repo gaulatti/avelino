@@ -87,7 +87,7 @@ signals:
 private:
     struct Column {FileChooserModel *model;QUrl branch;};
     struct SavedColumn {QUrl folder,branch;};
-    struct Location {QList<SavedColumn> columns;QString query,mode="general";bool folderOnly=false;};
+    struct Location {QList<SavedColumn> columns;QVariantList expression;bool folderOnly=false;};
     Location location() const;
     void rememberNavigation(const Location &before);
     void restoreLocation(int index);
