@@ -13,7 +13,10 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parents[1]
 CAP = ROOT / 'evidence/development/admin-source-colour-fixture-20261020'
 COLOUR_PRODUCER = '4a0a06bb2d183072a8d000c829b234d14c137a20'
-EVOLVED = {'src/Avelino/BleeckerAdminShell.qml', 'tests/components/tst_admin_shell.qml'}
+# These recorded inputs have since evolved. Verify their captured bytes at the
+# original producer; all other implementation inputs still bind to the index.
+EVOLVED = {'src/Avelino/BleeckerAdminShell.qml', 'tests/components/tst_admin_shell.qml',
+           'scripts/check-linux.sh'}
 
 
 def source_bytes(name):

@@ -4,6 +4,11 @@
 `fe8a1d462fbd793d883fb92086a16aa2947e32c9`. Acceptance remains pending. Existing
 expected images and source pins are unchanged.
 
+The historical source-colour fixture keeps its packaging script bound to
+producer `4a0a06bb2d183072a8d000c829b234d14c137a20`. Later FileInput packaging
+changes do not replace that capture's inputs. Its recorded hashes, raw images
+and pending native acceptance checks remain unchanged.
+
 ## Linux use
 
 Supply retained `sidebar`, `header` and `content` components and a caller-owned
