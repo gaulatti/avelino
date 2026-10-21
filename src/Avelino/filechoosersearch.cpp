@@ -134,7 +134,7 @@ private:
     bool m_pending=false,m_dirty=false,m_stopping=false;
 };
 
-FileChooserSearch::FileChooserSearch(QObject *parent):QAbstractListModel(parent){}
+FileChooserSearch::FileChooserSearch(QObject *parent):FileChooserRows(parent){}
 FileChooserSearch::~FileChooserSearch(){stop();}
 QHash<int,QByteArray> FileChooserSearch::roleNames()const{
     return {{NameRole,"fileName"},{UrlRole,"fileUrl"},{DirectoryRole,"fileDirectory"},
@@ -197,7 +197,25 @@ int FileChooserSearch::currentIndex()const{
     for(int i=0;i<m_rows.size();++i)if(m_rows[i].toMap()["url"].toUrl().toString()==m_current)return i;return -1;
 }
 void FileChooserSearch::selectionChanged(){
-    if(!m_rows.isEmpty())emit dataChanged(index(0),index(m_rows.size()-1),{SelectedRole});emit changed();
+    QPointer<FileChooserSearch> guard(this);
+    if(!m_rows.isEmpty())emit dataChanged(index(0),index(m_rows.size()-1),{SelectedRole});
+    if(guard)emit changed();
+}
+QVariantList FileChooserSearch::selection()const{
+    QVariantList urls;for(const auto &value:m_rows){const auto row=value.toMap();if(m_selected.contains(row["url"].toUrl().toString()))urls.append(row["url"]);}return urls;
+}
+void FileChooserSearch::setSelection(const QVariantList &urls){
+    if(!active())return;
+    QSet<QString> requested;for(const auto &url:urls)requested.insert(url.toUrl().toString());
+    m_selected.clear();
+    for(const auto &value:m_rows){const auto row=value.toMap();const auto key=row["url"].toUrl().toString();
+        if(requested.contains(key)&&(row["eligible"].toBool()||row["directory"].toBool()))m_selected.insert(key);
+    }
+    if(!m_selected.contains(m_current)){
+        m_current.clear();for(const auto &value:m_rows){const auto key=value.toMap()["url"].toUrl().toString();if(m_selected.contains(key)){m_current=key;break;}}
+    }
+    if(!m_selected.contains(m_anchor))m_anchor=m_current;
+    selectionChanged();
 }
 void FileChooserSearch::select(int row,int modifiers){
     const auto value=entry(row);if(!active()||value.isEmpty()||(!value["directory"].toBool()&&!value["eligible"].toBool()))return;
@@ -228,7 +246,9 @@ QVariantList FileChooserSearch::selectedUrls()const{
 void FileChooserSearch::activate(int row){
     const auto value=entry(row);if(!active()||value.isEmpty())return;
     if(value["directory"].toBool()){emit navigateRequested(value["url"].toUrl());return;}
-    if(value["eligible"].toBool()){select(row);acceptSelection();}
+    if(value["eligible"].toBool()){
+        QPointer<FileChooserSearch> guard(this);select(row);if(guard)acceptSelection();
+    }
 }
 void FileChooserSearch::acceptSelection(){
     if(!canOpen()||m_completing)return;

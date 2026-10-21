@@ -1,12 +1,13 @@
 #pragma once
 #include "filechoosermodel.h"
+#include "filechooserrows.h"
 #include <QPointer>
 
 class FileSearchQuery;
 
 // Searches the existing session index. It never changes indexing locations or
 // replaces unavailable indexed search with a filesystem crawl.
-class FileChooserSearch : public QAbstractListModel {
+class FileChooserSearch : public FileChooserRows {
     Q_OBJECT
     QML_ANONYMOUS
     Q_PROPERTY(QString query READ query WRITE setQuery NOTIFY changed)
@@ -38,6 +39,8 @@ public:
     int currentIndex()const;
     bool canOpen()const;
     QVariantList selectedUrls()const;
+    QVariantList selection()const override;
+    void setSelection(const QVariantList &urls)override;
     void setContext(bool open,const QVariantList &types,const QUrl &folder);
     Q_INVOKABLE void clear();
     Q_INVOKABLE void refresh();

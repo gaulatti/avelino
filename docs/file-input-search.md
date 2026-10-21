@@ -50,6 +50,29 @@ changed item produces a visible chooser error and no owner result. A sole
 noneligible selected directory navigates into it. Successful callbacks occur
 while the chooser is still active and may synchronously remove the owner.
 Cancel sends no result. Icons and flat result presentations share selection.
+A C++ owner observer cancels the chooser when its control leaves its window or
+is destroyed. This also covers Loader removal after QML callbacks have been
+disconnected but before deferred object deletion, preventing a result during
+that interval. A C++-owned browser may also be deleted from a selection callback.
+Search results use the chooser's shared accessible result view, backed by the
+same private row/selection contract as directory results. Assistive clients can
+query, add, remove and clear selections, including rows outside the viewport.
+The mode token exposes its owned menu and Press action through that same menu
+relationship used by the location control. These Qt interfaces do not establish
+native hierarchy, screen-reader or physical acceptance.
+The query field also reuses the chooser's editable-text adapter. Assistive text
+replacement follows Qt input-method commits, preserving the field's normal
+query updates, read-only checks and undo behavior. Restoring browsing for an
+empty query leaves an already focused editor active, so typing and native Qt
+undo/redo can continue. Qt owns the grouping of consecutive input-method edits.
+The [search accessibility checkpoint](../evidence/development/file-input-search-accessibility-20261021/README.md)
+retains actual AT-SPI/Orca runs on X11/software and scaled dark Wayland/OpenGL.
+Each covers twelve phases, including offscreen and multiple selection, token
+Press/menu actions, selected-result speech before Return, editable query text,
+native undo/redo, owner delivery and cancellation. Speech-dispatcher commands are
+observed with null audio output; physical listening and native reader comparison
+remain pending. Earlier failures and the invalid manual Loader-deletion test are
+retained separately from the corrected Loader-unmount regression.
 
 Escape from a nonempty field clears search to the preceding browse location.
 Back/Forward retain the query/token and scope while clearing selection; a new

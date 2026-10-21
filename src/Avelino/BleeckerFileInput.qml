@@ -41,6 +41,7 @@ InheritedControl {
     onAllowedContentTypesChanged:if(componentReady)validate()
     onWidthOfferChanged:if(componentReady)validate()
     onMaximumWidthChanged:if(componentReady)validate()
+    FileChooserHost {owner:control;browser:control.browser}
     BleeckerButtonStyle {
         id:trigger;objectName:"bleeckerFileInputTrigger"
         width:control.width;height:control.height;variant:"secondary";size:"md"

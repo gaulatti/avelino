@@ -72,9 +72,16 @@ private slots:
         click(editor);QTest::keyClick(editor->window(),Qt::Key_Down);QTest::keyClick(editor->window(),Qt::Key_Return);
         QTRY_COMPARE(search->mode(),"filename");QTRY_VERIFY(!search->busy()&&row(search,"pine-only.txt")<0&&row(search,token+"-name.txt")>=0);
         capture(editor,"filename-folder");
-        click(visible("bleeckerFileChooserSearchToken"));QTRY_VERIFY(visible("bleeckerFileChooserSearchMode_everything"));
+        auto tokenControl=visible("bleeckerFileChooserSearchToken");QVERIFY(tokenControl);
+        auto tokenAccessible=QAccessible::queryAccessibleInterface(tokenControl);QVERIFY(tokenAccessible&&tokenAccessible->actionInterface());
+        QCOMPARE(tokenAccessible->role(),QAccessible::ButtonMenu);QVERIFY(tokenAccessible->state().hasPopup);
+        QVERIFY(tokenAccessible->actionInterface()->actionNames().contains(QAccessibleActionInterface::pressAction()));
+        tokenAccessible->actionInterface()->doAction(QAccessibleActionInterface::pressAction());
+        QTRY_VERIFY(visible("bleeckerFileChooserSearchMode_everything"));QVERIFY(tokenAccessible->state().expanded);
         capture(editor,"token-menu");
-        click(visible("bleeckerFileChooserSearchMode_everything"));QTRY_COMPARE(search->mode(),"everything");
+        auto everythingAccessible=QAccessible::queryAccessibleInterface(visible("bleeckerFileChooserSearchMode_everything"));
+        QVERIFY(everythingAccessible&&everythingAccessible->actionInterface());QCOMPARE(everythingAccessible->role(),QAccessible::MenuItem);
+        everythingAccessible->actionInterface()->doAction(QAccessibleActionInterface::pressAction());QTRY_COMPARE(search->mode(),"everything");
         QTRY_VERIFY(!search->busy()&&row(search,"pine-only.txt")>=0&&row(search,token+"-name.txt")>=0);
         const auto index=row(search,"pine-only.txt");auto item=visible("bleeckerFileChooserSearchRow_"+QString::number(index));QVERIFY(item);
         auto accessible=QAccessible::queryAccessibleInterface(item);QVERIFY(accessible&&accessible->actionInterface());
@@ -98,6 +105,86 @@ private slots:
         search->select(row(search,token+"-image.png"));QVERIFY(browser.canAccept());
         const auto image=m_root+"/"+token+"-image.png";QVERIFY(QFile::remove(image));browser.acceptSelection();
         QVERIFY(owner.isEmpty());QVERIFY(!browser.error().isEmpty());put(image,"Controlled filename/type association.\n");browser.cancel();
+    }
+    void accessibleResultSelectionAndOffscreenRows(){
+        QQuickView view;QVERIFY(load(view));auto browser=open(view);QVERIFY(browser);
+        auto search=browser->search();search->setQuery(token);
+        QTRY_VERIFY_WITH_TIMEOUT(!search->busy()&&row(search,"pine-only.txt")>=0&&row(search,"pine-peer.txt")>=0
+            &&row(search,token+"-image.png")>=0&&row(search,token+"-name.txt")>=0,15000);
+        auto rows=visible("bleeckerFileChooserSearchResults");QVERIFY(rows);
+        auto accessible=QAccessible::queryAccessibleInterface(rows);QVERIFY(accessible);
+        QCOMPARE(accessible->role(),QAccessible::List);
+        auto selection=accessible->selectionInterface();QVERIFY2(selection,"Search results must expose the same assistive selection operations as the chooser's other result views");
+        QCOMPARE(accessible->childCount(),search->count());QCOMPARE(selection->selectedItemCount(),0);
+        auto body=accessible->child(row(search,"pine-only.txt"));QVERIFY(body);
+        QVERIFY(selection->select(body));QCOMPARE(selection->selectedItemCount(),1);
+        QCOMPARE(selection->selectedItem(0)->text(QAccessible::Name),QString("pine-only.txt"));
+        QVERIFY(browser->canAccept());
+        auto filename=accessible->child(row(search,token+"-name.txt"));QVERIFY(filename);
+        QVERIFY(selection->select(filename));QCOMPARE(selection->selectedItemCount(),2);
+        auto image=accessible->child(row(search,token+"-image.png"));QVERIFY(image);
+        QVERIFY(!selection->select(image));QCOMPARE(selection->selectedItemCount(),2);
+        QVERIFY(selection->unselect(filename));QCOMPARE(selection->selectedItemCount(),1);
+        QVERIFY(selection->clear());QCOMPARE(selection->selectedItemCount(),0);QVERIFY(!browser->canAccept());
+        rows->setProperty("cacheBuffer",0);rows->setHeight(1);QTest::qWait(50);
+        auto peer=accessible->child(row(search,"pine-peer.txt"));QVERIFY(peer);
+        QCOMPARE(peer->text(QAccessible::Name),QString("pine-peer.txt"));
+        QVERIFY(peer->state().offscreen);QVERIFY(selection->select(peer));
+        QCOMPARE(selection->selectedItemCount(),1);QCOMPARE(selection->selectedItem(0)->text(QAccessible::Name),QString("pine-peer.txt"));
+        search->setQuery("no-matching-controlled-result");QTRY_VERIFY(!search->busy());
+        QCOMPARE(accessible->childCount(),0);QCOMPARE(selection->selectedItemCount(),0);QVERIFY(results(view.rootObject()).isEmpty());browser->cancel();
+    }
+    void assistiveEditingUsesTheNormalQueryAndUndo(){
+        QQuickView view;QVERIFY(load(view));auto browser=open(view);QVERIFY(browser);
+        auto editor=visible("bleeckerFileChooserSearch");QVERIFY(editor);click(editor);
+        auto accessible=QAccessible::queryAccessibleInterface(editor);QVERIFY(accessible);
+        auto editable=accessible->editableTextInterface();QVERIFY2(editable,"Assistive clients must be able to edit the search query");
+        auto text=accessible->textInterface();QVERIFY(text);
+        editable->replaceText(0,text->characterCount(),token);
+        auto search=browser->search();QTRY_COMPARE(search->query(),token);
+        QTRY_VERIFY_WITH_TIMEOUT(!search->busy()&&row(search,"pine-only.txt")>=0,15000);
+        editable->replaceText(0,text->characterCount(),token+"x");QTRY_COMPARE(search->query(),token+"x");
+        // Qt may group consecutive input-method replacements. Preserve that
+        // grouping and require the exact redo round trip through the query.
+        QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
+        QTRY_COMPARE(search->query(),editor->property("text").toString());QVERIFY(search->query()!=token+"x");
+        QTRY_VERIFY(editor->hasActiveFocus());
+        QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier|Qt::ShiftModifier);QTRY_COMPARE(search->query(),token+"x");
+        editor->setProperty("readOnly",true);editable->replaceText(0,text->characterCount(),"blocked");QCOMPARE(search->query(),token+"x");
+        editor->setProperty("readOnly",false);editable->deleteText(0,text->characterCount());QTRY_VERIFY(!search->active());
+        QVERIFY(results(view.rootObject()).isEmpty());browser->cancel();
+    }
+    void selectionCanSynchronouslyRemoveItsOwner(){
+        for(const auto &operation:QStringList{"selection","press","activate"}){
+            QQuickView view;QVERIFY(load(view));QPointer<FileChooserBrowser> browser=open(view);QVERIFY(browser);
+            auto search=browser->search();search->setQuery(token);
+            QTRY_VERIFY_WITH_TIMEOUT(!search->busy()&&row(search,"pine-only.txt")>=0,15000);
+            const auto index=row(search,"pine-only.txt");
+            QSignalSpy owner(browser,&FileChooserBrowser::result);
+            // The fixture's Loader owns the QML control. Remove it through the
+            // Loader rather than leaving its item pointer dangling with delete.
+            connect(search,&QAbstractItemModel::dataChanged,&view,[&view]{view.rootObject()->setProperty("mounted",false);});
+            if(operation=="selection"){
+                auto resultsAccessible=QAccessible::queryAccessibleInterface(visible("bleeckerFileChooserSearchResults"));
+                QVERIFY(resultsAccessible&&resultsAccessible->selectionInterface());
+                auto child=resultsAccessible->child(index);QVERIFY(child);
+                resultsAccessible->selectionInterface()->select(child);
+            }else if(operation=="press"){
+                auto item=visible("bleeckerFileChooserSearchRow_"+QString::number(index));QVERIFY(item);
+                auto accessible=QAccessible::queryAccessibleInterface(item);QVERIFY(accessible&&accessible->actionInterface());
+                accessible->actionInterface()->doAction(QAccessibleActionInterface::pressAction());
+            }else search->activate(index);
+            QTRY_VERIFY(!browser);QVERIFY2(owner.isEmpty(),qPrintable(operation));QVERIFY(results(view.rootObject()).isEmpty());QTest::qWait(30);
+        }
+    }
+    void coreSelectionCanSynchronouslyDestroyItsBrowser(){
+        QPointer<FileChooserBrowser> browser=new FileChooserBrowser;
+        browser->setAllowedContentTypes({"text/plain"});QVERIFY(browser->open(QUrl::fromLocalFile(m_root)));
+        auto search=browser->search();search->setQuery(token);
+        QTRY_VERIFY_WITH_TIMEOUT(!search->busy()&&row(search,"pine-only.txt")>=0,15000);
+        const auto index=row(search,"pine-only.txt");QSignalSpy owner(browser,&FileChooserBrowser::result);
+        connect(search,&QAbstractItemModel::dataChanged,this,[&browser]{delete browser.data();});
+        search->activate(index);QVERIFY(!browser);QVERIFY(owner.isEmpty());QTest::qWait(30);
     }
     void escapeBackForwardAndNewQueryBranch(){
         QQuickView view;QVERIFY(load(view));auto browser=open(view);QVERIFY(browser);

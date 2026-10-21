@@ -10,7 +10,7 @@ FocusScope {
     property int suggestion:-1
     property real suggestionOffset:28
     implicitWidth:198;implicitHeight:24
-    T.TextField {
+    FileChooserPathInput {
         id:editor;objectName:"bleeckerFileChooserSearch"
         anchors.fill:parent;focus:true;activeFocusOnTab:true
         text:host.browser.search.query
@@ -43,9 +43,12 @@ FocusScope {
             text:host.browser.search.mode==="filename" ? "Filename ▾":"Everything ▾"
             Accessible.name:host.browser.search.mode==="filename" ? "Filename: "+editor.text:"Everything: "+editor.text
             Accessible.role:Accessible.ButtonMenu
+            accessibilityMenu:modeMenu
+            Accessible.onPressAction:mode.click()
             onClicked:modeMenu.open()
-            T.Menu {
-                id:modeMenu;y:22;width:150;padding:4;popupType:T.Popup.Item;enter:null;exit:null
+            FileChooserMenuBase {
+                id:modeMenu;objectName:"bleeckerFileChooserSearchModeMenu";parent:mode;opener:mode
+                y:22;width:150;padding:4;popupType:T.Popup.Item;enter:null;exit:null
                 implicitHeight:contentItem.implicitHeight+topPadding+bottomPadding
                 background:Rectangle {radius:6;color:host.dark ? "#303030":"white";border.width:0.5;border.color:"#888888"}
                 contentItem:ListView {implicitHeight:contentHeight;model:modeMenu.contentModel;interactive:false}
@@ -55,7 +58,8 @@ FocusScope {
                     objectName:"bleeckerFileChooserSearchMode_"+value
                     width:142;height:25;implicitHeight:25;checkable:true;checked:host.browser.search.mode===value
                     text:value==="filename" ? "Filename":value==="everything" ? "Everything":"Name and content"
-                    Accessible.name:text;Accessible.checked:checked;Accessible.checkable:true
+                    Accessible.role:Accessible.MenuItem;Accessible.name:text;Accessible.checked:checked;Accessible.checkable:true
+                    Accessible.onPressAction:option.click()
                     onTriggered:host.browser.search.mode=value
                     contentItem:Text {text:option.text;color:host.dark ? "white":"#222222";font.pixelSize:13;verticalAlignment:Text.AlignVCenter;leftPadding:8}
                     background:Rectangle {color:option.highlighted ? "#a6cef5":"transparent";radius:4}

@@ -120,6 +120,10 @@ static void runFileInputSearchConsumer(QQuickWindow *window,QGuiApplication &app
     if(!check(accessible&&accessible->actionInterface(),"Search row accessibility action is missing"))return;
     accessible->actionInterface()->doAction(QAccessibleActionInterface::pressAction());
     if(!check(browser()->property("canAccept").toBool(),"Accessible row selection did not enable Open"))return;
+    auto resultsAccessible=QAccessible::queryAccessibleInterface(visible("bleeckerFileChooserSearchResults"));
+    auto selection=resultsAccessible?resultsAccessible->selectionInterface():nullptr;
+    if(!check(selection&&selection->selectedItemCount()==1&&selection->selectedItem(0)->text(QAccessible::Name)=="pine-only.txt",
+        "Result view does not report the selected row through the accessibility selection interface"))return;
     observe("selected");if(!save(editor,"selected")||!click(visible("bleeckerFileChooserOpen")))return;
     if(!wait([&]{return !browser()->property("active").toBool()&&!visible("bleeckerFileChooserSearch");},"Successful chooser did not finish closing"))return;
     const auto state=chartMap(fixture(),"state");const auto results=state["results"].toArray();

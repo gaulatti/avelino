@@ -45,11 +45,16 @@ FileChooserDialogBase {
         if(window)window.requestActivate()
         focusColumn(browser.focusedColumn)
     }
+    function focusRequestedColumn(index:int):void {
+        // Empty queries restore browsing without interrupting the active
+        // editor's next keystroke or its native Qt undo/redo sequence.
+        if(!searchControl.input.activeFocus)focusColumn(index)
+    }
     onOpened:{focusColumn(browser.focusedColumn);Qt.callLater(errorMessage.announceError)}
     onClosed:if(browser.active)browser.cancel()
     Connections {
         target:dialog.browser
-        function onFocusRequested(index:int){Qt.callLater(dialog.focusColumn,index)}
+        function onFocusRequested(index:int){Qt.callLater(dialog.focusRequestedColumn,index)}
     }
     contentItem:Item {
         Shortcut {

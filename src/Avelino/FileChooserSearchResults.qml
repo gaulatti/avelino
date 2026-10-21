@@ -27,9 +27,9 @@ FocusScope {
             onClicked:host.browser.search.folderOnly=true
         }
     }
-    GridView {
+    FileChooserGrid {
         id:rows;objectName:"bleeckerFileChooserSearchResults";x:0;y:38;width:parent.width;height:Math.max(0,parent.height-38)
-        model:host.browser.search;currentIndex:host.browser.search.currentIndex
+        directoryModel:host.browser.search;model:host.browser.search;currentIndex:host.browser.search.currentIndex
         cellWidth:host.icons ? 112:width;cellHeight:host.icons ? 90:38
         keyNavigationEnabled:false;activeFocusOnTab:true;clip:true
         highlightMoveDuration:0;boundsBehavior:Flickable.StopAtBounds
@@ -42,7 +42,7 @@ FocusScope {
         Keys.onLeftPressed:event=>{if(host.icons)host.browser.search.move(-1,event.modifiers)}
         Keys.onRightPressed:event=>{if(host.icons)host.browser.search.move(1,event.modifiers)}
         onCurrentIndexChanged:if(currentIndex>=0)positionViewAtIndex(currentIndex,GridView.Contain)
-        delegate:T.ItemDelegate {
+        delegate:FileChooserRow {
             id:row
             required property int index
             required property string fileName
@@ -52,14 +52,15 @@ FocusScope {
             required property bool fileSelected
             required property string fileKind
             required property string filePath
+            view:rows;listingIndex:index;folder:fileDirectory
             objectName:"bleeckerFileChooserSearchRow_"+index
             width:rows.cellWidth;height:rows.cellHeight;padding:0;focusPolicy:Qt.NoFocus
             Accessible.role:Accessible.ListItem;Accessible.name:fileName;Accessible.selected:fileSelected
             Accessible.selectable:fileDirectory||fileEligible;Accessible.focusable:fileDirectory||fileEligible
             Accessible.focused:rows.activeFocus&&rows.currentIndex===index
             Accessible.description:!fileEligible&&!fileDirectory ? "Unavailable for selected file types":fileKind+", "+filePath
-            Accessible.onPressAction:{host.browser.search.selectFromInput(index);rows.forceActiveFocus()}
-            onClicked:{host.browser.search.selectFromInput(index);rows.forceActiveFocus()}
+            Accessible.onPressAction:{rows.forceActiveFocus();host.browser.search.selectFromInput(index)}
+            onClicked:{rows.forceActiveFocus();host.browser.search.selectFromInput(index)}
             onDoubleClicked:host.browser.search.activate(index)
             background:Rectangle {x:10;width:parent.width-20;radius:5;color:row.fileSelected ? "#0063e1":"transparent"}
             contentItem:Item {
