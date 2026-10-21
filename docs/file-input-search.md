@@ -11,14 +11,26 @@ creates a Filename token. The Content Contains suggestion instead creates an
 Everything token that still matches both filenames and contents: the native
 single-word fixture exposes its name-only file and `pine-only.txt` in that mode.
 It must not be implemented as a body-only filter. These source observations are
-controlled AX projections, without query-completion or owner-delivery acceptance.
+controlled AX projections; general query-completion and owner-delivery acceptance
+remain pending. A later [controlled native investigation](../evidence/reference-investigations/file-input-search-owner-menu-20261021/README.md)
+records five successful callbacks across AppKit and SwiftUI caller hosts, including
+normal owner removal during the last Filename result. Public NSOpenPanel visibility
+is true at each callback; private importing state and exact visual ordering remain
+unverified. Both helpers use the same unchanged cached pinned library object;
+only their callers were rebuilt. The actual runtime is macOS 27.0.1 (26A434), with
+SDK 27.0; the minimum compilation target macOS 26.0 is a separate fact.
 
 The Linux candidate has three presentation states: raw `general`, `filename`
 and tokenized `everything`. General/Everything combine case-insensitive filename
 containment with a bound literal full-text phrase in Tracker; Filename uses only
 filename containment. Arbitrary native phrase/punctuation, normalization,
 stemming, ranking and additional criteria remain unverified. Token editing and
-menu artwork/hierarchy are also pending native equivalence.
+menu artwork/hierarchy are also pending native equivalence. From either token,
+the native menu offers exactly Filename and Everything, in that order. The Linux
+menu follows those two choices; raw general search remains available by typing.
+Some CUA projections duplicate the native menu, so complete object identity is
+not established. The saved CUA screenshots have elided JPEG bytes and cannot
+serve as raster baselines.
 
 The owned candidate toolbar keeps Search on a second row when the available
 logical width is below 640. Its suggestions then open below the scope controls;
@@ -30,8 +42,11 @@ evidence; corresponding native layout and raster equivalence remain unverified.
 The default scope is the session's system index. Current-folder scope uses an
 encoded, trailing-slash directory URI, includes descendants and excludes a
 similarly prefixed sibling, including an outside content-only match. Native
-repository copies observed globally are excluded in the controlled folder scope;
-this is a scoped observation, with general exclusion/completion still unverified.
+repository copies observed globally were absent in initial controlled folder
+projections. Later Everything projections include two v24 snapshot copies outside
+the root despite the selected folder radio. Stable native membership, general
+exclusion and query completion remain unverified; this unexplained result does
+not change the Linux scope policy.
 The application never changes the user's indexed
 locations or substitutes a directory crawl. Unindexed files remain subject to
 the system provider's policy. The `This Computer` label is a Linux candidate;
@@ -73,6 +88,18 @@ native undo/redo, owner delivery and cancellation. Speech-dispatcher commands ar
 observed with null audio output; physical listening and native reader comparison
 remain pending. Earlier failures and the invalid manual Loader-deletion test are
 retained separately from the corrected Loader-unmount regression.
+
+The [token-menu checkpoint](../evidence/development/file-input-search-menu-20261021/README.md)
+adds fourteen-phase reader runs 7/8, including both token menus with exactly two
+choices. Its portable consumer repeats three flows and eight display profiles;
+all 256 closed PNG/frame/state pairs are unchanged. These runs execute source 26.
+All 158 installed prefix files are byte-identical on source 27, which independently
+passes all nine focused Qt groups. Source 27 changes only the test fixture: the
+vanished-selection case creates its own valid temporary image instead of deleting
+and restoring the shared canonical image needed by later selection tests.
+Source 26's earlier two-scale failure and the passing direct-provider diagnostic
+are retained; the precise provider timing cause is unproven. The full 58-group
+result belongs to the historical source 24 checkpoint.
 
 Escape from a nonempty field clears search to the preceding browse location.
 Back/Forward retain the query/token and scope while clearing selection; a new

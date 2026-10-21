@@ -57,7 +57,7 @@ FocusScope {
                     required property string value
                     objectName:"bleeckerFileChooserSearchMode_"+value
                     width:142;height:25;implicitHeight:25;checkable:true;checked:host.browser.search.mode===value
-                    text:value==="filename" ? "Filename":value==="everything" ? "Everything":"Name and content"
+                    text:value==="filename" ? "Filename":"Everything"
                     Accessible.role:Accessible.MenuItem;Accessible.name:text;Accessible.checked:checked;Accessible.checkable:true
                     Accessible.onPressAction:option.click()
                     onTriggered:host.browser.search.mode=value
@@ -67,7 +67,6 @@ FocusScope {
                 }
                 ModeOption {value:"filename"}
                 ModeOption {value:"everything"}
-                ModeOption {value:"general"}
             }
         }
         T.Button {

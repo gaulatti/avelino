@@ -2,6 +2,7 @@
 #include <QAccessible>
 #include <QDir>
 #include <QFile>
+#include <QImage>
 #include <QJSValue>
 #include <QQmlEngine>
 #include <QQuickItem>
@@ -42,6 +43,10 @@ class FileSearchTests:public QObject {
         return control->property("browser").value<FileChooserBrowser*>();
     }
     int row(FileChooserSearch *search,const QString &name){for(int i=0;i<search->count();++i)if(search->entry(i)["name"]==name)return i;return -1;}
+    QString indexState(FileChooserSearch *search){
+        QStringList names;for(int i=0;i<search->count();++i)names.append(search->entry(i)["name"].toString());
+        return QString("busy=%1 error=%2 mode=%3 folderOnly=%4 names=[%5]").arg(search->busy()).arg(search->error()).arg(search->mode()).arg(search->folderOnly()).arg(names.join(", "));
+    }
     QVariantList results(QQuickItem *fixture){return fixture->property("results").value<QJSValue>().toVariant().toList();}
     void put(const QString &path,const QByteArray &data){QFile file(path);QVERIFY(file.open(QIODevice::WriteOnly));QCOMPARE(file.write(data),qint64(data.size()));}
     void capture(QQuickItem *item,const QString &name){
@@ -78,11 +83,21 @@ private slots:
         QVERIFY(tokenAccessible->actionInterface()->actionNames().contains(QAccessibleActionInterface::pressAction()));
         tokenAccessible->actionInterface()->doAction(QAccessibleActionInterface::pressAction());
         QTRY_VERIFY(visible("bleeckerFileChooserSearchMode_everything"));QVERIFY(tokenAccessible->state().expanded);
+        QVERIFY(visible("bleeckerFileChooserSearchMode_filename"));
+        QVERIFY2(!visible("bleeckerFileChooserSearchMode_general"),"The native token menu offers only Filename and Everything");
         capture(editor,"token-menu");
         auto everythingAccessible=QAccessible::queryAccessibleInterface(visible("bleeckerFileChooserSearchMode_everything"));
         QVERIFY(everythingAccessible&&everythingAccessible->actionInterface());QCOMPARE(everythingAccessible->role(),QAccessible::MenuItem);
         everythingAccessible->actionInterface()->doAction(QAccessibleActionInterface::pressAction());QTRY_COMPARE(search->mode(),"everything");
         QTRY_VERIFY(!search->busy()&&row(search,"pine-only.txt")>=0&&row(search,token+"-name.txt")>=0);
+        tokenAccessible->actionInterface()->doAction(QAccessibleActionInterface::pressAction());
+        QTRY_VERIFY(visible("bleeckerFileChooserSearchMode_everything"));
+        QVERIFY(visible("bleeckerFileChooserSearchMode_filename"));
+        QVERIFY(!visible("bleeckerFileChooserSearchMode_general"));
+        everythingAccessible=QAccessible::queryAccessibleInterface(visible("bleeckerFileChooserSearchMode_everything"));
+        QVERIFY(everythingAccessible&&everythingAccessible->state().checked);
+        everythingAccessible->actionInterface()->doAction(QAccessibleActionInterface::pressAction());
+        QTRY_VERIFY(!visible("bleeckerFileChooserSearchMode_everything"));QCOMPARE(search->mode(),"everything");
         const auto index=row(search,"pine-only.txt");auto item=visible("bleeckerFileChooserSearchRow_"+QString::number(index));QVERIFY(item);
         auto accessible=QAccessible::queryAccessibleInterface(item);QVERIFY(accessible&&accessible->actionInterface());
         accessible->actionInterface()->doAction(QAccessibleActionInterface::pressAction());QTRY_VERIFY(browser->canAccept());
@@ -103,14 +118,20 @@ private slots:
         QTRY_VERIFY(!search->busy()&&!browser.canAccept());
         QVERIFY(!search->entry(row(search,"pine-only.txt"))["eligible"].toBool());
         search->select(row(search,token+"-image.png"));QVERIFY(browser.canAccept());
-        const auto image=m_root+"/"+token+"-image.png";QVERIFY(QFile::remove(image));browser.acceptSelection();
-        QVERIFY(owner.isEmpty());QVERIFY(!browser.error().isEmpty());put(image,"Controlled filename/type association.\n");browser.cancel();
+        // Keep the shared ineligible image intact for later selection checks.
+        // Exercise a vanished indexed selection with this test's own image.
+        const auto imageName=token+"-live-image.png";const auto image=m_root+"/"+imageName;
+        QImage pixels(1,1,QImage::Format_ARGB32);pixels.fill(Qt::blue);QVERIFY(pixels.save(image));
+        QTRY_VERIFY2_WITH_TIMEOUT(!search->busy()&&row(search,imageName)>=0,qPrintable(indexState(search)),15000);
+        search->select(row(search,imageName));QVERIFY(browser.canAccept());
+        QVERIFY(QFile::remove(image));browser.acceptSelection();
+        QVERIFY(owner.isEmpty());QVERIFY(!browser.error().isEmpty());browser.cancel();
     }
     void accessibleResultSelectionAndOffscreenRows(){
         QQuickView view;QVERIFY(load(view));auto browser=open(view);QVERIFY(browser);
         auto search=browser->search();search->setQuery(token);
-        QTRY_VERIFY_WITH_TIMEOUT(!search->busy()&&row(search,"pine-only.txt")>=0&&row(search,"pine-peer.txt")>=0
-            &&row(search,token+"-image.png")>=0&&row(search,token+"-name.txt")>=0,15000);
+        QTRY_VERIFY2_WITH_TIMEOUT(!search->busy()&&row(search,"pine-only.txt")>=0&&row(search,"pine-peer.txt")>=0
+            &&row(search,token+"-image.png")>=0&&row(search,token+"-name.txt")>=0,qPrintable(indexState(search)),15000);
         auto rows=visible("bleeckerFileChooserSearchResults");QVERIFY(rows);
         auto accessible=QAccessible::queryAccessibleInterface(rows);QVERIFY(accessible);
         QCOMPARE(accessible->role(),QAccessible::List);
