@@ -13,6 +13,12 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def ownership_step(workflow):
+    marker=b'      - name: Preserve Qt software-renderer build evidence\n'
+    assert workflow.count(marker)==1, 'The ownership-preserving toolchain step must remain present'
+    return marker+workflow.split(marker,1)[1].split(b'\n      - ',1)[0]
+
+
 def verify(directory=DIRECTORY):
     directory = Path(directory)
     report = json.loads((directory / "files.json").read_text())
@@ -34,7 +40,8 @@ def verify(directory=DIRECTORY):
     # The later rectangle stage has its own SDK receipt. Preserve this repair's
     # exact ownership and copy destination while allowing that additive receipt.
     current = current.replace(b'            cp -R /opt/qt/share/avelino/qt-software-rectangle /evidence/\n', b'', 1)
-    assert before != after == expected == current
+    assert before != after == expected
+    assert ownership_step(current)==ownership_step(after), 'The live toolchain copy must retain its prepared leaf mount and copy destination'
     job = (directory / "x86-job-118142225917.log.txt").read_text()
     assert "mkdir: cannot create directory ‘artifacts/package’: Permission denied" in job
     assert "Process completed with exit code 1" in job

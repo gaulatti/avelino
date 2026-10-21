@@ -11,6 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CAP = ROOT / 'evidence/development/admin-shell-clipping-20261020'
 OBSERVED_TEST = 'tests/components/tst_admin_shell.qml'
 OBSERVED_PRODUCER = '7253695c3e94b0626bcb0612fbc8467fe94445b5'
+OBSERVED_INPUTS = {OBSERVED_TEST, 'scripts/verify-admin-source-colour-fixture.py'}
 
 
 def read(name):
@@ -26,7 +27,7 @@ def git_bytes(expression):
 
 
 def source_bytes(name):
-    return git_bytes(OBSERVED_PRODUCER + ':' + name) if name == OBSERVED_TEST else (ROOT / name).read_bytes()
+    return git_bytes(OBSERVED_PRODUCER + ':' + name) if name in OBSERVED_INPUTS else (ROOT / name).read_bytes()
 
 
 def verify():
@@ -38,7 +39,7 @@ def verify():
     assert set(tracked) == members, 'Every clipping capsule member must be in the Git index'
     names = sorted(members | set(implementation))
     result = subprocess.run(['git', 'cat-file', '--batch'], cwd=ROOT, check=True,
-                            input=('\n'.join(OBSERVED_PRODUCER + ':' + n if n == OBSERVED_TEST else ':' + n for n in names) + '\n').encode(), stdout=subprocess.PIPE)
+                            input=('\n'.join(OBSERVED_PRODUCER + ':' + n if n in OBSERVED_INPUTS else ':' + n for n in names) + '\n').encode(), stdout=subprocess.PIPE)
     stream = io.BytesIO(result.stdout)
     for name in names:
         header = stream.readline().split()

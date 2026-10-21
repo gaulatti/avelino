@@ -20,6 +20,16 @@ The package also carries `run-file-search.py` and
 search matrix through the real private index and the normal installed module,
 including a selected chooser held for full compositor capture.
 
+The historical Qt rectangle build-context audit reads its complete Dockerfile
+from recorded producer `7dd130a3efa854b2de1dff81f71192b460433e81`. It also checks
+that the current COPY directives, exported file bytes and ignore controls still
+match that audit. Later package dependencies do not replace the captured recipe;
+this audit continues to make no full-toolchain or native-acceptance claim.
+The CI ownership audit separately checks the exact toolchain-evidence step:
+the runner prepares its leaf directory before Docker mounts it, and the copy
+stays inside that leaf. Other fixture and uploader steps can evolve while this
+ownership invariant and the original failure/reproduction records stay checked.
+
 The five [chart candidates](charts.md#linux-candidate) add an owned QPainter-based
 renderer to the same library, with no Qt Charts dependency. The package-only
 `--charts --charts-observe` mode exercises all 170 closed/edge inputs and six
