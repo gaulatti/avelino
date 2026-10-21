@@ -208,6 +208,8 @@ target_include_directories(AvelinoFileChooserTests PRIVATE ${PROJECT_SOURCE_DIR}
 add_test(NAME file-chooser-filesystem COMMAND AvelinoFileChooserTests)
 
 qt_add_executable(AvelinoFileBrowserTests filechooserbrowser.cpp
+    ${PROJECT_SOURCE_DIR}/src/Avelino/filechoosersearch.cpp
+    ${PROJECT_SOURCE_DIR}/src/Avelino/filechoosersearch.h
     ${PROJECT_SOURCE_DIR}/src/Avelino/filechooserplaces.cpp
     ${PROJECT_SOURCE_DIR}/src/Avelino/filechooserplaces.h
     ${PROJECT_SOURCE_DIR}/src/Avelino/filechooserlisting.cpp
@@ -216,7 +218,7 @@ qt_add_executable(AvelinoFileBrowserTests filechooserbrowser.cpp
     ${PROJECT_SOURCE_DIR}/src/Avelino/filechooserbrowser.h
     ${PROJECT_SOURCE_DIR}/src/Avelino/filechoosermodel.cpp
     ${PROJECT_SOURCE_DIR}/src/Avelino/filechoosermodel.h)
-target_link_libraries(AvelinoFileBrowserTests PRIVATE Qt6::Gui Qt6::Qml Qt6::Test)
+target_link_libraries(AvelinoFileBrowserTests PRIVATE Qt6::Gui Qt6::Qml Qt6::Test PkgConfig::Tracker)
 target_include_directories(AvelinoFileBrowserTests PRIVATE ${PROJECT_SOURCE_DIR}/src/Avelino)
 add_test(NAME file-chooser-columns COMMAND AvelinoFileBrowserTests)
 
@@ -259,3 +261,17 @@ add_test(NAME item-lifetime COMMAND AvelinoItemLifetimeTests)
 add_test(NAME item-lifetime-dpr2 COMMAND AvelinoItemLifetimeTests)
 set_tests_properties(item-lifetime PROPERTIES ENVIRONMENT "QT_QPA_PLATFORM=offscreen;QT_QUICK_BACKEND=software;QT_SCALE_FACTOR=1")
 set_tests_properties(item-lifetime-dpr2 PROPERTIES ENVIRONMENT "QT_QPA_PLATFORM=offscreen;QT_QUICK_BACKEND=software;QT_SCALE_FACTOR=2")
+
+qt_add_executable(AvelinoFileSearchTests filesearch.cpp)
+qt_add_resources(AvelinoFileSearchTests file_search_ui_fixtures PREFIX "/file-input-tests" FILES fileinput-fixture.qml)
+target_link_libraries(AvelinoFileSearchTests PRIVATE Avelino Qt6::Quick Qt6::Test)
+target_include_directories(AvelinoFileSearchTests PRIVATE ${PROJECT_SOURCE_DIR}/src/Avelino)
+target_compile_definitions(AvelinoFileSearchTests PRIVATE AVELINO_FILE_INPUT_IMPORT_PATH="${CMAKE_BINARY_DIR}/qml"
+    AVELINO_FILE_SEARCH_EVIDENCE_DIR="${CMAKE_CURRENT_BINARY_DIR}/file-search-evidence")
+add_dependencies(AvelinoFileSearchTests Avelinoplugin)
+foreach(scale RANGE 1 2)
+    add_test(NAME file-input-indexed-search-dpr${scale} COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/run-file-search.py $<TARGET_FILE:AvelinoFileSearchTests>)
+    set_tests_properties(file-input-indexed-search-dpr${scale} PROPERTIES ENVIRONMENT "QT_QPA_PLATFORM=offscreen;QT_QUICK_BACKEND=software;QT_SCALE_FACTOR=${scale}")
+endforeach()
+add_test(NAME file-input-search-missing-index COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/run-file-search.py --no-index $<TARGET_FILE:AvelinoFileSearchTests> unavailableIndexIsVisibleAndCancels)
+set_tests_properties(file-input-search-missing-index PROPERTIES ENVIRONMENT "QT_QPA_PLATFORM=offscreen;QT_QUICK_BACKEND=software")

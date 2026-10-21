@@ -5,21 +5,37 @@
 #include <QJSEngine>
 #include <QPointer>
 #include <QQmlEngine>
+#include <QScopedValueRollback>
 #include <QStandardPaths>
 #include <algorithm>
 #include <cerrno>
 #include <cstring>
 #include <sys/stat.h>
 
-FileChooserBrowser::FileChooserBrowser(QObject *parent):QAbstractListModel(parent),m_listing(new FileChooserListing(this)),m_places(new FileChooserPlaces(this)){
+FileChooserBrowser::FileChooserBrowser(QObject *parent):QAbstractListModel(parent),m_listing(new FileChooserListing(this)),m_places(new FileChooserPlaces(this)),m_search(new FileChooserSearch(this)){
     connect(this,&FileChooserBrowser::metadataChanged,this,[this]{
         m_listing->setRoot(m_active&&m_viewMode!="columns"?modelAt(count()-1):nullptr);
         const auto folder=m_active?folderPath():QString();
         if(folder!=m_places->currentFolder())m_places->refresh(folder);
+        m_search->setContext(m_active,m_typeError.isEmpty()?m_types:QVariantList{},QUrl::fromLocalFile(folder));
     });
     connect(m_listing,&FileChooserListing::changed,this,&FileChooserBrowser::metadataChanged);
     connect(m_listing,&FileChooserListing::navigateRequested,this,[this](const QUrl &url){navigatePath(url.toLocalFile());});
     connect(m_listing,&FileChooserListing::result,this,&FileChooserBrowser::completeResult);
+    connect(m_search,&FileChooserSearch::changed,this,[this]{
+        const bool previous=m_searchWasActive,entering=m_search->active()&&!previous;m_searchWasActive=m_search->active();
+        if(entering){clearOtherSelections(-1);m_listing->setSelection({});}
+        if(m_active&&!m_restoringHistory&&m_historyIndex>=0){
+            if(entering){
+                m_history.resize(m_historyIndex+1);m_history.append(location());++m_historyIndex;
+            }else if(previous&&!m_searchWasActive&&m_historyIndex>0&&!m_history[m_historyIndex].query.isEmpty()){
+                restoreLocation(m_historyIndex-1);return;
+            }else if(m_searchWasActive)m_history[m_historyIndex]=location();
+        }
+        emit metadataChanged();
+    });
+    connect(m_search,&FileChooserSearch::navigateRequested,this,[this](const QUrl &url){navigatePath(url.toLocalFile());});
+    connect(m_search,&FileChooserSearch::result,this,&FileChooserBrowser::completeResult);
 }
 void FileChooserBrowser::completeResult(const QVariantMap &value){
     if(!m_active||m_completing)return;
@@ -34,6 +50,7 @@ void FileChooserBrowser::refreshPlaces(){m_places->refresh(m_active?folderPath()
 bool FileChooserBrowser::chooseLocation(const QUrl &url){
     if(!m_active||!url.isValid()||!url.isLocalFile()||url.hasQuery()||url.hasFragment()||!QDir::isAbsolutePath(url.toLocalFile()))return false;
     const auto path=QDir::cleanPath(url.toLocalFile());
+    m_search->clear();
     if(path==QDir::cleanPath(folderPath())&&error().isEmpty()){emit focusRequested(m_focus);return true;}
     return navigatePath(path);
 }
@@ -106,14 +123,17 @@ QString FileChooserBrowser::folderLabel() const {
 }
 QString FileChooserBrowser::error() const {
     if(!m_typeError.isEmpty())return m_typeError;
+    if(m_search->active())return m_search->error();
     if(m_viewMode!="columns"&&!m_listing->error().isEmpty())return m_listing->error();
     return m_columns.isEmpty()?QString():m_columns.last().model->error();
 }
 bool FileChooserBrowser::canAccept() const {
+    if(m_search->active())return m_active&&m_typeError.isEmpty()&&m_search->canOpen();
     if(m_viewMode!="columns")return m_active&&m_typeError.isEmpty()&&m_listing->canOpen();
     const auto model=selectionModel();return m_active&&m_typeError.isEmpty()&&model&&model->canAccept();
 }
 QVariantList FileChooserBrowser::selectedUrls() const {
+    if(m_search->active())return m_search->selectedUrls();
     if(m_viewMode!="columns")return m_listing->selectedUrls();
     const auto model=selectionModel();return model?model->selectedUrls():QVariantList{};
 }
@@ -212,6 +232,7 @@ void FileChooserBrowser::selectAll(){
 bool FileChooserBrowser::navigatePath(const QString &path){
     if(!m_active)return false;
     const auto before=location();
+    {QScopedValueRollback<bool> transition(m_restoringHistory,true);m_search->clear();}
     trimAfter(-1);append(QUrl::fromLocalFile(path));m_focus=m_selection=0;
     rememberNavigation(before);emit metadataChanged();emit focusRequested(0);return modelAt(0)->error().isEmpty();
 }
@@ -223,29 +244,34 @@ bool FileChooserBrowser::goUp(){
 FileChooserBrowser::Location FileChooserBrowser::location() const {
     Location saved;
     for(const auto &column:m_columns)saved.columns.append({column.model->folder(),column.branch});
+    saved.query=m_search->query();saved.mode=m_search->mode();saved.folderOnly=m_search->folderOnly();
     return saved;
 }
 void FileChooserBrowser::rememberNavigation(const Location &before){
     const auto after=location();
     if(m_historyIndex<0||before.columns.isEmpty()||after.columns.isEmpty())return;
-    if(before.columns.last().folder==after.columns.last().folder){m_history[m_historyIndex]=after;return;}
+    if(before.columns.last().folder==after.columns.last().folder&&before.query==after.query){m_history[m_historyIndex]=after;return;}
     m_history[m_historyIndex]=before;
     m_history.resize(m_historyIndex+1);m_history.append(after);++m_historyIndex;
 }
 void FileChooserBrowser::restoreLocation(int index){
     if(!m_active||index<0||index>=m_history.size())return;
-    m_history[m_historyIndex]=location();
-    const auto saved=m_history[index];trimAfter(-1);
+    QScopedValueRollback<bool> transition(m_restoringHistory,true);
+    if(m_search->active()||m_history[m_historyIndex].query.isEmpty())m_history[m_historyIndex]=location();
+    const auto saved=m_history[index];
+    m_search->clear();
+    trimAfter(-1);
     for(const auto &column:saved.columns){
         append(column.folder);branch(m_columns.size()-1,column.branch);
     }
     m_focus=m_selection=m_columns.size()-1;m_historyIndex=index;
+    emit metadataChanged();m_search->setMode(saved.mode);m_search->setFolderOnly(saved.folderOnly);m_search->setQuery(saved.query);
     emit metadataChanged();emit focusRequested(m_focus);
 }
 void FileChooserBrowser::goBack(){if(canGoBack())restoreLocation(m_historyIndex-1);}
 void FileChooserBrowser::goForward(){if(canGoForward())restoreLocation(m_historyIndex+1);}
 bool FileChooserBrowser::canCreateFolder() const {
-    return m_active&&m_typeError.isEmpty()&&!m_columns.isEmpty()&&m_columns.last().model->error().isEmpty()
+    return m_active&&!m_search->active()&&m_typeError.isEmpty()&&!m_columns.isEmpty()&&m_columns.last().model->error().isEmpty()
         &&QDir::isAbsolutePath(folderPath())&&QFileInfo(folderPath()).isDir();
 }
 QString FileChooserBrowser::suggestedFolderName() const {
@@ -284,5 +310,5 @@ bool FileChooserBrowser::createFolder(const QString &name,const QString &parentP
 }
 void FileChooserBrowser::acceptSelection(){
     if(!canAccept()||m_completing)return;
-    if(m_viewMode!="columns")m_listing->acceptSelection();else selectionModel()->acceptSelection();
+    if(m_search->active())m_search->acceptSelection();else if(m_viewMode!="columns")m_listing->acceptSelection();else selectionModel()->acceptSelection();
 }

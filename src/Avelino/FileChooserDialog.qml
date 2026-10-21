@@ -12,11 +12,14 @@ FileChooserDialogBase {
     readonly property Item acceptInput:accept
     readonly property Item cancelInput:cancel
     readonly property Item pathInput:goTo.pathInput
+    readonly property Item searchInput:searchControl.input
     readonly property QtObject goToDialog:goTo
     accessibilityDialog:goTo
     readonly property Item columnHost:columns
     readonly property QtObject newFolderDialog:newFolder
     property real columnWidth:220
+    readonly property bool compactToolbar:width<640
+    readonly property real browserTop:compactToolbar ? 109:77
     visible:browser.active
     modal:true;dim:false;focus:true;popupType:T.Popup.Window
     padding:0;margins:0;header:null;footer:null
@@ -28,6 +31,7 @@ FileChooserDialogBase {
     title:"Open"
     background:Rectangle {color:dialog.surface;radius:10;border.width:0.5;border.color:dialog.border}
     function focusColumn(index:int):void {
+        if(browser.search.active){searchResults.focusFiles();return}
         if(browser.viewMode!=="columns"){views.focusFiles();return}
         const column=columnItems.itemAt(index)
         if(column)column.view.forceActiveFocus()
@@ -119,13 +123,19 @@ FileChooserDialogBase {
         }
         FileChooserLocationMenu {
             id:location;browser:dialog.browser;x:218;y:38
-            width:Math.min(190,Math.max(76,(parent.width-238)*0.42));implicitWidth:190
+            width:Math.min(190,Math.max(76,(parent.width-238)*(dialog.compactToolbar ? 1:0.42)));implicitWidth:190
         }
-        Rectangle {x:0;y:76;width:parent.width;height:1;color:dialog.border;Accessible.ignored:true}
+        FileChooserSearchInput {
+            id:searchControl;browser:dialog.browser;resultsView:searchResults.view
+            x:dialog.compactToolbar ? 20:parent.width-218;y:dialog.compactToolbar ? 70:38
+            width:dialog.compactToolbar ? parent.width-40:198;height:24
+            suggestionOffset:dialog.compactToolbar ? dialog.browserTop+38-y:28
+        }
+        Rectangle {x:0;y:dialog.browserTop-1;width:parent.width;height:1;color:dialog.border;Accessible.ignored:true}
         Flickable {
             id:columns;objectName:"bleeckerFileChooserColumns"
-            visible:dialog.browser.viewMode==="columns"
-            x:0;y:77;width:parent.width;height:Math.max(0,parent.height-139)
+            visible:!dialog.browser.search.active&&dialog.browser.viewMode==="columns"
+            x:0;y:dialog.browserTop;width:parent.width;height:Math.max(0,parent.height-dialog.browserTop-62)
             contentWidth:Math.max(width,(dialog.browser.count+1)*dialog.columnWidth);contentHeight:height
             clip:true;boundsBehavior:Flickable.StopAtBounds
             Row {
@@ -205,14 +215,20 @@ FileChooserDialogBase {
             }
         }
         FileChooserViews {
-            id:views;browser:dialog.browser;visible:dialog.browser.viewMode!=="columns"
-            x:0;y:77;width:parent.width;height:Math.max(0,parent.height-139)
+            id:views;browser:dialog.browser;visible:!dialog.browser.search.active&&dialog.browser.viewMode!=="columns"
+            x:0;y:dialog.browserTop;width:parent.width;height:Math.max(0,parent.height-dialog.browserTop-62)
+        }
+        FileChooserSearchResults {
+            id:searchResults;browser:dialog.browser;visible:dialog.browser.search.active
+            x:0;y:dialog.browserTop;width:parent.width;height:Math.max(0,parent.height-dialog.browserTop-62)
         }
         Rectangle {x:0;y:parent.height-62;width:parent.width;height:1;color:dialog.border;Accessible.ignored:true}
         Text {
             id:errorMessage;objectName:"bleeckerFileChooserError"
             x:128;y:parent.height-51;width:Math.max(0,parent.width-323);height:42
-            text:dialog.browser.error.length ? dialog.browser.error:dialog.browser.places.error;textFormat:Text.PlainText;wrapMode:Text.Wrap;color:dialog.ink
+            readonly property string message:dialog.browser.error.length ? dialog.browser.error:dialog.browser.places.error
+            text:message.startsWith("Indexed search is unavailable:") ? "Indexed search is unavailable. Clear the search to browse folders.":message
+            textFormat:Text.PlainText;wrapMode:Text.Wrap;color:dialog.ink
             font.family:Qt.application.font.family;font.pixelSize:12
             Accessible.role:Accessible.StaticText;Accessible.name:text
             function announceError():void {

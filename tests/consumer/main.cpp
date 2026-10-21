@@ -59,6 +59,7 @@ static QQuickItem *findVisualItem(QQuickItem *item, const QString &name) {
 #include "commandspotlightchecks.h"
 #include "dropdownmenuchecks.h"
 #include "fileinputchecks.h"
+#include "filesearchchecks.h"
 #include "paginationintegerchecks.h"
 #include "accordionchecks.h"
 #include "presentationchecks.h"
@@ -418,6 +419,9 @@ int main(int argc, char **argv) {
     parser.addOption(QCommandLineOption("media-library-observe", "Preserve native differences; structural failures remain fatal."));
     parser.addOption(QCommandLineOption("media-library-fatal", "Exercise the isolated native minimum-width failure input."));
     parser.addOption(QCommandLineOption("file-input", "Exercise the owned FileInput chooser and all native closed contexts."));
+    parser.addOption(QCommandLineOption("file-input-search", "Exercise indexed search through the installed FileInput chooser."));
+    parser.addOption(QCommandLineOption("file-input-search-root", "Controlled indexed fixture folder for search verification.", "path"));
+    parser.addOption(QCommandLineOption("file-input-search-no-index", "Verify the missing-provider error on a private bus without activation services."));
     parser.addOption(QCommandLineOption("file-input-observe", "Retain strict native differences; contract or runtime failures remain fatal."));
     parser.addOption(QCommandLineOption("file-input-report", "Write FileInput observations and images to a fresh prefix.", "prefix"));
     parser.addOption(QCommandLineOption("dropdown-menu", "Compare native dropdown triggers and exercise actual menu windows."));
@@ -474,6 +478,9 @@ int main(int argc, char **argv) {
     if (!validScale || !std::isfinite(textScale) || textScale <= 0) return 12;
     if(parser.isSet("file-input") || parser.isSet("button-style") || parser.isSet("stepper") || parser.isSet("data-metrics"))QLocale::setDefault(QLocale("en_US"));
     if((parser.isSet("file-input-report")||parser.isSet("file-input-observe"))&&!parser.isSet("file-input"))return 58;
+    if(parser.isSet("file-input-search")&&!parser.isSet("file-input"))return 58;
+    if((parser.isSet("file-input-search-root")||parser.isSet("file-input-search-no-index"))&&!parser.isSet("file-input-search"))return 58;
+    if(parser.isSet("file-input-search")&&!parser.isSet("file-input-search-root"))return 58;
     if((parser.isSet("hero-carousel-report")||parser.isSet("hero-carousel-observe")||parser.isSet("hero-carousel-gallery"))&&!parser.isSet("hero-carousel"))return 58;
     if((parser.isSet("date-range-report")||parser.isSet("date-range-observe")||parser.isSet("date-range-gallery"))&&!parser.isSet("date-range"))return 58;
     if(parser.isSet("admin-shell-report")&&!parser.isSet("admin-shell"))return 58;
@@ -495,7 +502,7 @@ int main(int argc, char **argv) {
         if (!window) { app.exit(2); return; }
         if (parser.isSet("date-range")) {runDateRangeConsumer(window,app,parser,textScale);return;}
         if (parser.isSet("hero-carousel")) {runHeroCarouselConsumer(window,app,parser,textScale);return;}
-        if (parser.isSet("file-input")) {runFileInputConsumer(window,app,parser,textScale);return;}
+        if (parser.isSet("file-input")) {if(parser.isSet("file-input-search"))runFileInputSearchConsumer(window,app,parser);else runFileInputConsumer(window,app,parser,textScale);return;}
         if (parser.isSet("dropdown-menu")) {runDropdownMenuConsumer(window,app,parser,textScale);return;}
         if (parser.isSet("command-spotlight")) {runCommandSpotlightConsumer(window,app,parser,textScale);return;}
         if (parser.isSet("admin-shell")) {runAdminShellConsumer(window,app,parser,textScale);return;}

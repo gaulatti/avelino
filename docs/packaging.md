@@ -4,11 +4,21 @@ The core ships a shared library, QML plugin, qmldir/type metadata, QML source,
 embedded static font resources, font license notices, and asset provenance.
 `find_package(Avelino 0.1 REQUIRED)` exposes `Avelino::Avelino` and
 `Avelino_QML_IMPORT_PATH`. Set the engine's import path to that installed directory.
-Desktop has no media-decoder dependency. Metric formatting requires Ubuntu
+The desktop library has no playback backend. Metric formatting requires Ubuntu
 `libicu74` (74.2); its development headers are required only for library builds.
 The formatter links versioned system ICU libraries independently from Qt's ICU73.
 Installed consumers need public Qt development files and the runtime library;
-Avelino's private ICU and Qt QuickPrivate headers are not exported.
+Avelino's private ICU, Tracker and Qt QuickPrivate headers are not exported.
+FileInput indexed search links Ubuntu24.04 Tracker SPARQL3.7.1 and requires its
+filesystem miner/extractors on the session bus. It uses the existing index policy
+and reports an unavailable service in the chooser. The build requires pkg-config
+and `libtracker-sparql-3.0-dev`; the toolchain includes the runtime service and
+extractors. This adds system indexed search, with TV/playback still separate.
+See [file-input-search.md](file-input-search.md).
+The package also carries `run-file-search.py` and
+`check-display-sessions-file-search.sh`. CI runs this separate eight-profile
+search matrix through the real private index and the normal installed module,
+including a selected chooser held for full compositor capture.
 
 The five [chart candidates](charts.md#linux-candidate) add an owned QPainter-based
 renderer to the same library, with no Qt Charts dependency. The package-only

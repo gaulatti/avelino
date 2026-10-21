@@ -8,6 +8,7 @@ from urllib.parse import unquote, urlsplit
 ROOT = Path(__file__).resolve().parents[1]
 NATIVE = ROOT / "evidence/reference-investigations/file-input-search-20261020"
 LINUX = ROOT / "evidence/development/file-input-search-provider-20261020"
+TOKEN = ROOT / "evidence/reference-investigations/file-input-search-token-20261020"
 REFERENCE = "fe8a1d462fbd793d883fb92086a16aa2947e32c9"
 LIBRARY = "61d1e55c6f9c17c841eded420066c72b5611ec51af8c5a4821306f1751ea6514"
 
@@ -32,7 +33,7 @@ def manifest(directory):
 
 
 def verify():
-    for directory in [NATIVE, LINUX]:
+    for directory in [NATIVE, LINUX, TOKEN]:
         manifest(directory)
     native = read(NATIVE / "observations.json")
     assert native["reference"] == REFERENCE and native["libraryObjectSha256"] == LIBRARY
@@ -70,6 +71,24 @@ def verify():
     assert all(v is None for v in native["outsideScopeControl"]["mdls"].values())
     assert native["freshPlainTextBaseline"]["openEnabled"] is False
     assert native["freshPlainTextBaseline"]["ownerResultObserved"] is False
+
+    token_observation = read(TOKEN / "observations.json")
+    assert token_observation["reference"] == REFERENCE and token_observation["libraryObjectSha256"] == LIBRARY
+    assert token_observation["tokenLabel"] == "Everything: " + token
+    assert token_observation["observedRows"] == [name_match, content_match]
+    assert token_observation["escapeClearsSearchAndReturnsToBrowse"] is True
+    assert token_observation["forwardEnabledAfterEscape"] is True
+    for gate in ["independentNativeLibraryRebuild", "queryCompletionVerified", "ownerDeliveryVerified", "accepted"]:
+        assert token_observation[gate] is False
+    assert "unrelated recursive entries" in token_observation["forwardDiagnostic"]
+    outside_controls = token_observation["indexedOutsideFolderControls"]
+    assert outside_controls["observedGlobally"] is True
+    assert len(outside_controls["knownIndexedRepositoryCopies"]) == 2
+    assert outside_controls["repositoryCopiesObservedInCurrentFolder"] is False
+    assert outside_controls["scopeExclusionObservedForTheseCopies"] is True
+    assert outside_controls["originalSiblingReadinessVerified"] is False
+    assert read(TOKEN / "helper-build.json")["libraryObjectSha256"] == LIBRARY
+    assert read(TOKEN / "startup-failure.json")["accepted"] is False
 
     report = read(LINUX / "validation.json")
     assert report["reference"] == REFERENCE and report["nativeLibraryObjectSha256"] == LIBRARY

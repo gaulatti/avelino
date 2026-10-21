@@ -2,6 +2,7 @@
 #include "filechoosermodel.h"
 #include "filechooserlisting.h"
 #include "filechooserplaces.h"
+#include "filechoosersearch.h"
 
 class FileChooserBrowser : public QAbstractListModel {
     Q_OBJECT
@@ -23,6 +24,7 @@ class FileChooserBrowser : public QAbstractListModel {
     Q_PROPERTY(QString viewMode READ viewMode WRITE setViewMode NOTIFY viewModeChanged)
     Q_PROPERTY(FileChooserListing *listing READ listing CONSTANT)
     Q_PROPERTY(FileChooserPlaces *places READ places CONSTANT)
+    Q_PROPERTY(FileChooserSearch *search READ search CONSTANT)
 public:
     explicit FileChooserBrowser(QObject *parent=nullptr);
     enum Role {ModelRole=Qt::UserRole+1,BranchRole};
@@ -48,6 +50,7 @@ public:
     void setViewMode(const QString &mode);
     FileChooserListing *listing()const{return m_listing;}
     FileChooserPlaces *places()const{return m_places;}
+    FileChooserSearch *search()const{return m_search;}
     Q_INVOKABLE void refreshPlaces();
     Q_INVOKABLE bool chooseLocation(const QUrl &url);
     Q_INVOKABLE bool choosePath(const QUrl &url);
@@ -84,7 +87,7 @@ signals:
 private:
     struct Column {FileChooserModel *model;QUrl branch;};
     struct SavedColumn {QUrl folder,branch;};
-    struct Location {QList<SavedColumn> columns;};
+    struct Location {QList<SavedColumn> columns;QString query,mode="general";bool folderOnly=false;};
     Location location() const;
     void rememberNavigation(const Location &before);
     void restoreLocation(int index);
@@ -104,7 +107,8 @@ private:
     QString m_viewMode="columns";
     FileChooserListing *m_listing;
     FileChooserPlaces *m_places;
+    FileChooserSearch *m_search;
     QUrl m_lastFolder;
     int m_focus=-1,m_selection=-1;
-    bool m_active=false,m_completing=false;
+    bool m_active=false,m_completing=false,m_searchWasActive=false,m_restoringHistory=false;
 };

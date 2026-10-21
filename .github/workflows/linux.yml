@@ -44,11 +44,11 @@ jobs:
           test ! -e artifacts/package/install/obsolete-fixture
           test ! -d artifacts/package/consumer/consumer
       - name: Consumer with source and build trees absent
-        run: docker run --rm -v "$PWD/artifacts/package:/package" -w /package avelino-toolchain:qt6.8.3 bash -c 'bash check-installed.sh && bash check-display-sessions.sh && bash check-display-sessions-hero-carousel.sh "$PWD/display-evidence/hero-carousel"'
+        run: docker run --rm -v "$PWD/artifacts/package:/package" -w /package avelino-toolchain:qt6.8.3 bash -c 'bash check-installed.sh && bash check-display-sessions.sh && bash check-display-sessions-hero-carousel.sh "$PWD/display-evidence/hero-carousel" && bash check-display-sessions-file-search.sh "$PWD/display-evidence/file-search"'
       - name: Expose generated evidence to the artifact uploader
         if: always()
         run: |
-          for artifact_path in artifacts/linux artifacts/package build/linux/Testing/Temporary; do
+          for artifact_path in artifacts/linux artifacts/package build/linux/Testing/Temporary build/linux/tests/components/file-search-evidence; do
             if [[ -d "$artifact_path" ]]; then sudo chmod -R a+rX -- "$artifact_path"; fi
           done
       - uses: actions/upload-artifact@v4
@@ -68,6 +68,7 @@ jobs:
             artifacts/package/catalog-evidence
             artifacts/package/hero-carousel-installed.*
             build/linux/Testing/Temporary/LastTest.log
+            build/linux/tests/components/file-search-evidence
   button-mirror-comparison:
     needs: build-runtime-package
     runs-on: ubuntu-24.04

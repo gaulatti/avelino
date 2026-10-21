@@ -35,7 +35,7 @@ Before Linux implementation, establish these observable criteria:
   source input/callback timing, accessibility hierarchy, physical input/display,
   readers and independent-machine replay as distinct acceptance gates.
 
-Desktop candidate coverage remains 75/80; FileInput is pending. The native
+Desktop candidate coverage remains 78/80; FileInput is pending. The native
 helpers, Apple source archives and build products remain outside Avelino.
 The current Linux implementation checkpoint and its unresolved presentation,
 visual and accessibility gates are documented in [file-input-linux.md](file-input-linux.md).
@@ -281,3 +281,14 @@ baseline, so the cause and search owner delivery remain unverified. The sibling
 control has null queried Spotlight metadata and does not prove scope exclusion.
 Run `python3 scripts/verify-file-input-search.py` to audit the retained fixture
 bytes, projection and isolated Linux provider experiment. FileInput stays pending.
+
+
+A later Content Contains trial creates an `Everything: avelinoulnacerulean`
+token, retaining both the controlled filename-only and content-only results in
+current-folder scope. It is not a body-only search. Escape clears the field and
+returns to browsing; Forward becomes available and restores the token/scope,
+but its observed recursive membership includes unrelated entries. Completion
+and full history equivalence are unverified. The fresh helper reuses the same
+pinned library object; an initial missing-resource-bundle startup failure is
+retained separately from the corrected helper. See the
+[search candidate](file-input-search.md) for the Linux counterpart and open gates.

@@ -2,7 +2,7 @@
 
 FileInput remains pending in the parity inventory. The filesystem model, owned
 column chooser, trigger, catalog and independent consumer form an implementation
-checkpoint. Candidate coverage stays at 75/80 because the complete native chooser
+checkpoint. Candidate coverage stays at 78/80 because the complete native chooser
 presentation is still missing. The pinned
 native observations are documented in
 [file-input.md](file-input.md).
@@ -342,9 +342,9 @@ raw ChildrenChanged signature warnings and failed attempts remain diagnostic
 evidence. Physical input/display, native reader hierarchy and speech-engine audio
 acceptance remain pending.
 
-The complete native panel also has a sidebar, search, selection preview and
-group/sort controls. These remain missing from the Linux
-implementation. Its path field and columns must not be reported as the
+The complete native panel also has a sidebar, selection preview and remaining
+group/sort controls. These remain missing from the Linux implementation;
+the indexed-search candidate is described below. Its path field and columns must not be reported as the
 complete native presentation. Location-menu artwork, the separate Go to Folder
 sheet and its path-selected file rules also remain pending. Direct two-axis sizing, type conformance, source input and
 callback timing, strict raster, physical display/input and independent-machine
@@ -475,4 +475,14 @@ async cancellation/lifecycle, indexed/unindexed locations, both search modes and
 scopes, selection/type validation, owner delivery, source-free consumer, display
 sessions, accessibility and native equivalence remain unresolved implementation
 work. A directory filename filter alone would omit the now-observed native
-content results. The current FileInput search UI remains missing.
+content results. The subsequent owned search candidate is described in [file-input-search.md](file-input-search.md); its validation and native acceptance remain in progress.
+
+
+The [owned indexed-search candidate](file-input-search.md) now connects the input,
+Filename/Everything tokens, scopes, live result model, selection validation and
+owner callback path. Content Contains creates Everything rather than a body-only
+filter, matching the later controlled native observation. Query/history and
+lifecycle tests, the independent consumer and package scripts cover the same
+feature path. This is still an implementation candidate: native input/token
+editing, query semantics/ranking/history readiness, complete artwork/hierarchy,
+AT-SPI/reader, installed display sessions and physical acceptance remain pending.

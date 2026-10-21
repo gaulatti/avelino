@@ -4,6 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV LANG=C.UTF-8
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential cmake ninja-build python3 python3-venv ca-certificates git libicu-dev fontconfig fonts-noto-cjk \
+    pkg-config libtracker-sparql-3.0-dev tracker-miner-fs tracker-extract tracker python3-gi gir1.2-tracker-3.0 \
     libgl1 libegl1 libopengl0 libgl-dev libegl-dev libopengl-dev libvulkan-dev libdbus-1-3 libfontconfig1 libxkbcommon0 libxkbcommon-dev \
     libxcb-cursor0 libxcb-icccm4 libxcb-keysyms1 libxcb-shape0 libxcb-xinerama0 \
     libxcb-randr0 libxcb-render-util0 libxcb-xkb1 libxkbcommon-x11-0 \
