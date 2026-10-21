@@ -5,6 +5,13 @@ complete chooser presentation, native hierarchy/reader behavior and physical
 verification remain open. The candidate uses the pinned desktop observations;
 it does not change their images, tolerances, references or approval gates.
 
+The latest [atomic-token investigation](file-input-search-atomic.md) records
+independent token objects and compound expressions. The current production
+editor and Tracker request still hold one scalar query/mode and cannot represent
+those states. The isolated document prototypes establish a mechanism; production
+integration and all acceptance remain pending. The earlier candidate behavior
+and execution receipts below retain their original scope.
+
 The owned Search field opens results from the existing session index. Raw text
 matches filenames and indexed contents. Down/Return selects Name Contains and
 creates a Filename token. The Content Contains suggestion instead creates an

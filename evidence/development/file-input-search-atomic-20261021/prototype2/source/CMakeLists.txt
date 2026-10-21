@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.21)
+project(AtomicTokenDocumentPrototype LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_AUTOMOC ON)
+find_package(Qt6 6.8.3 EXACT REQUIRED COMPONENTS Core Gui Quick Qml QuickTemplates2 Test)
+add_executable(AtomicTokenDocument main.cpp)
+target_link_libraries(AtomicTokenDocument PRIVATE Qt6::Core Qt6::Gui Qt6::Quick Qt6::Qml Qt6::QuickPrivate Qt6::QuickTemplates2Private Qt6::Test)
