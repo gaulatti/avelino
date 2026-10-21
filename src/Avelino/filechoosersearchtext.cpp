@@ -22,7 +22,8 @@ FileChooserSearchText::State FileChooserSearchText::editState()const{
     return {cursor,text(),m_mode};
 }
 void FileChooserSearchText::remember(){m_modes[editState().cursor]=m_mode;}
-void FileChooserSearchText::setTokenMode(const QString &mode){
+void FileChooserSearchText::setTokenMode(const QString &mode){applyTokenMode(mode,false);}
+void FileChooserSearchText::applyTokenMode(const QString &mode,bool restoring){
     if(mode==m_mode)return;
     if(mode!="general"&&mode!="filename"&&mode!="everything"){
         if(auto engine=qjsEngine(this))engine->throwError(QStringLiteral("Search token mode must be general, filename or everything"));
@@ -30,12 +31,25 @@ void FileChooserSearchText::setTokenMode(const QString &mode){
         return;
     }
     m_mode=mode;
+    bool undoChanged=false,redoChanged=false;
     if(!m_editDepth){
-        // Qt6.8.3's private separate() is exactly this flag. Leave command
-        // creation and grouping within each literal edit to Qt itself.
-        if(mode!="general")QQuickTextInputPrivate::get(this)->m_separator=true;
+        if(mode!="general"&&!restoring){
+            // A committed native token is the Undo baseline. Qt still owns
+            // every subsequent text command, selection and composition edit.
+            const auto control=QQuickTextInputPrivate::get(this);
+            undoChanged=control->canUndo;redoChanged=control->canRedo;
+            control->clearUndo();control->canUndo=false;control->canRedo=false;
+            m_modes.clear();
+        }
         remember();
     }
+    // Qt6.8.3 caches these properties. Its notifier helper is private; update
+    // the same cache and guard each notification against synchronous teardown.
+    QPointer<FileChooserSearchText> guard(this);
+    if(undoChanged)emit canUndoChanged();
+    if(!guard)return;
+    if(redoChanged)emit canRedoChanged();
+    if(!guard)return;
     emit tokenModeChanged();
 }
 void FileChooserSearchText::observeTextChange(){
@@ -47,7 +61,7 @@ void FileChooserSearchText::observeTextChange(){
         m_modes.clear();remember();return;
     }
     const auto found=m_modes.constFind(current.cursor);
-    if(found!=m_modes.cend())setTokenMode(*found);
+    if(found!=m_modes.cend())applyTokenMode(*found,true);
     else remember();
 }
 void FileChooserSearchText::finishEdit(const State &before,bool wholeReplacement,bool replay){
@@ -60,7 +74,7 @@ void FileChooserSearchText::finishEdit(const State &before,bool wholeReplacement
     QPointer<FileChooserSearchText> guard(this);
     if(replay){
         const auto found=m_modes.constFind(current.cursor);
-        if(found!=m_modes.cend())setTokenMode(*found);
+        if(found!=m_modes.cend())applyTokenMode(*found,true);
     }else if(wholeReplacement&&edited)setTokenMode("general");
     if(guard)remember();
 }

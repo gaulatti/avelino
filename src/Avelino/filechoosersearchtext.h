@@ -2,8 +2,8 @@
 #include "filechooserpathinput.h"
 #include <QMap>
 
-// Qt owns text, composition, selection and undo commands. Token creation marks
-// a Qt edit boundary; token metadata follows the resulting native undo cursor.
+// Qt owns text, composition, selection and undo commands. Token commits start
+// an undo baseline; later edits preserve token metadata at Qt undo positions.
 class FileChooserSearchText : public FileChooserPathInput {
     Q_OBJECT
     QML_ELEMENT
@@ -19,6 +19,7 @@ protected:
     void inputMethodEvent(QInputMethodEvent *event)override;
 private:
     struct State {int cursor;QString text,mode;};
+    void applyTokenMode(const QString &mode,bool restoring);
     State editState()const;
     void finishEdit(const State &before,bool wholeReplacement,bool replay);
     void observeTextChange();

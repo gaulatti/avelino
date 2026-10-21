@@ -104,18 +104,22 @@ result belongs to the historical source 24 checkpoint.
 The search-specific editable adapter also keeps token metadata with Qt's undo
 positions. Replacing a complete token by keyboard or the editable-text interface
 returns to raw input; Undo and Redo restore the associated token presentation.
-Token creation marks a Qt edit boundary, while Qt retains its normal grouping
-inside each literal edit. The adapter reads the native undo cursor and separator
-flag in the [pinned Qt 6.8.3 implementation](https://github.com/qt/qtdeclarative/blob/v6.8.3/src/quick/items/qquicktextinput.cpp);
-an exact-version compile guard requires revalidation before upgrading. It does
-not rewrite Qt's command history. Read-only replacement is rejected, identical
+Committing a Filename or Everything token starts a new Undo baseline: earlier
+literal edits become unavailable, and Undo leaves the committed token unchanged.
+Qt retains its normal grouping for subsequent edits. The adapter uses the undo
+cursor, history reset and cached availability properties in the
+[pinned Qt 6.8.3 implementation](https://github.com/qt/qtdeclarative/blob/v6.8.3/src/quick/items/qquicktextinput.cpp);
+an exact-version compile guard requires revalidation before upgrading. Qt owns
+text command creation and grouping. Restoring token metadata during Undo/Redo
+preserves the remaining history. Availability and mode notifications allow the
+control to be synchronously destroyed by their observers. Read-only replacement is rejected, identical
 literal replacement still removes the token, and changing the query externally
 clears the text undo history through Qt. The shared Go To editor is unchanged.
 
 The [token-editing checkpoint](../evidence/development/file-input-search-token-editing-20261021/README.md)
 retains the failing regressions and source repairs. Source 34 passes all nine
 focused groups, and its 158 installed files are byte-identical to source 36.
-The current installed consumer passes three flows, including replacement,
+Its installed consumer passes three flows, including replacement,
 Undo and Redo. A separate runtime with both development projects absent passes
 all eight display profiles with ten search phases each. Two actual AT-SPI/Orca
 runs pass 17 phases each on the identical module, and all 256 closed FileInput
@@ -125,7 +129,24 @@ result or close any native, physical or independent-machine gate. The final
 source 37 build renames the private edit helper to preserve Qt's inherited
 `state` getter and repeats the focused groups, consumer, reader, portable and
 closed comparisons on that new binary. `current-candidate.json` identifies
-these current executions; the source 34/36 records remain historical evidence.
+that checkpoint's source 37 executions; the source 34/36 records remain historical evidence.
+
+The [token-baseline checkpoint](../evidence/development/file-input-search-token-baseline-20261021/README.md)
+preserves source 38's two new regression failures. Applied source 40 passes all
+nine focused Qt groups and the independent consumer. Its 4,116 selected inputs
+and all 158 installed files exactly match isolated source 39. That explicit
+identity binds source 39's eight portable display profiles, two 17-phase
+AT-SPI/Orca runs, 256 exact closed capture/state pairs and three synchronous
+control-lifetime cases. Those remain source 39 executions. The full 58-group
+suite remains historical source 24 evidence.
+
+The [native baseline control](../evidence/reference-investigations/file-input-search-token-baseline-20261021/README.md)
+shows Undo disabled on the selected committed Everything token while Cut, Copy
+and Delete are enabled. Backspace clears it and enables Undo; menu Undo restores
+the token with Undo disabled and Redo enabled; menu Redo clears it again. The
+original caller was still running and was not relaunched. It was then normally
+cancelled and quit, with process absence verified. Result membership after Undo
+initially remains stale, so general query readiness and native parity stay open.
 
 The [fresh native history investigation](../evidence/reference-investigations/file-input-search-history-20261021/README.md)
 observes whole-token replacement returning to a raw field and a later Undo

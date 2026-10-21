@@ -175,6 +175,40 @@ private slots:
         editor->setProperty("readOnly",false);editable->deleteText(0,text->characterCount());QTRY_VERIFY(!search->active());
         QVERIFY(results(view.rootObject()).isEmpty());browser->cancel();
     }
+    void committedTokensDoNotUndoEarlierLiteralEdits_data(){
+        QTest::addColumn<QString>("mode");
+        QTest::newRow("Filename")<<QStringLiteral("filename");
+        QTest::newRow("Everything")<<QStringLiteral("everything");
+    }
+    void committedTokensDoNotUndoEarlierLiteralEdits(){
+        QFETCH(QString,mode);
+        QQuickView view;QVERIFY(load(view));auto browser=open(view);QVERIFY(browser);
+        auto editor=visible("bleeckerFileChooserSearch");QVERIFY(editor);click(editor);
+        QTRY_VERIFY(editor->hasActiveFocus());type(editor->window(),token);
+        auto search=browser->search();QTRY_COMPARE(search->query(),token);
+        QVERIFY(editor->property("canUndo").toBool());
+        QTest::keyClick(editor->window(),Qt::Key_Down);QTest::keyClick(editor->window(),Qt::Key_Return);
+        QTRY_COMPARE(search->mode(),"filename");
+        if(mode=="everything"){
+            auto tokenAccessible=QAccessible::queryAccessibleInterface(visible("bleeckerFileChooserSearchToken"));
+            QVERIFY(tokenAccessible&&tokenAccessible->actionInterface());
+            tokenAccessible->actionInterface()->doAction(QAccessibleActionInterface::pressAction());
+            QTRY_VERIFY(visible("bleeckerFileChooserSearchMode_everything"));
+            auto choice=QAccessible::queryAccessibleInterface(visible("bleeckerFileChooserSearchMode_everything"));
+            QVERIFY(choice&&choice->actionInterface());choice->actionInterface()->doAction(QAccessibleActionInterface::pressAction());
+            QTRY_COMPARE(search->mode(),mode);
+            editor->window()->requestActivate();
+            QVERIFY(QTest::qWaitForWindowActive(editor->window()));
+            QTest::mouseClick(editor->window(),Qt::LeftButton,{},editor->mapToScene(QPointF(editor->width()-35,editor->height()/2)).toPoint());
+            QTRY_VERIFY(editor->hasActiveFocus());
+        }
+        QCOMPARE(search->query(),token);
+        QVERIFY2(!editor->property("canUndo").toBool(),"Committing a native search token makes earlier literal edits unavailable to Undo");
+        QVERIFY(!editor->property("canRedo").toBool());
+        QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
+        QCOMPARE(search->query(),token);QCOMPARE(search->mode(),mode);
+        browser->cancel();
+    }
     void wholeTokenReplacementAndUndo(){
         QQuickView view;QVERIFY(load(view));auto browser=open(view);QVERIFY(browser);
         auto editor=visible("bleeckerFileChooserSearch");QVERIFY(editor);click(editor);

@@ -84307,6 +84307,20 @@
               "docs/file-input-search.md"
             ],
             "notes": "Whole-token replacement returns to raw presentation and Qt Undo/Redo restores token metadata. Native Cmd+A replacement removes the token, while a later menu Undo restores it; no atomic-step count or completed query membership is inferred. The installed consumer exercises replacement, Undo and Redo through real input. Native token editing, paste/commit, full AX identity, reader, timing, physical and raster acceptance remain pending."
+          },
+          {
+            "id": "BleeckerFileInput-search-token-commit-undo-baseline",
+            "status": "pending",
+            "referenceCapture": null,
+            "candidateCapture": null,
+            "evidence": [
+              "evidence/reference-investigations/file-input-search-token-baseline-20261021/observations.json",
+              "evidence/development/file-input-search-token-baseline-20261021/validation.json",
+              "src/Avelino/filechoosersearchtext.cpp",
+              "tests/components/filesearch.cpp",
+              "docs/file-input-search.md"
+            ],
+            "notes": "Native selected-token menu has Undo/Redo disabled while Cut/Copy/Delete are enabled. Deletion enables Undo, Undo restores Everything with only Redo enabled, and Redo clears it. The Qt6.8.3 candidate establishes a token-commit baseline and preserves later token metadata without clearing replay history; guarded notifications permit synchronous control destruction. Applied40 passes nine focused groups and current consumer; all4116 selected inputs and158 installed files match39, binding its eight portable profiles, two17-phase readers,256 exact closed pairs and three lifetime cases. Native membership/readiness, hierarchy, raster, reader, physical and independent-machine acceptance remain pending."
           }
         ],
         "tests": [
@@ -84349,7 +84363,9 @@
           "scripts/verify-file-input-search-history.py",
           "tests/contracts/test_file_search_history_evidence.py",
           "scripts/verify-file-input-search-token-editing.py",
-          "tests/contracts/test_file_search_token_editing_evidence.py"
+          "tests/contracts/test_file_search_token_editing_evidence.py",
+          "scripts/verify-file-input-search-token-baseline.py",
+          "tests/contracts/test_file_search_token_baseline_evidence.py"
         ],
         "captures": [
           "evidence/reference-investigations/file-input-20261017/output/captures.json",
