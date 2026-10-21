@@ -98,13 +98,15 @@ standard = configuration == 'standard'
 assert record['dpr'] == (1 if standard else 2) and record['textScale'] == (1 if standard else 1.5)
 assert record['appearance'] == ('light' if standard else 'dark')
 phases = record['phases']
-assert [p['phase'] for p in phases] == ['global','folder','filename','selected','owner-result','cancelled-query','session-selected']
+assert [p['phase'] for p in phases] == ['global','folder','filename','token-replacement','token-undo','token-redo','selected','owner-result','cancelled-query','session-selected']
 assert all(not p['busy'] and not p['error'] for p in phases)
 assert 'pine-only.txt' in phases[0]['names'] and 'pine-peer.txt' in phases[0]['names']
 assert 'pine-peer.txt' not in phases[1]['names'] and 'avelinoulnacerulean-child.txt' in phases[1]['names']
 assert phases[2]['mode'] == 'filename' and 'pine-only.txt' not in phases[2]['names']
-assert phases[3]['mode'] == phases[6]['mode'] == 'everything' and 'pine-only.txt' in phases[6]['names']
-assert phases[6]['folderOnly'] is True
+assert phases[3]['query'] == phases[5]['query'] == 'avelinoulnacerulean-name' and phases[3]['mode'] == phases[5]['mode'] == 'general'
+assert phases[4]['query'] == 'avelinoulnacerulean' and phases[4]['mode'] == 'filename'
+assert phases[6]['mode'] == phases[9]['mode'] == 'everything' and 'pine-only.txt' in phases[9]['names']
+assert phases[9]['folderOnly'] is True
 for key in ['nativeRasterAccepted','readerAcceptance','physicalInput']:
     assert record[key] is False
 final_image = Path(prefix + '.png')

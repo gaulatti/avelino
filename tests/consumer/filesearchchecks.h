@@ -111,7 +111,35 @@ static void runFileInputSearchConsumer(QQuickWindow *window,QGuiApplication &app
     if(!wait([&]{return !search()->property("busy").toBool()&&row(token+"-outside.txt")<0&&row("pine-peer.txt")<0&&row(token+"-child.txt")>=0;},"Recursive folder scope did not exclude the peer"))return;
     observe("folder");if(!click(editor))return;QTest::keyClick(editor->window(),Qt::Key_Down);QTest::keyClick(editor->window(),Qt::Key_Return);
     if(!wait([&]{return search()->property("mode")=="filename"&&!search()->property("busy").toBool()&&row("pine-only.txt")<0&&row(token+"-name.txt")>=0;},"Filename suggestion did not change the actual results"))return;
-    observe("filename");if(!save(editor,"filename")||!click(visible("bleeckerFileChooserSearchToken"))
+    observe("filename");if(!save(editor,"filename"))return;
+    const qreal editLeft=editor->property("leftPadding").toReal(),editRight=editor->width()-editor->property("rightPadding").toReal();
+    QTest::mouseClick(editor->window(),Qt::LeftButton,{},editor->mapToScene(QPointF((editLeft+editRight)/2,editor->height()/2)).toPoint());
+    if(!wait([&]{return editor->hasActiveFocus()&&editor->window()->isActive();},"Token query did not gain keyboard focus")){
+        observe("token-replacement-focus-failure");save(editor,"token-replacement-focus-failure");report();return;
+    }
+    QTest::keyClick(editor->window(),Qt::Key_A,Qt::ControlModifier);
+    if(!check(editor->property("selectedText").toString()==token,"Select All did not select the complete token query")){
+        observe("token-replacement-selection-failure");save(editor,"token-replacement-selection-failure");report();return;
+    }
+    const auto replacement=token+"-name";
+    for(auto character:replacement.toLatin1())QTest::keyClick(editor->window(),character);
+    if(!wait([&]{return search()->property("query")==replacement&&search()->property("mode")=="general"&&!search()->property("busy").toBool()
+        &&!visible("bleeckerFileChooserSearchToken")&&visible("bleeckerFileChooserSearchSuggestion_0");},"Replacing the complete token did not restore raw search")){
+        qWarning()<<"Token replacement field"<<editor->metaObject()->className()<<editor->property("tokenMode")<<editor->hasActiveFocus()<<editor->window()->isActive();
+        observe("token-replacement-failure");save(editor,"token-replacement-failure");report();return;
+    }
+    observe("token-replacement");if(!save(editor,"token-replacement"))return;
+    for(int i=0;i<6&&search()->property("query")!=token;++i)QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
+    if(!wait([&]{return search()->property("query")==token&&search()->property("mode")=="filename"&&!search()->property("busy").toBool();},"Undo did not restore the original Filename token"))return;
+    observe("token-undo");if(!save(editor,"token-undo"))return;
+    for(int i=0;i<6&&search()->property("query")!=replacement;++i)QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier|Qt::ShiftModifier);
+    if(!wait([&]{return search()->property("query")==replacement&&search()->property("mode")=="general"&&!search()->property("busy").toBool();},"Redo did not restore the raw replacement"))return;
+    observe("token-redo");if(!save(editor,"token-redo"))return;
+    QTest::keyClick(editor->window(),Qt::Key_A,Qt::ControlModifier);
+    for(auto character:token.toLatin1())QTest::keyClick(editor->window(),character);
+    QTest::keyClick(editor->window(),Qt::Key_Down);QTest::keyClick(editor->window(),Qt::Key_Return);
+    if(!wait([&]{return search()->property("mode")=="filename"&&!search()->property("busy").toBool()&&row("pine-only.txt")<0;},"Filename search did not settle after token editing"))return;
+    if(!click(visible("bleeckerFileChooserSearchToken"))
         ||!wait([&]{return visible("bleeckerFileChooserSearchMode_everything");},"Search token menu is missing")
         ||!save(editor,"token-menu")||!click(visible("bleeckerFileChooserSearchMode_everything")))return;
     if(!wait([&]{return search()->property("mode")=="everything"&&!search()->property("busy").toBool()&&row("pine-only.txt")>=0&&row(token+"-name.txt")>=0;},"Everything token did not restore content and filename matches"))return;

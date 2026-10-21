@@ -10,10 +10,12 @@ FocusScope {
     property int suggestion:-1
     property real suggestionOffset:28
     implicitWidth:198;implicitHeight:24
-    FileChooserPathInput {
+    FileChooserSearchText {
         id:editor;objectName:"bleeckerFileChooserSearch"
         anchors.fill:parent;focus:true;activeFocusOnTab:true
         text:host.browser.search.query
+        tokenMode:host.browser.search.mode
+        onTokenModeChanged:if(host.browser.search.mode!==tokenMode)host.browser.search.mode=tokenMode
         leftPadding:host.browser.search.mode==="general" ? 26:94;rightPadding:25
         verticalAlignment:Text.AlignVCenter;selectByMouse:true
         font.family:Qt.application.font.family;font.pixelSize:13

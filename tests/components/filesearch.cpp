@@ -175,6 +175,49 @@ private slots:
         editor->setProperty("readOnly",false);editable->deleteText(0,text->characterCount());QTRY_VERIFY(!search->active());
         QVERIFY(results(view.rootObject()).isEmpty());browser->cancel();
     }
+    void wholeTokenReplacementAndUndo(){
+        QQuickView view;QVERIFY(load(view));auto browser=open(view);QVERIFY(browser);
+        auto editor=visible("bleeckerFileChooserSearch");QVERIFY(editor);click(editor);
+        const auto previous=token+"-name";type(editor->window(),previous);
+        QTest::keyClick(editor->window(),Qt::Key_Down);QTest::keyClick(editor->window(),Qt::Key_Return);
+        auto search=browser->search();QTRY_COMPARE(search->mode(),"filename");
+        QTest::keyClick(editor->window(),Qt::Key_A,Qt::ControlModifier);type(editor->window(),token);
+        QTRY_COMPARE(search->query(),token);QTRY_COMPARE(search->mode(),"general");
+        QVERIFY(!visible("bleeckerFileChooserSearchToken"));QVERIFY(visible("bleeckerFileChooserSearchSuggestion_0"));
+        QVERIFY(visible("bleeckerFileChooserSearchSuggestion_1"));
+        // Qt owns grouping; a replacement can have separate insertion/removal
+        // undo steps. The recovered token must retain its original mode.
+        for(int i=0;i<6&&search->query()!=previous;++i)QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
+        QTRY_COMPARE(search->query(),previous);QCOMPARE(search->mode(),"filename");
+        for(int i=0;i<6&&search->query()!=token;++i)QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier|Qt::ShiftModifier);
+        QTRY_COMPARE(search->query(),token);QCOMPARE(search->mode(),"general");
+        browser->cancel();
+    }
+    void assistiveTokenReplacementUndoAndReadOnly(){
+        QQuickView view;QVERIFY(load(view));auto browser=open(view);QVERIFY(browser);
+        auto editor=visible("bleeckerFileChooserSearch");QVERIFY(editor);click(editor);
+        const auto previous=token+"-name";type(editor->window(),previous);
+        auto search=browser->search();search->setMode("everything");QTRY_COMPARE(editor->property("tokenMode").toString(),"everything");
+        auto accessible=QAccessible::queryAccessibleInterface(editor);QVERIFY(accessible&&accessible->editableTextInterface()&&accessible->textInterface());
+        auto editable=accessible->editableTextInterface();auto text=accessible->textInterface();
+        editor->setProperty("readOnly",true);editable->replaceText(0,text->characterCount(),token);
+        QCOMPARE(search->query(),previous);QCOMPARE(search->mode(),"everything");
+        editor->setProperty("readOnly",false);editable->replaceText(0,text->characterCount(),token);
+        QTRY_COMPARE(search->query(),token);QCOMPARE(search->mode(),"general");
+        for(int i=0;i<6&&search->query()!=previous;++i)QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
+        QTRY_COMPARE(search->query(),previous);QCOMPARE(search->mode(),"everything");
+        editable->replaceText(0,text->characterCount(),previous);
+        QCOMPARE(search->query(),previous);QCOMPARE(search->mode(),"general");
+        for(int i=0;i<6&&search->mode()!="everything";++i)QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
+        QCOMPARE(search->query(),previous);QCOMPARE(search->mode(),"everything");
+        QTest::keyClick(editor->window(),Qt::Key_A,Qt::ControlModifier);QTest::keyClick(editor->window(),Qt::Key_Left);
+        QCOMPARE(search->mode(),"everything");
+        QTest::keyClick(editor->window(),Qt::Key_A,Qt::ControlModifier);type(editor->window(),token+"-branch");
+        QTRY_COMPARE(search->mode(),"general");QVERIFY(!editor->property("canRedo").toBool());
+        search->setMode("filename");search->setQuery("external-query");QTRY_COMPARE(editor->property("text").toString(),"external-query");
+        QVERIFY(!editor->property("canUndo").toBool());QCOMPARE(search->mode(),"filename");
+        browser->cancel();
+    }
     void selectionCanSynchronouslyRemoveItsOwner(){
         for(const auto &operation:QStringList{"selection","press","activate"}){
             QQuickView view;QVERIFY(load(view));QPointer<FileChooserBrowser> browser=open(view);QVERIFY(browser);

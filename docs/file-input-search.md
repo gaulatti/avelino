@@ -101,11 +101,52 @@ Source 26's earlier two-scale failure and the passing direct-provider diagnostic
 are retained; the precise provider timing cause is unproven. The full 58-group
 result belongs to the historical source 24 checkpoint.
 
+The search-specific editable adapter also keeps token metadata with Qt's undo
+positions. Replacing a complete token by keyboard or the editable-text interface
+returns to raw input; Undo and Redo restore the associated token presentation.
+Token creation marks a Qt edit boundary, while Qt retains its normal grouping
+inside each literal edit. The adapter reads the native undo cursor and separator
+flag in the [pinned Qt 6.8.3 implementation](https://github.com/qt/qtdeclarative/blob/v6.8.3/src/quick/items/qquicktextinput.cpp);
+an exact-version compile guard requires revalidation before upgrading. It does
+not rewrite Qt's command history. Read-only replacement is rejected, identical
+literal replacement still removes the token, and changing the query externally
+clears the text undo history through Qt. The shared Go To editor is unchanged.
+
+The [token-editing checkpoint](../evidence/development/file-input-search-token-editing-20261021/README.md)
+retains the failing regressions and source repairs. Source 34 passes all nine
+focused groups, and its 158 installed files are byte-identical to source 36.
+The current installed consumer passes three flows, including replacement,
+Undo and Redo. A separate runtime with both development projects absent passes
+all eight display profiles with ten search phases each. Two actual AT-SPI/Orca
+runs pass 17 phases each on the identical module, and all 256 closed FileInput
+PNG/frame/state pairs are exact in eight source-free contexts. These results
+remain candidate evidence; they do not replace the historical full 58-group
+result or close any native, physical or independent-machine gate. The final
+source 37 build renames the private edit helper to preserve Qt's inherited
+`state` getter and repeats the focused groups, consumer, reader, portable and
+closed comparisons on that new binary. `current-candidate.json` identifies
+these current executions; the source 34/36 records remain historical evidence.
+
+The [fresh native history investigation](../evidence/reference-investigations/file-input-search-history-20261021/README.md)
+observes whole-token replacement returning to a raw field and a later Undo
+restoring the old Filename token. It does not establish a single atomic Undo
+step: the first key Undo leaves the field unchanged, then the enabled menu Undo
+restores the token. Suggestions and result membership initially remain stale.
+Changing folder scope refilters the restored token. The candidate's reversible
+presentation is scoped behavior; complete native edit/commit, predicate, reader
+and raster equivalence remain pending.
+
 Escape from a nonempty field clears search to the preceding browse location.
 Back/Forward retain the query/token and scope while clearing selection; a new
 query after Back replaces the forward branch. The native Forward diagnostic
 restored its token but exposed inconsistent membership, so complete native
-history, readiness, focus and timing equivalence remain unverified.
+history, readiness, focus and timing equivalence remain unverified. The fresh
+native run repeats the discrepancy in both complete serialized text and the
+displayed chooser: Forward restores Filename/folder scope but shows eight
+recursive files instead of the preceding single name match. Back clears selection
+and returns to browsing; a different query after Back resets scope to This Mac
+and replaces the Forward branch in that controlled case. The unexplained result
+membership does not define a new Linux query rule.
 
 Building requires Ubuntu 24.04's `libtracker-sparql-3.0-dev` 3.7.1 and pkg-config.
 Runtime search uses `org.freedesktop.Tracker3.Miner.Files` on the session bus,
