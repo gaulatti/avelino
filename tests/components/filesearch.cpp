@@ -369,6 +369,176 @@ private slots:
         QVERIFY(glyph->isVisible());QCOMPARE(viewport->position(),viewportPosition);
         browser->cancel();QVERIFY(results(view.rootObject()).isEmpty());
     }
+    void queryPointerSelectionAndExpansion_data(){
+        QTest::addColumn<bool>("dark");QTest::newRow("light")<<false;QTest::newRow("dark")<<true;
+    }
+    void queryPointerSelectionAndExpansion(){
+        QFETCH(bool,dark);QQuickView view;QVERIFY(load(view));
+        auto theme=view.engine()->singletonInstance<QObject*>("Avelino","BleeckerTheme");QVERIFY(theme);
+        const auto previous=theme->property("dark");const auto restore=qScopeGuard([theme,previous]{theme->setProperty("dark",previous);});
+        theme->setProperty("dark",dark);auto browser=open(view);QVERIFY(browser);
+        auto editor=visible("bleeckerFileChooserSearch");QVERIFY(editor);
+        browser->search()->setExpression(committed("filename","pine"));
+        auto chip=visible("bleeckerFileChooserSearchToken");QVERIFY(chip);
+        auto caption=chip->property("contentItem").value<QQuickItem*>();QVERIFY(caption);
+        const auto queryLeft=caption->property("leftPadding").toDouble();
+        QVERIFY(queryLeft>0&&queryLeft<chip->width());
+        const auto queryPoint=chip->mapToScene(QPointF((queryLeft+chip->width()-4)/2,chip->height()/2)).toPoint();
+        QTest::mouseClick(editor->window(),Qt::LeftButton,{},queryPoint);
+        capture(editor,dark?"token-query-click-dark":"token-query-click-light");
+        QCOMPARE(editor->property("selectedText").toString(),QString(QChar::ObjectReplacementCharacter));
+        QVERIFY(!visible("bleeckerFileChooserSearchMode_filename"));
+        const auto modePoint=chip->mapToScene(QPointF(queryLeft/2,chip->height()/2)).toPoint();
+        QTest::mouseClick(editor->window(),Qt::LeftButton,{},modePoint);
+        auto mode=visible("bleeckerFileChooserSearchMode_filename");QVERIFY(mode);click(mode);
+        QTest::mouseDClick(editor->window(),Qt::LeftButton,{},queryPoint);
+        QCOMPARE(editor->property("text").toString(),QString("pine"));
+        QCOMPARE(editor->property("selectedText").toString(),QString("pine"));
+        QCOMPARE(browser->search()->expression(),raw("pine"));
+        QVERIFY(!visible("bleeckerFileChooserSearchToken"));
+        capture(editor,dark?"token-query-expanded-dark":"token-query-expanded-light");
+        QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
+        QCOMPARE(browser->search()->expression(),committed("filename","pine"));
+        QCOMPARE(editor->property("selectedText").toString(),QString(QChar::ObjectReplacementCharacter));
+        QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier|Qt::ShiftModifier);
+        QCOMPARE(editor->property("text").toString(),QString("pine"));
+        QCOMPARE(editor->property("selectedText").toString(),QString());
+        QCOMPARE(editor->property("cursorPosition").toInt(),4);
+        browser->cancel();QVERIFY(results(view.rootObject()).isEmpty());
+    }
+    void tokenExpansionPreservesNativeBoundariesAndUndo_data(){
+        QTest::addColumn<QVariantList>("original");QTest::addColumn<int>("position");
+        QTest::addColumn<QVariantList>("expanded");QTest::addColumn<QString>("expandedText");
+        QTest::addColumn<int>("selectedStart");QTest::addColumn<int>("redoCursor");
+        const QVariantMap filename{{"kind","token"},{"mode","filename"},{"query","pine"}};
+        const QVariantMap everything{{"kind","token"},{"mode","everything"},{"query","pine"}};
+        const auto text=[](const QString &value){return QVariantMap{{"kind","text"},{"text",value}};};
+        const QString object(QChar::ObjectReplacementCharacter);
+        QTest::newRow("filename")<<QVariantList{filename}<<0<<raw("pine")<<QString("pine")<<0<<4;
+        QTest::newRow("everything")<<QVariantList{everything}<<0<<raw("pine")<<QString("pine")<<0<<4;
+        QTest::newRow("token-before")<<QVariantList{filename,everything}<<1<<QVariantList{filename,text("pine")}<<(object+"pine")<<1<<-1;
+        QTest::newRow("token-after")<<QVariantList{filename,everything}<<0<<QVariantList{text("pine"),everything}<<(QString("pine")+object)<<0<<4;
+        QTest::newRow("raw-before")<<QVariantList{text("pine"),everything}<<4<<raw("pine pine")<<QString("pine pine")<<5<<-1;
+        QTest::newRow("raw-after")<<QVariantList{filename,text("cedar")}<<0<<raw("pine cedar")<<QString("pine cedar")<<0<<5;
+        QTest::newRow("space-before")<<QVariantList{text("oak "),filename}<<4<<raw("oak  pine")<<QString("oak  pine")<<5<<-1;
+        QTest::newRow("spaces-both")<<QVariantList{text("oak "),filename,text(" cedar")}<<4<<raw("oak  pine  cedar")<<QString("oak  pine  cedar")<<5<<-1;
+    }
+    void tokenExpansionPreservesNativeBoundariesAndUndo(){
+        QFETCH(QVariantList,original);QFETCH(int,position);QFETCH(QVariantList,expanded);
+        QFETCH(QString,expandedText);QFETCH(int,selectedStart);QFETCH(int,redoCursor);
+        QQuickView view;QVERIFY(load(view));auto browser=open(view);QVERIFY(browser);
+        auto editor=visible("bleeckerFileChooserSearch");QVERIFY(editor);
+        browser->search()->setExpression(original);
+        QTRY_COMPARE(editor->property("expression").toList(),original);
+        const QByteArray caseName(QTest::currentDataTag());QPointer<QQuickItem> neighbor;
+        QAccessibleInterface *neighborAccessible=nullptr;
+        if(caseName=="token-before"||caseName=="token-after"){
+            neighbor=visible(caseName=="token-before"?"bleeckerFileChooserSearchToken":"bleeckerFileChooserSearchToken_1");
+            QVERIFY(neighbor);neighborAccessible=QAccessible::queryAccessibleInterface(neighbor);QVERIFY(neighborAccessible);
+        }
+        QVERIFY(!editor->property("canUndo").toBool());
+        QSignalSpy changed(editor,SIGNAL(expressionChanged()));
+        QVERIFY(QMetaObject::invokeMethod(editor,"editTokenAt",Q_ARG(int,position)));
+        QCOMPARE(editor->property("text").toString(),expandedText);
+        QCOMPARE(browser->search()->expression(),expanded);
+        QCOMPARE(editor->property("selectedText").toString(),QString("pine"));
+        QCOMPARE(editor->property("selectionStart").toInt(),selectedStart);
+        QCOMPARE(editor->property("selectionEnd").toInt(),selectedStart+4);
+        QCOMPARE(changed.size(),1);QVERIFY(editor->property("canUndo").toBool());
+        if(neighborAccessible){QVERIFY(neighbor);QCOMPARE(QAccessible::queryAccessibleInterface(neighbor),neighborAccessible);}
+        capture(editor,"token-expanded-"+QString::fromLatin1(QTest::currentDataTag()));
+        QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
+        QCOMPARE(browser->search()->expression(),original);
+        QCOMPARE(editor->property("selectedText").toString(),QString(QChar::ObjectReplacementCharacter));
+        QCOMPARE(editor->property("selectionStart").toInt(),position);
+        QVERIFY(!editor->property("canUndo").toBool());
+        if(neighborAccessible){QVERIFY(neighbor);QCOMPARE(QAccessible::queryAccessibleInterface(neighbor),neighborAccessible);}
+        QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier|Qt::ShiftModifier);
+        QCOMPARE(browser->search()->expression(),expanded);
+        QCOMPARE(editor->property("selectedText").toString(),QString());
+        if(redoCursor>=0)QCOMPARE(editor->property("cursorPosition").toInt(),redoCursor);
+        if(neighborAccessible){QVERIFY(neighbor);QCOMPARE(QAccessible::queryAccessibleInterface(neighbor),neighborAccessible);}
+        if(caseName=="raw-after"){
+            type(editor->window(),"X");
+            QCOMPARE(editor->property("text").toString(),QString("pine Xcedar"));
+        }
+        browser->cancel();QVERIFY(results(view.rootObject()).isEmpty());
+    }
+    void tokenExpansionReadOnlyDisabledAndExternalReset(){
+        QQuickView view;QVERIFY(load(view));auto browser=open(view);QVERIFY(browser);
+        auto editor=visible("bleeckerFileChooserSearch");QVERIFY(editor);
+        const auto original=committed("everything","pine");browser->search()->setExpression(original);
+        editor->setProperty("readOnly",true);
+        QVERIFY(QMetaObject::invokeMethod(editor,"editTokenAt",Q_ARG(int,0)));
+        QCOMPARE(browser->search()->expression(),original);QVERIFY(!editor->property("canUndo").toBool());
+        editor->setProperty("readOnly",false);editor->setEnabled(false);
+        QVERIFY(QMetaObject::invokeMethod(editor,"selectTokenAt",Q_ARG(int,0)));
+        QVERIFY(QMetaObject::invokeMethod(editor,"editTokenAt",Q_ARG(int,0)));
+        QCOMPARE(browser->search()->expression(),original);QCOMPARE(editor->property("selectedText").toString(),QString());
+        editor->setEnabled(true);QVERIFY(QMetaObject::invokeMethod(editor,"editTokenAt",Q_ARG(int,0)));
+        QCOMPARE(browser->search()->expression(),raw("pine"));
+        QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
+        QCOMPARE(browser->search()->expression(),original);
+        browser->search()->setExpression(raw("external-query"));
+        QTRY_COMPARE(editor->property("text").toString(),QString("external-query"));
+        QVERIFY(!editor->property("canUndo").toBool());QVERIFY(!editor->property("canRedo").toBool());
+        type(editor->window(),"x");QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
+        QCOMPARE(editor->property("text").toString(),QString("external-query"));
+        QCOMPARE(editor->property("selectedText").toString(),QString());browser->cancel();
+    }
+    void tokenPointerFocusCannotTargetAReplacementToken(){
+        QQmlEngine engine;engine.addImportPath(AVELINO_FILE_INPUT_IMPORT_PATH);QQmlComponent component(&engine);
+        component.setData("import QtQuick\nimport Avelino\nFileChooserSearchText {}",QUrl());
+        QScopedPointer<QObject> editor(component.create());QVERIFY2(editor,qPrintable(component.errorString()));
+        QVERIFY(editor->setProperty("expression",committed("filename","pine")));
+        auto item=qobject_cast<QQuickItem*>(editor.data());QVERIFY(item);QVERIFY(!item->hasFocus());
+        const auto replacement=committed("everything","external-query");
+        auto connection=connect(item,&QQuickItem::focusChanged,&engine,[&]{editor->setProperty("expression",replacement);});
+        QVERIFY(QMetaObject::invokeMethod(editor.data(),"selectTokenAt",Q_ARG(int,0)));
+        QCOMPARE(editor->property("expression").toList(),replacement);
+        QCOMPARE(editor->property("selectedText").toString(),QString());
+        disconnect(connection);
+    }
+    void queryMenuCloseCannotSelectAReplacementToken(){
+        QQuickView view;QVERIFY(load(view));auto browser=open(view);QVERIFY(browser);
+        auto editor=visible("bleeckerFileChooserSearch");QVERIFY(editor);
+        browser->search()->setExpression(committed("filename","pine"));
+        auto chip=visible("bleeckerFileChooserSearchToken");QVERIFY(chip);
+        auto caption=chip->property("contentItem").value<QQuickItem*>();QVERIFY(caption);
+        const auto queryLeft=caption->property("leftPadding").toDouble();
+        const auto point=chip->mapToScene(QPointF((queryLeft+chip->width()-4)/2,chip->height()/2)).toPoint();
+        auto accessible=QAccessible::queryAccessibleInterface(chip);QVERIFY(accessible&&accessible->actionInterface());
+        accessible->actionInterface()->doAction(QAccessibleActionInterface::pressAction());
+        QTRY_VERIFY(visible("bleeckerFileChooserSearchMode_filename"));
+        const auto replacement=committed("everything","external-query");bool replaced=false;
+        auto connection=connect(editor,&QQuickItem::activeFocusChanged,&view,[&]{
+            if(editor->hasActiveFocus()&&!replaced){replaced=true;browser->search()->setExpression(replacement);}
+        });
+        QTest::mouseClick(editor->window(),Qt::LeftButton,{},point);
+        QTRY_VERIFY(replaced);QCOMPARE(browser->search()->expression(),replacement);
+        QCOMPARE(editor->property("selectedText").toString(),QString());
+        QVERIFY(!visible("bleeckerFileChooserSearchMode_filename"));
+        disconnect(connection);browser->cancel();
+    }
+    void expansionNotificationsAllowSynchronousControlDestruction_data(){
+        QTest::addColumn<QByteArray>("notification");
+        QTest::newRow("text")<<QByteArray("textChanged()");
+        QTest::newRow("selection")<<QByteArray("selectedTextChanged()");
+        QTest::newRow("Undo")<<QByteArray("canUndoChanged()");
+        QTest::newRow("expression")<<QByteArray("expressionChanged()");
+    }
+    void expansionNotificationsAllowSynchronousControlDestruction(){
+        QFETCH(QByteArray,notification);QQmlEngine engine;engine.addImportPath(AVELINO_FILE_INPUT_IMPORT_PATH);
+        QQmlComponent component(&engine);component.setData("import QtQuick\nimport Avelino\nFileChooserSearchText {}",QUrl());
+        QPointer<QObject> editor=component.create();QVERIFY2(editor,qPrintable(component.errorString()));
+        QVERIFY(editor->setProperty("expression",committed("filename","pine")));
+        SearchEditorDestroyer destroyer;destroyer.target=editor;QSignalSpy destroyed(editor,&QObject::destroyed);
+        const auto signal=editor->metaObject()->method(editor->metaObject()->indexOfSignal(notification));
+        const auto slot=destroyer.metaObject()->method(destroyer.metaObject()->indexOfSlot("destroy()"));
+        QVERIFY(QObject::connect(editor,signal,&destroyer,slot,Qt::DirectConnection));
+        QVERIFY(QMetaObject::invokeMethod(editor,"editTokenAt",Q_ARG(int,0)));
+        QVERIFY(!editor);QCOMPARE(destroyed.size(),1);
+    }
     void atomicReplacementSelectionUndoAndHistory_data(){
         QTest::addColumn<bool>("dark");QTest::newRow("light")<<false;QTest::newRow("dark")<<true;
     }

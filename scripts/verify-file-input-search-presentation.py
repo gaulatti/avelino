@@ -13,6 +13,7 @@ import subprocess
 ROOT = Path(__file__).resolve().parents[1]
 DIRECTORY = ROOT / 'evidence/development/file-input-search-presentation-20261022'
 PARENT = 'c58ac8fe0ffab2b9b482ade87d87a9f4bcea9c28'
+PUBLISHED = '4f720b5eee7623e57f0dc263514eba85c464cffb'
 MODULE = '6353c64778ede80d0c77c11558a317d16c6087b038d4c77afce89b27bbb34131'
 CONSUMER = '519c4a22a50110fd380e33d7ce254361c461c16efe047be4c9155b058747c8e5'
 CURRENT_CONSUMER = '36d5647e3662eebdb90be1c3386c05cb88510b73dd46e90a1134776095dd7a82'
@@ -119,15 +120,16 @@ def verify():
     assert len(bindings['files']) == 578
     assert set(bindings['changesFromParent']) == {'src/Avelino/FileChooserSearchInput.qml',
         'src/Avelino/filechoosersearchtext.cpp', 'tests/components/filesearch.cpp', 'tests/consumer/filesearchchecks.h'}
-    base = {}
+    base, published = {}, {}
     with subprocess.Popen(['git', 'cat-file', '--batch'], cwd=ROOT, stdin=subprocess.PIPE, stdout=subprocess.PIPE) as process:
-        for name in sorted(bindings['files']):
-            assert not Path(name).is_absolute() and '..' not in Path(name).parts and '\n' not in name
-            process.stdin.write((PARENT + ':' + name + '\n').encode()); process.stdin.flush()
-            header = process.stdout.readline().split()
-            assert len(header) == 3 and header[1] == b'blob', name
-            base[name] = digest(process.stdout.read(int(header[2])))
-            assert process.stdout.read(1) == b'\n'
+        for revision, target in [(PARENT, base), (PUBLISHED, published)]:
+            for name in sorted(bindings['files']):
+                assert not Path(name).is_absolute() and '..' not in Path(name).parts and '\n' not in name
+                process.stdin.write((revision + ':' + name + '\n').encode()); process.stdin.flush()
+                header = process.stdout.readline().split()
+                assert len(header) == 3 and header[1] == b'blob', name
+                target[name] = digest(process.stdout.read(int(header[2])))
+                assert process.stdout.read(1) == b'\n'
         process.stdin.close(); assert process.wait() == 0
     for number in [48, 49, 50, 51, 52]:
         inputs = record(f'source{number}/inputs.json')
@@ -147,7 +149,7 @@ def verify():
             assert result['exitCode'] == 0 and b'25 passed, 0 failed, 1 skipped' in log
     current = record('source52/inputs.json')
     for name, expected in bindings['files'].items():
-        assert current['sourceFiles'][name] == expected == digest((ROOT / name).read_bytes()), name
+        assert current['sourceFiles'][name] == expected == published[name], name
     proof = record('source50/install-rpath-transformation.json')
     assert proof['sourceAttempt'] == 50 and proof['installedModuleSha256'] == MODULE
     assert proof['normalizedBuiltSha256'] == MODULE and proof['allOtherBytesIdentical'] is True

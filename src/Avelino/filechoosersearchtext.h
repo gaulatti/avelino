@@ -25,6 +25,8 @@ public:
     QString draft()const;
     Q_INVOKABLE void commitDraft(const QString &mode);
     Q_INVOKABLE void setTokenModeAt(int position,const QString &mode);
+    Q_INVOKABLE void selectTokenAt(int position);
+    Q_INVOKABLE void editTokenAt(int position);
     Q_INVOKABLE void undo();
     Q_INVOKABLE void redo();
     Q_INVOKABLE void cut();

@@ -2,6 +2,7 @@
 #include <QAbstractItemModel>
 #include <QAccessibleActionInterface>
 #include <QElapsedTimer>
+#include <QPointer>
 #include <QQuickItemGrabResult>
 #include <functional>
 
@@ -38,6 +39,19 @@ static void runFileInputSearchConsumer(QQuickWindow *window,QGuiApplication &app
     auto click=[&](QQuickItem *item,Qt::KeyboardModifiers modifiers=Qt::NoModifier){
         if(!check(item&&item->window(),"Input target is missing"))return false;
         QTest::mouseClick(item->window(),Qt::LeftButton,modifiers,item->mapToScene(item->boundingRect().center()).toPoint());return true;
+    };
+    auto tokenPointer=[&](QQuickItem *chip,bool query,bool twice=false){
+        auto caption=chip?chip->property("contentItem").value<QQuickItem*>():nullptr;
+        auto viewport=visible("bleeckerFileChooserSearchViewport");
+        if(!check(chip&&caption&&viewport&&chip->window(),"Token pointer target is missing"))return false;
+        const auto modeWidth=caption->property("leftPadding").toDouble()-4;
+        if(!check(modeWidth>0&&modeWidth<chip->width(),"Token mode and query bounds are invalid"))return false;
+        const QRectF region(query?modeWidth+4:0,0,query?chip->width()-modeWidth-8:modeWidth,chip->height());
+        const auto target=chip->mapRectToScene(region).intersected(viewport->mapRectToScene(viewport->boundingRect()));
+        if(!check(!target.isEmpty(),"Token pointer region is outside the search viewport"))return false;
+        if(twice)QTest::mouseDClick(chip->window(),Qt::LeftButton,{},target.center().toPoint());
+        else QTest::mouseClick(chip->window(),Qt::LeftButton,{},target.center().toPoint());
+        return true;
     };
     auto row=[&](const QString &name){
         auto model=qobject_cast<QAbstractItemModel*>(search());if(!model)return -1;
@@ -111,6 +125,9 @@ static void runFileInputSearchConsumer(QQuickWindow *window,QGuiApplication &app
         phases.append(QJsonObject{{"phase",phase},{"expression",QJsonArray::fromVariantList(expression())},
             {"editorText",editor?editor->property("text").toString():QString()},
             {"selectedText",editor?editor->property("selectedText").toString():QString()},
+            {"cursorPosition",editor?editor->property("cursorPosition").toInt():-1},
+            {"selectionStart",editor?editor->property("selectionStart").toInt():-1},
+            {"selectionEnd",editor?editor->property("selectionEnd").toInt():-1},
             {"tokenPresentation",tokenPresentation()},
             {"folderOnly",search()&&search()->property("folderOnly").toBool()},
             {"error",search()?search()->property("error").toString():QString()},
@@ -154,6 +171,25 @@ static void runFileInputSearchConsumer(QQuickWindow *window,QGuiApplication &app
     if(!wait([&]{return singleTermMode()=="filename"&&!search()->property("busy").toBool()&&row("pine-only.txt")<0&&row(token+"-name.txt")>=0;},"Filename suggestion did not change the actual results"))return;
     if(!checkTokenPresentation())return;
     observe("filename");if(!save(editor,"filename"))return;
+    if(!tokenPointer(visible("bleeckerFileChooserSearchToken"),true)
+        ||!check(editor->property("selectedText").toString()==object&&!visible("bleeckerFileChooserSearchMode_filename"),
+            "Query click did not select the token independently of its mode menu"))return;
+    observe("query-selected");if(!save(editor,"query-selected")||!tokenPointer(visible("bleeckerFileChooserSearchToken"),true,true))return;
+    if(!wait([&]{return singleTermText()==token&&singleTermMode()=="general"&&!search()->property("busy").toBool()&&row("pine-only.txt")>=0;},
+        "Query double-click did not expand the token into indexed raw search")
+        ||!check(editor->property("selectedText").toString()==token,"Expanded query is not selected"))return;
+    observe("query-expanded");if(!save(editor,"query-expanded"))return;
+    QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
+    if(!wait([&]{return singleTermMode()=="filename"&&!search()->property("busy").toBool()&&row("pine-only.txt")<0;},"Expansion Undo did not restore Filename results")
+        ||!check(editor->property("selectedText").toString()==object,"Expansion Undo did not select the token"))return;
+    observe("query-expand-undo");if(!save(editor,"query-expand-undo"))return;
+    QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier|Qt::ShiftModifier);
+    if(!wait([&]{return singleTermMode()=="general"&&singleTermText()==token&&!search()->property("busy").toBool()&&row("pine-only.txt")>=0;},"Expansion Redo did not restore the draft")
+        ||!check(editor->property("selectedText").toString().isEmpty()&&editor->property("cursorPosition").toInt()==token.size(),
+            "Expansion Redo did not leave the caret after the draft"))return;
+    observe("query-expand-redo");if(!save(editor,"query-expand-redo"))return;
+    QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
+    if(!wait([&]{return singleTermMode()=="filename"&&!search()->property("busy").toBool();},"Filename state did not restore for replacement"))return;
     auto fieldHost=visible("bleeckerFileChooserSearchHost");if(!check(fieldHost,"Search field host is missing"))return;
     QTest::mouseClick(editor->window(),Qt::LeftButton,{},fieldHost->mapToScene(QPointF(1,fieldHost->height()/2)).toPoint());
     if(!wait([&]{return editor->hasActiveFocus()&&editor->window()->isActive();},"Token query did not gain keyboard focus")){
@@ -182,7 +218,9 @@ static void runFileInputSearchConsumer(QQuickWindow *window,QGuiApplication &app
     for(auto character:token.toLatin1())QTest::keyClick(editor->window(),character);
     QTest::keyClick(editor->window(),Qt::Key_Down);QTest::keyClick(editor->window(),Qt::Key_Return);
     if(!wait([&]{return singleTermMode()=="filename"&&!search()->property("busy").toBool()&&row("pine-only.txt")<0;},"Filename search did not settle after token editing"))return;
-    if(!click(visible("bleeckerFileChooserSearchToken"))
+    QTest::keyClick(editor->window(),Qt::Key_Home);
+    if(!wait([&]{return visible("bleeckerFileChooserSearchViewport")->property("contentX").toDouble()==0;},"Mode segment did not become visible"))return;
+    if(!tokenPointer(visible("bleeckerFileChooserSearchToken"),false)
         ||!wait([&]{return visible("bleeckerFileChooserSearchMode_everything");},"Search token menu is missing")
         ||!save(editor,"token-menu")||!click(visible("bleeckerFileChooserSearchMode_everything")))return;
     if(!wait([&]{return singleTermMode()=="everything"&&!search()->property("busy").toBool()&&row("pine-only.txt")>=0&&row(token+"-name.txt")>=0;},"Everything token did not restore content and filename matches"))return;
@@ -195,6 +233,31 @@ static void runFileInputSearchConsumer(QQuickWindow *window,QGuiApplication &app
     if(!wait([&]{return expression()==compound&&!search()->property("busy").toBool()&&search()->property("count").toInt()==1&&row("pine-only.txt")==0;},"Compound Filename term did not narrow the indexed results"))return;
     if(!checkTokenPresentation())return;
     observe("compound-mixed");if(!save(editor,"compound-mixed"))return;
+    {
+        QPointer<QQuickItem> neighbor=visible("bleeckerFileChooserSearchToken_1");
+        auto neighborAccessible=neighbor?QAccessible::queryAccessibleInterface(neighbor):nullptr;
+        if(!check(neighborAccessible,"Compound neighbor accessibility object is missing"))return;
+        if(!tokenPointer(visible("bleeckerFileChooserSearchToken"),true)
+            ||!check(editor->property("selectedText").toString()==object,"Compound query click did not select one token")
+            ||!tokenPointer(visible("bleeckerFileChooserSearchToken"),true,true))return;
+        const QVariantList expanded{QVariantMap{{"kind","text"},{"text",token}},compound[1]};
+        if(!wait([&]{return expression()==expanded&&!search()->property("busy").toBool()&&search()->property("count").toInt()==1&&row("pine-only.txt")==0;},
+            "Compound expansion changed the other term or indexed results")
+            ||!check(editor->property("selectedText").toString()==token&&neighbor&&QAccessible::queryAccessibleInterface(neighbor)==neighborAccessible,
+                "Expansion lost query selection or the surviving accessible object"))return;
+        observe("compound-query-expanded");if(!save(editor,"compound-query-expanded"))return;
+        QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
+        if(!wait([&]{return expression()==compound&&!search()->property("busy").toBool();},"Compound expansion Undo lost token metadata")
+            ||!check(editor->property("selectedText").toString()==object,"Compound expansion Undo lost selection"))return;
+        observe("compound-query-undo");if(!save(editor,"compound-query-undo"))return;
+        QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier|Qt::ShiftModifier);
+        if(!wait([&]{return expression()==expanded&&!search()->property("busy").toBool();},"Compound expansion Redo lost the draft")
+            ||!check(editor->property("selectedText").toString().isEmpty()&&editor->property("cursorPosition").toInt()==token.size()
+                &&neighbor&&QAccessible::queryAccessibleInterface(neighbor)==neighborAccessible,"Compound Redo changed its caret or neighbor"))return;
+        observe("compound-query-redo");if(!save(editor,"compound-query-redo"))return;
+        QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
+        if(!wait([&]{return expression()==compound&&!search()->property("busy").toBool();},"Compound tokens did not restore for the independent menu"))return;
+    }
     auto second=visible("bleeckerFileChooserSearchToken_1");auto secondAccessible=second?QAccessible::queryAccessibleInterface(second):nullptr;
     if(!check(secondAccessible&&secondAccessible->actionInterface()&&secondAccessible->text(QAccessible::Name)=="Filename: pine","Second token has no independent accessible menu"))return;
     secondAccessible->actionInterface()->doAction(QAccessibleActionInterface::pressAction());

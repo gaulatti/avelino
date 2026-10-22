@@ -98,7 +98,7 @@ standard = configuration == 'standard'
 assert record['dpr'] == (1 if standard else 2) and record['textScale'] == (1 if standard else 1.5)
 assert record['appearance'] == ('light' if standard else 'dark')
 phases = record['phases']
-expected = ['global','folder','filename','token-replacement','token-undo','token-redo','compound-mixed','compound-everything','compound-replacement','compound-undo','compound-redo','selected','owner-result','cancelled-query','session-selected']
+expected = ['global','folder','filename','query-selected','query-expanded','query-expand-undo','query-expand-redo','token-replacement','token-undo','token-redo','compound-mixed','compound-query-expanded','compound-query-undo','compound-query-redo','compound-everything','compound-replacement','compound-undo','compound-redo','selected','owner-result','cancelled-query','session-selected']
 assert [p['phase'] for p in phases] == expected
 assert all(not p['busy'] and not p['error'] for p in phases)
 rows = {phase['phase']: phase for phase in phases}
@@ -106,12 +106,21 @@ assert 'pine-only.txt' in rows['global']['names'] and 'pine-peer.txt' in rows['g
 assert 'pine-peer.txt' not in rows['folder']['names'] and 'avelinoulnacerulean-child.txt' in rows['folder']['names']
 assert rows['filename']['expression'] == [{'kind':'token','mode':'filename','query':'avelinoulnacerulean'}]
 assert 'pine-only.txt' not in rows['filename']['names']
+raw = [{'kind':'text','text':'avelinoulnacerulean'}]
+assert rows['query-selected']['expression'] == rows['query-expand-undo']['expression'] == rows['filename']['expression']
+assert rows['query-selected']['selectedText'] == rows['query-expand-undo']['selectedText'] == '\ufffc'
+assert rows['query-expanded']['expression'] == rows['query-expand-redo']['expression'] == raw
+assert rows['query-expanded']['selectedText'] == 'avelinoulnacerulean' and rows['query-expand-redo']['selectedText'] == ''
 replacement = [{'kind':'text','text':'avelinoulnacerulean-name'}]
 assert rows['token-replacement']['expression'] == rows['token-redo']['expression'] == replacement
 assert rows['token-undo']['expression'] == rows['filename']['expression'] and rows['token-undo']['selectedText'] == '\ufffc'
 compound = [{'kind':'token','mode':'everything','query':'avelinoulnacerulean'},{'kind':'token','mode':'filename','query':'pine'}]
 assert rows['compound-mixed']['expression'] == compound
 assert rows['compound-mixed']['names'] == rows['compound-everything']['names'] == ['pine-only.txt']
+assert rows['compound-query-expanded']['expression'] == rows['compound-query-redo']['expression'] == [raw[0],compound[1]]
+assert rows['compound-query-undo']['expression'] == compound and rows['compound-query-undo']['selectedText'] == '\ufffc'
+assert rows['compound-query-expanded']['selectedText'] == 'avelinoulnacerulean' and rows['compound-query-redo']['selectedText'] == ''
+assert all(rows[name]['names'] == ['pine-only.txt'] for name in ['compound-query-expanded','compound-query-undo','compound-query-redo'])
 both = [compound[0], {'kind':'token','mode':'everything','query':'pine'}]
 assert rows['compound-everything']['expression'] == rows['compound-undo']['expression'] == rows['selected']['expression'] == both
 assert rows['compound-undo']['selectedText'] == '\ufffc'

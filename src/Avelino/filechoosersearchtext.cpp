@@ -155,6 +155,34 @@ void FileChooserSearchText::setTokenModeAt(int position,const QString &mode){
         m_selections.clear();editDocument()->clearUndoRedoStacks();
     });
 }
+void FileChooserSearchText::selectTokenAt(int position){
+    if(!isEnabled())return;
+    if(!tokenAt(position)){reportError("Search token position is no longer valid");return;}
+    const auto identity=formatAt(position).toImageFormat().name();QPointer<FileChooserSearchText> guard(this);
+    forceActiveFocus(Qt::MouseFocusReason);if(!guard||!isEnabled())return;
+    if(!tokenAt(position)||formatAt(position).toImageFormat().name()!=identity)return;
+    select(position,position+1);
+}
+void FileChooserSearchText::editTokenAt(int position){
+    if(isReadOnly()||!isEnabled())return;
+    if(!tokenAt(position)){reportError("Search token position is no longer valid");return;}
+    const auto identity=formatAt(position).toImageFormat().name();QPointer<FileChooserSearchText> guard(this);
+    forceActiveFocus(Qt::MouseFocusReason);if(!guard||isReadOnly()||!isEnabled())return;
+    if(!tokenAt(position)||formatAt(position).toImageFormat().name()!=identity)return;
+    const auto query=formatAt(position).property(QueryProperty).toString();
+    const bool before=position>0&&!tokenAt(position-1);
+    const bool after=position+1<editDocument()->characterCount()-1&&!tokenAt(position+1);
+    const auto insertion=(before?QStringLiteral(" "):QString())+query+(after?QStringLiteral(" "):QString());
+    // Native expansion preserves existing raw spaces and adds a separator at
+    // each raw boundary. Qt owns the replacement and its single Undo command.
+    performTokenEdit([this,position,query,insertion,before]{
+        select(position,position+1);const auto selected=editState();
+        QPointer<FileChooserSearchText> alive(this);QInputMethodEvent event;event.setCommitString(insertion);
+        QQuickTextArea::inputMethodEvent(&event);if(!alive)return;
+        finishHistory(selected,false);
+        const int start=position+(before?1:0);select(start,start+query.size());
+    });
+}
 FileChooserSearchText::QtState FileChooserSearchText::qtState()const{
     return {text(),selectedText(),cursorPosition(),selectionStart(),selectionEnd(),lineCount(),cursorRectangle(),QSizeF(contentWidth(),contentHeight()),canUndo(),canRedo()};
 }

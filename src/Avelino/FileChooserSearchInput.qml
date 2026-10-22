@@ -107,8 +107,19 @@ FocusScope {
                     accessibilityMenu:modeMenu
                     Accessible.onPressAction:chip.click()
                     onClicked:modeMenu.open()
+                    Item {
+                        id:modeAnchor;width:chip.token.modeWidth;height:chip.height
+                        Accessible.ignored:true
+                    }
+                    MouseArea {
+                        objectName:"bleeckerFileChooserSearchTokenQuery"+(chip.index ? "_"+chip.index:"")
+                        x:chip.token.modeWidth;width:chip.width-x;height:chip.height
+                        acceptedButtons:Qt.LeftButton;Accessible.ignored:true
+                        onPressed:editor.selectTokenAt(chip.token.position)
+                        onDoubleClicked:editor.editTokenAt(chip.token.position)
+                    }
                     FileChooserMenuBase {
-                        id:modeMenu;parent:chip;opener:chip
+                        id:modeMenu;parent:modeAnchor;opener:chip
                         objectName:"bleeckerFileChooserSearchModeMenu"+(chip.index ? "_"+chip.index:"")
                         y:chip.height+4;width:150;padding:4;popupType:T.Popup.Item;enter:null;exit:null
                         onClosed:editor.forceActiveFocus()

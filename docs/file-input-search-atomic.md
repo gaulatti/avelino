@@ -114,10 +114,46 @@ evidence retains its original identity on those unchanged installed bytes.
 The fresh52 consumer passes its normal flows. Its source matches50; its binary
 differs in a generated Qt qmldir resource timestamp and the GNU build ID only.
 The measured 23-byte difference is recorded without rewriting either binary.
+The presentation capsule's 578 runtime inputs bind to published commit
+`4f720b5eee7623e57f0dc263514eba85c464cffb`. Later input repairs keep those old
+source52 tests and source50 runtime executions under their original identities.
 The [presentation checkpoint](../evidence/development/file-input-search-presentation-20261022/README.md)
 binds the scoped native captures, original failing test and subsequent Linux
 executions to their exact sources. Run
 `python3 scripts/verify-file-input-search-presentation.py` to audit those records.
+
+A fresh build of the pinned Sabella source, on the same Mac, supplies the later
+regular/light pointer witness. Clicking a token's query selects its U+FFFC object
+without opening the mode menu; clicking its mode label or arrow opens the menu.
+Double-clicking the query expands it into selected raw text. Undo restores and
+selects the token; Redo leaves the caret after the inserted text. A neighboring
+token retains its mode/query. At each adjacent raw-text boundary, expansion adds
+one ASCII space even when that boundary already contains a space. It adds no
+space at a token boundary. Thus `oak <object> cedar` becomes `oak  pine  cedar`.
+The suffix case becomes `pine cedar`; typing `X` after Redo yields `pine Xcedar`.
+The initial coordinate calibration missed the query and is explicitly excluded.
+Stale native suggestions after Undo remain an observation, not a readiness rule.
+
+The Linux query hit region selects the object; its double-click path commits the
+raw replacement through Qt's document command. Supplemental Undo metadata keeps
+the restored token selected. Focus-return callbacks revalidate object identity,
+and notification delivery permits synchronous editor destruction. The popup is
+anchored to the mode segment so a query click uses Qt's normal outside-press
+closure. Read-only/disabled rejection, external history reset, eight observed
+boundary cases, neighbor accessibility identity and actual query/mode clicks have
+regression coverage. [Qt 6.8.3 text control](https://github.com/qt/qtdeclarative/blob/v6.8.3/src/quick/items/qquicktextcontrol.cpp)
+owns selection removal, commit insertion and grouping into one Undo command.
+
+The [pointer checkpoint](../evidence/development/file-input-search-pointer-20261022/README.md)
+retains the initial missing behavior and the later uppercase key-helper failure
+under their original source identities. Source56 passes42 indexed cases with
+one expected separate-provider skip at each DPR. Its installed consumer adds
+seven query-selection/expansion phases while retaining the previous flows.
+General Unicode/IME expansion, clipboard/drag, native hierarchy/events/timing,
+exact geometry/raster, native reader, physical and independent-machine acceptance
+remain pending. The fresh native build is independent of the old build cache;
+it does not constitute independent-machine acceptance. Run
+`python3 scripts/verify-file-input-search-pointer.py` to audit the saved evidence.
 
 The [native capsule](../evidence/reference-investigations/file-input-search-atomic-20261021/README.md)
 contains 31 scoped projections bound to a captured CUA JSON export. First

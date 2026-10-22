@@ -84385,6 +84385,28 @@
               "evidence/development/file-input-search-presentation-20261022/validation.json"
             ],
             "notes": "The native magnifier stays fixed when tokens exist. Even two short tokens scroll horizontally; the leading-caret observation reveals the first token and clips the trailing one. Linux leading/trailing input tests exercise full-width query cells, a gap and a fixed glyph. Exact native geometry, raster and physical input acceptance remain pending."
+          },
+          {
+            "id": "BleeckerFileInput-search-query-pointer",
+            "status": "pending",
+            "referenceCapture": null,
+            "candidateCapture": null,
+            "evidence": [
+              "docs/file-input-search-atomic.md",
+              "evidence/development/file-input-search-pointer-20261022/validation.json"
+            ],
+            "notes": "Fresh pinned-source regular/light native observations distinguish query single-click selection from mode label/arrow menu activation. Query double-click expands to selected text; Qt actual pointer regressions and installed-consumer phases cover that path. Initial coordinate calibration is excluded. Native hierarchy, timing, geometry/raster, reader, physical and independent-machine acceptance remain pending."
+          },
+          {
+            "id": "BleeckerFileInput-search-query-expansion-boundaries",
+            "status": "pending",
+            "referenceCapture": null,
+            "candidateCapture": null,
+            "evidence": [
+              "docs/file-input-search-atomic.md",
+              "evidence/development/file-input-search-pointer-20261022/validation.json"
+            ],
+            "notes": "Native expansion inserts one ASCII space at each adjacent raw boundary, preserving existing spaces, and none at token boundaries. Undo restores and selects the token; Redo leaves the insertion caret. Source56 tests eight observed boundary cases, retained neighbor accessibility identity, read-only/disabled and external reset guards, focus replacement and synchronous destruction. General Unicode/IME expansion, clipboard/drag and native acceptance remain pending."
           }
         ],
         "tests": [
@@ -84434,7 +84456,9 @@
           "scripts/verify-file-input-search-atomic-integration.py",
           "tests/contracts/test_file_search_atomic_integration_evidence.py",
           "scripts/verify-file-input-search-presentation.py",
-          "tests/contracts/test_file_search_presentation_evidence.py"
+          "tests/contracts/test_file_search_presentation_evidence.py",
+          "scripts/verify-file-input-search-pointer.py",
+          "tests/contracts/test_file_search_pointer_evidence.py"
         ],
         "captures": [
           "evidence/reference-investigations/file-input-20261017/output/captures.json",

@@ -4,6 +4,7 @@ import importlib.util
 import json
 from pathlib import Path
 import unittest
+from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[2]
 SPEC = importlib.util.spec_from_file_location('file_search_presentation', ROOT / 'scripts/verify-file-input-search-presentation.py')
@@ -20,8 +21,12 @@ class FileSearchPresentationEvidence(unittest.TestCase):
         value = json.loads(gzip.decompress((EVIDENCE.DIRECTORY / entry['stored']).read_bytes()))
         cls.phase = next(row for row in value['availableReport']['phases'] if row['phase'] == 'compound-mixed')
 
-    def test_preserved_native_observations_and_current_runtime_recompute(self):
+    def test_preserved_native_observations_and_published_runtime_recompute(self):
         EVIDENCE.verify()
+
+    def test_runtime_binding_cannot_be_reassigned_to_the_parent_revision(self):
+        with mock.patch.object(EVIDENCE, 'PUBLISHED', EVIDENCE.PARENT), self.assertRaises(AssertionError):
+            EVIDENCE.verify()
 
     def test_accessible_name_cannot_be_substituted_for_the_query_caption(self):
         value = copy.deepcopy(self.phase)
