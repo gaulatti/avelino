@@ -234,6 +234,29 @@ The gallery's editor button is also activated through input, text is typed into
 the presented field, and its caller binding is checked again after reopening.
 That Qt editing check does not establish native keyboard/IME equivalence.
 
+The [parent-focus checkpoint](../evidence/development/modal-parent-focus-20261022/README.md)
+preserves the x86 Wayland/software/scaled failure from Linux CI at
+`6f16b95`. Both architectures passed58 CTest groups at that revision, and ARM
+passed its full workflow; the x86 source-free session step failed at the parent
+Close-focus assertion. The failure remains separate from the successful checks.
+
+The replay now waits for `QGuiApplication::focusWindow()` to identify the parent
+and for its Quick root to hold active focus. Qt6.8.3's
+[`isActive()` implementation](https://github.com/qt/qtbase/blob/v6.8.3/src/gui/kernel/qwindow.cpp#L1218-L1247)
+also considers the transient chain active, so it cannot establish that keyboard
+precondition. A diagnostic observes an active parent while the hidden popup is
+still the focus window. Each presented-sheet check rejects this false parent
+readiness state; deliberately restoring the old predicate fails that assertion.
+The original Close, Tab and Backtab focus assertions remain in place, and the
+five-second readiness bound is unchanged. There is no retry after a failed assertion.
+
+The current consumer passes the offscreen replay, eight scoped source-free
+X11/Wayland software/OpenGL profiles and fresh FileInput available, unavailable
+and closed flows. These are local ARM observations, not a rerun of the failed
+x86 CI job or the full session matrix. All158 installed library/catalog/asset
+files are unchanged. The consumer test is the only changed compiled input;
+native focus, hierarchy, typing, reader, raster and physical acceptance stay pending.
+
 `scripts/capture-modal-cases.py` captures all 288 original hosted contexts through
 the installed catalog, including the unresolved Unicode, bidi and inherited-font
 cases. `scripts/compare-modal-captures.py` compares original physical pixels,

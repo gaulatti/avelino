@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DIRECTORY = ROOT / 'evidence/development/file-input-search-atomic-integration-20261021'
 NATIVE = ROOT / 'evidence/reference-investigations/file-input-search-atomic-20261021'
 PARENT = '8fc387453b53a8c12c2e3d5ce70e29d11beb0ebf'
+PUBLISHED = '6f16b95ad9f9d4e54f8be6c2fb82777d13e8d31a'
 MODULE = '05812d809de4187acdc4f40886cf5ce644e2fbe977eee8dec119681187ae9acb'
 CONSUMER = 'ad67695c70c75f0722f37e3f603ef4973dbea6a2c29ccb5429792a257f2b0a6f'
 CATALOG = 'fc33a75d393ca924170360c16c3c7697a8068c86fd300c59f3c277f00b7d494d'
@@ -364,8 +365,19 @@ def verify():
     assert binding['sourceAttempt'] == 47 and binding['accepted'] is False
     scope = lambda name: name.startswith(('src/', 'tests/components/', 'tests/consumer/', 'tools/', 'samples/', 'cmake/', 'tokens/', 'assets/')) or name in ['CMakeLists.txt', 'CMakePresets.json'] or name.startswith('scripts/check-')
     assert binding['files'] == {name: value for name, value in sources[47]['sourceFiles'].items() if scope(name)}
-    for name, expected in binding['files'].items():
-        assert digest((ROOT / name).read_bytes()) == expected, name
+    # These are historical source47 executions. Bind them to the published
+    # checkpoint, so a later component repair cannot relabel or invalidate them.
+    with subprocess.Popen(['git', 'cat-file', '--batch'], cwd=ROOT,
+                          stdin=subprocess.PIPE, stdout=subprocess.PIPE) as process:
+        for name, expected in binding['files'].items():
+            process.stdin.write((PUBLISHED + ':' + name + '\n').encode())
+            process.stdin.flush()
+            header = process.stdout.readline().split()
+            assert len(header) == 3 and header[1] == b'blob', name
+            assert digest(process.stdout.read(int(header[2]))) == expected, name
+            assert process.stdout.read(1) == b'\n'
+        process.stdin.close()
+        assert process.wait() == 0
     before = protected_fields(json.loads(subprocess.check_output(['git', 'show', PARENT + ':docs/parity-inventory.json'], cwd=ROOT)))
     after = protected_fields(json.loads((ROOT / 'docs/parity-inventory.json').read_text()))
     assert len(before) == 31503

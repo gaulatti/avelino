@@ -30,6 +30,10 @@ class AtomicSearchIntegrationEvidence(unittest.TestCase):
         with self.assertRaises(AssertionError):
             EVIDENCE.candidate_limits(value)
 
+    def test_published_source_binding_cannot_point_to_the_preintegration_commit(self):
+        with patch.object(EVIDENCE, 'PUBLISHED', EVIDENCE.PARENT), self.assertRaises(AssertionError):
+            EVIDENCE.verify()
+
     def test_candidate_cannot_claim_native_or_physical_acceptance(self):
         for key in ['accepted', 'nativeRasterAccepted', 'nativeReaderAccepted',
                     'completeA11yEventDeliveryAccepted', 'physicalInputAccepted',

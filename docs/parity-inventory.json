@@ -100495,7 +100495,7 @@
           "tests/consumer/ModalCase.qml",
           "tests/consumer/Modal.qml"
         ],
-        "caseDiscovery": "36 hosted fixture groups across eight profiles. Fixed body versus outer allocation, per-child padding, caller state, 80 native state snapshots, 170 clipping queries and precise Close regions are covered. All 288 initial states, 280 roots and 248 child-frame sets match. Eight exact pixel matches are blank zero-width bodies; no visible Modal pixel case passes. Unicode/bidi, inherited fonts, shadow/raster/symbols, active native keyboard/IME, full native presentation, physical input and readers remain pending.",
+        "caseDiscovery": "36 hosted fixture groups across eight profiles. Fixed body versus outer allocation, per-child padding, caller state, 80 native state snapshots, 170 clipping queries and precise Close regions are covered. All 288 initial states, 280 roots and 248 child-frame sets match. Eight exact pixel matches are blank zero-width bodies; no visible Modal pixel case passes. Unicode/bidi, inherited fonts, shadow/raster/symbols, active native keyboard/IME, full native presentation, physical input and readers remain pending. The parent-focus checkpoint preserves6f16b95 x86 CI failure at the Wayland/software/scaled parent Close-focus assertion; both architectures passed58 CTest groups and ARM completed the full workflow. Local traces observe isActive=true while a hidden transient is still the focus window. The consumer now waits for the actual parent focusWindow and its Quick root active focus, retains Close/Tab/Backtab assertions and rejects actual transient focus as parent readiness. Three diagnostic candidate replays pass; restoring the old predicate fails the new negative control. Current consumer5 validates scoped source-free Modal profiles and fresh FileInput flows with all158 library/catalog/asset files unchanged. These are local ARM checks; a fresh x86 CI result and native focus/hierarchy/reader/raster/physical acceptance remain pending. Evidence: evidence/development/modal-parent-focus-20261022/validation.json.",
         "cases": [
           {
             "id": "default-light-text1.0-dpr1.0-mode0.png",
@@ -103678,7 +103678,9 @@
           "tests/consumer/modalchecks.h",
           "tests/contracts/test_modal_source.py",
           "tests/contracts/test_modal_input_source.py",
-          "tests/contracts/test_modal_adapters.py"
+          "tests/contracts/test_modal_adapters.py",
+          "scripts/verify-modal-parent-focus.py",
+          "tests/contracts/test_modal_parent_focus_evidence.py"
         ],
         "captures": [
           "evidence/reference-investigations/modal-20261016/captures/default-light-text1.0-dpr1.0-mode0.png",

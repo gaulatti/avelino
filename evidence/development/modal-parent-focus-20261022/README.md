@@ -1,0 +1,11 @@
+# Modal parent keyboard readiness
+
+The x866f16b95 CI artifact retains the Wayland/software/scaled parent Close-focus failure. Both architectures pass58 CTest groups and ARM completes its full workflow. The failed x86 session step remains failed; the subsequent local checks do not relabel it.
+
+Qt6.8.3 considers the transient chain active in QWindow::isActive(). Baseline diagnostic2 records three passing local replays without changing the old assertions. Diagnostic3 observes an active parent while the hidden popup is still the actual focus window; its stricter wait passes three complete replays. Deliberate negative-control4 restores the old predicate and exits255 at the actual transient-focus guard. Candidate5 waits for the exact parent focusWindow and its Quick root active focus, retains the original Close/Tab/Backtab assertions and rejects focused transient windows as parent readiness. The five-second bound remains; no failed assertion is retried.
+
+Candidate5 passes offscreen Modal and eight scoped virtual X11/Wayland software/OpenGL profiles, plus a fresh14-phase FileInput available run, a missing-provider run and a closed flow. Both source projects and the product build are absent. All162 runtime files remain unchanged; all158 installed library/catalog/asset files match the prior prefix. Only tests/consumer/modalchecks.h differs among the599 compiled inputs bound to6f16b95. This is local arm64 evidence. A fresh x86 CI and the complete session matrix still need remote verification.
+
+The failed304637992-byte x86 artifact is retained externally under its recorded SHA256. This capsule includes its selected Modal/session records, archive membership, full failed-step and ARM logs, exact diagnostic sources, commands, raw local logs/captures and source/prefix bindings. ELF binaries and unrelated artifact pixels remain external. Native focus, typing, hierarchy, reader, raster, physical and independent-machine gates remain pending. All31503 preexisting protected inventory fields are unchanged. No expected capture, reference pin, tolerance, mask or exception changes.
+
+Run python3 scripts/verify-modal-parent-focus.py. The atomic-search verifier separately binds its historical source47 runtime to published6f16b95 rather than relabeling its old consumer as this new binary.

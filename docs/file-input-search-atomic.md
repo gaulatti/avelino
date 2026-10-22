@@ -80,6 +80,11 @@ broadened conjunction, lost token/selection metadata, changed raw bytes and scop
 or acceptance promotion. The verifier reads saved evidence; it does not rerun
 the application or approve native parity.
 
+The source47 runtime binding is checked against published commit
+`6f16b95ad9f9d4e54f8be6c2fb82777d13e8d31a`. Later component or consumer repairs
+retain that checkpoint's exact source and execution identity; they do not
+relabel its old consumer binary as a newly built one.
+
 The [native capsule](../evidence/reference-investigations/file-input-search-atomic-20261021/README.md)
 contains 31 scoped projections bound to a captured CUA JSON export. First
 Backspace selects an adjacent U+FFFC token; second Backspace removes it. Left
