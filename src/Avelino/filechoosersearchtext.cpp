@@ -19,6 +19,12 @@
 static_assert(QT_VERSION==QT_VERSION_CHECK(6,8,3),"Revalidate atomic search document editing and accessibility before upgrading Qt");
 namespace {
 QString tokenLabel(const QString &mode,const QString &query){return (mode=="filename"?QStringLiteral("Filename: "):QStringLiteral("Everything: "))+query;}
+QString tokenModeLabel(const QString &mode){return mode=="filename"?QStringLiteral("NAME"):QStringLiteral("ANY");}
+qreal tokenModeWidth(const QFont &font,const QString &mode){
+    auto captionFont=font;captionFont.setPixelSize(9);captionFont.setWeight(QFont::Normal);
+    return QFontMetricsF(captionFont).horizontalAdvance(tokenModeLabel(mode))+14;
+}
+constexpr qreal TokenGap=6,TokenHeight=15;
 class SearchTextAccessible final:public QAccessibleQuickItem,public QAccessibleEditableTextInterface {
 public:
     using QAccessibleQuickItem::QAccessibleQuickItem;
@@ -68,7 +74,9 @@ QTextImageFormat FileChooserSearchText::tokenFormat(const QString &mode,const QS
     QImage image(1,1,QImage::Format_ARGB32_Premultiplied);image.fill(Qt::transparent);
     editDocument()->addResource(QTextDocument::ImageResource,QUrl(resource),image);
     QTextImageFormat format;format.setName(resource);
-    format.setWidth(QFontMetricsF(font()).horizontalAdvance(tokenLabel(mode,query)+QStringLiteral(" ▾"))+12);format.setHeight(18);
+    // The gap belongs to the inline object, outside its painted two-part cell.
+    // Keep the full query width so Qt scrolls the document instead of eliding it.
+    format.setWidth(tokenModeWidth(font(),mode)+QFontMetricsF(font()).horizontalAdvance(query)+8+TokenGap);format.setHeight(TokenHeight);
     format.setProperty(ModeProperty,mode);format.setProperty(QueryProperty,query);return format;
 }
 QVariantList FileChooserSearchText::expression()const{
@@ -90,7 +98,8 @@ QList<FileChooserSearchTokens::Row> FileChooserSearchText::tokenRows()const{
         const auto format=formatAt(position).toImageFormat();const auto rectangle=positionToRectangle(position);
         const auto mode=format.property(ModeProperty).toString(),query=format.property(QueryProperty).toString();
         result.append({format.name(),QVariantMap{{"position",position},{"mode",mode},{"query",query},{"label",tokenLabel(mode,query)},
-            {"x",rectangle.x()},{"y",rectangle.y()+(rectangle.height()-format.height())/2},{"width",format.width()},{"height",format.height()}}});
+            {"modeLabel",tokenModeLabel(mode)},{"modeWidth",tokenModeWidth(font(),mode)},
+            {"x",rectangle.x()},{"y",rectangle.y()+(rectangle.height()-format.height())/2},{"width",format.width()-TokenGap},{"height",format.height()}}});
     }
     return result;
 }

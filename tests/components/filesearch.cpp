@@ -306,6 +306,69 @@ private slots:
         QCOMPARE(results(view.rootObject())[0].toMap()["urls"].toList(),QVariantList{QUrl::fromLocalFile(m_root+"/pine-only.txt")});
         QVERIFY(view.rootObject()->property("visibleAtCallback").toBool());
     }
+    void tokenCaptionsKeepFullAccessibleNames_data(){
+        QTest::addColumn<bool>("dark");QTest::newRow("light")<<false;QTest::newRow("dark")<<true;
+    }
+    void tokenCaptionsKeepFullAccessibleNames(){
+        QFETCH(bool,dark);QQuickView view;QVERIFY(load(view));
+        auto theme=view.engine()->singletonInstance<QObject*>("Avelino","BleeckerTheme");QVERIFY(theme);
+        const auto previous=theme->property("dark");const auto restore=qScopeGuard([theme,previous]{theme->setProperty("dark",previous);});
+        theme->setProperty("dark",dark);auto browser=open(view);QVERIFY(browser);
+        auto editor=visible("bleeckerFileChooserSearch");QVERIFY(editor);click(editor);
+        browser->search()->setExpression(committed("filename","pine"));
+        auto chip=visible("bleeckerFileChooserSearchToken");QVERIFY(chip);
+        auto caption=chip->property("contentItem").value<QQuickItem*>();QVERIFY(caption);
+        // The native visual caption is a separate compact mode and query;
+        // its menu still exposes the complete accessibility name.
+        QCOMPARE(caption->property("text").toString(),QString("pine"));
+        auto mode=find(chip,"bleeckerFileChooserSearchTokenMode");QVERIFY(mode);
+        QCOMPARE(mode->property("text").toString(),QString("NAME"));
+        auto accessible=QAccessible::queryAccessibleInterface(chip);QVERIFY(accessible&&accessible->actionInterface());
+        QCOMPARE(accessible->text(QAccessible::Name),QString("Filename: pine"));
+        auto glyph=visible("bleeckerFileChooserSearchGlyph");QVERIFY(glyph);
+        auto viewport=visible("bleeckerFileChooserSearchViewport");QVERIFY(viewport);
+        QVERIFY(viewport->x()>=glyph->x()+glyph->width());
+        const auto glyphPosition=glyph->position(),viewportPosition=viewport->position();
+        const auto identity=accessible->object();
+        accessible->actionInterface()->doAction(QAccessibleActionInterface::pressAction());
+        auto option=visible("bleeckerFileChooserSearchMode_everything");QVERIFY(option);click(option);
+        QTRY_COMPARE(mode->property("text").toString(),QString("ANY"));
+        QCOMPARE(QAccessible::queryAccessibleInterface(chip)->object(),identity);
+        QCOMPARE(accessible->text(QAccessible::Name),QString("Everything: pine"));
+        QCOMPARE(caption->property("text").toString(),QString("pine"));
+        QVERIFY(editor->property("contentWidth").toDouble()<=viewport->width());
+        QCOMPARE(viewport->property("contentX").toDouble(),0.0);
+        // Compact toolbars have a wider search field. Use a query that really
+        // overflows either layout, and prove that precondition before scrolling.
+        const auto overflowQuery=token.repeated(8);
+        const QVariantList compound{QVariantMap{{"kind","token"},{"mode","everything"},{"query",overflowQuery}},QVariantMap{{"kind","token"},{"mode","filename"},{"query","pine"}}};
+        browser->search()->setExpression(compound);
+        qInfo().noquote()<<"TOKEN_PRESENTATION_VIEWPORT"<<QJsonDocument(QJsonObject{
+            {"dpr",editor->window()->devicePixelRatio()},
+            {"hostWidth",visible("bleeckerFileChooserSearchHost")->width()},
+            {"viewportWidth",viewport->width()},{"contentWidth",editor->property("contentWidth").toDouble()},
+            {"contentX",viewport->property("contentX").toDouble()}}).toJson(QJsonDocument::Compact);
+        QVERIFY(editor->property("contentWidth").toDouble()>viewport->width());
+        QTRY_VERIFY(viewport->property("contentX").toDouble()>0);
+        chip=visible("bleeckerFileChooserSearchToken");QVERIFY(chip);
+        caption=chip->property("contentItem").value<QQuickItem*>();QVERIFY(caption);
+        QCOMPARE(glyph->position(),glyphPosition);QVERIFY(glyph->isVisible());
+        QCOMPARE(viewport->position(),viewportPosition);
+        auto second=visible("bleeckerFileChooserSearchToken_1");QVERIFY(second);
+        QVERIFY(second->x()>chip->x()+chip->width());
+        QCOMPARE(caption->property("text").toString(),overflowQuery);
+        QTest::keyClick(editor->window(),Qt::Key_Home);
+        QTRY_COMPARE(viewport->property("contentX").toDouble(),0.0);
+        QVERIFY(glyph->isVisible());
+        capture(editor,dark?"token-cells-leading-dark":"token-cells-leading-light");
+        QTest::keyClick(editor->window(),Qt::Key_End);
+        QTRY_VERIFY(viewport->property("contentX").toDouble()>0);
+        capture(editor,dark?"token-cells-trailing-dark":"token-cells-trailing-light");
+        browser->search()->clear();
+        QCOMPARE(editor->property("placeholderText").toString(),QString("Search"));
+        QVERIFY(glyph->isVisible());QCOMPARE(viewport->position(),viewportPosition);
+        browser->cancel();QVERIFY(results(view.rootObject()).isEmpty());
+    }
     void atomicReplacementSelectionUndoAndHistory_data(){
         QTest::addColumn<bool>("dark");QTest::newRow("light")<<false;QTest::newRow("dark")<<true;
     }

@@ -63,7 +63,7 @@ failures in the subsequent checks. Selected-token Undo, partial assistive deleti
 Unicode IME, external history resets, independent menus and synchronous destruction
 are exercised through their respective Qt, consumer and reader paths.
 
-Native active-field sizing and long-token elision, clipboard behavior, general
+Native active-field geometry, clipboard behavior, general
 matching/readiness, complete hierarchy/timing, raster and reader equivalence,
 physical input and independent-machine acceptance remain open. Actual reader logs
 retain ChildrenChanged signature warnings also seen before this integration;
@@ -84,6 +84,40 @@ The source47 runtime binding is checked against published commit
 `6f16b95ad9f9d4e54f8be6c2fb82777d13e8d31a`. Later component or consumer repairs
 retain that checkpoint's exact source and execution identity; they do not
 relabel its old consumer binary as a newly built one.
+
+Fresh regular/light native observations on macOS 27.0.1 show separate compact
+mode and query cells: Filename displays `NAME` with a dropdown before the query;
+Everything displays `ANY` with a dropdown. Full accessible names remain
+`Filename: query` and `Everything: query`, and each token occupies U+FFFC in the
+field. The search magnifier remains visible. Two short tokens already scroll
+horizontally; moving to the leading caret reveals the first token and clips the
+trailing one. These JPEG captures support presentation and scrolling observations,
+not a lossless raster baseline or exact AX geometry. The external caller reuses
+the unchanged pinned native library; it is not an independent library rebuild.
+
+The Linux candidate now paints those compact mode/query cells with a gap between
+tokens, retains the fixed magnifier and empty `Search` placeholder, and leaves
+queries at their full document width for Qt scrolling. Its full menu names,
+stable token identities, expression semantics, Undo and assistive editing remain
+unchanged. Light/dark Qt tests exercise mode changes, accessible names, leading
+and trailing scroll positions and selected captions. Exact field/cell geometry,
+native dark/scaled presentation and the remaining acceptance gates stay pending.
+The full source50 suite retains one failing group: its new DPR2 scrolling test
+expects overflow although the responsive field is 309 units wide and its content
+is only 260 units wide. A logging-only source51 diagnostic confirms that geometry.
+Source52 explicitly checks a fitting cell and a query that exceeds either layout;
+both DPR groups pass. Only the search-test executable changes among 14 test/module
+binaries; all 158 installed files match50. The earlier full-suite failure remains
+failed. Its other 57 passing groups and the corrected source52 groups have
+separate execution identities. The source50 display, reader and closed runtime
+evidence retains its original identity on those unchanged installed bytes.
+The fresh52 consumer passes its normal flows. Its source matches50; its binary
+differs in a generated Qt qmldir resource timestamp and the GNU build ID only.
+The measured 23-byte difference is recorded without rewriting either binary.
+The [presentation checkpoint](../evidence/development/file-input-search-presentation-20261022/README.md)
+binds the scoped native captures, original failing test and subsequent Linux
+executions to their exact sources. Run
+`python3 scripts/verify-file-input-search-presentation.py` to audit those records.
 
 The [native capsule](../evidence/reference-investigations/file-input-search-atomic-20261021/README.md)
 contains 31 scoped projections bound to a captured CUA JSON export. First

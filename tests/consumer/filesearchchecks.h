@@ -70,6 +70,39 @@ static void runFileInputSearchConsumer(QQuickWindow *window,QGuiApplication &app
         return check(editor->property("text").toString()==token,"Search editor did not receive every typed character");
     };
     QJsonArray phases;
+    auto tokenPresentation=[&]{
+        QJsonArray cells;
+        for(int index=0;;++index){
+            auto chip=visible("bleeckerFileChooserSearchToken"+(index?"_"+QString::number(index):QString()));if(!chip)break;
+            auto caption=chip->property("contentItem").value<QQuickItem*>();
+            auto mode=find(chip,"bleeckerFileChooserSearchTokenMode");
+            auto accessible=QAccessible::queryAccessibleInterface(chip);
+            cells.append(QJsonObject{{"mode",mode?mode->property("text").toString():QString()},
+                {"query",caption?caption->property("text").toString():QString()},
+                {"accessibleName",accessible?accessible->text(QAccessible::Name):QString()},
+                {"x",chip->x()},{"width",chip->width()},{"height",chip->height()}});
+        }
+        auto glyph=visible("bleeckerFileChooserSearchGlyph"),viewport=visible("bleeckerFileChooserSearchViewport");
+        return QJsonObject{{"cells",cells},{"glyphVisible",glyph&&glyph->isVisible()},
+            {"glyphRight",glyph?glyph->x()+glyph->width():-1},{"viewportX",viewport?viewport->x():-1},
+            {"contentX",viewport?viewport->property("contentX").toDouble():-1}};
+    };
+    auto checkTokenPresentation=[&]{
+        const auto presentation=tokenPresentation();const auto cells=presentation["cells"].toArray();
+        QJsonArray expected;
+        for(const auto &part:expression())if(part.toMap()["kind"]=="token")expected.append(QJsonObject::fromVariantMap(part.toMap()));
+        if(!check(presentation["glyphVisible"].toBool()&&presentation["viewportX"].toDouble()>=presentation["glyphRight"].toDouble()
+            &&cells.size()==expected.size(),"Token field lost its fixed search glyph or independent cells"))return false;
+        for(int index=0;index<expected.size();++index){
+            const auto row=expected[index].toObject(),cell=cells[index].toObject();const bool filename=row["mode"]=="filename";
+            if(!check(cell["mode"]==(filename?"NAME":"ANY")&&cell["query"]==row["query"]
+                &&cell["accessibleName"].toString()==(filename?"Filename: ":"Everything: ")+row["query"].toString(),
+                "Compact token caption changed its query or full accessible name"))return false;
+            if(index&&!check(cell["x"].toDouble()>cells[index-1].toObject()["x"].toDouble()+cells[index-1].toObject()["width"].toDouble(),
+                "Independent token cells have no separating gap"))return false;
+        }
+        return true;
+    };
     auto observe=[&](const QString &phase){
         qInfo().noquote()<<"FileInput search phase:"<<phase;
         auto model=qobject_cast<QAbstractItemModel*>(search());QJsonArray names;
@@ -78,6 +111,7 @@ static void runFileInputSearchConsumer(QQuickWindow *window,QGuiApplication &app
         phases.append(QJsonObject{{"phase",phase},{"expression",QJsonArray::fromVariantList(expression())},
             {"editorText",editor?editor->property("text").toString():QString()},
             {"selectedText",editor?editor->property("selectedText").toString():QString()},
+            {"tokenPresentation",tokenPresentation()},
             {"folderOnly",search()&&search()->property("folderOnly").toBool()},
             {"error",search()?search()->property("error").toString():QString()},
             {"busy",search()&&search()->property("busy").toBool()},{"names",names},{"state",chartMap(fixture(),"state")}});
@@ -118,6 +152,7 @@ static void runFileInputSearchConsumer(QQuickWindow *window,QGuiApplication &app
     if(!wait([&]{return !search()->property("busy").toBool()&&row(token+"-outside.txt")<0&&row("pine-peer.txt")<0&&row(token+"-child.txt")>=0;},"Recursive folder scope did not exclude the peer"))return;
     observe("folder");if(!click(editor))return;QTest::keyClick(editor->window(),Qt::Key_Down);QTest::keyClick(editor->window(),Qt::Key_Return);
     if(!wait([&]{return singleTermMode()=="filename"&&!search()->property("busy").toBool()&&row("pine-only.txt")<0&&row(token+"-name.txt")>=0;},"Filename suggestion did not change the actual results"))return;
+    if(!checkTokenPresentation())return;
     observe("filename");if(!save(editor,"filename"))return;
     auto fieldHost=visible("bleeckerFileChooserSearchHost");if(!check(fieldHost,"Search field host is missing"))return;
     QTest::mouseClick(editor->window(),Qt::LeftButton,{},fieldHost->mapToScene(QPointF(1,fieldHost->height()/2)).toPoint());
@@ -158,6 +193,7 @@ static void runFileInputSearchConsumer(QQuickWindow *window,QGuiApplication &app
     QTest::keyClick(editor->window(),Qt::Key_Down);QTest::keyClick(editor->window(),Qt::Key_Return);
     const QVariantList compound{QVariantMap{{"kind","token"},{"mode","everything"},{"query",token}},QVariantMap{{"kind","token"},{"mode","filename"},{"query","pine"}}};
     if(!wait([&]{return expression()==compound&&!search()->property("busy").toBool()&&search()->property("count").toInt()==1&&row("pine-only.txt")==0;},"Compound Filename term did not narrow the indexed results"))return;
+    if(!checkTokenPresentation())return;
     observe("compound-mixed");if(!save(editor,"compound-mixed"))return;
     auto second=visible("bleeckerFileChooserSearchToken_1");auto secondAccessible=second?QAccessible::queryAccessibleInterface(second):nullptr;
     if(!check(secondAccessible&&secondAccessible->actionInterface()&&secondAccessible->text(QAccessible::Name)=="Filename: pine","Second token has no independent accessible menu"))return;
@@ -168,6 +204,7 @@ static void runFileInputSearchConsumer(QQuickWindow *window,QGuiApplication &app
     choice->actionInterface()->doAction(QAccessibleActionInterface::pressAction());
     auto both=compound;auto last=both[1].toMap();last["mode"]="everything";both[1]=last;
     if(!wait([&]{return expression()==both&&!search()->property("busy").toBool()&&search()->property("count").toInt()==1&&row("pine-only.txt")==0;},"Independent Everything term did not retain conjunction"))return;
+    if(!checkTokenPresentation())return;
     observe("compound-everything");if(!save(editor,"compound-everything"))return;
     QTest::keyClick(editor->window(),Qt::Key_Home);QTest::keyClick(editor->window(),Qt::Key_Right);
     if(!check(editor->property("selectedText").toString()==object,"Right from the start did not select the first token"))return;

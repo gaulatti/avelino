@@ -14,14 +14,14 @@ FocusScope {
     implicitWidth:198;implicitHeight:24
     function commit(mode) { suggestion=-1; editor.commitDraft(mode) }
     Rectangle {
-        anchors.fill:parent;radius:6;color:host.dark ? "#252525":"#eeeeee"
+        anchors.fill:parent;radius:6;color:host.dark ? "#252525":"white"
         border.width:editor.activeFocus ? 2:0.5;border.color:editor.activeFocus ? "#80baff":host.dark ? "#575757":"#c6c6c6"
     }
     MouseArea {anchors.fill:parent;onPressed:editor.forceActiveFocus()}
-    InputGlyph {x:8;y:5;width:14;height:14;symbol:"search";color:host.dark ? "#aaaaaa":"#777777";visible:editor.tokens.count===0}
+    InputGlyph {objectName:"bleeckerFileChooserSearchGlyph";x:8;y:5;width:14;height:14;symbol:"search";color:host.dark ? "#aaaaaa":"#777777"}
     Flickable {
         id:viewport;objectName:"bleeckerFileChooserSearchViewport"
-        x:editor.tokens.count ? 4:26;y:2
+        x:26;y:2
         width:host.width-x-25;height:host.height-4
         clip:true;interactive:false;boundsBehavior:Flickable.StopAtBounds
         contentWidth:editor.width;contentHeight:height
@@ -44,6 +44,7 @@ FocusScope {
             verticalAlignment:Text.AlignVCenter;selectByMouse:true
             font.family:Qt.application.font.family;font.pixelSize:13
             color:host.dark ? "#eeeeee":"#222222";selectionColor:"#a6cef5";selectedTextColor:"#111111"
+            placeholderText:"Search";placeholderTextColor:host.dark ? "#aaaaaa":"#888888"
             Accessible.name:"Search";Accessible.role:Accessible.EditableText
             Accessible.description:"Search names and contents with independent Filename and Everything tokens"
             KeyNavigation.tab:host.resultsView
@@ -66,15 +67,41 @@ FocusScope {
                     required property var token
                     required property int index
                     objectName:"bleeckerFileChooserSearchToken"+(index ? "_"+index:"")
-                    x:token.x;y:token.y;width:token.width;height:token.height;implicitHeight:18
-                    focusPolicy:Qt.NoFocus;text:token.label+" ▾"
+                    x:token.x;y:token.y;width:token.width;height:token.height;implicitHeight:15
+                    focusPolicy:Qt.NoFocus;text:token.label
                     readonly property bool tokenSelected:editor.selectionStart<=token.position&&editor.selectionEnd>token.position
-                    fillColor:tokenSelected ? "#a6cef5":host.dark ? "#555555":"#dddddd"
+                    fillColor:tokenSelected ? "#a6cef5":host.dark ? "#555555":"#e5e5e5"
+                    background:Rectangle {radius:2;color:chip.fillColor}
                     contentItem:Text {
-                        text:chip.text;font:chip.font;textFormat:Text.PlainText
-                        horizontalAlignment:Text.AlignHCenter;verticalAlignment:Text.AlignVCenter
+                        id:queryCaption
+                        text:chip.token.query;font:editor.font;textFormat:Text.PlainText
+                        leftPadding:chip.token.modeWidth+4;rightPadding:4
+                        horizontalAlignment:Text.AlignLeft;verticalAlignment:Text.AlignVCenter
                         color:chip.tokenSelected ? editor.selectedTextColor:chip.dark ? "white":"#222222"
                         opacity:chip.enabled ? 1:0.35;Accessible.ignored:true
+                        Rectangle {
+                            width:chip.token.modeWidth;height:parent.height;radius:2
+                            color:chip.tokenSelected ? chip.fillColor:host.dark ? "#777777":"#bcbcbc"
+                            Accessible.ignored:true
+                            Text {
+                                objectName:"bleeckerFileChooserSearchTokenMode"
+                                x:4;width:parent.width-14;height:parent.height
+                                text:chip.token.modeLabel;textFormat:Text.PlainText
+                                font.family:editor.font.family;font.pixelSize:9;font.weight:Font.Normal
+                                color:queryCaption.color;verticalAlignment:Text.AlignVCenter;Accessible.ignored:true
+                            }
+                            Canvas {
+                                x:parent.width-8;y:(parent.height-3)/2;width:5;height:3
+                                property color ink:queryCaption.color
+                                onInkChanged:requestPaint()
+                                Accessible.ignored:true
+                                onPaint:{
+                                    const ctx=getContext("2d");ctx.reset();ctx.strokeStyle=ink;ctx.lineWidth=1.2
+                                    ctx.lineCap="round";ctx.lineJoin="round";ctx.beginPath()
+                                    ctx.moveTo(0.6,0.6);ctx.lineTo(2.5,2.4);ctx.lineTo(4.4,0.6);ctx.stroke()
+                                }
+                            }
+                        }
                     }
                     Accessible.name:token.label;Accessible.role:Accessible.ButtonMenu
                     accessibilityMenu:modeMenu
