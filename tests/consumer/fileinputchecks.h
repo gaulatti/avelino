@@ -27,16 +27,33 @@ static void runFileInputConsumer(QQuickWindow *window,QGuiApplication &app,const
         return check(waitForShapeFrame(window)&&control(),"Configured FileInput missing");
     };
     auto popupPixels=[&](QQuickWindow *target){
-        if(!target||!target->isExposed())return QImage();
+        if(!target)return QImage();
         // Capture the complete owned popup scene through Qt's asynchronous item
         // API. Direct native-window GL readback invalidates the Wayland popup
         // surface in the pinned SDK; external compositor captures are separate.
-        auto result=target->contentItem()->grabToImage();if(!result)return QImage();
-        QSignalSpy ready(result.data(),&QQuickItemGrabResult::ready);
-        if(result->image().isNull()&&!ready.wait(5000))return QImage();
-        const auto pixels=result->image();
-        if(pixels.size()!=QSize(qRound(target->width()*target->devicePixelRatio()),qRound(target->height()*target->devicePixelRatio())))return QImage();
-        return pixels;
+        QPointer<QQuickWindow> guard=target;QElapsedTimer elapsed;elapsed.start();
+        QImage pixels;QSize expected;
+        while(guard&&elapsed.elapsed()<5000){
+            if(guard->isExposed()){
+                auto result=guard->contentItem()->grabToImage();
+                if(result){
+                    QSignalSpy ready(result.data(),&QQuickItemGrabResult::ready);
+                    const int remaining=5000-int(elapsed.elapsed());
+                    if(result->image().isNull()&&(remaining<=0||!ready.wait(remaining)))break;
+                    if(!guard)break;
+                    pixels=result->image();
+                    expected=QSize(qRound(guard->width()*guard->devicePixelRatio()),qRound(guard->height()*guard->devicePixelRatio()));
+                    if(!pixels.isNull()&&pixels.size()==expected)return pixels;
+                }
+            }
+            // A configured surface or a new-size scene may arrive on the next
+            // frame after directory navigation. Retain the original5sec bound.
+            const int remaining=5000-int(elapsed.elapsed());
+            if(remaining>0)QTest::qWait(qMin(16,remaining));
+        }
+        qWarning()<<"FileInput popup readback timed out"<<"windowAlive"<<bool(guard)
+            <<"exposed"<<(guard&&guard->isExposed())<<"pixels"<<pixels.size()<<"expected"<<expected;
+        return QImage();
     };
     auto popupReady=[&](QQuickWindow *target){
         QElapsedTimer elapsed;elapsed.start();QImage previous;

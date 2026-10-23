@@ -420,8 +420,8 @@ private slots:
         QTest::newRow("token-after")<<QVariantList{filename,everything}<<0<<QVariantList{text("pine"),everything}<<(QString("pine")+object)<<0<<4;
         QTest::newRow("raw-before")<<QVariantList{text("pine"),everything}<<4<<raw("pine pine")<<QString("pine pine")<<5<<-1;
         QTest::newRow("raw-after")<<QVariantList{filename,text("cedar")}<<0<<raw("pine cedar")<<QString("pine cedar")<<0<<5;
-        QTest::newRow("space-before")<<QVariantList{text("oak "),filename}<<4<<raw("oak  pine")<<QString("oak  pine")<<5<<-1;
-        QTest::newRow("spaces-both")<<QVariantList{text("oak "),filename,text(" cedar")}<<4<<raw("oak  pine  cedar")<<QString("oak  pine  cedar")<<5<<-1;
+        QTest::newRow("space-before")<<QVariantList{text("oak "),filename}<<4<<raw("oak  pine")<<QString("oak  pine")<<5<<5;
+        QTest::newRow("spaces-both")<<QVariantList{text("oak "),filename,text(" cedar")}<<4<<raw("oak  pine  cedar")<<QString("oak  pine  cedar")<<5<<10;
     }
     void tokenExpansionPreservesNativeBoundariesAndUndo(){
         QFETCH(QVariantList,original);QFETCH(int,position);QFETCH(QVariantList,expanded);
@@ -448,9 +448,10 @@ private slots:
         if(neighborAccessible){QVERIFY(neighbor);QCOMPARE(QAccessible::queryAccessibleInterface(neighbor),neighborAccessible);}
         capture(editor,"token-expanded-"+QString::fromLatin1(QTest::currentDataTag()));
         QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
-        QCOMPARE(browser->search()->expression(),original);
-        QCOMPARE(editor->property("selectedText").toString(),QString(QChar::ObjectReplacementCharacter));
-        QCOMPARE(editor->property("selectionStart").toInt(),position);
+        const bool rawBoth=caseName=="spaces-both";
+        QCOMPARE(browser->search()->expression(),rawBoth?raw("oak pine cedar"):original);
+        QCOMPARE(editor->property("selectedText").toString(),rawBoth?QString():QString(QChar::ObjectReplacementCharacter));
+        if(!rawBoth)QCOMPARE(editor->property("selectionStart").toInt(),position);
         QVERIFY(!editor->property("canUndo").toBool());
         if(neighborAccessible){QVERIFY(neighbor);QCOMPARE(QAccessible::queryAccessibleInterface(neighbor),neighborAccessible);}
         QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier|Qt::ShiftModifier);
@@ -463,6 +464,157 @@ private slots:
             QCOMPARE(editor->property("text").toString(),QString("pine Xcedar"));
         }
         browser->cancel();QVERIFY(results(view.rootObject()).isEmpty());
+    }
+    void rawBoundaryExpansionMatchesNativeTypingHistory(){
+        QQuickView view;QVERIFY(load(view));auto browser=open(view);QVERIFY(browser);
+        auto editor=visible("bleeckerFileChooserSearch");QVERIFY(editor);click(editor);
+        type(editor->window(),"pine");QTest::keyClick(editor->window(),Qt::Key_Down);
+        QTest::keyClick(editor->window(),Qt::Key_Return);
+        QTRY_COMPARE(browser->search()->expression(),committed("filename","pine"));
+        QTest::keyClick(editor->window(),Qt::Key_Home);type(editor->window(),"oak ");
+        QTest::keyClick(editor->window(),Qt::Key_End);type(editor->window()," cedar");
+        QCOMPARE(editor->property("text").toString(),QString("oak ")+QChar::ObjectReplacementCharacter+" cedar");
+        QVERIFY(editor->property("canUndo").toBool());
+        auto query=visible("bleeckerFileChooserSearchTokenQuery");QVERIFY(query);
+        capture(editor,"native-raw-boundary-before");
+        QTest::mouseDClick(editor->window(),Qt::LeftButton,{},query->mapToScene(query->boundingRect().center()).toPoint());
+        QCOMPARE(editor->property("text").toString(),QString("oak  pine  cedar"));
+        QCOMPARE(editor->property("selectedText").toString(),QString("pine"));
+        QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
+        // A fresh pinned native process leaves raw text at the first Undo when
+        // raw runs border both sides; it retains the earlier typing history.
+        QCOMPARE(editor->property("text").toString(),QString("oak pine cedar"));
+        QCOMPARE(browser->search()->expression(),raw("oak pine cedar"));
+        QCOMPARE(editor->property("selectedText").toString(),QString());
+        QVERIFY(editor->property("canUndo").toBool());
+        QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier|Qt::ShiftModifier);
+        QCOMPARE(editor->property("text").toString(),QString("oak  pine  cedar"));
+        QCOMPARE(editor->property("cursorPosition").toInt(),10);
+        type(editor->window(),"X");
+        QCOMPARE(editor->property("text").toString(),QString("oak  pine X cedar"));
+        for(const auto &text:QStringList{"oak  pine  cedar","oak pine cedar","oak pdar"}){
+            QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
+            QCOMPARE(editor->property("text").toString(),text);
+        }
+        for(const auto &text:QStringList{"oak pine cedar","oak  pine  cedar","oak  pine X cedar"}){
+            QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier|Qt::ShiftModifier);
+            QCOMPARE(editor->property("text").toString(),text);
+        }
+        // Revisit the commands created during Redo, then branch with new input.
+        // This is a history integrity guard, beyond the recorded native trace.
+        for(const auto &text:QStringList{"oak  pine  cedar","oak pine cedar","oak pdar"}){
+            QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
+            QCOMPARE(editor->property("text").toString(),text);
+        }
+        for(const auto &text:QStringList{"oak pine cedar","oak  pine  cedar","oak  pine X cedar"}){
+            QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier|Qt::ShiftModifier);
+            QCOMPARE(editor->property("text").toString(),text);
+        }
+        QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
+        QTest::keyClick(editor->window(),Qt::Key_End);type(editor->window(),"Y");
+        QCOMPARE(editor->property("text").toString(),QString("oak  pine  cedarY"));
+        QVERIFY(!editor->property("canRedo").toBool());
+        QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
+        QCOMPARE(editor->property("text").toString(),QString("oak  pine  cedar"));
+        QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier|Qt::ShiftModifier);
+        QCOMPARE(editor->property("text").toString(),QString("oak  pine  cedarY"));
+        capture(editor,"native-raw-boundary-history-redo");
+        browser->cancel();QVERIFY(results(view.rootObject()).isEmpty());
+    }
+    void prefixExpansionRedoUsesNativeCaret(){
+        QQuickView view;QVERIFY(load(view));auto browser=open(view);QVERIFY(browser);
+        auto editor=visible("bleeckerFileChooserSearch");QVERIFY(editor);click(editor);
+        type(editor->window(),"pine");QTest::keyClick(editor->window(),Qt::Key_Down);
+        QTest::keyClick(editor->window(),Qt::Key_Down);QTest::keyClick(editor->window(),Qt::Key_Return);
+        QTRY_COMPARE(browser->search()->expression(),committed("everything","pine"));
+        QTest::keyClick(editor->window(),Qt::Key_Home);type(editor->window(),"oak ");
+        auto query=visible("bleeckerFileChooserSearchTokenQuery");QVERIFY(query);
+        QTest::mouseDClick(editor->window(),Qt::LeftButton,{},query->mapToScene(query->boundingRect().center()).toPoint());
+        QCOMPARE(editor->property("text").toString(),QString("oak  pine"));
+        QCOMPARE(editor->property("selectedText").toString(),QString("pine"));
+        QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
+        QCOMPARE(editor->property("text").toString(),QString("oak ")+QChar::ObjectReplacementCharacter);
+        QCOMPARE(editor->property("selectedText").toString(),QString(QChar::ObjectReplacementCharacter));
+        QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier|Qt::ShiftModifier);
+        QCOMPARE(editor->property("text").toString(),QString("oak  pine"));
+        QCOMPARE(editor->property("selectedText").toString(),QString());
+        QCOMPARE(editor->property("cursorPosition").toInt(),5);
+        type(editor->window(),"X");QCOMPARE(editor->property("text").toString(),QString("oak  Xpine"));
+        capture(editor,"native-prefix-redo-caret");browser->cancel();
+    }
+    void committedUnicodeQueryExpansion_data(){
+        QTest::addColumn<QString>("query");
+        QTest::newRow("combining")<<QStringLiteral("avelinoe\u0301");
+        QTest::newRow("supplementary")<<QStringLiteral("avelino\U0001f426");
+    }
+    void committedUnicodeQueryExpansion(){
+        QFETCH(QString,query);QQuickView view;QVERIFY(load(view));auto browser=open(view);QVERIFY(browser);
+        auto editor=visible("bleeckerFileChooserSearch");QVERIFY(editor);click(editor);
+        QInputMethodEvent commit;commit.setCommitString(query);QCoreApplication::sendEvent(editor,&commit);
+        QTest::keyClick(editor->window(),Qt::Key_Down);QTest::keyClick(editor->window(),Qt::Key_Return);
+        QTRY_COMPARE(browser->search()->expression(),committed("filename",query));
+        auto hit=visible("bleeckerFileChooserSearchTokenQuery");QVERIFY(hit);
+        QTest::mouseDClick(editor->window(),Qt::LeftButton,{},hit->mapToScene(hit->boundingRect().center()).toPoint());
+        QCOMPARE(editor->property("text").toString(),query);
+        QCOMPARE(editor->property("selectedText").toString(),query);
+        QCOMPARE(editor->property("selectionStart").toInt(),0);
+        QCOMPARE(editor->property("selectionEnd").toInt(),query.size());
+        QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
+        QCOMPARE(browser->search()->expression(),committed("filename",query));
+        QCOMPARE(editor->property("selectedText").toString(),QString(QChar::ObjectReplacementCharacter));
+        QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier|Qt::ShiftModifier);
+        QCOMPARE(editor->property("text").toString(),query);
+        QCOMPARE(editor->property("selectedText").toString(),QString());
+        QCOMPARE(editor->property("cursorPosition").toInt(),query.size());
+        type(editor->window(),"X");QCOMPARE(editor->property("text").toString(),query+"X");
+        capture(editor,"native-unicode-"+QString::fromLatin1(QTest::currentDataTag()));browser->cancel();
+    }
+    void rawBoundaryHistoryKeepsTheOtherTokenObject(){
+        QQuickView view;QVERIFY(load(view));auto browser=open(view);QVERIFY(browser);
+        const QVariantMap peer{{"kind","token"},{"mode","everything"},{"query",token}};
+        const QVariantList original{peer,QVariantMap{{"kind","text"},{"text","oak "}},
+            committed("filename","pine").first(),QVariantMap{{"kind","text"},{"text"," cedar"}}};
+        browser->search()->setExpression(original);
+        auto editor=visible("bleeckerFileChooserSearch");QVERIFY(editor);
+        QPointer<QQuickItem> other=visible("bleeckerFileChooserSearchToken");QVERIFY(other);
+        auto accessible=QAccessible::queryAccessibleInterface(other);QVERIFY(accessible);
+        QVERIFY(QMetaObject::invokeMethod(editor,"editTokenAt",Q_ARG(int,5)));
+        const auto checkPeer=[&]{
+            QVERIFY(other);QCOMPARE(visible("bleeckerFileChooserSearchToken"),other.data());
+            QCOMPARE(QAccessible::queryAccessibleInterface(other),accessible);
+            QCOMPARE(browser->search()->expression().first().toMap(),peer);
+        };
+        checkPeer();QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);checkPeer();
+        QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier|Qt::ShiftModifier);checkPeer();
+        browser->cancel();
+    }
+    void rawBoundaryHistoryNotificationsAllowSynchronousDestruction_data(){
+        QTest::addColumn<QString>("phase");QTest::addColumn<QByteArray>("notification");
+        for(const auto &phase:QStringList{"expand","undo","redo"}){
+            for(const auto &notification:QList<QByteArray>{"textChanged()","selectedTextChanged()","canUndoChanged()","expressionChanged()"}){
+                if(phase=="redo"&&notification=="selectedTextChanged()")continue;
+                QTest::newRow((phase+"-"+QString::fromLatin1(notification)).toLatin1().constData())<<phase<<notification;
+            }
+        }
+    }
+    void rawBoundaryHistoryNotificationsAllowSynchronousDestruction(){
+        QFETCH(QString,phase);QFETCH(QByteArray,notification);
+        QQmlEngine engine;engine.addImportPath(AVELINO_FILE_INPUT_IMPORT_PATH);QQmlComponent component(&engine);
+        component.setData("import QtQuick\nimport Avelino\nFileChooserSearchText {}",QUrl());
+        QPointer<QObject> editor=component.create();QVERIFY2(editor,qPrintable(component.errorString()));
+        const QVariantList original{QVariantMap{{"kind","text"},{"text","oak "}},
+            committed("filename","pine").first(),QVariantMap{{"kind","text"},{"text"," cedar"}}};
+        QVERIFY(editor->setProperty("expression",original));
+        if(phase!="expand")QVERIFY(QMetaObject::invokeMethod(editor,"editTokenAt",Q_ARG(int,4)));
+        if(phase=="redo")QVERIFY(QMetaObject::invokeMethod(editor,"undo"));
+        SearchEditorDestroyer destroyer;destroyer.target=editor;QSignalSpy destroyed(editor,&QObject::destroyed);
+        const int index=editor->metaObject()->indexOfSignal(notification);QVERIFY(index>=0);
+        const auto signal=editor->metaObject()->method(index);
+        const auto slot=destroyer.metaObject()->method(destroyer.metaObject()->indexOfSlot("destroy()"));
+        QVERIFY(QObject::connect(editor,signal,&destroyer,slot,Qt::DirectConnection));
+        if(phase=="expand")QVERIFY(QMetaObject::invokeMethod(editor,"editTokenAt",Q_ARG(int,4)));
+        else QVERIFY(QMetaObject::invokeMethod(editor,phase.toLatin1().constData()));
+        QVERIFY(!editor);QCOMPARE(destroyed.size(),1);
     }
     void tokenExpansionReadOnlyDisabledAndExternalReset(){
         QQuickView view;QVERIFY(load(view));auto browser=open(view);QVERIFY(browser);

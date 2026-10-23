@@ -6,9 +6,13 @@
 #include <QTextCharFormat>
 #include <QVariantList>
 #include <functional>
+#include <memory>
+
+class FileChooserSearchHistory;
 
 // Qt owns document commands, selection, composition and layout. Token metadata
-// lives in inline object formats; only restored token selection is supplemental.
+// lives in inline object formats. Scoped native history and restored selection
+// supplement the public Qt document commands.
 class FileChooserSearchText : public QQuickTextArea {
     Q_OBJECT
     QML_ELEMENT
@@ -18,6 +22,7 @@ class FileChooserSearchText : public QQuickTextArea {
     Q_PROPERTY(QString draft READ draft NOTIFY draftChanged)
 public:
     explicit FileChooserSearchText(QQuickItem *parent=nullptr);
+    ~FileChooserSearchText()override;
     QVariantList expression()const;
     void setExpression(const QVariantList &value);
     void setText(const QString &value);
@@ -72,6 +77,8 @@ private:
     void reportError(const QString &message);
     FileChooserSearchTokens *m_tokens;
     QMap<int,Selection> m_selections;
+    QMap<int,int> m_redoCursors;
+    std::unique_ptr<FileChooserSearchHistory> m_history;
     QVariantList m_reportedExpression;
     int m_editDepth=0,m_resource=0;
     bool m_contentsDirty=false,m_tokensDirty=false,m_draftDirty=false,m_publishing=false;

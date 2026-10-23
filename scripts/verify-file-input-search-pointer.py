@@ -12,6 +12,7 @@ import subprocess
 ROOT = Path(__file__).resolve().parents[1]
 DIRECTORY = ROOT / 'evidence/development/file-input-search-pointer-20261022'
 PARENT = '4f720b5eee7623e57f0dc263514eba85c464cffb'
+PUBLISHED = '823edb18f53d299780e77e99cad4b86b13cde097'
 MODULE = '02bae12541ae5c422a21902344a6deb359c217f515321c4f3d254fe20d4b53b4'
 CONSUMER = '2df640c4d991f985ca1b1b4f93ac8ee2c5b209f26bbb720cddbba6b9282a1395'
 NATIVE = '502d77b79531d51feaae34a1ae884ae01897a6a33913d5a9b370237ed29e3de8'
@@ -145,14 +146,15 @@ def verify():
 
     binding = json.loads((DIRECTORY / 'runtime-binding.json').read_text())
     assert binding['sourceParent'] == PARENT and len(binding['files']) == 578
-    base = {}
+    base, published = {}, {}
     with subprocess.Popen(['git', 'cat-file', '--batch'], cwd=ROOT, stdin=subprocess.PIPE, stdout=subprocess.PIPE) as process:
-        for name in sorted(binding['files']):
-            assert not Path(name).is_absolute() and '..' not in Path(name).parts and '\n' not in name
-            process.stdin.write((PARENT + ':' + name + '\n').encode()); process.stdin.flush()
-            header = process.stdout.readline().split(); assert len(header) == 3 and header[1] == b'blob'
-            base[name] = digest(process.stdout.read(int(header[2])))
-            assert process.stdout.read(1) == b'\n'
+        for revision, target in [(PARENT, base), (PUBLISHED, published)]:
+            for name in sorted(binding['files']):
+                assert not Path(name).is_absolute() and '..' not in Path(name).parts and '\n' not in name
+                process.stdin.write((revision + ':' + name + '\n').encode()); process.stdin.flush()
+                header = process.stdout.readline().split(); assert len(header) == 3 and header[1] == b'blob'
+                target[name] = digest(process.stdout.read(int(header[2])))
+                assert process.stdout.read(1) == b'\n'
         process.stdin.close(); assert process.wait() == 0
     for attempt, summary in [(53, b'25 passed, 10 failed, 1 skipped'), (54, b'35 passed, 0 failed, 1 skipped'),
                              (55, b'40 passed, 1 failed, 1 skipped'), (56, b'42 passed, 0 failed, 1 skipped')]:
@@ -169,7 +171,7 @@ def verify():
             assert summary in raw(f'source{attempt}/indexed-last-test.log')
     current = record('source56/inputs.json')
     assert {name: current['sourceFiles'][name] for name in binding['files']} == binding['files']
-    assert all(digest((ROOT / name).read_bytes()) == value for name, value in binding['files'].items())
+    assert published == binding['files']
     assert b'42 passed, 0 failed, 1 skipped' in raw('source56/pointer-dpr2-v1/last-test.log')
     assert record('source56/pointer-dpr2-v1/result.json')['exitCode'] == 0
     suite = record('source56/validation/ctest/result.json')

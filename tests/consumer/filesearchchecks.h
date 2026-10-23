@@ -304,6 +304,73 @@ static void runFileInputSearchConsumer(QQuickWindow *window,QGuiApplication &app
     if(!check(!browser()->property("active").toBool()&&chartMap(fixture(),"state")["results"].toArray().size()==1,"Cancellation changed the owner result"))return;
     if(!wait([&]{return !visible("bleeckerFileChooserSearch");},"Cancelled chooser did not finish closing"))return;
     observe("cancelled-query");
+    // Replay the fresh native first-panel keyboard histories through the
+    // installed library. Reopen between cases so no earlier query is a setup
+    // dependency, and retain the original owner result throughout.
+    auto historyPanel=[&](bool everything){
+        if(!click(control()->property("inputItem").value<QQuickItem*>())
+            ||!wait([&]{return visible("bleeckerFileChooserSearch");},"History chooser did not reopen"))return false;
+        editor=visible("bleeckerFileChooserSearch");
+        if(!check(popupReady(editor->window()),"History chooser frame did not settle")||!click(editor)
+            ||!wait([&]{return editor->hasActiveFocus()&&editor->window()->isActive();},"History editor did not gain focus"))return false;
+        for(auto character:QByteArray("pine"))QTest::keyClick(editor->window(),character);
+        QTest::keyClick(editor->window(),Qt::Key_Down);
+        if(everything)QTest::keyClick(editor->window(),Qt::Key_Down);
+        QTest::keyClick(editor->window(),Qt::Key_Return);
+        return wait([&]{return singleTermMode()==(everything?"everything":"filename")&&singleTermText()=="pine"
+            &&!search()->property("busy").toBool();},"History token did not commit");
+    };
+    auto historyState=[&](const QString &phase,const QString &text){
+        if(!wait([&]{return editor->property("text").toString()==text&&!search()->property("busy").toBool();},"History text did not settle"))return false;
+        observe(phase);return save(editor,phase);
+    };
+    auto historyCancel=[&]{
+        return click(visible("bleeckerFileChooserCancel"))
+            &&wait([&]{return !visible("bleeckerFileChooserSearch");},"History Cancel did not close")
+            &&check(chartMap(fixture(),"state")["results"].toArray().size()==1,"History cancellation changed the owner result");
+    };
+    if(!historyPanel(false))return;
+    QTest::keyClick(editor->window(),Qt::Key_Home);
+    for(auto character:QByteArray("oak "))QTest::keyClick(editor->window(),character);
+    QTest::keyClick(editor->window(),Qt::Key_End);
+    for(auto character:QByteArray(" cedar"))QTest::keyClick(editor->window(),character);
+    if(!historyState("history-before","oak "+object+" cedar")
+        ||!tokenPointer(visible("bleeckerFileChooserSearchToken"),true,true)
+        ||!check(editor->property("selectedText").toString()=="pine","History expansion lost query selection")
+        ||!historyState("history-expanded","oak  pine  cedar"))return;
+    QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
+    if(!check(editor->property("selectedText").toString().isEmpty()&&editor->property("canUndo").toBool(),
+        "Raw-boundary Undo lost earlier history or left a selection")||!historyState("history-first-undo","oak pine cedar"))return;
+    QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier|Qt::ShiftModifier);
+    if(!check(editor->property("cursorPosition").toInt()==10,"Raw-boundary Redo caret moved")
+        ||!historyState("history-redo","oak  pine  cedar"))return;
+    QTest::keyClick(editor->window(),'X');
+    if(!historyState("history-redo-X","oak  pine X cedar"))return;
+    const QStringList undone{"oak  pine  cedar","oak pine cedar","oak pdar"};
+    const QStringList redone{"oak pine cedar","oak  pine  cedar","oak  pine X cedar"};
+    for(int index=0;index<undone.size();++index){
+        QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
+        if(!historyState("history-later-undo-"+QString::number(index+1),undone[index]))return;
+    }
+    for(int index=0;index<redone.size();++index){
+        QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier|Qt::ShiftModifier);
+        if(!historyState("history-later-redo-"+QString::number(index+1),redone[index]))return;
+    }
+    if(!historyCancel()||!historyPanel(true))return;
+    QTest::keyClick(editor->window(),Qt::Key_Home);
+    for(auto character:QByteArray("oak "))QTest::keyClick(editor->window(),character);
+    if(!historyState("prefix-before","oak "+object)
+        ||!tokenPointer(visible("bleeckerFileChooserSearchToken"),true,true)
+        ||!check(editor->property("selectedText").toString()=="pine","Prefix expansion lost query selection")
+        ||!historyState("prefix-expanded","oak  pine"))return;
+    QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);
+    if(!check(editor->property("selectedText").toString()==object,"Prefix Undo did not select its token")
+        ||!historyState("prefix-first-undo","oak "+object))return;
+    QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier|Qt::ShiftModifier);
+    if(!check(editor->property("selectedText").toString().isEmpty()&&editor->property("cursorPosition").toInt()==5,
+        "Prefix Redo caret is not at the query start")||!historyState("prefix-redo","oak  pine"))return;
+    QTest::keyClick(editor->window(),'X');
+    if(!historyState("prefix-redo-X","oak  Xpine")||!historyCancel())return;
     if(!parser.isSet("evidence")){if(report())app.exit(0);return;}
     // Keep a real selected search surface mapped until the external compositor
     // capture acknowledges it through the existing consumer evidence protocol.

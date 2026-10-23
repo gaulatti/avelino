@@ -98,7 +98,7 @@ standard = configuration == 'standard'
 assert record['dpr'] == (1 if standard else 2) and record['textScale'] == (1 if standard else 1.5)
 assert record['appearance'] == ('light' if standard else 'dark')
 phases = record['phases']
-expected = ['global','folder','filename','query-selected','query-expanded','query-expand-undo','query-expand-redo','token-replacement','token-undo','token-redo','compound-mixed','compound-query-expanded','compound-query-undo','compound-query-redo','compound-everything','compound-replacement','compound-undo','compound-redo','selected','owner-result','cancelled-query','session-selected']
+expected = ['global','folder','filename','query-selected','query-expanded','query-expand-undo','query-expand-redo','token-replacement','token-undo','token-redo','compound-mixed','compound-query-expanded','compound-query-undo','compound-query-redo','compound-everything','compound-replacement','compound-undo','compound-redo','selected','owner-result','cancelled-query','history-before','history-expanded','history-first-undo','history-redo','history-redo-X','history-later-undo-1','history-later-undo-2','history-later-undo-3','history-later-redo-1','history-later-redo-2','history-later-redo-3','prefix-before','prefix-expanded','prefix-first-undo','prefix-redo','prefix-redo-X','session-selected']
 assert [p['phase'] for p in phases] == expected
 assert all(not p['busy'] and not p['error'] for p in phases)
 rows = {phase['phase']: phase for phase in phases}
@@ -127,6 +127,40 @@ assert rows['compound-undo']['selectedText'] == '\ufffc'
 assert rows['compound-replacement']['expression'] == rows['compound-redo']['expression'] == [{'kind':'text','text':'name'}, both[1]]
 assert rows['session-selected']['expression'] == [compound[0]] and 'pine-only.txt' in rows['session-selected']['names']
 assert rows['session-selected']['folderOnly'] is True
+# Fresh native first-panel histories: verify semantic text, token metadata,
+# selection and caret, including earlier typing Undo and complete Redo.
+history_text = {
+    'history-before': 'oak \ufffc cedar',
+    'history-expanded': 'oak  pine  cedar',
+    'history-first-undo': 'oak pine cedar',
+    'history-redo': 'oak  pine  cedar',
+    'history-redo-X': 'oak  pine X cedar',
+    'history-later-undo-1': 'oak  pine  cedar',
+    'history-later-undo-2': 'oak pine cedar',
+    'history-later-undo-3': 'oak pdar',
+    'history-later-redo-1': 'oak pine cedar',
+    'history-later-redo-2': 'oak  pine  cedar',
+    'history-later-redo-3': 'oak  pine X cedar',
+    'prefix-before': 'oak \ufffc', 'prefix-expanded': 'oak  pine',
+    'prefix-first-undo': 'oak \ufffc', 'prefix-redo': 'oak  pine',
+    'prefix-redo-X': 'oak  Xpine',
+}
+for name, text in history_text.items():
+    assert rows[name]['editorText'] == text, name
+    if '\ufffc' not in text:
+        assert rows[name]['expression'] == [{'kind': 'text', 'text': text}], name
+assert rows['history-before']['expression'] == [
+    {'kind':'text','text':'oak '}, {'kind':'token','mode':'filename','query':'pine'},
+    {'kind':'text','text':' cedar'}]
+assert rows['prefix-before']['expression'] == rows['prefix-first-undo']['expression'] == [
+    {'kind':'text','text':'oak '}, {'kind':'token','mode':'everything','query':'pine'}]
+for name in ['history-expanded','prefix-expanded']:
+    assert rows[name]['selectedText'] == 'pine'
+    assert (rows[name]['selectionStart'], rows[name]['selectionEnd']) == (5, 9)
+assert rows['history-first-undo']['selectedText'] == ''
+assert rows['prefix-first-undo']['selectedText'] == '\ufffc'
+for name, position in [('history-redo', 10), ('prefix-redo', 5)]:
+    assert rows[name]['selectedText'] == '' and rows[name]['cursorPosition'] == position
 for key in ['nativeRasterAccepted','readerAcceptance','physicalInput']:
     assert record[key] is False
 final_image = Path(prefix + '.png')

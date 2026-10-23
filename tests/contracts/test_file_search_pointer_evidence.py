@@ -23,6 +23,10 @@ class FileSearchPointerEvidence(unittest.TestCase):
     def test_preserved_calls_failures_and_current_runtime_recompute(self):
         EVIDENCE.verify()
 
+    def test_historical_runtime_cannot_be_reassigned_to_its_parent(self):
+        with mock.patch.object(EVIDENCE, 'PUBLISHED', EVIDENCE.PARENT), self.assertRaises(AssertionError):
+            EVIDENCE.verify()
+
     def test_query_selection_cannot_be_replaced_by_menu_activation(self):
         value = copy.deepcopy(self.report)
         next(row for row in value['phases'] if row['phase'] == 'query-selected')['selectedText'] = ''

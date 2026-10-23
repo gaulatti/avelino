@@ -155,6 +155,14 @@ remain pending. The fresh native build is independent of the old build cache;
 it does not constitute independent-machine acceptance. Run
 `python3 scripts/verify-file-input-search-pointer.py` to audit the saved evidence.
 
+The source56 pointer runtime binding is checked against published commit
+`823edb18f53d299780e77e99cad4b86b13cde097`. Later history changes preserve its
+source and execution identity. Its Redo caret observation covers the recorded
+single-token and suffix cases. New regular/light controls expose a prefix-only
+caret difference and a different Undo result when raw text borders both sides.
+The newer boundary-history candidate addresses these paths; the older passing
+Qt mechanism assertions retain their original, narrower scope.
+
 The [native capsule](../evidence/reference-investigations/file-input-search-atomic-20261021/README.md)
 contains 31 scoped projections bound to a captured CUA JSON export. First
 Backspace selects an adjacent U+FFFC token; second Backspace removes it. Left
@@ -226,3 +234,66 @@ reports and unchanged preexisting protected inventory values. The contracts also
 reject missing restored selection, broader compound membership and promotion of
 a mechanism pass to native acceptance. These integrity checks do not perform
 product integration or approve equivalence.
+
+
+Fresh boundary-history controls use two new callers linked to the independently
+rebuilt pinned native object. In the first panel, ordinary keyboard input builds
+`oak ` + Filename(pine) + ` cedar`. Double-click selects the expanded query in
+`oak  pine  cedar`. The first menu Undo leaves raw `oak pine cedar`; it retains
+the earlier typing history. After Undoing the typed X and expansion, another Undo
+produces `oak pdar`; successive Redos restore the actually removed span, the
+added separators and X. Interpreting the earlier deletion as an old-offset edit
+is an inference from these strings, not inspection of AppKit's implementation.
+
+The separate first-panel Everything(pine) prefix control expands to `oak  pine`.
+Undo restores and selects the token. After Redo, typing X produces `oak  Xpine`:
+the caret is at the query start after the added separator. Both callers were
+normally cancelled, visibly returned to their owners, then quit; their original
+PIDs were absent and the pinned object and 27 resources remained unchanged.
+
+An earlier caller preserves eight cases, including decomposed `avelinoe\u0301`
+and supplementary `avelino🐦` queries. Those two single-token cases retain exact
+committed text through selected expansion, selected-token Undo, Redo and typed X.
+Their setup uses AX text assignment, so it does not establish native IME preedit
+or clipboard behavior. Shared-panel controls were followed by the two fresh
+keyboard-only callers above. The final close attempt in the earlier caller timed
+out; its original PID was absent, and a later crash report belongs to a different
+PID. Final closure cause remains unestablished. Preparation/export/compile and
+other failed attempts are retained with their original identities.
+
+The Linux implementation uses public `QTextDocument` custom Undo items. It
+keeps earlier Qt Undo commands and records bounded rich fragments for their
+actual inverse Redo spans. It never restores the whole document as plain text.
+A prefix-only Redo records its native insertion position. The standalone rich
+fragment prototype checks text and a synthetic peer format; it does not check
+Quick input, selection/caret, accessibility identity or lifecycle. The integrated
+candidate separately exercises those paths, including repeated replay and a
+new-edit branch that discards stale Redo. The public API is declared in the
+[Qt 6.8.3 document header](https://github.com/qt/qtbase/blob/v6.8.3/src/gui/text/qtextdocument.h).
+
+These are scoped regular/light native text observations and Linux mechanism
+checks. General history before token commitment, trailing-token prefix cases,
+Unicode boundary combinations, IME preedit, clipboard/drag, general matching and
+readiness, native hierarchy/events/timing, exact geometry/raster, native reader,
+physical and independent-machine acceptance remain pending.
+
+The [boundary-history checkpoint](../evidence/development/file-input-search-boundary-history-20261022/README.md)
+retains the native calls, failed prototypes and red regressions. Current62 passes
+58 indexed cases plus one expected separate-provider skip at each DPR, a37phase
+installed consumer,8source-free display profiles with38phases each, and two
+42phase AT-SPI/Orca runs. The256closed PNG/frame/state comparisons are against
+the older Linux baseline. The full58Qt groups remain an execution on61: all158
+installed files and every runtime input except the consumer capture helper are
+identical in62. The audit checks that comparability instead of relabelling61's
+execution. The RPATH transformation proof likewise applies to identical binary
+pairs. Run `python3 scripts/verify-file-input-search-boundary-history.py`.
+
+The retained closed-state failures occur at directory-selection popup readback,
+including one with the older baseline library. The consumer helper retries
+unexposed or new-size scenes within its original five-second readback budget;
+complete images retain their native DPR. Reader setup failures, a misplaced
+Wayland pointer and later immediate accessible lookup failures also remain.
+Current reader processes write locally and copy complete output after shutdown.
+Wayland pointer calibration uses an unmodified preceding desktop image and
+relative AX bounds; it establishes no native accessibility geometry or raster
+acceptance. Actual input assertions and deadline values remain unchanged.
