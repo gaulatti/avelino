@@ -505,3 +505,29 @@ All 437 exact whole-image comparisons still fail. Against the Chinese checkpoint
 Chinese counts are 19 lower, 15 higher and 2 unchanged. These diagnostics do not
 grant acceptance. Reference pins, source images, masks and tolerance are unchanged.
 Run `python3 scripts/verify-date-range-fields-checkpoint.py` with Pillow installed.
+
+## Assistive replacement lifetime
+
+Assistive replacement finishes each Qt selection or input-method operation before
+publishing changed properties. Every notification can remove the input, so delivery
+stops when its guarded pointer becomes null. A selection callback that disables the
+input, makes it read-only, changes its text or moves its cursor cancels the pending
+replacement. Field-geometry invalidation also checks its lifetime before updating
+the input method.
+
+Qt retains the text, selection and Undo/Redo history. The pinned implementation's
+Undo cursor is read to recognize an accepted edit that replaces text with the same
+value; the lifetime wrapper does not change that history. The existing Qt version
+guard also covers this observation.
+
+The component regressions cover synchronous destruction at ten selection, geometry
+and commit notifications, both independent endpoints under echo/ignore/delay owners,
+removal during a request, four selection interruptions, same-value edit notification,
+Undo/Redo and invalid replacement ranges. The installed consumer exercises the
+editable-text interface and day geometry for both endpoints under all three owners.
+The catalog exposes its existing saved From/To text as static accessible text so a
+reader can distinguish a visible request from the owner's saved value.
+
+These checks retain the existing native comparison failures and pending acceptance
+gates. They do not establish native reader, geometry, raster, physical-input or
+independent-machine parity.

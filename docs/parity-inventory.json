@@ -69732,7 +69732,9 @@
           "src/Avelino/DateRangeCalendar.qml",
           "src/Avelino/DateRangeArrow.qml",
           "src/Avelino/daterangetools.h",
-          "src/Avelino/daterangetools.cpp"
+          "src/Avelino/daterangetools.cpp",
+          "src/Avelino/daterangeinput.h",
+          "src/Avelino/daterangeinput.cpp"
         ],
         "caseDiscovery": "pending: 384 native closed contexts, 17280 sizing queries and 21 input milestones; 17 typed caller updates now match Qt model/lifecycle, actual editor identity, calendar parts and caller environment; closed geometry matches 8/384, history geometry 0/17 and strict rasters 0/401; complete input, extreme behavior, reader and physical acceptance remain pending",
         "cases": [
@@ -73391,6 +73393,30 @@
               "tests/components/daterangeui.cpp"
             ],
             "scope": "Initial native Hebrew separator entry selects year; exact Linux owner delivery is covered by initialHebrewLiteralFocus. Complete focus, raster, reader and physical acceptance remain pending."
+          },
+          {
+            "id": "assistive-notification-lifetime-linux",
+            "status": "pending",
+            "evidence": [
+              "evidence/development/date-range-assistive-lifetime-20261024/validation.json"
+            ],
+            "scope": "Linux Qt selection/IME callbacks may synchronously destroy the input; current regression evidence only; native and physical acceptance pending"
+          },
+          {
+            "id": "assistive-independent-owner-bindings-linux",
+            "status": "pending",
+            "evidence": [
+              "evidence/development/date-range-assistive-lifetime-20261024/validation.json"
+            ],
+            "scope": "Linux installed editable-text requests retain independent start/end echo, ignore and delay bindings; native acceptance pending"
+          },
+          {
+            "id": "assistive-reader-saved-values-linux",
+            "status": "pending",
+            "evidence": [
+              "evidence/development/date-range-assistive-lifetime-20261024/validation.json"
+            ],
+            "scope": "Linux virtual X11 and scaled Wayland AT-SPI/Orca edit and saved-value observations; native reader and physical acceptance pending"
           }
         ],
         "tests": [
@@ -73402,7 +73428,8 @@
           "scripts/generate-date-range-witnesses.py",
           "scripts/verify-date-range-owned-editors.py",
           "scripts/compare-date-range-captures.py",
-          "scripts/verify-date-range-retained-history.py"
+          "scripts/verify-date-range-retained-history.py",
+          "scripts/verify-date-range-assistive-lifetime.py"
         ],
         "captures": [
           "evidence/reference-investigations/date-range-20261018/output",
@@ -73424,21 +73451,24 @@
             "status": "pending",
             "evidence": [
               "evidence/development/date-range-owned-editors-20261018/package/result.json",
-              "evidence/development/date-range-history-20261018/package/result.json"
+              "evidence/development/date-range-history-20261018/package/result.json",
+              "evidence/development/date-range-assistive-lifetime-20261024/validation.json"
             ]
           },
           "x11": {
             "status": "pending",
             "evidence": [
               "evidence/development/date-range-owned-editors-20261018/display/result.json",
-              "evidence/development/date-range-history-20261018/display/result.json"
+              "evidence/development/date-range-history-20261018/display/result.json",
+              "evidence/development/date-range-assistive-lifetime-20261024/validation.json"
             ]
           },
           "wayland": {
             "status": "pending",
             "evidence": [
               "evidence/development/date-range-owned-editors-20261018/display/result.json",
-              "evidence/development/date-range-history-20261018/display/result.json"
+              "evidence/development/date-range-history-20261018/display/result.json",
+              "evidence/development/date-range-assistive-lifetime-20261024/validation.json"
             ]
           },
           "keyboardPointer": {
@@ -73450,20 +73480,24 @@
           },
           "focusAccessibility": {
             "status": "pending",
-            "evidence": []
+            "evidence": [
+              "evidence/development/date-range-assistive-lifetime-20261024/validation.json"
+            ]
           },
           "displayTextScaling": {
             "status": "pending",
             "evidence": [
               "evidence/development/date-range-owned-editors-20261018/display/result.json",
-              "evidence/development/date-range-history-20261018/display/result.json"
+              "evidence/development/date-range-history-20261018/display/result.json",
+              "evidence/development/date-range-assistive-lifetime-20261024/validation.json"
             ]
           },
           "installedConsumer": {
             "status": "pending",
             "evidence": [
               "evidence/development/date-range-owned-editors-20261018/package/result.json",
-              "evidence/development/date-range-history-20261018/package/result.json"
+              "evidence/development/date-range-history-20261018/package/result.json",
+              "evidence/development/date-range-assistive-lifetime-20261024/validation.json"
             ]
           }
         }

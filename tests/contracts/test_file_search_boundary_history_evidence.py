@@ -36,6 +36,10 @@ class FileSearchBoundaryHistoryEvidence(unittest.TestCase):
         with mock.patch.object(EVIDENCE, 'PARENT', '4f720b5eee7623e57f0dc263514eba85c464cffb'), self.assertRaises(AssertionError):
             EVIDENCE.limits(self.validation)
 
+    def test_historical_runtime_cannot_be_reassigned_to_its_parent(self):
+        with mock.patch.object(EVIDENCE, 'PUBLISHED', EVIDENCE.PARENT), self.assertRaises(AssertionError):
+            EVIDENCE.verify()
+
     def test_first_undo_cannot_be_relabelled_as_restoring_the_token(self):
         value = copy.deepcopy(self.report)
         row = next(row for row in value['phases'] if row['phase'] == 'history-first-undo')

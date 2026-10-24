@@ -53,5 +53,6 @@ Window {
         x:720;y:250;width:345;visible:window.gallery;wrapMode:Text.WordWrap
         text:"Choose how the owner applies edits. Date fields may show a request before the owner updates its saved value.\n\nFrom: "+DateRangeTools.formatted(fixture.modelStart,fixture.definition.locale,fixture.definition.calendar,fixture.definition.timeZone).text+"\nTo: "+DateRangeTools.formatted(fixture.modelEnd,fixture.definition.locale,fixture.definition.calendar,fixture.definition.timeZone).text
         font.family:BleeckerFonts.secondary;font.pixelSize:16;color:BleeckerTheme.palette.textSecondary
+        Accessible.role:Accessible.StaticText;Accessible.name:text
     }
 }

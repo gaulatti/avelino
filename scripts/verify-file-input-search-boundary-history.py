@@ -13,6 +13,7 @@ import subprocess
 ROOT = Path(__file__).resolve().parents[1]
 DIRECTORY = ROOT / 'evidence/development/file-input-search-boundary-history-20261022'
 PARENT = '823edb18f53d299780e77e99cad4b86b13cde097'
+PUBLISHED = '601436f5cfb3551872ff1a397f606829cbfcba39'
 MODULE = '69ba21169f5db955dacb56b83861e7dffe5549f8b5bdaac9aebc88d58cacebd2'
 CONSUMER = '080a20b8fb074eddf28a4115fd2b5a9d23adfd9edb7ddaf82e50fa404ab03114'
 NATIVE = '502d77b79531d51feaae34a1ae884ae01897a6a33913d5a9b370237ed29e3de8'
@@ -229,19 +230,20 @@ def verify():
     binding = json.loads((DIRECTORY / 'runtime-binding.json').read_text())
     assert binding['sourceParent'] == PARENT and binding['sourceAttempt'] == 62
     assert len(binding['files']) == 579 and HEADER in binding['files']
-    base = {}
+    base, published = {}, {}
     with subprocess.Popen(['git', 'cat-file', '--batch'], cwd=ROOT, stdin=subprocess.PIPE, stdout=subprocess.PIPE) as process:
-        for name in sorted(binding['files']):
-            assert not Path(name).is_absolute() and '..' not in Path(name).parts and '\n' not in name
-            process.stdin.write((PARENT + ':' + name + '\n').encode()); process.stdin.flush()
-            header = process.stdout.readline().split()
-            if len(header) == 2 and header[1] == b'missing':
-                assert name == HEADER
-                base[name] = None
-            else:
-                assert len(header) == 3 and header[1] == b'blob'
-                base[name] = digest(process.stdout.read(int(header[2])))
-                assert process.stdout.read(1) == b'\n'
+        for revision, target in [(PARENT, base), (PUBLISHED, published)]:
+            for name in sorted(binding['files']):
+                assert not Path(name).is_absolute() and '..' not in Path(name).parts and '\n' not in name
+                process.stdin.write((revision + ':' + name + '\n').encode()); process.stdin.flush()
+                header = process.stdout.readline().split()
+                if len(header) == 2 and header[1] == b'missing':
+                    assert target is base and name == HEADER
+                    target[name] = None
+                else:
+                    assert len(header) == 3 and header[1] == b'blob'
+                    target[name] = digest(process.stdout.read(int(header[2])))
+                    assert process.stdout.read(1) == b'\n'
         process.stdin.close(); assert process.wait() == 0
     for attempt, summary in [(57, '42 passed, 1 failed, 1 skipped'), (58, '42 passed, 4 failed, 1 skipped'),
                              (59, '58 passed, 0 failed, 1 skipped'), (60, '58 passed, 0 failed, 1 skipped'),
@@ -257,7 +259,7 @@ def verify():
                 assert attempt in [57, 58] and name == HEADER
                 continue
             assert (digest(raw(f'source{attempt}/override/' + name)) if expected != original else original) == expected
-    assert all(digest((ROOT / name).read_bytes()) == value for name, value in binding['files'].items())
+    assert published == binding['files']
     comparability(record('source62/source61-comparability.json'))
     previous = record('source61/installed-prefix.json')
     assert previous == record('source62/installed-prefix.json')

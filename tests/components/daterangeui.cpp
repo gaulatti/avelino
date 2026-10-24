@@ -1,5 +1,6 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QQmlComponent>
 #include <QQmlContext>
 #include <QQmlError>
 #include <QQmlExpression>
@@ -43,6 +44,23 @@ QQuickItem *visual(QQuickItem *root,const QString &name){
     return nullptr;
 }
 }
+class DateInputDestroyer:public QObject {
+    Q_OBJECT
+public:
+    QPointer<QObject> target;
+    QString lastText;
+public slots:
+    void removeInput(){lastText=target->property("text").toString();delete target.data();}
+};
+class DateInputInterrupter:public QObject {
+    Q_OBJECT
+public:
+    QPointer<QObject> target;
+    QByteArray property;
+    QVariant value;
+public slots:
+    void interrupt(){QObject::disconnect(target,nullptr,this,nullptr);target->setProperty(property.constData(),value);}
+};
 class DateRangeUiTests:public QObject {
     Q_OBJECT
 private slots:
@@ -63,6 +81,13 @@ private slots:
     void chineseDayInputMethodCommit();
     void leapMonthKeepsIndependentDayPosition();
     void segmentedInputMethodAndAccessibility();
+    void assistiveSelectionAllowsSynchronousDestruction_data();
+    void assistiveSelectionAllowsSynchronousDestruction();
+    void assistiveEditsRespectOwners_data();
+    void assistiveEditsRespectOwners();
+    void assistiveSelectionCallbacksCancelStaleReplacement_data();
+    void assistiveSelectionCallbacksCancelStaleReplacement();
+    void assistiveReplacementRetainsQtEditHistory();
     void fieldHitTestingAcrossLocaleDirections();
     void initialHebrewLiteralFocus();
 };
@@ -363,6 +388,89 @@ void DateRangeUiTests::segmentedInputMethodAndAccessibility(){
     editable->replaceText(3,5,QString::fromUtf8("初五"));
     QTRY_COMPARE(f.window->property("sourceStart").toDouble(),1679832000.625);QCOMPARE(f.requests(),2);
     QVERIFY2(f.warnings.isEmpty(),qPrintable(f.warnings.join('\n')));
+}
+void DateRangeUiTests::assistiveSelectionAllowsSynchronousDestruction_data(){
+    QTest::addColumn<QByteArray>("notification");QTest::addColumn<QString>("lastText");
+    for(const auto signal:{SIGNAL(selectedTextChanged()),SIGNAL(selectionStartChanged()),SIGNAL(selectionEndChanged()),
+        SIGNAL(cursorPositionChanged()),SIGNAL(cursorRectangleChanged()),SIGNAL(fieldGeometryChanged())})
+        QTest::newRow(signal)<<QByteArray(signal)<<QStringLiteral("123");
+    for(const auto signal:{SIGNAL(textEdited()),SIGNAL(textChanged()),SIGNAL(displayTextChanged()),SIGNAL(canUndoChanged())})
+        QTest::newRow(signal)<<QByteArray(signal)<<QStringLiteral("143");
+}
+void DateRangeUiTests::assistiveSelectionAllowsSynchronousDestruction(){
+    QFETCH(QByteArray,notification);QFETCH(QString,lastText);
+    QQmlEngine engine;engine.addImportPath(QStringLiteral(AVELINO_DATE_IMPORT_PATH));
+    QQmlComponent component(&engine);
+    component.setData("import QtQuick\nimport Avelino\nDateRangeInput { text: \"123\" }",QUrl());
+    QPointer<QObject> input=component.create();QVERIFY2(input,qPrintable(component.errorString()));
+    QVERIFY(QMetaObject::invokeMethod(input,"select",Q_ARG(int,0),Q_ARG(int,2)));
+    QCOMPARE(input->property("selectedText").toString(),QStringLiteral("12"));
+    auto accessible=QAccessible::queryAccessibleInterface(input);QVERIFY(accessible);
+    auto editable=accessible->editableTextInterface();QVERIFY(editable);
+    DateInputDestroyer destroyer;destroyer.target=input;QSignalSpy removed(input,&QObject::destroyed);
+    QVERIFY(QObject::connect(input,notification.constData(),&destroyer,SLOT(removeInput())));
+    editable->replaceText(1,2,QStringLiteral("4"));
+    QVERIFY(input.isNull());QCOMPARE(removed.count(),1);QCOMPARE(destroyer.lastText,lastText);
+}
+void DateRangeUiTests::assistiveEditsRespectOwners_data(){
+    QTest::addColumn<QString>("policy");QTest::addColumn<QByteArray>("endpoint");QTest::addColumn<bool>("removeOnRequest");
+    for(const auto &policy:{QStringLiteral("echo"),QStringLiteral("ignore"),QStringLiteral("delay")})
+        for(const auto endpoint:{QByteArray("start"),QByteArray("end")})for(const bool remove:{false,true})
+            QTest::newRow(qPrintable(policy+"-"+endpoint+(remove?"-remove":"-retain")))<<policy<<endpoint<<remove;
+}
+void DateRangeUiTests::assistiveEditsRespectOwners(){
+    QFETCH(QString,policy);QFETCH(QByteArray,endpoint);QFETCH(bool,removeOnRequest);
+    Fixture f;QVERIFY(f.window&&f.picker);f.window->setProperty("localeName","zh_CN");f.picker->setProperty("calendar","chinese");
+    const double original=1679832000.625,requested=1680264000.625;
+    f.window->setProperty("sourceStart",original);f.window->setProperty("sourceEnd",original);
+    f.window->setProperty("ownerPolicy",policy);f.window->setProperty("removeOnRequest",removeOnRequest);
+    auto field=f.field((endpoint+"Field").constData()),input=f.field((endpoint+"Input").constData());QVERIFY(field&&input);
+    field->setProperty("selectedSegment",1);input->forceActiveFocus(Qt::OtherFocusReason);QTRY_VERIFY(input->hasActiveFocus());
+    QVERIFY(QMetaObject::invokeMethod(field,"restoreSelection"));
+    auto accessible=QAccessible::queryAccessibleInterface(input);QVERIFY(accessible&&accessible->editableTextInterface());
+    accessible->editableTextInterface()->replaceText(3,5,QString::fromUtf8("初十"));
+    QCOMPARE(f.requests(),1);
+    const auto events=f.window->property("requests").value<QJSValue>().toVariant().toList();const auto request=events.first().toMap();
+    QCOMPARE(request["endpoint"].toString(),QString::fromLatin1(endpoint));QCOMPARE(request["value"].toDouble(),requested);
+    const char *changed=endpoint=="start"?"sourceStart":"sourceEnd",*peer=endpoint=="start"?"sourceEnd":"sourceStart";
+    QCOMPARE(f.window->property(changed).toDouble(),policy=="echo"?requested:original);QCOMPARE(f.window->property(peer).toDouble(),original);
+    if(removeOnRequest)QTRY_VERIFY(!f.window->property("picker").value<QQuickItem*>());
+    else {QCOMPARE(field->property("bufferValue").toDouble(),requested);QCOMPARE(input->property("text").toString(),QString::fromUtf8("闰二月初十"));}
+    QVERIFY2(f.warnings.isEmpty(),qPrintable(f.warnings.join('\n')));
+}
+void DateRangeUiTests::assistiveSelectionCallbacksCancelStaleReplacement_data(){
+    QTest::addColumn<QByteArray>("property");QTest::addColumn<QVariant>("value");QTest::addColumn<QString>("expected");
+    QTest::newRow("disabled")<<QByteArray("enabled")<<QVariant(false)<<QStringLiteral("123");
+    QTest::newRow("read-only")<<QByteArray("readOnly")<<QVariant(true)<<QStringLiteral("123");
+    QTest::newRow("external-text")<<QByteArray("text")<<QVariant("456")<<QStringLiteral("456");
+    QTest::newRow("moved-cursor")<<QByteArray("cursorPosition")<<QVariant(3)<<QStringLiteral("123");
+}
+void DateRangeUiTests::assistiveSelectionCallbacksCancelStaleReplacement(){
+    QFETCH(QByteArray,property);QFETCH(QVariant,value);QFETCH(QString,expected);
+    QQmlEngine engine;engine.addImportPath(QStringLiteral(AVELINO_DATE_IMPORT_PATH));QQmlComponent component(&engine);
+    component.setData("import QtQuick\nimport Avelino\nDateRangeInput { text: \"123\" }",QUrl());
+    QScopedPointer<QObject> input(component.create());QVERIFY2(input,qPrintable(component.errorString()));
+    QVERIFY(QMetaObject::invokeMethod(input.data(),"select",Q_ARG(int,0),Q_ARG(int,2)));
+    auto accessible=QAccessible::queryAccessibleInterface(input.data());QVERIFY(accessible&&accessible->editableTextInterface());
+    QSignalSpy edits(input.data(),SIGNAL(textEdited()));DateInputInterrupter interrupter;
+    interrupter.target=input.data();interrupter.property=property;interrupter.value=value;
+    QVERIFY(QObject::connect(input.data(),SIGNAL(selectedTextChanged()),&interrupter,SLOT(interrupt())));
+    accessible->editableTextInterface()->replaceText(1,2,QStringLiteral("4"));
+    QCOMPARE(input->property("text").toString(),expected);QCOMPARE(edits.count(),0);
+}
+void DateRangeUiTests::assistiveReplacementRetainsQtEditHistory(){
+    QQmlEngine engine;engine.addImportPath(QStringLiteral(AVELINO_DATE_IMPORT_PATH));QQmlComponent component(&engine);
+    component.setData("import QtQuick\nimport Avelino\nDateRangeInput { text: \"123\" }",QUrl());
+    QScopedPointer<QObject> input(component.create());QVERIFY2(input,qPrintable(component.errorString()));
+    auto accessible=QAccessible::queryAccessibleInterface(input.data());QVERIFY(accessible&&accessible->editableTextInterface());
+    auto editable=accessible->editableTextInterface();QSignalSpy edits(input.data(),SIGNAL(textEdited()));
+    editable->replaceText(1,2,QStringLiteral("2"));QCOMPARE(input->property("text").toString(),QStringLiteral("123"));QCOMPARE(edits.count(),1);
+    editable->replaceText(1,2,QStringLiteral("4"));QCOMPARE(input->property("text").toString(),QStringLiteral("143"));QCOMPARE(edits.count(),2);
+    QVERIFY(QMetaObject::invokeMethod(input.data(),"undo"));QCOMPARE(input->property("text").toString(),QStringLiteral("123"));
+    QVERIFY(QMetaObject::invokeMethod(input.data(),"redo"));QCOMPARE(input->property("text").toString(),QStringLiteral("143"));
+    const int count=edits.count();
+    editable->replaceText(-1,1,QStringLiteral("5"));editable->replaceText(2,1,QStringLiteral("5"));editable->replaceText(0,4,QStringLiteral("5"));
+    QCOMPARE(input->property("text").toString(),QStringLiteral("143"));QCOMPARE(edits.count(),count);
 }
 void DateRangeUiTests::fieldHitTestingAcrossLocaleDirections(){
     QFile patterns(QStringLiteral(":/qt/qml/Avelino/date-editor-patterns.json"));QVERIFY(patterns.open(QIODevice::ReadOnly));
