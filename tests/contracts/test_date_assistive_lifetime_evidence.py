@@ -4,6 +4,7 @@ import importlib.util
 import json
 from pathlib import Path
 import unittest
+from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[2]
 SPEC = importlib.util.spec_from_file_location('date_assistive_lifetime', ROOT / 'scripts/verify-date-range-assistive-lifetime.py')
@@ -28,6 +29,10 @@ class DateAssistiveLifetimeEvidence(unittest.TestCase):
 
     def test_retained_crashes_and_current_runtime_recompute(self):
         EVIDENCE.verify()
+
+    def test_historical_runtime_cannot_be_assigned_to_its_parent(self):
+        with mock.patch.object(EVIDENCE, 'PUBLISHED', EVIDENCE.PARENT), self.assertRaises(AssertionError):
+            EVIDENCE.verify()
 
     def test_reused_suite_cannot_be_relabelled_as_current_execution(self):
         value = self.record('source8/validation/source7-suite-comparability.json')

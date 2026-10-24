@@ -63,7 +63,7 @@ T.Control {
                     padding:0;background:null;autoRepeat:false
                     enabled:control.valueState.decrementEnabled
                     focusPolicy:Qt.StrongFocus
-                    Accessible.name:qsTr("Decrease %1").arg(control.label)
+                    Accessible.name:qsTr("Remove")
                     onClicked:if(control.enabled && enabled)control.valueRequested(BleeckerValueTools.stepperRequest(control.value,control.lowerBound,control.upperBound,control.step,false))
                     contentItem:StepperGlyph {
                         id:minusGlyph;pixelSize:control.glyphPixelSize
@@ -90,7 +90,7 @@ T.Control {
                     padding:0;background:null;autoRepeat:false
                     enabled:control.valueState.incrementEnabled
                     focusPolicy:Qt.StrongFocus
-                    Accessible.name:qsTr("Increase %1").arg(control.label)
+                    Accessible.name:qsTr("Add")
                     onClicked:if(control.enabled && enabled)control.valueRequested(BleeckerValueTools.stepperRequest(control.value,control.lowerBound,control.upperBound,control.step,true))
                     contentItem:StepperGlyph {
                         id:plusGlyph;increment:true;pixelSize:control.glyphPixelSize

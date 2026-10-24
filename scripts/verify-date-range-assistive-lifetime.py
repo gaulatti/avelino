@@ -11,6 +11,7 @@ import subprocess
 ROOT = Path(__file__).resolve().parents[1]
 DIRECTORY = ROOT / 'evidence/development/date-range-assistive-lifetime-20261024'
 PARENT = '601436f5cfb3551872ff1a397f606829cbfcba39'
+PUBLISHED = '899f3e8f1fd50bcf9094d417f4c449cea651c36b'
 CHANGED = ['src/Avelino/daterangeinput.cpp', 'tests/components/daterangeui.cpp',
            'tests/consumer/DateRangePicker.qml', 'tests/consumer/daterangechecks.h']
 PHASES = ['caller-ready', 'leap-loaded', 'from-focused', 'from-replaced', 'to-focused',
@@ -168,16 +169,17 @@ def verify():
         assert all(name.startswith('runtime/') for name in record(f'reader{number}/output/runtime-sockets.json')['notCopied'])
     binding = json.loads((DIRECTORY / 'runtime-binding.json').read_text())
     assert binding['sourceParent'] == PARENT and binding['sourceAttempt'] == 8 and len(binding['files']) == 579
-    base = {}
+    base, published = {}, {}
     with subprocess.Popen(['git', 'cat-file', '--batch'], cwd=ROOT, stdin=subprocess.PIPE, stdout=subprocess.PIPE) as process:
-        for name in binding['files']:
-            process.stdin.write((PARENT + ':' + name + '\n').encode()); process.stdin.flush()
-            header = process.stdout.readline().split(); assert len(header) == 3 and header[1] == b'blob'
-            base[name] = digest(process.stdout.read(int(header[2]))); assert process.stdout.read(1) == b'\n'
+        for revision, target in [(PARENT, base), (PUBLISHED, published)]:
+            for name in binding['files']:
+                process.stdin.write((revision + ':' + name + '\n').encode()); process.stdin.flush()
+                header = process.stdout.readline().split(); assert len(header) == 3 and header[1] == b'blob'
+                target[name] = digest(process.stdout.read(int(header[2]))); assert process.stdout.read(1) == b'\n'
         process.stdin.close(); assert process.wait() == 0
     assert binding['changesFromParent'] == sorted(CHANGED)
     assert sorted(name for name in binding['files'] if binding['files'][name] != base[name]) == sorted(CHANGED)
-    assert all(digest((ROOT / name).read_bytes()) == value for name, value in binding['files'].items())
+    assert binding['files'] == published
     source_files = record('source8/inputs.json')['sourceFiles']
     assert binding['files'] == {name: source_files[name] for name in binding['files']}
     spec = importlib.util.spec_from_file_location('date_protected_fields', ROOT / 'scripts/verify-modal-parent-focus.py')

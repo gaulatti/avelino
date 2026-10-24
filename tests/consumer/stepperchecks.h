@@ -64,7 +64,7 @@ static void runStepperConsumer(QQuickWindow *window,QGuiApplication &app,
     QLocale::setDefault(QLocale("en_US"));QEvent event(QEvent::LocaleChange);QCoreApplication::sendEvent(qApp,&event);setModel(normal());
     auto minusAx=QAccessible::queryAccessibleInterface(minus),plusAx=QAccessible::queryAccessibleInterface(plus),valueAx=QAccessible::queryAccessibleInterface(value);
     if(!check(minusAx && plusAx && valueAx && minusAx->role()==QAccessible::Button && plusAx->role()==QAccessible::Button
-        && minusAx->text(QAccessible::Name)=="Decrease Quantity" && plusAx->text(QAccessible::Name)=="Increase Quantity"
+        && minusAx->text(QAccessible::Name)=="Remove" && plusAx->text(QAccessible::Name)=="Add"
         && valueAx->role()==QAccessible::StaticText && valueAx->text(QAccessible::Name)=="2","Qt roles/names/value"))return;
     int before=calls();
     plus->parentItem()->ensurePolished();
@@ -85,7 +85,7 @@ static void runStepperConsumer(QQuickWindow *window,QGuiApplication &app,
     model["disabled"]=true;setModel(model);before=calls();plusAx->actionInterface()->doAction(QAccessibleActionInterface::pressAction());click(plus);
     if(!check(calls()==before && plusAx->state().disabled,"disabled pointer/accessibility request rejection"))return;
     model=normal();model["value"]="6";model["label"]="Updated copies";setModel(model);
-    if(!check(plusAx->text(QAccessible::Name)=="Increase Updated copies" && valueAx->text(QAccessible::Name)=="6","dynamic names and preserved model binding"))return;
+    if(!check(plusAx->text(QAccessible::Name)=="Add" && minusAx->text(QAccessible::Name)=="Remove" && valueAx->text(QAccessible::Name)=="6","native action names and preserved model binding"))return;
     field->forceActiveFocus(Qt::TabFocusReason);QTest::keyClick(window,Qt::Key_X);
     if(!check(field->property("text").toString()=="x","continued editing"))return;
     qInfo("Installed stepper: 25 native action traces, 126 native Int64 formatter witnesses, release/cancel/hold, binding ownership and Qt pointer/keyboard/accessibility paths passed");
