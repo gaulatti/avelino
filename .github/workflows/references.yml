@@ -54,6 +54,7 @@ jobs:
       - run: python3 scripts/verify-native-source-rebuild.py
       - run: python3 scripts/verify-number-locales-source.py
       - run: python3 scripts/verify-stepper-source.py
+      - run: python3 scripts/verify-stepper-reader.py
       - run: python3 scripts/verify-radio-source.py
       - run: python3 scripts/verify-otp-source.py
       - run: python3 scripts/verify-activity-source.py

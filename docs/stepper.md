@@ -94,8 +94,35 @@ to be identical. Semantic signal and phase checks remain explicit.
 Exact fonts and symbols, full frame/raster comparison, held/animated paint,
 physical displays/input, native keyboard/focus/accessibility and actual reader
 behavior remain pending. The proposed monospaced font exception is
-still unapproved. Desktop coverage is 57/80 started, zero fully accepted;
+still unapproved. At that checkpoint desktop coverage was 57/80 started, zero fully accepted;
 TV is a separate later phase.
+
+## Installed Linux reader observations
+
+The [2026-10-24 evidence](../evidence/development/stepper-reader-20261024/README.md)
+binds two 13-phase runs to the installed package from `899f3e8`: XCB/software/light
+at DPR 1 and nested Wayland/OpenGL/dark at DPR 2 with text scale 1.5. The normal
+caller accepts assistive button requests, rejects disabled bound actions and
+updates its accessible value; focused Space activation works in both directions.
+Focus then moves to the outside field, which receives keyboard text. The complete
+package prefix is hash-bound to its original producer; no source/build tree was
+mounted and no new Qt suite execution or product change is claimed.
+
+Orca and Speech Dispatcher name both focused buttons, but changed numeric values
+are not announced in the measured action windows. Qt also logs `ValueChanged
+event and no ValueInterface or ComboBox`. Static value updates and named focus
+therefore do not establish complete reader usability. Numeric feedback and the
+native keyboard/reader comparison remain unresolved. Audio uses a controlled null
+device; physical input/display and independent-machine acceptance stay open.
+
+The first observer run remains a failure: it expected a fresh named utterance
+while the same button was already focused. The successful runs explicitly focus
+the outside field before probing each button; deadlines and speech assertions
+are unchanged. `python3 scripts/verify-stepper-reader.py` rechecks the retained
+trees, state changes, named speech windows, absence of numeric speech in bounded
+action windows, original package inputs and preserved acceptance fields. It does
+not rerun the application. Desktop candidate coverage is 78/80, with zero fully
+accepted; TV remains a separate phase.
 
 The Qt candidate exposes `label`, `value`, `lowerBound`, `upperBound`, `step` and
 `displayOffset`, with `valueRequested(string)` preserving caller ownership:

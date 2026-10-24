@@ -131145,7 +131145,7 @@
           "src/Avelino/CircularContent.qml",
           "src/Avelino/OwnedText.qml"
         ],
-        "caseDiscovery": "Hosted source and Qt candidate: both initializers; Int64, zero/negative step, offset/process-locale ownership, one-sided checked clamps, rejected writes/external updates, intrinsic/narrow/RTL/disabled/inherited-font layout; 25 center-action traces and 126 integer strings match. Full source fonts/symbols/frame/raster, held/motion, broad producer transactions, native keyboard, physical input/display and actual reader acceptance pending.",
+        "caseDiscovery": "Hosted source and Qt candidate: both initializers; Int64, zero/negative step, offset/process-locale ownership, one-sided checked clamps, rejected writes/external updates, intrinsic/narrow/RTL/disabled/inherited-font layout; 25 center-action traces and 126 integer strings match. Full source fonts/symbols/frame/raster, held/motion, broad producer transactions, native keyboard, physical input/display and actual reader acceptance pending. Installed Linux reader observations add13 phases each in XCB/software and scaled Wayland/OpenGL; named focus and action/keyboard state are verified while changed-value speech remains unresolved.",
         "cases": [
           {
             "id": "normal-light-text1.0-hosted-dpr1.0.png",
@@ -134842,6 +134842,24 @@
             "sourceInvestigationCapture": "evidence/reference-investigations/stepper-20261016/captures/offset-min-dark-text1.5-hosted-dpr2.0.png",
             "notes": "Hosted native source and Qt candidate only; actual native backing DPR 2, requested bitmap/displayScale 1/2. Exact font/symbol/frame/raster, keyboard/physical/reader and full transaction equivalence remain pending.",
             "evidence": "evidence/development/stepper/captures/offset-min-dark-text1.5-hosted-dpr2.0.png"
+          },
+          {
+            "id": "linux-reader-bounds-owner-20261024",
+            "status": "verification-pending",
+            "evidence": "evidence/development/stepper-reader-20261024/validation.json",
+            "notes": "Installed AT-SPI actions update the owner through 2/3/2/1 and the upper bound10; disabled actions leave the current value unchanged. Two virtual profiles only; native parity pending."
+          },
+          {
+            "id": "linux-reader-keyboard-focus-20261024",
+            "status": "verification-pending",
+            "evidence": "evidence/development/stepper-reader-20261024/validation.json",
+            "notes": "Space changes the owner in both directions with actual button focus; the outside field receives focus and keyboard text. Native keyboard and physical input pending."
+          },
+          {
+            "id": "linux-reader-named-speech-20261024",
+            "status": "verification-pending",
+            "evidence": "evidence/development/stepper-reader-20261024/validation.json",
+            "notes": "Orca and Speech Dispatcher name both focused buttons. Changed numeric values are not spoken in measured action windows; numeric feedback and native reader acceptance remain unresolved."
           }
         ],
         "tests": [
@@ -134853,7 +134871,9 @@
           "tests/contracts/test_stepper_adapters.py",
           "scripts/generate-stepper-witnesses.py",
           "scripts/capture-stepper-cases.py",
-          "scripts/compare-stepper-captures.py"
+          "scripts/compare-stepper-captures.py",
+          "scripts/verify-stepper-reader.py",
+          "tests/contracts/test_stepper_reader_evidence.py"
         ],
         "captures": [
           "evidence/development/stepper/captures/normal-light-text1.0-hosted-dpr1.0.png",
@@ -135212,7 +135232,8 @@
             "status": "pending",
             "evidence": [
               "evidence/development/stepper/candidate.json",
-              "docs/stepper.md"
+              "docs/stepper.md",
+              "evidence/development/stepper-reader-20261024/validation.json"
             ],
             "notes": "Candidate Qt/package/virtual-session checks recorded; strict native font/symbol/frame/raster, physical input/displays and native keyboard/actual reader acceptance remain separate."
           },
@@ -135220,7 +135241,8 @@
             "status": "pending",
             "evidence": [
               "evidence/development/stepper/candidate.json",
-              "docs/stepper.md"
+              "docs/stepper.md",
+              "evidence/development/stepper-reader-20261024/validation.json"
             ],
             "notes": "Candidate Qt/package/virtual-session checks recorded; strict native font/symbol/frame/raster, physical input/displays and native keyboard/actual reader acceptance remain separate."
           },
@@ -135228,7 +135250,8 @@
             "status": "pending",
             "evidence": [
               "evidence/development/stepper/candidate.json",
-              "docs/stepper.md"
+              "docs/stepper.md",
+              "evidence/development/stepper-reader-20261024/validation.json"
             ],
             "notes": "Candidate Qt/package/virtual-session checks recorded; strict native font/symbol/frame/raster, physical input/displays and native keyboard/actual reader acceptance remain separate."
           },
@@ -135236,7 +135259,8 @@
             "status": "pending",
             "evidence": [
               "evidence/development/stepper/candidate.json",
-              "docs/stepper.md"
+              "docs/stepper.md",
+              "evidence/development/stepper-reader-20261024/validation.json"
             ],
             "notes": "Candidate Qt/package/virtual-session checks recorded; strict native font/symbol/frame/raster, physical input/displays and native keyboard/actual reader acceptance remain separate."
           },
@@ -135244,7 +135268,8 @@
             "status": "pending",
             "evidence": [
               "evidence/development/stepper/candidate.json",
-              "docs/stepper.md"
+              "docs/stepper.md",
+              "evidence/development/stepper-reader-20261024/validation.json"
             ],
             "notes": "Candidate Qt/package/virtual-session checks recorded; strict native font/symbol/frame/raster, physical input/displays and native keyboard/actual reader acceptance remain separate."
           },
