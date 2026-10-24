@@ -82,7 +82,10 @@ private slots:
         const auto evidenceRoot=QStringLiteral(AVELINO_APP_TABS_RASTER_EVIDENCE_ROOT);
         QVERIFY(QDir().mkpath(evidenceRoot));
         QTemporaryDir evidence(evidenceRoot+"/dpr-"+QString::number(window->devicePixelRatio())+".XXXXXX");
-        QVERIFY(evidence.isValid());evidence.setAutoRemove(false);
+        QVERIFY(evidence.isValid());
+        QVERIFY(QFile::setPermissions(evidence.path(),QFile::ReadOwner|QFile::WriteOwner|QFile::ExeOwner|
+                                     QFile::ReadGroup|QFile::ExeGroup|QFile::ReadOther|QFile::ExeOther));
+        evidence.setAutoRemove(false);
         qInfo().noquote()<<"App-tab raster evidence:"<<evidence.path();
         const auto rows=sequence();
         QJsonArray observations;

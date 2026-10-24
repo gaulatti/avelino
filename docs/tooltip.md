@@ -225,3 +225,75 @@ animation: the fixture now disables motion before changing the palette. Raw
 before/after images remain preserved, and the final matrix passes the same
 pixel-equality check. No expected image, pixel tolerance, pin or approved
 exception changed.
+
+## Retained popup parent across caller remount
+
+CI run39355163949 passed the source runtime/package stage on both architectures,
+then failed the installed consumer's shown-popup remount in Wayland/OpenGL:
+`EGL_BAD_SURFACE`, no native frame within the unchanged five-second gate. Waiting
+for the initial exposure did not repair it. The singleton popup had been visually
+parented to the caller item that the fixture's Loader destroys.
+
+The candidate now parents the retained `Popup.Window` to the caller window's
+stable `contentItem` and maps the target-local hover point into that coordinate
+space. Caller visibility/window/destruction still dismisses help. The installed
+consumer checks the stable parent after remount and still requires the real
+OpenGL frame; no capture reference or tolerance changed. This is a repair
+candidate pending the new native CI result, not a verified Qt platform diagnosis.
+
+Run39369445522 still failed on both architectures after that stable-parent check
+passed. The installed consumer now records popup opened/closed counts, exposure
+and current content/window identity after updated-hint re-entry, the field-owner
+switch, and the typed-hint resize, then again at remount. It adds no intermediate
+frame wait that could let pending teardown settle: the original rapid sequence
+and three-second exposure/five-second frame gates remain unchanged. Attached
+help visibility alone does not acknowledge native popup closure. These are
+lifecycle observations, not proof that intermediate frames rendered or that the
+underlying surface failure has been repaired.
+
+
+## Hidden tooltip renderer lifetime
+
+The focused replay of CI run39385163760 reproduces the retained-popup failure
+with the exact installed ARM64 module: Wayland/software passes, while
+Wayland/OpenGL cannot display the remounted popup within the original frame
+deadline. A native surface/frame trace changes timing and can complete despite
+an earlier EGL_BAD_SURFACE, so that diagnostic pass is not acceptance evidence.
+
+The October20 tested branch used `TooltipWindowResources`, which follows only
+the owned popup content item's window. The integrated candidate retains main's
+equivalent `TooltipWindowLifecycle` implementation instead of a duplicate helper.
+Before that content is shown in a real Qt tooltip window, it disables scene-graph
+and graphics persistence for that window. Qt may then release the hidden
+renderer's resources and recreate them when the native Wayland surface returns.
+The caller and singleton popup objects remain retained. The helper never changes
+the caller window, requests a native window ID, forces a frame, or waits for
+teardown. This uses public Qt APIs; the exact stale-context mechanism remains a
+hypothesis rather than a proven platform diagnosis.
+
+The external resource-policy probe passes the original focused software/OpenGL
+assertions without EGL errors. The [built-product verification](../evidence/development/tooltip-resource-lifetime-20261020/verification.json)
+then passes all eight original Tooltip profiles with the unchanged standalone
+consumer and no EGL errors. The four comparable Wayland/software PNGs are
+byte-identical to the original installed module. Separate read-only observations
+confirm both resource hints are false before the first tooltip Show and remain
+true on the caller. Full hosted CI remains required. Native appearance, physical input and
+reader acceptance remain separate pending gates.
+
+
+## Integration with the current Linux peer
+
+The PR integrates main `7a753b787a09eb4b2206b6b4dab5d9dc476acb38` and
+retains its `TooltipWindowLifecycle`, full module registration, patched-toolchain
+history, twenty visible-owner remount iterations, and per-iteration caller-editor
+focus assertions. The branch adds stable caller-window parenting and contextual
+exposure/lifecycle diagnostics around that complete sequence. It does not replace
+main's newer controls, registered resources, or accepted reference inputs.
+
+The October20 eight-profile resource-lifetime receipt binds the older
+`aaf755371ba9508dae81d943c46293cf0a604881` branch inputs; it does not qualify
+this integration. Main already supplies the equivalent hidden-renderer policy.
+The additional stable-parent mapping still needs source-bound runtime evidence
+on this integrated candidate. Current-head CI and native acceptance remain
+required, and no image reference, comparison tolerance, remount count, or existing
+frame deadline is waived by the merge.
