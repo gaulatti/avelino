@@ -16,7 +16,7 @@ COLOUR_PRODUCER = '4a0a06bb2d183072a8d000c829b234d14c137a20'
 # These recorded inputs have since evolved. Verify their captured bytes at the
 # original producer; all other implementation inputs still bind to the index.
 EVOLVED = {'src/Avelino/BleeckerAdminShell.qml', 'tests/components/tst_admin_shell.qml',
-           'scripts/check-linux.sh'}
+           'scripts/check-linux.sh', 'tests/consumer/CMakeLists.txt'}
 
 
 def source_bytes(name):

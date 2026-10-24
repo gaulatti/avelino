@@ -400,6 +400,31 @@ insertion and deletion use a Qt input-method commit, preserving the field's
 validation, length limit, text signals and undo history. Read-only and disabled
 fields reject edits. Suggestion input follows text changes, including assistive
 edits, while navigation and file selection retain the same owner-result boundary.
+Path replacement shares the DateRange editor's guarded Qt text-input notification
+wrapper. Qt finishes selection and input-method processing before changed properties
+are published, and notification delivery stops if an observer destroys the field.
+A selection callback that disables the field, makes it read-only, changes its text
+or moves its cursor cancels the pending replacement. Qt still owns validation,
+the length limit and Undo/Redo; the pinned Undo cursor is only read to recognize a
+same-value edit. The wrapper changes neither the path suggestion algorithm nor
+the outer Open action's owner-result boundary.
+
+The independent consumer calls the installed editable-text interface through Qt's
+public object and property APIs. It checks destruction at ten selection/commit
+notifications, four callbacks that invalidate a pending replacement, and actual
+GoTo replacement, insertion, deletion and keyboard Undo/Redo. These assertions
+remain fatal in observation mode; that mode retains the separate native frame
+comparison failures. X11/software/light and scaled dark Wayland/OpenGL AT-SPI/Orca
+runs additionally exercise the real GoTo editing, suggestions and owner boundary.
+Recorded speech commands use null audio; physical listening and native reader
+comparison remain pending.
+The [lifetime checkpoint](../evidence/development/path-assistive-lifetime-20261024/README.md)
+retains the ten crashes and four stale-edit failures,172 scoped FileInput/DateRange
+Qt checks, four independent-consumer profiles and four actual reader sessions.
+Its source and package bindings distinguish the shared library/catalog build from
+the separately expanded consumer, and retain the missing-image and disk-space
+failures before the application ran. No full58-group rerun or native acceptance
+is inferred from those scoped results.
 The implementation follows the pinned
 [Quick accessibility interfaces](https://github.com/qt/qtdeclarative/blob/v6.8.3/src/quick/accessible/qaccessiblequickitem.cpp)
 and [AT-SPI adaptor](https://github.com/qt/qtbase/blob/v6.8.3/src/gui/accessible/linux/atspiadaptor.cpp).

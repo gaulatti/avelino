@@ -1,4 +1,5 @@
 #pragma once
+#include "pathinputobserver.h"
 #include <QAbstractItemModel>
 #include <QDir>
 #include <QQuickItemGrabResult>
@@ -287,8 +288,65 @@ static void runFileInputConsumer(QQuickWindow *window,QGuiApplication &app,const
         return check(goToPath()->property("text").toString()==input,"GoTo raw input did not reach the field");
     };
     auto submitGoTo=[&]{QTest::keyClick(goToPath()->window(),Qt::Key_Return);++keys;QTest::qWait(40);};
+    QJsonArray pathLifetime,pathCallbacks;QJsonObject pathEditing;
+    if(!check(qmlEngine(window),"Installed consumer QML engine missing"))return;
+    QQmlComponent pathComponent(qmlEngine(window));
+    pathComponent.setData("import QtQuick\nimport Avelino\nFileChooserPathInput { width:320; height:36; text:\"/tmp/Alpha\" }",QUrl());
+    const QList<QByteArray> notifications{SIGNAL(selectedTextChanged()),SIGNAL(selectionStartChanged()),SIGNAL(selectionEndChanged()),
+        SIGNAL(cursorPositionChanged()),SIGNAL(cursorRectangleChanged()),SIGNAL(textEdited()),SIGNAL(textChanged()),
+        SIGNAL(displayTextChanged()),SIGNAL(contentSizeChanged()),SIGNAL(canUndoChanged())};
+    for(int index=0;index<notifications.size();++index){
+        ConsumerPathInputObserver owner;owner.ownedInput.reset(pathComponent.create());owner.target=owner.ownedInput.data();
+        if(!check(owner.target,qPrintable(pathComponent.errorString()))
+            ||!check(QMetaObject::invokeMethod(owner.target,"select",Q_ARG(int,1),Q_ARG(int,6)),"Installed path selection unavailable"))return;
+        auto accessible=QAccessible::queryAccessibleInterface(owner.target);
+        if(!check(accessible&&accessible->editableTextInterface(),"Installed path editable-text interface missing"))return;
+        QSignalSpy removed(owner.target,&QObject::destroyed);
+        if(!check(bool(QObject::connect(owner.target,notifications[index].constData(),&owner,SLOT(apply()),Qt::DirectConnection)),"Installed destruction callback missing"))return;
+        accessible->editableTextInterface()->replaceText(0,1,"X");
+        const auto expected=index<5?QStringLiteral("/tmp/Alpha"):QStringLiteral("Xtmp/Alpha");
+        if(!check(owner.target.isNull()&&!owner.ownedInput&&owner.calls==1&&removed.count()==1&&owner.lastText==expected,"Installed assistive replacement did not survive synchronous field destruction"))return;
+        pathLifetime.append(QJsonObject{{"notification",QString::fromLatin1(notifications[index])},{"calls",owner.calls},{"destroyed",removed.count()},{"lastText",owner.lastText}});
+    }
     if(!configure(standard,QJsonArray{"text/plain"})||!open()||!selectRow(0,"one.txt"))return;
     const auto goToSelection=browser()->property("selectedUrls").toList();
+    if(!openGoTo())return;
+    auto editor=goToPath();const auto originalPath=editor->property("text").toString();
+    auto pathAccess=QAccessible::queryAccessibleInterface(editor);
+    if(!check(originalPath.size()>6&&pathAccess&&pathAccess->editableTextInterface(),"Real GoTo editable-text interface missing"))return;
+    auto editable=pathAccess->editableTextInterface();auto proposals=goTo()->property("suggestions").value<QObject*>();
+    if(!check(proposals,"Real GoTo suggestions missing"))return;
+    const auto assistedPrefix=directory.filePath("Al");
+    editable->replaceText(0,originalPath.size(),assistedPrefix);
+    if(!check(editor->property("text").toString()==assistedPrefix&&proposals->property("input").toString()==assistedPrefix,"Assistive replacement did not reach real GoTo suggestions"))return;
+    QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);++keys;
+    if(!check(proposals->property("input").toString()==originalPath,"Real GoTo keyboard Undo lost the original path"))return;
+    QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier|Qt::ShiftModifier);++keys;
+    if(!check(proposals->property("input").toString()==assistedPrefix,"Real GoTo keyboard Redo lost the assistive path"))return;
+    editable->insertText(assistedPrefix.size(),"p");
+    if(!check(proposals->property("input").toString()==assistedPrefix+"p","Real GoTo assistive insertion failed"))return;
+    editable->deleteText(assistedPrefix.size(),assistedPrefix.size()+1);
+    if(!check(proposals->property("input").toString()==assistedPrefix&&editor->hasActiveFocus()&&state()["results"].toArray().isEmpty(),"Real GoTo assistive deletion changed focus or called the owner"))return;
+    pathEditing=QJsonObject{{"replacement",assistedPrefix},{"undo",originalPath},{"redo",assistedPrefix},{"insertDelete",assistedPrefix},{"ownerResults",0}};
+    record("go-to-assistive-edit-undo-redo");
+    const auto ownerPath=directory.filePath("Owner");
+    const QList<QPair<QByteArray,QVariant>> interruptions{{"enabled",false},{"readOnly",true},{"text",ownerPath},{"cursorPosition",originalPath.size()-1}};
+    for(const auto &interruption:interruptions){
+        editor->setEnabled(true);editor->setProperty("readOnly",false);editor->setProperty("text",originalPath);
+        if(!check(QMetaObject::invokeMethod(editor,"select",Q_ARG(int,1),Q_ARG(int,6)),"Real GoTo selection unavailable"))return;
+        ConsumerPathInputObserver observer;observer.target=editor;observer.property=interruption.first;observer.value=interruption.second;
+        QSignalSpy edits(editor,SIGNAL(textEdited()));
+        if(!check(bool(QObject::connect(editor,SIGNAL(selectedTextChanged()),&observer,SLOT(apply()),Qt::DirectConnection)),"Real GoTo interruption callback missing"))return;
+        editable->replaceText(0,1,"X");const auto expected=interruption.first=="text"?ownerPath:originalPath;
+        if(!check(observer.calls==1&&edits.count()==0&&editor->property("text").toString()==expected
+            &&browser()->property("selectedUrls").toList()==goToSelection&&state()["results"].toArray().isEmpty(),"Real GoTo stale replacement overwrote caller state"))return;
+        pathCallbacks.append(QJsonObject{{"property",QString::fromLatin1(interruption.first)},{"calls",observer.calls},{"text",expected},{"editNotifications",edits.count()}});
+    }
+    editor->setEnabled(true);editor->setProperty("readOnly",false);editor->setProperty("text",originalPath);
+    QTest::keyClick(editor->window(),Qt::Key_Escape);++keys;QTest::qWait(40);
+    if(!check(!goTo()->property("visible").toBool()&&browser()->property("active").toBool()
+        &&browser()->property("selectedUrls").toList()==goToSelection&&state()["results"].toArray().isEmpty(),"Assistive GoTo cancellation changed the owner"))return;
+    record("go-to-assistive-callback-vetoes");
     if(!selectRow(0,"photo.png")||!check(browser()->property("selectedUrls").toList()==goToSelection,"Ordinary PNG click changed the text-only selection")||!openGoTo()||!enterGoTo(directory.filePath("missing")))return;
     submitGoTo();
     if(!check(goTo()->property("visible").toBool()&&browser()->property("selectedUrls").toList()==goToSelection&&browser()->property("error").toString().isEmpty(),"Invalid GoTo changed the owner selection or folder error")||!save(goToPath()->window(),"go-to-invalid"))return;
@@ -334,6 +392,7 @@ static void runFileInputConsumer(QQuickWindow *window,QGuiApplication &app,const
         {"nativeRasterAcceptance","pending"},{"physicalInputAcceptance","pending"},{"readerAcceptance","pending"},{"nativeAccessibilityAcceptance","unobserved"},
         {"nativeFrameComparisonStatus",frames==32?"passed":"failed"},
         {"actions",actions},{"accessibility",accessibility},{"pointerEvents",pointers},{"keyEvents",keys},
+        {"assistiveLifetime",pathLifetime},{"assistiveSelectionCallbacks",pathCallbacks},{"assistiveEditing",pathEditing},
         {"goToRankingAcceptance","pending"},{"goToRelativeResolutionAcceptance","pending"},{"goToHistoryCapacityAcceptance","pending"},
         {"inputMethod","QTest actual owned controls; physical input and reader acceptance pending"}};
     if(parser.isSet("evidence")&&!check(window->grabWindow().save(prefix+".png"),"Session window capture failed"))return;

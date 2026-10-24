@@ -368,3 +368,20 @@ surface checkpoint. The executable-only virtual runtime uses the same compiled
 consumer and installed module bytes as the independent package. Exact inputs,
 failed attempts, source overlays and remaining gates are recorded in the
 [sealed evidence](../evidence/development/pill-modifier-20261017/candidate.json).
+
+## Assistive path replacement checkpoint
+
+The [path lifetime package](../evidence/development/path-assistive-lifetime-20261024/README.md)
+has158 installed files. The library and catalog use frozen source4. A standalone
+consumer first builds from an empty directory; a separate clone then recompiles
+the expanded consumer with three changed caller files and records its own binary
+identity. Those files add public Qt callback assertions, without changing any
+library/catalog source. The private Qt text-input header remains inside the library.
+
+Four runtime profiles mount only that installed prefix, the copied consumer binary
+and the observer. Source and build directories are absent, and process maps identify
+the installed module. Each profile captures the actual full Xvfb session before
+acknowledging the application's original10-second deadline. A newly built reader
+overlay preserves the recovered Qt6.8.3 module hashes and records its exact packages;
+the missing historical Docker images are not relabelled as restored. Native,
+physical and independent-machine acceptance remain separate pending gates.

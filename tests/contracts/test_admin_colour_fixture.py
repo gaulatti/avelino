@@ -23,5 +23,15 @@ class AdminColourFixture(unittest.TestCase):
                 FIXTURE.verify()
 
 
+    def test_changed_recorded_consumer_packaging_bytes_are_rejected(self):
+        original=FIXTURE.source_bytes
+        def changed(name):
+            content=original(name)
+            return content+b'\n# changed recorded consumer input\n' if name=='tests/consumer/CMakeLists.txt' else content
+        with patch.object(FIXTURE,'source_bytes',side_effect=changed):
+            with self.assertRaises(AssertionError):
+                FIXTURE.verify()
+
+
 if __name__=='__main__':
     unittest.main()

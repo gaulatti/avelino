@@ -1,4 +1,5 @@
 #include "filechooserpathinput.h"
+#include "assistivetextinput_p.h"
 #include <QtQuick/private/qaccessiblequickitem_p.h>
 #include <QAccessible>
 #include <QCoreApplication>
@@ -16,14 +17,17 @@ public:
     void deleteText(int start,int end)override{replaceText(start,end,{});}
     void insertText(int offset,const QString &text)override{replaceText(offset,offset,text);}
     void replaceText(int start,int end,const QString &text)override{
-        const auto input=qobject_cast<FileChooserPathInput*>(object());
+        QPointer<FileChooserPathInput> input=qobject_cast<FileChooserPathInput*>(object());
         if(!input||input->isReadOnly()||!input->isEnabled()||start<0||end<start||end>input->text().size())return;
         // A Qt input-method commit preserves the field's normal validation,
         // length limit, text signals and undo history for one replacement.
-        input->select(start,start);
+        const auto original=input->text();
+        if(!AvelinoPrivate::finishAssistiveOperation(input,[&]{input->select(start,start);}))return;
+        if(input->isReadOnly()||!input->isEnabled()||input->text()!=original
+            ||input->cursorPosition()!=start||input->selectionStart()!=input->selectionEnd())return;
         QInputMethodEvent event;
         event.setCommitString(text,0,end-start);
-        QCoreApplication::sendEvent(input,&event);
+        AvelinoPrivate::finishAssistiveOperation(input,[&]{QCoreApplication::sendEvent(input,&event);});
     }
     void setText(QAccessible::Text kind,const QString &text)override{
         if(kind==QAccessible::Value)replaceText(0,characterCount(),text);

@@ -5,14 +5,55 @@
 #include <QFile>
 #include <QJSValue>
 #include <QImage>
+#include <QQmlComponent>
 #include <QQmlEngine>
 #include <QQuickItem>
 #include <QQuickView>
 #include <QRegularExpression>
 #include <QSettings>
+#include <QScopedPointer>
 #include <QTemporaryDir>
 #include <QtTest>
 #include <functional>
+
+class PathInputDestroyer:public QObject {
+    Q_OBJECT
+public:
+    QScopedPointer<QObject> input;
+    int calls=0;
+    QString lastText;
+public slots:
+    void removeInput(){
+        if(!input)return;
+        ++calls;lastText=input->property("text").toString();
+        input.reset();
+    }
+};
+
+class PathInputInterrupter:public QObject {
+    Q_OBJECT
+public:
+    QPointer<QObject> target;
+    QByteArray property;
+    QVariant value;
+public slots:
+    void interrupt(){
+        QObject::disconnect(target,nullptr,this,nullptr);
+        target->setProperty(property.constData(),value);
+    }
+};
+
+class PathInputOwnerRemover:public QObject {
+    Q_OBJECT
+public:
+    QPointer<QObject> fixture,input;
+    int calls=0;
+public slots:
+    void removeOwner(){
+        QObject::disconnect(input,nullptr,this,nullptr);
+        ++calls;fixture->setProperty("mounted",false);
+    }
+};
 
 class FileInputAnnouncementCapture {
     QAccessible::UpdateHandler previous;
@@ -393,6 +434,105 @@ private slots:
         QVERIFY(results(fixture).isEmpty());QCOMPARE(browser->folderPath(),directory.path());
         path->forceActiveFocus();QTest::keyClick(path->window(),Qt::Key_Return);QTRY_VERIFY(!prompt->property("visible").toBool());QCOMPARE(browser->folderPath(),unicode);QVERIFY(results(fixture).isEmpty());
         click(find(content,"bleeckerFileChooserCancel"));QTRY_VERIFY(!browser->active());QVERIFY(results(fixture).isEmpty());
+    }
+    void assistivePathSelectionAllowsSynchronousDestruction_data(){
+        QTest::addColumn<QByteArray>("notification");QTest::addColumn<QString>("expectedText");
+        for(const auto signal:{SIGNAL(selectedTextChanged()),SIGNAL(selectionStartChanged()),SIGNAL(selectionEndChanged()),
+            SIGNAL(cursorPositionChanged()),SIGNAL(cursorRectangleChanged())})
+            QTest::newRow(signal)<<QByteArray(signal)<<QStringLiteral("/tmp/Alpha");
+        for(const auto signal:{SIGNAL(textEdited()),SIGNAL(textChanged()),SIGNAL(displayTextChanged()),
+            SIGNAL(contentSizeChanged()),SIGNAL(canUndoChanged())})
+            QTest::newRow(signal)<<QByteArray(signal)<<QStringLiteral("Xtmp/Alpha");
+    }
+    void assistivePathSelectionAllowsSynchronousDestruction(){
+        QFETCH(QByteArray,notification);QFETCH(QString,expectedText);
+        QQmlEngine engine;engine.addImportPath(AVELINO_FILE_INPUT_IMPORT_PATH);
+        QQmlComponent component(&engine);
+        component.setData("import QtQuick\nimport Avelino\nFileChooserPathInput { width:320; height:36; text:\"/tmp/Alpha\" }",QUrl());
+        PathInputDestroyer owner;owner.input.reset(component.create());
+        QVERIFY2(owner.input,qPrintable(component.errorString()));
+        QPointer<QObject> input=owner.input.data();
+        QVERIFY(QMetaObject::invokeMethod(input,"select",Q_ARG(int,1),Q_ARG(int,6)));
+        QVERIFY(!input->property("selectedText").toString().isEmpty());
+        auto accessible=QAccessible::queryAccessibleInterface(input);QVERIFY(accessible&&accessible->editableTextInterface());
+        QSignalSpy removed(input,&QObject::destroyed);
+        QVERIFY(QObject::connect(input,notification.constData(),&owner,SLOT(removeInput()),Qt::DirectConnection));
+        accessible->editableTextInterface()->replaceText(0,1,"X");
+        QCOMPARE(owner.calls,1);QVERIFY(input.isNull());QCOMPARE(removed.count(),1);QCOMPARE(owner.lastText,expectedText);
+    }
+    void assistivePathSelectionCallbacksCancelStaleReplacement_data(){
+        QTest::addColumn<QByteArray>("property");QTest::addColumn<QVariant>("value");QTest::addColumn<QString>("expectedText");
+        QTest::newRow("disabled")<<QByteArray("enabled")<<QVariant(false)<<QStringLiteral("/tmp/Alpha");
+        QTest::newRow("read-only")<<QByteArray("readOnly")<<QVariant(true)<<QStringLiteral("/tmp/Alpha");
+        QTest::newRow("external-text")<<QByteArray("text")<<QVariant("/tmp/Owner")<<QStringLiteral("/tmp/Owner");
+        QTest::newRow("moved-cursor")<<QByteArray("cursorPosition")<<QVariant(9)<<QStringLiteral("/tmp/Alpha");
+    }
+    void assistivePathSelectionCallbacksCancelStaleReplacement(){
+        QFETCH(QByteArray,property);QFETCH(QVariant,value);QFETCH(QString,expectedText);
+        QQmlEngine engine;engine.addImportPath(AVELINO_FILE_INPUT_IMPORT_PATH);QQmlComponent component(&engine);
+        component.setData("import QtQuick\nimport Avelino\nFileChooserPathInput { text:\"/tmp/Alpha\" }",QUrl());
+        QScopedPointer<QObject> input(component.create());QVERIFY2(input,qPrintable(component.errorString()));
+        QVERIFY(QMetaObject::invokeMethod(input.data(),"select",Q_ARG(int,1),Q_ARG(int,6)));
+        auto accessible=QAccessible::queryAccessibleInterface(input.data());QVERIFY(accessible&&accessible->editableTextInterface());
+        QSignalSpy edits(input.data(),SIGNAL(textEdited()));PathInputInterrupter observer;
+        observer.target=input.data();observer.property=property;observer.value=value;
+        QVERIFY(QObject::connect(input.data(),SIGNAL(selectedTextChanged()),&observer,SLOT(interrupt()),Qt::DirectConnection));
+        accessible->editableTextInterface()->replaceText(0,1,"X");
+        QCOMPARE(input->property("text").toString(),expectedText);QCOMPARE(edits.count(),0);
+    }
+    void assistivePathReplacementRetainsQtEditHistory(){
+        QQmlEngine engine;engine.addImportPath(AVELINO_FILE_INPUT_IMPORT_PATH);QQmlComponent component(&engine);
+        component.setData("import QtQuick\nimport Avelino\nFileChooserPathInput { text:\"/tmp/Alpha\" }",QUrl());
+        QScopedPointer<QObject> input(component.create());QVERIFY2(input,qPrintable(component.errorString()));
+        auto accessible=QAccessible::queryAccessibleInterface(input.data());QVERIFY(accessible&&accessible->editableTextInterface());
+        auto editable=accessible->editableTextInterface();QSignalSpy edits(input.data(),SIGNAL(textEdited()));
+        editable->replaceText(1,2,"t");QCOMPARE(input->property("text").toString(),QString("/tmp/Alpha"));QCOMPARE(edits.count(),1);
+        editable->replaceText(1,2,"s");QCOMPARE(input->property("text").toString(),QString("/smp/Alpha"));QCOMPARE(edits.count(),2);
+        QVERIFY(QMetaObject::invokeMethod(input.data(),"undo"));QCOMPARE(input->property("text").toString(),QString("/tmp/Alpha"));
+        QVERIFY(QMetaObject::invokeMethod(input.data(),"redo"));QCOMPARE(input->property("text").toString(),QString("/smp/Alpha"));
+        const int count=edits.count();
+        editable->replaceText(-1,1,"X");editable->replaceText(2,1,"X");editable->replaceText(0,11,"X");
+        input->setProperty("readOnly",true);editable->replaceText(0,1,"X");input->setProperty("readOnly",false);
+        input->setProperty("enabled",false);editable->replaceText(0,1,"X");input->setProperty("enabled",true);
+        QCOMPARE(input->property("text").toString(),QString("/smp/Alpha"));QCOMPARE(edits.count(),count);
+    }
+    void assistivePathReplacementRetainsQtValidationAndLengthLimit(){
+        QQmlEngine engine;engine.addImportPath(AVELINO_FILE_INPUT_IMPORT_PATH);QQmlComponent component(&engine);
+        component.setData("import QtQuick\nimport Avelino\nFileChooserPathInput { text:\"1234\"; maximumLength:4; validator:IntValidator { bottom:1000; top:9999 } }",QUrl());
+        QScopedPointer<QObject> input(component.create());QVERIFY2(input,qPrintable(component.errorString()));
+        auto accessible=QAccessible::queryAccessibleInterface(input.data());QVERIFY(accessible&&accessible->editableTextInterface());
+        auto editable=accessible->editableTextInterface();QSignalSpy edits(input.data(),SIGNAL(textEdited()));
+        QSignalSpy acceptable(input.data(),SIGNAL(acceptableInputChanged()));QVERIFY(input->property("acceptableInput").toBool());
+        editable->replaceText(2,4,"5678");QCOMPARE(input->property("text").toString(),QString("1256"));QCOMPARE(edits.count(),1);
+        editable->replaceText(0,4,"oops");QCOMPARE(input->property("text").toString(),QString("1256"));QCOMPARE(edits.count(),1);
+        editable->replaceText(0,4,"12");QCOMPARE(input->property("text").toString(),QString("12"));
+        QVERIFY(!input->property("acceptableInput").toBool());QCOMPARE(acceptable.count(),1);QCOMPARE(edits.count(),2);
+        editable->replaceText(0,2,"1234");QCOMPARE(input->property("text").toString(),QString("1234"));
+        QVERIFY(input->property("acceptableInput").toBool());QCOMPARE(acceptable.count(),2);QCOMPARE(edits.count(),3);
+    }
+    void assistivePathNotificationAllowsActualChooserOwnerRemoval_data(){
+        QTest::addColumn<QByteArray>("notification");
+        QTest::newRow("selection")<<QByteArray(SIGNAL(selectedTextChanged()));
+        QTest::newRow("commit")<<QByteArray(SIGNAL(textChanged()));
+    }
+    void assistivePathNotificationAllowsActualChooserOwnerRemoval(){
+        QFETCH(QByteArray,notification);QTemporaryDir directory;QDir root(directory.path());QVERIFY(root.mkdir("Alpha"));
+        QQuickView view;QVERIFY(load(view,directory));auto fixture=view.rootObject();
+        auto control=fixture->findChild<QQuickItem*>("fileInput");QVERIFY(control);
+        auto chooser=control->property("chooser").value<QObject*>();QVERIFY(chooser);click(control->property("inputItem").value<QQuickItem*>());
+        QTRY_VERIFY(chooser->property("visible").toBool());
+        auto content=chooser->property("contentItem").value<QQuickItem*>();QVERIFY(content);QVERIFY(content->window());
+        QTest::keyClick(content->window(),Qt::Key_L,Qt::ControlModifier);
+        QPointer<QObject> prompt=chooser->property("goToDialog").value<QObject*>();QVERIFY(prompt);QTRY_VERIFY(prompt->property("visible").toBool());
+        QPointer<QQuickItem> path=chooser->property("pathInput").value<QQuickItem*>();QVERIFY(path);
+        const auto original=path->property("text").toString();QVERIFY(original.size()>6);
+        QVERIFY(QMetaObject::invokeMethod(path,"select",Q_ARG(int,1),Q_ARG(int,6)));
+        auto accessible=QAccessible::queryAccessibleInterface(path);QVERIFY(accessible&&accessible->editableTextInterface());
+        PathInputOwnerRemover observer;observer.fixture=fixture;observer.input=path;
+        QVERIFY(QObject::connect(path,notification.constData(),&observer,SLOT(removeOwner()),Qt::DirectConnection));
+        accessible->editableTextInterface()->replaceText(0,original.size(),root.filePath("Al"));
+        QCOMPARE(observer.calls,1);QTRY_VERIFY(path.isNull());QTRY_VERIFY(prompt.isNull());
+        QVERIFY(!fixture->findChild<QQuickItem*>("fileInput"));QVERIFY(results(fixture).isEmpty());
     }
     void actualGoToAccessibleSelectionEventsKeepTextFocusAndRespectSingleChoice(){
         FileInputSelectionCapture events;QTemporaryDir directory;QDir root(directory.path());

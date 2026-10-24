@@ -515,6 +515,13 @@ input, makes it read-only, changes its text or moves its cursor cancels the pend
 replacement. Field-geometry invalidation also checks its lifetime before updating
 the input method.
 
+The private Qt text-input notification wrapper is shared with the file chooser's
+path field. DateRange retains its endpoint, owner-request and geometry behavior.
+The [shared-wrapper checkpoint](../evidence/development/path-assistive-lifetime-20261024/README.md)
+rechecks the complete48-case DateRange UI executable at DPR1/2, six installed
+endpoint/owner edits per consumer profile and two actual12-phase AT-SPI/Orca runs.
+The retained strict native observation failures and all acceptance gates remain.
+
 Qt retains the text, selection and Undo/Redo history. The pinned implementation's
 Undo cursor is read to recognize an accepted edit that replaces text with the same
 value; the lifetime wrapper does not change that history. The existing Qt version

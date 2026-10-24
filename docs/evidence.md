@@ -1453,3 +1453,26 @@ fresh behavior replay, exact type mapping, complete chooser artwork, accessibili
 physical displays/input, readers and independent-machine availability remain
 pending. Linux implementation is pending; desktop coverage stays 75/80 candidates,
 zero accepted APIs. TV remains a separate later phase.
+
+## Assistive path replacement lifetime
+
+The [path lifetime checkpoint](../evidence/development/path-assistive-lifetime-20261024/README.md)
+retains ten real selection/commit destruction crashes and four stale-replacement
+failures before the repair. The shared Qt text-input wrapper preserves DateRange's
+existing notification behavior and gives the path editor the same guarded boundary.
+
+The current source passes38 FileInput and48 DateRange Qt checks at each DPR1/2,
+four independent source-free consumer profiles, two21-phase GoTo reader sessions
+and two12-phase DateRange reader sessions. Loaded-module maps, binary/prefix hashes,
+real full-session capture acknowledgements and separately frozen consumer overrides
+bind those results. Missing-image and ENOSPC attempts remain environment failures;
+they are not application crashes or passing executions.
+
+The default audit reconstructs the historical581-file candidate from published
+b93899f and seven retained Linux files. `--current` additionally checks the actual
+candidate before publication. Twenty integrity contracts reject lost failures,
+wrong execution identities, changed Undo/geometry code, placeholder captures and
+acceptance promotion. All31532 prior protected inventory fields remain unchanged;
+the two new cases are verification-pending. Native frame/strict-observation
+failures remain, with78/80 desktop candidates, zero accepted APIs and46 TV entries
+pending. There is no full58-group Qt rerun or new physical/native acceptance.
