@@ -69737,7 +69737,7 @@
           "src/Avelino/daterangeinput.cpp",
           "src/Avelino/assistivetextinput_p.h"
         ],
-        "caseDiscovery": "pending: 384 native closed contexts, 17280 sizing queries and 21 input milestones; 17 typed caller updates now match Qt model/lifecycle, actual editor identity, calendar parts and caller environment; closed geometry matches 8/384, history geometry 0/17 and strict rasters 0/401; complete input, extreme behavior, reader and physical acceptance remain pending",
+        "caseDiscovery": "pending: 384 native closed contexts, 17280 sizing queries and 21 input milestones; 17 typed caller updates now match Qt model/lifecycle, actual editor identity, calendar parts and caller environment; closed geometry matches 8/384, history geometry 0/17 and strict rasters 0/401; complete input, extreme behavior, reader and physical acceptance remain pending; graphical pixel placement now has a focused native-frame regression for both caller directions at DPR1/2; full comparison counts above are historical and acceptance remains pending",
         "cases": [
           {
             "id": "default-light-text1-dpr1",
@@ -72912,18 +72912,20 @@
             "status": "pending",
             "evidence": [
               "evidence/reference-investigations/date-range-20261018/output/captures.json",
-              "evidence/reference-investigations/date-range-20261018/sizing-output/sizing.json"
+              "evidence/reference-investigations/date-range-20261018/sizing-output/sizing.json",
+              "tests/components/daterangeui.cpp"
             ],
-            "scope": "native source observation only; Linux component and acceptance pending"
+            "scope": "native graphical caller/picker/endpoint frames checked by graphicalFramesMatchNativePixelGrid; complete raster, input and acceptance pending"
           },
           {
             "id": "style-graphical-light-text1-dpr2",
             "status": "pending",
             "evidence": [
               "evidence/reference-investigations/date-range-20261018/output/captures.json",
-              "evidence/reference-investigations/date-range-20261018/sizing-output/sizing.json"
+              "evidence/reference-investigations/date-range-20261018/sizing-output/sizing.json",
+              "tests/components/daterangeui.cpp"
             ],
-            "scope": "native source observation only; Linux component and acceptance pending"
+            "scope": "native graphical caller/picker/endpoint frames checked by graphicalFramesMatchNativePixelGrid; complete raster, input and acceptance pending"
           },
           {
             "id": "style-graphical-light-text1.5-dpr1",
@@ -73056,18 +73058,20 @@
             "status": "pending",
             "evidence": [
               "evidence/reference-investigations/date-range-20261018/output/captures.json",
-              "evidence/reference-investigations/date-range-20261018/sizing-output/sizing.json"
+              "evidence/reference-investigations/date-range-20261018/sizing-output/sizing.json",
+              "tests/components/daterangeui.cpp"
             ],
-            "scope": "native source observation only; Linux component and acceptance pending"
+            "scope": "native graphical caller/picker/endpoint frames checked by graphicalFramesMatchNativePixelGrid; complete raster, input and acceptance pending"
           },
           {
             "id": "graphical-rtl-arabic-light-text1-dpr2",
             "status": "pending",
             "evidence": [
               "evidence/reference-investigations/date-range-20261018/output/captures.json",
-              "evidence/reference-investigations/date-range-20261018/sizing-output/sizing.json"
+              "evidence/reference-investigations/date-range-20261018/sizing-output/sizing.json",
+              "tests/components/daterangeui.cpp"
             ],
-            "scope": "native source observation only; Linux component and acceptance pending"
+            "scope": "native graphical caller/picker/endpoint frames checked by graphicalFramesMatchNativePixelGrid; complete raster, input and acceptance pending"
           },
           {
             "id": "graphical-rtl-arabic-light-text1.5-dpr1",

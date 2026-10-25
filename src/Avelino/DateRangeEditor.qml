@@ -14,7 +14,7 @@ Item {
     property bool retiring:false
     width:field.width;height:field.height
     Component.onDestruction:retiring=true
-    DateRangeCalendar {id:inlineCalendar;field:editor.field;visible:owner.dateStyle.graphical}
+    DateRangeCalendar {id:inlineCalendar;field:editor.field;width:editor.field.width;visible:owner.dateStyle.graphical}
     Item {
         id:editorContainer;objectName:"bleeckerDateEditorContainer"
         visible:!owner.dateStyle.graphical;width:field.width;height:field.height

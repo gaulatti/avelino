@@ -5,6 +5,8 @@ qt_add_resources(AvelinoDateRangeUiTests date_range_fixtures PREFIX "/date-range
 target_link_libraries(AvelinoDateRangeUiTests PRIVATE Avelino Qt6::Quick Qt6::Test)
 target_compile_definitions(AvelinoDateRangeUiTests PRIVATE
     AVELINO_DATE_IMPORT_PATH="${CMAKE_BINARY_DIR}/qml"
+    DATE_RANGE_CASE_FILE="${PROJECT_SOURCE_DIR}/tests/consumer/DateRangePickerCase.qml"
+    NATIVE_DATE_WITNESSES="${PROJECT_SOURCE_DIR}/tests/consumer/native-date-range-witnesses.json"
     NATIVE_DATE_WIDTH_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/date-range-width-20261018"
     NATIVE_DATE_CHINESE_DIRECTORY="${PROJECT_SOURCE_DIR}/evidence/reference-investigations/date-range-chinese-20261018")
 add_dependencies(AvelinoDateRangeUiTests Avelinoplugin)

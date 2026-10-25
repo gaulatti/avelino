@@ -102,6 +102,38 @@ python3 scripts/verify-date-range-source.py
 python3 scripts/verify-date-range-input.py
 ```
 
+## Pixel placement correction
+
+The shared catalog/consumer fixture preserves fractional centering instead of
+Qt's default whole-point centering. The owned fields align both ideal edges in
+scene coordinates through the existing `PixelAlignment` utility, while keeping
+the intrinsic row allocation unchanged. The inline calendar uses its allocated
+field width for drawing and hit testing. At DPR 1, the two 138.5-point ideal
+calendar allocations occupy 138 and 139 pixels; RTL swaps their positions. At
+DPR 2, each occupies 138.5 points.
+
+`DateRangeUiTests::graphicalFramesMatchNativePixelGrid` reads the unchanged pinned
+witnesses and compares complete caller, picker and endpoint frames in both caller
+directions at DPR 1 and 2. Its old-code regression retained the graphical caller
+at x=165 instead of native x=165.5. This correction addresses placement; the
+font-dependent field widths, bezel/font raster differences and the rest of
+[issue #3](https://github.com/gaulatti/avelino/issues/3) remain open.
+
+The fixture uses [`anchors.alignWhenCentered: false`](https://doc.qt.io/qt-6.8/qml-qtquick-item.html#anchors.alignWhenCentered-prop);
+field edges use the actual window DPR rather than whole-point rounding. Existing
+width-stability tests wait for a rendered configuration before retaining widths,
+then keep checking the same widths across every native date update.
+
+The correction passed all 49 DateRange UI checks at DPR 1 and 2. An independently
+rebuilt installed consumer also passed four software-rendered virtual display
+profiles: X11 and Wayland, each at light/text-scale-1/DPR-1 and
+dark/text-scale-1.5/DPR-2. Both graphical contexts matched complete native frames
+in every profile, and all 48 model observations per profile remained exact.
+Producer source/build trees were absent from those runtime mounts. The installed
+date catalog also launched and captured successfully. These checks retain the
+remaining strict native failures and do not establish physical display, GPU or
+reader acceptance.
+
 ## Current Linux implementation
 
 `BleeckerDateRangePicker` exposes independent `start` and `end` Unix-second values,

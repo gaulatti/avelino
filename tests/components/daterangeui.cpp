@@ -90,7 +90,33 @@ private slots:
     void assistiveReplacementRetainsQtEditHistory();
     void fieldHitTestingAcrossLocaleDirections();
     void initialHebrewLiteralFocus();
+    void graphicalFramesMatchNativePixelGrid();
 };
+void DateRangeUiTests::graphicalFramesMatchNativePixelGrid(){
+    QFile file(QStringLiteral(NATIVE_DATE_WITNESSES));QVERIFY(file.open(QIODevice::ReadOnly));
+    const auto rows=QJsonDocument::fromJson(file.readAll()).object()["closed"].toArray();
+    Fixture f;QVERIFY(f.window&&f.picker);f.window->setProperty("mounted",false);
+    QQmlComponent component(&f.engine,QUrl::fromLocalFile(QStringLiteral(DATE_RANGE_CASE_FILE)));
+    QScopedPointer<QObject> object(component.create());QVERIFY2(object,qPrintable(component.errorString()));
+    auto fixture=qobject_cast<QQuickItem*>(object.data());QVERIFY(fixture);fixture->setParentItem(f.window->contentItem());
+    int compared=0;
+    for(const auto &value:rows){
+        const auto row=value.toObject(),configuration=row["configuration"].toObject();
+        if(row["appearance"]!="light"||row["textScale"]!=1||row["dpr"].toDouble()!=f.window->devicePixelRatio()
+           ||configuration["pickerStyle"]!="graphical")continue;
+        QVERIFY(QMetaObject::invokeMethod(fixture,"configure",Q_ARG(QVariant,configuration.toVariantMap())));
+        const auto frames=[&](){
+            const auto value=QQmlExpression(f.engine.rootContext(),fixture,"snapshot().frames").evaluate();
+            return QJsonObject::fromVariantMap(value.value<QJSValue>().toVariant().toMap());
+        };
+        for(const auto &name:{"caller","picker","start","end"}){
+            const auto expected=row["frames"].toObject().value(name);
+            QTRY_COMPARE(frames().value(name),expected);++compared;
+        }
+    }
+    QCOMPARE(compared,8);
+    QVERIFY2(f.warnings.isEmpty(),qPrintable(f.warnings.join('\n')));
+}
 void DateRangeUiTests::fieldKeyboardOwners(){
     for(const QString policy:{"echo","ignore","delay"}){
         Fixture f;QVERIFY(f.window &&f.picker);f.window->setProperty("ownerPolicy",policy);
@@ -273,6 +299,7 @@ void DateRangeUiTests::widthsStayFixedAcrossNativeDates(){
     for(const auto &item:contexts){
         const auto context=item.toObject(),configuration=context["configuration"].toObject();
         Fixture f;QVERIFY(f.window&&f.picker);configure(f,configuration);
+        QSignalSpy rendered(f.window,&QQuickWindow::frameSwapped);f.window->update();QVERIFY(rendered.wait());
         QQuickItem *fields[]={f.field("startField"),f.field("endField")};
         QPointer<QQuickItem> inputs[]={f.field("startInput"),f.field("endInput")};
         const qreal widths[]={fields[0]->width(),fields[1]->width()};
@@ -291,6 +318,7 @@ void DateRangeUiTests::widthsStayFixedAcrossNativeDates(){
             fresh.window->setProperty("mounted",false);QCoreApplication::processEvents();
             fresh.window->setProperty("sourceStart",cold["requestedDate"].toDouble());fresh.window->setProperty("sourceEnd",cold["requestedDate"].toDouble());
             fresh.window->setProperty("mounted",true);QCoreApplication::processEvents();fresh.picker=fresh.window->property("picker").value<QQuickItem*>();QVERIFY(fresh.picker);configure(fresh,configuration);
+            QSignalSpy rendered(fresh.window,&QQuickWindow::frameSwapped);fresh.window->update();QVERIFY(rendered.wait());
             for(int index=0;index<2;++index){
                 auto field=fresh.field(index==0?"startField":"endField");
                 QVERIFY2(field->width()==widths[index],qPrintable(configuration["id"].toString()));
