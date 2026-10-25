@@ -73429,6 +73429,15 @@
             "fixture": "date-range",
             "evidence": "evidence/development/path-assistive-lifetime-20261024/validation.json",
             "notes": "Guarded Qt selection/IME notification lifetime; current component, independent installed-consumer and AT-SPI/Orca checks. Complete native geometry/raster/reader comparison, physical input/listening and independent-machine acceptance remain pending."
+          },
+          {
+            "id": "owned-popup-keyboard-dismissal",
+            "status": "pending",
+            "evidence": [
+              "tests/consumer/daterangechecks.h",
+              "docs/date-range-picker.md"
+            ],
+            "scope": "18 installed Qt keyboard scenarios across independent endpoints and owner policies; native input, raster, reader and physical acceptance remain pending"
           }
         ],
         "tests": [

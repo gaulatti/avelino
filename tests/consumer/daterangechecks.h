@@ -14,7 +14,7 @@ static void runDateRangeConsumer(QQuickWindow *window,QGuiApplication &app,const
     auto call=[&](QObject *target,const char *method,const QJsonObject &value){return check(QMetaObject::invokeMethod(target,method,Q_ARG(QVariant,value.toVariantMap())),"Caller update failed");};
     auto frame=[&](){return check(waitForShapeFrame(window)&&waitForShapeFrame(window),"Rendered frame missing");};
     auto save=[&](const QString &name){return prefix.isEmpty()||check(!QFile::exists(prefix+"-"+name+".png")&&window->grabWindow().save(prefix+"-"+name+".png"),"Capture exists or failed");};
-    QJsonArray closed,inputs,operators,histories,chinese,literalInput,assistiveInput;int modelMatches=0,geometryMatches=0,historyModels=0,historyGeometry=0,historyInstances=0,historyCalendars=0,historyEnvironment=0,chineseModels=0,chineseTexts=0,chineseCalendars=0,chineseIntrinsic=0;
+    QJsonArray closed,inputs,operators,histories,chinese,literalInput,assistiveInput,popupInput;int modelMatches=0,geometryMatches=0,historyModels=0,historyGeometry=0,historyInstances=0,historyCalendars=0,historyEnvironment=0,chineseModels=0,chineseTexts=0,chineseCalendars=0,chineseIntrinsic=0;
     auto configure=[&](const QJsonObject &configuration){
         fixture->setProperty("mounted",false);if(!frame())return false;
         if(!check(QMetaObject::invokeMethod(fixture,"resetCounters"),"Counter reset missing")||!call(window,"configure",configuration))return false;
@@ -127,6 +127,31 @@ static void runDateRangeConsumer(QQuickWindow *window,QGuiApplication &app,const
         // These are actual Qt template input events. Native OS input is retained
         // separately; this does not establish platform reader/physical acceptance.
         const QJsonObject base{{"id","input"},{"start",1710000000.625},{"end",1710864000.125},{"locale","en_US"},{"calendar","gregorian"},{"timeZone","UTC"},{"pickerStyle","field"},{"controlSize","regular"},{"owner","echo"}};
+        if(QGuiApplication::platformName()!="offscreen")for(const QString policy:{"echo","ignore","delay"})for(const QString endpoint:{"start","end"})for(const auto key:{Qt::Key_Escape,Qt::Key_Return,Qt::Key_Tab}){
+            auto configuration=base;configuration["owner"]=policy;configuration["pickerStyle"]="stepperField";if(!configure(configuration))return;
+            auto picker=fixture->property("picker").value<QQuickItem*>(),editor=picker->property(qPrintable(endpoint+"Input")).value<QQuickItem*>();
+            auto field=picker->property(qPrintable(endpoint+"Field")).value<QQuickItem*>();if(!check(editor&&field,"Popup endpoint missing"))return;
+            auto panel=field->property("calendarPanel").value<QObject*>();QRectF year;
+            if(!check(panel&&QMetaObject::invokeMethod(editor,"positionToRectangle",Q_RETURN_ARG(QRectF,year),Q_ARG(int,editor->property("text").toString().size()-2)),"Popup year geometry missing"))return;
+            QTest::mouseClick(editor->window(),Qt::LeftButton,Qt::NoModifier,editor->mapToScene(year.center()).toPoint());if(!frame())return;
+            if(!check(panel->property("visible").toBool()&&editor->window()!=window&&editor->hasActiveFocus(),"Calendar popup did not receive endpoint focus"))return;
+            if(!check(QTest::qWaitForWindowExposed(editor->window()),"Calendar popup window was not exposed"))return;
+            if(key==Qt::Key_Escape)QTest::keyClick(editor->window(),Qt::Key_2);
+            QTest::keyClick(editor->window(),key);if(!frame())return;
+            if(!check(QTest::qWaitFor([&](){return !panel->property("visible").toBool()&&editor->window()==window&&editor->hasActiveFocus();}),"Popup keyboard closure lost endpoint focus"))return;
+            auto actual=dateRangeSnapshot(fixture);const auto closedModel=actual["model"].toObject();
+            auto accessible=QAccessible::queryAccessibleInterface(editor);
+            if(!check(!field->property("isTyping").toBool()&&closedModel["requests"].toArray().size()==1
+                &&closedModel["start"]==base["start"]&&closedModel["end"]==base["end"]
+                &&accessible&&accessible->text(QAccessible::Name)==(endpoint=="start"?"From":"To"),"Popup keyboard closure changed owner values or endpoint name"))return;
+            QTest::keyClick(window,Qt::Key_Up);if(!frame())return;
+            actual=dateRangeSnapshot(fixture);const auto model=actual["model"].toObject();const auto requests=model["requests"].toArray();
+            const auto peer=endpoint=="start"?"end":"start";
+            if(!check(requests.size()==2&&requests.last().toObject()["endpoint"]==endpoint&&model[peer]==base[peer]
+                &&model[endpoint]==(policy=="echo"?requests.last().toObject()["requested"]:base[endpoint]),"Returned keyboard focus bypassed endpoint owner"))return;
+            popupInput.append(QJsonObject{{"owner",policy},{"endpoint",endpoint},{"closeKey",int(key)},{"activeFocus",editor->hasActiveFocus()},{"actual",actual}});
+        }
+        if(!check(popupInput.size()==(QGuiApplication::platformName()=="offscreen"?0:18),"Popup keyboard closure coverage incomplete"))return;
         for(const QString policy:{"echo","ignore","delay"})for(const QString endpoint:{"start","end"}){
             auto configuration=base;configuration["owner"]=policy;configuration["locale"]="zh_CN";configuration["calendar"]="chinese";
             configuration["start"]=1679832000.625;configuration["end"]=1679832000.625;if(!configure(configuration))return;
@@ -209,7 +234,7 @@ static void runDateRangeConsumer(QQuickWindow *window,QGuiApplication &app,const
     }
     const bool strict=closed.isEmpty()||(modelMatches==closed.size()&&geometryMatches==closed.size()&&historyModels==histories.size()&&historyGeometry==histories.size()&&historyInstances==histories.size()&&historyCalendars==histories.size()&&historyEnvironment==histories.size()&&chineseModels==chinese.size()&&chineseTexts==chinese.size()&&chineseCalendars==chinese.size()&&chineseIntrinsic==chinese.size());
     if(!prefix.isEmpty()){
-        const QJsonObject report{{"fixture","date-range"},{"structuralChecks","passed"},{"platform",QGuiApplication::platformName()},{"graphicsApi",int(window->rendererInterface()->graphicsApi())},{"width",window->width()},{"height",window->height()},{"appearance",parser.isSet("dark")?"dark":"light"},{"accepted",false},{"reference","fe8a1d462fbd793d883fb92086a16aa2947e32c9"},{"textScale",textScale},{"dpr",window->devicePixelRatio()},{"closed",closed},{"input",inputs},{"assistiveInput",assistiveInput},{"literalInput",literalInput},{"gallery",operators},{"histories",histories},{"chinese",chinese},{"chineseModelMatches",chineseModels},{"chineseTextMatches",chineseTexts},{"chineseCalendarMatches",chineseCalendars},{"chineseIntrinsicSizeMatches",chineseIntrinsic},{"historyModelMatches",historyModels},{"historyGeometryMatches",historyGeometry},{"historyEditorInstanceMatches",historyInstances},{"historyCalendarMatches",historyCalendars},{"historyEnvironmentMatches",historyEnvironment},{"modelMatches",modelMatches},{"geometryMatches",geometryMatches},{"strictObservationsMatch",strict},{"visualAcceptance","pending"},{"readerPhysicalAcceptance","pending"}};
+        const QJsonObject report{{"fixture","date-range"},{"structuralChecks","passed"},{"platform",QGuiApplication::platformName()},{"graphicsApi",int(window->rendererInterface()->graphicsApi())},{"width",window->width()},{"height",window->height()},{"appearance",parser.isSet("dark")?"dark":"light"},{"accepted",false},{"reference","fe8a1d462fbd793d883fb92086a16aa2947e32c9"},{"textScale",textScale},{"dpr",window->devicePixelRatio()},{"closed",closed},{"input",inputs},{"assistiveInput",assistiveInput},{"popupInput",popupInput},{"literalInput",literalInput},{"gallery",operators},{"histories",histories},{"chinese",chinese},{"chineseModelMatches",chineseModels},{"chineseTextMatches",chineseTexts},{"chineseCalendarMatches",chineseCalendars},{"chineseIntrinsicSizeMatches",chineseIntrinsic},{"historyModelMatches",historyModels},{"historyGeometryMatches",historyGeometry},{"historyEditorInstanceMatches",historyInstances},{"historyCalendarMatches",historyCalendars},{"historyEnvironmentMatches",historyEnvironment},{"modelMatches",modelMatches},{"geometryMatches",geometryMatches},{"strictObservationsMatch",strict},{"visualAcceptance","pending"},{"readerPhysicalAcceptance","pending"}};
         QFile output(prefix+".json");if(!check(output.open(QIODevice::WriteOnly|QIODevice::NewOnly)&&output.write(QJsonDocument(report).toJson())>0,"Report write failed"))return;
     }
     qInfo("DateRangePicker native literal input: %lld Qt pointer/retained-field checks; native initial-field and RTL glyph acceptance pending",literalInput.size());

@@ -134,6 +134,36 @@ date catalog also launched and captured successfully. These checks retain the
 remaining strict native failures and do not establish physical display, GPU or
 reader acceptance.
 
+## Popup keyboard dismissal checks
+
+The installed consumer now exercises 18 popup scenarios: both endpoints,
+Escape/Return/Tab, and echo/ignore/delay owners. It clicks the rendered year field,
+waits for the popup window to be exposed, and sends keys to that window. Escape
+cancels a partially typed year; Return and Tab close an unchanged field. Each case
+checks that the popup closes, focus returns to the same editor in the caller's
+window, owner values remain unchanged, and the complete From/To accessible name
+is retained. A subsequent Up key must request a change only for that endpoint and
+respect the owner's response policy.
+
+These checks run on X11 and Wayland through the existing installed-consumer
+display harness. Offscreen execution records an empty `popupInput` array because
+it has no window-manager activation path. The ordinary offscreen owner, input,
+assistive-edit and model checks remain active. The test observes window exposure and waits for editor focus to return after
+closure. The tested Qt 6.8.3 Wayland backend does not expose programmatic
+window activation, and its focus transfer completes asynchronously. The
+unchanged library passes when this transfer is allowed to finish.
+
+All 72 scenarios passed in four source-free installed profiles: X11 and Wayland,
+each at light/text-scale-1/DPR-1 and dark/text-scale-1.5/DPR-2. Each profile also
+retained all 48 exact closed model observations. The application implementation
+is unchanged by this verification checkpoint.
+
+Whole-component Undo/Redo, complete committed-input-method and pointer-calendar
+workflows, strict native raster/field-width parity and physical/native-reader
+acceptance remain open in [issue #3](https://github.com/gaulatti/avelino/issues/3)
+and the related gap tickets. Passing keyboard-dismissal checks does not close
+those gates.
+
 ## Current Linux implementation
 
 `BleeckerDateRangePicker` exposes independent `start` and `end` Unix-second values,
