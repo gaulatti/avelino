@@ -11,9 +11,13 @@ native observations are documented in
 `allowedContentTypes` list, and an `onResult` signal carrying `{ kind: "success",
 urls: [...] }`. Cancel does not emit that signal. `initialFolder` is the Linux
 presentation adapter; by default it uses Qt's Documents location. `widthOffer`
-adapts a fixed caller width and `maximumWidth` propagates a containing layout's
-available width. The reference fixture supplies the same 600-point parent width
-as the native capture helper. It retains explicit empty titles separately from
+adapts a fixed caller width and `heightOffer` adapts a fixed caller height.
+`maximumWidth` and `maximumHeight` propagate the containing layout's available
+dimensions when the corresponding explicit offer is unspecified. These offers
+are finite nonnegative logical dimensions, or `-1` for unspecified. Explicit
+offers take precedence over containing dimensions; allocation of the caller's
+actual `width` and `height` remains separate. The reference fixture supplies the
+same 600-by-300 parent proposal as the native helper. It retains empty titles separately from
 the default-title property initializer.
 
 The Linux type adapter uses MIME types and explicit custom descriptors. It does
@@ -511,3 +515,80 @@ lifecycle tests, the independent consumer and package scripts cover the same
 feature path. This is still an implementation candidate: native input/token
 editing, query semantics/ranking/history readiness, complete artwork/hierarchy,
 AT-SPI/reader, installed display sessions and physical acceptance remain pending.
+
+## Height proposals and title paint
+
+The closed trigger needs both dimensions of a proposal. The pinned medium
+secondary style applies horizontal padding and a minimum body height of 40.
+A zero-width proposal with unspecified height returns a 36-by-187 body at text
+scale 1 and a 36-by-297 body at scale 1.5. Proposing both dimensions as zero
+returns 36 by 40. A fixed zero-height caller retains its zero allocation while
+the decorated body overflows it. This does not establish native hit testing
+outside that caller.
+
+The containing height matters separately. In a 600-by-300 parent, a zero-width
+default title at text scale 3 returns a 36-by-260 body; a direct unspecified-height
+sizing query returns 36 by 572. The consumer/catalog fixture forwards the actual
+parent height through `maximumHeight` and supplies `heightOffer` for a fixed
+caller frame. These are explicit Qt layout adapters; broader nested
+two-dimensional composition remains a separate parity gate.
+
+The local candidate fits lines using measured typography, elides the final
+retained line, and distinguishes its shaped line box from a shorter visible
+view. An elision token that cannot fit still retains its empty typographic line
+box. The title keeps its full accessible button name and clips paint to its
+measured text view. A zero-width label therefore paints no stray title glyphs.
+The caller's string and the chooser's editable fields are not replaced with the
+painted ellipsis.
+
+Font diagnostics reproduce why joining an ellipsis to a newly shaped prefix
+changes the fitted width. Token-line truncation retains the prefix's original
+terminal positioning. With Encode Sans medium 14, the measured retained prefix
+plus token advances 63.504; reshaping the joined string advances 62.881. At size
+21 the corresponding advances are 63.294 and 62.706. The renderer keeps the token
+separate and retains the original glyph positioning at the cut, without a
+fixture-specific width adjustment. The native
+[token-line operation](https://developer.apple.com/documentation/coretext/ctlinecreatetruncatedline(_:_:_:_:))
+is measured independently from the unchanged public component.
+
+The native investigation measures 10,368 sizing responses and retains 216
+unedited PNGs, including finite heights and zero-width parent proposals at text
+scales 1, 1.5 and 3. Public, geometry-probed and literal witnesses agree. All
+1,440 overlapping historical sizing responses reproduce, and all 89 pinned
+source files remain unchanged. The first helper startup failed because its
+resource bundle was missing; that run remains alongside the corrected packaging
+and successful runs.
+
+The actual Qt baseline preserves the failure: both DPRs report heights 187 and
+297 for the two-axis zero cases while the width-only controls pass. Subsequent
+paint and finite-width failures remain retained too. The current local candidate
+passes all 62 owned FileInput UI checks at each DPR, including existing chooser
+and assistive-edit behavior, zero-width paint, finite height/ellipsis,
+fractional fitted widths, and parent-height limits. The broader QML component
+target passes 5,910 checks at DPR 1 and 6,138 at DPR 2. The catalog builds and
+installs, and an independent consumer builds from an empty directory. A separately
+recorded incremental consumer build adds actual direct-proposal measurements
+through public Qt properties; it changes only the consumer check header.
+
+Twenty-two source-free installed runs pass their structural checks: FileInput
+and DateRange across X11/Wayland and software/OpenGL at two configurations, plus
+the six remaining canonical FileInput light/dark, scale 1/1.5, DPR 1/2 contexts.
+These virtual sessions use the pinned nested compositor and Mesa software GL;
+they do not establish physical display or GPU acceptance. Actual module maps,
+binary hashes and full-session captures precede each application acknowledgement.
+All eight canonical FileInput contexts retain their native frame and proposal
+failures. At light/scale 1/DPR 1, 459/480 direct proposals match; at
+dark/scale 1.5/DPR 2, 456/480 match. The remaining mismatches involve Unicode
+and RTL titles. The two-axis zero frame now matches; closed-frame matches
+increase from 29/32 to 30/32 in those two contexts. DateRange's strict native
+observation checks remain false.
+
+Strict comparison of 40 unedited native/Qt image pairs finds zero exact pairs,
+with zero tolerance, no masks and no exceptions. Even the blank zero-width
+trigger retains 84 differing pixels at DPR 1 and 160 at DPR 2. The height repair
+therefore establishes measured layout behavior while leaving raster work open.
+The [height evidence capsule](../evidence/development/file-input-height-20261024/README.md)
+retains the negative attempts, executed Linux source, raw measurements and images.
+No native raster, hierarchy, physical, reader or independent-machine acceptance
+follows from these checks. Candidate coverage remains 78/80 and accepted desktop
+parity remains 0/80.

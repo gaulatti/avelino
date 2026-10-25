@@ -17,6 +17,7 @@ class ButtonLabel : public QQuickPaintedItem {
     Q_PROPERTY(QColor color READ color WRITE setColor NOTIFY colorChanged)
     Q_PROPERTY(qreal tracking READ tracking WRITE setTracking NOTIFY trackingChanged)
     Q_PROPERTY(qreal wrapWidth READ wrapWidth WRITE setWrapWidth NOTIFY wrapWidthChanged)
+    Q_PROPERTY(qreal wrapHeight READ wrapHeight WRITE setWrapHeight NOTIFY wrapHeightChanged)
     Q_PROPERTY(qreal lineHeight READ lineHeight WRITE setLineHeight NOTIFY lineHeightChanged)
     Q_PROPERTY(qreal elideWidth READ elideWidth WRITE setElideWidth NOTIFY elideWidthChanged)
     Q_PROPERTY(int horizontalAlignment READ horizontalAlignment WRITE setHorizontalAlignment NOTIFY horizontalAlignmentChanged)
@@ -41,6 +42,8 @@ public:
     void setTracking(qreal tracking);
     qreal wrapWidth() const { return m_wrapWidth; }
     void setWrapWidth(qreal width);
+    qreal wrapHeight() const { return m_wrapHeight; }
+    void setWrapHeight(qreal height);
     qreal lineHeight() const { return m_lineHeight; }
     void setLineHeight(qreal height);
     qreal elideWidth() const { return m_elideWidth; }
@@ -63,6 +66,7 @@ signals:
     void colorChanged();
     void trackingChanged();
     void wrapWidthChanged();
+    void wrapHeightChanged();
     void lineHeightChanged();
     void elideWidthChanged();
     void horizontalAlignmentChanged();
@@ -86,6 +90,7 @@ private:
     qreal m_pixels = 14, m_resolvedPixels = 14, m_height = 0, m_glyphAdvance = 0;
     qreal m_tracking = 0, m_capHeight = 0;
     qreal m_wrapWidth = -1, m_unwrappedWidth = 0;
+    qreal m_wrapHeight = -1;
     qreal m_lineHeight = 0;
     qreal m_elideWidth = -1;
     int m_alignment = Qt::AlignLeft;

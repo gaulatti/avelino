@@ -145,6 +145,94 @@ class FileInputUiTests:public QObject {
 private slots:
     void initTestCase(){QAccessible::setActive(true);QVERIFY(config.isValid());QSettings::setPath(QSettings::NativeFormat,QSettings::UserScope,config.path());}
     void init(){QTest::failOnWarning(QRegularExpression(".*(FileInput requires|Unable to assign|should be coerced|ReferenceError|TypeError).*"));QSettings settings("Avelino","FileChooser");settings.clear();settings.sync();}
+    void zeroCallerProposalKeepsNativeBodyHeight_data(){
+        QTest::addColumn<qreal>("allocatedHeight");QTest::addColumn<qreal>("textScale");QTest::addColumn<qreal>("bodyHeight");
+        // Pinned native FileInput sizing distinguishes a two-axis zero
+        // proposal from zero width with unspecified height. Preserve both.
+        QTest::newRow("both-zero-scale1")<<qreal(0)<<qreal(1)<<qreal(40);
+        QTest::newRow("width-only-scale1")<<qreal(-1)<<qreal(1)<<qreal(187);
+        QTest::newRow("both-zero-scale1.5")<<qreal(0)<<qreal(1.5)<<qreal(40);
+        QTest::newRow("width-only-scale1.5")<<qreal(-1)<<qreal(1.5)<<qreal(297);
+        QTest::newRow("both-zero-scale3")<<qreal(0)<<qreal(3)<<qreal(40);
+        QTest::newRow("width-only-scale3")<<qreal(-1)<<qreal(3)<<qreal(572);
+    }
+    void zeroCallerProposalKeepsNativeBodyHeight(){
+        QFETCH(qreal,allocatedHeight);QFETCH(qreal,textScale);QFETCH(qreal,bodyHeight);
+        QTemporaryDir directory;QQuickView view;QVERIFY(load(view,directory));auto fixture=view.rootObject();
+        fixture->setProperty("textScale",textScale);fixture->setProperty("widthOffer",0);fixture->setProperty("allocatedHeight",allocatedHeight);
+        auto control=fixture->findChild<QQuickItem*>("fileInput");QVERIFY(control);
+        auto body=control->property("presentationItem").value<QQuickItem*>();QVERIFY(body);
+        QTRY_COMPARE(control->width(),qreal(0));QTRY_COMPARE(body->width(),qreal(36));
+        QTest::qWait(60);capture(&view,QString("zero-proposal-")+QTest::currentDataTag());
+        QCOMPARE(body->height(),bodyHeight);
+        QCOMPARE(control->height(),allocatedHeight<0 ? bodyHeight:allocatedHeight);
+        if(allocatedHeight==0) {
+            const auto titleImage=view.grabWindow();fixture->setProperty("title",QString());
+            QTest::qWait(60);capture(&view,QString("zero-empty-")+QTest::currentDataTag());
+            QCOMPARE(view.grabWindow(),titleImage);
+        }
+    }
+    void finiteCallerHeightFitsAndElidesTitle_data(){
+        QTest::addColumn<qreal>("allocatedHeight");QTest::addColumn<qreal>("textScale");
+        QTest::addColumn<qreal>("bodyWidthDpr1");QTest::addColumn<qreal>("bodyWidthDpr2");QTest::addColumn<qreal>("bodyHeight");
+        // Actual native public/probed/literal captures, including the half-pixel
+        // fitted widths at DPR2. These are expectations, not layout constants.
+        QTest::newRow("height0-scale1")<<qreal(0)<<qreal(1)<<qreal(100)<<qreal(100)<<qreal(40);
+        QTest::newRow("height17-scale1")<<qreal(17)<<qreal(1)<<qreal(100)<<qreal(100)<<qreal(40);
+        QTest::newRow("height54-scale1")<<qreal(54)<<qreal(1)<<qreal(97)<<qreal(97)<<qreal(51);
+        QTest::newRow("height100-scale1")<<qreal(100)<<qreal(1)<<qreal(99)<<qreal(98.5)<<qreal(85);
+        QTest::newRow("height0-scale1.5")<<qreal(0)<<qreal(1.5)<<qreal(100)<<qreal(100)<<qreal(40);
+        QTest::newRow("height17-scale1.5")<<qreal(17)<<qreal(1.5)<<qreal(100)<<qreal(100)<<qreal(40);
+        QTest::newRow("height54-scale1.5")<<qreal(54)<<qreal(1.5)<<qreal(100)<<qreal(99.5)<<qreal(54);
+        QTest::newRow("height100-scale1.5")<<qreal(100)<<qreal(1.5)<<qreal(95)<<qreal(94.5)<<qreal(81);
+        QTest::newRow("height0-scale3")<<qreal(0)<<qreal(3)<<qreal(92)<<qreal(91.5)<<qreal(40);
+        QTest::newRow("height17-scale3")<<qreal(17)<<qreal(3)<<qreal(92)<<qreal(91.5)<<qreal(40);
+        QTest::newRow("height54-scale3")<<qreal(54)<<qreal(3)<<qreal(92)<<qreal(91.5)<<qreal(52);
+        QTest::newRow("height100-scale3")<<qreal(100)<<qreal(3)<<qreal(92)<<qreal(91.5)<<qreal(52);
+    }
+    void finiteCallerHeightFitsAndElidesTitle(){
+        QFETCH(qreal,allocatedHeight);QFETCH(qreal,textScale);QFETCH(qreal,bodyWidthDpr1);QFETCH(qreal,bodyWidthDpr2);QFETCH(qreal,bodyHeight);
+        QTemporaryDir directory;QQuickView view;QVERIFY(load(view,directory));auto fixture=view.rootObject();
+        const QString title=QStringLiteral("Choose several files with a long label that measures wrapping and fitting");
+        fixture->setProperty("title",title);fixture->setProperty("textScale",textScale);
+        fixture->setProperty("widthOffer",100);fixture->setProperty("allocatedHeight",allocatedHeight);
+        auto control=fixture->findChild<QQuickItem*>("fileInput");QVERIFY(control);
+        auto body=control->property("presentationItem").value<QQuickItem*>();QVERIFY(body);
+        QTest::qWait(60);capture(&view,QString("finite-height-")+QTest::currentDataTag());
+        const auto point=body->mapToItem(fixture,QPointF());
+        qInfo("body-frame x=%g y=%g width=%g height=%g",point.x(),point.y(),body->width(),body->height());
+        QVERIFY(view.devicePixelRatio()==1 || view.devicePixelRatio()==2);
+        const auto bodyWidth=view.devicePixelRatio()==2 ? bodyWidthDpr2:bodyWidthDpr1;
+        QCOMPARE(body->width(),bodyWidth);QCOMPARE(body->height(),bodyHeight);
+        QCOMPARE(point.x(),(fixture->width()-bodyWidth)/2);QCOMPARE(point.y(),(fixture->height()-bodyHeight)/2);
+        QCOMPARE(control->width(),qreal(100));QCOMPARE(control->height(),allocatedHeight);
+        auto input=control->property("inputItem").value<QQuickItem*>();QVERIFY(input);
+        QCOMPARE(input->width(),bodyWidth);QCOMPARE(input->height(),bodyHeight);
+        const auto accessible=QAccessible::queryAccessibleInterface(input);QVERIFY(accessible);
+        QCOMPARE(accessible->text(QAccessible::Name),title);
+    }
+    void parentHeightProposalLimitsWrappedTitle_data(){
+        QTest::addColumn<bool>("longTitle");QTest::addColumn<qreal>("textScale");QTest::addColumn<qreal>("bodyHeight");
+        QTest::newRow("default-scale1")<<false<<qreal(1)<<qreal(187);
+        QTest::newRow("default-scale1.5")<<false<<qreal(1.5)<<qreal(297);
+        QTest::newRow("default-scale3")<<false<<qreal(3)<<qreal(260);
+        QTest::newRow("long-scale1")<<true<<qreal(1)<<qreal(289);
+        QTest::newRow("long-scale1.5")<<true<<qreal(1.5)<<qreal(297);
+        QTest::newRow("long-scale3")<<true<<qreal(3)<<qreal(260);
+    }
+    void parentHeightProposalLimitsWrappedTitle(){
+        QFETCH(bool,longTitle);QFETCH(qreal,textScale);QFETCH(qreal,bodyHeight);
+        QTemporaryDir directory;QQuickView view;QVERIFY(load(view,directory));auto fixture=view.rootObject();
+        if(longTitle)fixture->setProperty("title",QStringLiteral("Choose several files with a long label that measures wrapping and fitting"));
+        fixture->setProperty("textScale",textScale);fixture->setProperty("widthOffer",0);fixture->setProperty("maximumHeight",300);
+        auto control=fixture->findChild<QQuickItem*>("fileInput");QVERIFY(control);
+        auto body=control->property("presentationItem").value<QQuickItem*>();QVERIFY(body);
+        QTest::qWait(60);capture(&view,QString("parent-height-")+QTest::currentDataTag());
+        QCOMPARE(body->width(),qreal(36));QCOMPARE(body->height(),bodyHeight);
+        QCOMPARE(control->width(),qreal(0));QCOMPARE(control->height(),bodyHeight);
+        const auto point=body->mapToItem(fixture,QPointF());
+        QCOMPARE(point.x(),qreal(282));QCOMPARE(point.y(),(fixture->height()-bodyHeight)/2);
+    }
     void actualLocationMenuSelectionHistoryRecentAndRemoval(){
         QTemporaryDir directory;QDir root(directory.path());QVERIFY(root.mkpath("Parent/Start"));put(root.filePath("Parent/Start/Alpha.txt"));
         const auto start=root.filePath("Parent/Start"),parent=root.filePath("Parent");

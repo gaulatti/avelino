@@ -1461,7 +1461,7 @@ retains ten real selection/commit destruction crashes and four stale-replacement
 failures before the repair. The shared Qt text-input wrapper preserves DateRange's
 existing notification behavior and gives the path editor the same guarded boundary.
 
-The current source passes38 FileInput and48 DateRange Qt checks at each DPR1/2,
+The path lifetime source passes38 FileInput and48 DateRange Qt checks at each DPR1/2,
 four independent source-free consumer profiles, two21-phase GoTo reader sessions
 and two12-phase DateRange reader sessions. Loaded-module maps, binary/prefix hashes,
 real full-session capture acknowledgements and separately frozen consumer overrides
@@ -1476,3 +1476,31 @@ acceptance promotion. All31532 prior protected inventory fields remain unchanged
 the two new cases are verification-pending. Native frame/strict-observation
 failures remain, with78/80 desktop candidates, zero accepted APIs and46 TV entries
 pending. There is no full58-group Qt rerun or new physical/native acceptance.
+
+## FileInput height proposals
+
+The [height checkpoint](../evidence/development/file-input-height-20261024/README.md)
+retains the actual two-axis baseline failures, zero-width paint regressions and
+finite-height ellipsis failures alongside the final 124 FileInput UI checks.
+The broader QML component target passes 12,048 checks across DPR 1/2; catalog,
+installation and an empty-directory independent-consumer build also pass.
+A separately compiled consumer header measures all 15 native proposals in order
+on one retained control per fixture. Its incremental build provenance stays
+separate from the earlier fresh consumer build.
+
+The 22 source-free installed profiles include every canonical FileInput context:
+256 closed frames and 3,840 direct proposals. Exact frame results remain 30/32
+per context. Proposal results remain 459/480 at scale 1 and 456/480 at scale 1.5,
+with Unicode/RTL differences retained. X11/Wayland software/OpenGL profiles use
+virtual displays and Mesa software GL. They establish no physical GPU acceptance.
+
+The native supplement retains 10,368 sizing responses and 216 unedited PNGs;
+public/probed/literal witnesses agree. Apple source and capture tools remain
+external and checksummed. Strict comparison of 40 native/Qt image pairs retains
+zero exact pairs at tolerance zero, without masks or exceptions. The audit
+recomputes those failures and reconstructs the executed 581-file runtime from
+cc718b6 plus seven retained Linux files. Default audits remain independent of
+future candidates; `--current` also binds the actual runtime and inventory.
+All 31,534 prior protected inventory fields are preserved. The additional height
+case is verification-pending; desktop coverage stays 78/80 and accepted parity
+0/80, with all 46 TV entries pending.

@@ -3,7 +3,9 @@
 #include <QAbstractItemModel>
 #include <QDir>
 #include <QQuickItemGrabResult>
+#include <QQmlProperty>
 #include <QTemporaryDir>
+#include <cmath>
 
 static void runFileInputConsumer(QQuickWindow *window,QGuiApplication &app,const QCommandLineParser &parser,double textScale){
     auto check=[&](bool value,const char *message){if(!value){qCritical("FileInput: %s",message);app.exit(99);}return value;};
@@ -71,7 +73,7 @@ static void runFileInputConsumer(QQuickWindow *window,QGuiApplication &app,const
         const auto pixels=target==window?target->grabWindow():popupPixels(target);
         return check(!pixels.isNull()&&pixels.save(prefix+"-"+name+".png"),"Capture failed");
     };
-    int frames=0,states=0,pointers=0,keys=0;QJsonArray closed,sizing,actions,accessibility;QJsonObject standard;
+    int frames=0,states=0,pointers=0,keys=0,proposalMatches=0,proposalCount=0;QJsonArray closed,sizing,actions,accessibility;QJsonObject standard;
     for(const auto &value:native["closed"].toArray()){
         const auto row=value.toObject();if(!selected(row))continue;
         const auto configuration=row["configuration"].toObject();if(!configure(configuration,row["linuxContentTypes"].toArray()))return;
@@ -87,14 +89,51 @@ static void runFileInputConsumer(QQuickWindow *window,QGuiApplication &app,const
         if(!save(window,configuration["id"].toString()))return;
         if(configuration["id"]=="default")standard=configuration;
     }
+    // Preserve the recorded native SizeProbe order and one live control for
+    // each sequence. Infinity is explicitly adapted to an unbounded (-1)
+    // dimension; a containing or caller frame must not constrain this probe.
+    struct SizeProposal {const char *name;qreal width,height;};
+    const SizeProposal sizeOffers[]={
+        {"unspecified",-1,-1},{"zero",0,0},{"width-zero",0,-1},{"height-zero",-1,0},
+        {"square-100",100,100},{"width-30",30,-1},{"width-90",90,-1},{"width-150",150,-1},
+        {"width-300",300,-1},{"width-512",512,-1},{"wide-2000-1000",2000,1000},
+        {"height-260",-1,260},{"infinity",-1,-1},{"infinite-width",-1,100},{"infinite-height",100,-1}};
     for(const auto &value:native["sizing"].toArray()){
         const auto row=value.toObject();if(!selected(row))continue;
         if(!configure(row["configuration"].toObject(),row["linuxContentTypes"].toArray()))return;
+        const QJsonObject implicit{{"width",control()->implicitWidth()},{"height",control()->implicitHeight()}};
+        QPointer<QQuickItem> measuredControl=control();
+        if(!check(QQmlProperty(measuredControl,"maximumWidth").write(-1)
+            &&QQmlProperty(measuredControl,"maximumHeight").write(-1)
+            &&QQmlProperty(measuredControl,"widthOffer").write(-1)
+            &&QQmlProperty(measuredControl,"heightOffer").write(-1),"Cannot remove caller/parent proposal bindings"))return;
+        const auto expected=row["proposals"].toObject();
+        if(!check(expected.size()==15,"Native proposal set changed"))return;
+        QJsonObject actualProposals;QJsonArray observations;int matched=0;
+        for(const auto &proposal:sizeOffers){
+            const QString name=QString::fromLatin1(proposal.name);
+            if(!check(expected[name].isObject(),"Native proposal missing")
+                ||!check(measuredControl&&measuredControl==control(),"Proposal sequence replaced its control")
+                ||!check(QQmlProperty(measuredControl,"widthOffer").write(proposal.width)
+                    &&QQmlProperty(measuredControl,"heightOffer").write(proposal.height),"Proposal did not reach the public adapter")
+                ||!check(waitForShapeFrame(window),"Proposed frame did not settle"))return;
+            auto body=measuredControl->property("presentationItem").value<QQuickItem*>();
+            if(!check(body&&std::isfinite(body->width())&&std::isfinite(body->height())
+                &&body->width()>=0&&body->height()>=0
+                &&measuredControl->property("maximumWidth").toDouble()==-1
+                &&measuredControl->property("maximumHeight").toDouble()==-1,"Measured proposal has invalid bounds or retained parent constraints"))return;
+            const QJsonObject actual{{"width",body->width()},{"height",body->height()}};
+            const bool match=actual==expected[name].toObject();matched+=match;++proposalCount;proposalMatches+=match;
+            actualProposals[name]=actual;
+            observations.append(QJsonObject{{"name",name},{"qtOffer",QJsonObject{{"width",proposal.width},{"height",proposal.height}}},
+                {"actual",actual},{"native",expected[name]},{"match",match}});
+        }
         sizing.append(QJsonObject{{"configuration",row["configuration"]},{"nativeProposals",row["proposals"]},
-            {"qtImplicitSize",QJsonObject{{"width",control()->implicitWidth()},{"height",control()->implicitHeight()}}},
-            {"status","Direct Qt/native proposal equivalence pending"}});
+            {"qtImplicitSize",implicit},{"qtProposals",actualProposals},{"observations",observations},
+            {"callerFrameOmitted",true},{"retainedControlSequence",true},{"infinityAdapter","Unbounded Qt dimension (-1)"},
+            {"matched",matched},{"total",15},{"status",matched==15?"passed":"failed"}});
     }
-    if(!check(closed.size()==32&&sizing.size()==32&&!standard.isEmpty()&&states==32,"Incomplete selected native context or changed contract state"))return;
+    if(!check(closed.size()==32&&sizing.size()==32&&proposalCount==480&&!standard.isEmpty()&&states==32,"Incomplete selected native context or changed contract state"))return;
     QTemporaryDir root;if(!check(root.isValid(),"Controlled fixture directory unavailable"))return;
     QDir directory(root.path());
     for(const auto &name:{"one.txt","two.txt","photo.png","spaces in name.txt"}){
@@ -387,6 +426,8 @@ static void runFileInputConsumer(QQuickWindow *window,QGuiApplication &app,const
         {"structuralChecks","passed"},{"images",49},{"closedImages",32},{"popupImages",16},{"ownerResultImages",1},
         {"appearance",parser.isSet("dark")?"dark":"light"},{"textScale",textScale},{"dpr",window->devicePixelRatio()},
         {"closed",closed},{"sizing",sizing},{"nativeCompleteFramesMatch",frames},{"nativeContractStatesMatch",states},
+        {"nativeDirectProposalMatches",proposalMatches},{"nativeDirectProposalCount",proposalCount},
+        {"nativeDirectProposalComparisonStatus",proposalMatches==proposalCount?"passed":"failed"},
         {"applicationActive",QGuiApplication::applicationState()==Qt::ApplicationActive},{"windowActive",window->isActive()},
         {"observationOnly",parser.isSet("file-input-observe")},
         {"nativeRasterAcceptance","pending"},{"physicalInputAcceptance","pending"},{"readerAcceptance","pending"},{"nativeAccessibilityAcceptance","unobserved"},
@@ -398,6 +439,7 @@ static void runFileInputConsumer(QQuickWindow *window,QGuiApplication &app,const
     if(parser.isSet("evidence")&&!check(window->grabWindow().save(prefix+".png"),"Session window capture failed"))return;
     if(!prefix.isEmpty()){QFile output(prefix+".json");if(!check(output.open(QIODevice::WriteOnly|QIODevice::NewOnly),"Report destination unavailable"))return;output.write(QJsonDocument(report).toJson());}
     if(!parser.isSet("file-input-observe")&&frames!=32){qCritical("FileInput native frame parity remains pending");app.exit(99);return;}
+    if(!parser.isSet("file-input-observe")&&proposalMatches!=proposalCount){qCritical("FileInput native proposal parity remains pending");app.exit(99);return;}
     qInfo("Installed FileInput: 32 native closed contexts, %lld owner/input traces; frames %d/32, states %d/32; acceptance pending",qlonglong(actions.size()),frames,states);
     if(parser.isSet("evidence")){
         auto timer=new QTimer(&app);QObject::connect(timer,&QTimer::timeout,&app,[&app,prefix]{if(QFile::exists(prefix+".captured"))app.exit(0);});timer->start(100);

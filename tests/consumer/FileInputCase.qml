@@ -22,9 +22,11 @@ Item {
     }
     component Input:BleeckerFileInput {
         widthOffer:fixture.configuration.width===undefined||fixture.configuration.width===null ? -1:fixture.configuration.width
+        heightOffer:fixture.configuration.height===undefined||fixture.configuration.height===null ? -1:fixture.configuration.height
         maximumWidth:fixture.width
+        maximumHeight:fixture.height
         width:widthOffer<0 ? implicitWidth:widthOffer
-        height:fixture.configuration.height===undefined||fixture.configuration.height===null ? implicitHeight:fixture.configuration.height
+        height:heightOffer<0 ? implicitHeight:heightOffer
         allowedContentTypes:fixture.linuxContentTypes
         initialFolder:fixture.fixtureFolder.toString().length ? fixture.fixtureFolder:browser.defaultFolder()
         enabled:!fixture.configuration.disabled

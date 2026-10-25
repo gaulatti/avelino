@@ -3,6 +3,7 @@
 #include <QPainter>
 #include <QRawFont>
 #include <QTextLayout>
+#include <QTextCharFormat>
 #include <QFontMetricsF>
 #include <QtEndian>
 #include <QRegularExpression>
@@ -43,6 +44,13 @@ void ButtonLabel::setWrapWidth(qreal width) {
         qFatal("Label wrap width must be nonnegative or -1 for explicit lines only");
     if (m_wrapWidth == width) return;
     m_wrapWidth = width; relayout(true); emit wrapWidthChanged();
+}
+
+void ButtonLabel::setWrapHeight(qreal height) {
+    if (!std::isfinite(height) || (height < 0 && height != -1))
+        qFatal("Label wrap height must be nonnegative or -1 when unspecified");
+    if (m_wrapHeight == height) return;
+    m_wrapHeight = height; relayout(); emit wrapHeightChanged();
 }
 
 void ButtonLabel::setLineHeight(qreal height) {
@@ -311,14 +319,64 @@ void ButtonLabel::relayout(bool reuseWrapMeasurements) {
         // independently of the declared custom font. Components may omit or
         // explicitly size empty content according to their own source contract.
         m_runs.clear(); m_linePositions.clear(); m_family = original.familyName(); m_style = original.styleName();
-        m_height = 14; setImplicitWidth(0);
+        m_height = m_wrapHeight < 0 ? 14 : std::min(qreal(14),m_wrapHeight); setImplicitWidth(0);
         if (generation != m_layoutGeneration) return;
         setImplicitHeight(m_height);
         if (generation != m_layoutGeneration) return;
-        setBaselineOffset(11);
+        setBaselineOffset(11+(m_height-14)/2);
         if (generation != m_layoutGeneration) return;
         update(); emit layoutChanged(); return;
     }
+    int truncationToken=-1;
+    qreal emptyElidedHeight=-1,emptyElidedBaseline=0;
+    if (m_wrapHeight >= 0) {
+        // Use the final layout's typography to fit complete lines. A shorter
+        // view still shapes one line; its visible height is constrained below.
+        QTextLayout probe(layoutText,shapeFont);probe.setTextOption(option);
+        probe.beginLayout();
+        qreal usedHeight=0,firstBaseline=0;int lines=0,lastStart=0;bool truncated=false;
+        for (;;) {
+            auto line=probe.createLine();if(!line.isValid())break;
+            const auto lineWidth=layoutWidth>=0 ? std::max(qreal(0.000001),(layoutWidth+std::max(qreal(0),m_tracking))/ratio):1000000;
+            if(paragraphBreaks.contains(line.textStart()))line.setNumColumns(paragraphBreaks.value(line.textStart()),lineWidth);
+            else line.setLineWidth(lineWidth);
+            const auto box=m_lineHeight>0 ? m_lineHeight:sourceFont
+                ? std::round(line.ascent()*ratio)+std::round(line.descent()*ratio):line.height()*ratio;
+            if(lines>0 && usedHeight+box>m_wrapHeight){truncated=true;break;}
+            if(lines==0)firstBaseline=sourceFont ? std::round(line.ascent()*ratio):line.ascent()*ratio;
+            lastStart=line.textStart();usedHeight+=box;++lines;
+        }
+        probe.endLayout();
+        if(truncated) {
+            QString tail=layoutText.mid(lastStart);
+            for(qsizetype i=0;i<tail.size();++i) {
+                const auto ch=tail[i];
+                if(ch==QChar::LineSeparator || ch==QChar::ParagraphSeparator || ch==QLatin1Char('\r') || ch==QChar(0x0085)) {
+                    tail=tail.left(i)+QChar(0x2026);break;
+                }
+            }
+            if(layoutWidth>=0)tail=QFontMetricsF(shapeFont).elidedText(tail,Qt::ElideRight,layoutWidth/ratio);
+            if(tail.isEmpty()){emptyElidedHeight=usedHeight;emptyElidedBaseline=firstBaseline;}
+            layoutText=layoutText.left(lastStart)+tail;
+            if(tail.endsWith(QChar(0x2026)))truncationToken=layoutText.size()-1;
+            layout.setText(layoutText);
+            layout.setTextOption(option);
+        }
+    }
+    const auto applyTokenFormat=[&](QTextLayout &target,int textStart) {
+        if(truncationToken<textStart || truncationToken>=textStart+target.text().size())return;
+        // Truncation appends a separate token line. Do not reshape a kerning
+        // pair between the retained prefix and its new ellipsis.
+        QTextLayout::FormatRange token;token.start=truncationToken-textStart;token.length=1;
+        token.format.setFontKerning(false);target.setFormats({token});
+    };
+    applyTokenFormat(layout,0);
+    // The retained prefix keeps its original terminal pair positioning even
+    // though the following original glyph is replaced by a separate token.
+    const auto tokenShift=truncationToken>0 ? contextualEndPositioning.value(truncationToken,0)*ratio:0;
+    const auto tokenShiftForLine=[&](const QTextLine &line) {
+        return truncationToken>=line.textStart() && truncationToken<line.textStart()+line.textLength() ? tokenShift:qreal(0);
+    };
     layout.beginLayout();
     for (;;) {
         auto line = layout.createLine();
@@ -333,19 +391,25 @@ void ButtonLabel::relayout(bool reuseWrapMeasurements) {
         const qreal descent = sourceFont ? std::round(line.descent() * ratio) : line.descent() * ratio;
         line.setPosition(QPointF(0, (height + ascent) / ratio - line.ascent()));
         if (height == 0) baseline = ascent;
-        width = std::max(width, sourceFont ? sourceMetrics(line, layoutText, layoutWidth).width : line.naturalTextWidth() * ratio);
+        width = std::max(width, (sourceFont ? sourceMetrics(line, layoutText, layoutWidth).width : line.naturalTextWidth() * ratio)+tokenShiftForLine(line));
         // Keep the measured logical line box in logical units. A round trip
         // through design units turns an exact 16 into 15.999999999999998.
         height += m_lineHeight > 0 ? m_lineHeight
             : sourceFont ? ascent + descent : line.height() * ratio;
     }
     layout.endLayout();
+    if(emptyElidedHeight>height) {
+        // An ellipsis too wide for the proposal paints nothing, but its
+        // retained empty line still contributes a typographic line box.
+        height=emptyElidedHeight;
+        if(layout.lineCount()==0)baseline=emptyElidedBaseline;
+    }
     const auto trimmedAdvance = [&](const QTextLine &line) {
         auto text = layoutText.mid(line.textStart(), line.textLength());
         while (!text.isEmpty() && text.back().isSpace()) text.chop(1);
         QTextLayout trimmed(text, shapeFont);
         QTextOption trimmedOption = option; trimmedOption.setWrapMode(QTextOption::NoWrap);
-        trimmed.setTextOption(trimmedOption); trimmed.beginLayout();
+        trimmed.setTextOption(trimmedOption);applyTokenFormat(trimmed,line.textStart());trimmed.beginLayout();
         auto trimmedLine = trimmed.createLine();
         qreal advance = 0;
         if (trimmedLine.isValid()) {
@@ -353,7 +417,7 @@ void ButtonLabel::relayout(bool reuseWrapMeasurements) {
             advance = sourceFont ? sourceMetrics(trimmedLine, text).advance : trimmedLine.horizontalAdvance() * ratio;
         }
         trimmed.endLayout();
-        return advance;
+        return advance+tokenShiftForLine(line);
     };
     if (sourceFont && m_alignment != Qt::AlignLeft) {
         // Public Text measures trailing whitespace after centering/right
@@ -367,13 +431,17 @@ void ButtonLabel::relayout(bool reuseWrapMeasurements) {
         qreal alignedWidth = 0;
         for (int i = 0; i < layout.lineCount(); ++i) {
             const auto offset = (longest - advances[i]) / (m_alignment == Qt::AlignHCenter ? 2 : 1);
-            alignedWidth = std::max(alignedWidth, sourceMetrics(layout.lineAt(i), layoutText, layoutWidth).width + offset);
+            alignedWidth = std::max(alignedWidth, sourceMetrics(layout.lineAt(i), layoutText, layoutWidth).width+tokenShiftForLine(layout.lineAt(i))+offset);
         }
         // Paint against the fitted Text view as well. Using an extent wider
         // than its finite proposal shifts visible right-aligned glyphs into
         // the clip even though the QML view itself has the correct width.
         width = layoutWidth >= 0 ? std::min(alignedWidth, layoutWidth) : alignedWidth;
     }
+    // Center the shaped line box inside a view shorter than that line box.
+    const auto fittedHeight=m_wrapHeight<0 ? height:std::min(height,m_wrapHeight);
+    const auto verticalOffset=(fittedHeight-height)/2;
+    if(verticalOffset!=0)baseline+=verticalOffset;
     m_runs.clear();
     m_linePositions.clear();
     m_family = original.familyName(); m_style = original.styleName();
@@ -381,14 +449,21 @@ void ButtonLabel::relayout(bool reuseWrapMeasurements) {
         const auto raw = glyphRun.rawFont();
         Run run{raw.familyName(), raw.styleName(), raw.weight(), glyphRun.glyphIndexes(),
                 glyphRun.positions(), glyphRun.flags()};
-        for (auto &position : run.positions) { position *= ratio; position.rx() += offset; }
+        const auto indexes=glyphRun.stringIndexes();qsizetype index=0;
+        for (auto &position : run.positions) {
+            position*=ratio;position.rx()+=offset;
+            if(tokenShift!=0 && index<indexes.size() && indexes[index]==quint32(truncationToken))position.rx()+=tokenShift;
+            if(verticalOffset!=0)position.ry()+=verticalOffset;
+            ++index;
+        }
         m_runs.append(run);
     };
     if (m_alignment == Qt::AlignLeft) {
         // Preserve the original aggregate shaping and run ordering exactly.
-        for (const auto &glyphRun : layout.glyphRuns()) appendRun(glyphRun, 0);
+        const auto runs=truncationToken>=0 ? layout.glyphRuns(0,-1,QTextLayout::RetrieveGlyphIndexes|QTextLayout::RetrieveGlyphPositions|QTextLayout::RetrieveStringIndexes):layout.glyphRuns();
+        for (const auto &glyphRun : runs) appendRun(glyphRun, 0);
         for (int i = 0; i < layout.lineCount(); ++i)
-            m_linePositions.append(QPointF(0, layout.lineAt(i).y() * ratio));
+            m_linePositions.append(QPointF(0, layout.lineAt(i).y() * ratio+verticalOffset));
     } else {
         for (int i = 0; i < layout.lineCount(); ++i) {
             const auto line = layout.lineAt(i);
@@ -396,11 +471,12 @@ void ButtonLabel::relayout(bool reuseWrapMeasurements) {
             const qreal offset = (viewWidth(width) - advance) / (m_alignment == Qt::AlignHCenter ? 2 : 1);
             // Keep logical offsets outside QTextLine's design-space QFixed
             // positions so fractional centered origins are not quantized.
-            for (const auto &glyphRun : line.glyphRuns()) appendRun(glyphRun, offset);
-            m_linePositions.append(QPointF(offset, line.y() * ratio));
+            const auto runs=truncationToken>=0 ? line.glyphRuns(-1,-1,QTextLayout::RetrieveGlyphIndexes|QTextLayout::RetrieveGlyphPositions|QTextLayout::RetrieveStringIndexes):line.glyphRuns();
+            for (const auto &glyphRun : runs) appendRun(glyphRun, offset);
+            m_linePositions.append(QPointF(offset, line.y() * ratio+verticalOffset));
         }
     }
-    m_height = height;
+    m_height = fittedHeight;
     if (sourceFont && m_elideWidth < 0 && m_wrapWidth >= 0 && !reusedMeasurement)
         m_wrapMeasurements.append({m_wrapWidth, viewWidth(std::min(width, m_wrapWidth))});
     setImplicitWidth(viewWidth(width));

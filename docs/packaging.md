@@ -385,3 +385,24 @@ acknowledging the application's original10-second deadline. A newly built reader
 overlay preserves the recovered Qt6.8.3 module hashes and records its exact packages;
 the missing historical Docker images are not relabelled as restored. Native,
 physical and independent-machine acceptance remain separate pending gates.
+
+## FileInput height checkpoint
+
+The [height package](../evidence/development/file-input-height-20261024/README.md)
+also has 158 installed files. The library/catalog use the final frozen height
+prototype; the independent consumer first builds from an empty directory.
+Consumer3 separately recompiles only `fileinputchecks.h` from a clone of that
+fresh build, adding public Qt proposal measurements. No private library headers
+enter the consumer. The built and installed module hashes differ because the
+installation changes RPATH; each actual identity is recorded separately.
+
+Twenty-two runs mount only the installed prefix, copied executable and observer.
+Both X11 and nested Wayland cover software and Mesa software OpenGL rendering;
+the remaining six canonical FileInput configurations also run on X11/software.
+Process maps, immutable prefix/binary hashes and full-session capture before
+the unchanged ten-second acknowledgement deadline bind every result.
+The new 885 toolchain image uses the unchanged Qt 6.8.3/Weston 13.0.4 recipe after
+older images were missing. No reader overlay was rebuilt for this checkpoint.
+Observe-mode success retains native frame/proposal and DateRange failures;
+strict raster comparison retains zero exact pairs out of 40. Native reader,
+physical display/input/GPU and independent-machine acceptance remain pending.

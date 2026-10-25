@@ -8,7 +8,10 @@ InheritedControl {
     required property list<var> allowedContentTypes
     property url initialFolder:browser.defaultFolder()
     property real widthOffer:-1
+    property real heightOffer:-1
     property real maximumWidth:-1
+    property real maximumHeight:-1
+    readonly property real effectiveHeightOffer:heightOffer>=0 ? heightOffer:maximumHeight
     readonly property QtObject chooser:sheet
     readonly property FileChooserBrowser browser:FileChooserBrowser {
         allowedContentTypes:control.allowedContentTypes
@@ -24,7 +27,9 @@ InheritedControl {
     Accessible.ignored:true
     function validate():void {
         if(!Number.isFinite(widthOffer)||(widthOffer<0&&widthOffer!==-1))throw new Error("FileInput width offer must be nonnegative or -1")
+        if(!Number.isFinite(heightOffer)||(heightOffer<0&&heightOffer!==-1))throw new Error("FileInput height offer must be nonnegative or -1")
         if(!Number.isFinite(maximumWidth)||(maximumWidth<0&&maximumWidth!==-1))throw new Error("FileInput maximum width must be nonnegative or -1")
+        if(!Number.isFinite(maximumHeight)||(maximumHeight<0&&maximumHeight!==-1))throw new Error("FileInput maximum height must be nonnegative or -1")
     }
     function open():void {
         if(!enabled)return
@@ -40,7 +45,9 @@ InheritedControl {
     Component.onCompleted:{componentReady=true;validate()}
     onAllowedContentTypesChanged:if(componentReady)validate()
     onWidthOfferChanged:if(componentReady)validate()
+    onHeightOfferChanged:if(componentReady)validate()
     onMaximumWidthChanged:if(componentReady)validate()
+    onMaximumHeightChanged:if(componentReady)validate()
     FileChooserHost {owner:control;browser:control.browser}
     BleeckerButtonStyle {
         id:trigger;objectName:"bleeckerFileInputTrigger"
@@ -48,7 +55,15 @@ InheritedControl {
         widthOffer:control.widthOffer
         maximumWidth:control.maximumWidth
         onClicked:control.open()
-        BleeckerText {text:control.title;Accessible.ignored:true}
+        BleeckerText {
+            id:label;text:control.title;clip:true;Accessible.ignored:true
+            // FileInput's title is plain text. Keep its proposal on that
+            // renderer without adding a formatted-text height API.
+            Binding {
+                target:label.textRenderer;property:"wrapHeight"
+                value:control.effectiveHeightOffer<0 ? -1:Math.max(trigger.minimumHeight,control.effectiveHeightOffer)
+            }
+        }
     }
     FileChooserDialog {
         id:sheet;objectName:"bleeckerFileInputChooser";browser:control.browser
