@@ -406,3 +406,15 @@ older images were missing. No reader overlay was rebuilt for this checkpoint.
 Observe-mode success retains native frame/proposal and DateRange failures;
 strict raster comparison retains zero exact pairs out of 40. Native reader,
 physical display/input/GPU and independent-machine acceptance remain pending.
+
+The FileInput display-session validator now requires the two assistive-edit
+phases added by the path lifetime checkpoint: 32 action traces and 168 key events,
+with the same 62 pointer events. It also checks all ten destruction callbacks,
+four stale-replacement vetoes and absence of an owner result during editing.
+The [previous cc718b6 x86 CI consumer stage](https://github.com/gaulatti/avelino/actions/runs/40141294498/job/121013408747)
+failed because the validator still
+expected 30 traces and 164 keys; its recorded consumer had passed structural
+checks and reported the new phases. Contract tests execute the actual validation
+branch against the retained installed reports and reject incomplete callbacks
+or relabelled native acceptance. This validation correction changes no library,
+catalog or consumer binary and retains all native parity gates.

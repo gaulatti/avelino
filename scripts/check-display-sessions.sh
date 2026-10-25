@@ -236,8 +236,12 @@ elif fixture == 'command-spotlight':
 elif fixture == 'file-input':
     assert record['structuralChecks']=='passed' and record['accepted'] is False,record
     assert len(record['closed'])==len(record['sizing'])==32 and record['images']==49,record
-    assert record['nativeContractStatesMatch']==32 and len(record['actions'])==30,record
-    assert record['pointerEvents']==62 and record['keyEvents']==164,record
+    assert record['nativeContractStatesMatch']==32 and len(record['actions'])==32,record
+    assert record['pointerEvents']==62 and record['keyEvents']==168,record
+    assert {'go-to-assistive-edit-undo-redo','go-to-assistive-callback-vetoes'} <= {a['phase'] for a in record['actions']},record
+    assert len(record['assistiveLifetime'])==10 and all(a['calls']==a['destroyed']==1 for a in record['assistiveLifetime']),record
+    assert len(record['assistiveSelectionCallbacks'])==4 and all(a['calls']==1 and a['editNotifications']==0 for a in record['assistiveSelectionCallbacks']),record
+    assert record['assistiveEditing']['ownerResults']==0,record
     assert record['nativeRasterAcceptance']==record['physicalInputAcceptance']==record['readerAcceptance']=='pending',record
     assert record['nativeAccessibilityAcceptance']=='unobserved',record
 elif fixture == 'dropdown-menu':
