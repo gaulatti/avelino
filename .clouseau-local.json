@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "base_branch": "main",
+  "readme": "README.md",
+  "repository_policy": "AGENTS.md",
+  "verification": [
+    [
+      "node",
+      "scripts/generate-tokens.mjs",
+      "--check"
+    ]
+  ],
+  "coverage": {
+    "format": "llvm",
+    "report": "artifacts/coverage/llvm.json",
+    "source_directory": "src"
+  }
+}

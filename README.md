@@ -231,3 +231,36 @@ remains pending.
 The [data-display candidates](docs/data-metrics.md) add icon badges, metrics,
 stat cards and key labels with native layout/locale evidence. Complete mirror
 acceptance remains pending.
+
+## Pull request verification
+
+Local agent review uses the shared `clouseau` skill with the developer's
+authenticated coding harness and the `.clouseau-local.json` recipe; it needs no
+CI provider keys. `AGENTS.md` owns the rule: run it against the final committed
+change before opening a PR, repair findings, and publish the passing signed
+receipt in the initial ready PR body. Never push directly to `main`.
+
+Every PR runs:
+
+- the reference, source, witness and contract verification scripts (the former `References` workflow's checks), `scripts/generate-tokens.mjs --check` and the workflow-contract tests in `.github/tests`,
+- the Qt 6.8.3 toolchain image build and `scripts/check-linux.sh` with the package-regeneration check.
+
+The shared coverage gate cannot measure this C++/Qt Quick repository: no native
+coverage report in a supported format is produced. The engine also hard-requires
+a verify step named `Enforce 100% line and branch coverage`, which here only
+emits a warning and enforces nothing, and the policy selects `manual` merge
+mode: reviews run on every PR and the owner merges. The existing `Linux` and
+`References` workflows are unchanged and still run.
+
+A PR carrying an authenticated local review stamp is verified by the pinned
+Clouseau engine without AI credentials; unstamped PRs use the CI reviewer.
+Reviews run on every PR and the policy selects manual merge mode, so the owner merges. Unresolved
+product-direction questions go to the owner, and changes to review controls need
+the owner's `/approve-intent <head SHA>` comment. See [the purpose
+contract](.github/clouseau.md). The CI engine is resolved from protected
+Clouseau `main` at the start of each run (see
+[automatic Clouseau CI upgrades](https://github.com/gaulatti/clouseau/blob/main/docs/automatic-ci-upgrades.md)).
+
+CI needs these repository secrets: `DEEPSEEK_API_KEY` and `TYPESAFE_API_KEY` for
+the CI reviewer, and `DEPLOYMENT_TOKEN` (a token with contents write access
+from an identity other than `github-actions[bot]`) for automatic repairs.
