@@ -35,8 +35,15 @@ QtObject {
     function present(next:QtObject,target:Item,text:string,point:point):void {
         if(owner===next && presentation.visible)return
         if(presentation.visible)presentation.close()
-        presentation.parent=target;presentation.text=text
-        presentation.x=point.x;presentation.y=point.y+18
+        const callerWindow=target.Window.window
+        if(!callerWindow)throw new Error("Tooltip caller has no window")
+        // Keep the singleton native popup attached to the stable window root.
+        // A Loader may destroy and recreate the hovered caller while this
+        // Popup.Window is retained; that must not tear down its visual parent.
+        const parentItem=callerWindow.contentItem
+        const mapped=target.mapToItem(parentItem,point.x,point.y)
+        presentation.parent=parentItem;presentation.text=text
+        presentation.x=mapped.x;presentation.y=mapped.y+18
         owner=next;presentation.open()
     }
     function dismiss(previous:QtObject):void {
