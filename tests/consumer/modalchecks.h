@@ -16,6 +16,19 @@ static void runModalConsumer(QQuickWindow *window,QGuiApplication &app,
     QString frameContext="initial";
     auto setTextScale=[&](double value){return check(QMetaObject::invokeMethod(window,"setTextScale",Q_ARG(QVariant,QVariant(value))),"Replay text scale update failed");};
     if(!setTextScale(1))return;
+    QJsonArray focusTransitions;
+    // isActive() includes the transient chain. Keyboard input needs this
+    // window itself and its Quick focus scope to have received focus.
+    auto parentKeyboardReady=[&](){return QGuiApplication::focusWindow()==window && window->contentItem()->hasActiveFocus();};
+    auto parentFocus=[&](const QString &phase){
+        window->requestActivate();
+        const bool ready=QTest::qWaitFor(parentKeyboardReady,5000);
+        focusTransitions.append(QJsonObject{{"phase",phase},{"parentIsFocusWindow",QGuiApplication::focusWindow()==window},
+            {"parentRootActiveFocus",window->contentItem()->hasActiveFocus()}});
+        return check(ready,QStringLiteral("Parent keyboard focus unavailable: %1; focus window %2; chain active %3; Quick root focus %4")
+            .arg(phase,QGuiApplication::focusWindow()?QGuiApplication::focusWindow()->title():"none")
+            .arg(window->isActive()).arg(window->contentItem()->hasActiveFocus()));
+    };
     auto frame=[&](QQuickWindow *owner){
         if(!check(owner && owner->isVisible(),"Cannot await a hidden presentation"))return false;
         QSignalSpy synchronized(owner,&QQuickWindow::afterSynchronizing);owner->update();
@@ -167,12 +180,15 @@ static void runModalConsumer(QQuickWindow *window,QGuiApplication &app,
     };
     auto openSheet=[&](const QString &mode){
         frameContext="sheet "+mode;
-        window->requestActivate();
-        if(!check(QTest::qWaitFor([&]{return window->isActive();},5000),"Parent activation before opening sheet "+mode))return false;
+        if(!parentFocus("before-sheet-"+mode))return false;
         if(!frame(window))return false;
         if(!check(QMetaObject::invokeMethod(window,"openSheet",Q_ARG(QVariant,QVariant(mode))),"Presentation open failed"))return false;
         if(!check(QTest::qWaitFor([&]{return modal() && popup() && popup()->isVisible();},5000),"Separate presentation window missing"))return false;
-        return check(popup()!=window && dialog->property("popupType").toInt()==1,"Presentation reused parent window") && frame(popup());
+        if(!check(popup()!=window && dialog->property("popupType").toInt()==1,"Presentation reused parent window") || !frame(popup()))return false;
+        if(!check(QTest::qWaitFor([&]{return QGuiApplication::focusWindow()==popup() && popup()->contentItem()->hasActiveFocus();},5000),"Presented sheet did not gain keyboard focus"))return false;
+        focusTransitions.append(QJsonObject{{"phase","sheet-focus-negative-control"},{"parentChainActive",window->isActive()},
+            {"parentKeyboardReady",parentKeyboardReady()},{"sheetIsFocusWindow",QGuiApplication::focusWindow()==popup()}});
+        return check(!parentKeyboardReady(),"Transient sheet focus satisfied parent keyboard readiness");
     };
     auto sheetState=[&](){return QJsonObject{{"calls",array(window,"sheetCalls")},{"appears",window->property("sheetAppears").toInt()},
         {"mountValues",array(window,"sheetMountValues")},{"parentVisible",window->isVisible()},
@@ -224,8 +240,7 @@ static void runModalConsumer(QQuickWindow *window,QGuiApplication &app,
     if(!setTextScale(textScale) || !frame(window))return;
     auto openEditorFromGallery=[&](){
         frameContext="gallery editor";
-        window->requestActivate();
-        if(!check(QTest::qWaitFor([&]{return window->isActive();},5000),"Gallery activation before editing"))return false;
+        if(!parentFocus("before-gallery-editor"))return false;
         if(!frame(window) || !click(input(findVisualItem(window->contentItem(),"modalOpenEditor"))))return false;
         if(!check(QTest::qWaitFor([&]{return modal() && popup() && popup()->isVisible();},5000),"Gallery editor action did not present content"))return false;
         return frame(popup());
@@ -246,9 +261,9 @@ static void runModalConsumer(QQuickWindow *window,QGuiApplication &app,
     const auto close=control ? control->property("closeInput").value<QQuickItem*>():nullptr;
     const auto counter=fixture ? input(findVisualItem(fixture,"modalContent-counter")):nullptr;
     if(!check(close && counter,"Gallery input targets missing"))return;
-    window->requestActivate();
-    if(!check(QTest::qWaitFor([&]{return window->isActive();},5000),"Parent window did not regain activation after presentation"))return;
+    if(!parentFocus("after-sheet-close"))return;
     if(!frame(window))return;
+    if(!parentFocus("before-parent-traversal"))return;
     close->forceActiveFocus(Qt::TabFocusReason);
     if(!check(close->hasActiveFocus() && counter->isVisible() && counter->isEnabled(),"Parent Close focus and caller traversal availability"))return;
     QTest::keyClick(window,Qt::Key_Tab);
@@ -270,7 +285,7 @@ static void runModalConsumer(QQuickWindow *window,QGuiApplication &app,
             {"graphicsApi",int(window->rendererInterface()->graphicsApi())},{"appearance",parser.isSet("dark") ? "dark":"light"},
             {"requestedGraphicsBackend",qEnvironmentVariable("QSG_RHI_BACKEND")},{"quickBackend",qEnvironmentVariable("QT_QUICK_BACKEND")},
             {"windowCaptureMethod","QQuickWindow::grabWindow; parent and popup separately; full session captured separately"},
-            {"producerFramesAwaited",frames},{"modalChecks","passed"},{"callerStateChecks","passed"},{"focusChecks","passed"},{"qtAccessibilityChecks","passed"},
+            {"focusTransitions",focusTransitions},{"producerFramesAwaited",frames},{"modalChecks","passed"},{"callerStateChecks","passed"},{"focusChecks","passed"},{"qtAccessibilityChecks","passed"},
             {"qtEditorChecks","passed"},{"qtEditedAndReopenedValue","q"},{"nativeTypingAcceptance","pending"},
             {"nativeTraces",traceResults},{"nativeSnapshots",snapshots},{"nativeReplayTextScale",1},{"clippingQueries",clippingQueries},{"glyphQueries",glyphQueries},
             {"peakSourceWindows",peakSourceWindows},{"sourceWindowCleanup","Immediate deletion between traces; retained-window lifecycle is preserved within its own trace"},

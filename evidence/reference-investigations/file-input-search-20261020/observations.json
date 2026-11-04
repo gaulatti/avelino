@@ -1,0 +1,156 @@
+{
+  "reference": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+  "libraryObjectSha256": "61d1e55c6f9c17c841eded420066c72b5611ec51af8c5a4821306f1751ea6514",
+  "method": "Controlled projection of CUA AX observations; full and incremental snapshots are distinguished. This is not a raw AX-tree archive or an independent replay.",
+  "input": "CUA indexed controls and key actions; coordinate click attempts failed noWindowsAvailable and are excluded from pointer acceptance",
+  "rootLabel": "folder",
+  "rowSets": {
+    "browse-initial": [
+      "avelino-search-body-20261020.txt",
+      "AVELINO-SEARCH-CEDARFIELD-20261020-case.txt",
+      "avelino-search-cedarfield-20261020-folder/",
+      "avelino-search-cedarfield-20261020-name.txt",
+      "nested/",
+      "unrelated-control-20261020.txt"
+    ],
+    "prefix-general": [
+      "avelino-search-body-20261020.txt",
+      "AVELINO-SEARCH-CEDARFIELD-20261020-case.txt",
+      "nested/avelino-search-cedarfield-20261020-child.txt",
+      "avelino-search-cedarfield-20261020-folder",
+      "avelino-search-cedarfield-20261020-name.txt"
+    ],
+    "prefix-filename": [
+      "AVELINO-SEARCH-CEDARFIELD-20261020-case.txt",
+      "nested/avelino-search-cedarfield-20261020-child.txt",
+      "avelino-search-cedarfield-20261020-folder",
+      "avelino-search-cedarfield-20261020-name.txt"
+    ],
+    "single-word-general": ["avelinoulnacerulean-name.txt", "pine-only.txt"],
+    "single-word-filename": ["avelinoulnacerulean-name.txt"]
+  },
+  "snapshots": [
+    {
+      "id": "raw-query-default",
+      "kind": "diff",
+      "query": "avelino-search-cedarfield-20261020",
+      "observedRowSet": "prefix-general",
+      "controls": [
+        "185 radio button This Mac, Help: Search your entire computer, Value: 1",
+        "186 radio button “avelino-file-search-fixtures”, Help: Search in “avelino-file-search-fixtures”, Value: 0",
+        "118 search text field (settable) Value: avelino-search-cedarfield-20261020, ID: Search",
+        "193 Name Contains “avelino-search-cedarfield-20261020”",
+        "194 Content",
+        "195 Contains “avelino-search-cedarfield-20261020”",
+        "196 busy indicator on"
+      ]
+    },
+    {
+      "id": "filename-query",
+      "kind": "diff",
+      "observedRowSet": "prefix-filename",
+      "controls": [
+        "106 search text field (settable) Value: \ufffc, ID: Search",
+        "107 menu button Filename: avelino-search-cedarfield-20261020"
+      ]
+    },
+    {
+      "id": "folder-filename-query",
+      "kind": "full",
+      "observedRowSet": "prefix-filename",
+      "controls": [
+        "84 radio button This Mac, Help: Search your entire computer, Value: 0",
+        "85 radio button “avelino-file-search-fixtures”, Help: Search in “avelino-file-search-fixtures”, Value: 1",
+        "93 pop up button Where:, Value: Searching “This Mac”, ID: where popup",
+        "94 search text field (settable) Value: \ufffc, ID: Search",
+        "95 menu button Filename: avelino-search-cedarfield-20261020",
+        "100 button (disabled) Open, ID: OKButton"
+      ]
+    },
+    {
+      "id": "global-filename-query",
+      "kind": "full",
+      "observedRowSet": "prefix-filename",
+      "controls": [
+        "84 radio button This Mac, Help: Search your entire computer, Value: 1",
+        "85 radio button “avelino-file-search-fixtures”, Help: Search in “avelino-file-search-fixtures”, Value: 0",
+        "94 search text field (settable) Value: \ufffc, ID: Search",
+        "95 menu button Filename: avelino-search-cedarfield-20261020",
+        "99 busy indicator on",
+        "101 button (disabled) Open, ID: OKButton"
+      ]
+    },
+    {
+      "id": "single-word-raw-query",
+      "kind": "full",
+      "query": "avelinoulnacerulean",
+      "observedRowSet": "single-word-general",
+      "controls": [
+        "66 radio button This Mac, Help: Search your entire computer, Value: 1",
+        "67 radio button “avelino-file-search-fixtures”, Help: Search in “avelino-file-search-fixtures”, Value: 0",
+        "76 search text field (settable) Value: avelinoulnacerulean, ID: Search",
+        "82 Name Contains “avelinoulnacerulean”",
+        "83 Content",
+        "84 Contains “avelinoulnacerulean”",
+        "86 busy indicator on",
+        "88 button (disabled) Open, ID: OKButton"
+      ]
+    },
+    {
+      "id": "single-word-filename-query",
+      "kind": "full",
+      "observedRowSet": "single-word-filename",
+      "controls": [
+        "56 radio button This Mac, Help: Search your entire computer, Value: 1",
+        "57 radio button “avelino-file-search-fixtures”, Help: Search in “avelino-file-search-fixtures”, Value: 0",
+        "66 search text field (settable) Value: \ufffc, ID: Search",
+        "67 menu button Filename: avelinoulnacerulean",
+        "71 busy indicator on",
+        "73 button (disabled) Open, ID: OKButton"
+      ]
+    },
+    {
+      "id": "selected-search-result",
+      "kind": "full",
+      "observedRowSet": "single-word-filename",
+      "selectedPath": "avelinoulnacerulean-name.txt",
+      "controls": [
+        "67 search text field (settable) Value: \ufffc, ID: Search",
+        "68 menu button Filename: avelinoulnacerulean",
+        "73 busy indicator on",
+        "75 button (disabled) Open, ID: OKButton"
+      ],
+      "returnSubmittedOwnerResult": false
+    }
+  ],
+  "clearSearch": {
+    "action": "CUA indexed search-field cancel button",
+    "intermediateAxTree": "Only the open sheet root and menu bar were exposed",
+    "recoveredByRebindingApplication": true,
+    "observedAfterRecovery": "Original fixture folder with eight direct entries, empty Search field, and disabled Open; panel remains open",
+    "ownerResultObserved": false
+  },
+  "outsideScopeControl": {
+    "createdAfterInitialQuery": true,
+    "file": "sibling/avelino-search-cedarfield-20261020-outside.txt",
+    "observedInGlobalSearch": false,
+    "mdls": {"kMDItemContentType": null, "kMDItemFSName": null, "kMDItemTextContent": null},
+    "scopeExclusionVerified": false
+  },
+  "freshPlainTextBaseline": {
+    "types": ["public.plain-text"],
+    "ordinaryKeyboardSelectedPath": "avelino-search-body-20261020.txt",
+    "pathSubmittedSelection": "avelinoulnacerulean-name.txt",
+    "openEnabled": false,
+    "ownerResultObserved": false,
+    "conclusion": "The acceptance failure is not isolated to search. Do not derive a search eligibility rule from this trial."
+  },
+  "independentNativeLibraryRebuild": false,
+  "queryCompletionVerified": false,
+  "searchOwnerDeliveryVerified": false,
+  "broaderMatchingVerified": false,
+  "nativeRasterAccepted": false,
+  "physicalInput": false,
+  "readerAcceptance": false,
+  "accepted": false
+}

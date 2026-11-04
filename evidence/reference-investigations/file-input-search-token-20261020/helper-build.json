@@ -1,0 +1,49 @@
+{
+  "reference": "fe8a1d462fbd793d883fb92086a16aa2947e32c9",
+  "command": [
+    "xcrun",
+    "swiftc",
+    "-parse-as-library",
+    "-swift-version",
+    "6",
+    "-target",
+    "arm64-apple-macosx26.0",
+    "-I",
+    "/Users/gaulatti/.codex/tmp/avelino-file-input-source-20261017-v1/build/out/Products/Debug",
+    "/Users/gaulatti/.codex/tmp/avelino-file-input-search-native-20261020-v4/FileInputCommon.swift",
+    "/Users/gaulatti/.codex/tmp/avelino-file-input-search-native-20261020-v4/UIMain.swift",
+    "/Users/gaulatti/.codex/tmp/avelino-file-input-source-20261017-v1/build/out/Products/Debug/Sabella.o",
+    "-o",
+    "/Users/gaulatti/.codex/tmp/avelino-file-input-search-native-20261020-v4/NativeFileSearchContentUI.app/Contents/MacOS/NativeFileSearchContentUI"
+  ],
+  "exitCode": 0,
+  "seconds": 1.1720479579998937,
+  "fixtureRoot": "/Users/gaulatti/Documents/Codex/2026-10-20/avelino-file-search-fixtures",
+  "queryToken": "avelino-search-cedarfield-20261020",
+  "fixtureFiles": {
+    "avelino-search-cedarfield-20261020-name.txt": "fd84e427d71176f5c8d7198ed005e620d79f01215b73b263d4cdc1408a178ab0",
+    "avelino-search-body-20261020.txt": "e45bd0ec4f509e0a6c5d12518a9e65fe0a1c3be6482c8f7137a0c67f6bcdf11d",
+    "unrelated-control-20261020.txt": "f1f142a41fb8efc25b620a14cba7dd313fd2c9a673e6d0ae4e840897b1d94f5b",
+    "nested/avelino-search-cedarfield-20261020-child.txt": "503a0c77525f9368f0edfe792dc1c7a27628d2f04da5a6d5583bc2499cda4868",
+    "avelino-search-cedarfield-20261020-folder/leaf.txt": "8d09619b967c9b974d18191319148f28d4c5cda63b27e3241e6ee1c53c577806",
+    "AVELINO-SEARCH-CEDARFIELD-20261020-case.txt": "31884d11b0e81082062c7014e879b485b4863b62908e228318026d4da8c7ddb1"
+  },
+  "libraryObject": "/Users/gaulatti/.codex/tmp/avelino-file-input-source-20261017-v1/build/out/Products/Debug/Sabella.o",
+  "libraryObjectSha256": "61d1e55c6f9c17c841eded420066c72b5611ec51af8c5a4821306f1751ea6514",
+  "independentNativeLibraryRebuild": false,
+  "helperInputHashes": {
+    "FileInputCommon.swift": "e6a45e001d4ff68ab486e6f0390e6b753a851460f310516dc3c0347f77533641",
+    "UIMain.swift": "3e2f1432b00c624148c706f9b7f2d8289bd1a2166e2f27c717743d176df42c1d",
+    "fixture.json": "5aa674dda38643125fd21aba5b2667a7506d18553a256c0d02697e7a60f3345d"
+  },
+  "changes": [
+    "Fixed CUA launch inputs",
+    "Standard responder-chain menus retained",
+    "Unused event-synthesis helper removed; no synthetic input",
+    "No programmatic directory assignment; use actual UI"
+  ],
+  "sourceLibraryChanged": false,
+  "accepted": false,
+  "executableSha256": "2589113af5cca4720a55f73ee5f6f52657cc7fa0da19814dde1c744aa5d8ea81",
+  "resourceBundle": "/Users/gaulatti/.codex/tmp/avelino-file-input-source-20261017-v1/build/out/Products/Debug/Sabella_Sabella.bundle"
+}

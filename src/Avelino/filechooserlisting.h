@@ -1,10 +1,11 @@
 #pragma once
 #include "filechoosermodel.h"
+#include "filechooserrows.h"
 #include <QPointer>
 
 // A visible hierarchy over the same read-only directory/type adapter as Columns.
 // Row identities, selection and disclosure survive sorting and model refreshes.
-class FileChooserListing : public QAbstractListModel {
+class FileChooserListing : public FileChooserRows {
     Q_OBJECT
     QML_ELEMENT
     Q_PROPERTY(int count READ count NOTIFY changed)
@@ -14,7 +15,7 @@ class FileChooserListing : public QAbstractListModel {
     Q_PROPERTY(bool ascending READ ascending NOTIFY changed)
     Q_PROPERTY(QString error READ error NOTIFY changed)
 public:
-    using QAbstractListModel::QAbstractListModel;
+    using FileChooserRows::FileChooserRows;
     enum Role {NameRole=Qt::UserRole+1,UrlRole,DirectoryRole,EligibleRole,SelectedRole,
         DepthRole,ExpandedRole,SizeRole,KindRole,ErrorRole};
     int rowCount(const QModelIndex &parent={})const override{return parent.isValid()?0:m_rows.size();}
@@ -29,7 +30,8 @@ public:
     QString error()const{return m_error;}
     int currentIndex()const;
     QVariantList selection()const;
-    void setSelection(const QVariantList &urls,const QUrl &pathSelected={});
+    void setSelection(const QVariantList &urls)override{setSelection(urls,{});}
+    void setSelection(const QVariantList &urls,const QUrl &pathSelected);
     bool selectPath(const QUrl &url);
     QUrl pathSelectedUrl()const{return m_selected.contains(m_pathSelected.toString())?m_pathSelected:QUrl();}
     QVariantList selectedUrls()const;

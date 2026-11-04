@@ -1,0 +1,34 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "colima-avelino-verify",
+    "run",
+    "--init",
+    "--rm",
+    "--ulimit",
+    "core=0",
+    "--mount",
+    "type=bind,source=/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/atomic-token-document-v1/source,target=/prototype,readonly",
+    "--mount",
+    "type=bind,source=/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/atomic-token-document-v1/output,target=/output",
+    "-e",
+    "QT_QPA_PLATFORM=offscreen",
+    "-e",
+    "QT_QUICK_BACKEND=software",
+    "sha256:c32e246cda73ab6992d808ceb551fa569fdf8ee85308f82d2bf1b15a96e69b14",
+    "bash",
+    "/prototype/run-inside.sh"
+  ],
+  "sourceFiles": {
+    "CMakeLists.txt": "e9b2dd2212918d5d00420084052f3c09ddd5b5475ef5ce674996cf54cc93090a",
+    "run-inside.sh": "aa0c21620230f646455a777dd83ce48b34e9c0e0ed861dcbbfcf41a41d19b164",
+    "main.cpp": "dc63145a81825742fdedb3bc2c4408a0718a3a5660b837ee09fa37ca7a00f43f"
+  },
+  "source": "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/atomic-token-document-v1/source",
+  "output": "/Users/gaulatti/source/gaulatti/avelino/artifacts/resumed-avelino-20261016/atomic-token-document-v1/output",
+  "productionLibraryMounted": false,
+  "productionConsumerMounted": false,
+  "registeredInAvelino": false,
+  "accepted": false
+}

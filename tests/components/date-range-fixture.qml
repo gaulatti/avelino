@@ -26,7 +26,7 @@ Window {
         if(removeOnRequest)mounted=false
     }
     Loader {
-        id:controlLoader;anchors.centerIn:parent;active:window.mounted
+        id:controlLoader;anchors.centerIn:parent;anchors.alignWhenCentered:false;active:window.mounted
         sourceComponent:Component {BleeckerDateRangePicker {
         id:control
         start:window.sourceStart;end:window.sourceEnd;range:window.bounds

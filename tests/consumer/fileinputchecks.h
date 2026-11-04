@@ -1,8 +1,11 @@
 #pragma once
+#include "pathinputobserver.h"
 #include <QAbstractItemModel>
 #include <QDir>
 #include <QQuickItemGrabResult>
+#include <QQmlProperty>
 #include <QTemporaryDir>
+#include <cmath>
 
 static void runFileInputConsumer(QQuickWindow *window,QGuiApplication &app,const QCommandLineParser &parser,double textScale){
     auto check=[&](bool value,const char *message){if(!value){qCritical("FileInput: %s",message);app.exit(99);}return value;};
@@ -27,16 +30,33 @@ static void runFileInputConsumer(QQuickWindow *window,QGuiApplication &app,const
         return check(waitForShapeFrame(window)&&control(),"Configured FileInput missing");
     };
     auto popupPixels=[&](QQuickWindow *target){
-        if(!target||!target->isExposed())return QImage();
+        if(!target)return QImage();
         // Capture the complete owned popup scene through Qt's asynchronous item
         // API. Direct native-window GL readback invalidates the Wayland popup
         // surface in the pinned SDK; external compositor captures are separate.
-        auto result=target->contentItem()->grabToImage();if(!result)return QImage();
-        QSignalSpy ready(result.data(),&QQuickItemGrabResult::ready);
-        if(result->image().isNull()&&!ready.wait(5000))return QImage();
-        const auto pixels=result->image();
-        if(pixels.size()!=QSize(qRound(target->width()*target->devicePixelRatio()),qRound(target->height()*target->devicePixelRatio())))return QImage();
-        return pixels;
+        QPointer<QQuickWindow> guard=target;QElapsedTimer elapsed;elapsed.start();
+        QImage pixels;QSize expected;
+        while(guard&&elapsed.elapsed()<5000){
+            if(guard->isExposed()){
+                auto result=guard->contentItem()->grabToImage();
+                if(result){
+                    QSignalSpy ready(result.data(),&QQuickItemGrabResult::ready);
+                    const int remaining=5000-int(elapsed.elapsed());
+                    if(result->image().isNull()&&(remaining<=0||!ready.wait(remaining)))break;
+                    if(!guard)break;
+                    pixels=result->image();
+                    expected=QSize(qRound(guard->width()*guard->devicePixelRatio()),qRound(guard->height()*guard->devicePixelRatio()));
+                    if(!pixels.isNull()&&pixels.size()==expected)return pixels;
+                }
+            }
+            // A configured surface or a new-size scene may arrive on the next
+            // frame after directory navigation. Retain the original5sec bound.
+            const int remaining=5000-int(elapsed.elapsed());
+            if(remaining>0)QTest::qWait(qMin(16,remaining));
+        }
+        qWarning()<<"FileInput popup readback timed out"<<"windowAlive"<<bool(guard)
+            <<"exposed"<<(guard&&guard->isExposed())<<"pixels"<<pixels.size()<<"expected"<<expected;
+        return QImage();
     };
     auto popupReady=[&](QQuickWindow *target){
         QElapsedTimer elapsed;elapsed.start();QImage previous;
@@ -53,7 +73,7 @@ static void runFileInputConsumer(QQuickWindow *window,QGuiApplication &app,const
         const auto pixels=target==window?target->grabWindow():popupPixels(target);
         return check(!pixels.isNull()&&pixels.save(prefix+"-"+name+".png"),"Capture failed");
     };
-    int frames=0,states=0,pointers=0,keys=0;QJsonArray closed,sizing,actions,accessibility;QJsonObject standard;
+    int frames=0,states=0,pointers=0,keys=0,proposalMatches=0,proposalCount=0;QJsonArray closed,sizing,actions,accessibility;QJsonObject standard;
     for(const auto &value:native["closed"].toArray()){
         const auto row=value.toObject();if(!selected(row))continue;
         const auto configuration=row["configuration"].toObject();if(!configure(configuration,row["linuxContentTypes"].toArray()))return;
@@ -69,14 +89,51 @@ static void runFileInputConsumer(QQuickWindow *window,QGuiApplication &app,const
         if(!save(window,configuration["id"].toString()))return;
         if(configuration["id"]=="default")standard=configuration;
     }
+    // Preserve the recorded native SizeProbe order and one live control for
+    // each sequence. Infinity is explicitly adapted to an unbounded (-1)
+    // dimension; a containing or caller frame must not constrain this probe.
+    struct SizeProposal {const char *name;qreal width,height;};
+    const SizeProposal sizeOffers[]={
+        {"unspecified",-1,-1},{"zero",0,0},{"width-zero",0,-1},{"height-zero",-1,0},
+        {"square-100",100,100},{"width-30",30,-1},{"width-90",90,-1},{"width-150",150,-1},
+        {"width-300",300,-1},{"width-512",512,-1},{"wide-2000-1000",2000,1000},
+        {"height-260",-1,260},{"infinity",-1,-1},{"infinite-width",-1,100},{"infinite-height",100,-1}};
     for(const auto &value:native["sizing"].toArray()){
         const auto row=value.toObject();if(!selected(row))continue;
         if(!configure(row["configuration"].toObject(),row["linuxContentTypes"].toArray()))return;
+        const QJsonObject implicit{{"width",control()->implicitWidth()},{"height",control()->implicitHeight()}};
+        QPointer<QQuickItem> measuredControl=control();
+        if(!check(QQmlProperty(measuredControl,"maximumWidth").write(-1)
+            &&QQmlProperty(measuredControl,"maximumHeight").write(-1)
+            &&QQmlProperty(measuredControl,"widthOffer").write(-1)
+            &&QQmlProperty(measuredControl,"heightOffer").write(-1),"Cannot remove caller/parent proposal bindings"))return;
+        const auto expected=row["proposals"].toObject();
+        if(!check(expected.size()==15,"Native proposal set changed"))return;
+        QJsonObject actualProposals;QJsonArray observations;int matched=0;
+        for(const auto &proposal:sizeOffers){
+            const QString name=QString::fromLatin1(proposal.name);
+            if(!check(expected[name].isObject(),"Native proposal missing")
+                ||!check(measuredControl&&measuredControl==control(),"Proposal sequence replaced its control")
+                ||!check(QQmlProperty(measuredControl,"widthOffer").write(proposal.width)
+                    &&QQmlProperty(measuredControl,"heightOffer").write(proposal.height),"Proposal did not reach the public adapter")
+                ||!check(waitForShapeFrame(window),"Proposed frame did not settle"))return;
+            auto body=measuredControl->property("presentationItem").value<QQuickItem*>();
+            if(!check(body&&std::isfinite(body->width())&&std::isfinite(body->height())
+                &&body->width()>=0&&body->height()>=0
+                &&measuredControl->property("maximumWidth").toDouble()==-1
+                &&measuredControl->property("maximumHeight").toDouble()==-1,"Measured proposal has invalid bounds or retained parent constraints"))return;
+            const QJsonObject actual{{"width",body->width()},{"height",body->height()}};
+            const bool match=actual==expected[name].toObject();matched+=match;++proposalCount;proposalMatches+=match;
+            actualProposals[name]=actual;
+            observations.append(QJsonObject{{"name",name},{"qtOffer",QJsonObject{{"width",proposal.width},{"height",proposal.height}}},
+                {"actual",actual},{"native",expected[name]},{"match",match}});
+        }
         sizing.append(QJsonObject{{"configuration",row["configuration"]},{"nativeProposals",row["proposals"]},
-            {"qtImplicitSize",QJsonObject{{"width",control()->implicitWidth()},{"height",control()->implicitHeight()}}},
-            {"status","Direct Qt/native proposal equivalence pending"}});
+            {"qtImplicitSize",implicit},{"qtProposals",actualProposals},{"observations",observations},
+            {"callerFrameOmitted",true},{"retainedControlSequence",true},{"infinityAdapter","Unbounded Qt dimension (-1)"},
+            {"matched",matched},{"total",15},{"status",matched==15?"passed":"failed"}});
     }
-    if(!check(closed.size()==32&&sizing.size()==32&&!standard.isEmpty()&&states==32,"Incomplete selected native context or changed contract state"))return;
+    if(!check(closed.size()==32&&sizing.size()==32&&proposalCount==480&&!standard.isEmpty()&&states==32,"Incomplete selected native context or changed contract state"))return;
     QTemporaryDir root;if(!check(root.isValid(),"Controlled fixture directory unavailable"))return;
     QDir directory(root.path());
     for(const auto &name:{"one.txt","two.txt","photo.png","spaces in name.txt"}){
@@ -270,8 +327,65 @@ static void runFileInputConsumer(QQuickWindow *window,QGuiApplication &app,const
         return check(goToPath()->property("text").toString()==input,"GoTo raw input did not reach the field");
     };
     auto submitGoTo=[&]{QTest::keyClick(goToPath()->window(),Qt::Key_Return);++keys;QTest::qWait(40);};
+    QJsonArray pathLifetime,pathCallbacks;QJsonObject pathEditing;
+    if(!check(qmlEngine(window),"Installed consumer QML engine missing"))return;
+    QQmlComponent pathComponent(qmlEngine(window));
+    pathComponent.setData("import QtQuick\nimport Avelino\nFileChooserPathInput { width:320; height:36; text:\"/tmp/Alpha\" }",QUrl());
+    const QList<QByteArray> notifications{SIGNAL(selectedTextChanged()),SIGNAL(selectionStartChanged()),SIGNAL(selectionEndChanged()),
+        SIGNAL(cursorPositionChanged()),SIGNAL(cursorRectangleChanged()),SIGNAL(textEdited()),SIGNAL(textChanged()),
+        SIGNAL(displayTextChanged()),SIGNAL(contentSizeChanged()),SIGNAL(canUndoChanged())};
+    for(int index=0;index<notifications.size();++index){
+        ConsumerPathInputObserver owner;owner.ownedInput.reset(pathComponent.create());owner.target=owner.ownedInput.data();
+        if(!check(owner.target,qPrintable(pathComponent.errorString()))
+            ||!check(QMetaObject::invokeMethod(owner.target,"select",Q_ARG(int,1),Q_ARG(int,6)),"Installed path selection unavailable"))return;
+        auto accessible=QAccessible::queryAccessibleInterface(owner.target);
+        if(!check(accessible&&accessible->editableTextInterface(),"Installed path editable-text interface missing"))return;
+        QSignalSpy removed(owner.target,&QObject::destroyed);
+        if(!check(bool(QObject::connect(owner.target,notifications[index].constData(),&owner,SLOT(apply()),Qt::DirectConnection)),"Installed destruction callback missing"))return;
+        accessible->editableTextInterface()->replaceText(0,1,"X");
+        const auto expected=index<5?QStringLiteral("/tmp/Alpha"):QStringLiteral("Xtmp/Alpha");
+        if(!check(owner.target.isNull()&&!owner.ownedInput&&owner.calls==1&&removed.count()==1&&owner.lastText==expected,"Installed assistive replacement did not survive synchronous field destruction"))return;
+        pathLifetime.append(QJsonObject{{"notification",QString::fromLatin1(notifications[index])},{"calls",owner.calls},{"destroyed",removed.count()},{"lastText",owner.lastText}});
+    }
     if(!configure(standard,QJsonArray{"text/plain"})||!open()||!selectRow(0,"one.txt"))return;
     const auto goToSelection=browser()->property("selectedUrls").toList();
+    if(!openGoTo())return;
+    auto editor=goToPath();const auto originalPath=editor->property("text").toString();
+    auto pathAccess=QAccessible::queryAccessibleInterface(editor);
+    if(!check(originalPath.size()>6&&pathAccess&&pathAccess->editableTextInterface(),"Real GoTo editable-text interface missing"))return;
+    auto editable=pathAccess->editableTextInterface();auto proposals=goTo()->property("suggestions").value<QObject*>();
+    if(!check(proposals,"Real GoTo suggestions missing"))return;
+    const auto assistedPrefix=directory.filePath("Al");
+    editable->replaceText(0,originalPath.size(),assistedPrefix);
+    if(!check(editor->property("text").toString()==assistedPrefix&&proposals->property("input").toString()==assistedPrefix,"Assistive replacement did not reach real GoTo suggestions"))return;
+    QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier);++keys;
+    if(!check(proposals->property("input").toString()==originalPath,"Real GoTo keyboard Undo lost the original path"))return;
+    QTest::keyClick(editor->window(),Qt::Key_Z,Qt::ControlModifier|Qt::ShiftModifier);++keys;
+    if(!check(proposals->property("input").toString()==assistedPrefix,"Real GoTo keyboard Redo lost the assistive path"))return;
+    editable->insertText(assistedPrefix.size(),"p");
+    if(!check(proposals->property("input").toString()==assistedPrefix+"p","Real GoTo assistive insertion failed"))return;
+    editable->deleteText(assistedPrefix.size(),assistedPrefix.size()+1);
+    if(!check(proposals->property("input").toString()==assistedPrefix&&editor->hasActiveFocus()&&state()["results"].toArray().isEmpty(),"Real GoTo assistive deletion changed focus or called the owner"))return;
+    pathEditing=QJsonObject{{"replacement",assistedPrefix},{"undo",originalPath},{"redo",assistedPrefix},{"insertDelete",assistedPrefix},{"ownerResults",0}};
+    record("go-to-assistive-edit-undo-redo");
+    const auto ownerPath=directory.filePath("Owner");
+    const QList<QPair<QByteArray,QVariant>> interruptions{{"enabled",false},{"readOnly",true},{"text",ownerPath},{"cursorPosition",originalPath.size()-1}};
+    for(const auto &interruption:interruptions){
+        editor->setEnabled(true);editor->setProperty("readOnly",false);editor->setProperty("text",originalPath);
+        if(!check(QMetaObject::invokeMethod(editor,"select",Q_ARG(int,1),Q_ARG(int,6)),"Real GoTo selection unavailable"))return;
+        ConsumerPathInputObserver observer;observer.target=editor;observer.property=interruption.first;observer.value=interruption.second;
+        QSignalSpy edits(editor,SIGNAL(textEdited()));
+        if(!check(bool(QObject::connect(editor,SIGNAL(selectedTextChanged()),&observer,SLOT(apply()),Qt::DirectConnection)),"Real GoTo interruption callback missing"))return;
+        editable->replaceText(0,1,"X");const auto expected=interruption.first=="text"?ownerPath:originalPath;
+        if(!check(observer.calls==1&&edits.count()==0&&editor->property("text").toString()==expected
+            &&browser()->property("selectedUrls").toList()==goToSelection&&state()["results"].toArray().isEmpty(),"Real GoTo stale replacement overwrote caller state"))return;
+        pathCallbacks.append(QJsonObject{{"property",QString::fromLatin1(interruption.first)},{"calls",observer.calls},{"text",expected},{"editNotifications",edits.count()}});
+    }
+    editor->setEnabled(true);editor->setProperty("readOnly",false);editor->setProperty("text",originalPath);
+    QTest::keyClick(editor->window(),Qt::Key_Escape);++keys;QTest::qWait(40);
+    if(!check(!goTo()->property("visible").toBool()&&browser()->property("active").toBool()
+        &&browser()->property("selectedUrls").toList()==goToSelection&&state()["results"].toArray().isEmpty(),"Assistive GoTo cancellation changed the owner"))return;
+    record("go-to-assistive-callback-vetoes");
     if(!selectRow(0,"photo.png")||!check(browser()->property("selectedUrls").toList()==goToSelection,"Ordinary PNG click changed the text-only selection")||!openGoTo()||!enterGoTo(directory.filePath("missing")))return;
     submitGoTo();
     if(!check(goTo()->property("visible").toBool()&&browser()->property("selectedUrls").toList()==goToSelection&&browser()->property("error").toString().isEmpty(),"Invalid GoTo changed the owner selection or folder error")||!save(goToPath()->window(),"go-to-invalid"))return;
@@ -312,16 +426,20 @@ static void runFileInputConsumer(QQuickWindow *window,QGuiApplication &app,const
         {"structuralChecks","passed"},{"images",49},{"closedImages",32},{"popupImages",16},{"ownerResultImages",1},
         {"appearance",parser.isSet("dark")?"dark":"light"},{"textScale",textScale},{"dpr",window->devicePixelRatio()},
         {"closed",closed},{"sizing",sizing},{"nativeCompleteFramesMatch",frames},{"nativeContractStatesMatch",states},
+        {"nativeDirectProposalMatches",proposalMatches},{"nativeDirectProposalCount",proposalCount},
+        {"nativeDirectProposalComparisonStatus",proposalMatches==proposalCount?"passed":"failed"},
         {"applicationActive",QGuiApplication::applicationState()==Qt::ApplicationActive},{"windowActive",window->isActive()},
         {"observationOnly",parser.isSet("file-input-observe")},
         {"nativeRasterAcceptance","pending"},{"physicalInputAcceptance","pending"},{"readerAcceptance","pending"},{"nativeAccessibilityAcceptance","unobserved"},
         {"nativeFrameComparisonStatus",frames==32?"passed":"failed"},
         {"actions",actions},{"accessibility",accessibility},{"pointerEvents",pointers},{"keyEvents",keys},
+        {"assistiveLifetime",pathLifetime},{"assistiveSelectionCallbacks",pathCallbacks},{"assistiveEditing",pathEditing},
         {"goToRankingAcceptance","pending"},{"goToRelativeResolutionAcceptance","pending"},{"goToHistoryCapacityAcceptance","pending"},
         {"inputMethod","QTest actual owned controls; physical input and reader acceptance pending"}};
     if(parser.isSet("evidence")&&!check(window->grabWindow().save(prefix+".png"),"Session window capture failed"))return;
     if(!prefix.isEmpty()){QFile output(prefix+".json");if(!check(output.open(QIODevice::WriteOnly|QIODevice::NewOnly),"Report destination unavailable"))return;output.write(QJsonDocument(report).toJson());}
     if(!parser.isSet("file-input-observe")&&frames!=32){qCritical("FileInput native frame parity remains pending");app.exit(99);return;}
+    if(!parser.isSet("file-input-observe")&&proposalMatches!=proposalCount){qCritical("FileInput native proposal parity remains pending");app.exit(99);return;}
     qInfo("Installed FileInput: 32 native closed contexts, %lld owner/input traces; frames %d/32, states %d/32; acceptance pending",qlonglong(actions.size()),frames,states);
     if(parser.isSet("evidence")){
         auto timer=new QTimer(&app);QObject::connect(timer,&QTimer::timeout,&app,[&app,prefix]{if(QFile::exists(prefix+".captured"))app.exit(0);});timer->start(100);

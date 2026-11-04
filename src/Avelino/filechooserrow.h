@@ -26,15 +26,15 @@ private:
 class FileChooserGrid : public QQuickGridView {
     Q_OBJECT
     QML_ELEMENT
-    Q_PROPERTY(FileChooserListing *directoryModel READ directoryModel WRITE setDirectoryModel NOTIFY directoryModelChanged)
+    Q_PROPERTY(FileChooserRows *directoryModel READ directoryModel WRITE setDirectoryModel NOTIFY directoryModelChanged)
 public:
     explicit FileChooserGrid(QQuickItem *parent=nullptr);
-    FileChooserListing *directoryModel()const{return m_directory;}
-    void setDirectoryModel(FileChooserListing *model);
+    FileChooserRows *directoryModel()const{return m_directory;}
+    void setDirectoryModel(FileChooserRows *model);
 signals:
     void directoryModelChanged();
 private:
-    QPointer<FileChooserListing> m_directory;
+    QPointer<FileChooserRows> m_directory;
     QList<QMetaObject::Connection> m_connections;
 };
 

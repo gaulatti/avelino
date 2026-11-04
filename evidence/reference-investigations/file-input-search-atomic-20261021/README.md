@@ -1,0 +1,7 @@
+# Native atomic search objects
+
+The scoped export contains 31 controlled field projections from the existing pinned Sabella library object. Tokens are U+FFFC objects with their own Filename/Everything labels. First Backspace selects an adjacent object; second Backspace removes it. Left/Right select an object before crossing it. Raw draft text appears before, after and between objects. A draft commit inserts another token. Forward Delete removes an adjacent object immediately. Replacing one token and using menu Undo/Redo retains the other token and its metadata; Undo selects the restored object.
+
+In the controlled folder, Everything(avelinoulnacerulean) shows the name-only file and pine-only.txt. Adding Filename(pine), then changing that second token to Everything(pine), leaves only pine-only.txt, with no busy indicator in those projections. This is a controlled conjunction observation, not general query/readiness acceptance. Cmd+Z did not restore the deleted token in this caller; enabled menu Undo did. Keyboard shortcut routing remains unestablished.
+
+Only the canonical scoped CUA export is published. The other 36 raw calls remain external; broad-draft result listings and Apple capture code are excluded. The metadata retains source byte offsets and hashes. The caller was normally cancelled and closed, with no owner result and verified PID absence. The cached library was unchanged, not independently rebuilt. Actual macOS runtime, SDK and minimum target are distinct. Raster, reader, physical, complete hierarchy and native acceptance remain pending.

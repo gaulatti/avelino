@@ -54,6 +54,8 @@ jobs:
       - run: python3 scripts/verify-native-source-rebuild.py
       - run: python3 scripts/verify-number-locales-source.py
       - run: python3 scripts/verify-stepper-source.py
+      - run: python3 scripts/verify-stepper-reader.py
+      - run: python3 scripts/verify-stepper-native-names.py
       - run: python3 scripts/verify-radio-source.py
       - run: python3 scripts/verify-otp-source.py
       - run: python3 scripts/verify-activity-source.py
@@ -62,6 +64,7 @@ jobs:
       - run: python3 scripts/verify-activity-alignment-source.py
       - run: python3 scripts/verify-modal-source.py
       - run: python3 scripts/verify-modal-input-source.py
+      - run: python3 scripts/verify-modal-parent-focus.py
       - run: python3 scripts/verify-tooltip-source.py
       - run: python3 scripts/verify-button-style-source.py
       - run: python3 scripts/verify-button-style-colors.py
@@ -100,6 +103,7 @@ jobs:
       - run: python3 scripts/generate-date-chinese-witnesses.py --check
       - run: python3 scripts/verify-date-chinese-checkpoint.py
       - run: python3 scripts/verify-date-range-fields-checkpoint.py
+      - run: python3 scripts/verify-date-range-assistive-lifetime.py
       - run: python3 scripts/verify-navigation-cjk-metrics.py
       - run: python3 scripts/verify-weston-popup-checkpoint.py
       - run: python3 scripts/verify-weston-display-checkpoint.py
@@ -125,6 +129,17 @@ jobs:
       - run: python3 scripts/verify-file-input-source.py
       - run: python3 scripts/verify-file-input-types.py
       - run: python3 scripts/verify-file-input-controls.py
+      - run: python3 scripts/verify-file-input-search.py
+      - run: python3 scripts/verify-file-input-search-accessibility.py
+      - run: python3 scripts/verify-file-input-search-menu.py
+      - run: python3 scripts/verify-file-input-search-history.py
+      - run: python3 scripts/verify-file-input-search-token-editing.py
+      - run: python3 scripts/verify-file-input-search-token-baseline.py
+      - run: python3 scripts/verify-file-input-search-atomic.py
+      - run: python3 scripts/verify-file-input-search-atomic-integration.py
+      - run: python3 scripts/verify-file-input-search-presentation.py
+      - run: python3 scripts/verify-file-input-search-pointer.py
+      - run: python3 scripts/verify-file-input-search-boundary-history.py
       - run: python3 scripts/verify-file-input-views.py
       - run: python3 scripts/verify-file-input-location.py
       - run: python3 scripts/verify-file-input-location-policy.py

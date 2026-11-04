@@ -6,8 +6,8 @@
 
 static_assert(QT_VERSION==QT_VERSION_CHECK(6,8,3),"Revalidate chooser table accessibility before upgrading Qt");
 namespace {
-FileChooserListing *directory(QQuickItem *view){
-    return view?view->property("directoryModel").value<FileChooserListing*>():nullptr;
+FileChooserRows *directory(QQuickItem *view){
+    return view?view->property("directoryModel").value<FileChooserRows*>():nullptr;
 }
 QQuickItem *visualChild(QQuickItem *root,const QString &name){
     if(!root)return nullptr;
@@ -32,16 +32,17 @@ QRect cellRect(QQuickItemView *view,int row,int column){
     }
     return QRect(view->window()->mapToGlobal(item->mapToScene(QPointF(left,0)).toPoint()),QSize(qRound(width),qRound(item->height())));
 }
-bool selectModelRow(FileChooserListing *model,int row,bool selected){
+bool selectModelRow(FileChooserRows *model,int row,bool selected){
     if(!model||row<0||row>=model->count())return false;
     const auto value=model->entry(row);
     if(value["selected"].toBool()==selected)return true;
     if(!selected){auto urls=model->selection();urls.removeAll(value["url"]);model->setSelection(urls);return true;}
+    QPointer<FileChooserRows> guard(model);
     if(!value["eligible"].toBool()){
         if(!value["directory"].toBool()||!model->selection().isEmpty())return false;
         model->select(row);
     }else model->select(row,Qt::ControlModifier);
-    return model->entry(row)["selected"].toBool();
+    return guard&&guard->entry(row)["selected"].toBool();
 }
 
 // Metadata and offscreen cells have no scene object. Their IDs are owned by the
@@ -50,7 +51,7 @@ class VirtualCell final : public QAccessibleInterface,public QAccessibleTableCel
                           public QAccessibleActionInterface,public QAccessibleAttributesInterface {
     QPointer<QQuickItemView> m_view;
     int m_row,m_column;
-    FileChooserListing *model()const{return directory(m_view);}
+    FileChooserRows *model()const{return directory(m_view);}
     QVariantMap value()const{return model()?model()->entry(m_row):QVariantMap{};}
     bool tree()const{return qobject_cast<FileChooserTree*>(m_view.data());}
 public:
@@ -106,13 +107,14 @@ public:
     }
     void doAction(const QString &name)override{
         if(!isValid()||m_column)return;
-        auto view=m_view;QPointer<FileChooserListing> listing=model();const auto row=m_row;
+        auto view=m_view;QPointer<FileChooserRows> listing=model();const auto row=m_row;
         const bool toggle=name==toggleAction()&&state().expandable;
         const bool select=name==pressAction()||name==setFocusAction();
         view->forceActiveFocus();if(!view||!listing)return;
         view->positionViewAtIndex(row,QQuickItemView::Contain);
         if(!view||!listing)return;
-        if(toggle)listing->toggleExpanded(row);else if(select)listing->selectFromInput(row);
+        if(toggle){if(auto treeModel=qobject_cast<FileChooserListing*>(listing.data()))treeModel->toggleExpanded(row);}
+        else if(select)listing->selectFromInput(row);
     }
     QStringList keyBindingsForAction(const QString&)const override{return {};}
     QList<QAccessible::Attribute> attributeKeys()const override{return {QAccessible::Attribute::Level};}
@@ -123,7 +125,7 @@ class ViewAccessible : public QAccessibleQuickItem,public QAccessibleSelectionIn
     mutable QHash<int,QAccessible::Id> m_cells;
 protected:
     QQuickItemView *view()const{return qobject_cast<QQuickItemView*>(object());}
-    FileChooserListing *model()const{return directory(view());}
+    FileChooserRows *model()const{return directory(view());}
     int columns()const{return qobject_cast<FileChooserTree*>(object())?4:1;}
 public:
     using QAccessibleQuickItem::QAccessibleQuickItem;
@@ -260,7 +262,7 @@ QAccessibleInterface *chooserFactory(const QString &,QObject *object){
 }
 void installFactory(){static const bool registered=[] {QAccessible::installFactory(chooserFactory);return true;}();Q_UNUSED(registered);}
 void invalidate(QQuickItemView *view){if(auto iface=dynamic_cast<ViewAccessible*>(QAccessible::queryAccessibleInterface(view)))iface->invalidate();}
-QList<QMetaObject::Connection> observe(QQuickItemView *view,FileChooserListing *model){
+QList<QMetaObject::Connection> observe(QQuickItemView *view,FileChooserRows *model){
     if(!model)return {};
     return {
         QObject::connect(model,&QAbstractItemModel::modelAboutToBeReset,view,[view]{invalidate(view);}),
@@ -280,7 +282,7 @@ void FileChooserTree::setDirectoryModel(FileChooserListing *model){
     m_directory=model;m_connections=observe(this,model);emit directoryModelChanged();
 }
 FileChooserGrid::FileChooserGrid(QQuickItem *parent):QQuickGridView(parent){installFactory();}
-void FileChooserGrid::setDirectoryModel(FileChooserListing *model){
+void FileChooserGrid::setDirectoryModel(FileChooserRows *model){
     if(model==m_directory)return;for(auto connection:m_connections)disconnect(connection);invalidate(this);
     m_directory=model;m_connections=observe(this,model);emit directoryModelChanged();
 }

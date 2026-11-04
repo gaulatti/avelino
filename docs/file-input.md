@@ -35,7 +35,7 @@ Before Linux implementation, establish these observable criteria:
   source input/callback timing, accessibility hierarchy, physical input/display,
   readers and independent-machine replay as distinct acceptance gates.
 
-Desktop candidate coverage remains 75/80; FileInput is pending. The native
+Desktop candidate coverage remains 78/80; FileInput is pending. The native
 helpers, Apple source archives and build products remain outside Avelino.
 The current Linux implementation checkpoint and its unresolved presentation,
 visual and accessibility gates are documented in [file-input-linux.md](file-input-linux.md).
@@ -148,8 +148,9 @@ and show `This name is already taken.` Empty input also disables Create. Return
 creates the folder and navigates inside it; actual Back and Forward return to
 the parent and created directory. Command+Shift+N opens the nested prompt, and
 Escape closes that prompt while leaving the chooser open. None of those actions
-send an owner result. Positive search, grouping/sort behavior, menu artwork and
-lossless raster equivalence remain unverified. Run
+send an owner result. This earlier supplement does not exercise positive search.
+Grouping/sort behavior, menu artwork and lossless raster equivalence remain
+unverified. Run
 `python3 scripts/verify-file-input-controls.py` to audit these observations.
 
 The native history-selection probe also shows that Back clears a prior single
@@ -260,3 +261,34 @@ source-free consumer checks in eight contexts and eight virtual display profiles
 The new actual AT-SPI/Orca flow, general ranking/history capacity/relative rules,
 all native type/context/sizing/artwork and physical acceptance remain pending.
 FileInput stays pending; no closed expectation or reference pin changes.
+
+The [positive search observations](../evidence/reference-investigations/file-input-search-20261020/README.md)
+separate filename and content matching with a single-word controlled token.
+The raw query exposes a name-matching file and `pine-only.txt`, which contains
+that token in its body. Choosing Name Contains through Down/Return creates the
+Filename token and exposes only the name-matching file. The long query also
+shows an uppercase name, a matching folder and a nested file; current-folder
+mode retains that nested result. This is observed recursive inclusion, with
+cross-folder exclusion and general query semantics still unverified.
+
+These records are controlled CUA accessibility projections, not raw AX archives
+or an independent native library replay. Search defaults to This Mac on this
+host. Its scope radios and Where label can disagree, so the label alone does
+not establish scope. Busy indicators do not establish query completion.
+Clearing search restores the controlled browse folder after accessibility-tree
+recovery. Open remains disabled in search and a fresh ordinary/plain-text
+baseline, so the cause and search owner delivery remain unverified. The sibling
+control has null queried Spotlight metadata and does not prove scope exclusion.
+Run `python3 scripts/verify-file-input-search.py` to audit the retained fixture
+bytes, projection and isolated Linux provider experiment. FileInput stays pending.
+
+
+A later Content Contains trial creates an `Everything: avelinoulnacerulean`
+token, retaining both the controlled filename-only and content-only results in
+current-folder scope. It is not a body-only search. Escape clears the field and
+returns to browsing; Forward becomes available and restores the token/scope,
+but its observed recursive membership includes unrelated entries. Completion
+and full history equivalence are unverified. The fresh helper reuses the same
+pinned library object; an initial missing-resource-bundle startup failure is
+retained separately from the corrected helper. See the
+[search candidate](file-input-search.md) for the Linux counterpart and open gates.

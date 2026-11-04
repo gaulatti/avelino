@@ -4,11 +4,31 @@ The core ships a shared library, QML plugin, qmldir/type metadata, QML source,
 embedded static font resources, font license notices, and asset provenance.
 `find_package(Avelino 0.1 REQUIRED)` exposes `Avelino::Avelino` and
 `Avelino_QML_IMPORT_PATH`. Set the engine's import path to that installed directory.
-Desktop has no media-decoder dependency. Metric formatting requires Ubuntu
+The desktop library has no playback backend. Metric formatting requires Ubuntu
 `libicu74` (74.2); its development headers are required only for library builds.
 The formatter links versioned system ICU libraries independently from Qt's ICU73.
 Installed consumers need public Qt development files and the runtime library;
-Avelino's private ICU and Qt QuickPrivate headers are not exported.
+Avelino's private ICU, Tracker and Qt QuickPrivate headers are not exported.
+FileInput indexed search links Ubuntu24.04 Tracker SPARQL3.7.1 and requires its
+filesystem miner/extractors on the session bus. It uses the existing index policy
+and reports an unavailable service in the chooser. The build requires pkg-config
+and `libtracker-sparql-3.0-dev`; the toolchain includes the runtime service and
+extractors. This adds system indexed search, with TV/playback still separate.
+See [file-input-search.md](file-input-search.md).
+The package also carries `run-file-search.py` and
+`check-display-sessions-file-search.sh`. CI runs this separate eight-profile
+search matrix through the real private index and the normal installed module,
+including a selected chooser held for full compositor capture.
+
+The historical Qt rectangle build-context audit reads its complete Dockerfile
+from recorded producer `7dd130a3efa854b2de1dff81f71192b460433e81`. It also checks
+that the current COPY directives, exported file bytes and ignore controls still
+match that audit. Later package dependencies do not replace the captured recipe;
+this audit continues to make no full-toolchain or native-acceptance claim.
+The CI ownership audit separately checks the exact toolchain-evidence step:
+the runner prepares its leaf directory before Docker mounts it, and the copy
+stays inside that leaf. Other fixture and uploader steps can evolve while this
+ownership invariant and the original failure/reproduction records stay checked.
 
 The five [chart candidates](charts.md#linux-candidate) add an owned QPainter-based
 renderer to the same library, with no Qt Charts dependency. The package-only
@@ -348,3 +368,53 @@ surface checkpoint. The executable-only virtual runtime uses the same compiled
 consumer and installed module bytes as the independent package. Exact inputs,
 failed attempts, source overlays and remaining gates are recorded in the
 [sealed evidence](../evidence/development/pill-modifier-20261017/candidate.json).
+
+## Assistive path replacement checkpoint
+
+The [path lifetime package](../evidence/development/path-assistive-lifetime-20261024/README.md)
+has158 installed files. The library and catalog use frozen source4. A standalone
+consumer first builds from an empty directory; a separate clone then recompiles
+the expanded consumer with three changed caller files and records its own binary
+identity. Those files add public Qt callback assertions, without changing any
+library/catalog source. The private Qt text-input header remains inside the library.
+
+Four runtime profiles mount only that installed prefix, the copied consumer binary
+and the observer. Source and build directories are absent, and process maps identify
+the installed module. Each profile captures the actual full Xvfb session before
+acknowledging the application's original10-second deadline. A newly built reader
+overlay preserves the recovered Qt6.8.3 module hashes and records its exact packages;
+the missing historical Docker images are not relabelled as restored. Native,
+physical and independent-machine acceptance remain separate pending gates.
+
+## FileInput height checkpoint
+
+The [height package](../evidence/development/file-input-height-20261024/README.md)
+also has 158 installed files. The library/catalog use the final frozen height
+prototype; the independent consumer first builds from an empty directory.
+Consumer3 separately recompiles only `fileinputchecks.h` from a clone of that
+fresh build, adding public Qt proposal measurements. No private library headers
+enter the consumer. The built and installed module hashes differ because the
+installation changes RPATH; each actual identity is recorded separately.
+
+Twenty-two runs mount only the installed prefix, copied executable and observer.
+Both X11 and nested Wayland cover software and Mesa software OpenGL rendering;
+the remaining six canonical FileInput configurations also run on X11/software.
+Process maps, immutable prefix/binary hashes and full-session capture before
+the unchanged ten-second acknowledgement deadline bind every result.
+The new 885 toolchain image uses the unchanged Qt 6.8.3/Weston 13.0.4 recipe after
+older images were missing. No reader overlay was rebuilt for this checkpoint.
+Observe-mode success retains native frame/proposal and DateRange failures;
+strict raster comparison retains zero exact pairs out of 40. Native reader,
+physical display/input/GPU and independent-machine acceptance remain pending.
+
+The FileInput display-session validator now requires the two assistive-edit
+phases added by the path lifetime checkpoint: 32 action traces and 168 key events,
+with the same 62 pointer events. It also checks all ten destruction callbacks,
+four stale-replacement vetoes and absence of an owner result during editing.
+The [previous cc718b6 x86 CI consumer stage](https://github.com/gaulatti/avelino/actions/runs/40141294498/job/121013408747)
+failed because the validator still
+expected 30 traces and 164 keys; its recorded consumer had passed structural
+checks and reported the new phases. Contract tests execute the actual validation
+branch against the retained installed reports and reject incomplete callbacks
+or relabelled native acceptance. This validation correction changes no library,
+catalog or consumer binary and retains all native parity gates.

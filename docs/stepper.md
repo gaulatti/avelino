@@ -94,8 +94,68 @@ to be identical. Semantic signal and phase checks remain explicit.
 Exact fonts and symbols, full frame/raster comparison, held/animated paint,
 physical displays/input, native keyboard/focus/accessibility and actual reader
 behavior remain pending. The proposed monospaced font exception is
-still unapproved. Desktop coverage is 57/80 started, zero fully accepted;
+still unapproved. At that checkpoint desktop coverage was 57/80 started, zero fully accepted;
 TV is a separate later phase.
+
+## Installed Linux reader observations at 899f3e8
+
+The [2026-10-24 evidence](../evidence/development/stepper-reader-20261024/README.md)
+binds two 13-phase runs to the installed package from `899f3e8`: XCB/software/light
+at DPR 1 and nested Wayland/OpenGL/dark at DPR 2 with text scale 1.5. The normal
+caller accepts assistive button requests, rejects disabled bound actions and
+updates its accessible value; focused Space activation works in both directions.
+Focus then moves to the outside field, which receives keyboard text. The complete
+package prefix is hash-bound to its original producer; no source/build tree was
+mounted and no new Qt suite execution or product change is claimed.
+
+Orca and Speech Dispatcher name both focused buttons, but changed numeric values
+are not announced in the measured action windows. Qt also logs `ValueChanged
+event and no ValueInterface or ComboBox`. Static value updates and named focus
+therefore do not establish complete reader usability. Numeric feedback and the
+native keyboard/reader comparison remain unresolved. Audio uses a controlled null
+device; physical input/display and independent-machine acceptance stay open.
+
+The first observer run remains a failure: it expected a fresh named utterance
+while the same button was already focused. The successful runs explicitly focus
+the outside field before probing each button; deadlines and speech assertions
+are unchanged. `python3 scripts/verify-stepper-reader.py` rechecks the retained
+trees, state changes, named speech windows, absence of numeric speech in bounded
+action windows, original package inputs and preserved acceptance fields. It does
+not rerun the application. Desktop candidate coverage is 78/80, with zero fully
+accepted; TV remains a separate phase.
+
+## Native action names
+
+The [pinned native accessibility caller](../evidence/reference-investigations/stepper-accessibility-20261024/README.md)
+exposes `Remove` and `Add`, with the label and value as separate text elements.
+Actual clicks update the binding from 2 to 3 to 2 to 1, where Remove becomes
+disabled. The caller uses the unchanged 89-file pinned source; original CUA
+responses, paired actions and owner receipts are preserved. Its wrapper resource
+placement failure is retained separately. Native VoiceOver speech and native
+button keyboard activation were not measured.
+
+The [Linux repair](../evidence/development/stepper-native-action-names-20261024/README.md)
+changes only the two accessible button names to those observed English names.
+The prior names included the caller label. Both old-name failures are retained;
+the repaired source passes 159 Stepper checks at each DPR 1/2. Two installed
+catalog sessions complete 13 reader phases each with actual Remove/Add speech.
+The independent consumer also verifies the names after its caller label changes,
+and passes 25 native action traces, 126 formatter witnesses, binding and focus
+checks in both X11 profiles. Its updated header is frozen separately from the
+library snapshot; no later library build or full 58-group rerun is claimed.
+
+The original consumer observer timed out after the application assertions passed
+because it omitted the capture acknowledgement. The corrected observer captures
+the full Xvfb session before acknowledging and receives exit zero. The timeout
+and all capture outputs remain in the evidence.
+
+Before/after Linux images match exactly in 14/26 full-session pairs. Eleven
+Wayland frames differ by one pixel; outside-focused differs by 32,010 pixels and
+shows the software keyboard at a different vertical position. These observations
+grant no visual exception. Numeric speech, native reader/raster and full parity
+remain pending. Audit retained evidence with
+`python3 scripts/verify-stepper-native-names.py`; use `--current` before publication
+to additionally require the candidate's runtime inputs to match the tested files.
 
 The Qt candidate exposes `label`, `value`, `lowerBound`, `upperBound`, `step` and
 `displayOffset`, with `valueRequested(string)` preserving caller ownership:
@@ -123,9 +183,10 @@ open; independent native test fixtures are not one continuous producer session.
 
 `decrementInput` and `incrementInput` expose the owned Qt template buttons. They
 retain their small glyph-sized input rectangles, disable repetition, and use the
-normal Qt release, keyboard and accessibility paths. Qt keyboard behavior and
-accessible English action names are candidates until the native keyboard and
-reader behavior can be established. Template behavior is documented in
+normal Qt release, keyboard and accessibility paths. The English Remove/Add
+names follow the bounded native accessibility observation above. Qt keyboard and
+complete reader behavior remain candidates until native equivalence is
+established. Template behavior is documented in
 [Qt AbstractButton](https://doc.qt.io/qt-6.8/qml-qtquick-controls-abstractbutton.html).
 The measured primary label and fixed monospaced value sizes remain independent
 of custom text scale. The system fixed font and original plus/minus strokes are

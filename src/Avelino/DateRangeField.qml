@@ -33,7 +33,15 @@ FocusScope {
     readonly property real naturalTextWidth:reservedWidths.reduce((total,width)=>total+width,0)
     implicitWidth:owner.dateStyle.graphical ? 138.5:Math.ceil((naturalTextWidth+5)*2)/2+owner.dateStyle.stepperWidth
     implicitHeight:owner.dateStyle.graphical ? 148:owner.dateStyle.fieldHeight
-    width:implicitWidth;height:implicitHeight
+    property real layoutX:0
+    property real layoutY:0
+    // Snap both ideal edges in scene coordinates. Adjacent half-point calendar
+    // allocations can therefore occupy different whole-pixel widths at DPR 1.
+    PixelAlignment {id:leadingEdge;target:field.parent;origin:Qt.point(field.layoutX,field.layoutY)}
+    PixelAlignment {id:trailingEdge;target:field.parent;origin:Qt.point(field.layoutX+field.implicitWidth,field.layoutY+field.implicitHeight)}
+    x:layoutX+leadingEdge.offset.x;y:layoutY+leadingEdge.offset.y
+    width:implicitWidth+trailingEdge.offset.x-leadingEdge.offset.x
+    height:implicitHeight+trailingEdge.offset.y-leadingEdge.offset.y
     Accessible.ignored:true
     function synchronize():void {
         if(!owner.componentReady||!editor)return

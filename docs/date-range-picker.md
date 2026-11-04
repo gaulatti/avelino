@@ -102,6 +102,68 @@ python3 scripts/verify-date-range-source.py
 python3 scripts/verify-date-range-input.py
 ```
 
+## Pixel placement correction
+
+The shared catalog/consumer fixture preserves fractional centering instead of
+Qt's default whole-point centering. The owned fields align both ideal edges in
+scene coordinates through the existing `PixelAlignment` utility, while keeping
+the intrinsic row allocation unchanged. The inline calendar uses its allocated
+field width for drawing and hit testing. At DPR 1, the two 138.5-point ideal
+calendar allocations occupy 138 and 139 pixels; RTL swaps their positions. At
+DPR 2, each occupies 138.5 points.
+
+`DateRangeUiTests::graphicalFramesMatchNativePixelGrid` reads the unchanged pinned
+witnesses and compares complete caller, picker and endpoint frames in both caller
+directions at DPR 1 and 2. Its old-code regression retained the graphical caller
+at x=165 instead of native x=165.5. This correction addresses placement; the
+font-dependent field widths, bezel/font raster differences and the rest of
+[issue #3](https://github.com/gaulatti/avelino/issues/3) remain open.
+
+The fixture uses [`anchors.alignWhenCentered: false`](https://doc.qt.io/qt-6.8/qml-qtquick-item.html#anchors.alignWhenCentered-prop);
+field edges use the actual window DPR rather than whole-point rounding. Existing
+width-stability tests wait for a rendered configuration before retaining widths,
+then keep checking the same widths across every native date update.
+
+The correction passed all 49 DateRange UI checks at DPR 1 and 2. An independently
+rebuilt installed consumer also passed four software-rendered virtual display
+profiles: X11 and Wayland, each at light/text-scale-1/DPR-1 and
+dark/text-scale-1.5/DPR-2. Both graphical contexts matched complete native frames
+in every profile, and all 48 model observations per profile remained exact.
+Producer source/build trees were absent from those runtime mounts. The installed
+date catalog also launched and captured successfully. These checks retain the
+remaining strict native failures and do not establish physical display, GPU or
+reader acceptance.
+
+## Popup keyboard dismissal checks
+
+The installed consumer now exercises 18 popup scenarios: both endpoints,
+Escape/Return/Tab, and echo/ignore/delay owners. It clicks the rendered year field,
+waits for the popup window to be exposed, and sends keys to that window. Escape
+cancels a partially typed year; Return and Tab close an unchanged field. Each case
+checks that the popup closes, focus returns to the same editor in the caller's
+window, owner values remain unchanged, and the complete From/To accessible name
+is retained. A subsequent Up key must request a change only for that endpoint and
+respect the owner's response policy.
+
+These checks run on X11 and Wayland through the existing installed-consumer
+display harness. Offscreen execution records an empty `popupInput` array because
+it has no window-manager activation path. The ordinary offscreen owner, input,
+assistive-edit and model checks remain active. The test observes window exposure and waits for editor focus to return after
+closure. The tested Qt 6.8.3 Wayland backend does not expose programmatic
+window activation, and its focus transfer completes asynchronously. The
+unchanged library passes when this transfer is allowed to finish.
+
+All 72 scenarios passed in four source-free installed profiles: X11 and Wayland,
+each at light/text-scale-1/DPR-1 and dark/text-scale-1.5/DPR-2. Each profile also
+retained all 48 exact closed model observations. The application implementation
+is unchanged by this verification checkpoint.
+
+Whole-component Undo/Redo, complete committed-input-method and pointer-calendar
+workflows, strict native raster/field-width parity and physical/native-reader
+acceptance remain open in [issue #3](https://github.com/gaulatti/avelino/issues/3)
+and the related gap tickets. Passing keyboard-dismissal checks does not close
+those gates.
+
 ## Current Linux implementation
 
 `BleeckerDateRangePicker` exposes independent `start` and `end` Unix-second values,
@@ -505,3 +567,36 @@ All 437 exact whole-image comparisons still fail. Against the Chinese checkpoint
 Chinese counts are 19 lower, 15 higher and 2 unchanged. These diagnostics do not
 grant acceptance. Reference pins, source images, masks and tolerance are unchanged.
 Run `python3 scripts/verify-date-range-fields-checkpoint.py` with Pillow installed.
+
+## Assistive replacement lifetime
+
+Assistive replacement finishes each Qt selection or input-method operation before
+publishing changed properties. Every notification can remove the input, so delivery
+stops when its guarded pointer becomes null. A selection callback that disables the
+input, makes it read-only, changes its text or moves its cursor cancels the pending
+replacement. Field-geometry invalidation also checks its lifetime before updating
+the input method.
+
+The private Qt text-input notification wrapper is shared with the file chooser's
+path field. DateRange retains its endpoint, owner-request and geometry behavior.
+The [shared-wrapper checkpoint](../evidence/development/path-assistive-lifetime-20261024/README.md)
+rechecks the complete48-case DateRange UI executable at DPR1/2, six installed
+endpoint/owner edits per consumer profile and two actual12-phase AT-SPI/Orca runs.
+The retained strict native observation failures and all acceptance gates remain.
+
+Qt retains the text, selection and Undo/Redo history. The pinned implementation's
+Undo cursor is read to recognize an accepted edit that replaces text with the same
+value; the lifetime wrapper does not change that history. The existing Qt version
+guard also covers this observation.
+
+The component regressions cover synchronous destruction at ten selection, geometry
+and commit notifications, both independent endpoints under echo/ignore/delay owners,
+removal during a request, four selection interruptions, same-value edit notification,
+Undo/Redo and invalid replacement ranges. The installed consumer exercises the
+editable-text interface and day geometry for both endpoints under all three owners.
+The catalog exposes its existing saved From/To text as static accessible text so a
+reader can distinguish a visible request from the owner's saved value.
+
+These checks retain the existing native comparison failures and pending acceptance
+gates. They do not establish native reader, geometry, raster, physical-input or
+independent-machine parity.

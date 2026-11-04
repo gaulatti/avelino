@@ -8,6 +8,10 @@ references. Bleecker, Sabella, Orchard, and Avelino are peer implementations.
 No visual exceptions have been approved. A registered component or passing build
 does not establish mirror acceptance.
 
+The [Linux arm64 desktop SDK preview](docs/desktop-preview.md) provides a packaged
+catalog and SDK for Ubuntu 24.04 with Qt 6.8.3. Remaining gaps are tracked in
+[GitHub issues](https://github.com/gaulatti/avelino/issues).
+
 - [Implementation plan](docs/plan.md)
 - [Reference reproduction](docs/references.md)
 - [Visual acceptance](docs/visual-acceptance.md)
@@ -56,7 +60,7 @@ The [empty/error/loading source investigation](docs/presentation-states.md)
 now has [Linux presentation-state candidates](docs/presentation-states.md); complete mirror acceptance remains pending.
 The [alert candidate](docs/alert.md) adds typed feedback with caller-owned content
 and native prose-layout evidence.
-Seventy-seven of the 80 discovered desktop entries have Linux candidates;
+Seventy-eight of the 80 discovered desktop entries have Linux candidates;
 no component has passed its complete mirror gate.
 The public GitHub wiki remote is unavailable; documentation currently lives here.
 

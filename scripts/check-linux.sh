@@ -111,6 +111,10 @@ cmake --build "$stage/build" --parallel 2
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --surface-baseline --surface-supplement-observe)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --surface-input --surface-supplement-observe)
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --file-input --file-input-observe)
+cp tests/components/run-file-search.py "$stage/run-file-search.py"
+mkdir -p "$stage/file-search-evidence"
+(cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software python3 run-file-search.py "$stage/build/InstalledConsumer" --file-input --file-input-search --file-input-report "$stage/file-search-evidence/available")
+(cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software python3 run-file-search.py --no-index "$stage/build/InstalledConsumer" --file-input --file-input-search --file-input-report "$stage/file-search-evidence/unavailable")
 format_report="$PWD/artifacts/linux/number-formatting.json"
 set +e
 (cd "$stage" && QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software "$stage/build/InstalledConsumer" --data-metrics --format-diagnostics "$format_report")
@@ -127,6 +131,8 @@ mkdir -p artifacts
 if [[ -e artifacts/package ]]; then mv artifacts/package "$stage/previous-package"; fi
 mkdir artifacts/package
 cp -R "$stage/install" "$stage/consumer" artifacts/package/
+cp "$stage/run-file-search.py" artifacts/package/run-file-search.py
+cp -R "$stage/file-search-evidence" artifacts/package/file-search-evidence
 cp scripts/check-installed.sh artifacts/package/check-installed.sh
 cp scripts/check-installed-catalog.sh artifacts/package/check-installed-catalog.sh
 cp scripts/check-installed-date-range-catalog.sh artifacts/package/check-installed-date-range-catalog.sh
@@ -141,6 +147,7 @@ fi
 cp -R "$stage/date-range-catalog-evidence" artifacts/linux/date-range-catalog-installed
 cp scripts/check-display-sessions.sh artifacts/package/check-display-sessions.sh
 cp scripts/check-display-sessions-hero-carousel.sh artifacts/package/check-display-sessions-hero-carousel.sh
+cp scripts/check-display-sessions-file-search.sh artifacts/package/check-display-sessions-file-search.sh
 cp artifacts/linux/environment.json artifacts/package/environment.json
 mkdir -p artifacts/linux
 QML_IMPORT_PATH="$PWD/build/linux/qml" QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software build/linux/samples/AvelinoCatalog/AvelinoCatalog --capture artifacts/linux/actions-light.png

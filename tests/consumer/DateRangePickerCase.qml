@@ -82,7 +82,7 @@ Item {
     Component.onCompleted:configure(definition)
     Rectangle {anchors.fill:parent;color:BleeckerTheme.palette.background;Accessible.ignored:true}
     Item {
-        id:caller;anchors.centerIn:parent
+        id:caller;anchors.centerIn:parent;anchors.alignWhenCentered:false
         width:fixture.definition.width!==undefined ? fixture.definition.width:(fixture.picker ? fixture.picker.implicitWidth:0)
         height:fixture.definition.height!==undefined ? fixture.definition.height:(fixture.picker ? fixture.picker.implicitHeight:0)
         Loader {

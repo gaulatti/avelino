@@ -4,6 +4,11 @@
 `fe8a1d462fbd793d883fb92086a16aa2947e32c9`. Acceptance remains pending. Existing
 expected images and source pins are unchanged.
 
+The historical source-colour fixture keeps its packaging script bound to
+producer `4a0a06bb2d183072a8d000c829b234d14c137a20`. Later FileInput packaging
+changes do not replace that capture's inputs. Its recorded hashes, raw images
+and pending native acceptance checks remain unchanged.
+
 ## Linux use
 
 Supply retained `sidebar`, `header` and `content` components and a caller-owned
@@ -91,6 +96,10 @@ All 266 source-interpreted component cases pass at each scale. A corrected test
 uses the window DPR for pixel coordinates within the returned Qt Quick Test
 [window crop](https://github.com/qt/qtdeclarative/blob/v6.8.3/src/qmltest/quicktestresult.cpp).
 The earlier invalid DPR test and missing-resource native helper run are retained.
+The clipping audit reads its captured colour-verifier script from producer
+`7253695c3e94b0626bcb0612fbc8467fe94445b5`, alongside the already pinned test.
+Its original implementation hashes stay exact when later packaging audits evolve;
+the current AdminShell implementation still has to match the recorded input.
 The [compiled clipping package](../evidence/development/admin-clipping-package-20261020/README.md)
 now retains the fresh module/catalog build, 266 AdminShell and 40 MobileShell cases
 at each scale, install and fresh independent consumer build from source 7253695.

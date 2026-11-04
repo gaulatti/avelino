@@ -3,7 +3,7 @@ project(AvelinoInstalledConsumer LANGUAGES CXX)
 find_package(Avelino 0.1 REQUIRED)
 find_package(Qt6 6.8.3 EXACT REQUIRED COMPONENTS Test)
 qt_standard_project_setup(REQUIRES 6.8)
-qt_add_executable(InstalledConsumer main.cpp)
+qt_add_executable(InstalledConsumer main.cpp pathinputobserver.h)
 qt_add_qml_module(InstalledConsumer URI InstalledConsumer VERSION 0.1
     OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/qml/InstalledConsumer
     SOURCES sharprectangle.h mediatilefill.h

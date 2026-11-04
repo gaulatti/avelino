@@ -31,10 +31,15 @@ def verify():
         assert hashlib.sha256(staged).hexdigest() == checksum, name
     inputs = json.loads((CAPSULE / "inputs.json").read_text())
     result = json.loads((CAPSULE / "result.json").read_text())
-    canonical = (ROOT / "tools/Dockerfile").read_bytes()
+    canonical = subprocess.check_output(
+        ["git", "show", inputs["sourceRevision"] + ":tools/Dockerfile"], cwd=ROOT)
     assert canonical == (CAPSULE / "canonical.Dockerfile").read_bytes()
     assert digest(CAPSULE / "canonical.Dockerfile") == inputs["canonicalDockerfileSha256"]
     copies = [line for line in canonical.decode().splitlines() if line.startswith("COPY ")]
+    # This capsule proves COPY controls, not a full toolchain build. Keep the
+    # captured recipe pinned while still checking today's complete COPY list.
+    current_copies = [line for line in (ROOT / "tools/Dockerfile").read_text().splitlines() if line.startswith("COPY ")]
+    assert current_copies == copies, "Current Docker COPY controls differ from the recorded audit"
     assert (CAPSULE / "Dockerfile").read_text() == "FROM scratch\n" + "\n".join(copies) + "\n"
     assert digest(CAPSULE / "Dockerfile") == inputs["probeDockerfileSha256"]
     sources = [name for line in copies for name in shlex.split(line)[1:-1]]

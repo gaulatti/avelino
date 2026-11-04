@@ -1,0 +1,5 @@
+# Native search token Undo baseline
+
+Controlled CUA observations from the pinned cached Sabella library show a committed token has no earlier literal Undo history. With the Everything token selected as U+FFFC, Backspace clears it and enables Undo; menu Undo restores it with Undo disabled and Redo enabled; Redo clears it again. Earlier records include the actual mode change and keyboard Undo that leaves the token unchanged. After Undo the immediate result projection still includes eight browse entries, so settled query membership is not inferred.
+
+The original helper was not relaunched. Cancel and Quit completed; its trace PID was absent afterward and no owner result was delivered. The native library was reused without an independent rebuild. Actual runtime and minimum compilation target are distinct. Apple helper code/objects/apps and private setup listings remain external. Logged screenshot bytes are incomplete and provide no raster baseline. All native, physical, reader and raster acceptance stays pending.

@@ -2,7 +2,7 @@
 
 FileInput remains pending in the parity inventory. The filesystem model, owned
 column chooser, trigger, catalog and independent consumer form an implementation
-checkpoint. Candidate coverage stays at 75/80 because the complete native chooser
+checkpoint. Candidate coverage stays at 78/80 because the complete native chooser
 presentation is still missing. The pinned
 native observations are documented in
 [file-input.md](file-input.md).
@@ -11,9 +11,13 @@ native observations are documented in
 `allowedContentTypes` list, and an `onResult` signal carrying `{ kind: "success",
 urls: [...] }`. Cancel does not emit that signal. `initialFolder` is the Linux
 presentation adapter; by default it uses Qt's Documents location. `widthOffer`
-adapts a fixed caller width and `maximumWidth` propagates a containing layout's
-available width. The reference fixture supplies the same 600-point parent width
-as the native capture helper. It retains explicit empty titles separately from
+adapts a fixed caller width and `heightOffer` adapts a fixed caller height.
+`maximumWidth` and `maximumHeight` propagate the containing layout's available
+dimensions when the corresponding explicit offer is unspecified. These offers
+are finite nonnegative logical dimensions, or `-1` for unspecified. Explicit
+offers take precedence over containing dimensions; allocation of the caller's
+actual `width` and `height` remains separate. The reference fixture supplies the
+same 600-by-300 parent proposal as the native helper. It retains empty titles separately from
 the default-title property initializer.
 
 The Linux type adapter uses MIME types and explicit custom descriptors. It does
@@ -342,9 +346,9 @@ raw ChildrenChanged signature warnings and failed attempts remain diagnostic
 evidence. Physical input/display, native reader hierarchy and speech-engine audio
 acceptance remain pending.
 
-The complete native panel also has a sidebar, search, selection preview and
-group/sort controls. These remain missing from the Linux
-implementation. Its path field and columns must not be reported as the
+The complete native panel also has a sidebar, selection preview and remaining
+group/sort controls. These remain missing from the Linux implementation;
+the indexed-search candidate is described below. Its path field and columns must not be reported as the
 complete native presentation. Location-menu artwork, the separate Go to Folder
 sheet and its path-selected file rules also remain pending. Direct two-axis sizing, type conformance, source input and
 callback timing, strict raster, physical display/input and independent-machine
@@ -400,6 +404,31 @@ insertion and deletion use a Qt input-method commit, preserving the field's
 validation, length limit, text signals and undo history. Read-only and disabled
 fields reject edits. Suggestion input follows text changes, including assistive
 edits, while navigation and file selection retain the same owner-result boundary.
+Path replacement shares the DateRange editor's guarded Qt text-input notification
+wrapper. Qt finishes selection and input-method processing before changed properties
+are published, and notification delivery stops if an observer destroys the field.
+A selection callback that disables the field, makes it read-only, changes its text
+or moves its cursor cancels the pending replacement. Qt still owns validation,
+the length limit and Undo/Redo; the pinned Undo cursor is only read to recognize a
+same-value edit. The wrapper changes neither the path suggestion algorithm nor
+the outer Open action's owner-result boundary.
+
+The independent consumer calls the installed editable-text interface through Qt's
+public object and property APIs. It checks destruction at ten selection/commit
+notifications, four callbacks that invalidate a pending replacement, and actual
+GoTo replacement, insertion, deletion and keyboard Undo/Redo. These assertions
+remain fatal in observation mode; that mode retains the separate native frame
+comparison failures. X11/software/light and scaled dark Wayland/OpenGL AT-SPI/Orca
+runs additionally exercise the real GoTo editing, suggestions and owner boundary.
+Recorded speech commands use null audio; physical listening and native reader
+comparison remain pending.
+The [lifetime checkpoint](../evidence/development/path-assistive-lifetime-20261024/README.md)
+retains the ten crashes and four stale-edit failures,172 scoped FileInput/DateRange
+Qt checks, four independent-consumer profiles and four actual reader sessions.
+Its source and package bindings distinguish the shared library/catalog build from
+the separately expanded consumer, and retain the missing-image and disk-space
+failures before the application ran. No full58-group rerun or native acceptance
+is inferred from those scoped results.
 The implementation follows the pinned
 [Quick accessibility interfaces](https://github.com/qt/qtdeclarative/blob/v6.8.3/src/quick/accessible/qaccessiblequickitem.cpp)
 and [AT-SPI adaptor](https://github.com/qt/qtbase/blob/v6.8.3/src/gui/accessible/linux/atspiadaptor.cpp).
@@ -457,3 +486,109 @@ state; no image is edited. The [Qt 6.8.3 ScrollBar documentation](https://github
 defines that policy. A native empty-field Close transition is separately retained
 in the [diagnostic supplement](../evidence/reference-investigations/file-input-go-to-empty-close-20261018/README.md);
 its failed relative/setup retry adds no path-resolution claim.
+
+The [indexed-search capability experiment](../evidence/development/file-input-search-provider-20261020/README.md)
+uses Ubuntu 24.04 arm64 Tracker 3.7.1 through public bound statements. The
+isolated `/home` fixture returns filename-only and content matches in global
+and recursive folder scopes, excluding a similarly prefixed sibling directory.
+Both earlier failures are retained: missing Python GI and the `/tmp` fixture
+not entering the observed index. A separate eligibility check rejects that
+`/tmp` file. Raw service/extractor warnings remain visible; the passing probe
+uses the default container security profile and no host mounts.
+
+This establishes one provider capability. It adds no product UI, backend,
+package dependency or accepted native case. The private test bus and indexing
+configuration must not become an application policy that silently reconfigures
+user indexing. Supported desktop-provider policy, arbitrary query semantics,
+async cancellation/lifecycle, indexed/unindexed locations, both search modes and
+scopes, selection/type validation, owner delivery, source-free consumer, display
+sessions, accessibility and native equivalence remain unresolved implementation
+work. A directory filename filter alone would omit the now-observed native
+content results. The subsequent owned search candidate is described in [file-input-search.md](file-input-search.md); its validation and native acceptance remain in progress.
+
+
+The [owned indexed-search candidate](file-input-search.md) now connects the input,
+Filename/Everything tokens, scopes, live result model, selection validation and
+owner callback path. Content Contains creates Everything rather than a body-only
+filter, matching the later controlled native observation. Query/history and
+lifecycle tests, the independent consumer and package scripts cover the same
+feature path. This is still an implementation candidate: native input/token
+editing, query semantics/ranking/history readiness, complete artwork/hierarchy,
+AT-SPI/reader, installed display sessions and physical acceptance remain pending.
+
+## Height proposals and title paint
+
+The closed trigger needs both dimensions of a proposal. The pinned medium
+secondary style applies horizontal padding and a minimum body height of 40.
+A zero-width proposal with unspecified height returns a 36-by-187 body at text
+scale 1 and a 36-by-297 body at scale 1.5. Proposing both dimensions as zero
+returns 36 by 40. A fixed zero-height caller retains its zero allocation while
+the decorated body overflows it. This does not establish native hit testing
+outside that caller.
+
+The containing height matters separately. In a 600-by-300 parent, a zero-width
+default title at text scale 3 returns a 36-by-260 body; a direct unspecified-height
+sizing query returns 36 by 572. The consumer/catalog fixture forwards the actual
+parent height through `maximumHeight` and supplies `heightOffer` for a fixed
+caller frame. These are explicit Qt layout adapters; broader nested
+two-dimensional composition remains a separate parity gate.
+
+The local candidate fits lines using measured typography, elides the final
+retained line, and distinguishes its shaped line box from a shorter visible
+view. An elision token that cannot fit still retains its empty typographic line
+box. The title keeps its full accessible button name and clips paint to its
+measured text view. A zero-width label therefore paints no stray title glyphs.
+The caller's string and the chooser's editable fields are not replaced with the
+painted ellipsis.
+
+Font diagnostics reproduce why joining an ellipsis to a newly shaped prefix
+changes the fitted width. Token-line truncation retains the prefix's original
+terminal positioning. With Encode Sans medium 14, the measured retained prefix
+plus token advances 63.504; reshaping the joined string advances 62.881. At size
+21 the corresponding advances are 63.294 and 62.706. The renderer keeps the token
+separate and retains the original glyph positioning at the cut, without a
+fixture-specific width adjustment. The native
+[token-line operation](https://developer.apple.com/documentation/coretext/ctlinecreatetruncatedline(_:_:_:_:))
+is measured independently from the unchanged public component.
+
+The native investigation measures 10,368 sizing responses and retains 216
+unedited PNGs, including finite heights and zero-width parent proposals at text
+scales 1, 1.5 and 3. Public, geometry-probed and literal witnesses agree. All
+1,440 overlapping historical sizing responses reproduce, and all 89 pinned
+source files remain unchanged. The first helper startup failed because its
+resource bundle was missing; that run remains alongside the corrected packaging
+and successful runs.
+
+The actual Qt baseline preserves the failure: both DPRs report heights 187 and
+297 for the two-axis zero cases while the width-only controls pass. Subsequent
+paint and finite-width failures remain retained too. The current local candidate
+passes all 62 owned FileInput UI checks at each DPR, including existing chooser
+and assistive-edit behavior, zero-width paint, finite height/ellipsis,
+fractional fitted widths, and parent-height limits. The broader QML component
+target passes 5,910 checks at DPR 1 and 6,138 at DPR 2. The catalog builds and
+installs, and an independent consumer builds from an empty directory. A separately
+recorded incremental consumer build adds actual direct-proposal measurements
+through public Qt properties; it changes only the consumer check header.
+
+Twenty-two source-free installed runs pass their structural checks: FileInput
+and DateRange across X11/Wayland and software/OpenGL at two configurations, plus
+the six remaining canonical FileInput light/dark, scale 1/1.5, DPR 1/2 contexts.
+These virtual sessions use the pinned nested compositor and Mesa software GL;
+they do not establish physical display or GPU acceptance. Actual module maps,
+binary hashes and full-session captures precede each application acknowledgement.
+All eight canonical FileInput contexts retain their native frame and proposal
+failures. At light/scale 1/DPR 1, 459/480 direct proposals match; at
+dark/scale 1.5/DPR 2, 456/480 match. The remaining mismatches involve Unicode
+and RTL titles. The two-axis zero frame now matches; closed-frame matches
+increase from 29/32 to 30/32 in those two contexts. DateRange's strict native
+observation checks remain false.
+
+Strict comparison of 40 unedited native/Qt image pairs finds zero exact pairs,
+with zero tolerance, no masks and no exceptions. Even the blank zero-width
+trigger retains 84 differing pixels at DPR 1 and 160 at DPR 2. The height repair
+therefore establishes measured layout behavior while leaving raster work open.
+The [height evidence capsule](../evidence/development/file-input-height-20261024/README.md)
+retains the negative attempts, executed Linux source, raw measurements and images.
+No native raster, hierarchy, physical, reader or independent-machine acceptance
+follows from these checks. Candidate coverage remains 78/80 and accepted desktop
+parity remains 0/80.

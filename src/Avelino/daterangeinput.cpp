@@ -1,4 +1,5 @@
 #include "daterangeinput.h"
+#include "assistivetextinput_p.h"
 #include <QtQuick/private/qquicktextinput_p_p.h>
 #include <QtQuick/private/qaccessiblequickitem_p.h>
 #include <QAccessible>
@@ -40,10 +41,14 @@ public:
     void deleteText(int start,int end)override{replaceText(start,end,{});}
     void insertText(int offset,const QString &text)override{replaceText(offset,offset,text);}
     void replaceText(int start,int end,const QString &text)override{
-        const auto input=qobject_cast<DateRangeInput*>(object());
+        QPointer<DateRangeInput> input=qobject_cast<DateRangeInput*>(object());
         if(!input||input->isReadOnly()||!input->isEnabled()||start<0||end<start||end>input->text().size())return;
-        input->select(start,start);QInputMethodEvent event;event.setCommitString(text,0,end-start);
-        QCoreApplication::sendEvent(input,&event);
+        const auto original=input->text();
+        if(!AvelinoPrivate::finishAssistiveOperation(input,[&]{input->select(start,start);}))return;
+        if(input->isReadOnly()||!input->isEnabled()||input->text()!=original
+            ||input->cursorPosition()!=start||input->selectionStart()!=input->selectionEnd())return;
+        QInputMethodEvent event;event.setCommitString(text,0,end-start);
+        AvelinoPrivate::finishAssistiveOperation(input,[&]{QCoreApplication::sendEvent(input,&event);});
     }
     void setText(QAccessible::Text kind,const QString &text)override{
         if(kind==QAccessible::Value)replaceText(0,characterCount(),text);else QAccessibleQuickItem::setText(kind,text);
@@ -88,8 +93,8 @@ void DateRangeInput::setFields(const QVariantList &value){if(value==m_fields)ret
 void DateRangeInput::setReservedWidths(const QVariantList &value){if(value==m_widths)return;m_widths=value;emit reservedWidthsChanged();}
 void DateRangeInput::setActiveSegment(int value){if(value==m_activeSegment)return;m_activeSegment=value;emit activeSegmentChanged();}
 void DateRangeInput::invalidateFields(){
-    update();emit fieldGeometryChanged();
-    if(hasActiveFocus())QGuiApplication::inputMethod()->update(Qt::ImCursorRectangle|Qt::ImAnchorRectangle);
+    const QPointer<DateRangeInput> guard(this);update();emit fieldGeometryChanged();
+    if(guard&&hasActiveFocus())QGuiApplication::inputMethod()->update(Qt::ImCursorRectangle|Qt::ImAnchorRectangle);
 }
 DateRangeInput::Layouts DateRangeInput::layouts()const{
     Layouts result;if(m_fields.size()!=m_widths.size()||m_fields.isEmpty())return result;

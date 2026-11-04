@@ -45,17 +45,17 @@ InheritedControl {
         height:Math.max(fromField.implicitHeight,arrow.height,toField.implicitHeight)
         DateRangeField {
             id:fromField;objectName:"bleeckerDateFrom";owner:control;endpoint:"start";modelValue:control.start
-            x:control.mirrored ? body.width-width:0;y:(body.height-height)/2
+            layoutX:control.mirrored ? body.width-implicitWidth:0;layoutY:(body.height-implicitHeight)/2
         }
         DateRangeArrow {
             id:arrow;objectName:"bleeckerDateArrow"
-            x:control.mirrored ? toField.width+8:fromField.width+8;y:(body.height-height)/2
+            x:control.mirrored ? toField.implicitWidth+8:fromField.implicitWidth+8;y:(body.height-height)/2
             pixelSize:control.arrowFontPixels;bold:control.font.bold
             color:BleeckerTheme.alpha(control.resolvedTextColor,0.5)
         }
         DateRangeField {
             id:toField;objectName:"bleeckerDateTo";owner:control;endpoint:"end";modelValue:control.end
-            x:control.mirrored ? 0:fromField.width+arrow.width+16;y:(body.height-height)/2
+            layoutX:control.mirrored ? 0:fromField.implicitWidth+arrow.width+16;layoutY:(body.height-implicitHeight)/2
         }
     }
 }

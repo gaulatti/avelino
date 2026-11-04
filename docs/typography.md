@@ -84,6 +84,17 @@ when their source composition does so.
 `glyphAdvance` reports the shaped advance before physical-pixel width rounding.
 The renderer applies the measured rules only to the two bundled font families.
 Other fonts retain their existing behavior and require separate source evidence.
+The plain renderer also accepts an explicit `wrapHeight`; its default `-1`
+retains unconstrained height. FileInput privately forwards its fixed or containing
+height proposal to that renderer, with the style's minimum height applied first.
+The finite-height path retains measured line boxes, a separate ellipsis token
+and the original prefix's terminal positioning while constraining the visible
+view height. This adds no formatted `BleeckerText` height API. The
+[FileInput investigation](file-input-linux.md#height-proposals-and-title-paint)
+records the native observations, failed baselines and scoped Qt checks;
+the broader QML component target passes 12,048 checks across DPR 1/2.
+Strict native raster acceptance remains pending; the height capsule retains
+all 40 failed exact image comparisons.
 Explicit `lineHeight` still sets nonempty line advance while preserving the source
 baseline. Text shaping, Unicode runs and native editing stay with Qt.
 The rounded line box and baseline stay in logical units through layout, avoiding

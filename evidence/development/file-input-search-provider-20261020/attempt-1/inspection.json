@@ -1,0 +1,40 @@
+[
+  {
+    "command": [
+      "dpkg-query",
+      "-W",
+      "tracker",
+      "libtracker-sparql-3.0-dev",
+      "tracker-miner-fs",
+      "tracker-extract"
+    ],
+    "exitCode": 0,
+    "output": "libtracker-sparql-3.0-dev:arm64\t3.7.1-1build1\ntracker\t3.7.1-1build1\ntracker-extract\t3.7.1-1ubuntu0.1\ntracker-miner-fs\t3.7.1-1ubuntu0.1\n"
+  },
+  {
+    "command": [
+      "pkg-config",
+      "--modversion",
+      "tracker-sparql-3.0"
+    ],
+    "exitCode": 0,
+    "output": "3.7.1\n"
+  },
+  {
+    "command": [
+      "gsettings",
+      "list-keys",
+      "org.freedesktop.Tracker3.Miner.Files"
+    ],
+    "exitCode": 0,
+    "output": "crawling-interval\nenable-monitors\nignored-directories\nignored-directories-with-content\nignored-files\nindex-on-battery\nindex-on-battery-first-time\nindex-optical-discs\nindex-recursive-directories\nindex-removable-devices\nindex-single-directories\ninitial-sleep\nlow-disk-space-limit\nremovable-days-threshold\nthrottle\n"
+  },
+  {
+    "command": [
+      "cat",
+      "/usr/share/dbus-1/services/org.freedesktop.Tracker3.Miner.Files.service"
+    ],
+    "exitCode": 0,
+    "output": "[D-BUS Service]\nName=org.freedesktop.Tracker3.Miner.Files\nExec=/usr/libexec/tracker-miner-fs-3  \nSystemdService=tracker-miner-fs-3.service\n\n# Miner details needed for tracker-control\nPath=/org/freedesktop/Tracker3/Miner/Files\nNameSuffix=Miner.Files\nDisplayName=File System\nComment=File system data miner\n"
+  }
+]

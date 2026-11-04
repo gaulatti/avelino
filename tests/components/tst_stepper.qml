@@ -89,6 +89,14 @@ Item {
             compare(label.font.pointSize,BleeckerFonts.pointSizeForPixels(13));compare(value.font.pointSize,BleeckerFonts.pointSizeForPixels(12))
             verify(item.incrementInput.width>30)
         }
+        function test_native_accessible_action_names_data(){
+            return [{tag:"decrement",increment:false,name:"Remove"},{tag:"increment",increment:true,name:"Add"}]
+        }
+        function test_native_accessible_action_names(d){
+            const item=createTemporaryObject(factory,root)
+            verify(item)
+            compare((d.increment ? item.incrementInput:item.decrementInput).Accessible.name,d.name)
+        }
         function test_narrow_layout_and_empty_label(){
             const item=createTemporaryObject(factory,root,{width:12}),label=findChild(item,"bleeckerStepperLabel")
             compare(label.width,0);verify(item.presentationItem.width>item.width)

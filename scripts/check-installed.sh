@@ -53,4 +53,7 @@ QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software consumer-build/InstalledCons
 QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software consumer-build/InstalledConsumer --surface-baseline --surface-supplement-observe
 QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software consumer-build/InstalledConsumer --surface-input --surface-supplement-observe
 QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software consumer-build/InstalledConsumer --file-input --file-input-observe
+file_search_checks_dir="$(mktemp -d "$PWD/file-search-installed.XXXXXX")"
+QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software python3 run-file-search.py consumer-build/InstalledConsumer --file-input --file-input-search --file-input-report "$file_search_checks_dir/available"
+QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software python3 run-file-search.py --no-index consumer-build/InstalledConsumer --file-input --file-input-search --file-input-report "$file_search_checks_dir/unavailable"
 bash check-installed-catalog.sh
