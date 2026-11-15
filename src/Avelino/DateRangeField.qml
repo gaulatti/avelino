@@ -12,6 +12,8 @@ FocusScope {
     property int selectedSegment:owner.locale.textDirection===Qt.RightToLeft ? Math.max(0,editable.length-1):0
     property string typing:""
     property bool isTyping:false
+    onTypingChanged:if(isTyping&&enabled)idleCommit.restart()
+    Timer {id:idleCommit;interval:1000;running:field.isTyping&&field.enabled;onTriggered:field.commitTyping()}
     property int textRevision:0
     property bool restoring:false
     readonly property string title:endpoint==="start" ? "From":"To"
