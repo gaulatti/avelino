@@ -164,6 +164,31 @@ acceptance remain open in [issue #3](https://github.com/gaulatti/avelino/issues/
 and the related gap tickets. Passing keyboard-dismissal checks does not close
 those gates.
 
+## Incomplete segment idle completion
+
+A partially entered date segment now commits after one second without another
+character. Further typing restarts the deadline. This uses the existing parsing,
+clamping and owner-request path; echo, ignore and delay remain caller decisions,
+and the other endpoint stays independent. External model/configuration updates,
+disabling the field and removal cancel the pending delivery. Popup cancellation
+continues to clear its pending edit. Escape in the field-only presentation leaves
+the edit pending, as observed natively.
+
+The [native idle observations](../evidence/reference-investigations/date-idle-20261025/README.md)
+retain both endpoint requests and the field-only Escape case. Before this change,
+the Linux editor kept a short year pending beyond three seconds until an explicit
+commit action. The owned implementation uses a one-shot
+[Qt 6.8 timer](https://doc.qt.io/qt-6.8/qml-qtqml-timer.html) with a 1000 ms interval;
+this is event-loop scheduling, not an exact cross-platform timing acceptance gate.
+
+`DateIdleCommit` tests both endpoints, field/stepper styles, all three owners,
+deadline restart, external replacement, disabling, teardown and owner removal
+during delivery. The independent consumer records 12 `idleInput` scenarios per
+profile and checks exact native raw dates, hidden time/fraction, peer values and
+owner behavior. Keyboard Undo/Redo leaves these committed date values unchanged;
+the native command probe registered no date history. Remaining input-method,
+calendar and broader native history contexts retain their pending status.
+
 ## Current Linux implementation
 
 `BleeckerDateRangePicker` exposes independent `start` and `end` Unix-second values,

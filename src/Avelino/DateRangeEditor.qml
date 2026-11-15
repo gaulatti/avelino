@@ -50,7 +50,7 @@ Item {
                 else if(event.key===Qt.Key_Down){field.step(-1);event.accepted=true}
                 else if(event.key===Qt.Key_Left){field.moveSegment(-1);event.accepted=true}
                 else if(event.key===Qt.Key_Right){field.moveSegment(1);event.accepted=true}
-                else if(event.key===Qt.Key_Escape){field.cancelEditing();event.accepted=true}
+                else if(event.key===Qt.Key_Escape){if(panel.visible)field.cancelEditing();event.accepted=true}
                 else if(event.key===Qt.Key_Return||event.key===Qt.Key_Enter){field.commitTyping();panel.close();event.accepted=true}
                 else if(event.key===Qt.Key_Backspace){if(!field.isTyping){field.isTyping=true;field.typing=""}else field.typing=field.typing.slice(0,-1);event.accepted=true}
                 else if(event.key===Qt.Key_Tab){
