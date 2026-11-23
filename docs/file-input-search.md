@@ -182,6 +182,28 @@ and returns to browsing; a different query after Back resets scope to This Mac
 and replaces the Forward branch in that controlled case. The unexplained result
 membership does not define a new Linux query rule.
 
+## Supported provider policy
+
+Decision for issue #5 (assumption recorded: the most standard Linux provider,
+already implemented and tested, is the supported one).
+
+- Supported: Ubuntu 24.04 desktops that run the Tracker 3 / LocalSearch 3
+  indexer (GNOME default) exposing `org.freedesktop.Tracker3.Miner.Files` on the
+  session bus. Build dependency: `libtracker-sparql-3.0-dev` 3.7.1.
+- Not supported: KDE Baloo, Recoll, plocate and other indexers. They are not
+  adapted and no second provider is added.
+- When the provider is missing or the query fails, the search surface shows
+  "Indexed search is unavailable: <reason>". There is no filename-only fallback,
+  and the library never starts, enables, reconfigures or reindexes the user's
+  indexer.
+- Results stay subject to the user's own indexing policy (indexed folders,
+  content-extraction settings).
+
+Remaining acceptance for a real user session (needs a normal GNOME desktop with
+a populated index; not available in headless CI): filename and content queries,
+folder and global scope, cancellation and stale-result rejection, installed
+package behavior and keyboard/accessibility interaction.
+
 Building requires Ubuntu 24.04's `libtracker-sparql-3.0-dev` 3.7.1 and pkg-config.
 Runtime search uses `org.freedesktop.Tracker3.Miner.Files` on the session bus,
 with Tracker's filesystem miner and extractors. The library adds no playback
